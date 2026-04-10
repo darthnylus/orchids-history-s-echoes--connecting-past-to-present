@@ -2,6 +2,329 @@
    CHAIN — Homepage-specific overrides and supplemental styles
    ============================================================ */
 
+/* ============================================================
+   ORIGINS SECTION — Before the Chain
+   ============================================================ */
+
+.origins-section {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.origins-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-10);
+}
+
+.origins-header__text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.origins-header__link {
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+/* Civilization cards grid */
+.civilizations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-10);
+}
+
+@media (min-width: 640px) {
+  .civilizations-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .civilizations-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.civ-card {
+  display: flex;
+  gap: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.civ-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--amber-400), var(--sienna-400));
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.civ-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--amber-200);
+}
+
+.civ-card:hover::before {
+  opacity: 1;
+}
+
+.civ-card__era-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 12px;
+  padding-top: 4px;
+}
+
+.civ-card__era-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber-400);
+  border: 2px solid var(--amber-200);
+  flex-shrink: 0;
+}
+
+.civ-card__era-line {
+  width: 1px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--amber-200), transparent);
+  min-height: 20px;
+  margin-top: var(--space-2);
+}
+
+.civ-card__body {
+  flex: 1;
+}
+
+.civ-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.civ-card__period {
+  font-size: var(--type-xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+}
+
+.civ-card__region-badge {
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  padding: 2px var(--space-2);
+  background: var(--color-accent-light);
+  color: var(--color-accent-dark);
+  border-radius: var(--radius-pill);
+}
+
+.civ-card__name {
+  font-family: var(--font-editorial);
+  font-size: 1.125rem;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  line-height: 1.3;
+}
+
+.civ-card__summary {
+  font-size: var(--type-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: var(--space-4);
+}
+
+.civ-card__facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  padding: var(--space-3);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.civ-card__fact {
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  font-size: var(--type-xs);
+}
+
+.civ-card__fact-label {
+  font-weight: var(--weight-bold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  flex-shrink: 0;
+}
+
+.civ-card__fact-value {
+  color: var(--color-text-secondary);
+}
+
+.civ-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--type-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent-dark);
+  transition: gap var(--duration-fast);
+}
+
+.civ-card__link:hover { gap: var(--space-2); }
+
+/* Origins bridge — the transition to the slave trade */
+.origins-bridge {
+  background: var(--ink-900);
+  border-radius: var(--radius-xl);
+  padding: clamp(var(--space-8), 5vw, var(--space-16));
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+}
+
+@media (min-width: 900px) {
+  .origins-bridge {
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+  }
+}
+
+.origins-bridge__title {
+  font-family: var(--font-editorial);
+  font-size: var(--type-xl);
+  font-weight: var(--weight-bold);
+  color: #ffffff;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-5);
+}
+
+.origins-bridge__body {
+  font-size: var(--type-md);
+  color: var(--ink-400);
+  line-height: var(--leading-loose);
+  margin-bottom: var(--space-5);
+}
+
+.origins-bridge__body:last-of-type { margin-bottom: var(--space-8); }
+
+.origins-bridge__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--ink-800);
+  border-bottom: 1px solid var(--ink-800);
+}
+
+@media (max-width: 640px) {
+  .origins-bridge__stats { grid-template-columns: 1fr; }
+}
+
+.origins-bridge__stat {}
+
+.origins-bridge__stat-number {
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: var(--weight-bold);
+  color: var(--amber-300);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.origins-bridge__stat-label {
+  display: block;
+  font-size: var(--type-xs);
+  color: var(--ink-500);
+  line-height: 1.6;
+}
+
+.origins-bridge__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Override btn--ghost inside dark background */
+.origins-bridge .btn--ghost {
+  color: var(--ink-300);
+  border-color: var(--ink-700);
+}
+.origins-bridge .btn--ghost:hover {
+  color: var(--amber-300);
+  border-color: var(--amber-400);
+  background: rgba(224, 122, 0, .06);
+}
+
+/* Origins bridge quote */
+.origins-bridge__quote {
+  display: flex;
+  align-items: center;
+}
+
+.origins-bridge__blockquote {
+  border-left: 3px solid var(--sienna-600);
+  padding-left: var(--space-6);
+}
+
+.origins-bridge__blockquote p {
+  font-family: var(--font-editorial);
+  font-size: 1.0625rem;
+  color: var(--ink-300);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: var(--space-4);
+}
+
+.origins-bridge__blockquote cite {
+  font-size: var(--type-xs);
+  color: var(--ink-600);
+  font-style: normal;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Dark mode refinements */
+[data-theme="dark"] .civ-card {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+}
+
+[data-theme="dark"] .civ-card:hover {
+  border-color: var(--amber-400);
+}
+
+[data-theme="dark"] .civ-card__facts {
+  background: var(--ink-900);
+}
+
+[data-theme="dark"] .origins-bridge {
+  background: var(--ink-800);
+  border: 1px solid var(--ink-700);
+}
+
 /* Screenreader-only utility */
 .sr-only {
   position: absolute;

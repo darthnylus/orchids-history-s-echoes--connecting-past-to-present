@@ -190,39 +190,46 @@ initTabs();
    ========================================================= */
 const PANEL_DATA = [
   {
-    counter: '01 / 05',
+    counter: '01 / 06',
+    caption: '"Enslavement was not the starting condition of Black life — it was an interruption of it."',
+    source: 'The Mali Empire\'s Sankore University in Timbuktu held an estimated 25,000 students and 700,000 manuscripts at its peak in the 14th century — one of the largest libraries in the medieval world. Source: Elias N. Saad, Social History of Timbuktu (1983).',
+    then: 'Mansa Musa of Mali — the wealthiest individual in recorded human history — ruled an empire larger than Western Europe (c. 1312–1337 CE)',
+    now: 'The descendants of enslaved Africans have a median household wealth of $24,100 — vs. $188,200 for white households (Federal Reserve, 2022)'
+  },
+  {
+    counter: '02 / 06',
+    caption: '"The Transatlantic Slave Trade was not a chapter in African history. It was a rupture — designed to be one."',
+    source: 'The Trans-Atlantic Slave Trade Database (slavevoyages.org) documents 36,000 voyages carrying approximately 12.5 million enslaved Africans to the Americas between 1514 and 1866. Roughly 1.8 million died during the Middle Passage.',
+    then: 'West and Central African kingdoms — including Dahomey, Kongo, and Ndongo — were systematically destabilized by European demand for enslaved people over four centuries',
+    now: 'The 54 countries of Africa contain some of the world\'s largest populations in poverty — a direct structural legacy of extraction, depopulation, and colonial underdevelopment'
+  },
+  {
+    counter: '03 / 06',
+    caption: '"Slavery was not peripheral to the American economy. It was the American economy."',
+    source: 'Edward Baptist, The Half Has Never Been Told (2014). Baptist documented how the expansion of cotton slavery drove U.S. GDP growth and capitalized Northern banks, insurers, and textile manufacturers — all built on the unpaid labor of enslaved people.',
+    then: 'By 1860, enslaved people represented the single largest financial asset in the United States — worth more than all railroads and factories combined',
+    now: 'No reparation, land grant, or capital transfer was ever made to the 4 million people emancipated in 1865 — or to their descendants'
+  },
+  {
+    counter: '04 / 06',
     caption: '"Reconstruction was not a failure — it was a success that was violently overthrown."',
     source: 'W.E.B. Du Bois, Black Reconstruction in America (1935). Du Bois was the first scholar to document Reconstruction as a genuine democratic experiment rather than the "carpetbagger chaos" of white supremacist historiography.',
-    then: '16 Black congressmen in office during Reconstruction (1870–1876)',
-    now: '57 Black members of Congress in 2024 — less than 11% of seats'
+    then: '16 Black men served in Congress during Reconstruction (1870–1876); more than 600 served in state legislatures',
+    now: '57 Black members of Congress in 2024 — less than 11% of seats, in a country that is 13.6% Black'
   },
   {
-    counter: '02 / 05',
-    caption: '"The rise of Jim Crow was not spontaneous. It was constructed, law by law, terror by terror."',
-    source: 'C. Vann Woodward, The Strange Career of Jim Crow (1955). Woodward traced the deliberate legal architecture of segregation built in the years after Reconstruction.',
-    then: 'Black land ownership reached 14 million acres by 1910',
-    now: 'Black Americans own less than 5 million acres of farmland today — nearly a 65% loss'
-  },
-  {
-    counter: '03 / 05',
+    counter: '05 / 06',
     caption: '"The federal government did not merely tolerate residential segregation — it created it."',
-    source: 'Richard Rothstein, The Color of Law (2017). Rothstein\'s central argument: government at every level enforced residential segregation as explicit policy, not as passive bystanderism.',
-    then: 'HOLC graded neighborhoods in 239 cities; "D" ratings applied overwhelmingly to Black neighborhoods (1935–1940)',
-    now: 'Formerly redlined neighborhoods show 20% higher rates of asthma and cardiovascular disease (EPA, 2022)'
+    source: 'Richard Rothstein, The Color of Law (2017). Rothstein\'s central argument: government at every level enforced residential segregation as explicit policy. HOLC maps, FHA underwriting rules, and VA loan administration all encoded racial exclusion into federal law.',
+    then: 'HOLC graded neighborhoods in 239 cities; "D" (hazardous) ratings applied overwhelmingly to Black neighborhoods — making federally backed mortgages impossible (1935–1940)',
+    now: 'Formerly redlined neighborhoods show 20% higher rates of asthma and cardiovascular disease. Life expectancy 3.6 years shorter than A-rated neighborhoods in the same city (NCRC, 2020)'
   },
   {
-    counter: '04 / 05',
-    caption: '"The Fair Housing Act was passed too late — not to prevent segregation, but to pretend it had ended."',
-    source: 'Ta-Nehisi Coates, "The Case for Reparations," The Atlantic (2014). Coates documented how contract buying in Chicago continued wealth extraction from Black families for decades after legal segregation ended.',
-    then: 'Fair Housing Act signed 1968 — one week after Dr. King\'s assassination',
-    now: 'The racial homeownership gap (30 percentage points) is wider today than in 1968 when the FHA passed'
-  },
-  {
-    counter: '05 / 05',
-    caption: '"The present is the past, wearing different clothes."',
-    source: 'EdBuild, Dismissed (2019) and Urban Institute (2023) documented that property-tax school funding directly translates historical housing discrimination into present-day educational inequality.',
-    then: 'School segregation peaked in 1954 before Brown v. Board; 99% of Black Southern children attended segregated schools',
-    now: 'Majority-Black school districts receive $1,800 less per student annually than majority-white districts (EdBuild, 2019)'
+    counter: '06 / 06',
+    caption: '"The chain from sovereign African civilization to this morning\'s headlines is unbroken."',
+    source: 'EdBuild, Dismissed (2019) and Urban Institute (2023) documented that property-tax school funding directly translates historical housing discrimination into present-day educational inequality — linking federal mortgage policy in the 1930s to school budgets today.',
+    then: 'School segregation at its 1954 peak: 99% of Black Southern children attended underfunded segregated schools — a direct legacy of post-Reconstruction disinvestment',
+    now: 'Majority-Black school districts receive $1,800 less per student annually than majority-white districts — the compounded consequence of redlining, GI Bill exclusion, and property-tax school funding (EdBuild, 2019)'
   }
 ];
 
@@ -264,7 +271,7 @@ function initThreadSteps() {
     });
   });
 
-  // Auto-advance steps every 6 seconds when section is in view
+  // Auto-advance steps every 7 seconds when section is in view (6 steps now)
   let autoIdx = 0;
   let autoTimer = null;
 
