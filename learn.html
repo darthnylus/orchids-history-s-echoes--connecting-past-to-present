@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn — Chain</title>
+  <meta name="description" content="Learning paths through African and Black history — from curious beginner to deep researcher. Structured sequences that build understanding of the full causal chain." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .learn-hero {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-16) 0 var(--space-12);
+    }
+    .learn-hero__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .learn-hero__inner { grid-template-columns: 1fr 360px; }
+    }
+    .learn-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-4);
+    }
+    .learn-hero__headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-5);
+    }
+    .learn-hero__headline em { color: var(--color-accent-dark); font-style: normal; }
+    .learn-hero__subhead {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+      max-width: 540px;
+      margin-bottom: var(--space-8);
+    }
+
+    /* Audience selector */
+    .audience-selector {
+      background: var(--color-surface-alt);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .audience-selector__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-4);
+    }
+    .audience-btns {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .audience-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-4);
+      border-radius: var(--radius-lg);
+      border: 1px solid transparent;
+      background: var(--color-surface);
+      text-align: left;
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      text-decoration: none;
+    }
+    .audience-btn:hover {
+      border-color: var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .audience-btn.is-active {
+      border-color: var(--color-accent-dark);
+      background: var(--color-accent-light);
+    }
+    .audience-btn__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      display: grid;
+      place-items: center;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+    .audience-btn__body { flex: 1; }
+    .audience-btn__name {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.2;
+    }
+    .audience-btn__desc {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-top: 2px;
+    }
+    .audience-btn__arrow {
+      color: var(--color-text-tertiary);
+      font-size: var(--type-sm);
+      transition: transform var(--duration-fast), color var(--duration-fast);
+    }
+    .audience-btn:hover .audience-btn__arrow,
+    .audience-btn.is-active .audience-btn__arrow {
+      transform: translateX(3px);
+      color: var(--color-accent-dark);
+    }
+
+    /* ── Learning path cards ─────────────────────────────────  */
+    .paths-section {
+      padding: var(--space-14) 0;
+      background: var(--color-bg);
+    }
+    .paths-section__header {
+      margin-bottom: var(--space-10);
+    }
+    .paths-section__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-3);
+    }
+    .paths-section__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .paths-section__sub {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      line-height: var(--leading-loose);
+    }
+
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    @media (min-width: 768px) { .paths-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1200px) { .paths-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .path-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--duration-normal) var(--ease-out);
+      text-decoration: none;
+    }
+    .path-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    .path-card__band {
+      height: 4px;
+    }
+    .path-card__body {
+      padding: var(--space-7);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .path-card__level {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .path-card__level-badge {
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-pill);
+    }
+    .path-card__time {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .path-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.3;
+    }
+    .path-card__summary {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .path-card__steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-md);
+    }
+    .path-card__step {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+    }
+    .path-card__step-num {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      flex-shrink: 0;
+    }
+    .path-card__footer {
+      padding: var(--space-5) var(--space-7);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .path-card__audience {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+    }
+    .path-card__cta {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      transition: gap var(--duration-fast);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .path-card:hover .path-card__cta { gap: var(--space-2); }
+
+    /* ── Question module ────────────────────────────────────── */
+    .questions-section {
+      padding: var(--space-14) 0;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .questions-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    @media (min-width: 640px) { .questions-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .questions-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .q-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-decoration: none;
+      transition: all var(--duration-normal);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .q-card:hover {
+      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      border-color: var(--amber-200);
+      transform: translateY(-2px);
+    }
+    .q-card__icon {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .q-card__question {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.4;
+    }
+    .q-card__thread {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-accent-dark);
+      margin-top: auto;
+    }
+
+    /* ── Formats section ────────────────────────────────────── */
+    .formats-section {
+      padding: var(--space-14) 0;
+    }
+    .formats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+    @media (min-width: 640px) { .formats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px)  { .formats-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .format-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      text-decoration: none;
+      transition: all var(--duration-normal);
+    }
+    .format-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: var(--amber-200);
+    }
+    .format-card__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: grid;
+      place-items: center;
+      margin-bottom: var(--space-5);
+      font-size: 1.25rem;
+    }
+    .format-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .format-card__desc {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      margin-bottom: var(--space-4);
+    }
+    .format-card__examples {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    .format-card__example {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      padding-left: var(--space-3);
+      border-left: 2px solid var(--color-border);
+    }
+
+    /* ── Sources shelf ──────────────────────────────────────── */
+    .reading-section {
+      padding: var(--space-14) 0;
+      background: var(--ink-900);
+    }
+    .reading-section__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-4);
+    }
+    .reading-section__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      margin-bottom: var(--space-3);
+    }
+    .reading-section__sub {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      max-width: 520px;
+      line-height: var(--leading-loose);
+      margin-bottom: var(--space-10);
+    }
+    .reading-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) { .reading-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px)  { .reading-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .book-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      display: flex;
+      gap: var(--space-5);
+      transition: all var(--duration-normal);
+      text-decoration: none;
+    }
+    .book-card:hover {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(245,147,50,.3);
+    }
+    .book-card__spine {
+      width: 48px;
+      flex-shrink: 0;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 68px;
+      font-size: 1.25rem;
+    }
+    .book-card__body { flex: 1; }
+    .book-card__title {
+      font-family: var(--font-editorial);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--ink-100);
+      line-height: 1.35;
+      margin-bottom: var(--space-1);
+    }
+    .book-card__author {
+      font-size: var(--type-xs);
+      color: var(--ink-500);
+      margin-bottom: var(--space-3);
+    }
+    .book-card__why {
+      font-size: var(--type-xs);
+      color: var(--ink-400);
+      line-height: 1.6;
+    }
+    .book-card__thread {
+      display: inline-block;
+      margin-top: var(--space-3);
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-400);
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] .learn-hero { background: var(--ink-900); }
+    [data-theme="dark"] .audience-selector { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .audience-btn { background: var(--ink-700); }
+    [data-theme="dark"] .audience-btn.is-active { background: rgba(224,122,0,.15); border-color: var(--amber-500); }
+    [data-theme="dark"] .path-card,
+    [data-theme="dark"] .format-card,
+    [data-theme="dark"] .q-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .path-card:hover,
+    [data-theme="dark"] .format-card:hover { border-color: var(--amber-400); }
+    [data-theme="dark"] .q-card:hover { background: var(--ink-700); border-color: var(--amber-400); }
+    [data-theme="dark"] .path-card__steps { background: var(--ink-900); }
+    [data-theme="dark"] .questions-section { background: var(--ink-900); }
+    [data-theme="dark"] .paths-section { background: var(--ink-900); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"  class="site-nav__link">Explore</a>
+      <a href="threads.html"  class="site-nav__link">Threads</a>
+      <a href="maps.html"     class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html"    class="site-nav__link" aria-current="page">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist"  class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=How+did+redlining+affect+schools"     class="search-hint-chip">How did redlining affect schools?</a>
+      <a href="search.html?q=Reconstruction+voting+rights"         class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link" aria-current="page">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="learn-hero" aria-labelledby="learn-heading">
+    <div class="container learn-hero__inner">
+      <div>
+        <p class="learn-hero__eyebrow">Learning paths</p>
+        <h1 id="learn-heading" class="learn-hero__headline">
+          Start where<br />you <em>are.</em>
+        </h1>
+        <p class="learn-hero__subhead">
+          You don't need prior knowledge to start. Every path on Chain begins with a question, builds to a causal chain, and ends with a present-day consequence grounded in evidence. Pick the path that fits how you learn.
+        </p>
+        <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
+          <a href="#paths" class="btn btn--primary">Browse learning paths →</a>
+          <a href="thread.html" class="btn btn--secondary">Start a thread</a>
+        </div>
+      </div>
+
+      <!-- Audience selector -->
+      <div class="audience-selector" aria-label="Choose your learning path by audience">
+        <p class="audience-selector__label">I am a…</p>
+        <div class="audience-btns">
+          <a href="#path-curious" class="audience-btn is-active">
+            <div class="audience-btn__icon" style="background:var(--amber-50);color:var(--amber-600);">🔍</div>
+            <div class="audience-btn__body">
+              <div class="audience-btn__name">Curious reader</div>
+              <div class="audience-btn__desc">New to this, want context first</div>
+            </div>
+            <span class="audience-btn__arrow">→</span>
+          </a>
+          <a href="#path-student" class="audience-btn">
+            <div class="audience-btn__icon" style="background:var(--slate-100);color:var(--slate-600);">🎓</div>
+            <div class="audience-btn__body">
+              <div class="audience-btn__name">Student</div>
+              <div class="audience-btn__desc">Researching for school or college</div>
+            </div>
+            <span class="audience-btn__arrow">→</span>
+          </a>
+          <a href="#path-educator" class="audience-btn">
+            <div class="audience-btn__icon" style="background:#f0fdf4;color:#15803d;">📋</div>
+            <div class="audience-btn__body">
+              <div class="audience-btn__name">Educator</div>
+              <div class="audience-btn__desc">Building curriculum or lessons</div>
+            </div>
+            <span class="audience-btn__arrow">→</span>
+          </a>
+          <a href="#path-researcher" class="audience-btn">
+            <div class="audience-btn__icon" style="background:var(--sienna-100,#fdf2ef);color:var(--sienna-600);">📚</div>
+            <div class="audience-btn__body">
+              <div class="audience-btn__name">Researcher / Journalist</div>
+              <div class="audience-btn__desc">Need primary sources and depth</div>
+            </div>
+            <span class="audience-btn__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING PATHS -->
+  <section class="paths-section" id="paths" aria-labelledby="paths-heading">
+    <div class="container">
+      <div class="paths-section__header">
+        <p class="paths-section__eyebrow">Structured paths</p>
+        <h2 id="paths-heading" class="paths-section__title">Choose your depth</h2>
+        <p class="paths-section__sub">Each path is a curated sequence of threads, encyclopedia entries, and primary sources — designed for a specific level of prior knowledge and time investment.</p>
+      </div>
+      <div class="paths-grid">
+
+        <!-- Path 1: The Overview -->
+        <a href="thread.html" class="path-card reveal" id="path-curious">
+          <div class="path-card__band" style="background:linear-gradient(to right,var(--amber-400),var(--amber-300))"></div>
+          <div class="path-card__body">
+            <div class="path-card__level">
+              <span class="path-card__level-badge" style="background:var(--amber-50);color:var(--amber-700);">Beginner</span>
+              <span class="path-card__time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                ~30 min
+              </span>
+            </div>
+            <h3 class="path-card__title">The Full Chain — An Overview</h3>
+            <p class="path-card__summary">Start here if you're new. One thread, start to finish, that takes you from sovereign African civilizations through the slave trade, Reconstruction, federal housing policy, and the present-day wealth gap. No prior knowledge required.</p>
+            <div class="path-card__steps">
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--amber-100);color:var(--amber-700);">1</span>
+                <span>Read: African Civilizations before the slave trade</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--amber-100);color:var(--amber-700);">2</span>
+                <span>Follow: The Redlining thread (8 chapters)</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--amber-100);color:var(--amber-700);">3</span>
+                <span>Explore: Then→Now — 1930s to present day</span>
+              </div>
+            </div>
+          </div>
+          <div class="path-card__footer">
+            <span class="path-card__audience">For: Curious readers, general public</span>
+            <span class="path-card__cta" style="color:var(--amber-600);">Start →</span>
+          </div>
+        </a>
+
+        <!-- Path 2: Housing & Wealth -->
+        <a href="thread.html" class="path-card reveal">
+          <div class="path-card__band" style="background:linear-gradient(to right,var(--sienna-400),var(--sienna-300))"></div>
+          <div class="path-card__body">
+            <div class="path-card__level">
+              <span class="path-card__level-badge" style="background:var(--sienna-100,#fdf2ef);color:var(--sienna-600);">Intermediate</span>
+              <span class="path-card__time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                ~90 min
+              </span>
+            </div>
+            <h3 class="path-card__title">Housing, Wealth &amp; the Racial Gap</h3>
+            <p class="path-card__summary">A deeper dive into the federal policies that built the racial wealth gap — from HOLC maps to the GI Bill to today's homeownership disparity. Connects structural policy decisions to present-day economic data.</p>
+            <div class="path-card__steps">
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--sienna-100,#fdf2ef);color:var(--sienna-500);">1</span>
+                <span>Read: HOLC &amp; FHA policy entries</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--sienna-100,#fdf2ef);color:var(--sienna-500);">2</span>
+                <span>Follow: Redlining thread, chapters 3–6</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--sienna-100,#fdf2ef);color:var(--sienna-500);">3</span>
+                <span>View: Redlining map &amp; life expectancy overlay</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--sienna-100,#fdf2ef);color:var(--sienna-500);">4</span>
+                <span>Read: Richard Rothstein — The Color of Law</span>
+              </div>
+            </div>
+          </div>
+          <div class="path-card__footer">
+            <span class="path-card__audience">For: Students, policy researchers</span>
+            <span class="path-card__cta" style="color:var(--sienna-500);">Start →</span>
+          </div>
+        </a>
+
+        <!-- Path 3: Origins -->
+        <a href="explore.html#people" class="path-card reveal" id="path-student">
+          <div class="path-card__band" style="background:linear-gradient(to right,var(--amber-500),var(--sienna-500))"></div>
+          <div class="path-card__body">
+            <div class="path-card__level">
+              <span class="path-card__level-badge" style="background:var(--amber-50);color:var(--amber-700);">Beginner</span>
+              <span class="path-card__time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                ~45 min
+              </span>
+            </div>
+            <h3 class="path-card__title">Africa Before the Chain Was Broken</h3>
+            <p class="path-card__summary">Start where the story actually begins — with the sovereign kingdoms, intellectual traditions, and accumulated wealth of pre-colonial Africa. Understanding what existed before the slave trade changes how you understand everything that followed.</p>
+            <div class="path-card__steps">
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--amber-100);color:var(--amber-700);">1</span>
+                <span>Read: Mali, Songhai, Kush, Benin — place entries</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--amber-100);color:var(--amber-700);">2</span>
+                <span>Explore: Mansa Musa I, Sundiata Keita, Queen Nzinga</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--amber-100);color:var(--amber-700);">3</span>
+                <span>View: African Kingdoms map</span>
+              </div>
+            </div>
+          </div>
+          <div class="path-card__footer">
+            <span class="path-card__audience">For: All audiences — start here</span>
+            <span class="path-card__cta" style="color:var(--amber-600);">Start →</span>
+          </div>
+        </a>
+
+        <!-- Path 4: Criminal Justice -->
+        <a href="threads.html" class="path-card reveal">
+          <div class="path-card__band" style="background:linear-gradient(to right,var(--slate-600),var(--slate-500))"></div>
+          <div class="path-card__body">
+            <div class="path-card__level">
+              <span class="path-card__level-badge" style="background:var(--slate-100);color:var(--slate-600);">Intermediate</span>
+              <span class="path-card__time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                ~75 min
+              </span>
+            </div>
+            <h3 class="path-card__title">From Emancipation to Mass Incarceration</h3>
+            <p class="path-card__summary">How did the 13th Amendment's "punishment for crime" carve-out become a system that incarcerates Black Americans at five times the rate of white Americans? A path through Black Codes, convict leasing, the drug war, and mandatory minimums.</p>
+            <div class="path-card__steps">
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--slate-100);color:var(--slate-600);">1</span>
+                <span>Read: 13th Amendment &amp; Black Codes entries</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--slate-100);color:var(--slate-600);">2</span>
+                <span>View: Timeline — 1865 to present</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--slate-100);color:var(--slate-600);">3</span>
+                <span>Read: Michelle Alexander — The New Jim Crow</span>
+              </div>
+            </div>
+          </div>
+          <div class="path-card__footer">
+            <span class="path-card__audience">For: Students, advocates, journalists</span>
+            <span class="path-card__cta" style="color:var(--slate-600);">Coming soon</span>
+          </div>
+        </a>
+
+        <!-- Path 5: Educator path -->
+        <a href="teaching.html" class="path-card reveal" id="path-educator">
+          <div class="path-card__band" style="background:linear-gradient(to right,#166534,#15803d)"></div>
+          <div class="path-card__body">
+            <div class="path-card__level">
+              <span class="path-card__level-badge" style="background:#f0fdf4;color:#15803d;">Educator</span>
+              <span class="path-card__time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Flexible
+              </span>
+            </div>
+            <h3 class="path-card__title">Classroom Starter — Grades 9–12</h3>
+            <p class="path-card__summary">A structured 3-session sequence introducing students to causal historical thinking using the Redlining thread. Includes discussion guides, primary source excerpts, and formative assessment prompts aligned to Common Core ELA standards.</p>
+            <div class="path-card__steps">
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:#f0fdf4;color:#15803d;">1</span>
+                <span>Session 1: What is a causal chain? (40 min)</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:#f0fdf4;color:#15803d;">2</span>
+                <span>Session 2: Follow the Redlining thread (50 min)</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:#f0fdf4;color:#15803d;">3</span>
+                <span>Session 3: Local history — find your city's HOLC map</span>
+              </div>
+            </div>
+          </div>
+          <div class="path-card__footer">
+            <span class="path-card__audience">For: High school educators</span>
+            <span class="path-card__cta" style="color:#15803d;">Go to Teaching →</span>
+          </div>
+        </a>
+
+        <!-- Path 6: Deep research -->
+        <a href="sources.html" class="path-card reveal" id="path-researcher">
+          <div class="path-card__band" style="background:linear-gradient(to right,var(--slate-700),var(--slate-600))"></div>
+          <div class="path-card__body">
+            <div class="path-card__level">
+              <span class="path-card__level-badge" style="background:var(--slate-100);color:var(--slate-700);">Advanced</span>
+              <span class="path-card__time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Self-paced
+              </span>
+            </div>
+            <h3 class="path-card__title">Primary Sources &amp; Methodology</h3>
+            <p class="path-card__summary">For researchers, journalists, and historians. Full source citations, methodology notes, links to primary datasets (Slave Voyages, NCRC redlining data, Census historical records), and our editorial standards for causal claims.</p>
+            <div class="path-card__steps">
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--slate-100);color:var(--slate-700);">1</span>
+                <span>Read: Our methodology and editorial standards</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--slate-100);color:var(--slate-700);">2</span>
+                <span>Access: Full source list by thread and entry</span>
+              </div>
+              <div class="path-card__step">
+                <span class="path-card__step-num" style="background:var(--slate-100);color:var(--slate-700);">3</span>
+                <span>Link: SlaveVoyages, NCRC, EJI datasets</span>
+              </div>
+            </div>
+          </div>
+          <div class="path-card__footer">
+            <span class="path-card__audience">For: Researchers, journalists, historians</span>
+            <span class="path-card__cta" style="color:var(--slate-600);">Sources →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- START WITH A QUESTION -->
+  <section class="questions-section" aria-labelledby="questions-heading">
+    <div class="container">
+      <p class="paths-section__eyebrow">Question-first</p>
+      <h2 id="questions-heading" class="paths-section__title">Not sure where to start?<br />Start with a question.</h2>
+      <p class="paths-section__sub">Every entry on Chain is organized around a question. Pick the one that most resonates with what you want to understand.</p>
+      <div class="questions-grid">
+        <a href="thread.html" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">🏠</div>
+          <div class="q-card__question">Why do Black and white Americans live in different neighborhoods — and why does it still matter?</div>
+          <div class="q-card__thread">→ Redlining thread</div>
+        </a>
+        <a href="threads.html" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">💰</div>
+          <div class="q-card__question">Where did the racial wealth gap actually come from?</div>
+          <div class="q-card__thread">→ Stolen Labor thread</div>
+        </a>
+        <a href="explore.html#places" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">🌍</div>
+          <div class="q-card__question">What was Africa like before the slave trade?</div>
+          <div class="q-card__thread">→ African Origins section</div>
+        </a>
+        <a href="threads.html" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">⚖️</div>
+          <div class="q-card__question">How did the end of slavery become the beginning of mass incarceration?</div>
+          <div class="q-card__thread">→ Mass Incarceration thread</div>
+        </a>
+        <a href="maps.html" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">📍</div>
+          <div class="q-card__question">How did Reconstruction fail — and who made that happen?</div>
+          <div class="q-card__thread">→ Reconstruction timeline</div>
+        </a>
+        <a href="threads.html" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">🏥</div>
+          <div class="q-card__question">Why do Black women die in childbirth at three times the rate of white women?</div>
+          <div class="q-card__thread">→ Racial Health Gap thread</div>
+        </a>
+        <a href="explore.html#events" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">🔥</div>
+          <div class="q-card__question">What happened to "Black Wall Street" in Tulsa — and why haven't most people heard of it?</div>
+          <div class="q-card__thread">→ Tulsa Massacre entry</div>
+        </a>
+        <a href="explore.html#policies" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">📜</div>
+          <div class="q-card__question">How did the GI Bill make some Americans wealthy and exclude others?</div>
+          <div class="q-card__thread">→ GI Bill policy entry</div>
+        </a>
+        <a href="thread.html" class="q-card reveal">
+          <div class="q-card__icon" aria-hidden="true">🏫</div>
+          <div class="q-card__question">Why are American schools still racially segregated 70 years after Brown v. Board?</div>
+          <div class="q-card__thread">→ Redlining thread, Ch. 5</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING FORMATS -->
+  <section class="formats-section" aria-labelledby="formats-heading">
+    <div class="container">
+      <p class="paths-section__eyebrow">How Chain is organized</p>
+      <h2 id="formats-heading" class="paths-section__title">Four ways to learn</h2>
+      <p class="paths-section__sub">Every piece of content on Chain serves a different learning mode. Use them in combination or follow one format from start to finish.</p>
+      <div class="formats-grid">
+
+        <a href="threads.html" class="format-card reveal">
+          <div class="format-card__icon" style="background:var(--amber-50);color:var(--amber-700);">🔗</div>
+          <h3 class="format-card__title">Threads</h3>
+          <p class="format-card__desc">Long-form causal narratives tracing a historical chain from origin to present consequence. Summary-first, evidence throughout, causality explicit at every step.</p>
+          <div class="format-card__examples">
+            <div class="format-card__example">Redlining → Achievement Gap</div>
+            <div class="format-card__example">Slave Trade → Wealth Gap</div>
+            <div class="format-card__example">Black Codes → Mass Incarceration</div>
+          </div>
+        </a>
+
+        <a href="explore.html" class="format-card reveal">
+          <div class="format-card__icon" style="background:var(--slate-100);color:var(--slate-600);">📖</div>
+          <h3 class="format-card__title">Encyclopedia</h3>
+          <p class="format-card__desc">Short-form entries on people, policies, events, and places. Each entry states what it was, why it mattered, and which threads it connects to.</p>
+          <div class="format-card__examples">
+            <div class="format-card__example">People: Mansa Musa, Ida B. Wells</div>
+            <div class="format-card__example">Policies: HOLC, GI Bill, Fair Housing Act</div>
+            <div class="format-card__example">Places: Timbuktu, Greenwood, Chicago</div>
+          </div>
+        </a>
+
+        <a href="maps.html" class="format-card reveal">
+          <div class="format-card__icon" style="background:var(--sienna-100,#fdf2ef);color:var(--sienna-500);">🗺️</div>
+          <h3 class="format-card__title">Maps &amp; Timelines</h3>
+          <p class="format-card__desc">Spatial and temporal views of the full historical arc. See where things happened and when — and how geography shaped consequence.</p>
+          <div class="format-card__examples">
+            <div class="format-card__example">Transatlantic slave trade routes</div>
+            <div class="format-card__example">HOLC redlining grade maps</div>
+            <div class="format-card__example">2,000-year timeline</div>
+          </div>
+        </a>
+
+        <a href="today.html" class="format-card reveal">
+          <div class="format-card__icon" style="background:#fff7ed;color:#c2410c;">📅</div>
+          <h3 class="format-card__title">Today in History</h3>
+          <p class="format-card__desc">One event per day, with its causal context and present-day consequence. A small daily habit that builds historical literacy over time.</p>
+          <div class="format-card__examples">
+            <div class="format-card__example">The event — what happened</div>
+            <div class="format-card__example">The chain — why it matters</div>
+            <div class="format-card__example">The thread — where it leads</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ESSENTIAL READING -->
+  <section class="reading-section" aria-labelledby="reading-heading">
+    <div class="container">
+      <p class="reading-section__eyebrow">Go deeper</p>
+      <h2 id="reading-heading" class="reading-section__title">Essential reading</h2>
+      <p class="reading-section__sub">The books that shaped Chain's causal framework — each one cited across multiple threads. Start with any of them.</p>
+      <div class="reading-grid">
+
+        <div class="book-card reveal">
+          <div class="book-card__spine" style="background:var(--sienna-700);">📘</div>
+          <div class="book-card__body">
+            <div class="book-card__title">The Color of Law</div>
+            <div class="book-card__author">Richard Rothstein, 2017</div>
+            <div class="book-card__why">The definitive account of how the federal government — not private prejudice — created American residential segregation through explicit racial policy. The backbone of the Redlining thread.</div>
+            <span class="book-card__thread">Redlining thread</span>
+          </div>
+        </div>
+
+        <div class="book-card reveal">
+          <div class="book-card__spine" style="background:var(--slate-700);">📗</div>
+          <div class="book-card__body">
+            <div class="book-card__title">The New Jim Crow</div>
+            <div class="book-card__author">Michelle Alexander, 2010</div>
+            <div class="book-card__why">Traces the legal and political architecture of mass incarceration as a system of racial control — from the drug war through mandatory minimums to felon disenfranchisement. Essential for the Mass Incarceration thread.</div>
+            <span class="book-card__thread">Mass Incarceration thread</span>
+          </div>
+        </div>
+
+        <div class="book-card reveal">
+          <div class="book-card__spine" style="background:var(--amber-700);">📙</div>
+          <div class="book-card__body">
+            <div class="book-card__title">The Half Has Never Been Told</div>
+            <div class="book-card__author">Edward Baptist, 2014</div>
+            <div class="book-card__why">Reframes American economic history: slavery wasn't peripheral — it was the engine. Documents how enslaved labor created the capital that funded the Industrial Revolution and built modern American wealth.</div>
+            <span class="book-card__thread">Stolen Labor thread</span>
+          </div>
+        </div>
+
+        <div class="book-card reveal">
+          <div class="book-card__spine" style="background:var(--slate-600);">📕</div>
+          <div class="book-card__body">
+            <div class="book-card__title">Precolonial Black Africa</div>
+            <div class="book-card__author">Cheikh Anta Diop, 1987</div>
+            <div class="book-card__why">Foundational scholarship on the political and social structures of pre-colonial African states — the kingdoms that were deliberately erased from Western historical narratives to justify the slave trade. Essential for the Origins section.</div>
+            <span class="book-card__thread">African Origins</span>
+          </div>
+        </div>
+
+        <div class="book-card reveal">
+          <div class="book-card__spine" style="background:var(--sienna-600);">📒</div>
+          <div class="book-card__body">
+            <div class="book-card__title">Reconstruction: America's Unfinished Revolution</div>
+            <div class="book-card__author">Eric Foner, 1988</div>
+            <div class="book-card__why">The authoritative history of the Reconstruction era — what was achieved, who opposed it, and how its collapse shaped the next 150 years of American politics. Every Chain thread about the post-Civil War period builds on Foner's scholarship.</div>
+            <span class="book-card__thread">Multiple threads</span>
+          </div>
+        </div>
+
+        <div class="book-card reveal">
+          <div class="book-card__spine" style="background:var(--slate-800);">📓</div>
+          <div class="book-card__body">
+            <div class="book-card__title">Stamped from the Beginning</div>
+            <div class="book-card__author">Ibram X. Kendi, 2016</div>
+            <div class="book-card__why">A comprehensive history of racist ideas in America — from colonial era to the present — tracing how ideas were constructed to justify policy, not the other way around. Provides the ideological layer that sits beneath the structural threads.</div>
+            <span class="book-card__thread">Foundation reading</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── AUDIENCE SELECTOR ─────────────────────────────────────
+  document.querySelectorAll('.audience-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.audience-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    });
+  });
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+</body>
+</html>
