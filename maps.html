@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maps &amp; Timelines — Chain</title>
+  <meta name="description" content="Interactive maps and timelines tracing African and Black history across geography and time — from sovereign African kingdoms to present-day America." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .maps-hero {
+      background: var(--ink-900);
+      padding: var(--space-14) 0 var(--space-12);
+      position: relative;
+      overflow: hidden;
+    }
+    .maps-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 100% 50%, rgba(61,74,110,.6) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(196,106,0,.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Decorative grid lines */
+    .maps-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .maps-hero__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .maps-hero__inner { grid-template-columns: 1fr 1fr; }
+    }
+    .maps-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--slate-300);
+      margin-bottom: var(--space-4);
+    }
+    .maps-hero__headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-5);
+    }
+    .maps-hero__headline em { color: var(--amber-300); font-style: normal; }
+    .maps-hero__subhead {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      line-height: var(--leading-loose);
+      margin-bottom: var(--space-8);
+    }
+    .maps-hero__nav {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .maps-hero__nav-btn {
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-pill);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      border: 1px solid rgba(255,255,255,.15);
+      color: var(--ink-300);
+      background: rgba(255,255,255,.05);
+      transition: all var(--duration-fast);
+      cursor: pointer;
+    }
+    .maps-hero__nav-btn:hover,
+    .maps-hero__nav-btn.is-active {
+      background: var(--amber-500);
+      border-color: var(--amber-500);
+      color: var(--ink-900);
+    }
+
+    /* Decorative map placeholder */
+    .maps-hero__globe {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      position: relative;
+      overflow: hidden;
+    }
+    .maps-hero__globe::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .globe-label {
+      position: relative;
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--ink-600);
+    }
+    /* SVG-style continent outlines (CSS shapes) */
+    .globe-continents {
+      flex: 1;
+      position: relative;
+    }
+    /* Dot clusters for key locations */
+    .map-dot {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--amber-400);
+      box-shadow: 0 0 0 3px rgba(240,147,50,.25);
+      cursor: pointer;
+    }
+    .map-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink-800);
+      color: var(--ink-200);
+      font-size: 10px;
+      font-weight: var(--weight-semibold);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity var(--duration-fast);
+      pointer-events: none;
+    }
+    .map-dot:hover::after { opacity: 1; }
+    .map-dot--route {
+      background: var(--sienna-400);
+      box-shadow: 0 0 0 3px rgba(200,92,60,.25);
+      width: 6px; height: 6px;
+    }
+    .globe-legend {
+      position: relative;
+      display: flex;
+      gap: var(--space-5);
+    }
+    .globe-legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 10px;
+      color: var(--ink-500);
+    }
+    .globe-legend-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+    }
+
+    /* ── View toggle ────────────────────────────────────────── */
+    .view-toggle-bar {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-4) 0;
+      position: sticky;
+      top: 0;
+      z-index: var(--z-sticky);
+    }
+    .view-toggle-bar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .view-tabs {
+      display: flex;
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-md);
+      padding: 3px;
+      gap: 2px;
+    }
+    .view-tab {
+      padding: var(--space-2) var(--space-5);
+      border-radius: calc(var(--radius-md) - 2px);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .view-tab.is-active {
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+      font-weight: var(--weight-semibold);
+      box-shadow: var(--shadow-sm);
+    }
+    .view-tab svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+    .filter-row {
+      display: flex;
+      gap: var(--space-3);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .filter-row__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+    }
+    .era-chip {
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-pill);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-medium);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+    .era-chip:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .era-chip.is-active { background: var(--color-accent-dark); border-color: var(--color-accent-dark); color: #fff; }
+
+    /* ── Main content layout ────────────────────────────────── */
+    .maps-content {
+      padding: var(--space-10) 0 var(--space-16);
+    }
+
+    /* ── Map view ───────────────────────────────────────────── */
+    #view-maps .map-panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: var(--space-8);
+    }
+    .map-panel__header {
+      padding: var(--space-6) var(--space-7);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .map-panel__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-1);
+    }
+    .map-panel__subtitle {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+    }
+    .map-panel__era {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      background: var(--color-accent-light);
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-pill);
+      align-self: flex-start;
+      flex-shrink: 0;
+    }
+    .map-panel__canvas {
+      position: relative;
+      background: var(--slate-800);
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    /* Grid overlay for map */
+    .map-panel__canvas::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .map-placeholder-svg {
+      position: relative;
+      width: 100%;
+      height: 380px;
+    }
+    /* SVG map continent fills */
+    .continent { fill: var(--slate-600); stroke: var(--slate-500); stroke-width: 0.5; }
+    .continent--highlight { fill: var(--slate-500); }
+    .map-marker { cursor: pointer; }
+    .map-marker circle { transition: r var(--duration-fast); }
+    .map-marker:hover circle { r: 8; }
+    .map-route {
+      fill: none;
+      stroke: var(--sienna-400);
+      stroke-width: 1.5;
+      stroke-dasharray: 6 3;
+      opacity: 0.7;
+    }
+    .map-route--main {
+      stroke: var(--amber-400);
+      stroke-width: 2;
+      stroke-dasharray: none;
+      opacity: 0.5;
+    }
+    .map-label-text {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: 9px;
+      font-weight: 600;
+      fill: var(--ink-200);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .ocean-label {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: 8px;
+      fill: var(--slate-400);
+      font-style: italic;
+    }
+    .map-panel__footer {
+      padding: var(--space-5) var(--space-7);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .map-legend {
+      display: flex;
+      gap: var(--space-5);
+      flex-wrap: wrap;
+    }
+    .map-legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+    }
+    .map-legend-swatch {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .map-legend-line {
+      width: 20px; height: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Timeline view ──────────────────────────────────────── */
+    #view-timeline { display: none; }
+    #view-timeline.is-active { display: block; }
+    #view-maps.is-active { display: block; }
+    #view-maps { display: none; }
+
+    .timeline-wrap {
+      position: relative;
+      padding-left: 80px;
+    }
+    .timeline-axis {
+      position: absolute;
+      left: 56px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--amber-300), var(--sienna-400), var(--slate-500));
+    }
+
+    .timeline-era {
+      margin-bottom: var(--space-10);
+    }
+    .timeline-era__label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      margin-left: -80px;
+    }
+    .timeline-era__badge {
+      background: var(--ink-900);
+      color: var(--amber-300);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--amber-700);
+      white-space: nowrap;
+      z-index: 1;
+    }
+    .timeline-era__line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .timeline-event {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: var(--space-5);
+      margin-left: -80px;
+      margin-bottom: var(--space-5);
+      align-items: flex-start;
+    }
+    .timeline-event__year-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-top: var(--space-1);
+      gap: var(--space-1);
+    }
+    .timeline-event__year {
+      font-family: var(--font-editorial);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-dark);
+      line-height: 1;
+    }
+    .timeline-event__node {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--color-surface);
+      margin-right: -7px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-event__node--major { width: 16px; height: 16px; margin-right: -9px; }
+
+    .timeline-event__card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      transition: all var(--duration-normal);
+      text-decoration: none;
+      display: block;
+    }
+    .timeline-event__card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--amber-200);
+      transform: translateX(4px);
+    }
+    .timeline-event__type {
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-1);
+    }
+    .timeline-event__title {
+      font-family: var(--font-editorial);
+      font-size: var(--type-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-2);
+    }
+    .timeline-event__summary {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .timeline-event__thread-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-accent-dark);
+      margin-top: var(--space-3);
+    }
+
+    /* ── Map cards grid (secondary maps) ────────────────────── */
+    .map-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+    @media (min-width: 640px) { .map-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .map-cards-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .map-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      text-decoration: none;
+      transition: all var(--duration-normal);
+    }
+    .map-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--amber-200); }
+    .map-card__thumb {
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-card__thumb-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-card__body { padding: var(--space-5) var(--space-6) var(--space-6); }
+    .map-card__era {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-2);
+    }
+    .map-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-2);
+    }
+    .map-card__summary {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .map-card__status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      margin-top: var(--space-3);
+      color: var(--color-text-tertiary);
+    }
+    .map-card__status--live { color: #15803d; }
+
+    /* Section label */
+    .section-eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-3);
+    }
+    .section-title {
+      font-family: var(--font-editorial);
+      font-size: 1.5rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .section-sub {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: var(--space-8);
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] .map-panel,
+    [data-theme="dark"] .timeline-event__card,
+    [data-theme="dark"] .map-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .map-panel:hover,
+    [data-theme="dark"] .timeline-event__card:hover,
+    [data-theme="dark"] .map-card:hover { border-color: var(--amber-400); }
+    [data-theme="dark"] .view-toggle-bar { background: var(--ink-900); }
+    [data-theme="dark"] .view-tabs { background: var(--ink-800); }
+    [data-theme="dark"] .view-tab.is-active { background: var(--ink-700); }
+    [data-theme="dark"] .era-chip { background: var(--ink-800); border-color: var(--ink-700); color: var(--ink-300); }
+    [data-theme="dark"] .era-chip.is-active { background: var(--amber-500); border-color: var(--amber-500); color: var(--ink-900); }
+    [data-theme="dark"] .map-panel__canvas { background: var(--slate-800); }
+    [data-theme="dark"] .timeline-event__card:hover { transform: translateX(4px); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"  class="site-nav__link">Explore</a>
+      <a href="threads.html"  class="site-nav__link">Threads</a>
+      <a href="maps.html"     class="site-nav__link" aria-current="page">Maps &amp; Timelines</a>
+      <a href="learn.html"    class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=redlining+maps" class="search-hint-chip">Redlining maps</a>
+      <a href="search.html?q=slave+trade+routes" class="search-hint-chip">Slave trade routes</a>
+      <a href="search.html?q=Great+Migration+routes" class="search-hint-chip">Great Migration routes</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link" aria-current="page">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="maps-hero" aria-labelledby="maps-heading">
+    <div class="container maps-hero__inner">
+      <div>
+        <p class="maps-hero__eyebrow">Geography &amp; time</p>
+        <h1 id="maps-heading" class="maps-hero__headline">
+          History has a<br /><em>geography.</em>
+        </h1>
+        <p class="maps-hero__subhead">
+          Every policy, migration, and act of resistance happened somewhere. Maps and timelines make the spatial and temporal dimensions of the chain visible — showing how place shaped consequence.
+        </p>
+        <div class="maps-hero__nav" role="group" aria-label="Jump to section">
+          <button class="maps-hero__nav-btn is-active" data-jump="view-maps">Maps</button>
+          <button class="maps-hero__nav-btn" data-jump="view-timeline">Timeline</button>
+          <button class="maps-hero__nav-btn" data-jump="map-cards-section">All visualizations</button>
+        </div>
+      </div>
+
+      <!-- Decorative globe -->
+      <div class="maps-hero__globe" aria-hidden="true">
+        <span class="globe-label">Atlantic World · 1441–1808</span>
+        <div class="globe-continents">
+          <svg width="100%" height="100%" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Africa outline (simplified) -->
+            <path class="continent continent--highlight" d="M190,20 L220,18 L240,30 L250,55 L248,90 L240,120 L235,155 L220,185 L205,200 L190,195 L175,180 L168,155 L165,120 L168,85 L172,50 L180,28 Z"/>
+            <!-- Europe outline -->
+            <path class="continent" d="M155,10 L185,8 L188,18 L180,28 L172,32 L160,28 L148,22 L150,12 Z"/>
+            <!-- North America outline -->
+            <path class="continent" d="M20,15 L75,12 L90,25 L95,55 L85,90 L70,120 L50,140 L30,130 L15,110 L10,80 L12,45 L18,22 Z"/>
+            <!-- South America outline -->
+            <path class="continent" d="M55,155 L85,148 L95,160 L100,190 L95,220 L80,240 L60,245 L42,235 L35,215 L38,188 L45,168 Z"/>
+            <!-- Ocean label -->
+            <text class="ocean-label" x="115" y="130">Atlantic</text>
+            <text class="ocean-label" x="118" y="143">Ocean</text>
+
+            <!-- Slave trade routes -->
+            <!-- West Africa to Americas -->
+            <path class="map-route" d="M210,100 Q160,130 90,110"/>
+            <path class="map-route" d="M205,120 Q155,150 85,150"/>
+            <path class="map-route" d="M200,140 Q150,160 80,165"/>
+            <!-- Return route -->
+            <path class="map-route--main" d="M80,100 Q120,70 210,80"/>
+
+            <!-- Key location markers -->
+            <!-- West Africa ports -->
+            <g class="map-marker" aria-label="Elmina, Ghana">
+              <circle cx="192" cy="110" r="5" fill="#f59332" opacity="0.9"/>
+              <text class="map-label-text" x="197" y="108">Elmina</text>
+            </g>
+            <g class="map-marker">
+              <circle cx="197" cy="90" r="5" fill="#f59332" opacity="0.9"/>
+              <text class="map-label-text" x="202" y="88">Dakar</text>
+            </g>
+            <g class="map-marker">
+              <circle cx="200" cy="75" r="4" fill="#f59332" opacity="0.7"/>
+              <text class="map-label-text" x="205" y="73">Timbuktu</text>
+            </g>
+            <!-- Americas arrival points -->
+            <g class="map-marker">
+              <circle cx="72" cy="115" r="5" fill="#d87c60" opacity="0.9"/>
+              <text class="map-label-text" x="55" y="113">Virginia</text>
+            </g>
+            <g class="map-marker">
+              <circle cx="80" cy="150" r="5" fill="#d87c60" opacity="0.9"/>
+              <text class="map-label-text" x="60" y="148">Caribbean</text>
+            </g>
+            <g class="map-marker">
+              <circle cx="78" cy="168" r="4" fill="#d87c60" opacity="0.8"/>
+              <text class="map-label-text" x="58" y="166">Brazil</text>
+            </g>
+            <!-- Kush/Nubia -->
+            <g class="map-marker">
+              <circle cx="222" cy="62" r="4" fill="#f59332" opacity="0.7"/>
+              <text class="map-label-text" x="227" y="60">Kush</text>
+            </g>
+          </svg>
+        </div>
+        <div class="globe-legend">
+          <div class="globe-legend-item">
+            <div class="globe-legend-dot" style="background:var(--amber-400)"></div>
+            <span>African kingdoms</span>
+          </div>
+          <div class="globe-legend-item">
+            <div class="globe-legend-dot" style="background:var(--sienna-400)"></div>
+            <span>Arrival points</span>
+          </div>
+          <div class="globe-legend-item">
+            <div class="globe-legend-line" style="background:var(--sienna-400)"></div>
+            <span>Trade routes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW TOGGLE BAR -->
+  <div class="view-toggle-bar">
+    <div class="container view-toggle-bar__inner">
+      <div class="view-tabs" role="tablist" aria-label="View mode">
+        <button class="view-tab is-active" role="tab" aria-selected="true"  aria-controls="view-maps"     id="tab-maps"     data-view="maps">
+          <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z"/><path d="M9 3v15M15 6v15"/></svg>
+          Maps
+        </button>
+        <button class="view-tab" role="tab" aria-selected="false" aria-controls="view-timeline" id="tab-timeline" data-view="timeline">
+          <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 5 19 12"/></svg>
+          Timeline
+        </button>
+      </div>
+      <div class="filter-row" role="group" aria-label="Filter by era">
+        <span class="filter-row__label">Era</span>
+        <button class="era-chip is-active" data-era="all"           aria-pressed="true">All</button>
+        <button class="era-chip"           data-era="origins"       aria-pressed="false">African Origins</button>
+        <button class="era-chip"           data-era="slave-trade"   aria-pressed="false">Slave Trade</button>
+        <button class="era-chip"           data-era="reconstruction" aria-pressed="false">Reconstruction</button>
+        <button class="era-chip"           data-era="jim-crow"      aria-pressed="false">Jim Crow</button>
+        <button class="era-chip"           data-era="present"       aria-pressed="false">Present</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container maps-content">
+
+    <!-- ══ MAPS VIEW ══════════════════════════════════════════ -->
+    <div id="view-maps" class="is-active" role="tabpanel" aria-labelledby="tab-maps">
+
+      <!-- Featured map -->
+      <div class="map-panel reveal" data-era="slave-trade">
+        <div class="map-panel__header">
+          <div>
+            <h2 class="map-panel__title">The Transatlantic Slave Trade Routes</h2>
+            <p class="map-panel__subtitle">12.5 million people forcibly removed across the Atlantic, 1441–1808. The routes that built the modern world's wealth.</p>
+          </div>
+          <span class="map-panel__era">1441–1808</span>
+        </div>
+        <div class="map-panel__canvas">
+          <svg class="map-placeholder-svg" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" aria-label="Map showing transatlantic slave trade routes between Africa and the Americas">
+            <!-- Ocean background gradient -->
+            <defs>
+              <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#1e2433;stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:#2c3550;stop-opacity:1"/>
+              </linearGradient>
+              <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#f59332;stop-opacity:0.8"/>
+                <stop offset="100%" style="stop-color:#d87c60;stop-opacity:0.8"/>
+              </linearGradient>
+            </defs>
+            <rect width="900" height="400" fill="url(#oceanGrad)"/>
+            <!-- Lat/lon grid -->
+            <line x1="0" y1="200" x2="900" y2="200" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <line x1="450" y1="0" x2="450" y2="400" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+            <!-- Africa -->
+            <path class="continent continent--highlight" d="M510,30 L570,28 L600,55 L615,100 L610,155 L600,210 L585,265 L565,305 L540,320 L515,315 L495,295 L482,265 L475,215 L478,160 L485,105 L495,62 L505,38 Z"/>
+            <!-- Europe -->
+            <path class="continent" d="M440,20 L510,15 L512,30 L505,38 L490,48 L468,42 L448,35 L442,25 Z"/>
+            <!-- North America -->
+            <path class="continent" d="M30,25 L160,20 L185,50 L195,105 L175,165 L140,215 L90,240 L45,225 L20,190 L15,140 L18,80 L26,38 Z"/>
+            <!-- South America -->
+            <path class="continent" d="M100,265 L185,255 L210,275 L220,320 L215,365 L190,390 L155,395 L120,380 L100,350 L98,310 L98,278 Z"/>
+            <!-- Caribbean -->
+            <ellipse cx="195" cy="240" rx="25" ry="10" fill="#3d4a6e" stroke="#556080" stroke-width="0.5"/>
+
+            <!-- Slave trade routes — from West Africa to Americas -->
+            <path d="M510,160 C430,160 360,175 210,230" stroke="url(#routeGrad)" stroke-width="2.5" fill="none" stroke-dasharray="8,4" opacity="0.85"/>
+            <path d="M508,180 C425,185 355,200 205,245" stroke="url(#routeGrad)" stroke-width="2" fill="none" stroke-dasharray="8,4" opacity="0.7"/>
+            <path d="M505,200 C420,210 345,225 195,255" stroke="url(#routeGrad)" stroke-width="1.5" fill="none" stroke-dasharray="8,4" opacity="0.55"/>
+            <path d="M505,195 C420,200 340,215 170,240" stroke="#d87c60" stroke-width="1.5" fill="none" stroke-dasharray="8,4" opacity="0.5"/>
+            <!-- Return route (goods/profit) -->
+            <path d="M175,160 C290,100 400,80 508,140" stroke="#7888a2" stroke-width="1.5" fill="none" stroke-dasharray="4,6" opacity="0.5"/>
+            <!-- Europe triangle -->
+            <path d="M508,140 C490,80 475,50 472,38" stroke="#7888a2" stroke-width="1" fill="none" stroke-dasharray="4,6" opacity="0.35"/>
+
+            <!-- Key location markers with labels -->
+            <!-- Elmina, Gold Coast -->
+            <g class="map-marker">
+              <circle cx="500" cy="195" r="6" fill="#f59332" opacity="0.95"/>
+              <text class="map-label-text" x="510" y="192" fill="#fde4b8">Elmina</text>
+            </g>
+            <!-- Ouidah, Dahomey -->
+            <g class="map-marker">
+              <circle cx="510" cy="215" r="5" fill="#f59332" opacity="0.85"/>
+              <text class="map-label-text" x="520" y="212" fill="#fde4b8">Ouidah</text>
+            </g>
+            <!-- Luanda, Angola -->
+            <g class="map-marker">
+              <circle cx="505" cy="255" r="5" fill="#f59332" opacity="0.85"/>
+              <text class="map-label-text" x="515" y="252" fill="#fde4b8">Luanda</text>
+            </g>
+            <!-- Gorée Island -->
+            <g class="map-marker">
+              <circle cx="490" cy="160" r="5" fill="#f59332" opacity="0.8"/>
+              <text class="map-label-text" x="500" y="157" fill="#fde4b8">Gorée</text>
+            </g>
+            <!-- Timbuktu (inland) -->
+            <g class="map-marker">
+              <circle cx="520" cy="120" r="5" fill="#f59332" opacity="0.7"/>
+              <text class="map-label-text" x="530" y="117" fill="#f59332">Timbuktu ✦</text>
+            </g>
+
+            <!-- Americas arrival -->
+            <!-- Virginia -->
+            <g class="map-marker">
+              <circle cx="165" cy="155" r="7" fill="#d87c60" opacity="0.95"/>
+              <text class="map-label-text" x="173" y="152" fill="#eba48c">Virginia 1619</text>
+            </g>
+            <!-- Charleston -->
+            <g class="map-marker">
+              <circle cx="155" cy="175" r="5" fill="#d87c60" opacity="0.85"/>
+              <text class="map-label-text" x="163" y="172" fill="#eba48c">Charleston</text>
+            </g>
+            <!-- New Orleans -->
+            <g class="map-marker">
+              <circle cx="130" cy="195" r="5" fill="#d87c60" opacity="0.8"/>
+              <text class="map-label-text" x="100" y="192" fill="#eba48c">New Orleans</text>
+            </g>
+            <!-- Caribbean -->
+            <g class="map-marker">
+              <circle cx="200" cy="238" r="5" fill="#d87c60" opacity="0.85"/>
+              <text class="map-label-text" x="208" y="235" fill="#eba48c">Caribbean</text>
+            </g>
+            <!-- Brazil -->
+            <g class="map-marker">
+              <circle cx="185" cy="290" r="6" fill="#d87c60" opacity="0.85"/>
+              <text class="map-label-text" x="193" y="287" fill="#eba48c">Brazil</text>
+            </g>
+
+            <!-- Stat callouts -->
+            <rect x="600" y="30" width="270" height="110" rx="8" fill="rgba(0,0,0,.5)" stroke="rgba(245,147,50,.2)" stroke-width="1"/>
+            <text x="616" y="55" fill="#f59332" font-family="Georgia,serif" font-size="11" font-weight="bold" letter-spacing="1" text-transform="uppercase">KEY FIGURES</text>
+            <text x="616" y="78" fill="#fde4b8" font-family="Georgia,serif" font-size="22" font-weight="bold">12.5M</text>
+            <text x="616" y="93" fill="#909090" font-family="sans-serif" font-size="10">people forcibly removed</text>
+            <text x="720" y="78" fill="#eba48c" font-family="Georgia,serif" font-size="22" font-weight="bold">1.8M</text>
+            <text x="720" y="93" fill="#909090" font-family="sans-serif" font-size="10">died in transit</text>
+            <text x="616" y="118" fill="#f59332" font-family="Georgia,serif" font-size="18" font-weight="bold">367 yrs</text>
+            <text x="616" y="130" fill="#909090" font-family="sans-serif" font-size="10">duration of trade</text>
+            <text x="720" y="118" fill="#a4b1c6" font-family="Georgia,serif" font-size="18" font-weight="bold">40,000+</text>
+            <text x="720" y="130" fill="#909090" font-family="sans-serif" font-size="10">voyages documented</text>
+
+            <!-- Ocean labels -->
+            <text class="ocean-label" x="300" y="200" fill="#3d4a6e" font-size="14">A T L A N T I C</text>
+            <text class="ocean-label" x="315" y="218" fill="#3d4a6e" font-size="11">O C E A N</text>
+          </svg>
+        </div>
+        <div class="map-panel__footer">
+          <div class="map-legend">
+            <div class="map-legend-item">
+              <div class="map-legend-swatch" style="background:var(--amber-400)"></div>
+              <span>African departure points</span>
+            </div>
+            <div class="map-legend-item">
+              <div class="map-legend-swatch" style="background:var(--sienna-400)"></div>
+              <span>Americas arrival points</span>
+            </div>
+            <div class="map-legend-item">
+              <div class="map-legend-line" style="background:var(--amber-400)"></div>
+              <span>Primary trade routes</span>
+            </div>
+            <div class="map-legend-item">
+              <div class="map-legend-line" style="background:var(--slate-400); opacity:.6"></div>
+              <span>Return routes (goods &amp; profit)</span>
+            </div>
+          </div>
+          <a href="thread.html" class="btn btn--secondary" style="font-size:var(--type-sm)">Follow the thread →</a>
+        </div>
+      </div>
+
+      <!-- Second map: HOLC Redlining -->
+      <div class="map-panel reveal" data-era="jim-crow">
+        <div class="map-panel__header">
+          <div>
+            <h2 class="map-panel__title">HOLC Redlining — How the Maps Were Drawn</h2>
+            <p class="map-panel__subtitle">The Home Owners' Loan Corporation graded every American neighborhood A–D by race. Grade D = "Hazardous" = Black. The maps determined who could build wealth for the next 90 years.</p>
+          </div>
+          <span class="map-panel__era">1933–1968</span>
+        </div>
+        <div class="map-panel__canvas">
+          <svg class="map-placeholder-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" aria-label="Diagram showing HOLC redlining grade zones and their racial demographics">
+            <defs>
+              <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#1e2433"/>
+                <stop offset="100%" style="stop-color:#2c3550"/>
+              </linearGradient>
+            </defs>
+            <rect width="900" height="360" fill="url(#bgGrad2)"/>
+
+            <!-- City grid lines -->
+            <g opacity="0.08" stroke="white" stroke-width="0.5">
+              <line x1="0" y1="60" x2="900" y2="60"/>
+              <line x1="0" y1="120" x2="900" y2="120"/>
+              <line x1="0" y1="180" x2="900" y2="180"/>
+              <line x1="0" y1="240" x2="900" y2="240"/>
+              <line x1="0" y1="300" x2="900" y2="300"/>
+              <line x1="150" y1="0" x2="150" y2="360"/>
+              <line x1="300" y1="0" x2="300" y2="360"/>
+              <line x1="450" y1="0" x2="450" y2="360"/>
+              <line x1="600" y1="0" x2="600" y2="360"/>
+              <line x1="750" y1="0" x2="750" y2="360"/>
+            </g>
+
+            <!-- Grade A zones — green — suburbs -->
+            <rect x="600" y="20"  width="140" height="100" rx="4" fill="#166534" opacity="0.7"/>
+            <rect x="620" y="130" width="120" height="80"  rx="4" fill="#166534" opacity="0.6"/>
+            <rect x="750" y="20"  width="130" height="140" rx="4" fill="#166534" opacity="0.65"/>
+            <rect x="10"  y="20"  width="120" height="130" rx="4" fill="#166534" opacity="0.6"/>
+
+            <!-- Grade B zones — blue -->
+            <rect x="300" y="20"  width="140" height="90"  rx="4" fill="#1e40af" opacity="0.55"/>
+            <rect x="450" y="20"  width="140" height="100" rx="4" fill="#1e40af" opacity="0.5"/>
+            <rect x="150" y="20"  width="140" height="110" rx="4" fill="#1e40af" opacity="0.5"/>
+
+            <!-- Grade C zones — yellow -->
+            <rect x="200" y="140" width="200" height="100" rx="4" fill="#854d0e" opacity="0.65"/>
+            <rect x="420" y="130" width="160" height="90"  rx="4" fill="#854d0e" opacity="0.6"/>
+
+            <!-- Grade D zones — RED — Black neighborhoods -->
+            <rect x="150" y="160" width="160" height="120" rx="4" fill="#991b1b" opacity="0.85"/>
+            <rect x="310" y="200" width="120" height="100" rx="4" fill="#991b1b" opacity="0.8"/>
+            <rect x="50"  y="200" width="120" height="100" rx="4" fill="#991b1b" opacity="0.75"/>
+            <rect x="240" y="250" width="100" height="80"  rx="4" fill="#991b1b" opacity="0.7"/>
+
+            <!-- Grade labels -->
+            <text x="660" y="78"  fill="white" font-family="Georgia,serif" font-size="28" font-weight="bold" text-anchor="middle" opacity="0.8">A</text>
+            <text x="370" y="72"  fill="white" font-family="Georgia,serif" font-size="28" font-weight="bold" text-anchor="middle" opacity="0.8">B</text>
+            <text x="300" y="198" fill="white" font-family="Georgia,serif" font-size="28" font-weight="bold" text-anchor="middle" opacity="0.8">C</text>
+            <text x="230" y="232" fill="white" font-family="Georgia,serif" font-size="32" font-weight="bold" text-anchor="middle" opacity="0.9">D</text>
+            <text x="110" y="265" fill="white" font-family="Georgia,serif" font-size="28" font-weight="bold" text-anchor="middle" opacity="0.85">D</text>
+            <text x="370" y="255" fill="white" font-family="Georgia,serif" font-size="26" font-weight="bold" text-anchor="middle" opacity="0.85">D</text>
+
+            <!-- Annotations -->
+            <rect x="590" y="240" width="290" height="100" rx="8" fill="rgba(0,0,0,.55)" stroke="rgba(255,255,255,.08)"/>
+            <text x="606" y="262" fill="#86efac" font-family="sans-serif" font-size="10" font-weight="bold">GRADE A — "Best"</text>
+            <text x="606" y="276" fill="#909090" font-family="sans-serif" font-size="9">White, "American" neighborhoods. FHA-insured mortgages. Wealth-building.</text>
+            <text x="606" y="298" fill="#ef4444" font-family="sans-serif" font-size="10" font-weight="bold">GRADE D — "Hazardous"</text>
+            <text x="606" y="312" fill="#909090" font-family="sans-serif" font-size="9">Black neighborhoods. No FHA mortgages. No GI Bill loans. No investment.</text>
+            <text x="606" y="328" fill="#909090" font-family="sans-serif" font-size="9">These boundaries persist in school district lines today.</text>
+
+            <!-- Present-day consequence arrow -->
+            <line x1="230" y1="338" x2="580" y2="338" stroke="rgba(245,147,50,.3)" stroke-width="1" stroke-dasharray="4,4"/>
+            <text x="300" y="352" fill="#f59332" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">SAME BOUNDARIES → TODAY'S SCHOOL DISTRICT LINES</text>
+          </svg>
+        </div>
+        <div class="map-panel__footer">
+          <div class="map-legend">
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#166534"></div><span>Grade A — "Best" (white suburbs)</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#1e40af"></div><span>Grade B — "Still Desirable"</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#854d0e"></div><span>Grade C — "Declining"</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#991b1b"></div><span>Grade D — "Hazardous" (Black neighborhoods)</span></div>
+          </div>
+          <a href="thread.html" class="btn btn--secondary" style="font-size:var(--type-sm)">Read the Redlining thread →</a>
+        </div>
+      </div>
+
+      <!-- Map cards grid -->
+      <div id="map-cards-section">
+        <p class="section-eyebrow">More visualizations</p>
+        <h2 class="section-title">All maps</h2>
+        <p class="section-sub">Spatial histories of migration, policy, and resistance — each connected to a causal thread.</p>
+        <div class="map-cards-grid">
+
+          <a href="maps.html#great-migration" class="map-card reveal" data-era="jim-crow">
+            <div class="map-card__thumb" style="background:linear-gradient(135deg,var(--slate-800),var(--slate-700))">
+              <div class="map-card__thumb-inner" aria-hidden="true">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                  <path d="M140,100 C120,80 100,60 80,55 C60,50 40,48 20,40" stroke="#f59332" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+                  <path d="M140,90  C118,72 95,56 70,52 C50,49 30,50 10,45" stroke="#f59332" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.7"/>
+                  <circle cx="140" cy="95" r="5" fill="#d87c60"/>
+                  <circle cx="20" cy="40" r="4" fill="#f59332"/>
+                  <text x="10" y="38" fill="#f59332" font-size="8" font-family="sans-serif">Chicago</text>
+                  <text x="130" y="108" fill="#eba48c" font-size="8" font-family="sans-serif">South</text>
+                </svg>
+              </div>
+            </div>
+            <div class="map-card__body">
+              <div class="map-card__era">Migration · 1910–1970</div>
+              <h3 class="map-card__title">The Great Migration</h3>
+              <p class="map-card__summary">Six million Black Americans moved north and west — and were met by redlined cities.</p>
+              <span class="map-card__status map-card__status--live">● Available</span>
+            </div>
+          </a>
+
+          <a href="maps.html#african-kingdoms" class="map-card reveal" data-era="origins">
+            <div class="map-card__thumb" style="background:linear-gradient(135deg,var(--amber-700),var(--sienna-600))">
+              <div class="map-card__thumb-inner" aria-hidden="true">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                  <ellipse cx="90" cy="60" rx="55" ry="50" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                  <circle cx="70"  cy="45" r="8"  fill="rgba(255,255,255,.3)"/>
+                  <circle cx="100" cy="38" r="10" fill="rgba(255,255,255,.35)"/>
+                  <circle cx="90"  cy="65" r="7"  fill="rgba(255,255,255,.25)"/>
+                  <circle cx="75"  cy="78" r="9"  fill="rgba(255,255,255,.3)"/>
+                  <circle cx="110" cy="70" r="6"  fill="rgba(255,255,255,.2)"/>
+                  <text x="52" y="42"  fill="white" font-size="7" font-family="sans-serif">Mali</text>
+                  <text x="102" y="35" fill="white" font-size="7" font-family="sans-serif">Songhai</text>
+                  <text x="58" y="75"  fill="white" font-size="7" font-family="sans-serif">Kush</text>
+                </svg>
+              </div>
+            </div>
+            <div class="map-card__body">
+              <div class="map-card__era">Origins · 300 BCE–1600 CE</div>
+              <h3 class="map-card__title">African Kingdoms at Their Peak</h3>
+              <p class="map-card__summary">The territorial reach of Mali, Songhai, Kush, Aksum, and Benin before the disruption of the slave trade.</p>
+              <span class="map-card__status map-card__status--live">● Available</span>
+            </div>
+          </a>
+
+          <a href="maps.html#health-redlining" class="map-card reveal" data-era="present">
+            <div class="map-card__thumb" style="background:linear-gradient(135deg,var(--slate-700),var(--slate-800))">
+              <div class="map-card__thumb-inner" aria-hidden="true">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                  <rect x="20" y="20"  width="50" height="40" rx="3" fill="#991b1b" opacity="0.7"/>
+                  <rect x="75" y="30"  width="40" height="30" rx="3" fill="#854d0e" opacity="0.6"/>
+                  <rect x="120" y="15" width="45" height="50" rx="3" fill="#166534" opacity="0.6"/>
+                  <rect x="20" y="65"  width="55" height="40" rx="3" fill="#991b1b" opacity="0.65"/>
+                  <rect x="80" y="70"  width="35" height="35" rx="3" fill="#854d0e" opacity="0.55"/>
+                  <rect x="120" y="68" width="45" height="37" rx="3" fill="#166534" opacity="0.55"/>
+                  <text x="90" y="115" fill="#909090" font-size="8" font-family="sans-serif" text-anchor="middle">HOLC grade → life expectancy today</text>
+                </svg>
+              </div>
+            </div>
+            <div class="map-card__body">
+              <div class="map-card__era">Health · Present</div>
+              <h3 class="map-card__title">Redlining &amp; Life Expectancy</h3>
+              <p class="map-card__summary">Former Grade D neighborhoods have life expectancies up to 20 years shorter than former Grade A neighborhoods in the same city.</p>
+              <span class="map-card__status">In development</span>
+            </div>
+          </a>
+
+          <a href="maps.html#reconstruction" class="map-card reveal" data-era="reconstruction">
+            <div class="map-card__thumb" style="background:linear-gradient(135deg,#1e2433,#2c3550)">
+              <div class="map-card__thumb-inner" aria-hidden="true">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                  <path d="M30,30 L160,30 L160,95 L30,95 Z" fill="#2c3550" stroke="#3d4a6e" stroke-width="1"/>
+                  <circle cx="90" cy="62" r="30" fill="rgba(245,147,50,.15)" stroke="rgba(245,147,50,.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                  <text x="90" y="57"  fill="#f59332" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="bold">MILITARY</text>
+                  <text x="90" y="69"  fill="#f59332" font-size="9" font-family="sans-serif" text-anchor="middle">DISTRICTS</text>
+                  <text x="90" y="82"  fill="#909090" font-size="8" font-family="sans-serif" text-anchor="middle">1865–1877</text>
+                </svg>
+              </div>
+            </div>
+            <div class="map-card__body">
+              <div class="map-card__era">Reconstruction · 1865–1877</div>
+              <h3 class="map-card__title">Reconstruction Military Districts</h3>
+              <p class="map-card__summary">The five military districts imposed on the South after the Civil War — and what happened to Black political power when federal troops withdrew in 1877.</p>
+              <span class="map-card__status">In development</span>
+            </div>
+          </a>
+
+          <a href="maps.html#lynching" class="map-card reveal" data-era="jim-crow">
+            <div class="map-card__thumb" style="background:linear-gradient(135deg,#1a1a1a,#2e2e2e)">
+              <div class="map-card__thumb-inner" aria-hidden="true">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                  <rect x="20" y="20" width="140" height="80" rx="4" fill="#1e2433"/>
+                  <circle cx="55"  cy="55" r="3" fill="#ef4444" opacity="0.8"/>
+                  <circle cx="70"  cy="45" r="4" fill="#ef4444" opacity="0.9"/>
+                  <circle cx="85"  cy="62" r="3" fill="#ef4444" opacity="0.75"/>
+                  <circle cx="100" cy="50" r="5" fill="#ef4444" opacity="0.95"/>
+                  <circle cx="115" cy="68" r="3" fill="#ef4444" opacity="0.8"/>
+                  <circle cx="65"  cy="72" r="4" fill="#ef4444" opacity="0.85"/>
+                  <circle cx="90"  cy="78" r="3" fill="#ef4444" opacity="0.7"/>
+                  <circle cx="130" cy="58" r="4" fill="#ef4444" opacity="0.85"/>
+                  <text x="90" y="110" fill="#909090" font-size="8" font-family="sans-serif" text-anchor="middle">4,000+ documented 1877–1950</text>
+                </svg>
+              </div>
+            </div>
+            <div class="map-card__body">
+              <div class="map-card__era">Terror · 1877–1950</div>
+              <h3 class="map-card__title">Racial Terror Lynchings</h3>
+              <p class="map-card__summary">EJI documented 4,084 racial terror lynchings in the South between 1877 and 1950. Geography of terror mapped to geography of political suppression.</p>
+              <span class="map-card__status">In development</span>
+            </div>
+          </a>
+
+          <a href="maps.html#wealth-gap" class="map-card reveal" data-era="present">
+            <div class="map-card__thumb" style="background:linear-gradient(135deg,var(--amber-700),var(--slate-700))">
+              <div class="map-card__thumb-inner" aria-hidden="true">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                  <rect x="30" y="80" width="30" height="30" rx="2" fill="#f59332" opacity="0.9"/>
+                  <rect x="70" y="30" width="30" height="80" rx="2" fill="#7888a2" opacity="0.7"/>
+                  <text x="45"  y="100" fill="white" font-size="8" font-family="sans-serif" text-anchor="middle">$24K</text>
+                  <text x="85"  y="68"  fill="white" font-size="8" font-family="sans-serif" text-anchor="middle">$188K</text>
+                  <text x="45"  y="115" fill="#909090" font-size="7" font-family="sans-serif" text-anchor="middle">Black</text>
+                  <text x="85"  y="115" fill="#909090" font-size="7" font-family="sans-serif" text-anchor="middle">White</text>
+                  <text x="130" y="60"  fill="#f59332" font-size="18" font-family="Georgia,serif" font-weight="bold">8×</text>
+                  <text x="122" y="74"  fill="#909090" font-size="8" font-family="sans-serif">wealth gap</text>
+                </svg>
+              </div>
+            </div>
+            <div class="map-card__body">
+              <div class="map-card__era">Wealth · Present</div>
+              <h3 class="map-card__title">The Racial Wealth Gap by Geography</h3>
+              <p class="map-card__summary">Median Black household wealth: $24,100. White: $188,200. The gap is widest in cities with the most severe HOLC redlining.</p>
+              <span class="map-card__status">In development</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div><!-- /view-maps -->
+
+    <!-- ══ TIMELINE VIEW ══════════════════════════════════════ -->
+    <div id="view-timeline" role="tabpanel" aria-labelledby="tab-timeline">
+      <div class="timeline-wrap">
+        <div class="timeline-axis" aria-hidden="true"></div>
+
+        <!-- Era: African Origins -->
+        <div class="timeline-era" data-era="origins">
+          <div class="timeline-era__label">
+            <span class="timeline-era__badge">African Origins · 300 BCE–1600 CE</span>
+            <div class="timeline-era__line" aria-hidden="true"></div>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">c. 1235</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--amber-400); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="place-mali-empire.html" class="timeline-event__card">
+              <div class="timeline-event__type">Empire Founded</div>
+              <div class="timeline-event__title">Sundiata Keita founds the Mali Empire</div>
+              <p class="timeline-event__summary">At its peak, the Mali Empire controls more than half of the world's gold and salt trade. The Manden Charter — one of history's earliest human rights declarations — is proclaimed. Mansa Musa I would make it the world's largest economy by 1312.</p>
+              <span class="timeline-event__thread-link">In thread: Stolen Labor →</span>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">c. 1327</span>
+              <div class="timeline-event__node" style="background:var(--amber-400); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="person-mansa-musa.html" class="timeline-event__card">
+              <div class="timeline-event__type">Pilgrimage</div>
+              <div class="timeline-event__title">Mansa Musa's hajj to Mecca destabilizes Mediterranean gold markets</div>
+              <p class="timeline-event__summary">Mansa Musa travels to Mecca with 60,000 people and so much gold that his charity causes inflation across North Africa and the Middle East for a decade. His wealth, adjusted to today, exceeds $400 billion. European chroniclers begin documenting Africa's extraordinary wealth.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Era: Slave Trade -->
+        <div class="timeline-era" data-era="slave-trade">
+          <div class="timeline-era__label">
+            <span class="timeline-era__badge">Transatlantic Slave Trade · 1441–1808</span>
+            <div class="timeline-era__line" aria-hidden="true"></div>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1441</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-500); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="event-middle-passage.html" class="timeline-event__card">
+              <div class="timeline-event__type">First Raid</div>
+              <div class="timeline-event__title">Portuguese sailors capture 12 Africans on the West African coast</div>
+              <p class="timeline-event__summary">The first documented Portuguese slave raid. Within decades, the trade becomes systematic and industrialized — the largest forced migration in human history. 367 years of documented voyages follow.</p>
+              <span class="timeline-event__thread-link">In thread: Transatlantic Slave Trade →</span>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1619</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-500); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="event-point-comfort-1619.html" class="timeline-event__card">
+              <div class="timeline-event__type">Founding Moment</div>
+              <div class="timeline-event__title">"20 and odd" enslaved Africans arrive at Point Comfort, Virginia</div>
+              <p class="timeline-event__summary">The first documented arrival of enslaved Africans in English North America. The 246-year clock begins. Every piece of American wealth built before 1865 includes the uncompensated labor of enslaved people — a fact that shapes the racial wealth gap today.</p>
+              <span class="timeline-event__thread-link">In thread: Stolen Labor →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Era: Reconstruction -->
+        <div class="timeline-era" data-era="reconstruction">
+          <div class="timeline-era__label">
+            <span class="timeline-era__badge">Emancipation &amp; Reconstruction · 1865–1877</span>
+            <div class="timeline-era__line" aria-hidden="true"></div>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1865</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--slate-400); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="event-emancipation.html" class="timeline-event__card">
+              <div class="timeline-event__type">Constitutional Amendment</div>
+              <div class="timeline-event__title">13th Amendment abolishes slavery — with a carve-out</div>
+              <p class="timeline-event__summary">"Except as punishment for a crime." That exception becomes the legal foundation for Black Codes, convict leasing, and eventually mass incarceration. The carve-out is not an accident — it is the mechanism by which coerced Black labor continues after emancipation.</p>
+              <span class="timeline-event__thread-link">In thread: Mass Incarceration →</span>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1877</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--slate-500); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="event-compromise-1877.html" class="timeline-event__card">
+              <div class="timeline-event__type">Political Deal</div>
+              <div class="timeline-event__title">Compromise of 1877 — federal troops withdrawn, Reconstruction ends</div>
+              <p class="timeline-event__summary">In a backroom deal to resolve the disputed 1876 presidential election, federal troops are removed from the South. Black political representation collapses within a decade. The brief experiment of Reconstruction — which produced Black governors, senators, and congressmen — is over.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Era: Jim Crow -->
+        <div class="timeline-era" data-era="jim-crow">
+          <div class="timeline-era__label">
+            <span class="timeline-era__badge">Jim Crow &amp; New Deal · 1896–1968</span>
+            <div class="timeline-era__line" aria-hidden="true"></div>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1933</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-400); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="policy-homeowners-loan-corp.html" class="timeline-event__card">
+              <div class="timeline-event__type">Federal Policy</div>
+              <div class="timeline-event__title">HOLC creates neighborhood "security maps" — color-coded by race</div>
+              <p class="timeline-event__summary">The Home Owners' Loan Corporation surveys every city in America and grades neighborhoods A–D. Grade D = "Hazardous" = Black. These maps determine who can access FHA-insured mortgages and GI Bill loans for the next 35 years — locking Black families out of the greatest wealth-building opportunity in American history.</p>
+              <span class="timeline-event__thread-link">In thread: Redlining → Achievement Gap →</span>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1944</span>
+              <div class="timeline-event__node" style="background:var(--sienna-400); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="policy-gi-bill.html" class="timeline-event__card">
+              <div class="timeline-event__type">Federal Law</div>
+              <div class="timeline-event__title">GI Bill creates American middle class — and largely excludes Black veterans</div>
+              <p class="timeline-event__summary">The Servicemen's Readjustment Act offers college tuition, low-interest mortgages, and business loans to WWII veterans. Administered through segregated local offices, Black veterans are steered away from benefits. The result: a white middle class built on government subsidy, a Black middle class blocked from the same.</p>
+              <span class="timeline-event__thread-link">In thread: Redlining → Achievement Gap →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Era: Present -->
+        <div class="timeline-era" data-era="present">
+          <div class="timeline-era__label">
+            <span class="timeline-era__badge">Present Day · 1968–Today</span>
+            <div class="timeline-era__line" aria-hidden="true"></div>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">2013</span>
+              <div class="timeline-event__node" style="background:var(--slate-400); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="policy-voting-rights-act.html" class="timeline-event__card">
+              <div class="timeline-event__type">Supreme Court</div>
+              <div class="timeline-event__title">Shelby County v. Holder guts the Voting Rights Act</div>
+              <p class="timeline-event__summary">The Supreme Court removes the preclearance requirement that had prevented states with histories of voter suppression from changing voting laws without federal approval. Within hours, states begin passing new voter ID laws, closing polling places, and purging voter rolls — disproportionately affecting Black voters.</p>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">Today</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--amber-400); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="thread.html" class="timeline-event__card">
+              <div class="timeline-event__type">Present Consequence</div>
+              <div class="timeline-event__title">The racial wealth gap stands at 8:1 — wider than in 1968</div>
+              <p class="timeline-event__summary">Median Black household wealth: $24,100. Median white household wealth: $188,200. The gap has widened since the Fair Housing Act was signed. Every thread traced on this platform connects to this present-day consequence — the compounded result of deliberate policy choices made across 400 years.</p>
+              <span class="timeline-event__thread-link">Follow the full thread →</span>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /timeline-wrap -->
+    </div><!-- /view-timeline -->
+
+  </div><!-- /container -->
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── VIEW TABS ─────────────────────────────────────────────
+  const viewTabs    = document.querySelectorAll('.view-tab');
+  const viewMaps    = document.getElementById('view-maps');
+  const viewTimeline = document.getElementById('view-timeline');
+
+  viewTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      viewTabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected','false'); });
+      tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
+      if (tab.dataset.view === 'maps') {
+        viewMaps.classList.add('is-active');
+        viewTimeline.classList.remove('is-active');
+      } else {
+        viewTimeline.classList.add('is-active');
+        viewMaps.classList.remove('is-active');
+      }
+    });
+  });
+
+  // ── HERO NAV BUTTONS ──────────────────────────────────────
+  document.querySelectorAll('.maps-hero__nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.maps-hero__nav-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const target = btn.dataset.jump;
+      if (target === 'view-timeline') {
+        // Switch to timeline tab
+        viewTabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected','false'); });
+        document.getElementById('tab-timeline').classList.add('is-active');
+        document.getElementById('tab-timeline').setAttribute('aria-selected','true');
+        viewMaps.classList.remove('is-active');
+        viewTimeline.classList.add('is-active');
+      }
+      const el = document.getElementById(target);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── ERA FILTER ────────────────────────────────────────────
+  document.querySelectorAll('.era-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.era-chip').forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
+      chip.classList.add('is-active'); chip.setAttribute('aria-pressed','true');
+      const era = chip.dataset.era;
+      // Filter map panels and map cards
+      document.querySelectorAll('[data-era]').forEach(el => {
+        el.style.display = (era === 'all' || el.dataset.era === era) ? '' : 'none';
+      });
+    });
+  });
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+</body>
+</html>
