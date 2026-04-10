@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Redlining to the Achievement Gap — Chain</title>
+  <meta name="description" content="How a 1930s federal mortgage policy continues to determine school quality, health outcomes, and generational wealth — neighborhood by neighborhood. Follow the causal thread." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+</head>
+<body>
+
+<!-- Reading progress bar -->
+<div class="reading-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <div class="reading-progress__bar" id="readingBar"></div>
+</div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- =========================================================
+     UTILITY BAR
+     ========================================================= -->
+<div class="utility-bar" role="banner" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> How Reconstruction's collapse shaped the next 150 years of American politics.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- =========================================================
+     MAIN NAVIGATION
+     ========================================================= -->
+<header class="site-nav" role="banner">
+  <div class="site-nav__inner">
+    <a href="/" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"   class="site-nav__link">Explore</a>
+      <a href="threads.html"   class="site-nav__link" aria-current="page">Threads</a>
+      <a href="maps.html"      class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html"     class="site-nav__link">Learn</a>
+      <a href="teaching.html"  class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist" class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=How+did+redlining+affect+schools" class="search-hint-chip">How did redlining affect schools?</a>
+      <a href="search.html?q=Reconstruction+voting+rights" class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+<main id="main-content">
+
+  <!-- =======================================================
+       THREAD HERO
+       ======================================================= -->
+  <section class="thread-page-hero">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <nav class="thread-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="thread-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="threads.html">Threads</a>
+        <span class="thread-breadcrumb__sep" aria-hidden="true">›</span>
+        <span aria-current="page">Redlining &amp; the Achievement Gap</span>
+      </nav>
+
+      <!-- Thread type badge -->
+      <div class="thread-page-label">
+        <span aria-hidden="true">◆</span> Causal Thread
+      </div>
+
+      <!-- Headline -->
+      <h1 class="thread-page-title">
+        From Redlining to the<br />Achievement Gap
+      </h1>
+
+      <p class="thread-page-description">
+        How a federal mortgage policy written in 1934 continues to determine the quality of schools your children attend, the air quality in your neighborhood, and whether your family builds intergenerational wealth — in 2026. This is the chain.
+      </p>
+
+      <!-- Thread metadata -->
+      <div class="thread-meta-row">
+        <div class="thread-meta-item">
+          <span class="thread-meta-item__label">Time span</span>
+          <span class="thread-meta-item__value">1934 – Present</span>
+        </div>
+        <div class="thread-meta-item">
+          <span class="thread-meta-item__label">Key issues</span>
+          <span class="thread-meta-item__value">Housing · Education · Health · Wealth</span>
+        </div>
+        <div class="thread-meta-item">
+          <span class="thread-meta-item__label">Chapters</span>
+          <span class="thread-meta-item__value">6 chapters</span>
+        </div>
+        <div class="thread-meta-item">
+          <span class="thread-meta-item__label">Sources</span>
+          <span class="thread-meta-item__value">18 primary &amp; secondary sources</span>
+        </div>
+        <div class="thread-meta-item">
+          <span class="thread-meta-item__label">Read time</span>
+          <span class="thread-meta-item__value">~20 min</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================
+       THREAD BODY — Scrollytelling layout
+       ======================================================= -->
+  <div class="container">
+    <div class="thread-page-layout">
+
+      <!-- =====================================================
+           MAIN CONTENT
+           ===================================================== -->
+      <article id="thread-content" aria-label="Thread: From Redlining to the Achievement Gap">
+
+        <!-- ---- CHAPTER 0: Overview / Causal Chain Visual --- -->
+        <section class="chapter" id="chapter-overview" aria-labelledby="chapter-0-title">
+          <div class="chapter__number" aria-label="Overview">Overview</div>
+          <h2 id="chapter-0-title" class="chapter__title">The Unbroken Chain</h2>
+          <p class="chapter__subtitle">What connects 1934 to your child's school today</p>
+
+          <div class="chapter__body">
+            <p>In 1934, the federal government created the Home Owners' Loan Corporation (HOLC). Its job was to stabilize a mortgage market devastated by the Depression. To do this, it commissioned "residential security maps" of 239 American cities.</p>
+            <p>The maps color-coded neighborhoods by their presumed mortgage risk: green (best), blue (still desirable), yellow (declining), and red (hazardous). The "hazardous" D rating — marked in red, hence "redlining" — was applied to virtually every neighborhood with a significant Black population.</p>
+            <p>This was not neutral economic assessment. It was racial geography encoded into federal policy. And it created a cascade of consequences that runs unbroken to today.</p>
+          </div>
+
+          <!-- Causal chain visual -->
+          <div class="causal-chain" aria-label="Causal chain visualization">
+
+            <div class="causal-node causal-node--cause">
+              <div class="causal-node__dot" aria-hidden="true">
+                <span style="font-size: 9px; font-weight: 700; color: inherit;">CA</span>
+              </div>
+              <div class="causal-node__content">
+                <p class="causal-node__type">Cause / Context</p>
+                <h3 class="causal-node__title">Pre-existing racial wealth exclusion (1865–1934)</h3>
+                <p class="causal-node__summary">Post-Reconstruction withdrawal of federal protection, land loss, terror, and the systematic exclusion of Black workers from labor union benefits left Black Americans with minimal accumulated wealth entering the New Deal era.</p>
+              </div>
+            </div>
+
+            <div class="causal-node causal-node--policy">
+              <div class="causal-node__dot" aria-hidden="true">
+                <span style="font-size: 9px; font-weight: 700; color: inherit;">PO</span>
+              </div>
+              <div class="causal-node__content">
+                <p class="causal-node__type">Federal Policy</p>
+                <h3 class="causal-node__title">HOLC Residential Security Maps (1934–1940)</h3>
+                <p class="causal-node__summary">Federal maps rated Black neighborhoods "hazardous," making them ineligible for federally backed mortgages. Private banks adopted the maps as underwriting gospel.</p>
+              </div>
+            </div>
+
+            <div class="causal-node causal-node--policy">
+              <div class="causal-node__dot" aria-hidden="true">
+                <span style="font-size: 9px; font-weight: 700; color: inherit;">PO</span>
+              </div>
+              <div class="causal-node__content">
+                <p class="causal-node__type">Policy Compounding</p>
+                <h3 class="causal-node__title">GI Bill administered through segregated systems (1944–1960s)</h3>
+                <p class="causal-node__summary">The Servicemen's Readjustment Act offered low-interest mortgages, free college, and business loans — but administration through segregated banks, VA offices, and universities meant Black veterans rarely accessed these benefits. An estimated 1.2 million Black veterans were effectively excluded.</p>
+              </div>
+            </div>
+
+            <div class="causal-node causal-node--effect">
+              <div class="causal-node__dot" aria-hidden="true">
+                <span style="font-size: 9px; font-weight: 700; color: inherit;">EF</span>
+              </div>
+              <div class="causal-node__content">
+                <p class="causal-node__type">Structural Effect</p>
+                <h3 class="causal-node__title">Neighborhood segregation baked into property values (1940s–1970s)</h3>
+                <p class="causal-node__summary">White families built equity in appreciating suburban homes. Black families were confined to urban neighborhoods with suppressed property values, or paid double the market rate through contract buying. The wealth gap compounded across every decade.</p>
+              </div>
+            </div>
+
+            <div class="causal-node causal-node--policy">
+              <div class="causal-node__dot" aria-hidden="true">
+                <span style="font-size: 9px; font-weight: 700; color: inherit;">PO</span>
+              </div>
+              <div class="causal-node__content">
+                <p class="causal-node__type">Legal Architecture</p>
+                <h3 class="causal-node__title">Property-tax school funding model (1973–present)</h3>
+                <p class="causal-node__summary">The Supreme Court's ruling in <em>San Antonio Independent School District v. Rodriguez</em> (1973) upheld property-tax based school funding as constitutional. In practice, this means school quality is a direct function of local property values — which were deliberately suppressed in Black neighborhoods by federal policy.</p>
+              </div>
+            </div>
+
+            <div class="causal-node causal-node--present">
+              <div class="causal-node__dot" aria-hidden="true">
+                <span style="font-size: 9px; font-weight: 700; color: inherit;">→</span>
+              </div>
+              <div class="causal-node__content">
+                <p class="causal-node__type">Present Day</p>
+                <h3 class="causal-node__title">Measurable, documented inequality persists today</h3>
+                <p class="causal-node__summary">$1,800 less per student in majority-Black districts. 20% higher rates of cardiovascular disease in formerly redlined neighborhoods. Median Black household wealth at $24,100 vs. $188,200 for white households. The chain is intact.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ---- CHAPTER 1: HOLC / Redlining ---- -->
+        <section class="chapter" id="chapter-1" aria-labelledby="chapter-1-title">
+          <div class="chapter__number">Chapter 1</div>
+          <h2 id="chapter-1-title" class="chapter__title">The Maps That Built Segregation</h2>
+          <p class="chapter__subtitle">HOLC Residential Security Maps, 1934–1940</p>
+
+          <div class="chapter__body">
+            <p>When Franklin Roosevelt's New Deal created the Home Owners' Loan Corporation in 1933, the mandate seemed straightforward: stabilize a collapsing mortgage market. HOLC did this in part by buying up underwater mortgages from banks — but also by creating a system to assess the risk of future lending.</p>
+            <p>Between 1935 and 1940, HOLC sent appraisers into 239 American cities to draw "residential security maps." The maps divided every neighborhood into four grades. Grade A (green) meant "best" — typically new construction in all-white suburbs. Grade D (red, "hazardous") was assigned to neighborhoods deemed poor mortgage risks.</p>
+            <p>The maps' appraisers were explicit about racial composition as a grading criterion. A 1937 HOLC appraisal of a Detroit neighborhood was graded D because it "is almost entirely a Negro area." Oakland neighborhoods were marked red because of "infiltration of colored people." The language was bureaucratic. The consequences were devastating.</p>
+          </div>
+
+          <!-- Pull quote -->
+          <blockquote class="pull-quote" cite="https://www.amazon.com/Color-Law-Forgotten-Government-Segregated/dp/1631494538">
+            <p class="pull-quote__text">"The maps were drawn by the federal government. The banks followed the maps. The communities they marked didn't recover. That's not the market. That's policy."</p>
+            <cite class="pull-quote__attribution">Richard Rothstein, The Color of Law (2017)</cite>
+          </blockquote>
+
+          <div class="chapter__body">
+            <p>Private banks quickly adopted the HOLC maps as underwriting standards. The Federal Housing Administration, created the same year, used similar criteria in its own lending guidelines. Insurance companies, too. The result was a coordinated system in which federal ratings became private law — and Black neighborhoods were effectively redlined out of the mortgage market.</p>
+            <p>The effect on wealth accumulation was immediate and lasting. Between 1940 and 1960, white Americans built equity in appreciating suburban homes backed by federal guarantees. Black Americans — locked out — either rented, or paid exploitative prices through contract buying (a predatory scheme where buyers made monthly payments without accruing equity until full price was paid, and could be evicted for any missed payment).</p>
+          </div>
+
+          <!-- Stats -->
+          <div class="stat-callout" aria-label="Key statistics: HOLC redlining impact">
+            <div class="stat-item">
+              <div class="stat-item__number">239</div>
+              <div class="stat-item__label">U.S. cities where HOLC drew residential security maps between 1935 and 1940</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">~98%</div>
+              <div class="stat-item__label">Of neighborhoods graded A (green/best) were racially homogenous — i.e., entirely white</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">$0</div>
+              <div class="stat-item__label">Amount of federally backed mortgage capital available in D-rated neighborhoods — by design</div>
+            </div>
+          </div>
+
+          <!-- Evidence box -->
+          <div class="evidence-box" aria-labelledby="evidence-1-heading">
+            <div class="evidence-box__header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+              <h3 id="evidence-1-heading" class="evidence-box__header-label">Primary Sources &amp; Evidence</h3>
+            </div>
+            <div class="evidence-box__body">
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Archive</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">HOLC Residential Security Maps, National Archives (Record Group 195)</p>
+                  <p class="evidence-item__meta">National Archives, Washington D.C. — Original appraisal worksheets, city survey reports, and area description forms documenting HOLC grading criteria, including explicit references to racial composition.</p>
+                </div>
+              </div>
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Dataset</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">Mapping Inequality: Redlining in New Deal America</p>
+                  <p class="evidence-item__meta">University of Richmond Digital Scholarship Lab, 2018. Digitized and georeferenced HOLC maps covering 200+ cities, cross-referenced with census data. Available at <em>dsl.richmond.edu</em></p>
+                </div>
+              </div>
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Study</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">"Redlining and Neighborhood Health" — NCRC Research</p>
+                  <p class="evidence-item__meta">National Community Reinvestment Coalition, 2020. Matched HOLC maps against current health data from the CDC. Found formerly D-rated (redlined) neighborhoods have life expectancy 3.6 years lower than A-rated neighborhoods in the same city.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Relations -->
+          <div class="relations-block">
+            <p class="relations-block__title">Related in this thread</p>
+            <div class="relations-grid">
+              <a href="policy-homeowners-loan-corp.html" class="relation-link">
+                <span class="relation-link__type">Policy</span>
+                HOLC Residential Security Maps
+              </a>
+              <a href="policy-fha-act.html" class="relation-link">
+                <span class="relation-link__type">Policy</span>
+                Federal Housing Administration Act, 1934
+              </a>
+              <a href="place-chicago-southside.html" class="relation-link">
+                <span class="relation-link__type">Place</span>
+                Chicago's South Side
+              </a>
+              <a href="maps.html" class="relation-link">
+                <span class="relation-link__type">Map</span>
+                View redlining maps near you
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- CHAPTER 2: GI Bill ---- -->
+        <section class="chapter" id="chapter-2" aria-labelledby="chapter-2-title">
+          <div class="chapter__number">Chapter 2</div>
+          <h2 id="chapter-2-title" class="chapter__title">The GI Bill: A Promise Built for White Hands</h2>
+          <p class="chapter__subtitle">The Servicemen's Readjustment Act, 1944</p>
+
+          <div class="chapter__body">
+            <p>When Franklin Roosevelt signed the Servicemen's Readjustment Act — the GI Bill — in June 1944, it was called the greatest equalizing force in American history. For white Americans, that description was accurate. For Black Americans, it was a cruel fiction.</p>
+            <p>The GI Bill offered three historic benefits: low-interest home loans, free college or vocational training, and business start-up loans. In the fifteen years after the war, these benefits helped create the American middle class — building the suburbs, filling the universities, and distributing wealth on a scale that permanently altered American life.</p>
+            <p>But the bill was administered largely through state and local agencies, the same agencies that enforced racial segregation across the South and North alike. Black veterans who applied for home loans were directed to banks that wouldn't serve them. Those who sought college placements were turned away by institutions that didn't admit Black students. Mississippi's Jim Crow bureaucracy processed 3,229 VA loans — exactly two went to Black veterans.</p>
+          </div>
+
+          <blockquote class="pull-quote" cite="https://www.amazon.com/When-Affirmative-Action-White-Government/dp/0465032966">
+            <p class="pull-quote__text">"The GI Bill was transformative — but the white veteran who benefited was not simply lucky. He was the intended beneficiary of a deliberately designed racial system."</p>
+            <cite class="pull-quote__attribution">Ira Katznelson, When Affirmative Action Was White (2005)</cite>
+          </blockquote>
+
+          <div class="chapter__body">
+            <p>The scale of exclusion was staggering. An estimated 1.2 million Black veterans were effectively denied the full benefits of the GI Bill. The homeownership those benefits would have funded became the single greatest source of wealth accumulation in American history. Each home not purchased, each college degree not earned, each business loan not made compounded over generations.</p>
+            <p>Historian Ira Katznelson estimates that the GI Bill transferred roughly $95 billion (2024 dollars) in benefits — predominantly to white veterans — in the decade after the war. This was not a market outcome. It was a policy decision.</p>
+          </div>
+
+          <div class="stat-callout" aria-label="Key statistics: GI Bill racial exclusion">
+            <div class="stat-item">
+              <div class="stat-item__number">1.2M</div>
+              <div class="stat-item__label">Estimated Black veterans effectively excluded from GI Bill benefits through discriminatory administration</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">2 / 3,229</div>
+              <div class="stat-item__label">VA home loans in Mississippi that went to Black veterans — out of over 3,200 processed (1944–1948)</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">$95B</div>
+              <div class="stat-item__label">Estimated 2024 value of GI Bill benefits distributed — the vast majority to white veterans</div>
+            </div>
+          </div>
+
+          <div class="relations-block">
+            <p class="relations-block__title">Related in this thread</p>
+            <div class="relations-grid">
+              <a href="policy-gi-bill.html" class="relation-link">
+                <span class="relation-link__type">Policy</span>
+                Servicemen's Readjustment Act, 1944
+              </a>
+              <a href="person-ira-katznelson.html" class="relation-link">
+                <span class="relation-link__type">Scholar</span>
+                Ira Katznelson — When Affirmative Action Was White
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- CHAPTER 3: School Funding ---- -->
+        <section class="chapter" id="chapter-3" aria-labelledby="chapter-3-title">
+          <div class="chapter__number">Chapter 3</div>
+          <h2 id="chapter-3-title" class="chapter__title">The School Funding Equation</h2>
+          <p class="chapter__subtitle">How property values became education destiny</p>
+
+          <div class="chapter__body">
+            <p>By 1970, American neighborhoods were racially segregated by design. Black families had been denied access to appreciating suburban property. Their neighborhoods — starved of mortgage capital, disinvested by landlords, redlined by insurers — had suppressed property values by policy.</p>
+            <p>In 1973, the Supreme Court formalized the consequences. In <em>San Antonio Independent School District v. Rodriguez</em>, the Court ruled 5-4 that education was not a fundamental right under the Constitution, and that property-tax school funding did not violate the Equal Protection clause. The dissent, written by Justice Thurgood Marshall, was scathing: "The majority's holding can only be seen as a retreat from our historic commitment to equality of educational opportunity and as unsupportable acquiescence in a system which deprives children in their earliest years of the chance to reach their full potential."</p>
+            <p>The majority didn't care. Property taxes would continue to fund schools. And property taxes — directly tied to home values that had been deliberately suppressed in Black neighborhoods — would continue to produce radically unequal educational resources.</p>
+          </div>
+
+          <blockquote class="pull-quote">
+            <p class="pull-quote__text">"The quality of the educational opportunity offered a child is a function of the taxable property wealth of the district in which he lives. The consequence… is that those children who live in poor districts are denied the opportunity to live and work in a world that prizes intellectual achievement."</p>
+            <cite class="pull-quote__attribution">Justice Thurgood Marshall, dissent in San Antonio v. Rodriguez (1973)</cite>
+          </blockquote>
+
+          <div class="chapter__body">
+            <p>The math is brutal in its simplicity. A neighborhood whose property values were depressed by 30–40 percent through decades of redlining and disinvestment generates proportionally less tax revenue. That revenue funds the schools. Schools with less revenue have less per-pupil spending. Less spending correlates strongly with worse educational outcomes — which correlate with income, health, and wealth in adulthood.</p>
+            <p>EdBuild's 2019 analysis of the entire U.S. school funding system found that majority non-white school districts received $23 billion less in annual funding than majority-white districts serving the same number of students. Per pupil, the gap averaged $1,800. In some states, the gap exceeded $7,000 per student per year.</p>
+          </div>
+
+          <div class="stat-callout" aria-label="Key statistics: School funding inequality">
+            <div class="stat-item">
+              <div class="stat-item__number">$1,800</div>
+              <div class="stat-item__label">Less per student annually in majority-Black school districts vs. majority-white districts (EdBuild, 2019)</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">$23B</div>
+              <div class="stat-item__label">Total annual funding gap between majority non-white and majority-white districts serving the same number of students</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">5-4</div>
+              <div class="stat-item__label">The Supreme Court vote in <em>Rodriguez</em> (1973) that upheld property-tax school funding as constitutional — despite documented racial inequity</div>
+            </div>
+          </div>
+
+          <div class="evidence-box" aria-labelledby="evidence-3-heading">
+            <div class="evidence-box__header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+              <h3 id="evidence-3-heading" class="evidence-box__header-label">Sources &amp; Evidence</h3>
+            </div>
+            <div class="evidence-box__body">
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Report</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">Dismissed: America's Most Divisive School District Borders</p>
+                  <p class="evidence-item__meta">EdBuild, 2019. Analyzed funding for every school district in the country by racial composition, finding systematic underfunding of non-white districts. <em>edbuild.org/content/dismissed</em></p>
+                </div>
+              </div>
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Legal</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">San Antonio Independent School District v. Rodriguez, 411 U.S. 1 (1973)</p>
+                  <p class="evidence-item__meta">U.S. Supreme Court. 5–4 ruling upholding property-tax school funding. Thurgood Marshall's dissent remains one of the most detailed judicial analyses of structural educational inequality in American law.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- CHAPTER 4: Health Outcomes ---- -->
+        <section class="chapter" id="chapter-4" aria-labelledby="chapter-4-title">
+          <div class="chapter__number">Chapter 4</div>
+          <h2 id="chapter-4-title" class="chapter__title">Your Zip Code Is Your Health Record</h2>
+          <p class="chapter__subtitle">How redlining determined who lives and who dies</p>
+
+          <div class="chapter__body">
+            <p>In 2020, researchers matched the original HOLC "residential security maps" — the redlining maps — against current health data from the CDC. The findings were stark.</p>
+            <p>Neighborhoods that were graded D (redlined) in the 1930s showed significantly higher rates of asthma, cardiovascular disease, diabetes, and premature mortality in 2020. Life expectancy in formerly redlined neighborhoods was 3.6 years lower than in A-rated neighborhoods in the same city. The heat island effect — urban areas that retain more heat due to less tree cover and more pavement — is measurably worse in formerly redlined areas, contributing to higher rates of heat-related illness.</p>
+            <p>None of these health disparities are explained by "culture" or "lifestyle choices." They are explained by decades of environmental disinvestment: less tree cover, more proximity to highways and industrial facilities, less access to fresh food, lower-quality housing with mold and lead paint, and under-resourced healthcare facilities.</p>
+          </div>
+
+          <div class="stat-callout" aria-label="Key statistics: Redlining and health outcomes">
+            <div class="stat-item">
+              <div class="stat-item__number">3.6 yrs</div>
+              <div class="stat-item__label">Shorter life expectancy in formerly redlined neighborhoods vs. A-rated neighborhoods in the same city (NCRC, 2020)</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">20%</div>
+              <div class="stat-item__label">Higher rates of asthma and cardiovascular disease in formerly D-rated neighborhoods (EPA / NCRC correlation study)</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">2-5°F</div>
+              <div class="stat-item__label">Higher average summer temperatures in formerly redlined neighborhoods, due to less tree cover and more pavement (Science Advances, 2020)</div>
+            </div>
+          </div>
+
+          <div class="chapter__body">
+            <p>The COVID-19 pandemic made the health geography of redlining visible at national scale. Black Americans died of COVID-19 at twice the rate of white Americans. The proximate causes were clear: more exposure risk from essential jobs, more underlying conditions from environmental pollution, less access to healthcare, more crowded housing. Every one of these factors traces back through a chain to federal housing policy.</p>
+            <p><span class="source-cite" title="Source: APM Research Lab, Color of Coronavirus, 2021">Source ↗</span> As of mid-2021, the age-adjusted COVID-19 mortality rate for Black Americans was 96.2 per 100,000, vs. 45.2 per 100,000 for white Americans.</p>
+          </div>
+
+          <div class="relations-block">
+            <p class="relations-block__title">Related entries</p>
+            <div class="relations-grid">
+              <a href="maps.html#health-redlining" class="relation-link">
+                <span class="relation-link__type">Map</span>
+                Health outcomes overlaid on HOLC maps
+              </a>
+              <a href="thread-health-disparities.html" class="relation-link">
+                <span class="relation-link__type">Thread</span>
+                Roots of Racial Health Disparities
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- CHAPTER 5: Wealth Gap ---- -->
+        <section class="chapter" id="chapter-5" aria-labelledby="chapter-5-title">
+          <div class="chapter__number">Chapter 5</div>
+          <h2 id="chapter-5-title" class="chapter__title">The Compounding Wealth Gap</h2>
+          <p class="chapter__subtitle">What 80 years of exclusion looks like in dollars</p>
+
+          <div class="chapter__body">
+            <p>The racial wealth gap in America is sometimes framed as a mystery — the result of some combination of history and culture and circumstance that is hard to untangle. It isn't a mystery. It is an equation.</p>
+            <p>The primary vehicle of middle-class wealth in America has been homeownership. Home equity accounts for two-thirds of median American household wealth. Between 1940 and 1960, the American homeownership rate rose from 44 to 62 percent — almost entirely among white Americans. Black Americans were systematically excluded from that wealth-building period by federal mortgage policy.</p>
+          </div>
+
+          <div class="stat-callout" aria-label="Key statistics: Racial wealth gap">
+            <div class="stat-item">
+              <div class="stat-item__number">$24,100</div>
+              <div class="stat-item__label">Median Black household wealth (Federal Reserve Survey of Consumer Finances, 2022)</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">$188,200</div>
+              <div class="stat-item__label">Median white household wealth (Federal Reserve, 2022) — 7.8× larger</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-item__number">30pts</div>
+              <div class="stat-item__label">Racial homeownership gap in 2024 (44% Black vs. 74% white) — wider than when the Fair Housing Act passed in 1968</div>
+            </div>
+          </div>
+
+          <div class="chapter__body">
+            <p>The homeownership gap today — roughly 30 percentage points — is wider than it was in 1968, the year the Fair Housing Act was passed. How is this possible? Because legal anti-discrimination is not sufficient to overcome structural inequality built over decades. Property values in formerly redlined neighborhoods remain suppressed. Access to capital remains unequal. And the downstream effects — on education, health, income — continue to compound.</p>
+            <p>The Federal Reserve's 2022 Survey of Consumer Finances found median Black household wealth at $24,100. Median white household wealth: $188,200. This is not a gap. It is a chasm — and it is precisely the size that 80 years of deliberate exclusion would produce.</p>
+          </div>
+
+          <div class="evidence-box" aria-labelledby="evidence-5-heading">
+            <div class="evidence-box__header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+              <h3 id="evidence-5-heading" class="evidence-box__header-label">Key Sources</h3>
+            </div>
+            <div class="evidence-box__body">
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Survey</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">Survey of Consumer Finances</p>
+                  <p class="evidence-item__meta">Federal Reserve Board, 2022. Triennial survey of U.S. family finances, tracking wealth by race, income, education, and age. The primary federal data source on the racial wealth gap.</p>
+                </div>
+              </div>
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Book</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">The Case for Reparations</p>
+                  <p class="evidence-item__meta">Ta-Nehisi Coates, The Atlantic, 2014. Landmark long-form journalism tracing the wealth extraction from Black Chicago through contract buying and documenting the precise mechanism of wealth destruction.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- CHAPTER 6: Today / Why It Matters ---- -->
+        <section class="chapter" id="chapter-6" aria-labelledby="chapter-6-title">
+          <div class="chapter__number">Chapter 6</div>
+          <h2 id="chapter-6-title" class="chapter__title">Today: Where the Chain Ends Up</h2>
+          <p class="chapter__subtitle">Why this history is not history</p>
+
+          <div class="chapter__body">
+            <p>The policy that created redlining ended decades ago. The maps are in archives. The HOLC was dissolved in 1951. But history doesn't end when a policy does. It ends when its consequences end. Those consequences are still running.</p>
+            <p>In 2024, a child born in a formerly redlined neighborhood in Baltimore, Chicago, Detroit, or Atlanta is still statistically more likely to attend a school that spends $1,800 less per pupil. Still more likely to live in a neighborhood with higher rates of pollution, heat exposure, and food insecurity. Still more likely to grow up in a household with a fraction of the wealth of a child born in a neighborhood that received a federal A-rating in 1937.</p>
+            <p>This is not a metaphor. It is geography. It is school district boundaries. It is tax base arithmetic. It is the weight of 80 years of compounding inequality, still accumulating interest today.</p>
+          </div>
+
+          <blockquote class="pull-quote">
+            <p class="pull-quote__text">"Once segregation is built into the urban landscape and the economic infrastructure, it doesn't need laws to perpetuate itself. The inequality is self-replicating."</p>
+            <cite class="pull-quote__attribution">Thomas Shapiro, The Hidden Cost of Being African American (2004)</cite>
+          </blockquote>
+
+          <div class="chapter__body">
+            <p>The chain has a present-tense. The 2023 Urban Institute study found that formerly redlined neighborhoods continue to show lower rates of homeownership, lower home values, lower household income, and higher poverty rates than neighborhoods that received A or B ratings from HOLC — even after controlling for current income. The policy left a structural imprint that 50+ years of anti-discrimination law has not erased.</p>
+            <p>Understanding this chain — not just the events, but the mechanism, the causality, the compounding — is the precondition for any serious conversation about how to address it.</p>
+          </div>
+
+          <!-- Why it matters -->
+          <div class="evidence-box" aria-labelledby="why-matters-heading">
+            <div class="evidence-box__header">
+              <span>⚑</span>
+              <h3 id="why-matters-heading" class="evidence-box__header-label">Why This Thread Matters</h3>
+            </div>
+            <div class="evidence-box__body">
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Today</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">Housing policy debates about zoning reform, community development, and housing vouchers</p>
+                  <p class="evidence-item__meta">Current proposals to reform exclusionary zoning, expand affordable housing, or restructure community development investment cannot be evaluated without understanding how the current geographic distribution of poverty was constructed.</p>
+                </div>
+              </div>
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Today</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">School funding reform and education equity legislation</p>
+                  <p class="evidence-item__meta">Every state-level debate about school funding formulas — weighted per-pupil funding, foundation grants, adequacy vs. equity frameworks — is a debate about who inherits the consequences of redlining.</p>
+                </div>
+              </div>
+              <div class="evidence-item">
+                <span class="evidence-item__source-type">Today</span>
+                <div class="evidence-item__content">
+                  <p class="evidence-item__title">Reparations policy debate</p>
+                  <p class="evidence-item__meta">The documented, quantifiable nature of GI Bill exclusion and HOLC redlining is central to academic and legislative arguments for targeted redress policies, including the H.R. 40 bill studying reparations for slavery and its aftermath.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Final relations block -->
+          <div class="relations-block">
+            <p class="relations-block__title">Continue the chain — related threads and entries</p>
+            <div class="relations-grid">
+              <a href="threads.html#reconstruction" class="relation-link">
+                <span class="relation-link__type">Thread</span>
+                Reconstruction &amp; Its Collapse
+              </a>
+              <a href="thread-mass-incarceration.html" class="relation-link">
+                <span class="relation-link__type">Thread</span>
+                From Black Codes to Mass Incarceration
+              </a>
+              <a href="thread-health-disparities.html" class="relation-link">
+                <span class="relation-link__type">Thread</span>
+                Roots of Racial Health Disparities
+              </a>
+              <a href="policy-fair-housing-act.html" class="relation-link">
+                <span class="relation-link__type">Policy</span>
+                Fair Housing Act, 1968
+              </a>
+              <a href="person-richard-rothstein.html" class="relation-link">
+                <span class="relation-link__type">Scholar</span>
+                Richard Rothstein
+              </a>
+              <a href="maps.html#redlining" class="relation-link">
+                <span class="relation-link__type">Map</span>
+                Redlining + Present-Day Outcomes Map
+              </a>
+            </div>
+          </div>
+
+        </section>
+
+      </article>
+
+      <!-- =====================================================
+           SIDEBAR
+           ===================================================== -->
+      <aside class="thread-page-sidebar" aria-label="Thread navigation and related content">
+
+        <!-- Chapter nav -->
+        <nav class="chapter-nav" aria-label="Thread chapters">
+          <div class="chapter-nav__title">Chapters</div>
+          <ul class="chapter-nav__list">
+            <li>
+              <a href="#chapter-overview" class="chapter-nav__item is-active" data-chapter="chapter-overview">
+                <span class="chapter-nav__item-num">0</span>
+                <span class="chapter-nav__item-title">The Unbroken Chain — Overview</span>
+              </a>
+            </li>
+            <li>
+              <a href="#chapter-1" class="chapter-nav__item" data-chapter="chapter-1">
+                <span class="chapter-nav__item-num">1</span>
+                <span class="chapter-nav__item-title">The Maps That Built Segregation</span>
+              </a>
+            </li>
+            <li>
+              <a href="#chapter-2" class="chapter-nav__item" data-chapter="chapter-2">
+                <span class="chapter-nav__item-num">2</span>
+                <span class="chapter-nav__item-title">The GI Bill: A Promise Built for White Hands</span>
+              </a>
+            </li>
+            <li>
+              <a href="#chapter-3" class="chapter-nav__item" data-chapter="chapter-3">
+                <span class="chapter-nav__item-num">3</span>
+                <span class="chapter-nav__item-title">The School Funding Equation</span>
+              </a>
+            </li>
+            <li>
+              <a href="#chapter-4" class="chapter-nav__item" data-chapter="chapter-4">
+                <span class="chapter-nav__item-num">4</span>
+                <span class="chapter-nav__item-title">Your Zip Code Is Your Health Record</span>
+              </a>
+            </li>
+            <li>
+              <a href="#chapter-5" class="chapter-nav__item" data-chapter="chapter-5">
+                <span class="chapter-nav__item-num">5</span>
+                <span class="chapter-nav__item-title">The Compounding Wealth Gap</span>
+              </a>
+            </li>
+            <li>
+              <a href="#chapter-6" class="chapter-nav__item" data-chapter="chapter-6">
+                <span class="chapter-nav__item-num">6</span>
+                <span class="chapter-nav__item-title">Today: Where the Chain Ends Up</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Read next -->
+        <div class="read-next">
+          <p class="read-next__title">Where to go next</p>
+          <div class="read-next__items">
+            <a href="threads.html#reconstruction" class="read-next__item" aria-label="Read thread: Reconstruction & Its Collapse">
+              <div class="read-next__type-dot dot--thread" aria-hidden="true"></div>
+              <div>
+                <p class="read-next__item-type">Thread</p>
+                <p class="read-next__item-title">Reconstruction &amp; Its Collapse</p>
+              </div>
+            </a>
+            <a href="policy-homeowners-loan-corp.html" class="read-next__item" aria-label="Read policy entry: HOLC Residential Security Maps">
+              <div class="read-next__type-dot dot--policy" aria-hidden="true"></div>
+              <div>
+                <p class="read-next__item-type">Policy</p>
+                <p class="read-next__item-title">HOLC Residential Security Maps, 1935–1940</p>
+              </div>
+            </a>
+            <a href="person-richard-rothstein.html" class="read-next__item" aria-label="Read person entry: Richard Rothstein">
+              <div class="read-next__type-dot dot--person" aria-hidden="true"></div>
+              <div>
+                <p class="read-next__item-type">Scholar</p>
+                <p class="read-next__item-title">Richard Rothstein — The Color of Law</p>
+              </div>
+            </a>
+            <a href="place-chicago-southside.html" class="read-next__item" aria-label="Read place entry: Chicago's South Side">
+              <div class="read-next__type-dot dot--place" aria-hidden="true"></div>
+              <div>
+                <p class="read-next__item-type">Place</p>
+                <p class="read-next__item-title">Chicago's South Side &amp; Contract Buying</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Teaching this thread -->
+        <div class="read-next" aria-label="Teaching resources for this thread">
+          <p class="read-next__title">Teaching this thread</p>
+          <div class="read-next__items">
+            <a href="teaching.html#redlining-lesson" class="read-next__item">
+              <div class="read-next__type-dot" style="background: var(--amber-400);" aria-hidden="true"></div>
+              <div>
+                <p class="read-next__item-type">Lesson Plan</p>
+                <p class="read-next__item-title">Grades 9–12: Redlining &amp; Housing Inequality</p>
+              </div>
+            </a>
+            <a href="teaching.html#discussion-guide-redlining" class="read-next__item">
+              <div class="read-next__type-dot" style="background: var(--slate-400);" aria-hidden="true"></div>
+              <div>
+                <p class="read-next__item-type">Discussion Guide</p>
+                <p class="read-next__item-title">Connecting History to Contemporary Housing Debates</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-wordmark">Chain</div>
+        <p class="footer-mission">
+          A nonprofit digital history platform. We document how the past continues to shape the present — through evidence, narrative, and connected research.
+        </p>
+        <div class="footer-actions">
+          <a href="donate.html"     class="footer-btn footer-btn--primary">Donate</a>
+          <a href="newsletter.html" class="footer-btn footer-btn--outline">Newsletter</a>
+        </div>
+      </div>
+      <nav class="footer-nav-group" aria-label="Explore navigation">
+        <h2 class="footer-nav-heading">Explore</h2>
+        <ul class="footer-nav-links">
+          <li><a href="threads.html"   class="footer-nav-link">All Threads</a></li>
+          <li><a href="explore.html"   class="footer-nav-link">Encyclopedia</a></li>
+          <li><a href="maps.html"      class="footer-nav-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"     class="footer-nav-link">Today in History</a></li>
+          <li><a href="sources.html"   class="footer-nav-link">Sources Archive</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav-group" aria-label="Learning navigation">
+        <h2 class="footer-nav-heading">Learn</h2>
+        <ul class="footer-nav-links">
+          <li><a href="teaching.html"  class="footer-nav-link">Teaching Resources</a></li>
+          <li><a href="learn.html"     class="footer-nav-link">Learning Paths</a></li>
+          <li><a href="teaching.html#lessons" class="footer-nav-link">Lesson Plans</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav-group" aria-label="About navigation">
+        <h2 class="footer-nav-heading">About</h2>
+        <ul class="footer-nav-links">
+          <li><a href="about.html"             class="footer-nav-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-nav-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2026 Chain. Content published under Creative Commons Attribution 4.0 unless otherwise noted.</p>
+      <div class="footer-trust" aria-label="Trust indicators">
+        <div class="footer-trust-item"><span>Editorially independent</span></div>
+        <div class="footer-trust-item"><span>Nonprofit 501(c)(3)</span></div>
+        <div class="footer-trust-item"><span>Scholar-reviewed content</span></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/thread.js"></script>
+</body>
+</html>

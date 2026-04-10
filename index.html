@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chain — Understand the chain, not just the event</title>
+  <meta name="description" content="A digital history platform that reveals how Black history connects to present-day America through causal threads of people, policies, places, and consequences." />
+  <meta property="og:title" content="Chain — Black History & Present-Day America" />
+  <meta property="og:description" content="Understand the chain, not just the event. Follow the causal threads connecting history to today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+<!-- =========================================================
+     SKIP NAVIGATION
+     ========================================================= -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- =========================================================
+     UTILITY BAR
+     ========================================================= -->
+<div class="utility-bar" role="banner" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> How Reconstruction's collapse shaped the next 150 years of American politics.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- =========================================================
+     MAIN NAVIGATION
+     ========================================================= -->
+<header class="site-nav" role="banner">
+  <div class="site-nav__inner">
+    <!-- Wordmark -->
+    <a href="/" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+
+    <!-- Primary nav -->
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"   class="site-nav__link">Explore</a>
+      <a href="threads.html"   class="site-nav__link">Threads</a>
+      <a href="maps.html"      class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html"     class="site-nav__link">Learn</a>
+      <a href="teaching.html"  class="site-nav__link">Teaching</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- =========================================================
+     SEARCH OVERLAY
+     ========================================================= -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input
+        type="search"
+        id="searchInput"
+        name="q"
+        class="search-overlay__input"
+        placeholder="Ask a question or search a topic…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist" class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=How+did+redlining+affect+schools" class="search-hint-chip">How did redlining affect schools?</a>
+      <a href="search.html?q=Reconstruction+voting+rights" class="search-hint-chip">Reconstruction &amp; voting rights</a>
+      <a href="search.html?q=GI+Bill+racial+exclusion" class="search-hint-chip">GI Bill racial exclusion</a>
+      <a href="search.html?q=mass+incarceration+history" class="search-hint-chip">Roots of mass incarceration</a>
+      <a href="search.html?q=Great+Migration+causes" class="search-hint-chip">Why did the Great Migration happen?</a>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     MOBILE NAV DRAWER
+     ========================================================= -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+<main id="main-content">
+
+  <!-- =======================================================
+       SECTION 1: HERO
+       Promise: "Understand the chain, not just the event"
+       ======================================================= -->
+  <section class="hero" aria-labelledby="hero-headline">
+    <div class="hero__texture" aria-hidden="true"></div>
+    <div class="hero__grid-overlay" aria-hidden="true"></div>
+    <div class="container hero__inner">
+
+      <!-- Left: Value prop -->
+      <div class="hero__content">
+        <p class="hero__eyebrow animate-fade-up">
+          A digital history platform
+        </p>
+        <h1 id="hero-headline" class="hero__headline animate-fade-up animate-delay-100">
+          Understand the chain,<br />
+          <em>not just the event.</em>
+        </h1>
+        <p class="hero__subhead animate-fade-up animate-delay-200">
+          Black history doesn't end at the textbook. Follow the causal threads that connect enslavement, Reconstruction, redlining, and legal exclusion to the wealth gaps, health disparities, and political inequities of today.
+        </p>
+        <div class="hero__cta-group animate-fade-up animate-delay-300">
+          <a href="threads.html" class="btn btn--primary">
+            Follow a thread
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="explore.html" class="btn btn--secondary">
+            Explore the archive
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Featured thread preview -->
+      <aside class="hero__feature animate-fade-up animate-delay-400" aria-label="Featured thread preview">
+        <div class="hero__feature-label">
+          <span>●</span> Featured Thread
+        </div>
+        <h2 class="hero__feature-title">
+          From Redlining to the<br />Achievement Gap
+        </h2>
+        <p class="hero__feature-summary">
+          How a 1930s federal mortgage policy continues to determine school quality, health outcomes, and generational wealth — neighborhood by neighborhood.
+        </p>
+        <div class="thread-nodes" role="list" aria-label="Thread sequence">
+          <div class="thread-node" role="listitem">
+            <div class="thread-node__connector" aria-hidden="true">
+              <div class="thread-node__dot"></div>
+              <div class="thread-node__line"></div>
+            </div>
+            <div class="thread-node__text">
+              <span class="thread-node__year">1934</span>
+              HOLC redlining maps grade Black neighborhoods as "hazardous"
+            </div>
+          </div>
+          <div class="thread-node" role="listitem">
+            <div class="thread-node__connector" aria-hidden="true">
+              <div class="thread-node__dot"></div>
+              <div class="thread-node__line"></div>
+            </div>
+            <div class="thread-node__text">
+              <span class="thread-node__year">1944</span>
+              GI Bill mortgage benefits systematically denied to Black veterans
+            </div>
+          </div>
+          <div class="thread-node" role="listitem">
+            <div class="thread-node__connector" aria-hidden="true">
+              <div class="thread-node__dot"></div>
+              <div class="thread-node__line"></div>
+            </div>
+            <div class="thread-node__text">
+              <span class="thread-node__year">1973–Now</span>
+              Property-tax school funding entrenches neighborhood inequality
+            </div>
+          </div>
+          <div class="thread-node" role="listitem">
+            <div class="thread-node__connector" aria-hidden="true">
+              <div class="thread-node__dot"></div>
+              <div class="thread-node__line"></div>
+            </div>
+            <div class="thread-node__text">
+              <span class="thread-node__year">Today</span>
+              Majority-Black school districts receive $1,800 less per student annually
+            </div>
+          </div>
+        </div>
+        <a href="thread.html" class="hero__feature-link" aria-label="Read thread: From Redlining to the Achievement Gap">
+          Read this thread <span aria-hidden="true">→</span>
+        </a>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 2: STARTING QUESTIONS
+       Question-led discovery — curiosity as entry point
+       ======================================================= -->
+  <section class="questions-section section--sm" aria-labelledby="questions-heading">
+    <div class="container">
+      <div class="questions-section__header">
+        <h2 id="questions-heading" class="questions-section__title">Start with a question</h2>
+        <p class="questions-section__sub">Every thread on Chain begins with a question people actually ask.</p>
+      </div>
+      <ul class="question-grid" role="list">
+        <li>
+          <a href="search.html?q=housing+inequality" class="question-card" aria-label="Explore question: Why does housing inequality persist today?">
+            <div class="question-card__icon" aria-hidden="true">🏠</div>
+            <div>
+              <p class="question-card__q">Why does housing inequality persist today?</p>
+              <p class="question-card__thread">→ Redlining &amp; the Wealth Gap</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="search.html?q=reconstruction" class="question-card" aria-label="Explore question: How did Reconstruction shape modern America?">
+            <div class="question-card__icon" aria-hidden="true">🗳</div>
+            <div>
+              <p class="question-card__q">How did Reconstruction shape modern America?</p>
+              <p class="question-card__thread">→ Reconstruction &amp; Its Collapse</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="search.html?q=mass+incarceration" class="question-card" aria-label="Explore question: What are the historical roots of mass incarceration?">
+            <div class="question-card__icon" aria-hidden="true">⚖️</div>
+            <div>
+              <p class="question-card__q">What are the historical roots of mass incarceration?</p>
+              <p class="question-card__thread">→ From Black Codes to Prisons</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="search.html?q=wealth+gap" class="question-card" aria-label="Explore question: Why is there a racial wealth gap?">
+            <div class="question-card__icon" aria-hidden="true">📊</div>
+            <div>
+              <p class="question-card__q">Why is there a racial wealth gap?</p>
+              <p class="question-card__thread">→ Stolen Labor to Stolen Equity</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="search.html?q=health+disparities" class="question-card" aria-label="Explore question: Why do racial health disparities exist?">
+            <div class="question-card__icon" aria-hidden="true">🏥</div>
+            <div>
+              <p class="question-card__q">Why do racial health disparities exist?</p>
+              <p class="question-card__thread">→ Redlining &amp; Health Outcomes</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="search.html?q=voting+rights" class="question-card" aria-label="Explore question: How have voting rights been restricted and why?">
+            <div class="question-card__icon" aria-hidden="true">📜</div>
+            <div>
+              <p class="question-card__q">How have voting rights been restricted and why?</p>
+              <p class="question-card__thread">→ From Reconstruction to Suppression</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 3: FOLLOW A THREAD — Interactive scrollytelling
+       Signature causal chain experience
+       ======================================================= -->
+  <section class="thread-feature section" id="follow-thread" aria-labelledby="thread-feature-heading">
+    <div class="thread-feature__bg-accent" aria-hidden="true"></div>
+    <div class="container">
+
+      <div class="thread-feature__header">
+        <p class="thread-feature__label">
+          <span class="thread-feature__label-dot" aria-hidden="true"></span>
+          Signature Feature
+        </p>
+        <h2 id="thread-feature-heading" class="thread-feature__title">
+          Follow a thread
+        </h2>
+        <p class="thread-feature__description">
+          Each thread traces a causal chain across time — not just what happened, but what led to it, what changed because of it, and where its effects remain visible today. Click any step to expand.
+        </p>
+      </div>
+
+      <div class="thread-scroller">
+        <!-- Steps (left) -->
+        <div class="thread-steps" role="list" aria-label="Thread: Redlining to Present Day">
+
+          <article class="thread-step is-active" role="listitem" data-step="0" aria-expanded="true">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">01</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">1865–1877 — Cause</p>
+              <h3 class="thread-step__title">Reconstruction: A Brief Opening</h3>
+              <p class="thread-step__text">
+                After the Civil War, federal troops enforced new constitutional amendments. Black Americans voted, held office, and built schools and churches. 16 Black men served in Congress. But without land redistribution — the promised "40 acres" — the structural foundations of inequality remained.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread.html#reconstruction" class="thread-step__tag">Reconstruction Era</a>
+                <a href="thread.html#40-acres" class="thread-step__tag">40 Acres &amp; a Mule</a>
+                <a href="thread.html#black-codes" class="thread-step__tag">Black Codes</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="1" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">02</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">1877–1934 — Policy</p>
+              <h3 class="thread-step__title">Withdrawal, Terror &amp; Legal Exclusion</h3>
+              <p class="thread-step__text">
+                Federal troops withdrew under the Compromise of 1877. Jim Crow laws institutionalized segregation. The Ku Klux Klan used targeted terror. Black land ownership — briefly rising to 14 million acres by 1910 — was dismantled through intimidation, fraud, and legal manipulation over the following decades.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread.html#jim-crow" class="thread-step__tag">Jim Crow Laws</a>
+                <a href="thread.html#terror" class="thread-step__tag">Racial Terror</a>
+                <a href="thread.html#land-loss" class="thread-step__tag">Black Land Loss</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="2" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">03</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">1934–1968 — Federal Architecture</p>
+              <h3 class="thread-step__title">The Federal Government Builds Segregation Into Housing</h3>
+              <p class="thread-step__text">
+                The New Deal's HOLC program created "residential security maps" — redlining. The FHA and VA backed mortgages almost exclusively in white suburbs. The GI Bill distributed record wealth, but Black veterans were systematically excluded. The federal government didn't just permit inequality — it constructed it.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread.html#holc" class="thread-step__tag">HOLC Maps</a>
+                <a href="thread.html#gi-bill" class="thread-step__tag">GI Bill</a>
+                <a href="thread.html#fha" class="thread-step__tag">FHA Policy</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="3" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">04</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">1968–Present — Persistence</p>
+              <h3 class="thread-step__title">Segregation Without Law, Inequality By Design</h3>
+              <p class="thread-step__text">
+                The Fair Housing Act passed in 1968, but the structural inequalities were already embedded: in neighborhood composition, property values, school-district boundaries, and family wealth. Property-tax funding for schools meant that formerly redlined neighborhoods received less — and continue to receive less — per student.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread.html#fair-housing" class="thread-step__tag">Fair Housing Act</a>
+                <a href="thread.html#school-funding" class="thread-step__tag">School Funding</a>
+                <a href="thread.html#present-day" class="thread-step__tag">Today's Data</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="4" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">05</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">Present Day — Effect</p>
+              <h3 class="thread-step__title">Where the Chain Ends Up Today</h3>
+              <p class="thread-step__text">
+                Formerly redlined neighborhoods show measurably higher rates of asthma, diabetes, and heat exposure. Median Black household wealth is $24,100 vs. $188,200 for white households. Majority-Black school districts receive $1,800 less per pupil annually. The chain connects 1934 to this morning's news.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread.html#health-data" class="thread-step__tag">Health Data</a>
+                <a href="thread.html#wealth-gap" class="thread-step__tag">Wealth Gap</a>
+                <a href="thread.html#education" class="thread-step__tag">Education Equity</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Panel (right sidebar) -->
+        <aside class="thread-panel" aria-label="Thread context panel" aria-live="polite">
+          <div class="thread-panel__header">
+            <span class="thread-panel__title">Step</span>
+            <span class="thread-panel__counter" id="panelCounter" aria-live="polite">01 / 05</span>
+          </div>
+          <p class="thread-panel__caption" id="panelCaption">
+            "The seed of today's inequality was planted not by accident, but by policy."
+          </p>
+          <blockquote class="thread-panel__source" id="panelSource" cite="thread.html">
+            Richard Rothstein, <cite>The Color of Law</cite>, 2017. Rothstein documents how every level of U.S. government deliberately enforced residential segregation.
+          </blockquote>
+          <div class="thread-panel__then-now">
+            <div class="then-now-cell then-now-cell--then">
+              <p class="then-now-cell__label">Then</p>
+              <p class="then-now-cell__value" id="panelThen">16 Black congressmen in office during Reconstruction (1870–1876)</p>
+            </div>
+            <div class="then-now-cell then-now-cell--now">
+              <p class="then-now-cell__label">Now</p>
+              <p class="then-now-cell__value" id="panelNow">57 Black members of Congress in 2024 — less than 11% of seats</p>
+            </div>
+          </div>
+          <a href="thread.html" class="btn btn--thread" style="width:100%; justify-content:center;">
+            Read the full thread
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </aside>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 4: EXPLORE BY MAP AND TIME
+       ======================================================= -->
+  <section class="explore-section section" aria-labelledby="explore-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Multiple Ways to Explore</p>
+        <h2 id="explore-heading" class="section-title">History has a geography and a timeline</h2>
+        <p class="section-subtitle">Explore where things happened and when — or follow the causal chain across both dimensions at once.</p>
+      </div>
+      <div class="explore-section__grid">
+
+        <a href="maps.html" class="explore-card explore-card--map reveal" aria-label="Explore interactive maps of redlining, migration, and inequality">
+          <div class="explore-card__bg" aria-hidden="true"></div>
+          <div class="explore-card__gradient" aria-hidden="true"></div>
+          <div class="explore-card__body">
+            <div class="explore-card__icon" aria-hidden="true">🗺</div>
+            <h3 class="explore-card__title">Interactive Maps</h3>
+            <p class="explore-card__desc">Overlay historical redlining boundaries with today's school quality scores, health outcomes, and income data. See exactly how the past maps to the present.</p>
+            <span class="explore-card__link" aria-hidden="true">Explore maps →</span>
+          </div>
+        </a>
+
+        <a href="timeline.html" class="explore-card explore-card--timeline reveal" aria-label="Explore the interactive history timeline">
+          <div class="explore-card__bg" aria-hidden="true"></div>
+          <div class="explore-card__gradient" aria-hidden="true"></div>
+          <div class="explore-card__body">
+            <div class="explore-card__icon" aria-hidden="true">📅</div>
+            <h3 class="explore-card__title">Interactive Timeline</h3>
+            <p class="explore-card__desc">Move through 400 years of connected history. Click any event to see what caused it, what it caused, and which threads it belongs to.</p>
+            <span class="explore-card__link" aria-hidden="true">Open timeline →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 5: PEOPLE / POLICY / PLACE
+       Tabbed object browser
+       ======================================================= -->
+  <section class="ppp-section section" aria-labelledby="ppp-heading">
+    <div class="container">
+      <div class="ppp-section__header">
+        <div>
+          <p class="section-eyebrow">The Archive</p>
+          <h2 id="ppp-heading" class="section-title">People. Policy. Place.</h2>
+        </div>
+        <a href="explore.html" class="view-all" aria-label="View all entries in the archive">View all entries →</a>
+      </div>
+
+      <!-- Tabs -->
+      <div role="tablist" aria-label="Browse by type" class="ppp-tabs">
+        <button class="ppp-tab is-active" role="tab" aria-selected="true" aria-controls="ppp-panel-people"  id="tab-people">People</button>
+        <button class="ppp-tab"           role="tab" aria-selected="false" aria-controls="ppp-panel-policy" id="tab-policy">Policies &amp; Laws</button>
+        <button class="ppp-tab"           role="tab" aria-selected="false" aria-controls="ppp-panel-places" id="tab-places">Places</button>
+        <button class="ppp-tab"           role="tab" aria-selected="false" aria-controls="ppp-panel-events" id="tab-events">Events</button>
+      </div>
+
+      <!-- People panel -->
+      <div id="ppp-panel-people" role="tabpanel" aria-labelledby="tab-people">
+        <ul class="ppp-grid" role="list">
+          <li>
+            <a href="person-ida-wells.html" class="object-card" aria-label="Read about Ida B. Wells, journalist and anti-lynching activist">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #3d4a6e, #1e2433);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--person">Person</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Ida B. Wells</h3>
+                <p class="object-card__dates">1862–1931</p>
+                <p class="object-card__summary">Journalist, activist, and co-founder of the NAACP. Her data-driven anti-lynching campaigns laid the foundation for civil rights journalism.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Racial Terror</span>
+                  <span class="thread-tag">Press &amp; Power</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="person-thurgood-marshall.html" class="object-card" aria-label="Read about Thurgood Marshall, civil rights lawyer and Supreme Court Justice">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2c3550, #1a1a1a);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--person">Person</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Thurgood Marshall</h3>
+                <p class="object-card__dates">1908–1993</p>
+                <p class="object-card__summary">NAACP litigator who dismantled "separate but equal" through <em>Brown v. Board</em> before becoming the first Black Supreme Court Justice.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">School Desegregation</span>
+                  <span class="thread-tag">Legal Strategies</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="person-fannie-lou-hamer.html" class="object-card" aria-label="Read about Fannie Lou Hamer, voting rights activist">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #5c2a1a, #2e2e2e);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--person">Person</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Fannie Lou Hamer</h3>
+                <p class="object-card__dates">1917–1977</p>
+                <p class="object-card__summary">Mississippi sharecropper who became a defining voice in the voting rights movement, challenging the 1964 Democratic National Convention on live television.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Voting Rights</span>
+                  <span class="thread-tag">Mississippi Delta</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="person-charles-hamilton-houston.html" class="object-card" aria-label="Read about Charles Hamilton Houston, civil rights lawyer and architect of the civil rights legal strategy">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #3d4a6e, #0d0d0d);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--person">Person</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Charles Hamilton Houston</h3>
+                <p class="object-card__dates">1895–1950</p>
+                <p class="object-card__summary">Dean of Howard Law School and "the man who killed Jim Crow." Mentored Thurgood Marshall and architected the legal strategy behind <em>Brown v. Board</em>.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Education Law</span>
+                  <span class="thread-tag">NAACP Strategy</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Policy panel (hidden) -->
+      <div id="ppp-panel-policy" role="tabpanel" aria-labelledby="tab-policy" hidden>
+        <ul class="ppp-grid" role="list">
+          <li>
+            <a href="policy-homeowners-loan-corp.html" class="object-card" aria-label="Read about the HOLC Residential Security Maps, 1935">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #5c2a1a, #7d3a24);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--policy">Policy</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">HOLC Residential Security Maps</h3>
+                <p class="object-card__dates">1935–1940</p>
+                <p class="object-card__summary">Federal mortgage security maps graded neighborhoods A–D. "Hazardous" D ratings (red) applied almost universally to Black neighborhoods, denying federally backed mortgages for decades.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Redlining</span>
+                  <span class="thread-tag">Housing Policy</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="policy-gi-bill.html" class="object-card" aria-label="Read about the GI Bill of 1944 and racial exclusion">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2c3550, #3d4a6e);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--policy">Policy</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">The GI Bill (Servicemen's Readjustment Act)</h3>
+                <p class="object-date">1944</p>
+                <p class="object-card__summary">Created the American middle class — for white veterans. Administration through segregated agencies and banks meant Black veterans could rarely access homeownership, college, or business loan benefits.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Wealth Gap</span>
+                  <span class="thread-tag">WWII Era</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="policy-voting-rights-act.html" class="object-card" aria-label="Read about the Voting Rights Act of 1965">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #7a3e00, #a05200);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--policy">Law</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Voting Rights Act</h3>
+                <p class="object-card__dates">1965 / 2013 Gutted</p>
+                <p class="object-card__summary">Landmark legislation banning discriminatory voting practices — partially dismantled by <em>Shelby County v. Holder</em> (2013), which removed federal preclearance requirements for states with histories of voter suppression.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Voting Rights</span>
+                  <span class="thread-tag">Suppression</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="policy-black-codes.html" class="object-card" aria-label="Read about the Black Codes, 1865–1866">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #1e2433, #2c3550);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--policy">Law</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">The Black Codes</h3>
+                <p class="object-card__dates">1865–1866</p>
+                <p class="object-card__summary">Southern state laws passed immediately after emancipation to restrict Black freedom, labor, movement, and legal rights — effectively recreating the conditions of slavery under a different legal framework.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Reconstruction</span>
+                  <span class="thread-tag">Mass Incarceration</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Places panel (hidden) -->
+      <div id="ppp-panel-places" role="tabpanel" aria-labelledby="tab-places" hidden>
+        <ul class="ppp-grid" role="list">
+          <li>
+            <a href="place-tulsa-greenwood.html" class="object-card" aria-label="Read about Greenwood District, Tulsa — Black Wall Street">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #a04b30, #5c2a1a);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--place">Place</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Greenwood District, Tulsa</h3>
+                <p class="object-card__dates">Tulsa, Oklahoma</p>
+                <p class="object-card__summary">Known as "Black Wall Street," Greenwood was a thriving self-sufficient Black commercial district — destroyed in the 1921 Tulsa Race Massacre, one of the most devastating acts of racial violence in U.S. history.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Racial Terror</span>
+                  <span class="thread-tag">Wealth Destruction</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="place-selma.html" class="object-card" aria-label="Read about Selma, Alabama and Bloody Sunday">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #3d4a6e, #1e2433);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--place">Place</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Edmund Pettus Bridge, Selma</h3>
+                <p class="object-card__dates">Selma, Alabama</p>
+                <p class="object-card__summary">Site of Bloody Sunday (March 7, 1965), when state troopers attacked voting rights marchers on national television — directly precipitating the Voting Rights Act of 1965.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Voting Rights</span>
+                  <span class="thread-tag">Civil Rights Movement</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="place-chicago-southside.html" class="object-card" aria-label="Read about Chicago's South Side and the Great Migration">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2c3550, #444);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--place">Place</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Chicago's South Side</h3>
+                <p class="object-card__dates">Chicago, Illinois</p>
+                <p class="object-card__summary">Destination for hundreds of thousands during the Great Migration — and ground zero for redlining, contract buying, and urban disinvestment that shaped generational inequality still visible today.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Great Migration</span>
+                  <span class="thread-tag">Redlining</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="place-port-comfort.html" class="object-card" aria-label="Read about Point Comfort, Virginia — site of first enslaved Africans' arrival">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #7a3e00, #2e2e2e);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--place">Place</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Point Comfort, Virginia</h3>
+                <p class="object-card__dates">Hampton, Virginia</p>
+                <p class="object-card__summary">In August 1619, an English privateer arrived at Point Comfort with "20 and odd" enslaved Africans — the beginning of a 246-year system that would define the structure of American society.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">1619 &amp; Slavery</span>
+                  <span class="thread-tag">Colonial Era</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Events panel (hidden) -->
+      <div id="ppp-panel-events" role="tabpanel" aria-labelledby="tab-events" hidden>
+        <ul class="ppp-grid" role="list">
+          <li>
+            <a href="event-compromise-1877.html" class="object-card" aria-label="Read about the Compromise of 1877">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2c3550, #1e2433);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--event">Event</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">The Compromise of 1877</h3>
+                <p class="object-card__dates">1877</p>
+                <p class="object-card__summary">Backroom political deal that resolved the 1876 election by withdrawing federal troops from the South — effectively ending Reconstruction and handing control back to white supremacist state governments.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Reconstruction</span>
+                  <span class="thread-tag">Voting Rights</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="event-tulsa-massacre.html" class="object-card" aria-label="Read about the 1921 Tulsa Race Massacre">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #5c2a1a, #7d3a24);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--event">Event</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Tulsa Race Massacre</h3>
+                <p class="object-card__dates">May 31–June 1, 1921</p>
+                <p class="object-card__summary">A white mob, aided by city officials and aircraft, destroyed 35 blocks of Greenwood — killing hundreds of Black residents and destroying $30 million in property. Survivors received no government compensation.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Racial Terror</span>
+                  <span class="thread-tag">Reparations</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="event-brown-v-board.html" class="object-card" aria-label="Read about Brown v. Board of Education, 1954">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #3d4a6e, #556080);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--event">Case</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">Brown v. Board of Education</h3>
+                <p class="object-card__dates">1954</p>
+                <p class="object-card__summary">Supreme Court ruling overturning <em>Plessy v. Ferguson</em>'s "separate but equal" doctrine. Its implementation was undermined by white flight, private academies, and decades of resistance from state governments.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Education</span>
+                  <span class="thread-tag">Desegregation</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="event-great-migration.html" class="object-card" aria-label="Read about the Great Migration, 1910–1970">
+              <div class="object-card__image">
+                <div class="object-card__image-bg" style="background: linear-gradient(135deg, #444, #6b6b6b);" aria-hidden="true"></div>
+                <span class="object-card__type-badge badge--event">Event</span>
+              </div>
+              <div class="object-card__body">
+                <h3 class="object-card__name">The Great Migration</h3>
+                <p class="object-card__dates">1910–1970</p>
+                <p class="object-card__summary">Six million Black Americans relocated from the rural South to Northern and Western cities — fleeing Jim Crow terror and seeking economic opportunity, reshaping American politics, culture, and demography.</p>
+                <div class="object-card__threads">
+                  <span class="thread-tag">Jim Crow</span>
+                  <span class="thread-tag">Urban Policy</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 6: THEN → NOW EXPLAINER
+       Issue-driven causal framing
+       ======================================================= -->
+  <section class="then-now-section section" aria-labelledby="then-now-heading">
+    <div class="container">
+      <div class="then-now-header section-header--centered">
+        <p class="section-eyebrow">Then → Now</p>
+        <h2 id="then-now-heading" class="section-title">Policy has a long tail</h2>
+        <p class="then-now-header__subtitle">These aren't historical events that ended in the past. They are chains that run unbroken to today's news cycle.</p>
+      </div>
+
+      <!-- Issue 1: Redlining → School Funding -->
+      <div class="then-now-issue reveal" aria-labelledby="issue1-heading" style="margin-bottom: var(--space-10);">
+        <h3 id="issue1-heading" style="font-family: var(--font-editorial); font-size: var(--type-lg); font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border);">
+          Redlining → School Funding → Health Outcomes
+        </h3>
+        <div class="then-now-split">
+          <div>
+            <article class="then-card">
+              <div class="then-card__era-bar then-card__era-bar--then">
+                <span class="then-card__era-label">Then</span>
+                <span class="then-card__year">1935–1968</span>
+              </div>
+              <div class="then-card__body">
+                <h4 class="then-card__headline">Federal maps drew a color line around American cities</h4>
+                <p class="then-card__stat">239</p>
+                <p class="then-card__stat-caption">
+                  U.S. cities where HOLC "residential security maps" graded neighborhoods — with Black and immigrant areas rated D (red), making federally backed mortgages impossible to obtain.
+                </p>
+                <p class="then-card__source-note">Source: Digital Scholarship Lab, University of Richmond, "Mapping Inequality" (2018). HOLC archive records, National Archives.</p>
+              </div>
+            </article>
+          </div>
+          <div>
+            <article class="then-card">
+              <div class="then-card__era-bar then-card__era-bar--now">
+                <span class="then-card__era-label">Now</span>
+                <span class="then-card__year">2024</span>
+              </div>
+              <div class="then-card__body">
+                <h4 class="then-card__headline">Formerly redlined neighborhoods still show measurably worse outcomes</h4>
+                <p class="then-card__stat">$1,800</p>
+                <p class="then-card__stat-caption">
+                  Less per student annually in majority-Black school districts vs. majority-white districts — a direct result of property-tax school funding in neighborhoods whose values were suppressed by federal policy.
+                </p>
+                <p class="then-card__source-note">Source: EdBuild, "Dismissed" (2019). Urban Institute, "Long-Term Effects of the Discriminatory Geography of Homeownership" (2023).</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div style="margin-top: var(--space-5); display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="thread.html" class="btn btn--thread">Follow this thread →</a>
+          <a href="maps.html" class="btn btn--ghost">See it on the map →</a>
+        </div>
+      </div>
+
+      <!-- Issue 2: Reconstruction → Voting Restrictions -->
+      <div class="then-now-issue reveal" aria-labelledby="issue2-heading">
+        <h3 id="issue2-heading" style="font-family: var(--font-editorial); font-size: var(--type-lg); font-weight: 700; color: var(--color-text-primary); margin-bottom: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border);">
+          Reconstruction → Disenfranchisement → Voter Suppression
+        </h3>
+        <div class="then-now-split">
+          <div>
+            <article class="then-card">
+              <div class="then-card__era-bar then-card__era-bar--then">
+                <span class="then-card__era-label">Then</span>
+                <span class="then-card__year">1865–1877</span>
+              </div>
+              <div class="then-card__body">
+                <h4 class="then-card__headline">Black men voted and governed at rates never again seen until the 1960s</h4>
+                <p class="then-card__stat">16</p>
+                <p class="then-card__stat-caption">
+                  Black men served in the U.S. Congress during Reconstruction. More than 600 served in state legislatures. The infrastructure of Black political power was built — then systematically demolished after 1877.
+                </p>
+                <p class="then-card__source-note">Source: Eric Foner, <cite>Reconstruction: America's Unfinished Revolution</cite> (1988). U.S. House of Representatives Historical Office.</p>
+              </div>
+            </article>
+          </div>
+          <div>
+            <article class="then-card">
+              <div class="then-card__era-bar then-card__era-bar--now">
+                <span class="then-card__era-label">Now</span>
+                <span class="then-card__year">2013–Present</span>
+              </div>
+              <div class="then-card__body">
+                <h4 class="then-card__headline">After <em>Shelby County v. Holder</em>, 29 states passed new voting restrictions</h4>
+                <p class="then-card__stat">29</p>
+                <p class="then-card__stat-caption">
+                  States enacted new voter ID laws, polling place closures, and registration restrictions within years of the Supreme Court gutting the Voting Rights Act's preclearance requirement — disproportionately affecting Black voters.
+                </p>
+                <p class="then-card__source-note">Source: Brennan Center for Justice, "Voting Laws Roundup" (2021). Protect Democracy, "Shelby County v. Holder Impact Analysis" (2023).</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div style="margin-top: var(--space-5); display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="threads.html#reconstruction" class="btn btn--thread">Follow this thread →</a>
+          <a href="policy-voting-rights-act.html" class="btn btn--ghost">Read: Voting Rights Act →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 7: LEARNING MODES BY AUDIENCE
+       ======================================================= -->
+  <section class="learning-section section" aria-labelledby="learning-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow" style="color: var(--amber-300);">How You Want to Explore</p>
+        <h2 id="learning-heading" class="section-title section-title--light">Chain is built for how you think</h2>
+        <p class="section-subtitle section-subtitle--light">Whether you're curious, studying, teaching, or reporting — you'll find a way in that fits how you work.</p>
+      </div>
+      <ul class="audience-grid reveal" role="list">
+        <li>
+          <div class="audience-card">
+            <div class="audience-card__number" aria-hidden="true">01</div>
+            <p class="audience-card__label">Curious reader</p>
+            <h3 class="audience-card__title">Start with a question</h3>
+            <p class="audience-card__desc">You heard something, read something, and want to understand the full picture. Start with a question and follow the chain wherever it leads.</p>
+            <ul class="audience-card__links" aria-label="Starting points for curious readers">
+              <li><a href="search.html" class="audience-link">Search a question</a></li>
+              <li><a href="threads.html" class="audience-link">Browse all threads</a></li>
+              <li><a href="today.html" class="audience-link">Today in history</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="audience-card">
+            <div class="audience-card__number" aria-hidden="true">02</div>
+            <p class="audience-card__label">Student</p>
+            <h3 class="audience-card__title">Build a deeper argument</h3>
+            <p class="audience-card__desc">Writing a paper, preparing for a debate, or studying for a test? Each entry includes primary sources, key figures, and links to further evidence.</p>
+            <ul class="audience-card__links" aria-label="Starting points for students">
+              <li><a href="explore.html" class="audience-link">Browse the encyclopedia</a></li>
+              <li><a href="sources.html" class="audience-link">Find primary sources</a></li>
+              <li><a href="timeline.html" class="audience-link">Use the timeline</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="audience-card">
+            <div class="audience-card__number" aria-hidden="true">03</div>
+            <p class="audience-card__label">Educator</p>
+            <h3 class="audience-card__title">Bring history into the room</h3>
+            <p class="audience-card__desc">Find lesson plans, discussion guides, and classroom-ready materials built around the causal thread model. Standards-aligned and editable.</p>
+            <ul class="audience-card__links" aria-label="Starting points for educators">
+              <li><a href="teaching.html" class="audience-link">Teaching landing page</a></li>
+              <li><a href="teaching.html#lessons" class="audience-link">Lesson plans by grade</a></li>
+              <li><a href="teaching.html#guides" class="audience-link">Discussion guides</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="audience-card">
+            <div class="audience-card__number" aria-hidden="true">04</div>
+            <p class="audience-card__label">Researcher / Journalist</p>
+            <h3 class="audience-card__title">Follow the evidence chain</h3>
+            <p class="audience-card__desc">Every claim is sourced. Every thread links to primary documents, peer-reviewed studies, archival records, and expert scholarship. Cite with confidence.</p>
+            <ul class="audience-card__links" aria-label="Starting points for researchers and journalists">
+              <li><a href="sources.html" class="audience-link">Sources index</a></li>
+              <li><a href="maps.html" class="audience-link">Data visualizations</a></li>
+              <li><a href="about.html#methodology" class="audience-link">Methodology</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 8: FEATURED SOURCES SHELF
+       ======================================================= -->
+  <section class="sources-section section" aria-labelledby="sources-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="sources-section__intro">
+          <p class="section-eyebrow">The Evidence Base</p>
+          <h2 id="sources-heading" class="section-title">Essential sources</h2>
+          <p class="section-subtitle">Every thread on Chain is built on documented evidence. Here are some of the foundational works this platform draws from.</p>
+        </div>
+        <a href="sources.html" class="view-all" aria-label="View all sources in the archive">View full sources archive →</a>
+      </div>
+      <div class="sources-shelf reveal">
+
+        <article class="source-card">
+          <div class="source-card__type">
+            <span>📚</span> Book
+          </div>
+          <h3 class="source-card__title">The Color of Law: A Forgotten History of How Our Government Segregated America</h3>
+          <p class="source-card__author">Richard Rothstein, 2017</p>
+          <div class="source-card__threads">
+            <span class="thread-tag">Redlining</span>
+            <span class="thread-tag">Housing</span>
+          </div>
+        </article>
+
+        <article class="source-card">
+          <div class="source-card__type">
+            <span>📚</span> Book
+          </div>
+          <h3 class="source-card__title">Reconstruction: America's Unfinished Revolution, 1863–1877</h3>
+          <p class="source-card__author">Eric Foner, 1988</p>
+          <div class="source-card__threads">
+            <span class="thread-tag">Reconstruction</span>
+            <span class="thread-tag">Voting Rights</span>
+          </div>
+        </article>
+
+        <article class="source-card">
+          <div class="source-card__type">
+            <span>📊</span> Dataset
+          </div>
+          <h3 class="source-card__title">Mapping Inequality: Redlining in New Deal America</h3>
+          <p class="source-card__author">University of Richmond DSL, 2018</p>
+          <div class="source-card__threads">
+            <span class="thread-tag">Redlining</span>
+            <span class="thread-tag">Maps</span>
+          </div>
+        </article>
+
+        <article class="source-card">
+          <div class="source-card__type">
+            <span>📚</span> Book
+          </div>
+          <h3 class="source-card__title">The New Jim Crow: Mass Incarceration in the Age of Colorblindness</h3>
+          <p class="source-card__author">Michelle Alexander, 2010</p>
+          <div class="source-card__threads">
+            <span class="thread-tag">Incarceration</span>
+            <span class="thread-tag">Drug War</span>
+          </div>
+        </article>
+
+        <article class="source-card">
+          <div class="source-card__type">
+            <span>📄</span> Research
+          </div>
+          <h3 class="source-card__title">Long-Term Effects of Discriminatory Homeownership Policy</h3>
+          <p class="source-card__author">Urban Institute, 2023</p>
+          <div class="source-card__threads">
+            <span class="thread-tag">Housing</span>
+            <span class="thread-tag">Health</span>
+          </div>
+        </article>
+
+        <article class="source-card">
+          <div class="source-card__type">
+            <span>📚</span> Book
+          </div>
+          <h3 class="source-card__title">Caste: The Origins of Our Discontents</h3>
+          <p class="source-card__author">Isabel Wilkerson, 2020</p>
+          <div class="source-card__threads">
+            <span class="thread-tag">Structural Racism</span>
+            <span class="thread-tag">Systems</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 9: EDITORIAL SPOTLIGHT
+       Fresh content and features
+       ======================================================= -->
+  <section class="editorial-section section" aria-labelledby="editorial-heading">
+    <div class="container">
+      <div class="section-header" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--space-4);">
+        <div>
+          <p class="section-eyebrow">Latest</p>
+          <h2 id="editorial-heading" class="section-title">New on Chain</h2>
+        </div>
+        <a href="explore.html#latest" class="view-all" aria-label="View all recent content">See everything →</a>
+      </div>
+      <div class="editorial-grid reveal">
+
+        <!-- Featured article -->
+        <article class="editorial-card editorial-card--featured" aria-labelledby="editorial-1-heading">
+          <div class="editorial-card__image">
+            <div class="editorial-card__image-bg" style="background: linear-gradient(135deg, #2c3550 0%, #5c2a1a 100%);" aria-hidden="true"></div>
+          </div>
+          <div class="editorial-card__body">
+            <p class="editorial-card__kicker">New Thread</p>
+            <h3 id="editorial-1-heading" class="editorial-card__title">"Separate But Equal" Was Never Equal: How <em>Plessy v. Ferguson</em> Built American Apartheid</h3>
+            <p class="editorial-card__summary">In 1896, the Supreme Court's 7–1 ruling in <em>Plessy v. Ferguson</em> didn't just permit segregation — it constructed a legal architecture that would require nearly 60 years, hundreds of lawsuits, and immeasurable suffering to dismantle. Follow the chain from Homer Plessy's deliberately planned arrest to today's resegregating schools.</p>
+            <div class="editorial-card__meta">
+              <span>Thread</span>
+              <span class="editorial-card__meta-dot" aria-hidden="true"></span>
+              <span>8 chapters</span>
+              <span class="editorial-card__meta-dot" aria-hidden="true"></span>
+              <span>14 sources</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="editorial-card" aria-labelledby="editorial-2-heading">
+          <div class="editorial-card__image" style="height: 150px;">
+            <div class="editorial-card__image-bg" style="background: linear-gradient(160deg, #7a3e00, #3d4a6e);" aria-hidden="true"></div>
+          </div>
+          <div class="editorial-card__body">
+            <p class="editorial-card__kicker">People</p>
+            <h3 id="editorial-2-heading" class="editorial-card__title">Bayard Rustin: The Architect of the March on Washington Who Was Erased</h3>
+            <p class="editorial-card__summary">He organized the logistics behind the most famous protest in American history — and was hidden from it because he was gay.</p>
+            <div class="editorial-card__meta">
+              <span>Person profile</span>
+              <span class="editorial-card__meta-dot" aria-hidden="true"></span>
+              <span>5 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="editorial-card" aria-labelledby="editorial-3-heading">
+          <div class="editorial-card__image" style="height: 150px;">
+            <div class="editorial-card__image-bg" style="background: linear-gradient(160deg, #3d4a6e, #444);" aria-hidden="true"></div>
+          </div>
+          <div class="editorial-card__body">
+            <p class="editorial-card__kicker">Then → Now</p>
+            <h3 id="editorial-3-heading" class="editorial-card__title">Contract Buying in Chicago: How the System Was Rigged from the Start</h3>
+            <p class="editorial-card__summary">Between 1950 and 1970, Black families paid roughly twice market value for homes they couldn't own. The wealth destruction was generational.</p>
+            <div class="editorial-card__meta">
+              <span>Issue explainer</span>
+              <span class="editorial-card__meta-dot" aria-hidden="true"></span>
+              <span>6 min read</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-wordmark">Chain</div>
+        <p class="footer-mission">
+          A nonprofit digital history platform. We document how the past continues to shape the present — through evidence, narrative, and connected research.
+        </p>
+        <div class="footer-actions">
+          <a href="donate.html"     class="footer-btn footer-btn--primary">Donate</a>
+          <a href="newsletter.html" class="footer-btn footer-btn--outline">Newsletter</a>
+        </div>
+      </div>
+
+      <!-- Explore nav -->
+      <nav class="footer-nav-group" aria-label="Explore navigation">
+        <h2 class="footer-nav-heading">Explore</h2>
+        <ul class="footer-nav-links">
+          <li><a href="threads.html"   class="footer-nav-link">All Threads</a></li>
+          <li><a href="explore.html"   class="footer-nav-link">Encyclopedia</a></li>
+          <li><a href="maps.html"      class="footer-nav-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"     class="footer-nav-link">Today in History</a></li>
+          <li><a href="sources.html"   class="footer-nav-link">Sources Archive</a></li>
+        </ul>
+      </nav>
+
+      <!-- Learn nav -->
+      <nav class="footer-nav-group" aria-label="Learning navigation">
+        <h2 class="footer-nav-heading">Learn</h2>
+        <ul class="footer-nav-links">
+          <li><a href="teaching.html"  class="footer-nav-link">Teaching Resources</a></li>
+          <li><a href="learn.html"     class="footer-nav-link">Learning Paths</a></li>
+          <li><a href="teaching.html#lessons" class="footer-nav-link">Lesson Plans</a></li>
+          <li><a href="teaching.html#guides"  class="footer-nav-link">Discussion Guides</a></li>
+        </ul>
+      </nav>
+
+      <!-- About nav -->
+      <nav class="footer-nav-group" aria-label="About navigation">
+        <h2 class="footer-nav-heading">About</h2>
+        <ul class="footer-nav-links">
+          <li><a href="about.html"          class="footer-nav-link">About Chain</a></li>
+          <li><a href="about.html#team"     class="footer-nav-link">Editorial Team</a></li>
+          <li><a href="about.html#methodology" class="footer-nav-link">Methodology</a></li>
+          <li><a href="about.html#advisory" class="footer-nav-link">Advisory Board</a></li>
+          <li><a href="contact.html"        class="footer-nav-link">Contact</a></li>
+          <li><a href="press.html"          class="footer-nav-link">Press</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        © 2026 Chain. Content published under <a href="license.html" style="text-decoration: underline; color: inherit;">Creative Commons Attribution 4.0</a> unless otherwise noted.
+      </p>
+      <div class="footer-trust" aria-label="Trust indicators">
+        <div class="footer-trust-item">
+          <svg class="footer-trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/>
+          </svg>
+          <span>Editorially independent</span>
+        </div>
+        <div class="footer-trust-item">
+          <svg class="footer-trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="1" y="3" width="14" height="10" rx="2"/>
+            <path d="M5 8h6M8 5v6"/>
+          </svg>
+          <span>Nonprofit 501(c)(3)</span>
+        </div>
+        <div class="footer-trust-item">
+          <svg class="footer-trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M8 1a4 4 0 1 1 0 8A4 4 0 0 1 8 1zM2 14c0-3 2.7-5 6-5s6 2 6 5"/>
+          </svg>
+          <span>Scholar-reviewed content</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+<script src="js/main.js"></script>
+</body>
+</html>

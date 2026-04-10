@@ -1,0 +1,234 @@
+/* ============================================================
+   CHAIN — Homepage-specific overrides and supplemental styles
+   ============================================================ */
+
+/* Screenreader-only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Thread feature header spacing */
+.thread-feature__header {
+  margin-bottom: var(--space-10);
+}
+
+/* Then/Now issue wrapper */
+.then-now-issue {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+/* Smooth tab transition */
+[role="tabpanel"] {
+  animation: fade-up 0.35s var(--ease-out) both;
+}
+
+/* Object date text */
+.object-date {
+  font-size: var(--type-xs);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-3);
+}
+
+/* Utility: flex between */
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 0;
+}
+
+/* Editorial card full height inside grid cell */
+.editorial-grid > article {
+  height: 100%;
+}
+
+/* Ensure consistent thread feature background on light mode */
+[data-theme="light"] .thread-feature {
+  background: #111111;
+}
+
+/* Hover accent on question cards (light mode) */
+[data-theme="light"] .question-card:hover {
+  background: var(--amber-50);
+}
+
+/* Audience grid in dark section */
+.learning-section .audience-card:hover {
+  background: rgba(255,255,255,.06);
+}
+
+/* Source shelf scroll on mobile */
+@media (max-width: 640px) {
+  .sources-shelf {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--space-4);
+    padding-bottom: var(--space-4);
+    -webkit-overflow-scrolling: touch;
+  }
+  .source-card {
+    min-width: 240px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
+
+/* Responsive thread scroller */
+@media (max-width: 900px) {
+  .thread-panel {
+    display: none;
+  }
+}
+
+/* Thread step active state border */
+.thread-step.is-active {
+  border-left: none;
+}
+
+.thread-step.is-active .thread-step__body {
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--sienna-500);
+  margin-left: -2px;
+}
+
+/* Animated counter number */
+@keyframes count-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.thread-panel__counter {
+  animation: count-in 0.2s var(--ease-out);
+}
+
+/* Footer newsletter input (for potential enhancement) */
+.footer-newsletter {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.footer-newsletter__input {
+  flex: 1;
+  padding: var(--space-2) var(--space-4);
+  background: var(--ink-800);
+  border: 1px solid var(--ink-700);
+  border-radius: var(--radius-md);
+  color: var(--ink-200);
+  font-size: var(--type-sm);
+  outline: none;
+  transition: border-color var(--duration-fast);
+}
+
+.footer-newsletter__input:focus {
+  border-color: var(--amber-400);
+}
+
+.footer-newsletter__btn {
+  padding: var(--space-2) var(--space-4);
+  background: var(--amber-400);
+  color: var(--ink-900);
+  border-radius: var(--radius-md);
+  font-size: var(--type-xs);
+  font-weight: var(--weight-bold);
+  transition: background var(--duration-fast);
+}
+
+.footer-newsletter__btn:hover {
+  background: var(--amber-300);
+}
+
+/* Progress indicator on hero section */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--ink-600);
+  font-size: var(--type-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  animation: bounce-hint 2s infinite;
+}
+
+@keyframes bounce-hint {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+  50%       { transform: translateX(-50%) translateY(4px); opacity: 1; }
+}
+
+.hero-scroll-hint__arrow {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Dot connector between then/now columns on wide screens */
+@media (min-width: 768px) {
+  .then-now-split {
+    position: relative;
+  }
+
+  .then-now-split::after {
+    content: '→';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: var(--type-md);
+    color: var(--color-accent-dark);
+    z-index: 2;
+  }
+}
+
+/* Dark mode specific overrides for then-now section */
+[data-theme="dark"] .then-now-section {
+  background: var(--ink-800);
+}
+
+[data-theme="dark"] .then-now-issue {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+}
+
+[data-theme="dark"] .then-card {
+  background: var(--ink-900);
+  border-color: var(--ink-700);
+}
+
+/* Highlight current nav item */
+.site-nav__link[aria-current="page"] {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}

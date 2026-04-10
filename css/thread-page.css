@@ -1,0 +1,105 @@
+/* ============================================================
+   CHAIN — Thread page supplemental styles
+   ============================================================ */
+
+/* Screenreader utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Thread hero dark bg overrides for light mode */
+[data-theme="light"] .thread-page-hero {
+  background: #111111;
+}
+
+/* Causal chain: hide node dot text on small screens */
+@media (max-width: 500px) {
+  .causal-node__dot span {
+    display: none;
+  }
+  .causal-chain::before {
+    left: 15px;
+  }
+  .causal-node__dot {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Active chapter nav item in dark mode */
+[data-theme="dark"] .chapter-nav__item.is-active {
+  background: rgba(224, 122, 0, .15);
+}
+
+[data-theme="dark"] .chapter-nav__item.is-active .chapter-nav__item-title {
+  color: var(--amber-300);
+}
+
+/* Dark mode: evidence box, read next */
+[data-theme="dark"] .evidence-box,
+[data-theme="dark"] .read-next,
+[data-theme="dark"] .chapter-nav {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+}
+
+[data-theme="dark"] .evidence-box__header,
+[data-theme="dark"] .chapter-nav__title {
+  background: var(--ink-700);
+  border-color: var(--ink-600);
+}
+
+[data-theme="dark"] .chapter-nav__item:hover {
+  background: rgba(255,255,255,.04);
+}
+
+/* Smooth chapter highlight scroll */
+.chapter {
+  transition: opacity 0.3s ease;
+}
+
+/* Pull quote dark mode */
+[data-theme="dark"] .pull-quote {
+  background: var(--ink-800);
+  border-left-color: var(--sienna-500);
+}
+
+/* Stat callout dark mode */
+[data-theme="dark"] .stat-callout {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+}
+
+/* Responsive sidebar: show below on mobile */
+@media (max-width: 959px) {
+  .thread-page-layout {
+    grid-template-columns: 1fr;
+  }
+  .thread-page-sidebar {
+    position: static;
+    order: -1;
+  }
+  .chapter-nav {
+    display: none; /* Hide on mobile, shown via scroll progress */
+  }
+}
+
+/* Reading progress animation */
+@keyframes progress-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.reading-progress { animation: progress-in 0.5s 1s both; }
+
+/* Source cite tooltip */
+.source-cite {
+  position: relative;
+}
