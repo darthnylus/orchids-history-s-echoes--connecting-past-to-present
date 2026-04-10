@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Chain — Donate</title>
+  <meta name="description" content="Chain is free, ad-free, and independent. Support the work of making Black history accessible and causal accountability unavoidable." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .donate-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .donate-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(196,106,0,.2) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 60% at 0% 100%, rgba(160,75,48,.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .donate-hero__inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .donate-hero__inner { grid-template-columns: 1fr 420px; }
+    }
+    .donate-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-5);
+    }
+    .donate-hero__headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-5);
+    }
+    .donate-hero__headline em { color: var(--amber-300); font-style: normal; }
+    .donate-hero__subhead {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      line-height: var(--leading-loose);
+      max-width: 520px;
+      margin-bottom: var(--space-8);
+    }
+    .donate-hero__commitments {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .commitment-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--type-sm);
+      color: var(--ink-300);
+    }
+    .commitment-item__check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(245,147,50,.15);
+      border: 1px solid var(--amber-700);
+      color: var(--amber-400);
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    /* ── Donation form card ─────────────────────────────────── */
+    .donate-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-lg);
+    }
+    .donate-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-6);
+    }
+
+    /* Frequency toggle */
+    .freq-toggle {
+      display: flex;
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-md);
+      padding: 3px;
+      gap: 2px;
+      margin-bottom: var(--space-6);
+    }
+    .freq-btn {
+      flex: 1;
+      padding: var(--space-2) var(--space-3);
+      border-radius: calc(var(--radius-md) - 2px);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      text-align: center;
+    }
+    .freq-btn.is-active {
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+      font-weight: var(--weight-semibold);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Amount grid */
+    .amount-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .amount-btn {
+      padding: var(--space-3) var(--space-2);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--type-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-secondary);
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      background: var(--color-surface);
+    }
+    .amount-btn:hover {
+      border-color: var(--color-accent-dark);
+      color: var(--color-accent-dark);
+    }
+    .amount-btn.is-active {
+      border-color: var(--color-accent-dark);
+      background: var(--color-accent-light);
+      color: var(--color-accent-dark);
+    }
+    .amount-btn__impact {
+      display: block;
+      font-size: 10px;
+      font-weight: var(--weight-normal);
+      color: var(--color-text-tertiary);
+      margin-top: 2px;
+    }
+    .amount-btn.is-active .amount-btn__impact { color: var(--color-accent-dark); opacity: .7; }
+
+    /* Custom amount */
+    .custom-amount-wrap {
+      position: relative;
+      margin-bottom: var(--space-6);
+    }
+    .custom-amount-prefix {
+      position: absolute;
+      left: var(--space-4);
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: var(--type-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-tertiary);
+      pointer-events: none;
+    }
+    .custom-amount-input {
+      width: 100%;
+      padding: var(--space-3) var(--space-4) var(--space-3) var(--space-8);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--type-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      background: var(--color-surface);
+      outline: none;
+      transition: border-color var(--duration-fast);
+    }
+    .custom-amount-input:focus {
+      border-color: var(--color-accent-dark);
+      box-shadow: 0 0 0 3px var(--color-accent-light);
+    }
+    .custom-amount-input::placeholder { color: var(--color-text-tertiary); font-weight: var(--weight-normal); }
+
+    /* Impact statement */
+    .impact-bar {
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      margin-bottom: var(--space-6);
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      min-height: 56px;
+      transition: all var(--duration-fast);
+    }
+    .impact-bar strong { color: var(--color-accent-dark); }
+
+    /* Donate CTA */
+    .donate-submit {
+      width: 100%;
+      padding: var(--space-4) var(--space-6);
+      background: var(--color-accent-dark);
+      color: #fff;
+      border-radius: var(--radius-md);
+      font-size: var(--type-md);
+      font-weight: var(--weight-bold);
+      text-align: center;
+      transition: background var(--duration-fast), transform var(--duration-fast);
+      display: block;
+      cursor: pointer;
+      border: none;
+    }
+    .donate-submit:hover { background: var(--amber-600); transform: translateY(-1px); }
+    .donate-submit:active { transform: translateY(0); }
+
+    .donate-card__note {
+      text-align: center;
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-4);
+      line-height: 1.6;
+    }
+
+    /* ── What your support does ──────────────────────────────  */
+    .impact-section {
+      padding: var(--space-16) 0;
+      background: var(--color-bg);
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-10);
+    }
+    @media (min-width: 640px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .impact-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .impact-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .impact-card__amount {
+      font-family: var(--font-editorial);
+      font-size: 1.75rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-dark);
+      line-height: 1;
+    }
+    .impact-card__freq {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+    .impact-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+    }
+    .impact-card__desc {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    /* ── Why free matters ────────────────────────────────────  */
+    .why-section {
+      padding: var(--space-16) 0;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+    }
+    .why-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+    @media (min-width: 900px) { .why-split { grid-template-columns: 1fr 1fr; } }
+
+    .why-stat-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+    .why-stat {
+      padding: var(--space-6);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      border-left: 3px solid var(--amber-400);
+    }
+    .why-stat__num {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+    .why-stat__label {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Supporters wall ─────────────────────────────────────  */
+    .supporters-section {
+      padding: var(--space-14) 0;
+      background: var(--ink-900);
+    }
+    .supporters-section__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-4);
+    }
+    .supporters-section__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      margin-bottom: var(--space-3);
+    }
+    .supporters-section__sub {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      margin-bottom: var(--space-10);
+      max-width: 480px;
+    }
+    .supporter-tiers {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+    @media (min-width: 768px) { .supporter-tiers { grid-template-columns: repeat(3, 1fr); } }
+
+    .supporter-tier__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--ink-500);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--ink-800);
+    }
+    .supporter-names {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .supporter-name {
+      font-size: var(--type-sm);
+      color: var(--ink-300);
+      line-height: 1.5;
+    }
+    .supporter-name--founding {
+      color: var(--amber-300);
+      font-weight: var(--weight-semibold);
+    }
+    .supporter-anon {
+      font-size: var(--type-xs);
+      color: var(--ink-600);
+      font-style: italic;
+      margin-top: var(--space-2);
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] .donate-card { background: var(--ink-800); }
+    [data-theme="dark"] .freq-btn.is-active { background: var(--ink-700); }
+    [data-theme="dark"] .freq-toggle { background: var(--ink-700); }
+    [data-theme="dark"] .amount-btn { background: var(--ink-700); border-color: var(--ink-600); color: var(--ink-300); }
+    [data-theme="dark"] .amount-btn.is-active { background: rgba(224,122,0,.15); border-color: var(--amber-500); color: var(--amber-300); }
+    [data-theme="dark"] .custom-amount-input { background: var(--ink-700); border-color: var(--ink-600); color: var(--ink-100); }
+    [data-theme="dark"] .impact-bar { background: var(--ink-900); }
+    [data-theme="dark"] .impact-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .why-section { background: var(--ink-900); }
+    [data-theme="dark"] .why-stat { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .impact-section { background: var(--ink-900); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta" aria-current="page">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"  class="site-nav__link">Explore</a>
+      <a href="threads.html"  class="site-nav__link">Threads</a>
+      <a href="maps.html"     class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html"    class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist" class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=How+did+redlining+affect+schools"    class="search-hint-chip">How did redlining affect schools?</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link" aria-current="page">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO + FORM -->
+  <section class="donate-hero" aria-labelledby="donate-heading">
+    <div class="container donate-hero__inner">
+
+      <div>
+        <p class="donate-hero__eyebrow">Support the work</p>
+        <h1 id="donate-heading" class="donate-hero__headline">
+          Free for everyone.<br /><em>Funded by readers.</em>
+        </h1>
+        <p class="donate-hero__subhead">
+          Chain has no paywall, no ads, and no institutional funding with strings attached. Every thread, every entry, every map is free — because the people who most need this history shouldn't have to pay for it.
+        </p>
+        <div class="donate-hero__commitments" aria-label="Our commitments">
+          <div class="commitment-item">
+            <span class="commitment-item__check" aria-hidden="true">✓</span>
+            No paywall. Ever.
+          </div>
+          <div class="commitment-item">
+            <span class="commitment-item__check" aria-hidden="true">✓</span>
+            No ads. No tracking.
+          </div>
+          <div class="commitment-item">
+            <span class="commitment-item__check" aria-hidden="true">✓</span>
+            No corporate or government funding.
+          </div>
+          <div class="commitment-item">
+            <span class="commitment-item__check" aria-hidden="true">✓</span>
+            All content open to educators and students.
+          </div>
+          <div class="commitment-item">
+            <span class="commitment-item__check" aria-hidden="true">✓</span>
+            Sources cited on every claim.
+          </div>
+        </div>
+      </div>
+
+      <!-- DONATION FORM -->
+      <div class="donate-card" role="form" aria-labelledby="form-title">
+        <h2 id="form-title" class="donate-card__title">Make a contribution</h2>
+
+        <!-- Frequency toggle -->
+        <div class="freq-toggle" role="group" aria-label="Donation frequency">
+          <button class="freq-btn is-active" data-freq="monthly" aria-pressed="true">Monthly</button>
+          <button class="freq-btn" data-freq="annual"  aria-pressed="false">Annual</button>
+          <button class="freq-btn" data-freq="once"    aria-pressed="false">One-time</button>
+        </div>
+
+        <!-- Amount grid -->
+        <div class="amount-grid" role="group" aria-label="Select donation amount">
+          <button class="amount-btn" data-amount="5" aria-pressed="false">
+            $5
+            <span class="amount-btn__impact">A start</span>
+          </button>
+          <button class="amount-btn is-active" data-amount="10" aria-pressed="true">
+            $10
+            <span class="amount-btn__impact">Most common</span>
+          </button>
+          <button class="amount-btn" data-amount="25" aria-pressed="false">
+            $25
+            <span class="amount-btn__impact">Deep support</span>
+          </button>
+          <button class="amount-btn" data-amount="50" aria-pressed="false">
+            $50
+            <span class="amount-btn__impact">Thread sponsor</span>
+          </button>
+          <button class="amount-btn" data-amount="100" aria-pressed="false">
+            $100
+            <span class="amount-btn__impact">Founding tier</span>
+          </button>
+          <button class="amount-btn" data-amount="custom" aria-pressed="false">
+            Other
+            <span class="amount-btn__impact">Your choice</span>
+          </button>
+        </div>
+
+        <!-- Custom amount -->
+        <div class="custom-amount-wrap" id="custom-wrap" style="display:none">
+          <span class="custom-amount-prefix" aria-hidden="true">$</span>
+          <input type="number" class="custom-amount-input" id="custom-input" placeholder="Enter amount" min="1" aria-label="Custom donation amount in dollars" />
+        </div>
+
+        <!-- Impact statement -->
+        <div class="impact-bar" id="impact-bar" role="status" aria-live="polite">
+          <strong>$10 / month</strong> covers the hosting cost of one thread — keeping it free for every student and educator who needs it.
+        </div>
+
+        <!-- Submit -->
+        <button class="donate-submit" id="donate-btn" type="button">
+          Donate $10 / month →
+        </button>
+
+        <p class="donate-card__note">
+          Secure payment via Stripe. Cancel anytime.<br />
+          Chain is fiscally sponsored — donations are tax-deductible.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHAT YOUR SUPPORT DOES -->
+  <section class="impact-section" aria-labelledby="impact-heading">
+    <div class="container">
+      <p style="font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-accent-dark);margin-bottom:var(--space-3)">Where it goes</p>
+      <h2 id="impact-heading" style="font-family:var(--font-editorial);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:var(--weight-bold);color:var(--color-text-primary);margin-bottom:var(--space-3)">What your support builds</h2>
+      <p style="font-size:var(--type-md);color:var(--color-text-secondary);max-width:560px;line-height:var(--leading-loose);margin-bottom:0">Every dollar goes directly into research, writing, and keeping Chain free and independent.</p>
+
+      <div class="impact-grid">
+        <div class="impact-card reveal">
+          <div>
+            <div class="impact-card__amount">$5</div>
+            <div class="impact-card__freq">/ month</div>
+          </div>
+          <h3 class="impact-card__title">Keep the lights on</h3>
+          <p class="impact-card__desc">Covers infrastructure — hosting, DNS, and the tools that keep the site fast and accessible to everyone, everywhere.</p>
+        </div>
+        <div class="impact-card reveal">
+          <div>
+            <div class="impact-card__amount">$10</div>
+            <div class="impact-card__freq">/ month</div>
+          </div>
+          <h3 class="impact-card__title">Fund a thread chapter</h3>
+          <p class="impact-card__desc">Each chapter in a thread requires hours of research, source verification, and writing. Your $10/month directly supports that work.</p>
+        </div>
+        <div class="impact-card reveal">
+          <div>
+            <div class="impact-card__amount">$25</div>
+            <div class="impact-card__freq">/ month</div>
+          </div>
+          <h3 class="impact-card__title">Build the encyclopedia</h3>
+          <p class="impact-card__desc">Encyclopedia entries — people, policies, places — take deep research to get right. Your support funds the scholar time behind each one.</p>
+        </div>
+        <div class="impact-card reveal">
+          <div>
+            <div class="impact-card__amount">$100</div>
+            <div class="impact-card__freq">/ month</div>
+          </div>
+          <h3 class="impact-card__title">Commission a new thread</h3>
+          <p class="impact-card__desc">At the founding tier, your contribution goes toward commissioning a full new thread — from research to publication. Your name in the thread credits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FREE MATTERS -->
+  <section class="why-section" aria-labelledby="why-heading">
+    <div class="container why-split">
+      <div>
+        <p style="font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-accent-dark);margin-bottom:var(--space-4)">Why it matters</p>
+        <h2 id="why-heading" style="font-family:var(--font-editorial);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:var(--weight-bold);color:var(--color-text-primary);margin-bottom:var(--space-5)">The paywall is a political choice.</h2>
+        <p style="font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-5)">Most serious historical scholarship is locked behind academic paywalls or institutional subscriptions that cost hundreds of dollars a year. The people who most need access to this history — students in underfunded schools, community organizers, families trying to understand their own story — are the ones least able to pay for it.</p>
+        <p style="font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-8)">Chain exists because we believe that understanding the chain — from African civilizations to present-day inequality — should not require a credit card. Your donation makes that possible for everyone.</p>
+        <a href="#main-content" class="btn btn--primary">Support Chain →</a>
+      </div>
+      <div class="why-stat-stack reveal">
+        <div class="why-stat">
+          <div class="why-stat__num">100%</div>
+          <div class="why-stat__label">of Chain's content is free. No trial period, no premium tier, no login required.</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat__num">$0</div>
+          <div class="why-stat__label">in institutional or corporate funding. No editorial strings attached — ever.</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat__num">5+</div>
+          <div class="why-stat__label">threads in active research, waiting for the funding to publish them properly.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORTERS -->
+  <section class="supporters-section" aria-labelledby="supporters-heading">
+    <div class="container">
+      <p class="supporters-section__eyebrow">Our community</p>
+      <h2 id="supporters-heading" class="supporters-section__title">Thank you to our supporters</h2>
+      <p class="supporters-section__sub">These readers make Chain possible. Join them.</p>
+      <div class="supporter-tiers">
+        <div>
+          <div class="supporter-tier__label">Founding supporters · $100+/mo</div>
+          <div class="supporter-names">
+            <div class="supporter-name supporter-name--founding">Marcus J. Thompson</div>
+            <div class="supporter-name supporter-name--founding">Dr. Aisha Okonkwo</div>
+            <div class="supporter-name supporter-name--founding">The Hargrove Family</div>
+            <div class="supporter-name supporter-name--founding">Renee &amp; David Whitfield</div>
+            <div class="supporter-anon">+ 3 anonymous founding supporters</div>
+          </div>
+        </div>
+        <div>
+          <div class="supporter-tier__label">Deep supporters · $25–99/mo</div>
+          <div class="supporter-names">
+            <div class="supporter-name">James Osei</div>
+            <div class="supporter-name">Prof. Carla Mendez</div>
+            <div class="supporter-name">Tanya &amp; Robert Ellis</div>
+            <div class="supporter-name">Michael Adeyemi</div>
+            <div class="supporter-name">Simone Tremblay</div>
+            <div class="supporter-name">Luther Graves Jr.</div>
+            <div class="supporter-anon">+ 14 anonymous supporters</div>
+          </div>
+        </div>
+        <div>
+          <div class="supporter-tier__label">Monthly readers · $5–24/mo</div>
+          <div class="supporter-names">
+            <div class="supporter-name">C. Washington, D. Brown, A. Nwosu</div>
+            <div class="supporter-name">P. Okafor, T. Lewis, M. James</div>
+            <div class="supporter-name">S. Diallo, R. Mensah, J. Okeke</div>
+            <div class="supporter-name">L. Banks, A. Chambers, W. Asante</div>
+            <div class="supporter-anon">+ 61 anonymous monthly readers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── DONATION FORM LOGIC ───────────────────────────────────
+  const IMPACT = {
+    monthly: {
+      5:   '<strong>$5 / month</strong> covers hosting — keeping every thread, map, and entry online and free for every visitor.',
+      10:  '<strong>$10 / month</strong> covers the hosting cost of one thread — keeping it free for every student and educator who needs it.',
+      25:  '<strong>$25 / month</strong> funds a full encyclopedia entry — the research, sourcing, and writing behind one person, policy, or place.',
+      50:  '<strong>$50 / month</strong> sponsors a thread chapter — covering the scholar time to research and write one chapter of a causal thread.',
+      100: '<strong>$100 / month</strong> — founding tier. Your contribution goes toward commissioning a full new thread, and your name appears in the thread credits.'
+    },
+    annual: {
+      5:   '<strong>$5 / year</strong> — every bit helps keep Chain free and independent.',
+      10:  '<strong>$10 / year</strong> covers hosting infrastructure for a month.',
+      25:  '<strong>$25 / year</strong> — thank you. This keeps the encyclopedia growing.',
+      50:  '<strong>$50 / year</strong> funds a chapter of research.',
+      100: '<strong>$100 / year</strong> supports a full encyclopedia entry from research to publication.'
+    },
+    once: {
+      5:   '<strong>$5 one-time</strong> — thank you. Every contribution, however small, keeps Chain independent.',
+      10:  '<strong>$10 one-time</strong> covers a week of hosting costs.',
+      25:  '<strong>$25 one-time</strong> — this funds part of an encyclopedia entry.',
+      50:  '<strong>$50 one-time</strong> — this contributes significantly to thread research.',
+      100: '<strong>$100 one-time</strong> — a meaningful contribution toward a new thread. Thank you.'
+    }
+  };
+
+  let currentFreq   = 'monthly';
+  let currentAmount = 10;
+
+  const impactBar  = document.getElementById('impact-bar');
+  const donateBtn  = document.getElementById('donate-btn');
+  const customWrap = document.getElementById('custom-wrap');
+  const customInput = document.getElementById('custom-input');
+
+  function updateUI() {
+    const label = currentFreq === 'monthly' ? '/ month' : currentFreq === 'annual' ? '/ year' : 'one-time';
+    const display = currentAmount === 'custom'
+      ? (customInput.value ? `$${customInput.value}` : '$?')
+      : `$${currentAmount}`;
+    donateBtn.textContent = `Donate ${display} ${label} →`;
+
+    if (currentAmount !== 'custom') {
+      const msg = IMPACT[currentFreq]?.[currentAmount];
+      impactBar.innerHTML = msg || `<strong>${display} ${label}</strong> — thank you for your support.`;
+    } else {
+      impactBar.innerHTML = 'Enter an amount above to see how your contribution helps.';
+    }
+  }
+
+  // Frequency buttons
+  document.querySelectorAll('.freq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.freq-btn').forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('is-active'); btn.setAttribute('aria-pressed','true');
+      currentFreq = btn.dataset.freq;
+      updateUI();
+    });
+  });
+
+  // Amount buttons
+  document.querySelectorAll('.amount-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.amount-btn').forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('is-active'); btn.setAttribute('aria-pressed','true');
+      currentAmount = btn.dataset.amount === 'custom' ? 'custom' : parseInt(btn.dataset.amount);
+      customWrap.style.display = currentAmount === 'custom' ? '' : 'none';
+      if (currentAmount === 'custom') customInput.focus();
+      updateUI();
+    });
+  });
+
+  // Custom input
+  customInput.addEventListener('input', updateUI);
+
+  // Donate button (placeholder — would connect to Stripe)
+  donateBtn.addEventListener('click', () => {
+    const amt = currentAmount === 'custom' ? customInput.value : currentAmount;
+    if (!amt || amt < 1) { customInput.focus(); return; }
+    donateBtn.textContent = 'Redirecting to secure payment…';
+    donateBtn.disabled = true;
+    // In production: redirect to Stripe Checkout
+    setTimeout(() => {
+      donateBtn.textContent = `Donate $${amt} →`;
+      donateBtn.disabled = false;
+    }, 2000);
+  });
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
