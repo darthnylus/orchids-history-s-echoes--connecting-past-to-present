@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threads — Chain</title>
+  <meta name="description" content="Follow a causal thread from its origin to its present-day consequence. Each thread traces how a historical event, policy, or system created conditions that persist today." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .threads-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .threads-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 70% at 100% 0%, rgba(196,106,0,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(160,75,48,.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .threads-hero__inner {
+      position: relative;
+      max-width: 760px;
+    }
+    .threads-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-5);
+    }
+    .threads-hero__headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-5);
+    }
+    .threads-hero__headline em {
+      color: var(--amber-300);
+      font-style: normal;
+    }
+    .threads-hero__subhead {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      line-height: var(--leading-loose);
+      max-width: 580px;
+      margin-bottom: var(--space-8);
+    }
+    .threads-hero__meta {
+      display: flex;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .threads-hero__stat-num {
+      font-family: var(--font-editorial);
+      font-size: 1.5rem;
+      font-weight: var(--weight-bold);
+      color: var(--amber-300);
+      display: block;
+    }
+    .threads-hero__stat-label {
+      font-size: var(--type-xs);
+      color: var(--ink-500);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+
+    /* ── What is a thread? explainer bar ───────────────────── */
+    .explainer-bar {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-6) 0;
+    }
+    .explainer-bar__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .explainer-step {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex: 1;
+      min-width: 200px;
+    }
+    .explainer-step__num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-accent-light);
+      color: var(--color-accent-dark);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .explainer-step__text {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    .explainer-step__arrow {
+      color: var(--color-border);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      display: none;
+    }
+    @media (min-width: 768px) { .explainer-step__arrow { display: block; } }
+
+    /* ── Filter row ─────────────────────────────────────────── */
+    .threads-filter {
+      padding: var(--space-6) 0 var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .threads-filter__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      white-space: nowrap;
+    }
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      white-space: nowrap;
+    }
+    .filter-chip:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .filter-chip.is-active { background: var(--color-accent-dark); border-color: var(--color-accent-dark); color: #fff; }
+
+    /* ── Thread cards ───────────────────────────────────────── */
+    .threads-section {
+      padding: var(--space-10) 0 var(--space-16);
+    }
+
+    /* Featured (first) thread — full-width */
+    .thread-featured {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: var(--space-6);
+      display: grid;
+      grid-template-columns: 1fr;
+      transition: box-shadow var(--duration-normal);
+      text-decoration: none;
+    }
+    @media (min-width: 768px) {
+      .thread-featured { grid-template-columns: 1fr 340px; }
+    }
+    .thread-featured:hover { box-shadow: var(--shadow-lg); }
+    .thread-featured__body {
+      padding: var(--space-8) var(--space-8) var(--space-7);
+      display: flex;
+      flex-direction: column;
+    }
+    .thread-featured__label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-5);
+    }
+    .thread-featured__label-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber-400);
+    }
+    .thread-featured__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.375rem, 3vw, 1.875rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-4);
+    }
+    .thread-featured__summary {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+      margin-bottom: var(--space-6);
+      flex: 1;
+    }
+    .thread-featured__chain {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-6);
+      padding: var(--space-4);
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-md);
+    }
+    .thread-chain-node {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-secondary);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+    .thread-chain-arrow {
+      color: var(--amber-400);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .thread-featured__footer {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .thread-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 11px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-pill);
+    }
+    .thread-status-badge--live {
+      background: rgba(34,197,94,.1);
+      color: #15803d;
+      border: 1px solid rgba(34,197,94,.25);
+    }
+    .thread-status-badge--soon {
+      background: var(--color-surface-alt);
+      color: var(--color-text-tertiary);
+      border: 1px solid var(--color-border);
+    }
+    .thread-status-badge__dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .thread-meta-tag {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+    }
+
+    /* Right panel: causal preview */
+    .thread-featured__aside {
+      background: var(--ink-900);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-5);
+    }
+    .thread-featured__aside-label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--ink-500);
+    }
+    .causal-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .causal-preview__item {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .causal-preview__connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 16px;
+    }
+    .causal-preview__dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--amber-400);
+      border: 2px solid var(--amber-700);
+      flex-shrink: 0;
+    }
+    .causal-preview__line {
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--amber-700), transparent);
+    }
+    .causal-preview__item:last-child .causal-preview__line { display: none; }
+    .causal-preview__text {
+      padding-top: 1px;
+      padding-bottom: var(--space-5);
+    }
+    .causal-preview__year {
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-400);
+      margin-bottom: 2px;
+    }
+    .causal-preview__label {
+      font-size: var(--type-sm);
+      color: var(--ink-300);
+      line-height: 1.45;
+    }
+    .thread-featured__aside-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--amber-300);
+      margin-top: var(--space-2);
+      transition: gap var(--duration-fast);
+    }
+    .thread-featured__aside-cta:hover { gap: var(--space-3); }
+
+    /* ── Standard thread grid ───────────────────────────────── */
+    .threads-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+    @media (min-width: 640px) { .threads-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .thread-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      text-decoration: none;
+      transition: all var(--duration-normal) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .thread-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--duration-normal) var(--ease-out);
+    }
+    .thread-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--amber-200); }
+    .thread-card:hover::after { transform: scaleX(1); }
+
+    .thread-card__domain {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+    }
+    .thread-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.125rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+    }
+    .thread-card__summary {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .thread-card__span {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-top: auto;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-subtle);
+    }
+    .thread-card__span-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--amber-200), var(--slate-200));
+      border-radius: 1px;
+    }
+
+    /* ── Coming soon section ────────────────────────────────── */
+    .coming-soon-section {
+      margin-top: var(--space-12);
+      padding-top: var(--space-10);
+      border-top: 1px solid var(--color-border);
+    }
+    .coming-soon-section__header {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .coming-soon-section__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+    }
+    .coming-soon-section__sub {
+      font-size: var(--type-sm);
+      color: var(--color-text-tertiary);
+    }
+
+    .soon-list { display: flex; flex-direction: column; gap: var(--space-3); }
+    .soon-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-5);
+      padding: var(--space-5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      opacity: 0.7;
+    }
+    .soon-item__domain {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      min-width: 100px;
+      padding-top: 2px;
+    }
+    .soon-item__body { flex: 1; }
+    .soon-item__title {
+      font-family: var(--font-editorial);
+      font-size: var(--type-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-1);
+    }
+    .soon-item__summary {
+      font-size: var(--type-sm);
+      color: var(--color-text-tertiary);
+      line-height: 1.6;
+    }
+    .soon-item__badge {
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-pill);
+      background: var(--color-surface-alt);
+      color: var(--color-text-tertiary);
+      border: 1px solid var(--color-border);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Suggest CTA ────────────────────────────────────────── */
+    .suggest-cta {
+      margin-top: var(--space-10);
+      background: var(--ink-900);
+      border-radius: var(--radius-xl);
+      padding: clamp(var(--space-8), 5vw, var(--space-12));
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .suggest-cta { grid-template-columns: 1fr auto; }
+    }
+    .suggest-cta__title {
+      font-family: var(--font-editorial);
+      font-size: 1.375rem;
+      font-weight: var(--weight-bold);
+      color: #fff;
+      margin-bottom: var(--space-3);
+    }
+    .suggest-cta__body {
+      font-size: var(--type-sm);
+      color: var(--ink-400);
+      line-height: 1.65;
+      max-width: 520px;
+    }
+    .suggest-cta__actions {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] .thread-featured,
+    [data-theme="dark"] .thread-card,
+    [data-theme="dark"] .soon-item { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .thread-featured:hover,
+    [data-theme="dark"] .thread-card:hover { border-color: var(--amber-400); }
+    [data-theme="dark"] .thread-featured__chain { background: var(--ink-900); }
+    [data-theme="dark"] .explainer-bar { background: var(--ink-900); }
+    [data-theme="dark"] .filter-chip { background: var(--ink-800); border-color: var(--ink-700); color: var(--ink-300); }
+    [data-theme="dark"] .filter-chip.is-active { background: var(--amber-500); border-color: var(--amber-500); color: var(--ink-900); }
+    [data-theme="dark"] .thread-chain-node { background: var(--ink-700); border-color: var(--ink-600); }
+    [data-theme="dark"] .suggest-cta { background: var(--ink-800); border: 1px solid var(--ink-700); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- MAIN NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"  class="site-nav__link">Explore</a>
+      <a href="threads.html"  class="site-nav__link" aria-current="page">Threads</a>
+      <a href="maps.html"     class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html"    class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist"    class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=How+did+redlining+affect+schools"       class="search-hint-chip">How did redlining affect schools?</a>
+      <a href="search.html?q=Reconstruction+voting+rights"           class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link" aria-current="page">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="threads-hero" aria-labelledby="threads-heading">
+    <div class="container threads-hero__inner">
+      <p class="threads-hero__eyebrow">The archive</p>
+      <h1 id="threads-heading" class="threads-hero__headline">
+        Every consequence<br />has an <em>origin.</em>
+      </h1>
+      <p class="threads-hero__subhead">
+        A thread traces the full causal chain from a historical act to its present-day consequence — showing the decisions, policies, and people that link them. Not just what happened. Why it still matters.
+      </p>
+      <div class="threads-hero__meta">
+        <div>
+          <span class="threads-hero__stat-num">5</span>
+          <span class="threads-hero__stat-label">Active threads</span>
+        </div>
+        <div>
+          <span class="threads-hero__stat-num">12+</span>
+          <span class="threads-hero__stat-label">In development</span>
+        </div>
+        <div>
+          <span class="threads-hero__stat-num">2,000+</span>
+          <span class="threads-hero__stat-label">Years of history</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS A THREAD -->
+  <div class="explainer-bar">
+    <div class="container explainer-bar__inner">
+      <div class="explainer-step">
+        <span class="explainer-step__num">1</span>
+        <span class="explainer-step__text"><strong>A cause</strong> — an act, policy, or system</span>
+      </div>
+      <span class="explainer-step__arrow" aria-hidden="true">→</span>
+      <div class="explainer-step">
+        <span class="explainer-step__num">2</span>
+        <span class="explainer-step__text"><strong>The chain</strong> — decisions that extended it</span>
+      </div>
+      <span class="explainer-step__arrow" aria-hidden="true">→</span>
+      <div class="explainer-step">
+        <span class="explainer-step__num">3</span>
+        <span class="explainer-step__text"><strong>The present</strong> — what it produces today</span>
+      </div>
+      <span class="explainer-step__arrow" aria-hidden="true">→</span>
+      <div class="explainer-step">
+        <span class="explainer-step__num">4</span>
+        <span class="explainer-step__text"><strong>The evidence</strong> — sources beside every claim</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container threads-section">
+
+    <!-- FILTER -->
+    <div class="threads-filter" role="group" aria-label="Filter threads by domain">
+      <span class="threads-filter__label">Domain</span>
+      <button class="filter-chip is-active" data-filter="all"       aria-pressed="true">All threads</button>
+      <button class="filter-chip"           data-filter="housing"   aria-pressed="false">Housing</button>
+      <button class="filter-chip"           data-filter="labor"     aria-pressed="false">Labor &amp; Wealth</button>
+      <button class="filter-chip"           data-filter="justice"   aria-pressed="false">Criminal Justice</button>
+      <button class="filter-chip"           data-filter="health"    aria-pressed="false">Health</button>
+      <button class="filter-chip"           data-filter="education" aria-pressed="false">Education</button>
+    </div>
+
+    <!-- FEATURED THREAD -->
+    <a href="thread.html" class="thread-featured reveal" data-domain="housing education" aria-labelledby="featured-title">
+      <div class="thread-featured__body">
+        <span class="thread-featured__label">
+          <span class="thread-featured__label-dot" aria-hidden="true"></span>
+          Featured thread · Housing &amp; Education
+        </span>
+        <h2 id="featured-title" class="thread-featured__title">
+          From Redlining to the Achievement Gap
+        </h2>
+        <p class="thread-featured__summary">
+          How a 1930s federal mortgage policy — drawn on maps, color-coded by race — continues to determine school quality, health outcomes, and generational wealth, neighborhood by neighborhood. The HOLC maps are gone. Their consequence isn't.
+        </p>
+        <div class="thread-featured__chain" aria-label="Causal chain summary">
+          <span class="thread-chain-node">HOLC Maps 1933</span>
+          <span class="thread-chain-arrow" aria-hidden="true">→</span>
+          <span class="thread-chain-node">FHA Redlining 1934</span>
+          <span class="thread-chain-arrow" aria-hidden="true">→</span>
+          <span class="thread-chain-node">GI Bill exclusion 1944</span>
+          <span class="thread-chain-arrow" aria-hidden="true">→</span>
+          <span class="thread-chain-node">Segregated schools</span>
+          <span class="thread-chain-arrow" aria-hidden="true">→</span>
+          <span class="thread-chain-node">Today's wealth gap</span>
+        </div>
+        <div class="thread-featured__footer">
+          <span class="thread-status-badge thread-status-badge--live">
+            <span class="thread-status-badge__dot" aria-hidden="true"></span>
+            Live
+          </span>
+          <span class="thread-meta-tag">8 chapters · c. 1933–Present</span>
+          <span class="thread-meta-tag" style="margin-left:auto; color:var(--color-accent-dark); font-weight:600;">Read thread →</span>
+        </div>
+      </div>
+      <div class="thread-featured__aside" aria-hidden="true">
+        <span class="thread-featured__aside-label">The causal chain</span>
+        <div class="causal-preview">
+          <div class="causal-preview__item">
+            <div class="causal-preview__connector">
+              <div class="causal-preview__dot"></div>
+              <div class="causal-preview__line"></div>
+            </div>
+            <div class="causal-preview__text">
+              <div class="causal-preview__year">300 BCE–1600 CE</div>
+              <div class="causal-preview__label">Sovereign African civilizations — wealth, scholarship, self-determination</div>
+            </div>
+          </div>
+          <div class="causal-preview__item">
+            <div class="causal-preview__connector">
+              <div class="causal-preview__dot"></div>
+              <div class="causal-preview__line"></div>
+            </div>
+            <div class="causal-preview__text">
+              <div class="causal-preview__year">1619–1865</div>
+              <div class="causal-preview__label">246 years of unpaid labor — the foundation of American wealth</div>
+            </div>
+          </div>
+          <div class="causal-preview__item">
+            <div class="causal-preview__connector">
+              <div class="causal-preview__dot"></div>
+              <div class="causal-preview__line"></div>
+            </div>
+            <div class="causal-preview__text">
+              <div class="causal-preview__year">1933–1968</div>
+              <div class="causal-preview__label">Federal housing policy locks Black families out of wealth-building</div>
+            </div>
+          </div>
+          <div class="causal-preview__item">
+            <div class="causal-preview__connector">
+              <div class="causal-preview__dot"></div>
+              <div class="causal-preview__line"></div>
+            </div>
+            <div class="causal-preview__text">
+              <div class="causal-preview__year">Today</div>
+              <div class="causal-preview__label">Median Black household wealth: $24,100. White: $188,200</div>
+            </div>
+          </div>
+        </div>
+        <a href="thread.html" class="thread-featured__aside-cta">Start reading →</a>
+      </div>
+    </a>
+
+    <!-- THREAD GRID -->
+    <div class="threads-grid" id="threads-grid">
+
+      <a href="thread-transatlantic-slave-trade.html" class="thread-card reveal" data-domain="labor">
+        <span class="thread-card__domain">Origins &amp; Labor</span>
+        <h2 class="thread-card__title">The Transatlantic Slave Trade</h2>
+        <p class="thread-card__summary">From the first Portuguese raids on the West African coast to the largest forced migration in human history — how 12.5 million people were removed from the continent that built the modern world. The rupture everything else flows from.</p>
+        <div class="thread-card__span">
+          <span>1441</span>
+          <div class="thread-card__span-line" aria-hidden="true"></div>
+          <span>1808</span>
+          <span class="thread-status-badge thread-status-badge--soon" style="margin-left:auto">In development</span>
+        </div>
+      </a>
+
+      <a href="thread-stolen-labor.html" class="thread-card reveal" data-domain="labor">
+        <span class="thread-card__domain">Labor &amp; Wealth</span>
+        <h2 class="thread-card__title">Stolen Labor &amp; the Architecture of American Wealth</h2>
+        <p class="thread-card__summary">246 years of unpaid labor built the cotton economy, financed Northern banks, and capitalized the Industrial Revolution. The chain from that extraction to today's racial wealth gap is direct and unbroken.</p>
+        <div class="thread-card__span">
+          <span>1619</span>
+          <div class="thread-card__span-line" aria-hidden="true"></div>
+          <span>Present</span>
+          <span class="thread-status-badge thread-status-badge--soon" style="margin-left:auto">In development</span>
+        </div>
+      </a>
+
+      <a href="thread-mass-incarceration.html" class="thread-card reveal" data-domain="justice">
+        <span class="thread-card__domain">Criminal Justice</span>
+        <h2 class="thread-card__title">From Black Codes to Mass Incarceration</h2>
+        <p class="thread-card__summary">The laws changed. The mechanism didn't. A thread tracing how post-emancipation Black Codes evolved through convict leasing, Jim Crow, the drug war, and mandatory minimums into a system that incarcerates Black Americans at five times the rate of white Americans.</p>
+        <div class="thread-card__span">
+          <span>1865</span>
+          <div class="thread-card__span-line" aria-hidden="true"></div>
+          <span>Present</span>
+          <span class="thread-status-badge thread-status-badge--soon" style="margin-left:auto">In development</span>
+        </div>
+      </a>
+
+      <a href="thread-health-disparities.html" class="thread-card reveal" data-domain="health">
+        <span class="thread-card__domain">Health</span>
+        <h2 class="thread-card__title">The Racial Health Gap</h2>
+        <p class="thread-card__summary">Why do Black Americans die younger, suffer higher rates of chronic disease, and receive less pain management? A thread tracing medical racism from Reconstruction-era experimentation to today's maternal mortality crisis — where Black women die in childbirth at three times the rate of white women.</p>
+        <div class="thread-card__span">
+          <span>1865</span>
+          <div class="thread-card__span-line" aria-hidden="true"></div>
+          <span>Present</span>
+          <span class="thread-status-badge thread-status-badge--soon" style="margin-left:auto">In development</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="coming-soon-section">
+      <div class="coming-soon-section__header">
+        <h2 class="coming-soon-section__title">In development</h2>
+        <span class="coming-soon-section__sub">Threads being researched and built</span>
+      </div>
+      <div class="soon-list">
+        <div class="soon-item reveal" data-domain="education">
+          <span class="soon-item__domain">Education</span>
+          <div class="soon-item__body">
+            <div class="soon-item__title">Separate and Unequal — From Plessy to Present</div>
+            <div class="soon-item__summary">How "separate but equal" became a permanent architecture of educational inequality — and why the Brown ruling didn't end it.</div>
+          </div>
+          <span class="soon-item__badge">Research phase</span>
+        </div>
+        <div class="soon-item reveal" data-domain="labor">
+          <span class="soon-item__domain">Labor &amp; Wealth</span>
+          <div class="soon-item__body">
+            <div class="soon-item__title">Greenwood to GenWealth — The Destruction of Black Wealth</div>
+            <div class="soon-item__summary">From the Tulsa massacre of "Black Wall Street" to the racial wealth gap of 2025 — a thread tracing how accumulated Black wealth was systematically destroyed at every moment it threatened to close the gap.</div>
+          </div>
+          <span class="soon-item__badge">Research phase</span>
+        </div>
+        <div class="soon-item reveal" data-domain="justice">
+          <span class="soon-item__domain">Voting &amp; Power</span>
+          <div class="soon-item__body">
+            <div class="soon-item__title">Reconstruction to Voter Suppression</div>
+            <div class="soon-item__summary">The brief period of Black political power after the Civil War — and the century-long campaign to dismantle it through literacy tests, poll taxes, gerrymandering, and the gutting of the Voting Rights Act.</div>
+          </div>
+          <span class="soon-item__badge">Planned</span>
+        </div>
+        <div class="soon-item reveal" data-domain="health">
+          <span class="soon-item__domain">Environment</span>
+          <div class="soon-item__body">
+            <div class="soon-item__title">Environmental Racism — From Redlines to Sacrifice Zones</div>
+            <div class="soon-item__summary">How the same HOLC maps that created housing segregation also concentrated industrial pollution, toxic waste facilities, and highway construction in Black neighborhoods — with direct consequences for asthma, cancer, and life expectancy today.</div>
+          </div>
+          <span class="soon-item__badge">Planned</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUGGEST CTA -->
+    <div class="suggest-cta reveal">
+      <div>
+        <h2 class="suggest-cta__title">Know a chain we haven't traced?</h2>
+        <p class="suggest-cta__body">Chain is built in public. If there's a causal connection between a historical act and a present-day condition that we haven't covered, we want to know. Researchers, educators, and community members can submit thread proposals.</p>
+      </div>
+      <div class="suggest-cta__actions">
+        <a href="contact.html" class="btn btn--primary">Propose a thread →</a>
+        <a href="about.html#methodology" class="btn btn--ghost" style="color:var(--ink-300);border-color:var(--ink-700);">Our methodology</a>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── DOMAIN FILTER ─────────────────────────────────────────
+  const filterChips = document.querySelectorAll('.filter-chip');
+  const allCards    = document.querySelectorAll('[data-domain]');
+
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
+      chip.classList.add('is-active'); chip.setAttribute('aria-pressed','true');
+      const f = chip.dataset.filter;
+      allCards.forEach(card => {
+        const domains = card.dataset.domain || '';
+        card.style.display = (f === 'all' || domains.includes(f)) ? '' : 'none';
+      });
+    });
+  });
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
