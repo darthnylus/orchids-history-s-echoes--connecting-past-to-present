@@ -556,6 +556,142 @@
     [data-theme="dark"] .empire-feature { background: var(--ink-800); border-color: var(--ink-700); }
     [data-theme="dark"] .sidebar-card { background: var(--ink-800); border-color: var(--ink-700); }
 
+    /* ── Alkebulan section ───────────────────────────────────── */
+    .naming-section {
+      scroll-margin-top: 80px;
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .naming-section__header {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: var(--space-5);
+      align-items: start;
+      margin-bottom: var(--space-6);
+    }
+    .naming-section__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-lg);
+      background: rgba(99,102,241,.15);
+      border: 1px solid rgba(99,102,241,.3);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .naming-section__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: #818cf8;
+      margin-bottom: var(--space-1);
+    }
+    .naming-section__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.375rem, 3vw, 1.875rem);
+      font-weight: 900;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+    }
+    .naming-section__body {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+      margin-bottom: var(--space-6);
+    }
+    .naming-section__body p { margin-bottom: var(--space-4); }
+    .naming-section__body p:last-child { margin-bottom: 0; }
+    .naming-section__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+
+    /* Two-column claim cards */
+    .naming-claims {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      margin: var(--space-7) 0;
+    }
+    @media (min-width: 640px) { .naming-claims { grid-template-columns: 1fr 1fr; } }
+
+    .naming-claim-card {
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      border: 1px solid var(--color-border);
+    }
+    .naming-claim-card--documented {
+      background: rgba(16,185,129,.05);
+      border-color: rgba(16,185,129,.25);
+    }
+    .naming-claim-card--contested {
+      background: rgba(245,158,11,.05);
+      border-color: rgba(245,158,11,.25);
+    }
+    .naming-claim-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 0.65rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px var(--space-3);
+      border-radius: 999px;
+      margin-bottom: var(--space-4);
+    }
+    .naming-claim-card--documented .naming-claim-card__badge { background: rgba(16,185,129,.15); color: #10b981; }
+    .naming-claim-card--contested  .naming-claim-card__badge { background: rgba(245,158,11,.15); color: #f59e0b; }
+    .naming-claim-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+      line-height: 1.3;
+    }
+    .naming-claim-card__body {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+    .naming-claim-card__body strong { color: var(--color-text-primary); }
+    .naming-claim-card__source {
+      font-size: 0.7rem;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-4);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--color-border);
+      line-height: 1.5;
+    }
+
+    /* What we know box */
+    .naming-verdict {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid #818cf8;
+      border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+      padding: var(--space-6) var(--space-7);
+      margin-top: var(--space-7);
+    }
+    [data-theme="dark"] .naming-verdict { background: var(--ink-800); border-color: var(--ink-700); border-left-color: #818cf8; }
+    .naming-verdict__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: #818cf8;
+      margin-bottom: var(--space-3);
+    }
+    .naming-verdict__text {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+    .naming-verdict__text strong { color: var(--color-text-primary); }
+
+    [data-theme="dark"] .naming-claim-card { background: var(--ink-800); }
+    [data-theme="dark"] .naming-claim-card--documented { background: rgba(16,185,129,.08); border-color: rgba(16,185,129,.2); }
+    [data-theme="dark"] .naming-claim-card--contested  { background: rgba(245,158,11,.08); border-color: rgba(245,158,11,.2); }
+
     /* Reveal */
     .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
     .reveal.is-visible { opacity: 1; transform: none; }
@@ -724,6 +860,57 @@
 
         <!-- MAIN CONTENT -->
         <div>
+
+          <!-- ── ALKEBULAN / NAMING SECTION ─────────────────── -->
+          <div class="naming-section reveal" id="naming">
+            <div class="naming-section__header">
+              <div class="naming-section__icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <div class="naming-section__eyebrow">On naming &amp; erasure</div>
+                <h2 class="naming-section__title">Alkebulan: What Africa Was Called Before Europe Named It</h2>
+              </div>
+            </div>
+
+            <div class="naming-section__body">
+              <p>Before examining the empires themselves, it is worth pausing on the name of the continent. <strong>"Africa" is a Roman-era designation</strong> — applied externally, origin disputed, with theories ranging from the Latin <em>aprica</em> (sunny) to the Berber <em>Afer</em> (dust) to the Phoenician <em>afar</em>. What it is not is the name Africans used for their own continent.</p>
+              <p>In Pan-African and Afrocentric scholarship, the name <strong>Alkebulan</strong> — sometimes rendered Alkebu-lan, meaning roughly "mother of mankind" or "garden of Eden" — is frequently cited as the continent's original indigenous name. You will encounter it in classrooms, community organizations, and cultural spaces across the Black diaspora. Its use is a deliberate act of decolonization: a refusal to accept the European name as the only name.</p>
+              <p>Chain is committed to intellectual honesty, including about what we know and what we don't. So here is an honest accounting of the evidence.</p>
+            </div>
+
+            <div class="naming-claims">
+              <div class="naming-claim-card naming-claim-card--contested">
+                <div class="naming-claim-card__badge">
+                  <span>⚠</span> Claimed — not verified in ancient sources
+                </div>
+                <div class="naming-claim-card__title">"Alkebulan was Africa's original indigenous name"</div>
+                <div class="naming-claim-card__body">
+                  This claim is most prominently associated with Dr. Chancellor Williams' <em>The Destruction of Black Civilization</em> (1971) and has circulated widely in Pan-African and Afrocentric discourse since. <strong>However, no ancient primary source — no inscription, manuscript, or archaeological record — has been identified that uses this term.</strong> It does not appear in Ge'ez texts, Arabic geographic records of West Africa, Egyptian hieroglyphics, or any documented pre-colonial African language corpus currently known to scholars. The term's ancient origin has not been established.
+                </div>
+                <div class="naming-claim-card__source">Source: Williams, Chancellor. <em>The Destruction of Black Civilization</em>, Third World Press, 1971. See also: Diop, Cheikh Anta. <em>The African Origin of Civilization</em>, 1974 — which does not itself use the term Alkebulan.</div>
+              </div>
+
+              <div class="naming-claim-card naming-claim-card--documented">
+                <div class="naming-claim-card__badge">
+                  <span>✓</span> Documented in primary sources
+                </div>
+                <div class="naming-claim-card__title">"Africa" is an externally imposed name with no African origin</div>
+                <div class="naming-claim-card__body">
+                  This is well-documented. The term "Africa" appears in Roman texts from the 2nd century BCE, initially referring to a province in modern Tunisia, and was gradually extended to the entire continent by European cartographers. <strong>No African language indigenous to the continent generated this name.</strong> The continent was named by outsiders, for outsiders — a pattern of colonial nomination applied systematically across the globe. What Africans called the continent collectively is genuinely unknown, in part because "Africa" as a single geographic concept was itself a European construction — most pre-colonial African polities had no need for a continental name.
+                </div>
+                <div class="naming-claim-card__source">Sources: Snowden, Frank M. <em>Blacks in Antiquity</em>, Harvard University Press, 1970. Ehret, Christopher. <em>The Civilizations of Africa</em>, University of Virginia Press, 2002.</div>
+              </div>
+            </div>
+
+            <div class="naming-verdict">
+              <div class="naming-verdict__label">Chain's position</div>
+              <p class="naming-verdict__text">
+                The impulse behind "Alkebulan" is historically grounded: <strong>Africa was named by colonizers, and that act of naming was itself an erasure.</strong> We hold that truth. What we cannot do — without primary source evidence — is assert that "Alkebulan" was a verified ancient name. The honest version of this argument is more powerful than the embellished one: a continent whose civilizations produced pyramids, universities, constitutional governance, and global trade networks was stripped of its own names, its own history, and ultimately millions of its people — and the erasure began with something as basic as what to call the place. That is the argument Chain makes. We do not need an unverifiable ancient name to make it. The documented history is damning enough.
+              </p>
+            </div>
+          </div>
+
           <div class="empire-list">
 
             <!-- ── 1. Kingdom of Kush ─────────────────────────── -->
@@ -1091,10 +1278,11 @@
         <!-- SIDEBAR -->
         <aside class="thread-sidebar" aria-label="Thread navigation and related content">
 
-          <nav class="sidebar-toc" aria-label="Jump to empire">
-            <p class="sidebar-toc__label">7 Empires</p>
+          <nav class="sidebar-toc" aria-label="Jump to section">
+            <p class="sidebar-toc__label">In this thread</p>
             <ul class="sidebar-toc__list">
-              <li><a href="#kush"     class="sidebar-toc__link is-active"><span class="sidebar-toc__num">01</span> Kingdom of Kush</a></li>
+              <li><a href="#naming"   class="sidebar-toc__link is-active"><span class="sidebar-toc__num" style="color:#818cf8">◎</span> Alkebulan &amp; naming</a></li>
+              <li><a href="#kush"     class="sidebar-toc__link"><span class="sidebar-toc__num">01</span> Kingdom of Kush</a></li>
               <li><a href="#axum"     class="sidebar-toc__link"><span class="sidebar-toc__num">02</span> Kingdom of Axum</a></li>
               <li><a href="#mali"     class="sidebar-toc__link"><span class="sidebar-toc__num">03</span> Mali Empire</a></li>
               <li><a href="#songhai"  class="sidebar-toc__link"><span class="sidebar-toc__num">04</span> Songhai Empire</a></li>
@@ -1276,7 +1464,7 @@
 
   // ── SIDEBAR TOC SCROLLSPY ─────────────────────────────────
   const tocLinks   = document.querySelectorAll('.sidebar-toc__link');
-  const empireIds  = ['kush','axum','mali','songhai','benin','zimbabwe','oyo'];
+  const empireIds  = ['naming','kush','axum','mali','songhai','benin','zimbabwe','oyo'];
   const tocObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
