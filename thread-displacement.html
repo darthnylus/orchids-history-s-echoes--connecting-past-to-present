@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Flooded City: Five Ways Black Communities Were Displaced, 1898–Present — Thread — Chain</title>
+  <meta name="description" content="Mob destruction, federal bulldozers, interstate highways, literal flooding, and gentrification. Five different mechanisms across 125 years. The same neighborhoods, taken again and again. Every chapter had government involvement. None of it was accidental." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .thread-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .thread-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 50%, rgba(239,68,68,.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 85% 25%, rgba(249,115,22,.08) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 50% 100%, rgba(16,185,129,.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .thread-hero__inner { position: relative; max-width: 760px; }
+    .thread-hero__kicker {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.28);
+      border-radius: 999px; padding: var(--space-1) var(--space-4);
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: #fca5a5; margin-bottom: var(--space-6);
+    }
+    .thread-hero__kicker-dot { width: 6px; height: 6px; border-radius: 50%; background: #fca5a5; }
+    .thread-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.1; letter-spacing: -0.02em;
+      margin-bottom: var(--space-6);
+    }
+    .thread-hero__title em { color: #fca5a5; font-style: normal; }
+    .thread-hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem); color: var(--ink-300);
+      line-height: 1.7; max-width: 640px; margin-bottom: var(--space-8);
+    }
+    .thread-hero__meta { display: flex; gap: var(--space-6); flex-wrap: wrap; align-items: flex-end; }
+    .thread-meta-item__label {
+      font-size: var(--type-xs); color: var(--ink-500);
+      text-transform: uppercase; letter-spacing: var(--tracking-wide); margin-bottom: 2px;
+    }
+    .thread-meta-item__value { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: var(--ink-200); }
+
+    /* ── Listen button ─────────────────────────────────────── */
+    .listen-btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: var(--space-2) var(--space-4); border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06);
+      color: var(--ink-300); font-size: var(--type-xs); font-weight: var(--weight-semibold);
+      font-family: inherit; cursor: pointer; transition: all var(--duration-fast);
+      margin-left: auto; white-space: nowrap; align-self: flex-end;
+    }
+    .listen-btn:hover { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.3); }
+    .listen-btn[data-state="playing"] { background: rgba(239,68,68,.2); border-color: rgba(239,68,68,.4); color: #fca5a5; }
+    .listen-progress-bar { height: 3px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; display: none; }
+    .listen-progress-bar.is-visible { display: block; }
+    .listen-progress-bar__fill { height: 100%; background: #fca5a5; width: 0%; transition: width 0.5s linear; }
+
+    /* ── Argument bar ──────────────────────────────────────── */
+    .argument-bar {
+      background: rgba(239,68,68,.07);
+      border-top: 1px solid rgba(239,68,68,.15);
+      border-bottom: 1px solid rgba(239,68,68,.15);
+      padding: var(--space-5) 0;
+    }
+    .argument-bar__inner { display: flex; align-items: flex-start; gap: var(--space-5); }
+    .argument-bar__icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(239,68,68,.18); border-radius: 50%;
+      display: grid; place-items: center; margin-top: 2px;
+    }
+    .argument-bar__label {
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: #fca5a5; margin-bottom: var(--space-1);
+    }
+    .argument-bar__text { font-size: var(--type-md); color: var(--ink-200); line-height: 1.65; max-width: 820px; }
+    .argument-bar__text strong { color: #fff; }
+
+    /* ── Thread layout ─────────────────────────────────────── */
+    .thread-body { padding: var(--space-14) 0; }
+    .thread-layout {
+      display: grid; grid-template-columns: 1fr;
+      gap: var(--space-10); align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .thread-layout { grid-template-columns: 1fr 300px; gap: var(--space-12); }
+    }
+
+    /* ── Mechanism divider ─────────────────────────────────── */
+    .mechanism-header {
+      display: flex; align-items: center; gap: var(--space-4);
+      margin-bottom: var(--space-8); margin-top: var(--space-6);
+    }
+    .mechanism-header:first-child { margin-top: 0; }
+    .mechanism-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: var(--space-1) var(--space-4); border-radius: 999px;
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .mechanism-badge__dot { width: 8px; height: 8px; border-radius: 50%; }
+    .mechanism-divider { flex: 1; height: 1px; background: var(--color-border); }
+
+    /* ── Entry cards ───────────────────────────────────────── */
+    .entry-list { display: flex; flex-direction: column; gap: 0; }
+    .entry-item {
+      scroll-margin-top: 80px;
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .entry-item:last-of-type { border-bottom: none; }
+    .entry-item__header {
+      display: grid; grid-template-columns: 56px 1fr;
+      gap: var(--space-5); align-items: start; margin-bottom: var(--space-6);
+    }
+    .entry-item__num {
+      width: 56px; height: 56px; border-radius: var(--radius-lg);
+      display: grid; place-items: center; flex-shrink: 0;
+      font-family: var(--font-editorial); font-size: 1.375rem; font-weight: 900;
+    }
+    .entry-item__dates {
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide); text-transform: uppercase;
+      margin-bottom: var(--space-1);
+    }
+    .entry-item__name {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.375rem, 3vw, 1.875rem);
+      font-weight: 900; color: var(--color-text-primary);
+      line-height: 1.15; margin-bottom: var(--space-1);
+    }
+    .entry-item__location { font-size: var(--type-sm); color: var(--color-text-tertiary); }
+
+    /* Stat strip */
+    .entry-stats {
+      display: flex; gap: var(--space-5); flex-wrap: wrap;
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg); border: 1px solid var(--color-border);
+      margin-bottom: var(--space-6);
+    }
+    .entry-stat__num {
+      font-family: var(--font-editorial); font-size: 1.25rem;
+      font-weight: var(--weight-bold); line-height: 1; margin-bottom: 2px;
+    }
+    .entry-stat__label {
+      font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: var(--tracking-wide); color: var(--color-text-tertiary);
+    }
+
+    .entry-item__body {
+      font-size: var(--type-md); color: var(--color-text-secondary);
+      line-height: var(--leading-loose); margin-bottom: var(--space-6);
+    }
+    .entry-item__body p { margin-bottom: var(--space-4); }
+    .entry-item__body p:last-child { margin-bottom: 0; }
+    .entry-item__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+
+    /* Features grid */
+    .entry-features {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3); margin-bottom: var(--space-6);
+    }
+    @media (min-width: 640px) { .entry-features { grid-template-columns: repeat(3, 1fr); } }
+    .entry-feature {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg); padding: var(--space-4);
+    }
+    .entry-feature__icon { font-size: 1.25rem; margin-bottom: var(--space-2); line-height: 1; }
+    .entry-feature__label { font-size: var(--type-xs); font-weight: var(--weight-semibold); color: var(--color-text-primary); margin-bottom: 2px; }
+    .entry-feature__desc { font-size: 0.72rem; color: var(--color-text-tertiary); line-height: 1.5; }
+
+    /* Consequence box */
+    .consequence-box {
+      border: 1px solid rgba(239,68,68,.25);
+      border-left: 3px solid #ef4444;
+      background: rgba(239,68,68,.04);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: var(--space-5) var(--space-6); margin-bottom: var(--space-5);
+    }
+    [data-theme="dark"] .consequence-box { background: rgba(239,68,68,.07); }
+    .consequence-box__label {
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide); text-transform: uppercase;
+      color: #ef4444; margin-bottom: var(--space-2);
+    }
+    .consequence-box__text { font-size: var(--type-sm); color: var(--color-text-secondary); line-height: 1.65; }
+    .consequence-box__text strong { color: var(--color-text-primary); }
+
+    /* Pull quote */
+    .pull-quote { border-left: 3px solid #fca5a5; padding: var(--space-4) var(--space-6); margin: var(--space-7) 0; }
+    .pull-quote__text {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+      font-style: italic; color: var(--color-text-primary);
+      line-height: 1.55; margin-bottom: var(--space-3);
+    }
+    .pull-quote__attribution {
+      font-size: var(--type-xs); font-weight: var(--weight-semibold);
+      text-transform: uppercase; letter-spacing: var(--tracking-wider); color: #fca5a5;
+    }
+
+    /* Causal chain */
+    .chain-connector {
+      background: var(--ink-900); border-radius: var(--radius-xl);
+      padding: var(--space-8); margin: var(--space-12) 0;
+    }
+    .chain-connector__title {
+      font-family: var(--font-editorial); font-size: 1.25rem;
+      font-weight: var(--weight-bold); color: #fff; margin-bottom: var(--space-6);
+    }
+    .chain-steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .chain-step {
+      display: grid; grid-template-columns: 32px 1fr;
+      gap: var(--space-4); align-items: start;
+      padding-bottom: var(--space-5); position: relative;
+    }
+    .chain-step:last-child { padding-bottom: 0; }
+    .chain-step__line {
+      position: absolute; left: 15px; top: 32px; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, rgba(239,68,68,.5), rgba(239,68,68,.1));
+    }
+    .chain-step:last-child .chain-step__line { display: none; }
+    .chain-step__dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2px solid #fca5a5; background: rgba(239,68,68,.15);
+      color: #fca5a5; font-size: 0.7rem; font-weight: var(--weight-bold);
+      display: grid; place-items: center; flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .chain-step__era {
+      font-size: 0.68rem; font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide); text-transform: uppercase;
+      color: #fca5a5; margin-bottom: 2px;
+    }
+    .chain-step__title { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: #fff; margin-bottom: 3px; }
+    .chain-step__desc { font-size: var(--type-xs); color: var(--ink-400); line-height: 1.6; }
+
+    /* Sidebar */
+    .sidebar { display: flex; flex-direction: column; gap: var(--space-5); }
+    .sidebar-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-5);
+    }
+    [data-theme="dark"] .sidebar-card { background: var(--ink-800); border-color: var(--ink-700); }
+    .sidebar-card__title {
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: var(--color-text-tertiary); margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border);
+    }
+    .sidebar-toc__list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+    .sidebar-toc__link {
+      display: block; font-size: var(--type-xs); color: var(--color-text-secondary);
+      padding: 5px var(--space-3); border-radius: var(--radius-md);
+      transition: all var(--duration-fast); text-decoration: none; line-height: 1.3;
+    }
+    .sidebar-toc__link:hover { background: var(--color-surface-raised); color: var(--color-text-primary); }
+    .sidebar-toc__link.is-active { background: rgba(239,68,68,.1); color: #fca5a5; font-weight: var(--weight-semibold); }
+    .sidebar-fact__stat {
+      font-family: var(--font-editorial); font-size: 2rem; font-weight: 900;
+      color: #fca5a5; line-height: 1; margin-bottom: var(--space-1);
+    }
+    .sidebar-fact__label { font-size: var(--type-xs); color: var(--color-text-secondary); line-height: 1.5; }
+    .sidebar-fact__divider { height: 1px; background: var(--color-border); margin: var(--space-4) 0; }
+    .related-thread {
+      display: flex; flex-direction: column; gap: var(--space-1);
+      padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border);
+      text-decoration: none;
+    }
+    .related-thread:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-thread__num { font-size: 0.68rem; font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-tertiary); }
+    .related-thread__title { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: var(--color-text-primary); line-height: 1.35; }
+    .related-thread:hover .related-thread__title { color: #fca5a5; }
+
+    /* Bottom CTA */
+    .thread-bottom-cta { background: var(--ink-900); padding: var(--space-16) 0; text-align: center; }
+    .thread-bottom-cta__eyebrow {
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: #fca5a5; margin-bottom: var(--space-4);
+    }
+    .thread-bottom-cta__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900; color: #fff; line-height: 1.15;
+      margin-bottom: var(--space-5); max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .thread-bottom-cta__sub {
+      font-size: var(--type-md); color: var(--ink-400);
+      max-width: 520px; margin: 0 auto var(--space-8); line-height: 1.65;
+    }
+    .thread-bottom-cta__btns { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+    .thread-bottom-cta__btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: var(--space-3) var(--space-7); border-radius: 999px;
+      font-size: var(--type-sm); font-weight: var(--weight-semibold);
+      text-decoration: none; transition: all var(--duration-fast);
+    }
+    .thread-bottom-cta__btn--primary { background: #dc2626; color: #fff; }
+    .thread-bottom-cta__btn--primary:hover { background: #b91c1c; }
+    .thread-bottom-cta__btn--secondary { background: transparent; color: var(--ink-300); border: 1px solid rgba(255,255,255,.15); }
+    .thread-bottom-cta__btn--secondary:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+    [data-theme="dark"] .entry-stats { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .entry-feature { background: var(--ink-800); border-color: var(--ink-700); }
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>Displacement Thread:</strong> Five mechanisms. One outcome. The cities Black Americans built — and lost.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html" class="site-nav__link">Explore</a>
+      <a href="threads.html" class="site-nav__link" aria-current="page">Threads</a>
+      <a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html" class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Try searching</p>
+      <a href="search.html?q=Tulsa+Black+Wall+Street" class="search-hint-chip">Tulsa Black Wall Street</a>
+      <a href="search.html?q=urban+renewal" class="search-hint-chip">Urban renewal</a>
+      <a href="search.html?q=gentrification" class="search-hint-chip">Gentrification</a>
+    </div>
+  </div>
+</div>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html" class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html" class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html" class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+      <li><a href="about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
+        Displacement Thread · 1898–Present
+      </div>
+      <h1 class="thread-hero__title" id="heroTitle">
+        <em>The Flooded City:</em><br>
+        Five Ways Black Communities<br>Were Taken
+      </h1>
+      <p class="thread-hero__subtitle">
+        Mob destruction. Federal bulldozers. Interstate highways. Literal flooding. Gentrification. Five separate mechanisms across 125 years — but the same neighborhoods, taken again and again. Tulsa's Greenwood District. New Orleans' Tremé. Harlem. Chicago's Bronzeville. Every chapter had government involvement. None of it was accidental.
+      </p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Period</div>
+          <div class="thread-meta-item__value">1898 – Present</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Mechanisms</div>
+          <div class="thread-meta-item__value">5 distinct — all documented</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Displaced</div>
+          <div class="thread-meta-item__value">1M+ Americans, ⅔ Black</div>
+        </div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span id="listenLabel">Listen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true">
+    <div class="listen-progress-bar__fill" id="listenProgressFill"></div>
+  </div>
+</section>
+
+<!-- ARGUMENT BAR -->
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fca5a5" stroke-width="2.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text">
+          <strong>Black Americans built thriving cities — and were systematically removed from them.</strong> The mechanisms changed every generation: mob violence in 1921, federal housing policy in 1956, interstate construction in 1966, floodwaters in 2005, rising rents today. But the outcome was always the same: Black communities displaced, Black wealth erased, and the same neighborhoods absorbed into white economic expansion. This thread traces the five mechanisms and shows they are a pattern, not a series of isolated incidents.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+  <div class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+        <div class="entry-list">
+
+          <!-- ══════════════════════════════════════════════════════ -->
+          <!-- MECHANISM 1: MOB VIOLENCE -->
+          <!-- ══════════════════════════════════════════════════════ -->
+          <div class="mechanism-header">
+            <span class="mechanism-badge" style="background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.28); color:#fca5a5;">
+              <span class="mechanism-badge__dot" style="background:#ef4444;"></span>
+              Mechanism 1 — Mob Destruction
+            </span>
+            <div class="mechanism-divider"></div>
+          </div>
+
+          <article class="entry-item reveal" id="entry-wilmington">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.25); color:#fca5a5;" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates" style="color:#fca5a5;">November 10, 1898 · Wilmington, North Carolina</div>
+                <h2 class="entry-item__name">Wilmington — The Only Coup d'État in American History</h2>
+                <div class="entry-item__location">Wilmington, NC · Democratic Party white supremacists</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num" style="color:#fca5a5;">1898</div><div class="entry-stat__label">First American coup</div></div>
+              <div><div class="entry-stat__num" style="color:#fca5a5;">300+</div><div class="entry-stat__label">Black residents killed or expelled</div></div>
+              <div><div class="entry-stat__num" style="color:#fca5a5;">0</div><div class="entry-stat__label">Federal prosecutions</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>In 1898, Wilmington, North Carolina, was a majority-Black city with a thriving economy. Black residents held elected office, owned businesses, ran the city's newspaper, and formed the professional class. A white supremacist Democratic Party coalition — threatened by this Black political and economic power — organized a coup.</p>
+              <p>On November 10, a white mob of at least 2,000 men marched on the offices of the <em>Daily Record</em>, the Black-owned newspaper, and burned it to the ground. They then overthrew the legally elected city government at gunpoint — the only documented violent overthrow of a U.S. city government in American history. The Republican mayor and aldermen were forced to resign at gunpoint and replaced by the coup leaders.</p>
+              <p><strong>Between 60 and 300 Black residents were killed.</strong> Thousands fled. Wilmington went from a majority-Black city to a majority-white city within weeks. The business district, the property, the political infrastructure — all transferred to white ownership in a single day. The federal government did nothing. No one was ever prosecuted.</p>
+            </div>
+
+            <div class="pull-quote">
+              <p class="pull-quote__text">"We will never again be ruled by men of African origin."</p>
+              <p class="pull-quote__attribution">— Alfred Moore Waddell, leader of the Wilmington Coup, 1898</p>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">What Was Taken</div>
+              <p class="consequence-box__text">An entire functioning Black city government, Black-owned press, and accumulated political power — erased in one day. The wealth transfer was immediate and permanent. Wilmington's Black community never recovered its pre-1898 political position. This is the template every subsequent mechanism follows: total, immediate transfer of Black-built wealth to white ownership.</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-tulsa">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.25); color:#fca5a5;" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates" style="color:#fca5a5;">May 31 – June 1, 1921 · Tulsa, Oklahoma</div>
+                <h2 class="entry-item__name">Tulsa — Black Wall Street Burns in 16 Hours</h2>
+                <div class="entry-item__location">Greenwood District, Tulsa, OK</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num" style="color:#fca5a5;">35</div><div class="entry-stat__label">Blocks burned to the ground</div></div>
+              <div><div class="entry-stat__num" style="color:#fca5a5;">300+</div><div class="entry-stat__label">Black residents killed</div></div>
+              <div><div class="entry-stat__num" style="color:#fca5a5;">10,000</div><div class="entry-stat__label">Black residents left homeless</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>Tulsa's Greenwood District was called "Black Wall Street" for a reason. By 1921 it contained over 300 Black-owned businesses: hotels, law offices, a hospital, two newspapers, grocery stores, a library, and a dozen churches. It was one of the wealthiest Black communities in the United States — built by the generation of Oklahomans who had migrated after the Civil War and accumulated wealth over 50 years of work.</p>
+              <p>On the night of May 31, 1921, a white mob estimated at 10,000 people descended on Greenwood after a Black teenager named Dick Rowland was accused of assaulting a white elevator operator (charges later dropped). Armed Black residents attempted to defend the district. <strong>The mob — aided by the Tulsa Police Department and deputized white civilians — burned 35 city blocks in 16 hours.</strong> Airplanes circled overhead; eyewitnesses reported they fired on Black residents fleeing the fires.</p>
+              <p>The scale of destruction was total: 1,256 homes burned, 35 blocks destroyed, a hospital, schools, a library, a hotel. The accumulated wealth of one generation of Black Oklahomans — built over 50 years — was erased in less than a day. <strong>Not one white participant was charged.</strong> The city then used zoning laws to prevent Black residents from rebuilding on the same land.</p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🏥</div>
+                <div class="entry-feature__label">Destroyed: Hospital</div>
+                <div class="entry-feature__desc">Greenwood's hospital — one of two Black hospitals in Oklahoma — burned. Patients were dragged out and arrested.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📰</div>
+                <div class="entry-feature__label">Destroyed: Press</div>
+                <div class="entry-feature__desc">Both Black newspapers — the Tulsa Star and Oklahoma Sun — burned. Records of the community destroyed with them.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🏠</div>
+                <div class="entry-feature__label">Zoning Weaponized</div>
+                <div class="entry-feature__desc">City immediately rezoned Greenwood as commercial to block residential rebuilding. Courts struck it down — residents rebuilt anyway.</div>
+              </div>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Cover-Up</div>
+              <p class="consequence-box__text">The Tulsa Race Massacre was <strong>not taught in Oklahoma schools until 2020</strong> — 99 years later. Oklahoma House Bill 1775, passed in 2021 (the massacre's 100th anniversary year), restricted how the event could be discussed in classrooms. The massacre itself, and then the suppression of its history, are both documented mechanisms of displacement.</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-rosewood">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.25); color:#fca5a5;" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates" style="color:#fca5a5;">January 1 – 7, 1923 · Levy County, Florida</div>
+                <h2 class="entry-item__name">Rosewood — A Town Erased from the Map</h2>
+                <div class="entry-item__location">Rosewood, FL · Cedar Key area</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num" style="color:#fca5a5;">8+</div><div class="entry-stat__label">People killed (documented minimum)</div></div>
+              <div><div class="entry-stat__num" style="color:#fca5a5;">100+</div><div class="entry-stat__label">Black residents fled permanently</div></div>
+              <div><div class="entry-stat__num" style="color:#fca5a5;">70yr</div><div class="entry-stat__label">Until Florida acknowledged it (1994)</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>Rosewood was a prosperous Black town in Levy County, Florida — home to about 150 Black residents with a school, churches, a Masonic lodge, and more property ownership per capita than the neighboring white town of Sumner. On January 1, 1923, a white woman in Sumner claimed a Black man had assaulted her. (Her husband later privately admitted she had been beaten by her white lover.)</p>
+              <p>A white mob descended on Rosewood over six days. At least eight people were killed; the real number is unknown because bodies were never fully accounted for. Every building in Rosewood was burned. Every Black resident fled — most never returned. <strong>The town of Rosewood was physically erased from the map.</strong></p>
+              <p>The State of Florida did not acknowledge the massacre until 1994, 71 years later, when it paid $2.1 million in reparations to survivors and descendants — the first such legislative reparations payment by a U.S. state. The acknowledgment came only because survivors, then elderly, organized and testified before the state legislature.</p>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Pattern Across All Three</div>
+              <p class="consequence-box__text">Wilmington (1898), Tulsa (1921), Rosewood (1923): <strong>in each case, the precipitating event was a fabricated or unproven accusation against a Black man.</strong> In each case, the real motive was economic — white resentment of Black prosperity. In each case, the government stood aside or participated. In each case, the accumulated wealth of a Black community was transferred to white ownership and never restored.</p>
+            </div>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════════ -->
+          <!-- MECHANISM 2: URBAN RENEWAL -->
+          <!-- ══════════════════════════════════════════════════════ -->
+          <div class="mechanism-header" style="margin-top:var(--space-12);">
+            <span class="mechanism-badge" style="background:rgba(249,115,22,.10); border:1px solid rgba(249,115,22,.25); color:#fdba74;">
+              <span class="mechanism-badge__dot" style="background:#f97316;"></span>
+              Mechanism 2 — Urban Renewal / "Negro Removal"
+            </span>
+            <div class="mechanism-divider"></div>
+          </div>
+
+          <article class="entry-item reveal" id="entry-urban-renewal">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(249,115,22,.10); border:1px solid rgba(249,115,22,.22); color:#fdba74;" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates" style="color:#fdba74;">1949–1973 · National</div>
+                <h2 class="entry-item__name">Federal Urban Renewal — "Slum Clearance" as Cover Story</h2>
+                <div class="entry-item__location">National · Housing Act of 1949</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num" style="color:#fdba74;">1M+</div><div class="entry-stat__label">Americans displaced nationally</div></div>
+              <div><div class="entry-stat__num" style="color:#fdba74;">⅔</div><div class="entry-stat__label">Who were Black</div></div>
+              <div><div class="entry-stat__num" style="color:#fdba74;">475K</div><div class="entry-stat__label">Black households displaced in peak decade</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>The Housing Act of 1949 gave the federal government the power to designate neighborhoods as "slums," acquire the land through eminent domain, demolish the buildings, and sell the cleared land to private developers — who were almost always white. The program was called "urban renewal." <strong>James Baldwin called it "Negro removal."</strong> He was not being rhetorical. He was being precise.</p>
+              <p>In city after city, the neighborhoods designated as "slums" were Black neighborhoods — not because they were objectively worse than adjacent white neighborhoods, but because the land was valuable and the residents lacked political power. The Fillmore District in San Francisco was called "the Harlem of the West" — a jazz hub with thriving Black-owned businesses. Urban renewal demolished it and replaced it with a redeveloped neighborhood that Black residents could not afford to return to.</p>
+              <p>In Chicago, urban renewal in the South Side displaced tens of thousands of Black residents from Bronzeville — which had been one of the cultural capitals of Black America during the Great Migration. In Washington, D.C., entire neighborhoods in Shaw and Southwest were razed. In Boston, the South End. In New York, Robert Moses demolished the San Juan Hill neighborhood (a Black and Latino community) to build Lincoln Center. <strong>He is celebrated as an urban visionary. The 7,000 families he displaced are not mentioned on the Lincoln Center website.</strong></p>
+              <p>A crucial detail: the Housing Act required that displaced residents be provided with "decent, safe, and sanitary" replacement housing. In practice, this almost never happened. Displaced Black residents were pushed into public housing projects — which were then systematically defunded — or into adjacent neighborhoods that then became overcrowded and labeled as the next slum to be cleared.</p>
+            </div>
+
+            <div class="pull-quote">
+              <p class="pull-quote__text">"Urban renewal means Negro removal."</p>
+              <p class="pull-quote__attribution">— James Baldwin, 1963</p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🎷</div>
+                <div class="entry-feature__label">San Francisco Fillmore</div>
+                <div class="entry-feature__desc">"Harlem of the West" — 883 Black-owned businesses displaced. Redevelopment completed 1974. Zero businesses restored.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🏙️</div>
+                <div class="entry-feature__label">NYC — Lincoln Center</div>
+                <div class="entry-feature__desc">7,000 families displaced from San Juan Hill to build Lincoln Center (1955–1969). Robert Moses oversaw it.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🎵</div>
+                <div class="entry-feature__label">Chicago Bronzeville</div>
+                <div class="entry-feature__desc">Cultural capital of the Great Migration. Urban renewal and public housing construction destroyed its economic base.</div>
+              </div>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Replacement Housing Lie</div>
+              <p class="consequence-box__text">The Housing Act legally required that displaced residents receive equivalent housing. A 1961 study found that <strong>only 4% of displaced families were rehoused in decent, safe housing.</strong> The rest were pushed into public housing projects, which were simultaneously being underfunded and segregated. The program displaced Black residents from desirable land and warehoused them in concentrated poverty — which then became the justification for the next round of "urban renewal."</p>
+            </div>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════════ -->
+          <!-- MECHANISM 3: HIGHWAY CONSTRUCTION -->
+          <!-- ══════════════════════════════════════════════════════ -->
+          <div class="mechanism-header" style="margin-top:var(--space-12);">
+            <span class="mechanism-badge" style="background:rgba(168,85,247,.10); border:1px solid rgba(168,85,247,.25); color:#d8b4fe;">
+              <span class="mechanism-badge__dot" style="background:#a855f7;"></span>
+              Mechanism 3 — Interstate Highway Construction
+            </span>
+            <div class="mechanism-divider"></div>
+          </div>
+
+          <article class="entry-item reveal" id="entry-highways">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(168,85,247,.10); border:1px solid rgba(168,85,247,.22); color:#d8b4fe;" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates" style="color:#d8b4fe;">1956–1973 · National</div>
+                <h2 class="entry-item__name">The Interstate Highway System — Built Through Black Neighborhoods by Design</h2>
+                <div class="entry-item__location">National · Federal Highway Act of 1956</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num" style="color:#d8b4fe;">330K</div><div class="entry-stat__label">Black households displaced in first decade</div></div>
+              <div><div class="entry-stat__num" style="color:#d8b4fe;">1956</div><div class="entry-stat__label">Federal Highway Act signed</div></div>
+              <div><div class="entry-stat__num" style="color:#d8b4fe;">100+</div><div class="entry-stat__label">Cities where routes targeted Black neighborhoods</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>The Federal Highway Act of 1956 funded the Interstate Highway System — the largest public works project in American history. The routes were not drawn by geography. They were drawn by politics. <strong>In city after city, the highway engineers routed interstates directly through Black neighborhoods when multiple routes were available.</strong> This is documented in the Federal Highway Administration's own records and in the congressional testimony of the engineers who did it.</p>
+              <p>In Nashville, Interstate 40 was routed directly through Jefferson Street — the heart of the city's Black business district, home to Tennessee A&amp;I (now TSU) and Fisk University, the "Black Broadway" of Nashville with 200+ Black-owned businesses. The city's own traffic engineers had proposed an alternative route through a commercial corridor. The highway commission chose Jefferson Street. <strong>The businesses were demolished. The university neighborhood was severed. The community never recovered its economic base.</strong></p>
+              <p>In New Orleans, I-10 was built on top of the Claiborne Avenue neutral ground in Tremé — the heart of one of the oldest Black communities in America. The live oak trees that lined the neutral ground, under which Mardi Gras Indians had paraded for generations, were cut down. The expressway became a concrete wall through the neighborhood. In Miami, I-95 was routed through Overtown — the "Harlem of the South" — destroying a community of 40,000 Black residents. In Birmingham. In Atlanta. In Memphis. In St. Paul.</p>
+              <p>Transportation historian Joseph DiMento documented that highway planners explicitly discussed Black neighborhoods as acceptable sacrifice zones. The word used internally was "slum clearance" — the same language as urban renewal. <strong>The highway was the cheaper and faster version: no replacement housing required, no federal oversight of relocation.</strong></p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🎸</div>
+                <div class="entry-feature__label">Nashville Jefferson St.</div>
+                <div class="entry-feature__desc">200+ Black businesses, two HBCUs, severed by I-40. Jimi Hendrix played these clubs. All gone.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🌳</div>
+                <div class="entry-feature__label">New Orleans Claiborne Ave.</div>
+                <div class="entry-feature__desc">Ancient oak trees under which Mardi Gras Indians paraded — cut down for I-10. The tradition continues under the overpass.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🏘️</div>
+                <div class="entry-feature__label">Miami Overtown</div>
+                <div class="entry-feature__desc">"Harlem of the South" — 40,000 residents displaced for I-95. Population went from 40,000 to 8,000 in a decade.</div>
+              </div>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Same Neighborhoods, Again</div>
+              <p class="consequence-box__text">In many cities, the highway was routed through neighborhoods that had already been targeted by urban renewal. <strong>The same community absorbed multiple rounds of displacement.</strong> In New Orleans, Tremé was bisected by I-10 after already losing property to urban renewal projects. When Katrina came in 2005, it was already a weakened community absorbing its third blow in 50 years.</p>
+            </div>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════════ -->
+          <!-- MECHANISM 4: KATRINA -->
+          <!-- ══════════════════════════════════════════════════════ -->
+          <div class="mechanism-header" style="margin-top:var(--space-12);">
+            <span class="mechanism-badge" style="background:rgba(59,130,246,.10); border:1px solid rgba(59,130,246,.25); color:#93c5fd;">
+              <span class="mechanism-badge__dot" style="background:#3b82f6;"></span>
+              Mechanism 4 — Literal Flooding
+            </span>
+            <div class="mechanism-divider"></div>
+          </div>
+
+          <article class="entry-item reveal" id="entry-katrina">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(59,130,246,.10); border:1px solid rgba(59,130,246,.22); color:#93c5fd;" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates" style="color:#93c5fd;">August 29, 2005 · New Orleans, Louisiana</div>
+                <h2 class="entry-item__name">Hurricane Katrina — When the Water Did the Work That Policy Had Started</h2>
+                <div class="entry-item__location">New Orleans, LA · Gulf Coast</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num" style="color:#93c5fd;">1,833</div><div class="entry-stat__label">Deaths — 53% Black</div></div>
+              <div><div class="entry-stat__num" style="color:#93c5fd;">400K</div><div class="entry-stat__label">New Orleans residents displaced</div></div>
+              <div><div class="entry-stat__num" style="color:#93c5fd;">5 days</div><div class="entry-stat__label">Before federal rescue reached the Convention Center</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>Hurricane Katrina did not affect New Orleans equally. The geography of flooding followed the geography of race with near-perfect precision — and that was not a coincidence of topography. It was the result of fifty years of urban policy.</p>
+              <p>The lowest-lying areas of New Orleans — the areas that flooded most severely — were the historically Black neighborhoods: the Lower Ninth Ward, Tremé, Gentilly, New Orleans East. The higher-elevation areas, which flooded less or not at all, were the historically white neighborhoods: the French Quarter, the Garden District, Uptown. <strong>Black residents had been pushed into low-lying land by decades of redlining, urban renewal, and highway construction.</strong> When the levees broke, the floodwaters followed the map that federal housing policy had drawn.</p>
+              <p>The federal response was documented in real time as catastrophic. The Superdome housed 30,000 evacuees without food, water, or medical care for five days. The Convention Center, where 10,000 people gathered spontaneously, was not visited by federal relief for five days. FEMA Director Michael Brown had no prior emergency management experience. President Bush flew over the city in Air Force One, did not land, and praised Brown's performance. The images — of Black Americans stranded on rooftops in the richest country in the world — were broadcast worldwide.</p>
+              <p>The aftermath was the fourth displacement. The Road Home program, which distributed federal rebuilding grants, <strong>calculated grants based on pre-storm property values — not rebuilding costs.</strong> Since Black-owned homes in New Orleans had been systematically undervalued by decades of redlining, Black homeowners received smaller grants to rebuild the same size house. A RAND Corporation study documented this disparity explicitly. New Orleans' Black population — 67% of the city before Katrina — has never returned to pre-storm levels.</p>
+            </div>
+
+            <div class="pull-quote">
+              <p class="pull-quote__text">"George Bush doesn't care about Black people."</p>
+              <p class="pull-quote__attribution">— Kanye West, NBC telethon, September 2, 2005 — five days after Katrina made landfall</p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🗺️</div>
+                <div class="entry-feature__label">Flood Map = Race Map</div>
+                <div class="entry-feature__desc">The RAND Corp. mapped flood depth against race. The correlation was near-perfect. Low ground = Black neighborhood, by design.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">💰</div>
+                <div class="entry-feature__label">Road Home Disparity</div>
+                <div class="entry-feature__desc">Grants calculated on pre-storm home values — which were lower in Black neighborhoods due to redlining. Documented by RAND (2006).</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📉</div>
+                <div class="entry-feature__label">Population Never Returned</div>
+                <div class="entry-feature__desc">New Orleans lost 29% of its Black population permanently. The Lower Ninth Ward is still 36% vacant as of 2020.</div>
+              </div>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Layered Displacement</div>
+              <p class="consequence-box__text">New Orleans' Tremé — one of the oldest Black communities in the Western Hemisphere — had already been damaged by urban renewal in the 1950s and bisected by I-10 in the 1960s. <strong>Katrina was the third blow to the same neighborhood in fifty years.</strong> After Katrina, gentrification became the fourth. The community that survived slavery, Jim Crow, two rounds of federal destruction, and a flood is now being priced out by rising rents from wealthier newcomers drawn to "authentic" New Orleans culture. They are attracted to what the community built. They are pricing out the people who built it.</p>
+            </div>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════════ -->
+          <!-- MECHANISM 5: GENTRIFICATION -->
+          <!-- ══════════════════════════════════════════════════════ -->
+          <div class="mechanism-header" style="margin-top:var(--space-12);">
+            <span class="mechanism-badge" style="background:rgba(16,185,129,.10); border:1px solid rgba(16,185,129,.25); color:#6ee7b7;">
+              <span class="mechanism-badge__dot" style="background:#10b981;"></span>
+              Mechanism 5 — Gentrification
+            </span>
+            <div class="mechanism-divider"></div>
+          </div>
+
+          <article class="entry-item reveal" id="entry-gentrification">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(16,185,129,.10); border:1px solid rgba(16,185,129,.22); color:#6ee7b7;" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates" style="color:#6ee7b7;">1990s–Present · National</div>
+                <h2 class="entry-item__name">Gentrification — Priced Out of the City They Built</h2>
+                <div class="entry-item__location">National — Harlem, DC, Atlanta, Oakland, Chicago, New Orleans</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num" style="color:#6ee7b7;">135K</div><div class="entry-stat__label">Black residents displaced from DC, 2000–2013</div></div>
+              <div><div class="entry-stat__num" style="color:#6ee7b7;">175K</div><div class="entry-stat__label">Black residents lost by Chicago, 2000–2010</div></div>
+              <div><div class="entry-stat__num" style="color:#6ee7b7;">8×</div><div class="entry-stat__label">Racial wealth gap — root cause of gentrification vulnerability</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>Gentrification is often described as a natural market process: wealthier people move to a neighborhood, property values rise, lower-income residents can no longer afford to stay. This description is technically accurate and analytically incomplete. <strong>The reason Black residents are the ones displaced — rather than the ones doing the gentrifying — is the direct result of the four previous mechanisms.</strong></p>
+              <p>Black residents of Harlem, Washington D.C.'s Shaw neighborhood, Atlanta's Sweet Auburn, Chicago's Bronzeville, and Oakland's Flatlands do not have the wealth to buy property when prices rise because: (1) their neighborhoods were redlined, denying them mortgage access for decades; (2) urban renewal demolished their communities and warehoused them in public housing; (3) highway construction further destabilized their neighborhoods; (4) Katrina (in New Orleans) took their homes and paid smaller grants to rebuild. The racial wealth gap — median Black household wealth $24,100 vs. $188,200 for white households — is the accumulated result of these mechanisms. <strong>Gentrification is the final transfer: the devalued land becomes valuable again, and Black residents, with no equity cushion, are displaced to make room for the appreciation.</strong></p>
+              <p>In Washington D.C., Shaw — the historic center of Black Washington, home to Howard University, the Lincoln Theatre, U Street's jazz clubs — lost 135,000 Black residents between 2000 and 2013. The neighborhood that produced Duke Ellington, that was called "the Black Broadway," now has a median home price above $700,000. In Harlem, the neighborhood that produced the Harlem Renaissance, Black residents are a minority for the first time since the 1920s. In Oakland, the displacement of Black residents from West Oakland and the Fruitvale has been tracked block by block by researchers at UC Berkeley — it follows the BART lines, the same infrastructure built through Black neighborhoods in the 1960s.</p>
+              <p>The cruel irony is documented: <strong>cities market the cultural legacy of Black neighborhoods to attract gentrifiers who then displace the people who created that culture.</strong> Austin, Texas markets its East Austin music scene — a Black cultural heritage — while its Black population has dropped from 12% to under 7%. New Orleans markets Mardi Gras Indian culture to tourists while the Mardi Gras Indian communities of Tremé are being priced out. The culture stays. The people leave.</p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🎶</div>
+                <div class="entry-feature__label">Harlem</div>
+                <div class="entry-feature__desc">Site of the Harlem Renaissance. Now minority-Black for the first time since the 1920s. Median rent up 80% since 2000.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🏛️</div>
+                <div class="entry-feature__label">DC Shaw / U Street</div>
+                <div class="entry-feature__desc">135,000 Black residents displaced 2000–2013. "The Black Broadway" now has bars named after the culture they replaced.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🌉</div>
+                <div class="entry-feature__label">Oakland</div>
+                <div class="entry-feature__desc">West Oakland's Black population down 50% since 1990. Displacement tracks BART infrastructure built through the neighborhood in the 1960s.</div>
+              </div>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">Harlem: Displaced Twice</div>
+              <p class="consequence-box__text">Harlem's San Juan Hill neighborhood was demolished by Robert Moses in the 1950s to build Lincoln Center — urban renewal, Mechanism 2. The residents displaced to Harlem helped build its mid-century cultural richness. That Harlem is now being gentrified — Mechanism 5. <strong>The same displaced community, fifty years later, displaced again.</strong> The sequence is not metaphor. It is documented in census records, property records, and the oral histories of families that moved twice in two generations.</p>
+            </div>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════════ -->
+          <!-- CAUSAL CHAIN -->
+          <!-- ══════════════════════════════════════════════════════ -->
+          <div class="chain-connector reveal" id="entry-chain">
+            <h2 class="chain-connector__title">The Through-Line: Five Mechanisms, One Pattern</h2>
+            <div class="chain-steps">
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">01</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1898–1923 — Mob Violence</div>
+                  <div class="chain-step__title">White mobs destroy Wilmington, Tulsa, and Rosewood; accumulated Black wealth transferred instantly to white ownership</div>
+                  <div class="chain-step__desc">No prosecutions. No restitution. The land is absorbed. The pattern is established: Black prosperity is a provocation, not a protection.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">02</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1934–1968 — Redlining</div>
+                  <div class="chain-step__title">Federal mortgage maps deny Black neighborhoods access to capital — the wealth-building mechanism of postwar America</div>
+                  <div class="chain-step__desc">While the GI Bill and FHA mortgages build white middle-class wealth, Black communities are locked out. The racial wealth gap is structurally guaranteed.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">03</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1949–1973 — Urban Renewal + Highways</div>
+                  <div class="chain-step__title">Federal bulldozers and highway construction demolish Black communities that survived redlining; residents pushed into defunded public housing</div>
+                  <div class="chain-step__desc">1 million displaced. 330,000 Black households in 10 years from highways alone. "Decent, safe housing" promise broken in 96% of cases.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">04</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">2005 — Katrina</div>
+                  <div class="chain-step__title">Flood follows the redlined map; buyout grants calculated on redlined property values; Black New Orleans never returns to pre-storm population</div>
+                  <div class="chain-step__desc">Tremé absorbs its third blow in 50 years. The RAND study documents the disparity. No policy change follows.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">05</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1990s–Present — Gentrification</div>
+                  <div class="chain-step__title">Redlined, renewed, and highway-bisected neighborhoods become "up and coming" — and Black residents, with no equity cushion, cannot stay</div>
+                  <div class="chain-step__desc">The 8× racial wealth gap is the mechanism. The culture is marketed to newcomers. The people who built it are displaced for the fifth time.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">→</div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">Today</div>
+                  <div class="chain-step__title">The racial wealth gap, the school achievement gap, and concentrated poverty are the compounded interest on five generations of displacement</div>
+                  <div class="chain-step__desc">None of this is explained by individual behavior, culture, or "community breakdown." It is explained by 125 years of documented policy. The chain is intact.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /entry-list -->
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" aria-label="Thread navigation and related content">
+
+          <nav class="sidebar-card sidebar-toc" aria-label="Contents">
+            <h2 class="sidebar-card__title">In this thread</h2>
+            <ol class="sidebar-toc__list">
+              <li><a href="#entry-wilmington" class="sidebar-toc__link">01 · Wilmington Coup (1898)</a></li>
+              <li><a href="#entry-tulsa" class="sidebar-toc__link">02 · Tulsa Black Wall Street (1921)</a></li>
+              <li><a href="#entry-rosewood" class="sidebar-toc__link">03 · Rosewood (1923)</a></li>
+              <li><a href="#entry-urban-renewal" class="sidebar-toc__link">04 · Urban Renewal (1949–1973)</a></li>
+              <li><a href="#entry-highways" class="sidebar-toc__link">05 · Highway Construction (1956–1973)</a></li>
+              <li><a href="#entry-katrina" class="sidebar-toc__link">06 · Hurricane Katrina (2005)</a></li>
+              <li><a href="#entry-gentrification" class="sidebar-toc__link">07 · Gentrification (1990s–present)</a></li>
+              <li><a href="#entry-chain" class="sidebar-toc__link">The through-line →</a></li>
+            </ol>
+          </nav>
+
+          <div class="sidebar-card" aria-label="Key facts">
+            <h2 class="sidebar-card__title">Key numbers</h2>
+            <div class="sidebar-fact__stat">1M+</div>
+            <div class="sidebar-fact__label">Americans displaced by urban renewal alone — two thirds were Black</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">35</div>
+            <div class="sidebar-fact__label">City blocks of Tulsa's Greenwood district burned in 16 hours, 1921</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">4%</div>
+            <div class="sidebar-fact__label">Of families displaced by urban renewal who received the legally-required "decent, safe" replacement housing (1961 study)</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">5 days</div>
+            <div class="sidebar-fact__label">Before federal aid reached 10,000 people at the New Orleans Convention Center after Katrina</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">$0</div>
+            <div class="sidebar-fact__label">Federal reparations paid for urban renewal, highway construction, or the Tulsa massacre</div>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Related threads</h2>
+            <a href="thread.html" class="related-thread">
+              <div class="related-thread__num">Redlining Thread</div>
+              <div class="related-thread__title">From Redlining to the Racial Wealth Gap</div>
+            </a>
+            <a href="threads.html" class="related-thread">
+              <div class="related-thread__num">Mass Incarceration</div>
+              <div class="related-thread__title">From Black Codes to Mass Incarceration</div>
+            </a>
+            <a href="thread-self-defense.html" class="related-thread">
+              <div class="related-thread__num">Resistance Thread</div>
+              <div class="related-thread__title">The Right to Defend: Black Organized Self-Defense</div>
+            </a>
+            <a href="maps.html" class="related-thread" style="margin-top:var(--space-2)">
+              <div class="related-thread__num">Map</div>
+              <div class="related-thread__title">The Flooded City — National Displacement Map →</div>
+            </a>
+          </div>
+
+          <div class="sidebar-card" style="background:rgba(239,68,68,.04); border-color:rgba(239,68,68,.18);">
+            <h2 class="sidebar-card__title" style="color:#fca5a5;">Further reading</h2>
+            <div style="font-size:var(--type-xs); color:var(--color-text-secondary); line-height:1.65; display:flex; flex-direction:column; gap:var(--space-3);">
+              <div><strong style="color:var(--color-text-primary);">The Color of Law</strong><br>Richard Rothstein, 2017 — the definitive account of government-mandated segregation</div>
+              <div><strong style="color:var(--color-text-primary);">Wilmington's Lie</strong><br>David Zucchino, 2020 — Pulitzer Prize, the 1898 coup</div>
+              <div><strong style="color:var(--color-text-primary);">Death in a Promised Land</strong><br>Scott Ellsworth, 1982 — Tulsa Race Massacre</div>
+              <div><strong style="color:var(--color-text-primary);">The Power Broker</strong><br>Robert Caro, 1974 — Robert Moses and urban renewal in NYC</div>
+              <div><strong style="color:var(--color-text-primary);">The Great Displacement</strong><br>Jake Bittle, 2023 — climate-driven displacement and its racial geography</div>
+              <div><strong style="color:var(--color-text-primary);">Trouble the Water</strong><br>Dir. Tia Lessin &amp; Carl Deal, 2008 — documentary, Katrina and the 9th Ward</div>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="thread-bottom-cta" aria-labelledby="ctaTitle">
+  <div class="container">
+    <p class="thread-bottom-cta__eyebrow">Continue the chain</p>
+    <h2 class="thread-bottom-cta__title" id="ctaTitle">See the national pattern on the map.</h2>
+    <p class="thread-bottom-cta__sub">Every city. Every mechanism. Color-coded, geographically placed, with the stat context behind the dots.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="maps.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">See the displacement map →</a>
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All threads</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html" class="footer-link">All Threads</a></li>
+          <li><a href="explore.html" class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html" class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html" class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html" class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html" class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a href="donate.html" class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon = document.querySelector('.icon-moon');
+  const sunIcons = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH
+  const searchToggle = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose = document.getElementById('searchClose');
+  const searchInput = document.getElementById('searchInput');
+  const openSearch = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => { if (e.key==='Escape') closeSearch(); if ((e.metaKey||e.ctrlKey)&&e.key==='k') { e.preventDefault(); openSearch(); } });
+
+  // ── MOBILE NAV
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose = document.getElementById('mobileClose');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileBackdrop = document.getElementById('mobileBackdrop');
+  const openMobileNav = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── SCROLL REVEAL
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── SIDEBAR TOC
+  const entryIds = ['entry-wilmington','entry-tulsa','entry-rosewood','entry-urban-renewal','entry-highways','entry-katrina','entry-gentrification','entry-chain'];
+  const tocObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      document.querySelectorAll('.sidebar-toc__link').forEach(l => l.classList.remove('is-active'));
+      const active = document.querySelector(`.sidebar-toc__link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('is-active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  entryIds.forEach(id => { const el = document.getElementById(id); if (el) tocObs.observe(el); });
+
+  // ── TTS
+  const listenBtn = document.getElementById('listenBtn');
+  const listenLabel = document.getElementById('listenLabel');
+  const listenIcon = document.getElementById('listenIcon');
+  const progressBar = document.getElementById('listenProgressBar');
+  const progressFill = document.getElementById('listenProgressFill');
+  const PLAY_ICON = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  const PAUSE_ICON = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  function getReadableText() {
+    const main = document.getElementById('main-content');
+    if (!main) return '';
+    const els = main.querySelectorAll('.entry-item__name, .entry-item__dates, .entry-item__body p, .pull-quote__text, .consequence-box__text, .chain-step__title, .chain-step__desc');
+    return Array.from(els).map(el => el.innerText.trim()).filter(Boolean).join('. ');
+  }
+  let utterance = null, totalChunks = 1, currentChunk = 0;
+  function setListenState(state) {
+    listenBtn.dataset.state = state;
+    if (state === 'idle') { listenIcon.innerHTML = PLAY_ICON; listenLabel.textContent = 'Listen'; progressBar.classList.remove('is-visible'); progressFill.style.width = '0%'; }
+    else if (state === 'playing') { listenIcon.innerHTML = PAUSE_ICON; listenLabel.textContent = 'Pause'; progressBar.classList.add('is-visible'); }
+    else if (state === 'paused') { listenIcon.innerHTML = PLAY_ICON; listenLabel.textContent = 'Resume'; }
+  }
+  listenBtn.addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) { listenLabel.textContent = 'Not supported'; listenBtn.disabled = true; return; }
+    const state = listenBtn.dataset.state;
+    if (state === 'idle') {
+      const words = getReadableText().split(' ');
+      const chunks = []; for (let i = 0; i < words.length; i += 40) chunks.push(words.slice(i, i+40).join(' '));
+      totalChunks = chunks.length || 1; currentChunk = 0;
+      window.speechSynthesis.cancel();
+      function speakChunk(i) {
+        if (i >= chunks.length) { setListenState('idle'); return; }
+        utterance = new SpeechSynthesisUtterance(chunks[i]);
+        utterance.rate = 0.92; utterance.pitch = 1; utterance.lang = 'en-US';
+        const voices = window.speechSynthesis.getVoices();
+        const preferred = voices.find(v => /samantha|karen|daniel|google us/i.test(v.name));
+        if (preferred) utterance.voice = preferred;
+        utterance.onstart = () => { currentChunk = i; progressFill.style.width = `${Math.round((i/totalChunks)*100)}%`; };
+        utterance.onend = () => speakChunk(i+1);
+        utterance.onerror = () => setListenState('idle');
+        window.speechSynthesis.speak(utterance);
+      }
+      speakChunk(0); setListenState('playing');
+    } else if (state === 'playing') { window.speechSynthesis.pause(); setListenState('paused'); }
+    else if (state === 'paused') { window.speechSynthesis.resume(); setListenState('playing'); }
+  });
+</script>
+</body>
+</html>
