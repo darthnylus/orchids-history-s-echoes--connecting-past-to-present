@@ -604,6 +604,87 @@
     .naming-section__body p:last-child { margin-bottom: 0; }
     .naming-section__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
 
+    /* Etymology grid */
+    .naming-etymology {
+      margin: var(--space-7) 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-7);
+    }
+    [data-theme="dark"] .naming-etymology { background: var(--ink-800); border-color: var(--ink-700); }
+    .naming-etymology__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-5);
+    }
+    .naming-etymology__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+      margin-bottom: var(--space-5);
+    }
+    @media (min-width: 640px) { .naming-etymology__grid { grid-template-columns: 1fr 1fr; gap: var(--space-3); } }
+    .naming-etymology__item {
+      padding: var(--space-4) var(--space-5);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      display: grid;
+      grid-template-columns: 70px 1fr auto;
+      grid-template-rows: auto auto;
+      column-gap: var(--space-3);
+      row-gap: var(--space-1);
+      align-items: start;
+    }
+    [data-theme="dark"] .naming-etymology__item { background: var(--ink-900); border-color: var(--ink-700); }
+    .naming-etymology__source {
+      font-size: 0.68rem;
+      font-weight: var(--weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-tertiary);
+      padding-top: 2px;
+    }
+    .naming-etymology__word {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      font-style: italic;
+    }
+    .naming-etymology__status {
+      font-size: 0.62rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px var(--space-2);
+      border-radius: 999px;
+      white-space: nowrap;
+      align-self: start;
+    }
+    .naming-etymology__status--possible  { background: rgba(16,185,129,.12); color: #10b981; }
+    .naming-etymology__status--disputed  { background: rgba(239,68,68,.1);   color: #ef4444; }
+    .naming-etymology__meaning {
+      grid-column: 1 / -1;
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      padding-top: var(--space-2);
+    }
+    .naming-etymology__note {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-4);
+      margin: 0;
+    }
+    .naming-etymology__note strong { color: var(--color-text-primary); }
+
     /* Two-column claim cards */
     .naming-claims {
       display: grid;
@@ -874,9 +955,41 @@
             </div>
 
             <div class="naming-section__body">
-              <p>Before examining the empires themselves, it is worth pausing on the name of the continent. <strong>"Africa" is a Roman-era designation</strong> — applied externally, origin disputed, with theories ranging from the Latin <em>aprica</em> (sunny) to the Berber <em>Afer</em> (dust) to the Phoenician <em>afar</em>. What it is not is the name Africans used for their own continent.</p>
+              <p>Before examining the empires themselves, it is worth pausing on the name of the continent itself. <strong>"Africa" is a Roman-era designation</strong> — applied externally, by outsiders, to a place they did not originate from. What it is not is the name Africans used for their own land.</p>
               <p>In Pan-African and Afrocentric scholarship, the name <strong>Alkebulan</strong> — sometimes rendered Alkebu-lan, meaning roughly "mother of mankind" or "garden of Eden" — is frequently cited as the continent's original indigenous name. You will encounter it in classrooms, community organizations, and cultural spaces across the Black diaspora. Its use is a deliberate act of decolonization: a refusal to accept the European name as the only name.</p>
-              <p>Chain is committed to intellectual honesty, including about what we know and what we don't. So here is an honest accounting of the evidence.</p>
+              <p>Chain is committed to intellectual honesty, including about what we know and what we don't. So here is an honest accounting of the evidence — starting with what "Africa" actually means.</p>
+            </div>
+
+            <!-- Etymology breakdown -->
+            <div class="naming-etymology">
+              <div class="naming-etymology__label">What does "Africa" mean? Four competing theories</div>
+              <div class="naming-etymology__grid">
+                <div class="naming-etymology__item">
+                  <div class="naming-etymology__source">Latin</div>
+                  <div class="naming-etymology__word"><em>aprica</em></div>
+                  <div class="naming-etymology__meaning">"Sunny" or "sunny place" — a Roman descriptor of the climate of the North African coast, applied to a province, then a continent.</div>
+                  <div class="naming-etymology__status naming-etymology__status--possible">Possible</div>
+                </div>
+                <div class="naming-etymology__item">
+                  <div class="naming-etymology__source">Berber / Amazigh</div>
+                  <div class="naming-etymology__word"><em>Afer / Ifri</em></div>
+                  <div class="naming-etymology__meaning">"Cave" or "cave dweller" — root of the Berber tribal name Afri, one of the peoples inhabiting the Carthage region. Romans may have borrowed it as a regional name.</div>
+                  <div class="naming-etymology__status naming-etymology__status--possible">Most cited</div>
+                </div>
+                <div class="naming-etymology__item">
+                  <div class="naming-etymology__source">Phoenician</div>
+                  <div class="naming-etymology__word"><em>afar</em></div>
+                  <div class="naming-etymology__meaning">"Dust" — a reference to the dry terrain of the North African interior, used by Phoenician traders operating out of Carthage in the 1st millennium BCE.</div>
+                  <div class="naming-etymology__status naming-etymology__status--possible">Possible</div>
+                </div>
+                <div class="naming-etymology__item">
+                  <div class="naming-etymology__source">Greek</div>
+                  <div class="naming-etymology__word"><em>aphrike</em></div>
+                  <div class="naming-etymology__meaning">"Without cold" or "without horror" — a Greek descriptive applied to the warm southern lands. Used in some ancient geographic texts before Rome adopted and extended the term.</div>
+                  <div class="naming-etymology__status naming-etymology__status--disputed">Disputed</div>
+                </div>
+              </div>
+              <p class="naming-etymology__note">Scholars have not reached consensus on which etymology is correct. <strong>All four originate outside Africa.</strong> None comes from any language spoken by people indigenous to the continent. The name was applied to a place of 1.3 billion people by those who neither lived there nor asked.</p>
             </div>
 
             <div class="naming-claims">
