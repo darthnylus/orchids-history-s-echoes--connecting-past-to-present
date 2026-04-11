@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search — Chain</title>
+  <meta name="description" content="Search Chain's threads, encyclopedia, maps, and timeline entries." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Search bar section ───────────────────────────────────── */
+    .search-header {
+      background: var(--ink-900);
+      padding: var(--space-10) 0 var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+    .search-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% -10%, rgba(196,106,0,.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .search-header__inner { position: relative; max-width: 720px; margin: 0 auto; }
+    .search-header__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-5);
+      text-align: center;
+    }
+
+    .search-bar-wrap {
+      position: relative;
+    }
+    .search-bar-icon {
+      position: absolute;
+      left: var(--space-5);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      stroke: var(--ink-400);
+      fill: none;
+      stroke-width: 2;
+      pointer-events: none;
+    }
+    .search-bar-input {
+      width: 100%;
+      padding: var(--space-4) var(--space-6) var(--space-4) 52px;
+      background: var(--ink-800);
+      border: 1px solid var(--ink-700);
+      border-radius: var(--radius-xl);
+      color: #fff;
+      font-size: 1.125rem;
+      font-family: inherit;
+      box-sizing: border-box;
+      transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+    }
+    .search-bar-input::placeholder { color: var(--ink-500); }
+    .search-bar-input:focus {
+      outline: none;
+      border-color: var(--amber-400);
+      box-shadow: 0 0 0 3px rgba(196,106,0,.2);
+    }
+    .search-bar-clear {
+      position: absolute;
+      right: var(--space-4);
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--ink-400);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: var(--space-2);
+      display: none;
+    }
+    .search-bar-clear.is-visible { display: block; }
+
+    /* type filters */
+    .search-type-bar {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-5);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .search-type-chip {
+      padding: var(--space-1) var(--space-4);
+      border-radius: 999px;
+      border: 1px solid var(--ink-700);
+      background: transparent;
+      color: var(--ink-400);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-medium);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+    .search-type-chip:hover { border-color: var(--ink-500); color: var(--ink-200); }
+    .search-type-chip.is-active { background: var(--amber-500); border-color: var(--amber-500); color: var(--ink-900); }
+
+    /* ── Results area ────────────────────────────────────────── */
+    .search-results-area {
+      padding: var(--space-10) 0 var(--space-16);
+      min-height: 60vh;
+    }
+    .search-results-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 960px) {
+      .search-results-layout { grid-template-columns: 1fr 280px; gap: var(--space-10); }
+    }
+
+    /* Status bar */
+    .search-status {
+      font-size: var(--type-sm);
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-6);
+      min-height: 1.5em;
+    }
+    .search-status strong { color: var(--color-text-primary); }
+
+    /* Result cards */
+    .result-list { display: flex; flex-direction: column; gap: var(--space-3); }
+    .result-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-5);
+      padding: var(--space-5) var(--space-6);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: var(--color-surface);
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--duration-fast);
+      align-items: start;
+    }
+    .result-card:hover {
+      border-color: var(--color-accent-dark);
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      transform: translateY(-1px);
+    }
+    .result-card__type-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      height: 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.65rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+    .result-card__type-badge--thread     { background: #fef3c7; color: #92400e; }
+    .result-card__type-badge--person     { background: #dbeafe; color: #1e40af; }
+    .result-card__type-badge--policy     { background: #f3e8ff; color: #6b21a8; }
+    .result-card__type-badge--event      { background: #dcfce7; color: #166534; }
+    .result-card__type-badge--place      { background: #fee2e2; color: #991b1b; }
+    .result-card__type-badge--map        { background: #e0f2fe; color: #075985; }
+    [data-theme="dark"] .result-card__type-badge--thread  { background: rgba(146,64,14,.3); color: #fcd34d; }
+    [data-theme="dark"] .result-card__type-badge--person  { background: rgba(30,64,175,.3); color: #93c5fd; }
+    [data-theme="dark"] .result-card__type-badge--policy  { background: rgba(107,33,168,.3); color: #d8b4fe; }
+    [data-theme="dark"] .result-card__type-badge--event   { background: rgba(22,101,52,.3); color: #86efac; }
+    [data-theme="dark"] .result-card__type-badge--place   { background: rgba(153,27,27,.3); color: #fca5a5; }
+    [data-theme="dark"] .result-card__type-badge--map     { background: rgba(7,89,133,.3); color: #7dd3fc; }
+
+    .result-card__body {}
+    .result-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-1);
+    }
+    .result-card__title mark {
+      background: rgba(196,106,0,.18);
+      color: var(--color-accent-dark);
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+    .result-card__meta {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-2);
+    }
+    .result-card__excerpt {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .result-card__excerpt mark {
+      background: rgba(196,106,0,.18);
+      color: var(--color-accent-dark);
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+
+    /* Empty / no-query states */
+    .search-empty {
+      text-align: center;
+      padding: var(--space-14) 0;
+    }
+    .search-empty__icon {
+      font-size: 3rem;
+      margin-bottom: var(--space-5);
+      opacity: .4;
+    }
+    .search-empty__title {
+      font-family: var(--font-editorial);
+      font-size: 1.375rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .search-empty__sub {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      max-width: 400px;
+      margin: 0 auto var(--space-6);
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────────── */
+    .search-sidebar { display: flex; flex-direction: column; gap: var(--space-5); }
+    .search-sidebar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .search-sidebar-card__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .suggested-list { display: flex; flex-direction: column; gap: var(--space-2); }
+    .suggested-link {
+      font-size: var(--type-sm);
+      color: var(--color-accent-dark);
+      text-decoration: none;
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color var(--duration-fast);
+    }
+    .suggested-link:last-child { border-bottom: none; }
+    .suggested-link:hover { color: var(--color-text-primary); }
+    .suggested-link__arrow { color: var(--color-text-tertiary); font-size: var(--type-xs); }
+
+    .trending-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .trending-chip {
+      font-size: var(--type-xs);
+      padding: var(--space-1) var(--space-3);
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: all var(--duration-fast);
+    }
+    .trending-chip:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+
+    [data-theme="dark"] .result-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .search-sidebar-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .trending-chip { background: var(--ink-800); border-color: var(--ink-700); color: var(--ink-300); }
+
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"  class="site-nav__link">Explore</a>
+      <a href="threads.html"  class="site-nav__link">Threads</a>
+      <a href="maps.html"     class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html"    class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlayNav">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Nav search overlay (separate from page search) -->
+<div class="search-overlay" id="searchOverlayNav" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInputNav" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInputNav" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchCloseNav" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist" class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=Reconstruction+voting+rights"        class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- SEARCH HEADER -->
+  <section class="search-header" aria-label="Search">
+    <div class="container search-header__inner">
+      <p class="search-header__label">Search Chain</p>
+      <form role="search" id="pageSearchForm" action="search.html" method="get">
+        <div class="search-bar-wrap">
+          <svg class="search-bar-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <label for="pageSearchInput" class="sr-only">Search threads, people, policies, events, and places</label>
+          <input
+            type="search"
+            id="pageSearchInput"
+            name="q"
+            class="search-bar-input"
+            placeholder="Ask a question or search a topic — e.g. "redlining" or "why does the wealth gap persist""
+            autocomplete="off"
+            spellcheck="false"
+            autofocus
+          />
+          <button type="button" class="search-bar-clear" id="clearBtn" aria-label="Clear search">✕</button>
+        </div>
+        <div class="search-type-bar" role="group" aria-label="Filter by content type">
+          <button class="search-type-chip is-active" data-type="all"     type="button">All</button>
+          <button class="search-type-chip" data-type="thread"   type="button">Threads</button>
+          <button class="search-type-chip" data-type="person"   type="button">People</button>
+          <button class="search-type-chip" data-type="policy"   type="button">Policies</button>
+          <button class="search-type-chip" data-type="event"    type="button">Events</button>
+          <button class="search-type-chip" data-type="place"    type="button">Places</button>
+          <button class="search-type-chip" data-type="map"      type="button">Maps</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="search-results-area">
+    <div class="container">
+      <div class="search-results-layout">
+
+        <!-- Results column -->
+        <div>
+          <div class="search-status" id="searchStatus" aria-live="polite" aria-atomic="true"></div>
+          <div class="result-list" id="resultList" role="list"></div>
+          <div class="search-empty" id="emptyState">
+            <div class="search-empty__icon">◎</div>
+            <div class="search-empty__title">Search the full archive</div>
+            <p class="search-empty__sub">Try a question like "Why does the racial wealth gap persist?" or a topic like "Reconstruction" or "HOLC redlining."</p>
+            <div class="trending-chips" style="justify-content:center">
+              <a href="search.html?q=redlining"            class="trending-chip">Redlining</a>
+              <a href="search.html?q=Reconstruction"       class="trending-chip">Reconstruction</a>
+              <a href="search.html?q=GI+Bill"              class="trending-chip">GI Bill</a>
+              <a href="search.html?q=mass+incarceration"   class="trending-chip">Mass incarceration</a>
+              <a href="search.html?q=Mansa+Musa"           class="trending-chip">Mansa Musa</a>
+              <a href="search.html?q=wealth+gap"           class="trending-chip">Wealth gap</a>
+              <a href="search.html?q=Jim+Crow"             class="trending-chip">Jim Crow</a>
+              <a href="search.html?q=Fort+Pillow"          class="trending-chip">Fort Pillow</a>
+            </div>
+          </div>
+          <div class="search-empty" id="noResults" style="display:none">
+            <div class="search-empty__icon">○</div>
+            <div class="search-empty__title">No results found</div>
+            <p class="search-empty__sub">Try different keywords, or browse the full archive in <a href="explore.html" style="color:var(--color-accent-dark)">Explore</a>.</p>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="search-sidebar" aria-label="Search suggestions">
+
+          <div class="search-sidebar-card">
+            <div class="search-sidebar-card__title">Start with a thread</div>
+            <div class="suggested-list">
+              <a href="thread.html"  class="suggested-link">Housing &amp; the Racial Wealth Gap <span class="suggested-link__arrow">→</span></a>
+              <a href="threads.html" class="suggested-link">Stolen Labor: Slavery to Wage Theft <span class="suggested-link__arrow">→</span></a>
+              <a href="threads.html" class="suggested-link">Mass Incarceration <span class="suggested-link__arrow">→</span></a>
+              <a href="threads.html" class="suggested-link">Health Disparities <span class="suggested-link__arrow">→</span></a>
+              <a href="threads.html" class="suggested-link">All threads → <span class="suggested-link__arrow">→</span></a>
+            </div>
+          </div>
+
+          <div class="search-sidebar-card">
+            <div class="search-sidebar-card__title">Trending searches</div>
+            <div class="trending-chips">
+              <a href="search.html?q=redlining"            class="trending-chip">Redlining</a>
+              <a href="search.html?q=Reconstruction"       class="trending-chip">Reconstruction</a>
+              <a href="search.html?q=convict+leasing"      class="trending-chip">Convict leasing</a>
+              <a href="search.html?q=Black+codes"          class="trending-chip">Black Codes</a>
+              <a href="search.html?q=Mansa+Musa"           class="trending-chip">Mansa Musa</a>
+              <a href="search.html?q=GI+Bill"              class="trending-chip">GI Bill</a>
+              <a href="search.html?q=wealth+gap"           class="trending-chip">Wealth gap</a>
+              <a href="search.html?q=Fair+Housing+Act"     class="trending-chip">Fair Housing Act</a>
+              <a href="search.html?q=Jim+Crow"             class="trending-chip">Jim Crow</a>
+            </div>
+          </div>
+
+          <div class="search-sidebar-card">
+            <div class="search-sidebar-card__title">Browse by type</div>
+            <div class="suggested-list">
+              <a href="explore.html#threads"  class="suggested-link">Threads <span class="suggested-link__arrow">→</span></a>
+              <a href="explore.html#people"   class="suggested-link">People <span class="suggested-link__arrow">→</span></a>
+              <a href="explore.html#policies" class="suggested-link">Policies &amp; laws <span class="suggested-link__arrow">→</span></a>
+              <a href="explore.html#events"   class="suggested-link">Events <span class="suggested-link__arrow">→</span></a>
+              <a href="maps.html"             class="suggested-link">Maps &amp; Timelines <span class="suggested-link__arrow">→</span></a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── SEARCH DATA ───────────────────────────────────────────
+  // Static corpus for client-side search
+  const CORPUS = [
+    { type:'thread',  title:'Housing & the Racial Wealth Gap',               href:'thread.html',   meta:'Thread · 1933–present', excerpt:'Traces how HOLC redlining, FHA mortgage exclusion, and the GI Bill built the white middle class while systematically blocking Black wealth accumulation — producing the 6:1 wealth gap that persists today.' },
+    { type:'thread',  title:'Stolen Labor: From Slavery to Wage Theft',      href:'threads.html',  meta:'Thread · 1619–present', excerpt:'Documents the economic extraction of Black labor — from enslaved people who built American capitalism to present-day wage theft and income disparities.' },
+    { type:'thread',  title:'Mass Incarceration',                             href:'threads.html',  meta:'Thread · 1865–present', excerpt:'Traces Black Codes → convict leasing → Jim Crow → the War on Drugs → a carceral system that incarcerates Black Americans at 5.6× the rate of white Americans.' },
+    { type:'thread',  title:'Health Disparities',                             href:'threads.html',  meta:'Thread · 1865–present', excerpt:'How residential segregation, environmental racism, and healthcare exclusion produced a 5-year Black–white life expectancy gap that cannot be explained by genetics.' },
+    { type:'person',  title:'Mansa Musa',                                     href:'explore.html',  meta:'Person · c. 1280–1337 · Mali Empire', excerpt:'Emperor of the Mali Empire, whose 1324 pilgrimage to Mecca — the wealthiest individual journey in recorded history — demonstrated the scale of pre-colonial African civilization.' },
+    { type:'person',  title:'Frederick Douglass',                             href:'explore.html',  meta:'Person · 1818–1895', excerpt:'Abolitionist, orator, and writer whose accounts of slavery provided primary testimony for the causal chain from enslavement to post-war exclusion.' },
+    { type:'person',  title:'Ida B. Wells',                                   href:'explore.html',  meta:'Person · 1862–1931', excerpt:'Journalist and anti-lynching crusader who documented the use of racial terror as an economic and political control mechanism after Reconstruction.' },
+    { type:'person',  title:'Thurgood Marshall',                              href:'explore.html',  meta:'Person · 1908–1993', excerpt:'Lead attorney in Brown v. Board of Education (1954) and first Black Supreme Court Justice. Central to the legal dismantling of de jure segregation.' },
+    { type:'policy',  title:'Home Owners\' Loan Corporation (HOLC), 1933',    href:'explore.html',  meta:'Policy · 1933 · Federal Housing', excerpt:'Created neighborhood security maps grading areas A–D. Black neighborhoods were graded D regardless of condition, making them ineligible for federally backed mortgage insurance.' },
+    { type:'policy',  title:'FHA Underwriting Manual, 1938',                  href:'explore.html',  meta:'Policy · 1938 · Federal Housing Administration', excerpt:'Institutionalized redlining in the federal mortgage guarantee program, explicitly citing "inharmonious racial groups" as grounds for denying insurance in Black neighborhoods.' },
+    { type:'policy',  title:'GI Bill (Servicemen\'s Readjustment Act), 1944', href:'explore.html',  meta:'Policy · 1944 · Congress', excerpt:'Built the white middle class through home loans, college funding, and business grants. Black veterans were largely excluded by racially discriminatory administration.' },
+    { type:'policy',  title:'Fair Housing Act, 1968',                         href:'explore.html',  meta:'Policy · 1968 · Civil Rights', excerpt:'Prohibited future housing discrimination but could not undo 35 years of accumulated wealth exclusion. The racial homeownership gap is wider today than in 1968.' },
+    { type:'policy',  title:'Anti-Drug Abuse Act, 1986',                      href:'explore.html',  meta:'Policy · 1986 · Congress', excerpt:'Established 100:1 crack-to-powder cocaine sentencing disparity, disproportionately targeting Black communities. Reduced to 18:1 by the Fair Sentencing Act (2010).' },
+    { type:'policy',  title:'Black Codes, 1865',                              href:'explore.html',  meta:'Policy · 1865 · Southern States', excerpt:'Laws passed immediately after emancipation that re-imposed forced labor through vagrancy, apprenticeship, and anti-enticement statutes — the legal foundation for convict leasing.' },
+    { type:'event',   title:'Fort Pillow Massacre, 1864',                     href:'today.html',    meta:'Event · April 12, 1864 · Civil War', excerpt:'Confederate forces under Nathan Bedford Forrest massacred Black Union soldiers after they surrendered at Fort Pillow, Tennessee. Became a rallying cry for Black military service and civil rights.' },
+    { type:'event',   title:'Tulsa Race Massacre, 1921',                      href:'explore.html',  meta:'Event · May 31–June 1, 1921 · Tulsa, Oklahoma', excerpt:'The destruction of Greenwood ("Black Wall Street"), one of the wealthiest Black communities in America, by a white mob with tacit government support. Up to 300 killed.' },
+    { type:'event',   title:'Reconstruction, 1865–1877',                      href:'explore.html',  meta:'Event · 1865–1877', excerpt:'The period of federal effort to integrate formerly enslaved people into American civic life. Its violent termination established the political and legal framework for Jim Crow.' },
+    { type:'event',   title:'The Great Migration, 1910–1970',                 href:'explore.html',  meta:'Event · 1910–1970', excerpt:'Six million Black Americans fled the South to escape racial terror and seek economic opportunity. Their arrival in Northern cities triggered white flight and accelerated residential segregation.' },
+    { type:'place',   title:'Greenwood District, Tulsa (Black Wall Street)',  href:'explore.html',  meta:'Place · Tulsa, Oklahoma', excerpt:'The wealthiest Black community in America before its destruction in the 1921 Tulsa Race Massacre. A case study in how Black wealth accumulation was systematically targeted.' },
+    { type:'place',   title:'Timbuktu, Mali Empire',                          href:'explore.html',  meta:'Place · Mali Empire, c. 1300–1591', excerpt:'Center of Islamic scholarship and trade in the Mali Empire, with universities predating many European institutions. Represents the pre-colonial intellectual tradition disrupted by the slave trade.' },
+    { type:'map',     title:'Transatlantic Slave Trade Routes',               href:'maps.html',     meta:'Map · 1500–1900', excerpt:'Visualizes the scale and geography of the transatlantic slave trade — 12.5 million departures, major ports, routes, and mortality at sea across four centuries.' },
+    { type:'map',     title:'HOLC Redlining Maps, 1935–1940',                 href:'maps.html',     meta:'Map · 1935–1940', excerpt:'The original HOLC security maps overlaid on modern cities, showing the direct spatial relationship between graded neighborhoods and current racial wealth and health outcomes.' },
+  ];
+
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── NAV SEARCH OVERLAY ────────────────────────────────────
+  const searchToggle    = document.getElementById('searchToggle');
+  const searchOverlayEl = document.getElementById('searchOverlayNav');
+  const searchCloseBtn  = document.getElementById('searchCloseNav');
+  const searchInputNav  = document.getElementById('searchInputNav');
+  const openNavSearch  = () => { searchOverlayEl.classList.add('is-open'); searchOverlayEl.setAttribute('aria-hidden','false'); searchInputNav.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeNavSearch = () => { searchOverlayEl.classList.remove('is-open'); searchOverlayEl.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openNavSearch);
+  searchCloseBtn.addEventListener('click', closeNavSearch);
+  searchOverlayEl.addEventListener('click', e => { if (e.target === searchOverlayEl) closeNavSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeNavSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openNavSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── PAGE SEARCH ───────────────────────────────────────────
+  const pageInput   = document.getElementById('pageSearchInput');
+  const clearBtn    = document.getElementById('clearBtn');
+  const resultList  = document.getElementById('resultList');
+  const searchStatus= document.getElementById('searchStatus');
+  const emptyState  = document.getElementById('emptyState');
+  const noResults   = document.getElementById('noResults');
+
+  let activeType = 'all';
+
+  // Type chips
+  document.querySelectorAll('.search-type-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.search-type-chip').forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      activeType = chip.dataset.type;
+      runSearch(pageInput.value.trim());
+    });
+  });
+
+  function highlight(text, query) {
+    if (!query) return text;
+    const esc = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp(`(${esc})`, 'gi'), '<mark>$1</mark>');
+  }
+
+  function runSearch(query) {
+    clearBtn.classList.toggle('is-visible', query.length > 0);
+
+    if (!query) {
+      resultList.innerHTML = '';
+      emptyState.style.display = '';
+      noResults.style.display = 'none';
+      searchStatus.innerHTML = '';
+      return;
+    }
+
+    const q = query.toLowerCase();
+    const filtered = CORPUS.filter(item => {
+      if (activeType !== 'all' && item.type !== activeType) return false;
+      return (
+        item.title.toLowerCase().includes(q) ||
+        item.excerpt.toLowerCase().includes(q) ||
+        item.meta.toLowerCase().includes(q)
+      );
+    });
+
+    emptyState.style.display = 'none';
+
+    if (filtered.length === 0) {
+      resultList.innerHTML = '';
+      noResults.style.display = '';
+      searchStatus.innerHTML = `No results for <strong>"${query}"</strong>`;
+      return;
+    }
+
+    noResults.style.display = 'none';
+    searchStatus.innerHTML = `<strong>${filtered.length}</strong> result${filtered.length !== 1 ? 's' : ''} for <strong>"${query}"</strong>`;
+
+    resultList.innerHTML = filtered.map(item => `
+      <a class="result-card" href="${item.href}" role="listitem">
+        <span class="result-card__type-badge result-card__type-badge--${item.type}">${item.type}</span>
+        <div class="result-card__body">
+          <div class="result-card__title">${highlight(item.title, query)}</div>
+          <div class="result-card__meta">${item.meta}</div>
+          <div class="result-card__excerpt">${highlight(item.excerpt, query)}</div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  // Debounce
+  let debounceTimer;
+  pageInput.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => runSearch(pageInput.value.trim()), 120);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    pageInput.value = '';
+    pageInput.focus();
+    runSearch('');
+  });
+
+  // Pre-fill from URL ?q=
+  const urlQ = new URLSearchParams(window.location.search).get('q');
+  if (urlQ) {
+    pageInput.value = urlQ;
+    runSearch(urlQ);
+  }
+</script>
+</body>
+</html>

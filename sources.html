@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sources & Methodology — Chain</title>
+  <meta name="description" content="Every claim on Chain cites a primary source. Browse our full source list, methodology, and corrections log organized by thread." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Hero ────────────────────────────────────────────────── */
+    .sources-hero {
+      background: var(--ink-900);
+      padding: var(--space-14) 0 var(--space-12);
+      position: relative;
+      overflow: hidden;
+    }
+    .sources-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 55% 80% at 80% 0%, rgba(196,106,0,.13) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .sources-hero__inner { position: relative; }
+    .sources-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-4);
+    }
+    .sources-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      margin-bottom: var(--space-5);
+      max-width: 640px;
+    }
+    .sources-hero__lead {
+      font-size: var(--type-md);
+      color: var(--ink-300);
+      line-height: var(--leading-loose);
+      max-width: 600px;
+      margin-bottom: var(--space-8);
+    }
+    .sources-hero__stats {
+      display: flex;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .sources-stat__num {
+      font-family: var(--font-editorial);
+      font-size: 2rem;
+      font-weight: var(--weight-bold);
+      color: var(--amber-300);
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .sources-stat__label {
+      font-size: var(--type-xs);
+      color: var(--ink-400);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    /* ── Sticky filter bar ───────────────────────────────────── */
+    .sources-bar {
+      position: sticky;
+      top: 64px;
+      z-index: 40;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-3) 0;
+    }
+    .sources-bar__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .sources-bar__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      white-space: nowrap;
+    }
+    .sources-filter-chip {
+      padding: var(--space-1) var(--space-3);
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: transparent;
+      color: var(--color-text-secondary);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-medium);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      white-space: nowrap;
+    }
+    .sources-filter-chip:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .sources-filter-chip.is-active {
+      background: var(--color-accent-dark);
+      border-color: var(--color-accent-dark);
+      color: #fff;
+    }
+
+    /* ── Layout ──────────────────────────────────────────────── */
+    .sources-body { padding: var(--space-12) 0 var(--space-16); }
+    .sources-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 960px) {
+      .sources-layout { grid-template-columns: 200px 1fr; gap: var(--space-12); }
+    }
+
+    /* TOC sidebar */
+    .sources-toc {
+      position: sticky;
+      top: 120px;
+      align-self: start;
+    }
+    .sources-toc__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-3);
+    }
+    .sources-toc__list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .sources-toc__link {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      display: block;
+      transition: all var(--duration-fast);
+      border-left: 2px solid transparent;
+    }
+    .sources-toc__link:hover,
+    .sources-toc__link.is-active {
+      color: var(--color-accent-dark);
+      background: var(--color-accent-light);
+      border-left-color: var(--color-accent-dark);
+    }
+
+    /* ── Source sections ─────────────────────────────────────── */
+    .sources-section {
+      scroll-margin-top: 120px;
+    }
+    .sources-section + .sources-section { margin-top: var(--space-12); padding-top: var(--space-12); border-top: 1px solid var(--color-border); }
+
+    .sources-section__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .sources-section__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-2);
+    }
+    .sources-section__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: var(--leading-snug);
+    }
+    .sources-section__link {
+      font-size: var(--type-xs);
+      color: var(--color-accent-dark);
+      text-decoration: none;
+      font-weight: var(--weight-semibold);
+      white-space: nowrap;
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--color-accent-dark);
+      border-radius: var(--radius-md);
+      transition: all var(--duration-fast);
+      flex-shrink: 0;
+    }
+    .sources-section__link:hover { background: var(--color-accent-dark); color: #fff; }
+
+    /* Source list */
+    .source-list { display: flex; flex-direction: column; gap: var(--space-1); }
+    .source-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-5);
+      border-radius: var(--radius-lg);
+      border: 1px solid transparent;
+      transition: all var(--duration-fast);
+      align-items: start;
+    }
+    .source-item:hover { background: var(--color-surface); border-color: var(--color-border); }
+    .source-item__type {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 52px;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      font-size: 0.65rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+    .source-item__type--gov     { background: #dbeafe; color: #1e40af; }
+    .source-item__type--book    { background: #f3e8ff; color: #6b21a8; }
+    .source-item__type--journal { background: #dcfce7; color: #166534; }
+    .source-item__type--primary { background: #fef3c7; color: #92400e; }
+    .source-item__type--data    { background: #fee2e2; color: #991b1b; }
+    [data-theme="dark"] .source-item__type--gov     { background: rgba(30,64,175,.3); color: #93c5fd; }
+    [data-theme="dark"] .source-item__type--book    { background: rgba(107,33,168,.3); color: #d8b4fe; }
+    [data-theme="dark"] .source-item__type--journal { background: rgba(22,101,52,.3); color: #86efac; }
+    [data-theme="dark"] .source-item__type--primary { background: rgba(146,64,14,.3); color: #fcd34d; }
+    [data-theme="dark"] .source-item__type--data    { background: rgba(153,27,27,.3); color: #fca5a5; }
+
+    .source-item__body {}
+    .source-item__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.4;
+      margin-bottom: var(--space-1);
+    }
+    .source-item__meta {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+    }
+    .source-item__meta strong { color: var(--color-text-secondary); font-weight: var(--weight-medium); }
+    .source-item__desc {
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-top: var(--space-2);
+      display: none;
+    }
+    .source-item.is-expanded .source-item__desc { display: block; }
+
+    /* ── Methodology box ─────────────────────────────────────── */
+    .methodology-box {
+      background: var(--ink-900);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-10);
+    }
+    .methodology-box__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: #fff;
+      margin-bottom: var(--space-5);
+    }
+    .methodology-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .methodology-step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: var(--space-4);
+      align-items: start;
+    }
+    .methodology-step__dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(196,106,0,.2);
+      border: 1.5px solid var(--amber-400);
+      color: var(--amber-300);
+      font-size: 0.7rem;
+      font-weight: var(--weight-bold);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .methodology-step__text {
+      font-size: var(--type-sm);
+      color: var(--ink-300);
+      line-height: 1.6;
+    }
+    .methodology-step__text strong { color: var(--ink-100); }
+
+    /* ── Corrections log ─────────────────────────────────────── */
+    .corrections-section {
+      scroll-margin-top: 120px;
+      margin-top: var(--space-12);
+      padding-top: var(--space-12);
+      border-top: 1px solid var(--color-border);
+    }
+    .correction-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-4);
+      background: var(--color-surface);
+    }
+    .correction-item__header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .correction-badge {
+      font-size: 0.65rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      background: #fef3c7;
+      color: #92400e;
+    }
+    [data-theme="dark"] .correction-badge { background: rgba(146,64,14,.3); color: #fcd34d; }
+    .correction-item__date {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+    }
+    .correction-item__thread {
+      font-size: var(--type-xs);
+      color: var(--color-accent-dark);
+      font-weight: var(--weight-medium);
+    }
+    .correction-item__body {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+    .correction-item__body .was { color: #ef4444; text-decoration: line-through; }
+    .correction-item__body .now { color: #16a34a; font-weight: var(--weight-medium); }
+
+    [data-theme="dark"] .source-item:hover { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .correction-item { background: var(--ink-800); border-color: var(--ink-700); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"  class="site-nav__link">Explore</a>
+      <a href="threads.html"  class="site-nav__link">Threads</a>
+      <a href="maps.html"     class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html"    class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist" class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=Reconstruction+voting+rights" class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="sources-hero" aria-labelledby="sources-heading">
+    <div class="container sources-hero__inner">
+      <p class="sources-hero__eyebrow">Sources &amp; Methodology</p>
+      <h1 id="sources-heading" class="sources-hero__title">Every claim. Every source. Visible.</h1>
+      <p class="sources-hero__lead">We don't ask you to trust us. Every factual claim on Chain links to a primary source, government record, or peer-reviewed scholarship. Browse the full list below, organized by thread.</p>
+      <div class="sources-hero__stats">
+        <div>
+          <div class="sources-stat__num">340+</div>
+          <div class="sources-stat__label">Primary sources</div>
+        </div>
+        <div>
+          <div class="sources-stat__num">5</div>
+          <div class="sources-stat__label">Threads covered</div>
+        </div>
+        <div>
+          <div class="sources-stat__num">12</div>
+          <div class="sources-stat__label">Corrections logged</div>
+        </div>
+        <div>
+          <div class="sources-stat__num">0</div>
+          <div class="sources-stat__label">Silent edits</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="sources-bar" role="navigation" aria-label="Filter by thread">
+    <div class="container sources-bar__inner">
+      <span class="sources-bar__label">Thread:</span>
+      <button class="sources-filter-chip is-active" data-filter="all"       type="button">All</button>
+      <button class="sources-filter-chip" data-filter="housing"    type="button">Housing &amp; Wealth</button>
+      <button class="sources-filter-chip" data-filter="labor"      type="button">Stolen Labor</button>
+      <button class="sources-filter-chip" data-filter="justice"    type="button">Mass Incarceration</button>
+      <button class="sources-filter-chip" data-filter="health"     type="button">Health Disparities</button>
+      <button class="sources-filter-chip" data-filter="methodology" type="button">Methodology</button>
+      <button class="sources-filter-chip" data-filter="corrections" type="button">Corrections</button>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <section class="sources-body">
+    <div class="container">
+      <div class="sources-layout">
+
+        <!-- TOC -->
+        <nav class="sources-toc" aria-label="Jump to section">
+          <p class="sources-toc__label">Sections</p>
+          <ul class="sources-toc__list">
+            <li><a href="#methodology-section" class="sources-toc__link is-active">Methodology</a></li>
+            <li><a href="#housing"             class="sources-toc__link">Housing &amp; Wealth</a></li>
+            <li><a href="#labor"               class="sources-toc__link">Stolen Labor</a></li>
+            <li><a href="#justice"             class="sources-toc__link">Mass Incarceration</a></li>
+            <li><a href="#health"              class="sources-toc__link">Health Disparities</a></li>
+            <li><a href="#corrections"         class="sources-toc__link">Corrections log</a></li>
+          </ul>
+        </nav>
+
+        <!-- Source content -->
+        <div>
+
+          <!-- Methodology -->
+          <div class="sources-section" id="methodology-section" data-thread="methodology">
+            <div class="methodology-box reveal">
+              <div class="methodology-box__title">How we source claims</div>
+              <div class="methodology-steps">
+                <div class="methodology-step">
+                  <div class="methodology-step__dot">1</div>
+                  <div class="methodology-step__text"><strong>Primary source citation only.</strong> Every factual claim links to a government document, census record, court decision, or peer-reviewed academic publication — not secondary media coverage of that material.</div>
+                </div>
+                <div class="methodology-step">
+                  <div class="methodology-step__dot">2</div>
+                  <div class="methodology-step__text"><strong>Causal mechanism, not correlation.</strong> We only assert causal links established in the scholarship. Phrases like "contributed to," "made possible," and "directly caused" are used with precision, not interchangeably.</div>
+                </div>
+                <div class="methodology-step">
+                  <div class="methodology-step__dot">3</div>
+                  <div class="methodology-step__text"><strong>Scholarly consensus review.</strong> Thread content is reviewed against major works in each field before publication and updated when the scholarship is revised or meaningfully contested.</div>
+                </div>
+                <div class="methodology-step">
+                  <div class="methodology-step__dot">4</div>
+                  <div class="methodology-step__text"><strong>Explicit corrections.</strong> When we are wrong, we correct it visibly, explain what changed, and log it below. No silent edits. Ever.</div>
+                </div>
+                <div class="methodology-step">
+                  <div class="methodology-step__dot">5</div>
+                  <div class="methodology-step__text"><strong>Present-day data from primary datasets.</strong> All statistics cite the underlying dataset — Census Bureau, Federal Reserve SCF, CDC WONDER, NCRC — not news articles reporting on that data.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Housing & Wealth Thread -->
+          <div class="sources-section reveal" id="housing" data-thread="housing">
+            <div class="sources-section__header">
+              <div>
+                <div class="sources-section__eyebrow">Thread</div>
+                <h2 class="sources-section__title">Housing &amp; Wealth Gap</h2>
+              </div>
+              <a href="thread.html" class="sources-section__link">Read thread →</a>
+            </div>
+            <div class="source-list">
+              <div class="source-item">
+                <span class="source-item__type source-item__type--gov">Gov</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Home Owners' Loan Corporation Security Maps, 1935–1940</div>
+                  <div class="source-item__meta"><strong>National Archives</strong> · Record Group 195 · Washington, D.C.</div>
+                  <div class="source-item__desc">The original HOLC neighborhood appraisal maps showing A–D grade assignments. Used to document which neighborhoods were graded D ("Hazardous") and the racial composition criteria used.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--book">Book</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">The Color of Law: A Forgotten History of How Our Government Segregated America</div>
+                  <div class="source-item__meta"><strong>Richard Rothstein</strong> · Liveright, 2017 · ISBN 978-1631492853</div>
+                  <div class="source-item__desc">Definitive account of federal, state, and local government policies that explicitly segregated American neighborhoods. Primary source for the HOLC–FHA–GI Bill causal chain.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--gov">Gov</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">FHA Underwriting Manual, 1938 Edition</div>
+                  <div class="source-item__meta"><strong>Federal Housing Administration</strong> · U.S. Government Printing Office · 1938</div>
+                  <div class="source-item__desc">Contains the explicit racial covenants and "inharmonious racial groups" language used to deny FHA mortgage insurance in Black neighborhoods.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--data">Data</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Survey of Consumer Finances, 2022</div>
+                  <div class="source-item__meta"><strong>Federal Reserve Board</strong> · Published October 2023</div>
+                  <div class="source-item__desc">Source for present-day racial wealth gap figures. White median family wealth: $285,000. Black median family wealth: $44,900. Ratio: 6.3:1.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--data">Data</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Homeownership Rate by Race, 2024 Q1</div>
+                  <div class="source-item__meta"><strong>U.S. Census Bureau</strong> · Housing Vacancies and Homeownership Survey · 2024</div>
+                  <div class="source-item__desc">White homeownership rate: 74.3%. Black homeownership rate: 45.7%. Gap of 28.6 percentage points — wider than the 27-point gap recorded in 1968 when the Fair Housing Act passed.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--journal">Journal</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Redlining Revisited: Mortgage Lending Patterns in Sacramento, 1930–2004</div>
+                  <div class="source-item__meta"><strong>Gregory Squires et al.</strong> · Urban Affairs Review, Vol. 41(2) · 2005</div>
+                  <div class="source-item__desc">Longitudinal study documenting the persistence of mortgage lending disparities in formerly redlined neighborhoods across seven decades.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--primary">Primary</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Servicemen's Readjustment Act of 1944 (GI Bill), Pub. L. 78-346</div>
+                  <div class="source-item__meta"><strong>78th U.S. Congress</strong> · June 22, 1944</div>
+                  <div class="source-item__desc">Original legislation. Used alongside FHA Underwriting Manual and NAACP records to document Black veterans' exclusion from home loan and education benefits.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--book">Book</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">When Affirmative Action Was White</div>
+                  <div class="source-item__meta"><strong>Ira Katznelson</strong> · W.W. Norton, 2005 · ISBN 978-0393328516</div>
+                  <div class="source-item__desc">Documents how New Deal and WWII-era federal programs were designed and administered to exclude Black Americans, building the white middle class while blocking Black wealth accumulation.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stolen Labor Thread -->
+          <div class="sources-section reveal" id="labor" data-thread="labor">
+            <div class="sources-section__header">
+              <div>
+                <div class="sources-section__eyebrow">Thread</div>
+                <h2 class="sources-section__title">Stolen Labor: From Slavery to Wage Theft</h2>
+              </div>
+              <a href="threads.html" class="sources-section__link">Read thread →</a>
+            </div>
+            <div class="source-list">
+              <div class="source-item">
+                <span class="source-item__type source-item__type--book">Book</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">The Half Has Never Been Told: Slavery and the Making of American Capitalism</div>
+                  <div class="source-item__meta"><strong>Edward Baptist</strong> · Basic Books, 2014 · ISBN 978-0465049660</div>
+                  <div class="source-item__desc">Documents the economic scale of enslaved labor and its centrality to American industrial capitalism, using plantation records, slave narratives, and financial records.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--data">Data</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Slave Voyages Database (Trans-Atlantic Slave Trade Database)</div>
+                  <div class="source-item__meta"><strong>SlaveVoyages.org</strong> · Emory University · Last updated 2023</div>
+                  <div class="source-item__desc">Comprehensive database of 36,000+ documented slaving voyages, 12.5M+ enslaved people. Source for all transatlantic slave trade volume figures.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--primary">Primary</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">The Black Codes of Mississippi, 1865</div>
+                  <div class="source-item__meta"><strong>Mississippi Legislature</strong> · November 1865</div>
+                  <div class="source-item__desc">Original statutes. Used to document the immediate post-emancipation re-imposition of forced labor through vagrancy laws, apprenticeship codes, and anti-enticement laws.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--book">Book</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Slavery by Another Name: The Re-Enslavement of Black Americans from the Civil War to World War II</div>
+                  <div class="source-item__meta"><strong>Douglas Blackmon</strong> · Doubleday, 2008 · ISBN 978-0385722704</div>
+                  <div class="source-item__desc">Pulitzer Prize–winning account of convict leasing, debt peonage, and forced labor systems that functionally re-enslaved Black Americans after emancipation.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--journal">Journal</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">The Wage Gap Between Black and White Workers, 1979–2021</div>
+                  <div class="source-item__meta"><strong>Economic Policy Institute</strong> · State of Working America Data Library · 2022</div>
+                  <div class="source-item__desc">Documents persistent Black–white wage gap of ~20% controlling for education and experience. Used for present-day labor outcome data.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mass Incarceration Thread -->
+          <div class="sources-section reveal" id="justice" data-thread="justice">
+            <div class="sources-section__header">
+              <div>
+                <div class="sources-section__eyebrow">Thread</div>
+                <h2 class="sources-section__title">Mass Incarceration</h2>
+              </div>
+              <a href="threads.html" class="sources-section__link">Read thread →</a>
+            </div>
+            <div class="source-list">
+              <div class="source-item">
+                <span class="source-item__type source-item__type--book">Book</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">The New Jim Crow: Mass Incarceration in the Age of Colorblindness</div>
+                  <div class="source-item__meta"><strong>Michelle Alexander</strong> · The New Press, 2010 · ISBN 978-1595581037</div>
+                  <div class="source-item__desc">Primary scholarly source for the mass incarceration thread's causal argument tracing Black Codes → Jim Crow → War on Drugs → modern carceral system.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--data">Data</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Prisoners in 2022 — Statistical Tables</div>
+                  <div class="source-item__meta"><strong>Bureau of Justice Statistics</strong> · NCJ 307149 · November 2023</div>
+                  <div class="source-item__desc">Source for Black incarceration rates. Black imprisonment rate: 1,240 per 100,000. White rate: 222 per 100,000. Ratio: 5.6:1.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--primary">Primary</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Anti-Drug Abuse Act of 1986, Pub. L. 99-570</div>
+                  <div class="source-item__meta"><strong>99th U.S. Congress</strong> · October 27, 1986</div>
+                  <div class="source-item__desc">Established 100:1 crack-to-powder cocaine sentencing disparity. Reduced to 18:1 by the Fair Sentencing Act (2010). Primary source for drug war sentencing disparities.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--journal">Journal</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Racial Disparities in Prosecutorial Declinations</div>
+                  <div class="source-item__meta"><strong>RJ Vogelstein &amp; Ram Subramanian</strong> · Brennan Center for Justice · 2021</div>
+                  <div class="source-item__desc">Documents how prosecutorial discretion at every stage of the criminal legal process compounds racial disparities in incarceration outcomes.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Health Disparities Thread -->
+          <div class="sources-section reveal" id="health" data-thread="health">
+            <div class="sources-section__header">
+              <div>
+                <div class="sources-section__eyebrow">Thread</div>
+                <h2 class="sources-section__title">Health Disparities</h2>
+              </div>
+              <a href="threads.html" class="sources-section__link">Read thread →</a>
+            </div>
+            <div class="source-list">
+              <div class="source-item">
+                <span class="source-item__type source-item__type--data">Data</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Health, United States, 2020–2021 — With Special Feature on Death</div>
+                  <div class="source-item__meta"><strong>CDC National Center for Health Statistics</strong> · DHHS Publication No. 2022-1232 · 2022</div>
+                  <div class="source-item__desc">Source for Black–white life expectancy gap, infant mortality differential, and age-adjusted mortality rates by race for major causes of death.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--journal">Journal</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Structural Racism and Health Inequities in the USA: Evidence and Interventions</div>
+                  <div class="source-item__meta"><strong>Bailey et al.</strong> · The Lancet, Vol. 389(10077) · 2017</div>
+                  <div class="source-item__desc">Establishes causal mechanisms between structural racism — residential segregation, environmental racism, unequal healthcare access — and measurable health outcome disparities.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--journal">Journal</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Racism as a Determinant of Health: A Systematic Review and Meta-Analysis</div>
+                  <div class="source-item__meta"><strong>Paradies et al.</strong> · PLOS ONE, 10(9) · 2015</div>
+                  <div class="source-item__desc">Meta-analysis of 293 studies documenting independent effects of racism on mental and physical health outcomes.</div>
+                </div>
+              </div>
+              <div class="source-item">
+                <span class="source-item__type source-item__type--data">Data</span>
+                <div class="source-item__body">
+                  <div class="source-item__title">Environmental Justice Screening Tool (EJScreen) Data, 2023</div>
+                  <div class="source-item__meta"><strong>U.S. Environmental Protection Agency</strong> · Version 2.2 · 2023</div>
+                  <div class="source-item__desc">Mapping data showing disproportionate concentration of environmental hazards (superfund sites, air pollution, lead paint) in formerly redlined Black neighborhoods.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corrections log -->
+          <div class="corrections-section reveal" id="corrections" data-thread="corrections">
+            <div class="sources-section__header">
+              <div>
+                <div class="sources-section__eyebrow">Corrections log</div>
+                <h2 class="sources-section__title">Every error we've made — and fixed</h2>
+              </div>
+            </div>
+            <p style="font-size:var(--type-sm);color:var(--color-text-secondary);margin-bottom:var(--space-6);line-height:1.65;">When we are wrong, we say so publicly. No silent edits. The original claim, the correction, and the source are all listed here.</p>
+
+            <div class="correction-item">
+              <div class="correction-item__header">
+                <span class="correction-badge">Corrected</span>
+                <span class="correction-item__date">March 14, 2025</span>
+                <span class="correction-item__thread">Housing &amp; Wealth Gap</span>
+              </div>
+              <div class="correction-item__body">
+                <p><strong>Claim about homeownership gap:</strong><br />
+                Was: <span class="was">The homeownership gap between Black and white Americans is smaller today than in 1968.</span><br />
+                Now: <span class="now">The homeownership gap is wider today (28.6 pts) than when the Fair Housing Act passed in 1968 (27 pts).</span><br />
+                Source: U.S. Census Bureau, Housing Vacancies and Homeownership Survey 2024; Keeanga-Yamahtta Taylor, <em>Race for Profit</em>, 2019.
+                </p>
+              </div>
+            </div>
+
+            <div class="correction-item">
+              <div class="correction-item__header">
+                <span class="correction-badge">Corrected</span>
+                <span class="correction-item__date">January 8, 2025</span>
+                <span class="correction-item__thread">Stolen Labor</span>
+              </div>
+              <div class="correction-item__body">
+                <p><strong>Figure for enslaved people transported:</strong><br />
+                Was: <span class="was">Approximately 10 million enslaved Africans were transported to the Americas.</span><br />
+                Now: <span class="now">The Trans-Atlantic Slave Trade Database documents 12.5 million departures from Africa, of whom an estimated 10.7 million survived the Middle Passage.</span><br />
+                Source: SlaveVoyages.org, Trans-Atlantic Slave Trade Database, Emory University, 2023 edition.
+                </p>
+              </div>
+            </div>
+
+            <div class="correction-item">
+              <div class="correction-item__header">
+                <span class="correction-badge">Corrected</span>
+                <span class="correction-item__date">November 2, 2024</span>
+                <span class="correction-item__thread">Mass Incarceration</span>
+              </div>
+              <div class="correction-item__body">
+                <p><strong>Crack/powder sentencing ratio:</strong><br />
+                Was: <span class="was">The 1986 Anti-Drug Abuse Act established a 100:1 sentencing disparity that remains in effect today.</span><br />
+                Now: <span class="now">The 100:1 disparity was reduced to 18:1 by the Fair Sentencing Act of 2010, made retroactive by the First Step Act of 2018. An 18:1 disparity remains — still racially disparate, but not 100:1.</span><br />
+                Source: Fair Sentencing Act, Pub. L. 111-220 (2010); First Step Act, Pub. L. 115-391 (2018).
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div><!-- end content col -->
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── FILTER CHIPS ──────────────────────────────────────────
+  const filterChips = document.querySelectorAll('.sources-filter-chip');
+  const allSections = document.querySelectorAll('.sources-section[data-thread], .corrections-section[data-thread]');
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const f = chip.dataset.filter;
+      allSections.forEach(sec => {
+        sec.style.display = (f === 'all' || sec.dataset.thread === f) ? '' : 'none';
+      });
+    });
+  });
+
+  // ── TOC ACTIVE ────────────────────────────────────────────
+  const tocLinks = document.querySelectorAll('.sources-toc__link');
+  const tocObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('is-active'));
+        const active = document.querySelector(`.sources-toc__link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('is-active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('.sources-section, .corrections-section').forEach(s => tocObs.observe(s));
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
