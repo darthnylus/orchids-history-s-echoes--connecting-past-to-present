@@ -235,8 +235,8 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 1.5rem;
       margin-bottom: var(--space-5);
+      flex-shrink: 0;
     }
     .team-card__name {
       font-family: var(--font-editorial);
@@ -628,19 +628,25 @@
       </div>
       <div class="team-grid">
         <div class="team-card reveal">
-          <div class="team-card__avatar" style="background:var(--amber-100);color:var(--amber-800);">✍️</div>
+          <div class="team-card__avatar" style="background:rgba(196,106,0,.12);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c46a00" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
           <div class="team-card__name">Editorial Team</div>
           <div class="team-card__role">Research &amp; Writing</div>
           <p class="team-card__bio">Our editorial team includes historians specializing in African diaspora, American legal history, and post-Reconstruction policy. All thread content is researched and written by subject-matter specialists, not generalists.</p>
         </div>
         <div class="team-card reveal">
-          <div class="team-card__avatar" style="background:var(--slate-100);color:var(--slate-700);">📋</div>
+          <div class="team-card__avatar" style="background:rgba(196,106,0,.12);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c46a00" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+          </div>
           <div class="team-card__name">Educators &amp; Advisors</div>
           <div class="team-card__role">Curriculum &amp; Pedagogy</div>
           <p class="team-card__bio">A network of K–12 and university educators reviews teaching resources for accuracy, grade-appropriateness, and alignment with state standards. Our educator advisors include classroom teachers from Atlanta, Chicago, and Oakland.</p>
         </div>
         <div class="team-card reveal">
-          <div class="team-card__avatar" style="background:var(--sienna-100,#fdf2ef);color:var(--sienna-700);">🔧</div>
+          <div class="team-card__avatar" style="background:rgba(196,106,0,.12);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c46a00" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
           <div class="team-card__name">Design &amp; Engineering</div>
           <div class="team-card__role">Platform &amp; Accessibility</div>
           <p class="team-card__bio">Chain is designed to be fast, readable, and accessible. We prioritize WCAG 2.1 AA compliance, keyboard navigation, and performance on low-bandwidth connections — because many of our readers are in schools with poor infrastructure.</p>
