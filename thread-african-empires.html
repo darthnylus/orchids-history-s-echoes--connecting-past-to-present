@@ -436,8 +436,17 @@
 
     /* TOC */
     .sidebar-toc {
-      position: sticky;
-      top: 80px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5) var(--space-5);
+    }
+    [data-theme="dark"] .sidebar-toc { background: var(--ink-800); border-color: var(--ink-700); }
+    @media (min-width: 1024px) {
+      .sidebar-toc {
+        position: sticky;
+        top: 80px;
+      }
     }
     .sidebar-toc__label {
       font-size: var(--type-xs);
@@ -446,6 +455,8 @@
       text-transform: uppercase;
       color: var(--color-text-tertiary);
       margin-bottom: var(--space-3);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
     }
     .sidebar-toc__list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
     .sidebar-toc__link {
