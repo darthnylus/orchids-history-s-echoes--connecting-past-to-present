@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Fire Next Time: Black Abolitionists and the War on Slavery, 1829–1865 — Thread — Chain</title>
+  <meta name="description" content="David Walker. Frederick Douglass. Harriet Tubman. Henry Highland Garnet. Sojourner Truth. John Brown. Before the Civil War was a military event, it was a moral argument — and Black abolitionists made it first, loudest, and most clearly." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    .thread-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative; overflow: hidden;
+    }
+    .thread-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 12% 50%, rgba(251,191,36,.14) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 88% 22%, rgba(129,140,248,.10) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 50% 100%, rgba(239,68,68,.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .thread-hero__inner { position: relative; max-width: 760px; }
+    .thread-hero__kicker {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(251,191,36,.12); border: 1px solid rgba(251,191,36,.28);
+      border-radius: 999px; padding: var(--space-1) var(--space-4);
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: #fde68a; margin-bottom: var(--space-6);
+    }
+    .thread-hero__kicker-dot { width:6px; height:6px; border-radius:50%; background:#fbbf24; }
+    .thread-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 900; color: #fff; line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: var(--space-6);
+    }
+    .thread-hero__title em { color: #fde68a; font-style: normal; }
+    .thread-hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem); color: var(--ink-300);
+      line-height: 1.7; max-width: 640px; margin-bottom: var(--space-8);
+    }
+    .thread-hero__meta { display: flex; gap: var(--space-6); flex-wrap: wrap; align-items: flex-end; }
+    .thread-meta-item__label { font-size: var(--type-xs); color: var(--ink-500); text-transform: uppercase; letter-spacing: var(--tracking-wide); margin-bottom: 2px; }
+    .thread-meta-item__value { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: var(--ink-200); }
+
+    .listen-btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: var(--space-2) var(--space-4); border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06);
+      color: var(--ink-300); font-size: var(--type-xs); font-weight: var(--weight-semibold);
+      font-family: inherit; cursor: pointer; transition: all var(--duration-fast);
+      margin-left: auto; white-space: nowrap; align-self: flex-end;
+    }
+    .listen-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+    .listen-btn[data-state="playing"] { background: rgba(251,191,36,.2); border-color: rgba(251,191,36,.4); color: #fde68a; }
+    .listen-progress-bar { height:3px; background:rgba(255,255,255,.08); display:none; }
+    .listen-progress-bar.is-visible { display:block; }
+    .listen-progress-bar__fill { height:100%; background:#fbbf24; width:0%; transition:width 0.5s linear; }
+
+    .argument-bar {
+      background: rgba(251,191,36,.07);
+      border-top: 1px solid rgba(251,191,36,.15);
+      border-bottom: 1px solid rgba(251,191,36,.15);
+      padding: var(--space-5) 0;
+    }
+    .argument-bar__inner { display: flex; align-items: flex-start; gap: var(--space-5); }
+    .argument-bar__icon { width:36px; height:36px; flex-shrink:0; background:rgba(251,191,36,.18); border-radius:50%; display:grid; place-items:center; margin-top:2px; }
+    .argument-bar__label { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:#fde68a; margin-bottom:var(--space-1); }
+    .argument-bar__text { font-size:var(--type-md); color:var(--ink-200); line-height:1.65; max-width:820px; }
+    .argument-bar__text strong { color:#fff; }
+
+    .thread-body { padding: var(--space-14) 0; }
+    .thread-layout { display:grid; grid-template-columns:1fr; gap:var(--space-10); align-items:start; }
+    @media (min-width:1024px) { .thread-layout { grid-template-columns:1fr 300px; gap:var(--space-12); } }
+
+    .entry-list { display:flex; flex-direction:column; gap:0; }
+    .entry-item { scroll-margin-top:80px; padding:var(--space-10) 0; border-bottom:1px solid var(--color-border); }
+    .entry-item:last-of-type { border-bottom:none; }
+    .entry-item__header { display:grid; grid-template-columns:56px 1fr; gap:var(--space-5); align-items:start; margin-bottom:var(--space-6); }
+    .entry-item__num { width:56px; height:56px; border-radius:var(--radius-lg); display:grid; place-items:center; flex-shrink:0; font-family:var(--font-editorial); font-size:1.375rem; font-weight:900; }
+    .entry-item__dates { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:#fde68a; margin-bottom:var(--space-1); }
+    .entry-item__name { font-family:var(--font-editorial); font-size:clamp(1.375rem,3vw,1.875rem); font-weight:900; color:var(--color-text-primary); line-height:1.15; margin-bottom:var(--space-1); }
+    .entry-item__location { font-size:var(--type-sm); color:var(--color-text-tertiary); }
+
+    .entry-stats { display:flex; gap:var(--space-5); flex-wrap:wrap; padding:var(--space-4) var(--space-5); background:var(--color-surface); border-radius:var(--radius-lg); border:1px solid var(--color-border); margin-bottom:var(--space-6); }
+    .entry-stat__num { font-family:var(--font-editorial); font-size:1.25rem; font-weight:var(--weight-bold); color:#fbbf24; line-height:1; margin-bottom:2px; }
+    .entry-stat__label { font-size:0.7rem; text-transform:uppercase; letter-spacing:var(--tracking-wide); color:var(--color-text-tertiary); }
+
+    .entry-item__body { font-size:var(--type-md); color:var(--color-text-secondary); line-height:var(--leading-loose); margin-bottom:var(--space-6); }
+    .entry-item__body p { margin-bottom:var(--space-4); }
+    .entry-item__body p:last-child { margin-bottom:0; }
+    .entry-item__body strong { color:var(--color-text-primary); font-weight:var(--weight-semibold); }
+
+    .entry-features { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin-bottom:var(--space-6); }
+    @media (min-width:640px) { .entry-features { grid-template-columns:repeat(3,1fr); } }
+    .entry-feature { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:var(--space-4); }
+    .entry-feature__icon { font-size:1.25rem; margin-bottom:var(--space-2); line-height:1; }
+    .entry-feature__label { font-size:var(--type-xs); font-weight:var(--weight-semibold); color:var(--color-text-primary); margin-bottom:2px; }
+    .entry-feature__desc { font-size:0.72rem; color:var(--color-text-tertiary); line-height:1.5; }
+
+    .consequence-box { border:1px solid rgba(251,191,36,.22); border-left:3px solid #fbbf24; background:rgba(251,191,36,.04); border-radius:0 var(--radius-lg) var(--radius-lg) 0; padding:var(--space-5) var(--space-6); margin-bottom:var(--space-5); }
+    [data-theme="dark"] .consequence-box { background:rgba(251,191,36,.07); }
+    .consequence-box__label { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:#fbbf24; margin-bottom:var(--space-2); }
+    .consequence-box__text { font-size:var(--type-sm); color:var(--color-text-secondary); line-height:1.65; }
+    .consequence-box__text strong { color:var(--color-text-primary); }
+
+    .pull-quote { border-left:3px solid #fbbf24; padding:var(--space-4) var(--space-6); margin:var(--space-7) 0; }
+    .pull-quote__text { font-family:var(--font-editorial); font-size:clamp(1.125rem,2.5vw,1.375rem); font-style:italic; color:var(--color-text-primary); line-height:1.55; margin-bottom:var(--space-3); }
+    .pull-quote__attribution { font-size:var(--type-xs); font-weight:var(--weight-semibold); text-transform:uppercase; letter-spacing:var(--tracking-wider); color:#fbbf24; }
+
+    .chain-connector { background:var(--ink-900); border-radius:var(--radius-xl); padding:var(--space-8); margin:var(--space-12) 0; }
+    .chain-connector__title { font-family:var(--font-editorial); font-size:1.25rem; font-weight:var(--weight-bold); color:#fff; margin-bottom:var(--space-6); }
+    .chain-steps { display:flex; flex-direction:column; gap:0; position:relative; }
+    .chain-step { display:grid; grid-template-columns:32px 1fr; gap:var(--space-4); align-items:start; padding-bottom:var(--space-5); position:relative; }
+    .chain-step:last-child { padding-bottom:0; }
+    .chain-step__line { position:absolute; left:15px; top:32px; bottom:0; width:2px; background:linear-gradient(to bottom,rgba(251,191,36,.5),rgba(251,191,36,.1)); }
+    .chain-step:last-child .chain-step__line { display:none; }
+    .chain-step__dot { width:32px; height:32px; border-radius:50%; border:2px solid #fbbf24; background:rgba(251,191,36,.15); color:#fbbf24; font-size:0.7rem; font-weight:var(--weight-bold); display:grid; place-items:center; flex-shrink:0; position:relative; z-index:1; }
+    .chain-step__era { font-size:0.68rem; font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:#fbbf24; margin-bottom:2px; }
+    .chain-step__title { font-size:var(--type-sm); font-weight:var(--weight-semibold); color:#fff; margin-bottom:3px; }
+    .chain-step__desc { font-size:var(--type-xs); color:var(--ink-400); line-height:1.6; }
+
+    .sidebar { display:flex; flex-direction:column; gap:var(--space-5); }
+    .sidebar-card { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-xl); padding:var(--space-5); }
+    [data-theme="dark"] .sidebar-card { background:var(--ink-800); border-color:var(--ink-700); }
+    .sidebar-card__title { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--color-text-tertiary); margin-bottom:var(--space-4); padding-bottom:var(--space-3); border-bottom:1px solid var(--color-border); }
+    .sidebar-toc__list { list-style:none; display:flex; flex-direction:column; gap:1px; }
+    .sidebar-toc__link { display:block; font-size:var(--type-xs); color:var(--color-text-secondary); padding:5px var(--space-3); border-radius:var(--radius-md); transition:all var(--duration-fast); text-decoration:none; line-height:1.3; }
+    .sidebar-toc__link:hover { background:var(--color-surface-raised); color:var(--color-text-primary); }
+    .sidebar-toc__link.is-active { background:rgba(251,191,36,.1); color:#fbbf24; font-weight:var(--weight-semibold); }
+    .sidebar-fact__stat { font-family:var(--font-editorial); font-size:2rem; font-weight:900; color:#fbbf24; line-height:1; margin-bottom:var(--space-1); }
+    .sidebar-fact__label { font-size:var(--type-xs); color:var(--color-text-secondary); line-height:1.5; }
+    .sidebar-fact__divider { height:1px; background:var(--color-border); margin:var(--space-4) 0; }
+    .related-thread { display:flex; flex-direction:column; gap:var(--space-1); padding:var(--space-3) 0; border-bottom:1px solid var(--color-border); text-decoration:none; }
+    .related-thread:last-child { border-bottom:none; padding-bottom:0; }
+    .related-thread__num { font-size:0.68rem; font-weight:var(--weight-bold); text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text-tertiary); }
+    .related-thread__title { font-size:var(--type-sm); font-weight:var(--weight-semibold); color:var(--color-text-primary); line-height:1.35; }
+    .related-thread:hover .related-thread__title { color:#fbbf24; }
+
+    .thread-bottom-cta { background:var(--ink-900); padding:var(--space-16) 0; text-align:center; }
+    .thread-bottom-cta__eyebrow { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:#fde68a; margin-bottom:var(--space-4); }
+    .thread-bottom-cta__title { font-family:var(--font-editorial); font-size:clamp(1.75rem,4vw,2.75rem); font-weight:900; color:#fff; line-height:1.15; margin-bottom:var(--space-5); max-width:600px; margin-left:auto; margin-right:auto; }
+    .thread-bottom-cta__sub { font-size:var(--type-md); color:var(--ink-400); max-width:520px; margin:0 auto var(--space-8); line-height:1.65; }
+    .thread-bottom-cta__btns { display:flex; gap:var(--space-3); justify-content:center; flex-wrap:wrap; }
+    .thread-bottom-cta__btn { display:inline-flex; align-items:center; gap:var(--space-2); padding:var(--space-3) var(--space-7); border-radius:999px; font-size:var(--type-sm); font-weight:var(--weight-semibold); text-decoration:none; transition:all var(--duration-fast); }
+    .thread-bottom-cta__btn--primary { background:#d97706; color:#fff; }
+    .thread-bottom-cta__btn--primary:hover { background:#b45309; }
+    .thread-bottom-cta__btn--secondary { background:transparent; color:var(--ink-300); border:1px solid rgba(255,255,255,.15); }
+    .thread-bottom-cta__btn--secondary:hover { background:rgba(255,255,255,.06); color:#fff; }
+
+    [data-theme="dark"] .entry-stats { background:var(--ink-800); border-color:var(--ink-700); }
+    [data-theme="dark"] .entry-feature { background:var(--ink-800); border-color:var(--ink-700); }
+    .reveal { opacity:0; transform:translateY(14px); transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity:1; transform:none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Abolitionism Thread:</strong> The Fire Next Time — Black abolitionists who made the moral case before the military one.</p>
+    <nav class="utility-bar__links">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html" class="site-nav__link">Explore</a>
+      <a href="threads.html" class="site-nav__link" aria-current="page">Threads</a>
+      <a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html" class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off"/>
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Try searching</p>
+      <a href="search.html?q=Frederick+Douglass" class="search-hint-chip">Frederick Douglass</a>
+      <a href="search.html?q=Harriet+Tubman" class="search-hint-chip">Harriet Tubman</a>
+      <a href="search.html?q=Underground+Railroad" class="search-hint-chip">Underground Railroad</a>
+    </div>
+  </div>
+</div>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html" class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html" class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html" class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+      <li><a href="about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
+        Abolitionism Thread · 1829–1865
+      </div>
+      <h1 class="thread-hero__title" id="heroTitle">
+        <em>The Fire Next Time:</em><br>
+        Black Abolitionists &amp; the War on Slavery
+      </h1>
+      <p class="thread-hero__subtitle">
+        Before the Civil War was a military conflict, it was a moral argument — and Black Americans made it first, loudest, and most clearly. David Walker in 1829. Frederick Douglass in 1845. Harriet Tubman on thirteen moonlit journeys. Henry Highland Garnet calling for rebellion in 1843. Sojourner Truth in a church in Akron. John Brown at Harpers Ferry. The abolitionists did not wait for permission. They built the case — and then the war came.
+      </p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Period</div>
+          <div class="thread-meta-item__value">1829 – 1865</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Figures</div>
+          <div class="thread-meta-item__value">8 abolitionists profiled</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Underground Railroad</div>
+          <div class="thread-meta-item__value">100,000+ people to freedom</div>
+        </div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span id="listenLabel">Listen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true">
+    <div class="listen-progress-bar__fill" id="listenProgressFill"></div>
+  </div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fde68a" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text">
+          <strong>The abolitionists were not asking for patience. They were demanding an end.</strong> The dominant narrative of abolition centers white allies — Garrison, Lincoln, John Brown. This thread centers the Black abolitionists who made the moral case years before white America caught up: David Walker's Appeal in 1829, twelve years before Garrison. Harriet Tubman's thirteen missions, which proved that freedom was not a gift but something you took. Frederick Douglass, who told the truth so clearly that slaveholders put a price on his head. The Civil War was the consequence of their argument — not the other way around.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+        <div class="entry-list">
+
+          <!-- 1: DAVID WALKER -->
+          <article class="entry-item reveal" id="entry-walker">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates">1829 · Boston, Massachusetts</div>
+                <h2 class="entry-item__name">David Walker — "Appeal to the Coloured Citizens of the World"</h2>
+                <div class="entry-item__location">Boston, MA · Free Black community</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1829</div><div class="entry-stat__label">Published — 32 yrs before the Civil War</div></div>
+              <div><div class="entry-stat__num">$10K</div><div class="entry-stat__label">Georgia's reward for his capture, dead</div></div>
+              <div><div class="entry-stat__num">$1K</div><div class="entry-stat__label">Georgia's reward for his capture, alive</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>David Walker was a free Black man from Wilmington, North Carolina, who moved to Boston in the 1820s and opened a used clothing shop near the docks. He used the shop — and the sailors who visited it — as a distribution network for the most dangerous document in antebellum America: his 1829 <em>Appeal to the Coloured Citizens of the World</em>.</p>
+              <p>Walker stitched pamphlets into the linings of sailors' coats. He sewed them into the hems of clothing sold to Black sailors who worked the coastal routes to Southern ports. The <em>Appeal</em> arrived in Savannah. In Richmond. In New Orleans. In Charleston. <strong>Southern states immediately made distributing it a capital offense.</strong> Georgia offered $10,000 for Walker dead, $1,000 for Walker alive — the distinction was not incidental. A live Walker could talk. A dead Walker could not.</p>
+              <p>The <em>Appeal</em> was a 76-page argument — theological, historical, philosophical — that slavery was a moral abomination, that Black people had both the right and the duty to resist it by any means necessary, and that the United States could not survive its contradiction. Walker was not writing for white allies. He was writing directly to enslaved people, in the first person plural: <em>we</em>. "Our wretchedness in consequence of slavery" was not someone else's problem. It was a collective condition requiring collective action.</p>
+              <p>Walker died in 1830, just months after publishing the third edition of the <em>Appeal</em>. He was 34. His death was almost certainly not natural. The <em>Appeal</em> survived him and kept circulating — William Lloyd Garrison founded <em>The Liberator</em> two years later. <strong>Walker wrote it first.</strong></p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"America is more our country than it is the whites'— we have enriched it with our blood and tears."</p>
+              <p class="pull-quote__attribution">— David Walker, <em>Appeal to the Coloured Citizens of the World</em>, 1829</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">Immediate Response</div>
+              <p class="consequence-box__text">At least four Southern states passed laws criminalizing the distribution of abolitionist literature within months of the <em>Appeal</em>'s publication. Georgia, North Carolina, Louisiana, and Virginia all enacted legislation — some carrying the death penalty. <strong>A pamphlet provoked more legislative response in twelve months than decades of earlier protest.</strong> The slaveholders understood what the pamphlet said better than many historians have credited.</p>
+            </div>
+          </article>
+
+          <!-- 2: WILLIAM LLOYD GARRISON -->
+          <article class="entry-item reveal" id="entry-garrison">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">1831–1865 · Boston, Massachusetts</div>
+                <h2 class="entry-item__name">William Lloyd Garrison &amp; <em>The Liberator</em> — 35 Years Without Missing a Week</h2>
+                <div class="entry-item__location">Boston, MA · American Anti-Slavery Society</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">35yr</div><div class="entry-stat__label">The Liberator published without pause</div></div>
+              <div><div class="entry-stat__num">1833</div><div class="entry-stat__label">Founded American Anti-Slavery Society</div></div>
+              <div><div class="entry-stat__num">75%</div><div class="entry-stat__label">Of early Liberator subscribers were Black</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>William Lloyd Garrison founded <em>The Liberator</em> on January 1, 1831, in Boston. He published it every single week for thirty-five years, until slavery was abolished in 1865. His opening editorial set the tone: "I will be as harsh as truth, and as uncompromising as justice... I will not equivocate — I will not excuse — I will not retreat a single inch — and I will be heard."</p>
+              <p>Garrison was white. He is important to this story not because he led the abolitionist movement — the Black abolitionists led it — but because he built the press infrastructure that amplified their arguments to white Northern audiences who would otherwise never have encountered them. <strong>Seventy-five percent of <em>The Liberator</em>'s early subscribers were Black Americans.</strong> They were funding the paper that was making their case to white readers.</p>
+              <p>Garrison also founded the American Anti-Slavery Society in 1833 with 62 founding members — the majority of them Black. He was a committed nonviolent advocate, which put him in direct philosophical tension with David Walker, Henry Highland Garnet, Robert F. Williams, and eventually with Douglass himself. The debate within abolitionism — moral suasion vs. direct action — runs from Walker's 1829 <em>Appeal</em> to the Black Panthers in 1966. It is the same argument, returning.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Tension at the Heart of Abolition</div>
+              <p class="consequence-box__text">Garrison believed in moral persuasion — change the hearts of slaveholders through argument. Walker, Garnet, Tubman, and eventually Douglass believed this was insufficient and that direct action, including violence, was justified. This split did not weaken the movement; it pressured it forward. <strong>Every step Garrison took toward radicalism was preceded by a Black abolitionist who had already arrived there.</strong></p>
+            </div>
+          </article>
+
+          <!-- 3: HENRY HIGHLAND GARNET -->
+          <article class="entry-item reveal" id="entry-garnet">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">1843 · Buffalo, New York</div>
+                <h2 class="entry-item__name">Henry Highland Garnet — "Address to the Slaves of the United States"</h2>
+                <div class="entry-item__location">National Negro Convention, Buffalo, NY</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1843</div><div class="entry-stat__label">Address delivered — 18 yrs before the Civil War</div></div>
+              <div><div class="entry-stat__num">1</div><div class="entry-stat__label">Vote margin by which Douglass defeated the address</div></div>
+              <div><div class="entry-stat__num">1865</div><div class="entry-stat__label">First Black man to speak in the U.S. Capitol</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Henry Highland Garnet was born into slavery in Maryland and escaped with his family at age nine. He became a minister, an orator, and one of the most radical voices in the antebellum abolitionist movement. At the 1843 National Negro Convention in Buffalo, he delivered an address that made even David Walker's <em>Appeal</em> look measured: he called directly on enslaved people to rise up and kill their enslavers if they would not grant freedom.</p>
+              <p>"Brethren, arise, arise! Strike for your lives and liberties. Now is the day and the hour. Let every slave throughout the land do this, and the days of slavery are numbered... Rather die freemen than live to be slaves." <strong>The convention voted on whether to endorse the address. Frederick Douglass — himself a former slave — argued against it, fearing it would bring violent reprisals against enslaved people who had no chance of winning. The address was defeated by a single vote.</strong></p>
+              <p>Garnet spent the next twenty years proving that the argument could not be suppressed. He republished the address in 1848. He continued traveling, organizing, and speaking. By the time the Civil War came, Douglass had moved closer to Garnet's position. In 1865, Garnet became the first Black man to deliver a sermon in the United States Capitol — to celebrate the passage of the 13th Amendment abolishing slavery.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"Rather die freemen than live to be slaves."</p>
+              <p class="pull-quote__attribution">— Henry Highland Garnet, Address to the Slaves of the United States, 1843</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Douglass-Garnet Debate</div>
+              <p class="consequence-box__text">The 1843 convention split is one of the most consequential debates in Black political history. Garnet argued that suffering under slavery was not a sufficient reason to wait. Douglass argued that armed rebellion without support would bring massacre. <strong>Both were right.</strong> The debate continued inside the movement until the war made it moot — but it resurfaced in 1964 with the Deacons for Defense, in 1966 with the Black Panthers, and in every generation since.</p>
+            </div>
+          </article>
+
+          <!-- 4: FREDERICK DOUGLASS -->
+          <article class="entry-item reveal" id="entry-douglass">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates">1845–1895 · Baltimore / Rochester / Washington DC</div>
+                <h2 class="entry-item__name">Frederick Douglass — "What to the Slave Is the Fourth of July?"</h2>
+                <div class="entry-item__location">Rochester, NY · Washington, DC · National</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1845</div><div class="entry-stat__label">Narrative published — immediate bestseller</div></div>
+              <div><div class="entry-stat__num">1847</div><div class="entry-stat__label">Founded The North Star in Rochester</div></div>
+              <div><div class="entry-stat__num">$711</div><div class="entry-stat__label">Cost to buy his legal freedom (1846, paid by British abolitionists)</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Frederick Douglass was born into slavery in Maryland around 1818. He escaped in 1838, disguised as a sailor, using borrowed identification papers. He arrived in New York with nothing and within three years had become the most famous Black man in America — because of what he could do with language.</p>
+              <p>His 1845 <em>Narrative of the Life of Frederick Douglass</em> was a precise, devastating account of what slavery actually was — not an abstraction, but a system of specific, daily, documented violence and dehumanization. <strong>It sold 30,000 copies in the first five years.</strong> Slaveholders attacked it by claiming Douglass was too articulate to have been enslaved. Douglass responded by naming his enslaver and giving the exact address of the plantation. The book was that specific because the truth was that specific.</p>
+              <p>In 1847, Douglass founded <em>The North Star</em> in Rochester, New York — printing it himself, funding it himself, editing it himself. Its motto: "Right is of no sex, truth is of no color, God is the father of us all, and we are all brethren." On July 5, 1852, he delivered what became the most important speech in American history to an audience of 500 women in Rochester: <strong>"What to the Slave is the Fourth of July?"</strong> — a systematic dismantling of American exceptionalism delivered from inside the exception.</p>
+              <p>Douglass evolved. He began as a Garrisonian nonviolent advocate. By the time of John Brown's Harpers Ferry raid in 1859, he had moved significantly toward the view that slavery would not end without violence. He spent the Civil War pressing Lincoln to make emancipation the explicit war aim and to allow Black soldiers to fight. Both happened. Neither happened as quickly as Douglass demanded.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"What, to the American slave, is your 4th of July? I answer: a day that reveals to him, more than all other days in the year, the gross injustice and cruelty to which he is the constant victim."</p>
+              <p class="pull-quote__attribution">— Frederick Douglass, Rochester, NY, July 5, 1852</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📖</div>
+                <div class="entry-feature__label">The Narrative</div>
+                <div class="entry-feature__desc">1845 — 30,000 copies in 5 years. Translated into French and Dutch. Slaveholders called it a forgery; Douglass responded with addresses and dates.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📰</div>
+                <div class="entry-feature__label">The North Star</div>
+                <div class="entry-feature__desc">Rochester, 1847–1860 — the most widely read Black newspaper in antebellum America. Douglass funded it himself, often going into debt.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🎙️</div>
+                <div class="entry-feature__label">July 5th Speech</div>
+                <div class="entry-feature__desc">"What to the Slave Is the Fourth of July?" — 1852. Still the most incisive critique of American exceptionalism ever delivered on American soil.</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5: HARRIET TUBMAN -->
+          <article class="entry-item reveal" id="entry-tubman">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates">1849–1865 · Maryland / Pennsylvania / New York / South Carolina</div>
+                <h2 class="entry-item__name">Harriet Tubman — Thirteen Missions, Never Lost One</h2>
+                <div class="entry-item__location">Dorchester County, MD → Philadelphia → Canada → South Carolina</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">13</div><div class="entry-stat__label">Missions into slave states</div></div>
+              <div><div class="entry-stat__num">70+</div><div class="entry-stat__label">People led to freedom</div></div>
+              <div><div class="entry-stat__num">$40K</div><div class="entry-stat__label">Reward for her capture (never collected)</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Harriet Tubman escaped slavery in Maryland in 1849 — alone, at night, on foot, using the North Star as her guide. She walked approximately 90 miles to Philadelphia. Then she went back. Thirteen times.</p>
+              <p>The Underground Railroad was not a railroad. It was a network of safe houses, trusted contacts, coded messages, moonlit forest paths, and extraordinary courage. Tubman did not merely use the network — she operated it. She carried a gun and told those she was leading that they could not turn back. <strong>"I never ran my train off the track and I never lost a passenger."</strong> This is not metaphor. It is a documented operational record.</p>
+              <p>She freed her parents, her siblings, and dozens of others — people whose names are mostly lost to history, which is itself a form of erasure. She used disguises, changed routes constantly, and moved on Saturday nights (so that runaway notices couldn't appear in Monday papers). She memorized terrain and developed intelligence networks in states where she could be captured and enslaved herself at any moment.</p>
+              <p>When the Civil War came, Tubman became a Union Army scout and spy in South Carolina — using the same skills. In June 1863, she led the Combahee River Raid, guiding Union gunboats through Confederate minefields she had mapped using her intelligence network. <strong>The raid freed 700 enslaved people in a single night — the largest single emancipation event before the Emancipation Proclamation.</strong> She was the first woman in American history to lead an armed military raid. She received no military pension until 1899, thirty-four years after the war ended, after decades of advocacy by her supporters.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"I never ran my train off the track and I never lost a passenger."</p>
+              <p class="pull-quote__attribution">— Harriet Tubman</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🌙</div>
+                <div class="entry-feature__label">Navigation</div>
+                <div class="entry-feature__desc">Used the North Star, moss on trees, and water direction. Changed routes each mission to prevent pattern detection.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🔫</div>
+                <div class="entry-feature__label">The Gun</div>
+                <div class="entry-feature__desc">Carried a pistol. Told those she was leading: "You'll be free or die." No one turned back. No one was captured.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">⚓</div>
+                <div class="entry-feature__label">Combahee River Raid</div>
+                <div class="entry-feature__desc">June 2, 1863 — 700 people freed in one night. First woman to lead an armed U.S. military operation.</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6: SOJOURNER TRUTH -->
+          <article class="entry-item reveal" id="entry-truth">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates">1843–1883 · National</div>
+                <h2 class="entry-item__name">Sojourner Truth — "Ain't I a Woman?"</h2>
+                <div class="entry-item__location">Akron, Ohio / National speaking circuit</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1851</div><div class="entry-stat__label">Ain't I a Woman speech, Akron, OH</div></div>
+              <div><div class="entry-stat__num">40yr</div><div class="entry-stat__label">Enslaved before gaining freedom in 1827</div></div>
+              <div><div class="entry-stat__num">1843</div><div class="entry-stat__label">Changed her name and began speaking nationally</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Sojourner Truth was born Isabella Baumfree into slavery in New York around 1797. She was enslaved for approximately forty years before gaining freedom under New York's Gradual Emancipation Act in 1827. In 1843, she renamed herself Sojourner Truth — "sojourner" for a traveler, "truth" for what she intended to say — and began traveling the country speaking against slavery and for women's rights.</p>
+              <p>At the 1851 Women's Rights Convention in Akron, Ohio, she delivered what became known as the "Ain't I a Woman?" speech — one of the most precise articulations ever made of the intersection between race and gender. White suffragists were arguing that women deserved rights because of their delicacy and femininity. Truth challenged the premise directly, standing in front of a hostile crowd and describing what slavery had actually required of her body: field labor, childbirth, children sold away. <strong>"I have plowed, and planted, and gathered into barns, and no man could head me — and ain't I a woman?"</strong></p>
+              <p>Truth worked the overlap where abolitionism and women's suffrage met — an overlap that most white women's rights advocates of the era refused to acknowledge. She understood that a movement for women's rights that excluded Black women was not a movement for women's rights. This argument was not resolved in 1851. It was still being made in 1920, when the 19th Amendment was ratified but Black women in the South were still barred from voting by terror and poll taxes.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"If the first woman God ever made was strong enough to turn the world upside down all alone, these women together ought to be able to turn it back, and get it right side up again!"</p>
+              <p class="pull-quote__attribution">— Sojourner Truth, Women's Rights Convention, Akron, Ohio, 1851</p>
+            </div>
+          </article>
+
+          <!-- 7: DRED SCOTT + RADICAL REPUBLICANS -->
+          <article class="entry-item reveal" id="entry-dredscott">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates">1857 · Washington, DC</div>
+                <h2 class="entry-item__name">The Dred Scott Decision — When the Supreme Court Joined the Argument</h2>
+                <div class="entry-item__location">U.S. Supreme Court · Washington, DC</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">7-2</div><div class="entry-stat__label">Decision — Black people not citizens</div></div>
+              <div><div class="entry-stat__num">1857</div><div class="entry-stat__label">Four years before the Civil War</div></div>
+              <div><div class="entry-stat__num">1868</div><div class="entry-stat__label">14th Amendment explicitly reversed Dred Scott</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In 1857, the Supreme Court ruled 7-2 in <em>Dred Scott v. Sandford</em> that Black Americans — whether enslaved or free — were not and could never be citizens of the United States. Chief Justice Roger Taney's opinion went further: Black people had "no rights which the white man was bound to respect." The ruling invalidated the Missouri Compromise, declared Congress could not restrict slavery in the territories, and effectively made the abolitionist legal strategy impossible.</p>
+              <p>The effect was the opposite of what Taney intended. <strong>The Dred Scott decision radicalized the North.</strong> Moderate Republicans who had been willing to leave slavery alone in states where it existed were now confronting a court that said slavery could not be limited anywhere. Abraham Lincoln used it as the central example in his debates with Stephen Douglas. Frederick Douglass called it "a warlike measure" — and predicted it would accelerate, not delay, the end of slavery.</p>
+              <p>Douglass was correct. The decision accelerated the formation of the Republican Party as an explicitly anti-slavery coalition, contributed to Lincoln's election in 1860, and helped trigger Southern secession. The Civil War began four years later. <strong>The court's attempt to permanently settle the slavery question by declaring Black people non-persons instead made the war inevitable.</strong> The 14th Amendment, passed in 1868, directly and explicitly reversed <em>Dred Scott</em> — making all persons born in the United States citizens.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Long Echo</div>
+              <p class="consequence-box__text">The legal doctrine Taney articulated — that citizenship and rights are not inherent but conditional, and that the condition can be defined by race — did not die with the 14th Amendment. It reappeared in Plessy v. Ferguson (1896), in the legal architecture of Jim Crow, in the disenfranchisement cases of the 1890s, and in the arguments around voting rights today. <strong>Dred Scott was reversed. The logic behind it has been periodically revived.</strong></p>
+            </div>
+          </article>
+
+          <!-- 8: JOHN BROWN -->
+          <article class="entry-item reveal" id="entry-brownharpery">
+            <div class="entry-item__header">
+              <div class="entry-item__num" style="background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);color:#fde68a;" aria-hidden="true">08</div>
+              <div>
+                <div class="entry-item__dates">October 16–18, 1859 · Harpers Ferry, Virginia</div>
+                <h2 class="entry-item__name">John Brown at Harpers Ferry — The White Abolitionist Who Took Garnet's Advice</h2>
+                <div class="entry-item__location">Harpers Ferry, VA (now West Virginia)</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">21</div><div class="entry-stat__label">Raiders who attacked the federal armory</div></div>
+              <div><div class="entry-stat__num">5</div><div class="entry-stat__label">Were Black men</div></div>
+              <div><div class="entry-stat__num">45</div><div class="entry-stat__label">Days between raid and Brown's execution</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>On October 16, 1859, John Brown led 21 men — 16 white, 5 Black — in a raid on the federal armory at Harpers Ferry, Virginia. The plan was to seize the armory, arm enslaved people from the surrounding area, and spark a general uprising. Brown had been planning the raid for years, in correspondence with Frederick Douglass and other abolitionists. Douglass refused to participate, believing it was a suicide mission. He was correct about the military outcome. He may have been wrong about the political consequence.</p>
+              <p>The raid failed militarily within 36 hours. Brown was captured by U.S. Marines commanded by Colonel Robert E. Lee. <strong>Brown was tried for treason, convicted, and hanged on December 2, 1859 — 45 days after the raid.</strong> His final note, passed to a guard on his way to the gallows: "I, John Brown, am now quite certain that the crimes of this guilty land will never be purged away but with blood."</p>
+              <p>The South treated the raid as proof that the North intended to destroy them. The North treated Brown's execution as martyrdom. <strong>Lincoln won the 1860 election eleven months later, running in a country Harpers Ferry had already split.</strong> The Civil War began fifteen months after Brown's execution. Frederick Douglass later wrote: "I know of no man in America or elsewhere who has willingly encountered death, and in whose death the cause of human freedom has lost a more earnest, brave, and devoted champion."</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"I, John Brown, am now quite certain that the crimes of this guilty land will never be purged away but with blood."</p>
+              <p class="pull-quote__attribution">— John Brown, final note, December 2, 1859</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Debate Brown Closed</div>
+              <p class="consequence-box__text">For thirty years, the abolitionist movement had debated: moral suasion (Garrison) vs. direct action (Walker, Garnet). Brown acted on Garnet's position. The action failed militarily. The consequences — political terror in the South, radicalization of the North, Lincoln's election, secession, war — proved that Garnet had been right about the underlying dynamic. <strong>Slavery would not end through argument alone. It ended with 620,000 dead.</strong></p>
+            </div>
+          </article>
+
+          <!-- CAUSAL CHAIN -->
+          <div class="chain-connector reveal" id="entry-chain">
+            <h2 class="chain-connector__title">The Through-Line: From the Appeal to the Amendment</h2>
+            <div class="chain-steps">
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">01</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1829 — David Walker</div>
+                  <div class="chain-step__title">Walker writes the moral case for armed resistance — and gets it to enslaved people before the law can stop it</div>
+                  <div class="chain-step__desc">Southern states criminalize his pamphlet within months. He dies at 34. The argument survives him.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">02</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1831–1850s — The Press Network</div>
+                  <div class="chain-step__title">Garrison's Liberator and Douglass's North Star build the infrastructure of abolitionist argument in the North</div>
+                  <div class="chain-step__desc">75% of Liberator's subscribers are Black. The newspapers fund the movement that free Black communities lead.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">03</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1843–1852 — The Speeches</div>
+                  <div class="chain-step__title">Garnet, Douglass, and Truth make the argument in public — in church halls, convention centers, newspapers read across the North</div>
+                  <div class="chain-step__desc">The debate between moral suasion and direct action sharpens the movement. Each position pushes the other forward.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">04</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1849–1863 — Tubman's Missions</div>
+                  <div class="chain-step__title">Tubman proves that freedom is not a gift but something you take — 13 times, in the dark, with a gun</div>
+                  <div class="chain-step__desc">100,000+ people escape via the Underground Railroad. The network proves that collective action across state lines is possible.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">05</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1857–1859 — Dred Scott + Harpers Ferry</div>
+                  <div class="chain-step__title">The Supreme Court declares Black people non-citizens; John Brown answers with a rifle; the North is radicalized</div>
+                  <div class="chain-step__desc">Lincoln wins in 1860. The South secedes. The war begins 15 months after Brown's execution.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">06</div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1865 — The 13th Amendment</div>
+                  <div class="chain-step__title">Slavery abolished — 36 years after Walker's Appeal, 22 years after Garnet's Address, 620,000 dead</div>
+                  <div class="chain-step__desc">Garnet speaks in the Capitol. Douglass celebrates. Tubman never receives a pension. The chain continues: Reconstruction begins, and with it, the next fight.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /entry-list -->
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" aria-label="Thread navigation and related content">
+          <nav class="sidebar-card sidebar-toc" aria-label="Contents">
+            <h2 class="sidebar-card__title">In this thread</h2>
+            <ol class="sidebar-toc__list">
+              <li><a href="#entry-walker"      class="sidebar-toc__link">01 · David Walker (1829)</a></li>
+              <li><a href="#entry-garrison"    class="sidebar-toc__link">02 · Garrison &amp; The Liberator (1831)</a></li>
+              <li><a href="#entry-garnet"      class="sidebar-toc__link">03 · Henry Highland Garnet (1843)</a></li>
+              <li><a href="#entry-douglass"    class="sidebar-toc__link">04 · Frederick Douglass (1845–)</a></li>
+              <li><a href="#entry-tubman"      class="sidebar-toc__link">05 · Harriet Tubman (1849–1865)</a></li>
+              <li><a href="#entry-truth"       class="sidebar-toc__link">06 · Sojourner Truth (1851)</a></li>
+              <li><a href="#entry-dredscott"   class="sidebar-toc__link">07 · Dred Scott Decision (1857)</a></li>
+              <li><a href="#entry-brownharpery" class="sidebar-toc__link">08 · John Brown (1859)</a></li>
+              <li><a href="#entry-chain"        class="sidebar-toc__link">The through-line →</a></li>
+            </ol>
+          </nav>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Key facts</h2>
+            <div class="sidebar-fact__stat">100K+</div>
+            <div class="sidebar-fact__label">People reached freedom via the Underground Railroad</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">$10K</div>
+            <div class="sidebar-fact__label">Georgia's reward for David Walker, dead (1829)</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">75%</div>
+            <div class="sidebar-fact__label">Of The Liberator's early subscribers who were Black — funding the paper that made their case to white readers</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">1</div>
+            <div class="sidebar-fact__label">Vote by which the 1843 convention rejected Garnet's call for rebellion — cast against it by Frederick Douglass</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">34yr</div>
+            <div class="sidebar-fact__label">Years Harriet Tubman waited for her military pension after the Civil War ended (granted 1899)</div>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Related threads</h2>
+            <a href="thread-african-empires.html" class="related-thread">
+              <div class="related-thread__num">Thread 1</div>
+              <div class="related-thread__title">Before the Chain: 7 African Empires</div>
+            </a>
+            <a href="threads.html" class="related-thread">
+              <div class="related-thread__num">Slave Trade Thread</div>
+              <div class="related-thread__title">The Transatlantic Slave Trade</div>
+            </a>
+            <a href="thread-self-defense.html" class="related-thread">
+              <div class="related-thread__num">Resistance Thread</div>
+              <div class="related-thread__title">The Right to Defend: Black Self-Defense</div>
+            </a>
+            <a href="thread-displacement.html" class="related-thread">
+              <div class="related-thread__num">Displacement Thread</div>
+              <div class="related-thread__title">The Flooded City: Five Ways Black Communities Were Taken</div>
+            </a>
+            <a href="maps.html" class="related-thread" style="margin-top:var(--space-2)">
+              <div class="related-thread__num">Map</div>
+              <div class="related-thread__title">Underground Railroad &amp; the Abolitionist Network →</div>
+            </a>
+          </div>
+
+          <div class="sidebar-card" style="background:rgba(251,191,36,.04);border-color:rgba(251,191,36,.18);">
+            <h2 class="sidebar-card__title" style="color:#fbbf24;">Further reading</h2>
+            <div style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.65;display:flex;flex-direction:column;gap:var(--space-3);">
+              <div><strong style="color:var(--color-text-primary);">Narrative of the Life of Frederick Douglass</strong><br>Frederick Douglass, 1845</div>
+              <div><strong style="color:var(--color-text-primary);">David Walker's Appeal</strong><br>David Walker, 1829 — available free, Project Gutenberg</div>
+              <div><strong style="color:var(--color-text-primary);">Bound for the Promised Land</strong><br>Kate Clifford Larson, 2004 — definitive Tubman biography</div>
+              <div><strong style="color:var(--color-text-primary);">The Radical and the Republican</strong><br>James Oakes, 2007 — Douglass &amp; Lincoln</div>
+              <div><strong style="color:var(--color-text-primary);">John Brown, Abolitionist</strong><br>David S. Reynolds, 2005</div>
+              <div><strong style="color:var(--color-text-primary);">Sojourner Truth: A Life, A Symbol</strong><br>Nell Irvin Painter, 1996</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="thread-bottom-cta" aria-labelledby="ctaTitle">
+  <div class="container">
+    <p class="thread-bottom-cta__eyebrow">Continue the chain</p>
+    <h2 class="thread-bottom-cta__title" id="ctaTitle">See the routes they traveled on the map.</h2>
+    <p class="thread-bottom-cta__sub">Underground Railroad corridors, abolitionist press hubs, and the geography of a movement that preceded the war by thirty years.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="maps.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">See the abolition map →</a>
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All threads</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html" class="footer-link">All Threads</a></li>
+          <li><a href="explore.html" class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html" class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html" class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html" class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html" class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a href="donate.html" class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon = document.querySelector('.icon-moon');
+  const sunIcons = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  const searchToggle = document.getElementById('searchToggle'), searchOverlay = document.getElementById('searchOverlay'), searchClose = document.getElementById('searchClose'), searchInput = document.getElementById('searchInput');
+  const openSearch = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch); searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => { if (e.key==='Escape') closeSearch(); if ((e.metaKey||e.ctrlKey)&&e.key==='k') { e.preventDefault(); openSearch(); } });
+
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle'), mobileClose = document.getElementById('mobileClose'), mobileNav = document.getElementById('mobileNav'), mobileBackdrop = document.getElementById('mobileBackdrop');
+  const openMobileNav = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav); mobileClose.addEventListener('click', closeMobileNav); mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  const entryIds = ['entry-walker','entry-garrison','entry-garnet','entry-douglass','entry-tubman','entry-truth','entry-dredscott','entry-brownharpery','entry-chain'];
+  const tocObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      document.querySelectorAll('.sidebar-toc__link').forEach(l => l.classList.remove('is-active'));
+      const active = document.querySelector(`.sidebar-toc__link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('is-active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  entryIds.forEach(id => { const el = document.getElementById(id); if (el) tocObs.observe(el); });
+
+  const listenBtn = document.getElementById('listenBtn'), listenLabel = document.getElementById('listenLabel'), listenIcon = document.getElementById('listenIcon'), progressBar = document.getElementById('listenProgressBar'), progressFill = document.getElementById('listenProgressFill');
+  const PLAY_ICON = '<polygon points="5 3 19 12 5 21 5 3"/>', PAUSE_ICON = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  function getReadableText() {
+    const main = document.getElementById('main-content'); if (!main) return '';
+    const els = main.querySelectorAll('.entry-item__name,.entry-item__dates,.entry-item__body p,.pull-quote__text,.consequence-box__text,.chain-step__title,.chain-step__desc');
+    return Array.from(els).map(el => el.innerText.trim()).filter(Boolean).join('. ');
+  }
+  let utterance=null, totalChunks=1, currentChunk=0;
+  function setListenState(state) {
+    listenBtn.dataset.state=state;
+    if (state==='idle') { listenIcon.innerHTML=PLAY_ICON; listenLabel.textContent='Listen'; progressBar.classList.remove('is-visible'); progressFill.style.width='0%'; }
+    else if (state==='playing') { listenIcon.innerHTML=PAUSE_ICON; listenLabel.textContent='Pause'; progressBar.classList.add('is-visible'); }
+    else if (state==='paused') { listenIcon.innerHTML=PLAY_ICON; listenLabel.textContent='Resume'; }
+  }
+  listenBtn.addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) { listenLabel.textContent='Not supported'; listenBtn.disabled=true; return; }
+    const state = listenBtn.dataset.state;
+    if (state==='idle') {
+      const words=getReadableText().split(' '), chunks=[];
+      for (let i=0;i<words.length;i+=40) chunks.push(words.slice(i,i+40).join(' '));
+      totalChunks=chunks.length||1; currentChunk=0; window.speechSynthesis.cancel();
+      function speakChunk(i) {
+        if (i>=chunks.length) { setListenState('idle'); return; }
+        utterance=new SpeechSynthesisUtterance(chunks[i]); utterance.rate=0.92; utterance.pitch=1; utterance.lang='en-US';
+        const voices=window.speechSynthesis.getVoices(), preferred=voices.find(v=>/samantha|karen|daniel|google us/i.test(v.name));
+        if (preferred) utterance.voice=preferred;
+        utterance.onstart=()=>{ currentChunk=i; progressFill.style.width=`${Math.round((i/totalChunks)*100)}%`; };
+        utterance.onend=()=>speakChunk(i+1); utterance.onerror=()=>setListenState('idle');
+        window.speechSynthesis.speak(utterance);
+      }
+      speakChunk(0); setListenState('playing');
+    } else if (state==='playing') { window.speechSynthesis.pause(); setListenState('paused'); }
+    else if (state==='paused') { window.speechSynthesis.resume(); setListenState('playing'); }
+  });
+</script>
+</body>
+</html>
