@@ -1119,6 +1119,179 @@
         </div>
       </div>
 
+      <!-- Third map: Acts of Resistance & Revolt -->
+      <div class="map-panel reveal" data-era="slave-trade">
+        <div class="map-panel__header">
+          <div>
+            <h2 class="map-panel__title">Acts of Resistance — 11 Major Revolts, 1712–1841</h2>
+            <p class="map-panel__subtitle">Enslaved people never stopped fighting for their freedom. From New York City to the Haitian mountains, from Virginia tobacco fields to the Atlantic Ocean — documented revolts, conspiracies, and acts of collective resistance across 130 years.</p>
+          </div>
+          <span class="map-panel__era">1712–1841</span>
+        </div>
+        <div class="map-panel__canvas" style="background:#0a1520; min-height:500px; position:relative; overflow:hidden;">
+          <svg viewBox="0 0 900 500" width="100%" height="100%" style="position:absolute;inset:0;" aria-label="Map of major slave revolts and acts of resistance, 1712 to 1841" role="img">
+            <defs>
+              <linearGradient id="resistOcean" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0a1520"/>
+                <stop offset="100%" stop-color="#12243a"/>
+              </linearGradient>
+              <radialGradient id="haitiGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#f59e0b" stop-opacity=".5"/>
+                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="revoltsGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ef4444" stop-opacity=".35"/>
+                <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="900" height="500" fill="url(#resistOcean)"/>
+
+            <!-- Lat/lon grid faint -->
+            <line x1="0" y1="250" x2="900" y2="250" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+            <line x1="450" y1="0" x2="450" y2="500" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+
+            <!-- North America continent -->
+            <path fill="rgba(255,255,255,.09)" stroke="rgba(255,255,255,.22)" stroke-width="1.5"
+              d="M55,30 L200,25 L230,55 L240,110 L225,175 L195,225 L155,265 L105,280 L60,265 L32,235 L22,185 L25,125 L32,70 Z"/>
+
+            <!-- Caribbean islands group -->
+            <ellipse cx="245" cy="282" rx="38" ry="14" fill="rgba(255,255,255,.09)" stroke="rgba(255,255,255,.22)" stroke-width="1"/>
+            <!-- Haiti / Saint-Domingue highlight -->
+            <ellipse cx="240" cy="280" rx="14" ry="8" fill="rgba(245,158,11,.25)" stroke="rgba(245,158,11,.5)" stroke-width="1.5"/>
+
+            <!-- South America (partial) -->
+            <path fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.18)" stroke-width="1"
+              d="M130,318 L210,308 L238,328 L248,375 L240,420 L215,445 L180,450 L148,435 L128,405 L125,368 Z"/>
+
+            <!-- Africa (West coast prominent) -->
+            <path fill="rgba(255,255,255,.09)" stroke="rgba(255,255,255,.22)" stroke-width="1.5"
+              d="M580,35 L640,32 L670,62 L688,112 L682,168 L668,230 L650,285 L628,325 L600,342 L572,336 L550,312 L538,278 L532,228 L534,172 L540,118 L550,72 L562,44 Z"/>
+
+            <!-- Atlantic label -->
+            <text x="380" y="255" text-anchor="middle" font-size="13" fill="rgba(255,255,255,.12)" font-family="Inter,sans-serif" letter-spacing="0.18em" font-style="italic">ATLANTIC</text>
+            <text x="380" y="272" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.10)" font-family="Inter,sans-serif" letter-spacing="0.18em" font-style="italic">OCEAN</text>
+
+            <!-- HAITI GLOW — the crown jewel -->
+            <ellipse cx="240" cy="280" rx="45" ry="32" fill="url(#haitiGlow)" opacity="0.9"/>
+
+            <!-- US South revolts glow cluster -->
+            <ellipse cx="155" cy="195" rx="55" ry="38" fill="url(#revoltsGlow)" opacity="0.6"/>
+
+            <!-- ══ REVOLT MARKERS ══ -->
+
+            <!-- 1712 — New York Slave Revolt -->
+            <circle cx="175" cy="115" r="7" fill="#ef4444" opacity="1"/>
+            <line x1="175" y1="115" x2="240" y2="68" stroke="#ef4444" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="241" y="44" width="148" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="249" y="60" font-size="10" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">NEW YORK REVOLT</text>
+            <text x="249" y="75" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1712 · NYC · 23 rebels</text>
+
+            <!-- 1739 — Stono Rebellion, SC -->
+            <circle cx="162" cy="182" r="8" fill="#ef4444" opacity="1"/>
+            <line x1="162" y1="182" x2="75" y2="148" stroke="#ef4444" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="0" y="124" width="138" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="8" y="140" font-size="10" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">STONO REBELLION</text>
+            <text x="8" y="155" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1739 · S. Carolina · ~100 rebels</text>
+
+            <!-- 1760 — Tacky's War, Jamaica -->
+            <circle cx="218" cy="270" r="7" fill="#f97316" opacity="1"/>
+            <line x1="218" y1="270" x2="148" y2="308" stroke="#f97316" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="0" y="294" width="152" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#f97316" stroke-width="1.5"/>
+            <text x="8" y="310" font-size="10" fill="#f97316" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">TACKY'S WAR</text>
+            <text x="8" y="325" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1760 · Jamaica · 1,000+ rebels</text>
+
+            <!-- 1763 — Berbice Rebellion, Guyana -->
+            <circle cx="225" cy="355" r="7" fill="#f97316" opacity="1"/>
+            <line x1="225" y1="355" x2="148" y2="380" stroke="#f97316" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="0" y="366" width="152" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#f97316" stroke-width="1.5"/>
+            <text x="8" y="382" font-size="10" fill="#f97316" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">BERBICE REBELLION</text>
+            <text x="8" y="397" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1763 · Guyana · held colony 1 yr</text>
+
+            <!-- 1791-1804 — Haitian Revolution (MAJOR) -->
+            <circle cx="240" cy="280" r="11" fill="#f59e0b" opacity="1"/>
+            <line x1="240" y1="280" x2="310" y2="240" stroke="#f59e0b" stroke-width="1.5" opacity=".7" stroke-dasharray="3,2"/>
+            <rect x="311" y="216" width="185" height="52" rx="4" fill="rgba(0,0,0,.88)" stroke="#f59e0b" stroke-width="2"/>
+            <text x="319" y="234" font-size="11" fill="#f59e0b" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">HAITIAN REVOLUTION ★</text>
+            <text x="319" y="249" font-size="9.5" fill="rgba(255,255,255,.8)" font-family="Inter,sans-serif">1791–1804 · Saint-Domingue</text>
+            <text x="319" y="261" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,sans-serif">Only successful slave revolution in history</text>
+
+            <!-- 1800 — Gabriel's Rebellion, VA -->
+            <circle cx="158" cy="162" r="7" fill="#ef4444" opacity="1"/>
+            <line x1="158" y1="162" x2="310" y2="130" stroke="#ef4444" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="311" y="106" width="168" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="319" y="122" font-size="10" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">GABRIEL'S REBELLION</text>
+            <text x="319" y="137" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1800 · Virginia · 1,000 recruited</text>
+
+            <!-- 1811 — German Coast, Louisiana -->
+            <circle cx="128" cy="218" r="8" fill="#ef4444" opacity="1"/>
+            <line x1="128" y1="218" x2="310" y2="175" stroke="#ef4444" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="311" y="151" width="190" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="319" y="167" font-size="10" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">GERMAN COAST UPRISING</text>
+            <text x="319" y="182" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1811 · Louisiana · 500 marching</text>
+
+            <!-- 1822 — Denmark Vesey, SC -->
+            <circle cx="160" cy="192" r="7" fill="#ef4444" opacity="1"/>
+            <line x1="160" y1="192" x2="310" y2="220" stroke="#ef4444" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="311" y="196" width="172" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="319" y="212" font-size="10" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">DENMARK VESEY PLOT</text>
+            <text x="319" y="227" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1822 · S. Carolina · 9,000 recruited</text>
+
+            <!-- 1831 — Nat Turner, VA -->
+            <circle cx="165" cy="172" r="8" fill="#ef4444" opacity="1"/>
+            <line x1="165" y1="172" x2="310" y2="275" stroke="#ef4444" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="311" y="298" width="168" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="319" y="314" font-size="10" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">NAT TURNER'S REBELLION</text>
+            <text x="319" y="329" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1831 · Virginia · 70 rebels</text>
+
+            <!-- 1839 — Amistad (Atlantic) -->
+            <circle cx="368" cy="205" r="7" fill="#8b5cf6" opacity="1"/>
+            <line x1="368" y1="205" x2="504" y2="178" stroke="#8b5cf6" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="505" y="155" width="135" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#8b5cf6" stroke-width="1.5"/>
+            <text x="513" y="171" font-size="10" fill="#8b5cf6" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">AMISTAD</text>
+            <text x="513" y="186" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1839 · Atlantic · Supreme Court</text>
+
+            <!-- 1841 — Creole Case (Atlantic) -->
+            <circle cx="320" cy="182" r="7" fill="#8b5cf6" opacity="1"/>
+            <line x1="320" y1="182" x2="504" y2="210" stroke="#8b5cf6" stroke-width="1.2" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="505" y="196" width="165" height="40" rx="4" fill="rgba(0,0,0,.85)" stroke="#8b5cf6" stroke-width="1.5"/>
+            <text x="513" y="212" font-size="10" fill="#8b5cf6" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">CREOLE CASE</text>
+            <text x="513" y="227" font-size="9" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1841 · Atlantic · sailed to Bahamas</text>
+
+            <!-- Stat callout box -->
+            <rect x="505" y="340" width="380" height="132" rx="6" fill="rgba(0,0,0,.85)" stroke="rgba(239,68,68,.3)" stroke-width="1.5"/>
+            <text x="520" y="362" font-size="10" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.08em">THE TRUTH ABOUT RESISTANCE</text>
+            <line x1="520" y1="369" x2="870" y2="369" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+            <text x="520" y="386" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="700">11+ major revolts documented, 1712–1841</text>
+            <text x="520" y="403" font-size="10.5" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">Hundreds more smaller acts of resistance, maroon communities,</text>
+            <text x="520" y="418" font-size="10.5" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">and shipboard revolts throughout the trade era.</text>
+            <text x="520" y="436" font-size="10" fill="rgba(255,255,255,.5)" font-family="Inter,sans-serif">Every act of resistance was met with laws that became the</text>
+            <text x="520" y="450" font-size="10" fill="rgba(255,255,255,.5)" font-family="Inter,sans-serif">template for Black Codes, and later, mass incarceration.</text>
+            <text x="520" y="466" font-size="9.5" fill="rgba(239,68,68,.7)" font-family="Inter,sans-serif" font-style="italic">Haiti: the only successful revolution in history → still sanctioned for it until 1947.</text>
+          </svg>
+        </div>
+        <div class="map-panel__footer">
+          <div class="map-legend">
+            <div class="map-legend-item">
+              <div class="map-legend-swatch" style="background:#f59e0b"></div>
+              <span>Haitian Revolution (successful)</span>
+            </div>
+            <div class="map-legend-item">
+              <div class="map-legend-swatch" style="background:#ef4444"></div>
+              <span>U.S. &amp; mainland revolts</span>
+            </div>
+            <div class="map-legend-item">
+              <div class="map-legend-swatch" style="background:#f97316"></div>
+              <span>Caribbean &amp; S. America revolts</span>
+            </div>
+            <div class="map-legend-item">
+              <div class="map-legend-swatch" style="background:#8b5cf6"></div>
+              <span>Atlantic shipboard revolts</span>
+            </div>
+          </div>
+          <a href="threads.html" class="btn btn--secondary" style="font-size:var(--type-sm)">Read resistance threads →</a>
+        </div>
+      </div>
+
       <!-- Second map: HOLC Redlining -->
       <div class="map-panel reveal" data-era="jim-crow">
         <div class="map-panel__header">
@@ -1347,6 +1520,56 @@
             </div>
           </a>
 
+          <a href="maps.html#resistance" class="map-card reveal" data-era="slave-trade">
+            <div class="map-card__thumb" style="background:linear-gradient(135deg,#1a0a0a,#3a1010)">
+              <div class="map-card__thumb-inner" aria-hidden="true">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                  <!-- US outline simplified -->
+                  <path d="M20,20 L130,18 L140,35 L135,65 L110,85 L60,88 L25,75 L15,50 Z" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                  <!-- Caribbean dot -->
+                  <circle cx="148" cy="75" r="8" fill="rgba(245,158,11,.3)" stroke="rgba(245,158,11,.6)" stroke-width="1.5"/>
+                  <!-- revolt dots -->
+                  <circle cx="102" cy="42" r="4" fill="#ef4444" opacity="0.9"/>
+                  <circle cx="75"  cy="55" r="3" fill="#ef4444" opacity="0.8"/>
+                  <circle cx="55"  cy="62" r="4" fill="#ef4444" opacity="0.85"/>
+                  <circle cx="88"  cy="48" r="3" fill="#ef4444" opacity="0.75"/>
+                  <circle cx="148" cy="75" r="5" fill="#f59e0b" opacity="1"/>
+                  <text x="90" y="108" fill="#ef4444" font-size="8" font-family="sans-serif" text-anchor="middle">11 revolts · 1712–1841</text>
+                </svg>
+              </div>
+            </div>
+            <div class="map-card__body">
+              <div class="map-card__era">Resistance · 1712–1841</div>
+              <h3 class="map-card__title">Acts of Resistance &amp; Revolt</h3>
+              <p class="map-card__summary">From New York to New Orleans to Haiti — 11 major documented revolts, plus hundreds of smaller acts. Enslaved people never stopped fighting for freedom.</p>
+              <span class="map-card__status map-card__status--live">● Available</span>
+            </div>
+          </a>
+
+          <a href="maps.html#haiti" class="map-card reveal" data-era="slave-trade">
+            <div class="map-card__thumb" style="background:linear-gradient(135deg,#1a1000,#3a2800)">
+              <div class="map-card__thumb-inner" aria-hidden="true">
+                <svg width="180" height="120" viewBox="0 0 180 120">
+                  <!-- Island shape -->
+                  <ellipse cx="90" cy="60" rx="50" ry="35" fill="rgba(245,158,11,.2)" stroke="rgba(245,158,11,.5)" stroke-width="1.5"/>
+                  <!-- Glow -->
+                  <ellipse cx="90" cy="60" rx="65" ry="48" fill="rgba(245,158,11,.07)"/>
+                  <text x="90" y="50"  fill="#f59e0b" font-size="14" font-family="Georgia,serif" font-weight="bold" text-anchor="middle">HAITI</text>
+                  <text x="90" y="65"  fill="rgba(255,255,255,.6)" font-size="8" font-family="sans-serif" text-anchor="middle">1791–1804</text>
+                  <text x="90" y="78"  fill="rgba(255,255,255,.4)" font-size="7" font-family="sans-serif" text-anchor="middle">First Black Republic</text>
+                  <!-- star -->
+                  <text x="90" y="95"  fill="#f59e0b" font-size="10" text-anchor="middle">★</text>
+                </svg>
+              </div>
+            </div>
+            <div class="map-card__body">
+              <div class="map-card__era">Revolution · 1791–1804</div>
+              <h3 class="map-card__title">The Haitian Revolution &amp; Its Punishment</h3>
+              <p class="map-card__summary">The only successful slave revolution in history — then isolated, embargoed, and forced to pay France $21 billion (equivalent) until 1947 for the "crime" of freedom.</p>
+              <span class="map-card__status">In development</span>
+            </div>
+          </a>
+
         </div>
       </div>
     </div><!-- /view-maps -->
@@ -1421,6 +1644,80 @@
               <span class="timeline-event__thread-link">In thread: Stolen Labor →</span>
             </a>
           </div>
+        </div>
+
+        <!-- Era: Resistance & Revolt -->
+        <div class="timeline-era" data-era="slave-trade">
+          <div class="timeline-era__label">
+            <span class="timeline-era__badge">Resistance &amp; Revolt · 1712–1841</span>
+            <div class="timeline-era__line" aria-hidden="true"></div>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1712</span>
+              <div class="timeline-event__node" style="background:var(--sienna-400); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="threads.html" class="timeline-event__card">
+              <div class="timeline-event__type">Revolt · New York</div>
+              <div class="timeline-event__title">New York Slave Revolt — 23 enslaved people fight back in the heart of the city</div>
+              <p class="timeline-event__summary">Twenty-three enslaved people set fire to a building and fought off the colonists who came to put it out. Nine colonists were killed. In response, New York passed some of the most brutal slave laws in the colonies — and the pattern was set: every revolt was answered not with reflection but with more repression.</p>
+              <span class="timeline-event__thread-link">In thread: Mass Incarceration →</span>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1739</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-500); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="threads.html" class="timeline-event__card">
+              <div class="timeline-event__type">Revolt · South Carolina</div>
+              <div class="timeline-event__title">Stono Rebellion — the largest slave revolt in colonial America</div>
+              <p class="timeline-event__summary">Nearly 100 enslaved Africans marched south toward Spanish Florida, where freedom was promised. They were suppressed by the colonial militia. The immediate result: South Carolina's Negro Act of 1740, which stripped enslaved people of the right to assemble, earn money, or learn to read — the direct forerunner of antebellum slave codes across the South.</p>
+              <span class="timeline-event__thread-link">In thread: Stolen Labor →</span>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1791</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:#f59e0b; border-color:var(--ink-900)"></div>
+            </div>
+            <a href="threads.html" class="timeline-event__card">
+              <div class="timeline-event__type">Revolution · Haiti</div>
+              <div class="timeline-event__title">Haitian Revolution begins — the only successful slave revolution in recorded history</div>
+              <p class="timeline-event__summary">500,000 enslaved people rose against the French colonial system in Saint-Domingue. By 1804, they had defeated Napoleon's army and established Haiti as the first Black republic. The U.S. response: trade embargo, diplomatic isolation, and refusal to recognize Haiti for 58 years. France extorted Haiti for 150 million francs (equivalent to $21 billion today) as "reparations" for the loss of French slaveholders' property — payments that continued until 1947.</p>
+              <span class="timeline-event__thread-link">In thread: Transatlantic Slave Trade →</span>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1811</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-500); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="threads.html" class="timeline-event__card">
+              <div class="timeline-event__type">Revolt · Louisiana</div>
+              <div class="timeline-event__title">German Coast Uprising — 500 march on New Orleans in the largest U.S. slave revolt</div>
+              <p class="timeline-event__summary">Led by Charles Deslondes, approximately 500 enslaved people marched down the River Road toward New Orleans with drums, flags, and cane knives. Suppressed by the U.S. Army and militia. The heads of the executed rebels were mounted on poles along the road as a warning. This was the largest slave revolt in U.S. history — and it is barely mentioned in American textbooks.</p>
+              <span class="timeline-event__thread-link">In thread: Stolen Labor →</span>
+            </a>
+          </div>
+
+          <div class="timeline-event reveal">
+            <div class="timeline-event__year-col">
+              <span class="timeline-event__year">1831</span>
+              <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-500); border-color:var(--ink-900)"></div>
+            </div>
+            <a href="threads.html" class="timeline-event__card">
+              <div class="timeline-event__type">Revolt · Virginia</div>
+              <div class="timeline-event__title">Nat Turner's Rebellion triggers the harshest slave codes in U.S. history</div>
+              <p class="timeline-event__summary">Turner led 70 rebels through Southampton County, Virginia. The rebellion lasted two days before being suppressed. The response lasted decades: Virginia banned the education of enslaved people; Southern states criminalized teaching Black people to read; abolitionist literature was banned from the mails. The rebellion that sought freedom instead produced a legal architecture of ignorance that outlasted slavery itself.</p>
+              <span class="timeline-event__thread-link">In thread: Redlining → Achievement Gap →</span>
+            </a>
+          </div>
+
         </div>
 
         <!-- Era: Reconstruction -->
