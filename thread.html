@@ -10,6 +10,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/system.css" />
   <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    .listen-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.6);
+      font-size: .75rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .15s ease;
+      white-space: nowrap;
+      margin-top: 4px;
+    }
+    .listen-btn:hover { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.3); }
+    .listen-btn:focus-visible { outline: 2px solid #f59e0b; outline-offset: 3px; }
+    .listen-btn[data-state="playing"] { background: rgba(196,106,0,.2); border-color: rgba(196,106,0,.4); color: #fcd34d; }
+    .listen-progress-bar { height: 3px; background: rgba(255,255,255,.08); display: none; }
+    .listen-progress-bar.is-visible { display: block; }
+    .listen-progress-bar__fill { height: 100%; background: #f59e0b; width: 0%; transition: width .5s linear; }
+  </style>
 </head>
 <body>
 
@@ -173,10 +198,21 @@
           <span class="thread-meta-item__label">Read time</span>
           <span class="thread-meta-item__value">~20 min</span>
         </div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread" aria-live="polite">
+          <svg class="listen-btn__icon" id="listenIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span id="listenLabel">Listen</span>
+        </button>
       </div>
 
     </div>
   </section>
+
+  <!-- TTS progress bar -->
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true">
+    <div class="listen-progress-bar__fill" id="listenProgressFill"></div>
+  </div>
 
   <!-- =======================================================
        THREAD BODY — Scrollytelling layout
@@ -1025,5 +1061,89 @@
 
 <script src="js/main.js"></script>
 <script src="js/thread.js"></script>
+<script>
+  // ── TEXT-TO-SPEECH ────────────────────────────────────────
+  const listenBtn    = document.getElementById('listenBtn');
+  const listenLabel  = document.getElementById('listenLabel');
+  const listenIcon   = document.getElementById('listenIcon');
+  const progressBar  = document.getElementById('listenProgressBar');
+  const progressFill = document.getElementById('listenProgressFill');
+
+  const PLAY_ICON  = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  const PAUSE_ICON = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+  function getReadableText() {
+    const main = document.getElementById('main-content');
+    if (!main) return '';
+    const els = main.querySelectorAll('h2, h3, p, blockquote, li');
+    return Array.from(els)
+      .filter(el => !el.closest('nav') && !el.closest('footer') && !el.closest('.site-nav'))
+      .map(el => el.innerText.trim())
+      .filter(Boolean)
+      .join('. ');
+  }
+
+  let totalChunks = 1;
+
+  function setListenState(state) {
+    listenBtn.dataset.state = state;
+    if (state === 'idle') {
+      listenIcon.innerHTML = PLAY_ICON;
+      listenLabel.textContent = 'Listen';
+      listenBtn.setAttribute('aria-label', 'Listen to this thread');
+      progressBar.classList.remove('is-visible');
+      progressFill.style.width = '0%';
+    } else if (state === 'playing') {
+      listenIcon.innerHTML = PAUSE_ICON;
+      listenLabel.textContent = 'Pause';
+      listenBtn.setAttribute('aria-label', 'Pause narration');
+      progressBar.classList.add('is-visible');
+    } else if (state === 'paused') {
+      listenIcon.innerHTML = PLAY_ICON;
+      listenLabel.textContent = 'Resume';
+      listenBtn.setAttribute('aria-label', 'Resume narration');
+    }
+  }
+
+  listenBtn.addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) {
+      listenLabel.textContent = 'Not supported';
+      listenBtn.disabled = true;
+      return;
+    }
+    const state = listenBtn.dataset.state;
+    if (state === 'idle') {
+      const words = getReadableText().split(' ');
+      const chunkSize = 40;
+      const chunks = [];
+      for (let i = 0; i < words.length; i += chunkSize) chunks.push(words.slice(i, i + chunkSize).join(' '));
+      totalChunks = chunks.length || 1;
+      window.speechSynthesis.cancel();
+
+      function speakChunk(i) {
+        if (i >= chunks.length) { setListenState('idle'); return; }
+        const utt = new SpeechSynthesisUtterance(chunks[i]);
+        utt.rate = 0.92; utt.lang = 'en-US';
+        const voices = window.speechSynthesis.getVoices();
+        const preferred = voices.find(v => /samantha|karen|daniel|google us/i.test(v.name));
+        if (preferred) utt.voice = preferred;
+        utt.onstart = () => { progressFill.style.width = `${Math.round((i / totalChunks) * 100)}%`; };
+        utt.onend = () => speakChunk(i + 1);
+        utt.onerror = () => setListenState('idle');
+        window.speechSynthesis.speak(utt);
+      }
+      speakChunk(0);
+      setListenState('playing');
+    } else if (state === 'playing') {
+      window.speechSynthesis.pause();
+      setListenState('paused');
+    } else if (state === 'paused') {
+      window.speechSynthesis.resume();
+      setListenState('playing');
+    }
+  });
+
+  window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+</script>
 </body>
 </html>
