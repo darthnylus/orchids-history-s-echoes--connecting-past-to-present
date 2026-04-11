@@ -325,8 +325,8 @@
       height: 380px;
     }
     /* SVG map continent fills */
-    .continent { fill: var(--slate-600); stroke: var(--slate-500); stroke-width: 0.5; }
-    .continent--highlight { fill: var(--slate-500); }
+    .continent { fill: #3a4560; stroke: #5a6a8a; stroke-width: 1; }
+    .continent--highlight { fill: #4a5878; stroke: #6a7a9a; stroke-width: 1; }
     .map-marker { cursor: pointer; }
     .map-marker circle { transition: r var(--duration-fast); }
     .map-marker:hover circle { r: 8; }
@@ -345,10 +345,10 @@
     }
     .map-label-text {
       font-family: var(--font-ui, Inter, sans-serif);
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
-      fill: var(--ink-200);
-      letter-spacing: 0.05em;
+      fill: var(--ink-100);
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
     .ocean-label {
@@ -854,13 +854,13 @@
     <div id="view-maps" class="is-active" role="tabpanel" aria-labelledby="tab-maps">
 
       <!-- African Empires map -->
-      <div class="map-panel reveal" data-era="pre-colonial">
+      <div class="map-panel reveal" data-era="origins">
         <div class="map-panel__header">
           <div>
             <h2 class="map-panel__title">7 Influential African Empires</h2>
-            <p class="map-panel__subtitle">From 1070 BCE to 1897 CE — the civilizations that existed before and during the slave trade, and what was destroyed to make it possible.</p>
+            <p class="map-panel__subtitle">From 1070 BCE to 1897 CE — the civilizations that existed before and during the slave trade, and what was deliberately destroyed to make it possible.</p>
           </div>
-          <a href="thread-african-empires.html" class="map-panel__link">Read Thread 1 →</a>
+          <span class="map-panel__era">1070 BCE – 1897 CE</span>
         </div>
         <div class="map-panel__canvas" style="background:#0f1a2e; min-height:460px; position:relative; overflow:hidden;">
           <svg viewBox="0 0 900 500" width="100%" height="100%" style="position:absolute;inset:0;" aria-label="Map of 7 influential African empires" role="img">
@@ -877,7 +877,8 @@
 
             <!-- Africa continent simplified outline -->
             <path d="M380 30 C420 25 460 35 490 55 C520 75 535 110 540 145 C545 180 535 215 530 250 C525 285 535 315 528 348 C520 380 500 415 475 440 C450 465 420 480 395 485 C370 480 340 465 315 440 C290 415 270 380 262 348 C255 315 265 285 260 250 C255 215 245 180 250 145 C255 110 270 75 300 55 C330 35 355 32 380 30Z"
-              fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+              fill="rgba(255,255,255,.09)" stroke="rgba(255,255,255,.28)" stroke-width="2"/>
+            <text x="380" y="490" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.3)" font-family="Inter,sans-serif" letter-spacing="0.15em">AFRICA</text>
 
             <!-- Empire glow zones -->
             <!-- Kush (NE Africa - Sudan) -->
@@ -897,82 +898,83 @@
 
             <!-- Empire label pins -->
             <!-- Kush -->
-            <circle cx="470" cy="148" r="5" fill="#f59e0b" opacity=".9"/>
-            <line x1="470" y1="148" x2="530" y2="110" stroke="#f59e0b" stroke-width="1" opacity=".5" stroke-dasharray="3,2"/>
-            <rect x="531" y="88" width="118" height="38" rx="4" fill="rgba(0,0,0,.65)" stroke="#f59e0b" stroke-width="1" opacity=".9"/>
-            <text x="539" y="102" font-size="9" fill="#f59e0b" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">KINGDOM OF KUSH</text>
-            <text x="539" y="117" font-size="8" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif">1070 BCE – 350 CE</text>
+            <circle cx="470" cy="148" r="6" fill="#f59e0b" opacity="1"/>
+            <line x1="470" y1="148" x2="530" y2="110" stroke="#f59e0b" stroke-width="1.5" opacity=".7" stroke-dasharray="3,2"/>
+            <rect x="531" y="86" width="130" height="42" rx="4" fill="rgba(0,0,0,.82)" stroke="#f59e0b" stroke-width="1.5" opacity="1"/>
+            <text x="539" y="103" font-size="11" fill="#f59e0b" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">KINGDOM OF KUSH</text>
+            <text x="539" y="120" font-size="10" fill="rgba(255,255,255,.75)" font-family="Inter,sans-serif">1070 BCE – 350 CE</text>
 
             <!-- Axum -->
-            <circle cx="512" cy="210" r="5" fill="#10b981" opacity=".9"/>
-            <line x1="512" y1="210" x2="575" y2="188" stroke="#10b981" stroke-width="1" opacity=".5" stroke-dasharray="3,2"/>
-            <rect x="576" y="174" width="106" height="38" rx="4" fill="rgba(0,0,0,.65)" stroke="#10b981" stroke-width="1" opacity=".9"/>
-            <text x="584" y="188" font-size="9" fill="#10b981" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">KINGDOM OF AXUM</text>
-            <text x="584" y="203" font-size="8" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif">100 – 940 CE</text>
+            <circle cx="512" cy="210" r="6" fill="#10b981" opacity="1"/>
+            <line x1="512" y1="210" x2="575" y2="186" stroke="#10b981" stroke-width="1.5" opacity=".7" stroke-dasharray="3,2"/>
+            <rect x="576" y="172" width="118" height="42" rx="4" fill="rgba(0,0,0,.82)" stroke="#10b981" stroke-width="1.5" opacity="1"/>
+            <text x="584" y="189" font-size="11" fill="#10b981" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">KINGDOM OF AXUM</text>
+            <text x="584" y="206" font-size="10" fill="rgba(255,255,255,.75)" font-family="Inter,sans-serif">100 – 940 CE</text>
 
             <!-- Mali -->
-            <circle cx="285" cy="195" r="5" fill="#f97316" opacity=".9"/>
-            <line x1="285" y1="195" x2="200" y2="155" stroke="#f97316" stroke-width="1" opacity=".5" stroke-dasharray="3,2"/>
-            <rect x="100" y="138" width="98" height="38" rx="4" fill="rgba(0,0,0,.65)" stroke="#f97316" stroke-width="1" opacity=".9"/>
-            <text x="108" y="152" font-size="9" fill="#f97316" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">MALI EMPIRE</text>
-            <text x="108" y="167" font-size="8" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif">1235 – 1600 CE</text>
+            <circle cx="285" cy="195" r="6" fill="#f97316" opacity="1"/>
+            <line x1="285" y1="195" x2="200" y2="152" stroke="#f97316" stroke-width="1.5" opacity=".7" stroke-dasharray="3,2"/>
+            <rect x="98" y="136" width="112" height="42" rx="4" fill="rgba(0,0,0,.82)" stroke="#f97316" stroke-width="1.5" opacity="1"/>
+            <text x="106" y="153" font-size="11" fill="#f97316" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">MALI EMPIRE</text>
+            <text x="106" y="170" font-size="10" fill="rgba(255,255,255,.75)" font-family="Inter,sans-serif">1235 – 1600 CE</text>
 
             <!-- Songhai -->
-            <circle cx="345" cy="178" r="5" fill="#ef4444" opacity=".9"/>
-            <line x1="345" y1="178" x2="280" y2="130" stroke="#ef4444" stroke-width="1" opacity=".5" stroke-dasharray="3,2"/>
-            <rect x="148" y="108" width="130" height="38" rx="4" fill="rgba(0,0,0,.65)" stroke="#ef4444" stroke-width="1" opacity=".9"/>
-            <text x="156" y="122" font-size="9" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">SONGHAI EMPIRE</text>
-            <text x="156" y="137" font-size="8" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif">1464 – 1591 CE</text>
+            <circle cx="345" cy="178" r="6" fill="#ef4444" opacity="1"/>
+            <line x1="345" y1="178" x2="280" y2="128" stroke="#ef4444" stroke-width="1.5" opacity=".7" stroke-dasharray="3,2"/>
+            <rect x="148" y="106" width="130" height="42" rx="4" fill="rgba(0,0,0,.82)" stroke="#ef4444" stroke-width="1.5" opacity="1"/>
+            <text x="156" y="123" font-size="11" fill="#ef4444" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">SONGHAI EMPIRE</text>
+            <text x="156" y="140" font-size="10" fill="rgba(255,255,255,.75)" font-family="Inter,sans-serif">1464 – 1591 CE</text>
 
             <!-- Benin -->
-            <circle cx="368" cy="255" r="5" fill="#8b5cf6" opacity=".9"/>
-            <line x1="368" y1="255" x2="290" y2="290" stroke="#8b5cf6" stroke-width="1" opacity=".5" stroke-dasharray="3,2"/>
-            <rect x="148" y="278" width="140" height="38" rx="4" fill="rgba(0,0,0,.65)" stroke="#8b5cf6" stroke-width="1" opacity=".9"/>
-            <text x="156" y="292" font-size="9" fill="#8b5cf6" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">KINGDOM OF BENIN</text>
-            <text x="156" y="307" font-size="8" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif">1180 – 1897 CE</text>
+            <circle cx="368" cy="255" r="6" fill="#8b5cf6" opacity="1"/>
+            <line x1="368" y1="255" x2="290" y2="292" stroke="#8b5cf6" stroke-width="1.5" opacity=".7" stroke-dasharray="3,2"/>
+            <rect x="148" y="278" width="148" height="42" rx="4" fill="rgba(0,0,0,.82)" stroke="#8b5cf6" stroke-width="1.5" opacity="1"/>
+            <text x="156" y="295" font-size="11" fill="#8b5cf6" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">KINGDOM OF BENIN</text>
+            <text x="156" y="312" font-size="10" fill="rgba(255,255,255,.75)" font-family="Inter,sans-serif">1180 – 1897 CE</text>
 
             <!-- Oyo -->
-            <circle cx="352" cy="242" r="5" fill="#ec4899" opacity=".9"/>
-            <line x1="352" y1="242" x2="295" y2="245" stroke="#ec4899" stroke-width="1" opacity=".4" stroke-dasharray="3,2"/>
+            <circle cx="352" cy="242" r="6" fill="#ec4899" opacity="1"/>
+            <line x1="352" y1="242" x2="250" y2="330" stroke="#ec4899" stroke-width="1.5" opacity=".6" stroke-dasharray="3,2"/>
+            <rect x="148" y="328" width="112" height="42" rx="4" fill="rgba(0,0,0,.82)" stroke="#ec4899" stroke-width="1.5" opacity="1"/>
+            <text x="156" y="345" font-size="11" fill="#ec4899" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">OYO EMPIRE</text>
+            <text x="156" y="362" font-size="10" fill="rgba(255,255,255,.75)" font-family="Inter,sans-serif">1300 – 1836 CE</text>
 
             <!-- Great Zimbabwe -->
-            <circle cx="452" cy="360" r="5" fill="#06b6d4" opacity=".9"/>
-            <line x1="452" y1="360" x2="540" y2="340" stroke="#06b6d4" stroke-width="1" opacity=".5" stroke-dasharray="3,2"/>
-            <rect x="541" y="323" width="142" height="38" rx="4" fill="rgba(0,0,0,.65)" stroke="#06b6d4" stroke-width="1" opacity=".9"/>
-            <text x="549" y="337" font-size="9" fill="#06b6d4" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">GREAT ZIMBABWE</text>
-            <text x="549" y="352" font-size="8" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif">1100 – 1450 CE</text>
-
-            <!-- Oyo label (below Benin) -->
-            <rect x="148" y="318" width="100" height="38" rx="4" fill="rgba(0,0,0,.65)" stroke="#ec4899" stroke-width="1" opacity=".9"/>
-            <text x="156" y="332" font-size="9" fill="#ec4899" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.05em">OYO EMPIRE</text>
-            <text x="156" y="347" font-size="8" fill="rgba(255,255,255,.55)" font-family="Inter,sans-serif">1300 – 1836 CE</text>
+            <circle cx="452" cy="360" r="6" fill="#06b6d4" opacity="1"/>
+            <line x1="452" y1="360" x2="540" y2="340" stroke="#06b6d4" stroke-width="1.5" opacity=".7" stroke-dasharray="3,2"/>
+            <rect x="541" y="321" width="150" height="42" rx="4" fill="rgba(0,0,0,.82)" stroke="#06b6d4" stroke-width="1.5" opacity="1"/>
+            <text x="549" y="338" font-size="11" fill="#06b6d4" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">GREAT ZIMBABWE</text>
+            <text x="549" y="355" font-size="10" fill="rgba(255,255,255,.75)" font-family="Inter,sans-serif">1100 – 1450 CE</text>
 
             <!-- Timbuktu dot -->
-            <circle cx="308" cy="182" r="3" fill="#fbbf24" opacity=".8"/>
-            <text x="314" y="179" font-size="7.5" fill="rgba(251,191,36,.7)" font-family="Inter,sans-serif" font-style="italic">Timbuktu</text>
+            <circle cx="308" cy="182" r="4" fill="#fbbf24" opacity=".9"/>
+            <text x="316" y="180" font-size="9" fill="rgba(251,191,36,.9)" font-family="Inter,sans-serif" font-style="italic">Timbuktu</text>
 
             <!-- Meroë dot -->
-            <circle cx="468" cy="165" r="3" fill="#fbbf24" opacity=".8"/>
-            <text x="474" y="162" font-size="7.5" fill="rgba(251,191,36,.7)" font-family="Inter,sans-serif" font-style="italic">Meroë</text>
+            <circle cx="468" cy="165" r="4" fill="#fbbf24" opacity=".9"/>
+            <text x="476" y="163" font-size="9" fill="rgba(251,191,36,.9)" font-family="Inter,sans-serif" font-style="italic">Meroë</text>
 
             <!-- Stat box -->
-            <rect x="30" y="30" width="190" height="100" rx="6" fill="rgba(0,0,0,.7)" stroke="rgba(196,106,0,.3)" stroke-width="1"/>
-            <text x="44" y="52" font-size="9" fill="#f59e0b" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.08em">BEFORE THE SLAVE TRADE</text>
-            <line x1="44" y1="58" x2="206" y2="58" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-            <text x="44" y="74" font-size="11" fill="white" font-family="Inter,sans-serif" font-weight="700">7 major empires</text>
-            <text x="44" y="89" font-size="10" fill="rgba(255,255,255,.6)" font-family="Inter,sans-serif">spanning 3,000+ years</text>
-            <text x="44" y="104" font-size="10" fill="rgba(255,255,255,.6)" font-family="Inter,sans-serif">across all regions of Africa</text>
-            <text x="44" y="119" font-size="9" fill="rgba(255,255,255,.35)" font-family="Inter,sans-serif">1070 BCE – 1897 CE</text>
+            <rect x="30" y="30" width="200" height="108" rx="6" fill="rgba(0,0,0,.82)" stroke="rgba(196,106,0,.55)" stroke-width="1.5"/>
+            <text x="44" y="54" font-size="10" fill="#f59e0b" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.08em">BEFORE THE SLAVE TRADE</text>
+            <line x1="44" y1="61" x2="216" y2="61" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+            <text x="44" y="78" font-size="13" fill="white" font-family="Inter,sans-serif" font-weight="700">7 major empires</text>
+            <text x="44" y="95" font-size="11" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">spanning 3,000+ years</text>
+            <text x="44" y="112" font-size="11" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">across all regions of Africa</text>
+            <text x="44" y="128" font-size="9.5" fill="rgba(255,255,255,.4)" font-family="Inter,sans-serif">1070 BCE – 1897 CE</text>
           </svg>
         </div>
-        <div class="map-panel__legend">
-          <div class="map-legend__item"><span class="map-legend__dot" style="background:#f59e0b"></span>Kush</div>
-          <div class="map-legend__item"><span class="map-legend__dot" style="background:#10b981"></span>Axum</div>
-          <div class="map-legend__item"><span class="map-legend__dot" style="background:#f97316"></span>Mali</div>
-          <div class="map-legend__item"><span class="map-legend__dot" style="background:#ef4444"></span>Songhai</div>
-          <div class="map-legend__item"><span class="map-legend__dot" style="background:#8b5cf6"></span>Benin</div>
-          <div class="map-legend__item"><span class="map-legend__dot" style="background:#06b6d4"></span>Great Zimbabwe</div>
-          <div class="map-legend__item"><span class="map-legend__dot" style="background:#ec4899"></span>Oyo</div>
+        <div class="map-panel__footer">
+          <div class="map-legend">
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#f59e0b"></div><span>Kush</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#10b981"></div><span>Axum</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#f97316"></div><span>Mali</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#ef4444"></div><span>Songhai</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#8b5cf6"></div><span>Benin</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#06b6d4"></div><span>Great Zimbabwe</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#ec4899"></div><span>Oyo</span></div>
+          </div>
+          <a href="thread-african-empires.html" class="btn btn--secondary" style="font-size:var(--type-sm)">Read Thread 1 →</a>
         </div>
       </div>
 
@@ -1113,7 +1115,7 @@
               <span>Return routes (goods &amp; profit)</span>
             </div>
           </div>
-          <a href="thread.html" class="btn btn--secondary" style="font-size:var(--type-sm)">Follow the thread →</a>
+          <a href="threads.html" class="btn btn--secondary" style="font-size:var(--type-sm)">Follow the thread →</a>
         </div>
       </div>
 
@@ -1366,7 +1368,7 @@
               <span class="timeline-event__year">c. 1235</span>
               <div class="timeline-event__node timeline-event__node--major" style="background:var(--amber-400); border-color:var(--ink-900)"></div>
             </div>
-            <a href="place-mali-empire.html" class="timeline-event__card">
+            <a href="thread-african-empires.html#mali" class="timeline-event__card">
               <div class="timeline-event__type">Empire Founded</div>
               <div class="timeline-event__title">Sundiata Keita founds the Mali Empire</div>
               <p class="timeline-event__summary">At its peak, the Mali Empire controls more than half of the world's gold and salt trade. The Manden Charter — one of history's earliest human rights declarations — is proclaimed. Mansa Musa I would make it the world's largest economy by 1312.</p>
@@ -1379,7 +1381,7 @@
               <span class="timeline-event__year">c. 1327</span>
               <div class="timeline-event__node" style="background:var(--amber-400); border-color:var(--ink-900)"></div>
             </div>
-            <a href="person-mansa-musa.html" class="timeline-event__card">
+            <a href="thread-african-empires.html#mali" class="timeline-event__card">
               <div class="timeline-event__type">Pilgrimage</div>
               <div class="timeline-event__title">Mansa Musa's hajj to Mecca destabilizes Mediterranean gold markets</div>
               <p class="timeline-event__summary">Mansa Musa travels to Mecca with 60,000 people and so much gold that his charity causes inflation across North Africa and the Middle East for a decade. His wealth, adjusted to today, exceeds $400 billion. European chroniclers begin documenting Africa's extraordinary wealth.</p>
@@ -1399,7 +1401,7 @@
               <span class="timeline-event__year">1441</span>
               <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-500); border-color:var(--ink-900)"></div>
             </div>
-            <a href="event-middle-passage.html" class="timeline-event__card">
+            <a href="threads.html" class="timeline-event__card">
               <div class="timeline-event__type">First Raid</div>
               <div class="timeline-event__title">Portuguese sailors capture 12 Africans on the West African coast</div>
               <p class="timeline-event__summary">The first documented Portuguese slave raid. Within decades, the trade becomes systematic and industrialized — the largest forced migration in human history. 367 years of documented voyages follow.</p>
@@ -1412,7 +1414,7 @@
               <span class="timeline-event__year">1619</span>
               <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-500); border-color:var(--ink-900)"></div>
             </div>
-            <a href="event-point-comfort-1619.html" class="timeline-event__card">
+            <a href="threads.html" class="timeline-event__card">
               <div class="timeline-event__type">Founding Moment</div>
               <div class="timeline-event__title">"20 and odd" enslaved Africans arrive at Point Comfort, Virginia</div>
               <p class="timeline-event__summary">The first documented arrival of enslaved Africans in English North America. The 246-year clock begins. Every piece of American wealth built before 1865 includes the uncompensated labor of enslaved people — a fact that shapes the racial wealth gap today.</p>
@@ -1433,7 +1435,7 @@
               <span class="timeline-event__year">1865</span>
               <div class="timeline-event__node timeline-event__node--major" style="background:var(--slate-400); border-color:var(--ink-900)"></div>
             </div>
-            <a href="event-emancipation.html" class="timeline-event__card">
+            <a href="threads.html" class="timeline-event__card">
               <div class="timeline-event__type">Constitutional Amendment</div>
               <div class="timeline-event__title">13th Amendment abolishes slavery — with a carve-out</div>
               <p class="timeline-event__summary">"Except as punishment for a crime." That exception becomes the legal foundation for Black Codes, convict leasing, and eventually mass incarceration. The carve-out is not an accident — it is the mechanism by which coerced Black labor continues after emancipation.</p>
@@ -1446,7 +1448,7 @@
               <span class="timeline-event__year">1877</span>
               <div class="timeline-event__node timeline-event__node--major" style="background:var(--slate-500); border-color:var(--ink-900)"></div>
             </div>
-            <a href="event-compromise-1877.html" class="timeline-event__card">
+            <a href="threads.html" class="timeline-event__card">
               <div class="timeline-event__type">Political Deal</div>
               <div class="timeline-event__title">Compromise of 1877 — federal troops withdrawn, Reconstruction ends</div>
               <p class="timeline-event__summary">In a backroom deal to resolve the disputed 1876 presidential election, federal troops are removed from the South. Black political representation collapses within a decade. The brief experiment of Reconstruction — which produced Black governors, senators, and congressmen — is over.</p>
@@ -1466,7 +1468,7 @@
               <span class="timeline-event__year">1933</span>
               <div class="timeline-event__node timeline-event__node--major" style="background:var(--sienna-400); border-color:var(--ink-900)"></div>
             </div>
-            <a href="policy-homeowners-loan-corp.html" class="timeline-event__card">
+            <a href="threads.html" class="timeline-event__card">
               <div class="timeline-event__type">Federal Policy</div>
               <div class="timeline-event__title">HOLC creates neighborhood "security maps" — color-coded by race</div>
               <p class="timeline-event__summary">The Home Owners' Loan Corporation surveys every city in America and grades neighborhoods A–D. Grade D = "Hazardous" = Black. These maps determine who can access FHA-insured mortgages and GI Bill loans for the next 35 years — locking Black families out of the greatest wealth-building opportunity in American history.</p>
@@ -1479,7 +1481,7 @@
               <span class="timeline-event__year">1944</span>
               <div class="timeline-event__node" style="background:var(--sienna-400); border-color:var(--ink-900)"></div>
             </div>
-            <a href="policy-gi-bill.html" class="timeline-event__card">
+            <a href="threads.html" class="timeline-event__card">
               <div class="timeline-event__type">Federal Law</div>
               <div class="timeline-event__title">GI Bill creates American middle class — and largely excludes Black veterans</div>
               <p class="timeline-event__summary">The Servicemen's Readjustment Act offers college tuition, low-interest mortgages, and business loans to WWII veterans. Administered through segregated local offices, Black veterans are steered away from benefits. The result: a white middle class built on government subsidy, a Black middle class blocked from the same.</p>
@@ -1500,7 +1502,7 @@
               <span class="timeline-event__year">2013</span>
               <div class="timeline-event__node" style="background:var(--slate-400); border-color:var(--ink-900)"></div>
             </div>
-            <a href="policy-voting-rights-act.html" class="timeline-event__card">
+            <a href="threads.html" class="timeline-event__card">
               <div class="timeline-event__type">Supreme Court</div>
               <div class="timeline-event__title">Shelby County v. Holder guts the Voting Rights Act</div>
               <p class="timeline-event__summary">The Supreme Court removes the preclearance requirement that had prevented states with histories of voter suppression from changing voting laws without federal approval. Within hours, states begin passing new voter ID laws, closing polling places, and purging voter rolls — disproportionately affecting Black voters.</p>
@@ -1512,7 +1514,7 @@
               <span class="timeline-event__year">Today</span>
               <div class="timeline-event__node timeline-event__node--major" style="background:var(--amber-400); border-color:var(--ink-900)"></div>
             </div>
-            <a href="thread.html" class="timeline-event__card">
+            <a href="threads.html" class="timeline-event__card">
               <div class="timeline-event__type">Present Consequence</div>
               <div class="timeline-event__title">The racial wealth gap stands at 8:1 — wider than in 1968</div>
               <p class="timeline-event__summary">Median Black household wealth: $24,100. Median white household wealth: $188,200. The gap has widened since the Fair Housing Act was signed. Every thread traced on this platform connects to this present-day consequence — the compounded result of deliberate policy choices made across 400 years.</p>
