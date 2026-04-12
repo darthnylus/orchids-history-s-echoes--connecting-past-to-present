@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrol and Punish: The Invention of American Policing, 1704–Present — Thread — Chain</title>
+  <meta name="description" content="The first police forces in America were slave patrols. That is not a metaphor. South Carolina organized them in 1704 to catch runaways, suppress uprisings, and enforce racial order. This thread traces an unbroken line from those patrols to the officer on the corner today." />
+  <script>
+    (function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: orange — #ea580c / #fb923c */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(234,88,12,.18) 0%,transparent 70%);pointer-events:none}
+    .thread-hero__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6);position:relative}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fb923c;margin-bottom:var(--space-5)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#ea580c;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:var(--ink-0);line-height:1.1;max-width:780px;margin-bottom:var(--space-6)}
+    .thread-hero__title em{font-style:italic;color:#fb923c}
+    .thread-hero__deck{font-family:var(--font-ui);font-size:1.05rem;line-height:1.7;color:var(--ink-300);max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta-row{display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center;border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-6)}
+    .thread-hero__meta-item{display:flex;flex-direction:column;gap:2px}
+    .thread-hero__meta-label{font-family:var(--font-ui);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500)}
+    .thread-hero__meta-value{font-family:var(--font-ui);font-size:.9rem;font-weight:500;color:var(--ink-200)}
+
+    /* Argument bar */
+    .argument-bar{background:rgba(234,88,12,.12);border-left:3px solid #ea580c;padding:var(--space-5) var(--space-6);margin:var(--space-10) auto;max-width:1100px}
+    .argument-bar__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6)}
+    .argument-bar__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ea580c;margin-bottom:var(--space-2)}
+    .argument-bar__text{font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;color:var(--ink-800);line-height:1.6}
+    [data-theme=dark] .argument-bar__text{color:var(--ink-200)}
+
+    /* Layout */
+    .thread-body{max-width:1100px;margin:0 auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:1fr 280px;gap:var(--space-12);align-items:start}
+    @media(max-width:860px){.thread-body{grid-template-columns:1fr}}
+
+    /* Era dividers */
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-12) 0 var(--space-8)}
+    .era-divider__badge{flex-shrink:0;font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#ea580c;padding:var(--space-1) var(--space-3);border-radius:2px}
+    .era-divider__line{flex:1;height:1px;background:var(--ink-200)}
+    [data-theme=dark] .era-divider__line{background:var(--ink-700)}
+    .era-divider__label{font-family:var(--font-ui);font-size:.8rem;font-weight:600;color:var(--ink-400)}
+
+    /* Entries */
+    .entry{margin-bottom:var(--space-12);padding-bottom:var(--space-12);border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .entry{border-bottom-color:var(--ink-800)}
+    .entry:last-child{border-bottom:none}
+    .entry__header{display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)}
+    .entry__num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#ea580c;color:#fff;font-family:var(--font-ui);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .entry__meta{display:flex;flex-direction:column;gap:2px}
+    .entry__date{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#ea580c}
+    .entry__title{font-family:var(--font-editorial);font-size:1.35rem;font-weight:700;color:var(--ink-900);line-height:1.2}
+    [data-theme=dark] .entry__title{color:var(--ink-50)}
+    .entry__body{font-family:var(--font-ui);font-size:.97rem;line-height:1.8;color:var(--ink-700);padding-left:52px}
+    [data-theme=dark] .entry__body{color:var(--ink-300)}
+    .entry__body p{margin-bottom:var(--space-4)}
+    .entry__body p:last-child{margin-bottom:0}
+
+    /* Stats */
+    .stat-highlight{display:inline;font-family:var(--font-editorial);font-size:1.1em;font-weight:700;color:#ea580c}
+
+    /* Pull quote */
+    .pull-quote{border-left:3px solid #ea580c;padding:var(--space-4) var(--space-6);margin:var(--space-6) 0;background:var(--ink-50)}
+    [data-theme=dark] .pull-quote{background:var(--ink-800)}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:1.1rem;font-style:italic;line-height:1.6;color:var(--ink-800);margin-bottom:var(--space-2)}
+    [data-theme=dark] .pull-quote__text{color:var(--ink-200)}
+    .pull-quote__attr{font-family:var(--font-ui);font-size:.78rem;font-weight:600;color:var(--ink-400);letter-spacing:.04em}
+
+    /* Patrol box — unique component */
+    .patrol-box{background:var(--ink-900);border:1px solid rgba(234,88,12,.3);border-radius:4px;padding:var(--space-6);margin:var(--space-6) 0}
+    [data-theme=dark] .patrol-box{background:#1a0a00;border-color:rgba(234,88,12,.4)}
+    .patrol-box__title{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fb923c;margin-bottom:var(--space-4)}
+    .patrol-row{display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-3) 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .patrol-row:last-child{border-bottom:none}
+    .patrol-row__year{flex-shrink:0;width:52px;font-family:var(--font-ui);font-size:.78rem;font-weight:700;color:#fb923c;padding-top:1px}
+    .patrol-row__label{flex:1;font-family:var(--font-ui);font-size:.85rem;font-weight:600;color:#e5e7eb;margin-bottom:2px}
+    .patrol-row__desc{font-family:var(--font-ui);font-size:.8rem;color:#9ca3af;line-height:1.5}
+    .patrol-row__content{flex:1}
+
+    /* Consequence box */
+    .consequence-box{background:rgba(234,88,12,.07);border:1px solid rgba(234,88,12,.2);border-radius:4px;padding:var(--space-5);margin:var(--space-6) 0}
+    .consequence-box__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ea580c;margin-bottom:var(--space-3)}
+    .consequence-box__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .consequence-box__list li{font-family:var(--font-ui);font-size:.88rem;color:var(--ink-700);padding-left:var(--space-4);position:relative;line-height:1.5}
+    [data-theme=dark] .consequence-box__list li{color:var(--ink-300)}
+    .consequence-box__list li::before{content:'→';position:absolute;left:0;color:#ea580c;font-weight:700}
+
+    /* Sidebar */
+    .thread-sidebar{position:sticky;top:var(--space-8)}
+    .sidebar-widget{background:var(--ink-50);border:1px solid var(--ink-100);border-radius:4px;padding:var(--space-5);margin-bottom:var(--space-5)}
+    [data-theme=dark] .sidebar-widget{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-widget__title{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);margin-bottom:var(--space-4)}
+    .toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-1)}
+    .toc-item a{display:block;font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-1) var(--space-2);border-left:2px solid transparent;transition:all .15s}
+    .toc-item a:hover,.toc-item--active a{color:#ea580c;border-left-color:#ea580c;background:rgba(234,88,12,.05)}
+    .related-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .related-list a{font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-2);display:block;border-radius:3px;transition:background .15s}
+    .related-list a:hover{background:var(--ink-100);color:var(--ink-800)}
+    [data-theme=dark] .related-list a:hover{background:var(--ink-700);color:var(--ink-100)}
+    .tts-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--space-2);background:none;border:1px solid var(--ink-200);border-radius:3px;padding:var(--space-3);font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-500);cursor:pointer;transition:all .15s}
+    [data-theme=dark] .tts-btn{border-color:var(--ink-600);color:var(--ink-400)}
+    .tts-btn:hover{border-color:#ea580c;color:#ea580c}
+    .tts-btn svg{flex-shrink:0}
+
+    /* Causal chain */
+    .causal-chain{background:var(--ink-900);padding:var(--space-12) var(--space-6);margin:var(--space-16) 0 0}
+    .causal-chain__inner{max-width:1100px;margin:0 auto}
+    .causal-chain__title{font-family:var(--font-editorial);font-size:1.5rem;font-weight:700;color:var(--ink-0);margin-bottom:var(--space-8);text-align:center}
+    .chain-steps{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0}
+    .chain-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-2);flex:0 0 auto}
+    .chain-step__node{width:52px;height:52px;border-radius:50%;border:2px solid #ea580c;background:rgba(234,88,12,.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:.62rem;font-weight:700;color:#fb923c;line-height:1.2;padding:4px;text-align:center}
+    .chain-step__label{font-family:var(--font-ui);font-size:.68rem;color:var(--ink-400);max-width:80px;line-height:1.3}
+    .chain-arrow{color:#ea580c;font-size:1.2rem;padding:0 var(--space-1);align-self:center;padding-bottom:24px}
+
+    /* CTA */
+    .thread-cta{background:var(--ink-50);border-top:1px solid var(--ink-100);padding:var(--space-12) var(--space-6)}
+    [data-theme=dark] .thread-cta{background:var(--ink-900);border-top-color:var(--ink-800)}
+    .thread-cta__inner{max-width:640px;margin:0 auto;text-align:center}
+    .thread-cta__title{font-family:var(--font-editorial);font-size:1.6rem;font-weight:700;color:var(--ink-900);margin-bottom:var(--space-4)}
+    [data-theme=dark] .thread-cta__title{color:var(--ink-50)}
+    .thread-cta__body{font-family:var(--font-ui);font-size:.95rem;line-height:1.7;color:var(--ink-500);margin-bottom:var(--space-6)}
+    .thread-cta__btn{display:inline-block;background:#ea580c;color:#fff;font-family:var(--font-ui);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:var(--space-3) var(--space-7);border-radius:2px;transition:background .15s}
+    .thread-cta__btn:hover{background:#c2410c}
+
+    /* Reveal animation */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+
+    /* Nav */
+    .site-nav{background:var(--ink-900);border-bottom:1px solid rgba(255,255,255,.07);padding:0 var(--space-6);display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100}
+    .site-nav__logo{font-family:var(--font-editorial);font-size:1.1rem;font-weight:700;color:var(--ink-0);text-decoration:none;letter-spacing:.01em}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-6)}
+    .site-nav__link{font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-400);text-decoration:none;transition:color .15s}
+    .site-nav__link:hover{color:var(--ink-0)}
+    .site-nav__theme-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:var(--space-1) var(--space-3);font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);cursor:pointer;transition:all .15s}
+    .site-nav__theme-btn:hover{border-color:rgba(255,255,255,.4);color:var(--ink-100)}
+
+    /* Footer */
+    .site-footer{background:var(--ink-900);border-top:1px solid rgba(255,255,255,.07);padding:var(--space-8) var(--space-6);text-align:center}
+    .site-footer__text{font-family:var(--font-ui);font-size:.8rem;color:var(--ink-500);line-height:1.6}
+    .site-footer__text a{color:var(--ink-400);text-decoration:none}
+    .site-footer__text a:hover{color:var(--ink-200)}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__logo">Chain</a>
+    <div class="site-nav__links">
+      <a href="threads.html" class="site-nav__link">All threads</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+      <button class="site-nav__theme-btn" id="theme-toggle">Light</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="thread-hero">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
+        Criminal Justice &amp; Control
+      </div>
+      <h1 class="thread-hero__title">Patrol and Punish: <em>The Invention of American Policing</em></h1>
+      <p class="thread-hero__deck">The first organized police forces in America were slave patrols. That is not a metaphor — it is the documented history. South Carolina formalized them in 1704. They had three functions: catch runaways, suppress uprisings, enforce racial order. This thread traces what came after.</p>
+      <div class="thread-hero__meta-row">
+        <div class="thread-hero__meta-item">
+          <span class="thread-hero__meta-label">Period covered</span>
+          <span class="thread-hero__meta-value">1704 — Present</span>
+        </div>
+        <div class="thread-hero__meta-item">
+          <span class="thread-hero__meta-label">Entries</span>
+          <span class="thread-hero__meta-value">10 documented events</span>
+        </div>
+        <div class="thread-hero__meta-item">
+          <span class="thread-hero__meta-label">Domain</span>
+          <span class="thread-hero__meta-value">Criminal Justice · State Power · Race</span>
+        </div>
+        <div class="thread-hero__meta-item">
+          <span class="thread-hero__meta-label">Status</span>
+          <span class="thread-hero__meta-value">Live</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ARGUMENT BAR -->
+  <div class="argument-bar">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__label">The argument</div>
+      <p class="argument-bar__text">American policing was not designed to protect everyone equally and then corrupted. It was designed from the beginning to control Black bodies, protect property, and suppress labor and political organizing. Every major expansion of police power has followed a moment of Black advancement or worker solidarity. The through-line from the 1704 slave patrol to the 1033 military equipment program is not a metaphor — it is a policy record.</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="thread-body">
+    <main id="thread-main">
+
+      <!-- ERA 1: ORIGINS -->
+      <div class="era-divider reveal">
+        <span class="era-divider__badge">Era 1</span>
+        <div class="era-divider__line"></div>
+        <span class="era-divider__label">The Slave Patrol Origins, 1704–1860</span>
+      </div>
+
+      <!-- ENTRY 1 -->
+      <article class="entry reveal" id="entry-1">
+        <div class="entry__header">
+          <div class="entry__num">1</div>
+          <div class="entry__meta">
+            <span class="entry__date">1704 — South Carolina</span>
+            <h2 class="entry__title">The First Police Force in America Was a Slave Patrol</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>In 1704, the colony of South Carolina passed legislation establishing the <em>Slave Patrol</em> — a formalized, mounted force with legal authority to police the movement, assembly, and conduct of enslaved people. Historians of American criminal justice broadly recognize this as the first organized, publicly funded police force on American soil.</p>
+          <p>The patrols had three explicit purposes: capture and return runaway enslaved people to their enslavers, break up any unauthorized gatherings of enslaved people (including religious meetings), and provide a visible deterrent against insurrection. Patrollers could enter any property, demand identification from any Black person, and administer immediate corporal punishment — up to 40 lashes — without judicial process.</p>
+          <p>By 1785, every Southern state had adopted a similar system. The patrols were not auxiliary to the legal system — they <em>were</em> the legal system for Black people. Every encounter between a Black person and a white authority figure with a weapon operated under this logic: your presence requires justification, and non-compliance authorizes violence.</p>
+          <div class="patrol-box">
+            <div class="patrol-box__title">The Structure of the First Police</div>
+            <div class="patrol-row">
+              <div class="patrol-row__content">
+                <div class="patrol-row__label">Authorization</div>
+                <div class="patrol-row__desc">South Carolina Slave Code, 1704 — first legislatively created police patrol in American history</div>
+              </div>
+            </div>
+            <div class="patrol-row">
+              <div class="patrol-row__content">
+                <div class="patrol-row__label">Jurisdiction</div>
+                <div class="patrol-row__desc">All Black people, enslaved or free — could be stopped, searched, and punished on sight without warrant</div>
+              </div>
+            </div>
+            <div class="patrol-row">
+              <div class="patrol-row__content">
+                <div class="patrol-row__label">Punishment authority</div>
+                <div class="patrol-row__desc">Up to 40 lashes on the spot for being out without a pass, attending gatherings, or "insolent" behavior</div>
+              </div>
+            </div>
+            <div class="patrol-row">
+              <div class="patrol-row__content">
+                <div class="patrol-row__label">Spread</div>
+                <div class="patrol-row__desc">All 13 Southern colonies had formalized slave patrols by 1785. The model: armed white men, public authority, Black surveillance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ENTRY 2 -->
+      <article class="entry reveal" id="entry-2">
+        <div class="entry__header">
+          <div class="entry__num">2</div>
+          <div class="entry__meta">
+            <span class="entry__date">1793–1850 — Fugitive Slave Acts</span>
+            <h2 class="entry__title">Federal Law Made Every Citizen a Slave Catcher</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>The Fugitive Slave Act of 1793 made catching runaway enslaved people a federal obligation — extending the slave patrol logic from Southern states into the free North. Any federal marshal or deputized citizen was required to assist in the capture and return of escaped people. Harboring a fugitive was a federal crime.</p>
+          <p>The 1850 Fugitive Slave Act went further: it required <em>Northern citizens</em> to actively participate in captures. Marshals who refused to arrest suspected runaways could be fined $1,000 (about $35,000 today). Accused people had no right to testify in their own defense, no right to jury trial. The testimony of the enslaver — or even their representative — was sufficient for seizure and return.</p>
+          <p>Free Black people in the North lived under constant threat. Anyone could be accused of being a runaway. <span class="stat-highlight">More than 20,000</span> Black people fled to Canada in the two years after 1850. The law created, in effect, a national police power operating specifically against Black bodies — North and South alike.</p>
+        </div>
+      </article>
+
+      <!-- ERA 2: RECONSTRUCTION AND LABOR CONTROL -->
+      <div class="era-divider reveal">
+        <span class="era-divider__badge">Era 2</span>
+        <div class="era-divider__line"></div>
+        <span class="era-divider__label">Reconstruction and the Birth of "Modern" Policing, 1865–1900</span>
+      </div>
+
+      <!-- ENTRY 3 -->
+      <article class="entry reveal" id="entry-3">
+        <div class="entry__header">
+          <div class="entry__num">3</div>
+          <div class="entry__meta">
+            <span class="entry__date">1865–1877 — Reconstruction South</span>
+            <h2 class="entry__title">After Abolition, Slave Patrols Became Police Departments</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>When the 13th Amendment abolished slavery in 1865, the slave patrol system did not disappear — it was incorporated. Southern states quickly passed Black Codes that criminalized unemployment, vagrancy, and "impudence." The same men who had ridden slave patrols before the war were deputized as local police afterward. Their function was identical: controlling Black movement, labor, and political participation.</p>
+          <p>The Memphis Police Department, formally organized in 1860 from the city's slave patrol apparatus, carried out a three-day massacre in May 1866. White police officers and mobs killed <span class="stat-highlight">46 Black people</span>, burned 91 homes, 4 churches, and 12 schools. Not one officer was charged. The federal Freedmen's Bureau documented the event; Congress held hearings; nothing was prosecuted.</p>
+          <p>Northern cities had their own version. Boston created a formal police department in 1838; New York in 1845. These forces were designed primarily to protect property and suppress labor unrest — not to prevent crime in working-class neighborhoods. Immigrant and Black communities in Northern cities experienced these forces as occupation, not protection, from the beginning.</p>
+          <div class="pull-quote">
+            <p class="pull-quote__text">"The negro is now being policed by the same men who used to patrol him."</p>
+            <span class="pull-quote__attr">— Freedmen's Bureau report to Congress, 1866</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ENTRY 4 -->
+      <article class="entry reveal" id="entry-4">
+        <div class="entry__header">
+          <div class="entry__num">4</div>
+          <div class="entry__meta">
+            <span class="entry__date">1870s–1920s — The Labor Wars</span>
+            <h2 class="entry__title">The North Built Police to Break Strikes, Not Solve Crime</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>In the industrializing North, police departments were explicitly deployed as instruments of capital against labor. During the Great Railroad Strike of 1877, police and state militias killed over 100 workers in Pittsburgh and Chicago. In the 1886 Haymarket affair, police fired into a crowd of labor demonstrators. In the 1892 Homestead Strike, Carnegie Steel hired Pinkerton agents — private police — who arrived on barges armed with rifles.</p>
+          <p>Police were regularly used to escort strikebreakers (called "scabs"), arrest union organizers, and break picket lines. Departments in industrial cities received funding and political support directly from manufacturing interests. The question of who the police protected was never ambiguous: it was the factory owner, not the factory worker.</p>
+          <p>When Black workers were brought North as strikebreakers — often without being told there was a strike — they were used by management to drive wedges between Black and white labor. Police protected the strikebreakers (Black workers used by capital) while brutalizing the strikers (white workers). This dynamic deepened racial tensions between the Black and white working class, to capital's benefit.</p>
+        </div>
+      </article>
+
+      <!-- ERA 3: PROFESSIONALIZATION AS COVER -->
+      <div class="era-divider reveal">
+        <span class="era-divider__badge">Era 3</span>
+        <div class="era-divider__line"></div>
+        <span class="era-divider__label">Professionalization and the Science of Control, 1900–1960</span>
+      </div>
+
+      <!-- ENTRY 5 -->
+      <article class="entry reveal" id="entry-5">
+        <div class="entry__header">
+          <div class="entry__num">5</div>
+          <div class="entry__meta">
+            <span class="entry__date">1900s–1930s — August Vollmer</span>
+            <h2 class="entry__title">"Professionalization" Brought Eugenics into Police Science</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>August Vollmer — Berkeley's police chief, widely called the "father of modern American policing" — led the reform movement to make police more "professional" and "scientific." He created the first police training academy, introduced fingerprinting and forensics, and pushed for college-educated officers. His 1936 textbook <em>The Police and Modern Society</em> is still cited in criminology programs.</p>
+          <p>What gets omitted in most police history courses: Vollmer was a eugenicist. He advocated for sterilizing criminals, believed crime was heritable, and pushed for the use of biological profiling. His "science" was the science of his era — which held that Black, immigrant, and poor people were constitutionally inferior and predisposed to criminality.</p>
+          <p>"Professionalization" did not remove racial bias from policing. It gave it a scientific vocabulary. The same assumptions — that certain populations required surveillance by nature — were now dressed in the language of criminology, psychology, and social science rather than plantation management.</p>
+          <div class="consequence-box">
+            <div class="consequence-box__label">What "professionalization" actually introduced</div>
+            <ul class="consequence-box__list">
+              <li>Criminal "type" profiling — categorizing communities by predicted criminality</li>
+              <li>Eugenics-informed stop-and-question practices targeting certain demographics</li>
+              <li>Specialized vice units focused on Black and immigrant neighborhoods</li>
+              <li>Police authority expanded to mental health, public health, and morality enforcement</li>
+              <li>The first police unions — which from the beginning protected officers from discipline</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ENTRY 6 -->
+      <article class="entry reveal" id="entry-6">
+        <div class="entry__header">
+          <div class="entry__num">6</div>
+          <div class="entry__meta">
+            <span class="entry__date">1919–1943 — Red Summer and the Race Riots</span>
+            <h2 class="entry__title">Police Watched, Participated, and Protected White Mobs</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>In the Red Summer of 1919, white mobs attacked Black communities in more than 25 American cities. In Chicago, the riots lasted 13 days and killed 38 people. In Washington D.C., white soldiers and sailors attacked Black residents for four days. Police forces across these cities followed a consistent pattern: they did not stop white attackers. Many joined in. Others arrested Black victims attempting to defend themselves.</p>
+          <p>In the Tulsa Race Massacre of 1921 — the single most destructive attack on Black wealth in American history — Tulsa police officers deputized members of the white mob and issued them weapons. Police aircraft fired on Black residents from above. <span class="stat-highlight">300 Black people</span> were killed, 35 square blocks burned, and 10,000 Black Tulsans left homeless. The Greenwood district — "Black Wall Street" — was destroyed in 18 hours. No one was ever prosecuted.</p>
+          <p>In 1943 in Detroit, a three-day race riot saw police kill <span class="stat-highlight">17 of the 25</span> Black victims. Zero white rioters were killed by police. The pattern was not a failure of policing. It was policing functioning exactly as designed: protecting the racial order.</p>
+        </div>
+      </article>
+
+      <!-- ERA 4: THE WAR ON CRIME -->
+      <div class="era-divider reveal">
+        <span class="era-divider__badge">Era 4</span>
+        <div class="era-divider__line"></div>
+        <span class="era-divider__label">The War on Crime and the War on Drugs, 1968–2000</span>
+      </div>
+
+      <!-- ENTRY 7 -->
+      <article class="entry reveal" id="entry-7">
+        <div class="entry__header">
+          <div class="entry__num">7</div>
+          <div class="entry__meta">
+            <span class="entry__date">1968–1971 — Nixon and the War on Crime</span>
+            <h2 class="entry__title">The "War on Crime" Was Invented to Target Black People and Anti-War Activists</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>In 1994, Nixon's domestic policy chief John Ehrlichman gave an interview that removed all ambiguity about what the "War on Crime" was for. He described the Nixon administration's two great enemies as "the antiwar left and Black people" and explained how the strategy worked:</p>
+          <div class="pull-quote">
+            <p class="pull-quote__text">"We knew we couldn't make it illegal to be either against the war or Black, but by getting the public to associate the hippies with marijuana and Blacks with heroin, and then criminalizing both heavily, we could disrupt those communities. We could arrest their leaders, raid their homes, break up their meetings, and vilify them night after night on the evening news. Did we know we were lying about the drugs? Of course we did."</p>
+            <span class="pull-quote__attr">— John Ehrlichman, Nixon's domestic policy chief, Harper's Magazine, 2016</span>
+          </div>
+          <p>Nixon created the Drug Enforcement Administration in 1973. The Rockefeller Drug Laws in New York the same year mandated 15-years-to-life for possession of small amounts of narcotics — explicitly targeting communities of color. The Omnibus Crime Control and Safe Streets Act of 1968 had already sent billions in federal money to local police departments. The architecture was built to expand police presence in Black and brown communities specifically.</p>
+        </div>
+      </article>
+
+      <!-- ENTRY 8 -->
+      <article class="entry reveal" id="entry-8">
+        <div class="entry__header">
+          <div class="entry__num">8</div>
+          <div class="entry__meta">
+            <span class="entry__date">1980s–1994 — Crack Sentencing and the Clinton Crime Bill</span>
+            <h2 class="entry__title">100-to-1: The Crack Sentencing Disparity Was Policy, Not Chemistry</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>In 1986, Congress passed the Anti-Drug Abuse Act, establishing that 5 grams of crack cocaine triggered the same mandatory minimum sentence as 500 grams of powder cocaine — a <span class="stat-highlight">100-to-1</span> sentencing disparity. Crack was associated with Black urban communities. Powder cocaine was associated with white users and dealers. The chemistry is identical. The sentencing was not about the drug.</p>
+          <p>The 1994 Crime Bill — signed by President Clinton, supported by then-Senator Biden, advocated for by most of the Congressional Black Caucus under intense political pressure — allocated $30 billion for new prisons, 100,000 new police officers, and expanded the death penalty to 60 new federal offenses. It introduced the "three strikes" mandatory life sentence and established "truth in sentencing" requirements pushing states to eliminate parole. Black incarceration rates surged.</p>
+          <p>Clinton later said it was a mistake. The communities it destroyed have not recovered. The prison population went from <span class="stat-highlight">300,000</span> in 1980 to <span class="stat-highlight">2.3 million</span> by 2008 — the largest incarceration expansion in human history, with Black men at its center.</p>
+        </div>
+      </article>
+
+      <!-- ERA 5: MILITARIZATION TO PRESENT -->
+      <div class="era-divider reveal">
+        <span class="era-divider__badge">Era 5</span>
+        <div class="era-divider__line"></div>
+        <span class="era-divider__label">Militarization and the Present, 2000–Now</span>
+      </div>
+
+      <!-- ENTRY 9 -->
+      <article class="entry reveal" id="entry-9">
+        <div class="entry__header">
+          <div class="entry__num">9</div>
+          <div class="entry__meta">
+            <span class="entry__date">1997–Present — The 1033 Program</span>
+            <h2 class="entry__title">The Pentagon Gave Police Departments Armored Vehicles and Grenade Launchers</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>The National Defense Authorization Act of 1997 created the 1033 Program, allowing the Department of Defense to transfer surplus military equipment to civilian law enforcement agencies. Since its launch, the program has transferred <span class="stat-highlight">over $7.4 billion</span> in military equipment to police departments — including Mine-Resistant Ambush Protected (MRAP) vehicles, bayonets, aircraft, M16 rifles, and grenade launchers.</p>
+          <p>By 2014, when the Ferguson uprising drew national attention, every major metropolitan police department had SWAT teams equipped with military gear. The number of SWAT deployments had grown from <span class="stat-highlight">3,000 per year in 1980</span> to <span class="stat-highlight">80,000 per year by 2014</span> — overwhelmingly deployed for drug searches in Black and brown neighborhoods, not hostage situations or active shooters.</p>
+          <p>Research from the American Economic Review (2017) found that police departments receiving more military equipment killed significantly more people — and that the effect was concentrated in counties with larger Black populations. The equipment did not reduce crime. It increased lethality.</p>
+          <div class="consequence-box">
+            <div class="consequence-box__label">Who police kill — the current data</div>
+            <ul class="consequence-box__list">
+              <li>Black Americans are killed by police at <strong>2.9× the rate</strong> of white Americans</li>
+              <li>Police kill approximately <strong>1,000–1,200 people per year</strong> in the United States — more than any other wealthy country</li>
+              <li>The U.S. rate of police killings is <strong>25–100× higher</strong> than peer nations (UK, Germany, Australia)</li>
+              <li>Less than 2% of officers who kill someone are ever charged with a crime</li>
+              <li>Qualified immunity doctrine shields officers from civil lawsuits even for clearly unconstitutional conduct</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ENTRY 10 -->
+      <article class="entry reveal" id="entry-10">
+        <div class="entry__header">
+          <div class="entry__num">10</div>
+          <div class="entry__meta">
+            <span class="entry__date">The Present</span>
+            <h2 class="entry__title">The Line From 1704 to Today</h2>
+          </div>
+        </div>
+        <div class="entry__body">
+          <p>The through-line from the 1704 South Carolina Slave Patrol to the present is not a metaphor or an analogy. It is an institutional genealogy. The same geography, the same demographics, the same functions — catch, contain, punish — have been maintained across every era of legal and political change.</p>
+          <p>Emancipation did not end it. Reconstruction was crushed before it could transform it. The Civil Rights Act of 1964 made certain practices illegal; police unions litigated most enforcement. The 1968 Kerner Commission report warned that "our nation is moving toward two societies, one Black, one white — separate and unequal." It recommended massive investment in Black communities. Congress ignored it and passed a crime bill instead.</p>
+          <p>The question of what policing is <em>for</em> is answered not by what police say about their mission but by whom they have historically protected and whom they have historically targeted. That record is 320 years long and consistent.</p>
+          <div class="pull-quote">
+            <p class="pull-quote__text">"The police are not here to create disorder. The police are here to preserve disorder."</p>
+            <span class="pull-quote__attr">— Mayor Richard J. Daley of Chicago, during the 1968 Democratic National Convention</span>
+          </div>
+          <p>Understanding this history is not an argument that individual officers are irredeemably bad people. It is an argument that institutions carry their origins forward through policy, training, culture, and incentive structure — until those structures are changed. The question is not whether individual officers mean well. The question is what the institution was built to do, and whether it has been rebuilt to do something different.</p>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="thread-sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-widget__title">Contents</div>
+        <ol class="toc-list">
+          <li class="toc-item" id="toc-1"><a href="#entry-1">1704 — The First Slave Patrol</a></li>
+          <li class="toc-item" id="toc-2"><a href="#entry-2">1793 — Fugitive Slave Acts</a></li>
+          <li class="toc-item" id="toc-3"><a href="#entry-3">1865 — Patrols Become Departments</a></li>
+          <li class="toc-item" id="toc-4"><a href="#entry-4">1870s — Breaking Strikes</a></li>
+          <li class="toc-item" id="toc-5"><a href="#entry-5">1900s — Professionalization + Eugenics</a></li>
+          <li class="toc-item" id="toc-6"><a href="#entry-6">1919–1943 — Police and White Mobs</a></li>
+          <li class="toc-item" id="toc-7"><a href="#entry-7">1968 — War on Crime</a></li>
+          <li class="toc-item" id="toc-8"><a href="#entry-8">1986–1994 — Crack and Crime Bill</a></li>
+          <li class="toc-item" id="toc-9"><a href="#entry-9">1997 — Militarization</a></li>
+          <li class="toc-item" id="toc-10"><a href="#entry-10">Present — The Line</a></li>
+        </ol>
+      </div>
+
+      <div class="sidebar-widget">
+        <button class="tts-btn" id="tts-btn" aria-label="Listen to this thread">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          Listen to this thread
+        </button>
+      </div>
+
+      <div class="sidebar-widget">
+        <div class="sidebar-widget__title">Related threads</div>
+        <ul class="related-list">
+          <li><a href="thread-invention-of-race.html">The Invention of Race</a></li>
+          <li><a href="thread-racial-capitalism.html">Same Ledger, New Name</a></li>
+          <li><a href="thread-end-of-slavery.html">How Slavery Really Ended</a></li>
+          <li><a href="thread-mass-incarceration.html">The 13th: Mass Incarceration</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- CAUSAL CHAIN -->
+  <section class="causal-chain" aria-label="Causal chain">
+    <div class="causal-chain__inner">
+      <h2 class="causal-chain__title">The Unbroken Line</h2>
+      <div class="chain-steps">
+        <div class="chain-step">
+          <div class="chain-step__node">Slave Patrol 1704</div>
+          <div class="chain-step__label">Catch, contain, punish</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step">
+          <div class="chain-step__node">Black Codes 1865</div>
+          <div class="chain-step__label">Criminalize freedom</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step">
+          <div class="chain-step__node">Strike- breaking 1880s</div>
+          <div class="chain-step__label">Protect capital</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step">
+          <div class="chain-step__node">Race Riot Policing 1919</div>
+          <div class="chain-step__label">Guard racial order</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step">
+          <div class="chain-step__node">War on Crime 1968</div>
+          <div class="chain-step__label">Suppress political threat</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step">
+          <div class="chain-step__node">Militarization 1997</div>
+          <div class="chain-step__label">Occupy communities</div>
+        </div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step">
+          <div class="chain-step__node">1,000+ killed per year</div>
+          <div class="chain-step__label">At 2.9× rate for Black Americans</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="thread-cta">
+    <div class="thread-cta__inner">
+      <h2 class="thread-cta__title">Racism was constructed. So was the system that enforces it.</h2>
+      <p class="thread-cta__body">The invention of policing and the invention of race are the same project, seen from two angles. Read how "whiteness" was created as a legal category — specifically to divide the Black and white working class from ever uniting again.</p>
+      <a href="thread-invention-of-race.html" class="thread-cta__btn">Read: The Invention of Race →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="site-footer__text">
+      Chain — a public archive. <a href="threads.html">All threads</a> · <a href="teaching.html">Teaching guides</a>
+    </p>
+  </footer>
+
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('chain-theme', t);
+      themeBtn.textContent = t === 'dark' ? 'Light' : 'Dark';
+    }
+    applyTheme(localStorage.getItem('chain-theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+    themeBtn.addEventListener('click', () => {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // TOC active state
+    const entries = document.querySelectorAll('.entry');
+    const tocObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          document.querySelectorAll('.toc-item').forEach(t => t.classList.remove('toc-item--active'));
+          const id = e.target.id.replace('entry-', 'toc-');
+          const tocEl = document.getElementById(id);
+          if (tocEl) tocEl.classList.add('toc-item--active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+    entries.forEach(el => tocObs.observe(el));
+
+    // Text-to-speech
+    const ttsBtn = document.getElementById('tts-btn');
+    let speaking = false;
+    let utterances = [];
+    ttsBtn.addEventListener('click', () => {
+      if (speaking) {
+        window.speechSynthesis.cancel();
+        speaking = false;
+        ttsBtn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';
+        return;
+      }
+      const textNodes = document.querySelectorAll('.entry__body p');
+      const fullText = Array.from(textNodes).map(n => n.textContent).join(' ');
+      const words = fullText.split(' ');
+      const chunks = [];
+      for (let i = 0; i < words.length; i += 40) chunks.push(words.slice(i, i + 40).join(' '));
+      speaking = true;
+      ttsBtn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Stop listening';
+      let idx = 0;
+      function speakNext() {
+        if (idx >= chunks.length || !speaking) { speaking = false; ttsBtn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread'; return; }
+        const u = new SpeechSynthesisUtterance(chunks[idx++]);
+        u.rate = 0.95;
+        u.onend = speakNext;
+        window.speechSynthesis.speak(u);
+      }
+      speakNext();
+    });
+  </script>
+</body>
+</html>
