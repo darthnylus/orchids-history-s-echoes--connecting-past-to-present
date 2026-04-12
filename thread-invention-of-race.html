@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Invention of Race: Why Racism Was Created, 1676–Present — Thread — Chain</title>
+  <meta name="description" content="Race is not biology. It is policy. Whiteness was invented as a legal category in Virginia in the 1680s — specifically to prevent poor white and Black workers from uniting against the planter class. This thread documents who invented racism, why, and how it has been maintained ever since." />
+  <script>
+    (function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: teal — #0d9488 / #2dd4bf */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 10% 50%,rgba(13,148,136,.13) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 90% 20%,rgba(15,118,110,.09) 0%,transparent 55%),radial-gradient(ellipse 50% 70% at 50% 100%,rgba(17,94,89,.07) 0%,transparent 50%);pointer-events:none}
+    .thread-hero__inner{position:relative;max-width:760px}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(13,148,136,.10);border:1px solid rgba(13,148,136,.25);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#5eead4;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#0d9488}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#5eead4;font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap;align-items:flex-end}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .listen-btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--ink-300);font-size:var(--type-xs);font-weight:var(--weight-semibold);font-family:inherit;cursor:pointer;transition:all var(--duration-fast);margin-left:auto;white-space:nowrap;align-self:flex-end}
+    .listen-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+    .listen-btn[data-state="playing"]{background:rgba(13,148,136,.2);border-color:rgba(13,148,136,.4);color:#5eead4}
+    .listen-progress-bar{height:3px;background:rgba(255,255,255,.08);display:none}
+    .listen-progress-bar.is-visible{display:block}
+    .listen-progress-bar__fill{height:100%;background:#0d9488;width:0%;transition:width 0.5s linear}
+    .argument-bar{background:rgba(13,148,136,.06);border-top:1px solid rgba(13,148,136,.14);border-bottom:1px solid rgba(13,148,136,.14);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(13,148,136,.15);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#5eead4;margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#0d9488;background:rgba(13,148,136,.10);border:1px solid rgba(13,148,136,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(13,148,136,.10);border:1px solid rgba(13,148,136,.22);color:#5eead4}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#2dd4bf;margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#0d9488;line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:0.7rem;text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-6)}
+    .entry-item__body p{margin-bottom:var(--space-4)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-features{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-bottom:var(--space-6)}
+    @media(min-width:640px){.entry-features{grid-template-columns:repeat(3,1fr)}}
+    .entry-feature{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4)}
+    .entry-feature__icon{font-size:1.25rem;margin-bottom:var(--space-2);line-height:1}
+    .entry-feature__label{font-size:var(--type-xs);font-weight:var(--weight-semibold);color:var(--color-text-primary);margin-bottom:2px}
+    .entry-feature__desc{font-size:0.72rem;color:var(--color-text-tertiary);line-height:1.5}
+    .consequence-box{border:1px solid rgba(13,148,136,.20);border-left:3px solid #0d9488;background:rgba(13,148,136,.04);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:var(--space-5) var(--space-6);margin-bottom:var(--space-5)}
+    [data-theme="dark"] .consequence-box{background:rgba(13,148,136,.07)}
+    .consequence-box__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#0d9488;margin-bottom:var(--space-2)}
+    .consequence-box__text{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.65}
+    .consequence-box__text strong{color:var(--color-text-primary)}
+    .pull-quote{border-left:3px solid #0d9488;padding:var(--space-4) var(--space-6);margin:var(--space-7) 0}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:clamp(1.125rem,2.5vw,1.375rem);font-style:italic;color:var(--color-text-primary);line-height:1.55;margin-bottom:var(--space-3)}
+    .pull-quote__attribution{font-size:var(--type-xs);font-weight:var(--weight-semibold);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:#0d9488}
+    .law-box{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-6);margin-bottom:var(--space-6)}
+    .law-box__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#5eead4;margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid rgba(13,148,136,.25)}
+    .law-box__year{font-family:var(--font-editorial);font-size:1.5rem;font-weight:900;color:#0d9488;margin-bottom:var(--space-1)}
+    .law-box__name{font-size:var(--type-sm);font-weight:var(--weight-bold);color:#fff;margin-bottom:var(--space-2)}
+    .law-box__text{font-size:var(--type-xs);color:var(--ink-400);line-height:1.6}
+    .law-box__divider{height:1px;background:rgba(255,255,255,.06);margin:var(--space-4) 0}
+    .chain-connector{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-8);margin:var(--space-12) 0}
+    .chain-connector__title{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#fff;margin-bottom:var(--space-6)}
+    .chain-steps{display:flex;flex-direction:column;gap:0;position:relative}
+    .chain-step{display:grid;grid-template-columns:32px 1fr;gap:var(--space-4);align-items:start;padding-bottom:var(--space-5);position:relative}
+    .chain-step:last-child{padding-bottom:0}
+    .chain-step__line{position:absolute;left:15px;top:32px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(13,148,136,.5),rgba(13,148,136,.1))}
+    .chain-step:last-child .chain-step__line{display:none}
+    .chain-step__dot{width:32px;height:32px;border-radius:50%;border:2px solid #0d9488;background:rgba(13,148,136,.15);color:#2dd4bf;font-size:0.7rem;font-weight:var(--weight-bold);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+    .chain-step__era{font-size:0.68rem;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#2dd4bf;margin-bottom:2px}
+    .chain-step__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:#fff;margin-bottom:3px}
+    .chain-step__desc{font-size:var(--type-xs);color:var(--ink-400);line-height:1.6}
+    .sidebar{display:flex;flex-direction:column;gap:var(--space-5)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5)}
+    [data-theme="dark"] .sidebar-card{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--color-border)}
+    .sidebar-toc__list{list-style:none;display:flex;flex-direction:column;gap:1px}
+    .sidebar-toc__link{display:block;font-size:var(--type-xs);color:var(--color-text-secondary);padding:5px var(--space-3);border-radius:var(--radius-md);transition:all var(--duration-fast);text-decoration:none;line-height:1.3}
+    .sidebar-toc__link:hover{background:var(--color-surface-raised);color:var(--color-text-primary)}
+    .sidebar-toc__link.is-active{background:rgba(13,148,136,.10);color:#0d9488;font-weight:var(--weight-semibold)}
+    .sidebar-fact__stat{font-family:var(--font-editorial);font-size:2rem;font-weight:900;color:#0d9488;line-height:1;margin-bottom:var(--space-1)}
+    .sidebar-fact__label{font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5}
+    .sidebar-fact__divider{height:1px;background:var(--color-border);margin:var(--space-4) 0}
+    .related-thread{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);text-decoration:none}
+    .related-thread:last-child{border-bottom:none;padding-bottom:0}
+    .related-thread__num{font-size:0.68rem;font-weight:var(--weight-bold);text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary)}
+    .related-thread__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--color-text-primary);line-height:1.35}
+    .related-thread:hover .related-thread__title{color:#0d9488}
+    .thread-bottom-cta{background:var(--ink-900);padding:var(--space-16) 0;text-align:center}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#5eead4;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-5);max-width:600px;margin-left:auto;margin-right:auto}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-400);max-width:520px;margin:0 auto var(--space-8);line-height:1.65}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-7);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-semibold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:#0f766e;color:#fff}
+    .thread-bottom-cta__btn--primary:hover{background:#115e59}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+    [data-theme="dark"] .entry-stats,[data-theme="dark"] .entry-feature{background:var(--ink-800);border-color:var(--ink-700)}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out)}
+    .reveal.is-visible{opacity:1;transform:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Ideology Thread:</strong> Race is not biology — it is policy. Whiteness was invented as a legal category in Virginia in the 1680s to prevent a multiracial rebellion from happening again.</p>
+    <nav class="utility-bar__links"><a href="about.html" class="utility-bar__link">About</a><a href="newsletter.html" class="utility-bar__link">Newsletter</a><a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a></nav>
+  </div>
+</div>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home"><span class="site-nav__name">Chain</span><span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links" aria-label="Primary navigation"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="page">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay"><svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span class="hide-mobile">Search</span></button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/><line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/><line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/></svg></button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search"><label for="searchInput" class="sr-only">Search Chain</label><input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off"/><button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button></form>
+    <div class="search-overlay__hints"><p class="search-overlay__hint-label">Try searching</p><a href="search.html?q=Bacon%27s+Rebellion" class="search-hint-chip">Bacon's Rebellion</a><a href="search.html?q=invention+of+whiteness" class="search-hint-chip">Invention of Whiteness</a><a href="search.html?q=scientific+racism" class="search-hint-chip">Scientific Racism</a></div>
+  </div>
+</div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links"><li><a href="explore.html" class="mobile-nav__link">Explore</a></li><li><a href="threads.html" class="mobile-nav__link">Threads</a></li><li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li><li><a href="learn.html" class="mobile-nav__link">Learn</a></li><li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li><li><a href="about.html" class="mobile-nav__link">About</a></li><li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li></ul>
+  </div>
+</nav>
+
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Ideology Thread · 1676–Present</div>
+      <h1 class="thread-hero__title" id="heroTitle"><em>The Invention</em><br>of Race</h1>
+      <p class="thread-hero__subtitle">Race is not a biological fact. It is a political technology — invented at a specific time, by specific people, for a specific purpose. In 1676, Black and white servants in Virginia fought together against the colonial elite and nearly won. Within a decade, the Virginia legislature had invented "whiteness" as a legal category with privileges — and made Blackness synonymous with permanent, heritable enslavement. This thread documents who built racism, why, and how it has been maintained through law, science, religion, and culture ever since.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Period</div><div class="thread-meta-item__value">1676 – Present</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Race as Biology</div><div class="thread-meta-item__value">Not supported — Human Genome Project, 2003</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Race as Policy</div><div class="thread-meta-item__value">Invented in Virginia, 1680s–1705</div></div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon"><polygon points="5 3 19 12 5 21 5 3"/></svg><span id="listenLabel">Listen</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true"><div class="listen-progress-bar__fill" id="listenProgressFill"></div></div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text"><strong>Racism was not a natural human reaction to difference. It was an engineered system, built to solve a specific political problem: how do you prevent poor white and poor Black workers from uniting against the wealthy class that exploits both of them?</strong> The answer, invented in Virginia in the 1680s, was to give poor white people a racial identity with attached privileges — making racial solidarity with Black people economically costly and socially unthinkable. This is documented in the actual laws passed. The ideology of white supremacy came after the policy, to justify what the policy required. Understanding racism as a constructed system — with inventors, architects, and a maintenance structure — is the beginning of understanding how it could, in theory, be dismantled.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content" class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <div class="thread-main">
+
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era I · Before Race: Class Was the Divide, 1619–1676</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <article class="entry-item reveal" id="entry-before">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates">1619–1676 — Virginia Colony</div>
+                <h2 class="entry-item__name">Before Whiteness: When Race Barely Existed as a Category</h2>
+                <div class="entry-item__location">Early Virginia Colony · Indentured Servants · Enslaved Africans</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">1619</div><div class="entry-stat__label">first Africans arrive in Virginia — as indentured servants, not as racial slaves</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1640</div><div class="entry-stat__label">first recorded instance of a Virginia court sentencing an African to lifetime servitude</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1650s–70s</div><div class="entry-stat__label">period when African and white indentured servants lived, worked, resisted, and cohabited together</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The first Africans to arrive in the English colonies of North America in 1619 did not arrive as racial slaves in the legal sense that would develop over the following decades. They arrived as indentured servants — the same legal category as many poor white English migrants — who would work for a fixed term in exchange for passage, and then be free. Some of the first Africans in Virginia completed their indentures, received land grants, and became small landowners. Anthony Johnson, an African who arrived in the 1620s, eventually owned 250 acres in Virginia and himself held indentured servants, including white ones.</p>
+              <p>In the early colonial period, the relevant social divide was not race — it was class. Poor white indentured servants and enslaved or indentured Africans occupied roughly the same social position: they worked the same fields, lived in the same quarters, were subjected to the same corporal punishment, and shared the same condition of exploitation by the planter elite. <strong>They socialized together. They had children together. They escaped together. They organized together.</strong></p>
+              <p>The word "white" as a racial category was rarely used in colonial Virginia before the 1680s. Legal documents referred to "Christian" and "Negro," "servant" and "slave," "English" and "African" — but not yet "white" and "Black" as comprehensive, permanent, heritable racial categories. That invention came later, for a specific reason.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Anthony Johnson Fact</div>
+              <p class="consequence-box__text">Anthony Johnson arrived in Virginia around 1621 as an indentured servant. He completed his term, received a land grant, and by 1651 owned 250 acres and five servants — including at least one white servant and one African servant he successfully sued to hold as a slave for life. <strong>This is not a story of early racial harmony. It is evidence that before racial categories were legally hardened, class position, not race, primarily determined social fate — and that the hardening of racial categories was a deliberate subsequent choice, not a natural evolution.</strong></p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-bacon">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">1676 — Virginia Colony</div>
+                <h2 class="entry-item__name">Bacon's Rebellion: The Multiracial Uprising That Invented Whiteness</h2>
+                <div class="entry-item__location">Jamestown, Virginia · Nathaniel Bacon · Governor William Berkeley</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">1676</div><div class="entry-stat__label">year of Bacon's Rebellion — the turning point in the invention of American race</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">~500</div><div class="entry-stat__label">rebels who burned Jamestown — Black and white together</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">4 yrs</div><div class="entry-stat__label">before Virginia begins systematically encoding racial hierarchy into law</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In 1676, a planter named Nathaniel Bacon led an armed rebellion against the Virginia colonial government. The rebellion is usually taught as a conflict over frontier policy and Native American relations. That framing obscures what made it genuinely terrifying to the colonial elite: <strong>Bacon's army included both white indentured servants and Black enslaved people fighting side by side.</strong> Approximately 500 rebels — of mixed race — burned Jamestown to the ground. The colonial governor fled.</p>
+              <p>Bacon died of dysentery before the rebellion was crushed. His army dispersed. But the Virginia planter class had seen something that changed everything: when poor white and poor Black people recognized their common interests against the wealthy, the entire social order became vulnerable. The question the planters now faced was not military but political: how do you prevent this coalition from forming again?</p>
+              <p>The answer they arrived at was elegant and brutal: <strong>give white servants a racial identity that made them structurally superior to Black workers, regardless of their class position.</strong> A poor white man who identified as white had something a poor Black man did not — and defending that something would prevent him from making common cause with the person below him. The invention of whiteness as a political category was the planter class's solution to the problem of multiracial class solidarity.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"They dare not make the servants too hard, their slaves being at least as numerous as themselves — the only remedy is to make the distinction between them and their white laborers much greater than before."</p>
+              <p class="pull-quote__attribution">— Virginia planter, c. 1680, on the problem posed by Bacon's Rebellion</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era II · The Legal Construction of Race, 1680–1705</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <article class="entry-item reveal" id="entry-laws">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">1680–1705 — Virginia Colony</div>
+                <h2 class="entry-item__name">The Virginia Slave Codes: Whiteness Invented as Law</h2>
+                <div class="entry-item__location">Virginia General Assembly · Act XII (1705) · The Legal Architecture of Race</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">1662</div><div class="entry-stat__label">Virginia law: enslaved status becomes heritable through the mother — bloodline slavery begins</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1670</div><div class="entry-stat__label">Virginia law: free Black people prohibited from owning white servants</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1705</div><div class="entry-stat__label">Virginia Slave Code: comprehensive legal architecture of racial hierarchy enacted</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Between 1680 and 1705, the Virginia General Assembly passed a series of laws that systematically built racial hierarchy into the legal code. Each law served two functions: restricting Black freedom and extending white privilege. Read together, they constitute the invention of the American racial system.</p>
+              <p><strong>1662:</strong> Enslaved status becomes hereditary through the mother. Previously, the status of children born of mixed-race unions was ambiguous. This law resolved the ambiguity by making enslavement a bloodline condition — ensuring that the children of enslaved women were also property, regardless of paternity. This was the moment slavery became racial and permanent rather than contractual and temporary.</p>
+              <p><strong>1670:</strong> Free Black people prohibited from owning white servants. This removed one avenue through which free Black people could accumulate economic power.</p>
+              <p><strong>1680:</strong> Black people prohibited from carrying weapons and from lifting a hand against a Christian. The word "Christian" here means "white" — the law creates a racial hierarchy through religious language.</p>
+              <p><strong>1691:</strong> Interracial marriage prohibited and interracial couples banished. This was specifically designed to prevent the kind of social mixing that had characterized the pre-Bacon's Rebellion period.</p>
+              <p><strong>1705:</strong> The comprehensive Virginia Slave Code. It abolished the last vestiges of African indentured servitude. It made all non-Christian servants arriving from abroad slaves for life. It gave white servants finishing their indentures 50 acres of land and guns — a material investment in white identity. And it made white people who aided or harbored escaped enslaved people liable for the full value of that person. <strong>The 1705 Code is the founding document of American whiteness.</strong></p>
+            </div>
+            <div class="law-box">
+              <div class="law-box__title">The Laws That Built Race</div>
+              <div class="law-box__year">1662</div><div class="law-box__name">Hereditary Slavery Through the Mother</div><div class="law-box__text">Enslaved status becomes a bloodline condition. Children of enslaved women are property regardless of their father's status. Slavery becomes racial and permanent.</div>
+              <div class="law-box__divider"></div>
+              <div class="law-box__year">1691</div><div class="law-box__name">Anti-Miscegenation Law</div><div class="law-box__text">Interracial marriage prohibited. Specifically designed to prevent the social mixing that enabled multiracial solidarity.</div>
+              <div class="law-box__divider"></div>
+              <div class="law-box__year">1705</div><div class="law-box__name">Virginia Slave Code — The Founding Document of Whiteness</div><div class="law-box__text">White servants given land and guns on completion. Non-Christian servants enslaved for life. Racial hierarchy comprehensively encoded. The word "white" appears repeatedly as a legal category for the first time.</div>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Deliberate Gift to Poor White People</div>
+              <p class="consequence-box__text">The 1705 code gave freed white indentured servants 50 acres of land and a musket. This was not generosity — it was politics. <strong>Poor white people who might otherwise identify with poor Black people were given a material stake in the racial system: land, weapons, and legal superiority. Their cooperation with racial hierarchy was purchased with concrete benefits. This is the original "wages of whiteness" — a term W.E.B. Du Bois would later use to describe the psychological and social benefits that kept poor white workers loyal to a system that economically exploited them.</strong></p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era III · The Ideology Built to Justify the Policy, 1700s–1900s</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <article class="entry-item reveal" id="entry-religion">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates">1600s–1800s</div>
+                <h2 class="entry-item__name">The Church Provides Cover: "The Curse of Ham"</h2>
+                <div class="entry-item__location">Genesis 9:20–27 · Colonial and Antebellum Theological Justification</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">Genesis 9</div><div class="entry-stat__label">the biblical passage used to justify African enslavement — though it says nothing about Africa or race</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1700s</div><div class="entry-stat__label">when "the Curse of Ham" became the primary American religious justification for slavery</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1861</div><div class="entry-stat__label">Confederate Vice President Stephens: slavery is the "cornerstone" of their government — no religious hedging</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Once racial slavery was established as law and economic policy, it required ideological justification. The first apparatus deployed was theological. The "Curse of Ham" — a reading of Genesis 9 in which Noah curses Canaan (Ham's son) to be "a servant of servants" — was reinterpreted in the American colonial context as a divine sanction for African slavery. The text makes no mention of Africa, skin color, or race. None of this prevented it from becoming the dominant religious justification for slavery in the American South for 200 years.</p>
+              <p>The theological argument served a specific function: it transformed what was a political and economic choice into a divine mandate. <strong>If God had ordained that Africans be enslaved, then slaveholders were not criminals — they were agents of providential order.</strong> Enslaved people who resisted were not asserting a natural right to freedom — they were defying God's will. The argument was circular, self-sealing, and enormously useful.</p>
+              <p>As the abolitionist movement grew in the 19th century, pro-slavery theology became increasingly elaborate. Thornton Stringfellow's <em>Scriptural and Statistical Views in Favor of Slavery</em> (1856) compiled every biblical reference to servitude as evidence of divine approval. Ministers who questioned slavery were expelled from Southern denominations. By 1860, the major Protestant denominations had split along sectional lines specifically over slavery — the Southern Baptist Convention, founded in 1845, was formed explicitly to defend the practice.</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-science">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates">1700s–1930s</div>
+                <h2 class="entry-item__name">Pseudo-Science: Building Race into Biology to Justify What Was Actually Economics</h2>
+                <div class="entry-item__location">Samuel Morton · Josiah Nott · Louis Agassiz · Eugenics Movement</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">1839</div><div class="entry-stat__label">Samuel Morton publishes skull measurements "proving" racial hierarchy — data later shown to be fabricated</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1907</div><div class="entry-stat__label">Indiana becomes first state to pass forced sterilization law targeting "unfit" (disproportionately Black) people</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">2003</div><div class="entry-stat__label">Human Genome Project confirms: race has no biological basis in human genetics</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>As the Enlightenment produced a scientific culture that demanded empirical justification for social arrangements, the ideological justification for slavery shifted from theology to biology. A generation of American and European scientists constructed what they called "scientific racism" — a body of research purporting to demonstrate that racial hierarchy was a natural, biological fact rather than a political construction.</p>
+              <p>Samuel Morton, a Philadelphia physician, spent decades collecting and measuring human skulls from around the world. His 1839 book <em>Crania Americana</em> claimed to demonstrate that cranial capacity — and therefore intelligence — varied by race, with white Europeans at the top and Black Africans at the bottom. His work was enormously influential. <strong>In 1978, Harvard paleontologist Stephen Jay Gould reanalyzed Morton's original data and found that Morton had systematically and unconsciously manipulated his measurements to match his racial assumptions.</strong> The "science" was the conclusion dressed up as evidence.</p>
+              <p>Louis Agassiz, the most prominent American naturalist of the 19th century, was a "polygenist" — he believed different races were separately created and constituted distinct species. He initially found the idea of racial hierarchy repugnant, then visited the United States, encountered Black Americans for the first time, and recorded in a letter his visceral disgust — which he subsequently theorized into "scientific" conclusions about racial difference.</p>
+              <p>The eugenics movement of the early 20th century was the industrial-scale version of this tradition. It produced forced sterilization programs (Indiana, 1907; 32 states by 1935), immigration restriction laws targeting Southern and Eastern Europeans and Asians (1924 Immigration Act), and the intellectual framework that Nazi Germany's racial hygiene program explicitly cited as its model. <strong>American eugenics preceded and informed Nazi eugenics. The German scientists came to American conferences to learn American techniques.</strong></p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">💀</div><div class="entry-feature__label">Morton's Skulls</div><div class="entry-feature__desc">Data fabricated to fit racial assumptions. 1839 "science" refuted 1978. Taught as fact for 140 years.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🧬</div><div class="entry-feature__label">Human Genome Project</div><div class="entry-feature__desc">2003: genetic variation within racial groups exceeds variation between them. Race is not biology.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🏛️</div><div class="entry-feature__label">Eugenics → Nazis</div><div class="entry-feature__desc">American eugenics programs were the explicit model for Nazi racial hygiene. German scientists came to America to study the system.</div></div>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-wages">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates">1865–Present</div>
+                <h2 class="entry-item__name">The Wages of Whiteness: Why Ordinary White People Enforced the System</h2>
+                <div class="entry-item__location">W.E.B. Du Bois · <em>Black Reconstruction</em> · The Psychology of Race</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">1935</div><div class="entry-stat__label">Du Bois names the "psychological wage of whiteness" in <em>Black Reconstruction in America</em></div></div>
+              <div class="entry-stat"><div class="entry-stat__num">75%</div><div class="entry-stat__label">of Southern white families owned no enslaved people in 1860 — but enforced the system anyway</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">~$0</div><div class="entry-stat__label">economic benefit to poor white workers from slavery — they were economically harmed by competition from unpaid labor</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>A frequently asked question about American slavery: why did poor white people — who owned no enslaved people and received no economic benefit from slavery — enforce, defend, and die for the system? Why did white Southern farmers who would never own plantations fight a war to preserve a class system that exploited them too?</p>
+              <p>In 1935, W.E.B. Du Bois named the answer in <em>Black Reconstruction in America</em>: the "psychological wage of whiteness." Poor white workers received no material wage from the racial system. In fact, they were economically harmed by it — enslaved labor depressed wages for free workers and made it harder for poor white people to compete economically. But they received something else: <strong>social status. The certainty of being better than someone, regardless of their own economic condition.</strong> A poor white sharecropper and a wealthy planter had nothing materially in common — but they were both white, and that shared identity was enough to prevent the class coalition that could have threatened both of their economic relationships.</p>
+              <p>This is why the system was self-maintaining. The planter class didn't need to personally enforce racial hierarchy — they had convinced poor white people that their own dignity depended on Black subordination. Slave patrols — the precursors of American policing — were staffed primarily by non-slaveholding white men, who enforced the property rights of wealthy slaveholders for free, in exchange for the racial status the system provided.</p>
+              <p><strong>This dynamic persists.</strong> Economic analyses consistently show that racial resentment — not economic anxiety — is the primary predictor of white support for policies that harm white economic interests. The psychological wage of whiteness is still being paid, and it is still distorting political behavior in ways that serve the wealthy at the expense of everyone else.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The white group of laborers, while they received a low wage, were compensated in part by a sort of public and psychological wage. They were given public deference… because they were white."</p>
+              <p class="pull-quote__attribution">— W.E.B. Du Bois, <em>Black Reconstruction in America</em>, 1935</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era IV · The Maintenance Structure: How Racism Is Reproduced, 1900s–Present</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <article class="entry-item reveal" id="entry-media">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates">1915–Present</div>
+                <h2 class="entry-item__name">How Racism Is Actively Reproduced: Media, Schools, and Institutions</h2>
+                <div class="entry-item__location">Birth of a Nation · School Curricula · Media Representation · The Carceral State</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">1915</div><div class="entry-stat__label"><em>Birth of a Nation</em> screened at the White House — launched KKK revival, established anti-Black film tropes</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1944</div><div class="entry-stat__label">Gunnar Myrdal's <em>An American Dilemma</em> documents how white Americans hold racial beliefs they've never examined</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">44</div><div class="entry-stat__label">states with laws restricting teaching of race history as of 2024</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Racism does not reproduce itself automatically. It has to be actively transmitted through institutions. The mechanisms are documented.</p>
+              <p><strong>Cinema and media.</strong> D.W. Griffith's <em>Birth of a Nation</em> (1915) — screened at the White House by Woodrow Wilson, who called it "history written in lightning" — established the visual vocabulary of anti-Black racism in American popular culture for the 20th century: the predatory Black man, the noble Klansman, the happy enslaved person, the dangerous freed one. These tropes recirculated through Hollywood for generations, shaping how white Americans understood Black people without ever having to consciously examine that understanding.</p>
+              <p><strong>School curricula.</strong> As documented in the "How Slavery Really Ended" thread, the Lost Cause curriculum taught by the United Daughters of the Confederacy presented slavery as benevolent, Reconstruction as corrupt, and the Confederacy as noble. Generations of American schoolchildren — not just in the South — were taught a version of history designed to make racial hierarchy seem natural and its origins seem distant. <strong>As of 2024, 44 states have passed legislation restricting how race, slavery, and their ongoing consequences are taught in public schools.</strong> The ideological project continues.</p>
+              <p><strong>The carceral system.</strong> Mass incarceration — documented in its own thread — functions partly as an ideology-reproducing machine: it associates Black people with criminality in the public imagination, justifying the racial hierarchy of the present through the apparent evidence of the present, without reference to the policies that produced the incarceration rates.</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-conclusion">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">08</div>
+              <div>
+                <div class="entry-item__dates">1676–Present and Beyond</div>
+                <h2 class="entry-item__name">What the Record Shows: Racism Was a Choice — and Choices Can Be Unmade</h2>
+                <div class="entry-item__location">The Historical Argument · The Policy Implication</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">1676</div><div class="entry-stat__label">the year that most directly explains the racial system the US lives with today</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">~40 yrs</div><div class="entry-stat__label">it took to build the legal architecture of racial hierarchy in Virginia — 1662 to 1705</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">0</div><div class="entry-stat__label">biological basis for race — confirmed by every major genetics study since 2003</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The through-line of this thread is a specific historical argument: racism was not inevitable. It was not a natural human response to difference. It was an engineered system, built by identifiable people in response to an identifiable political problem, using identifiable mechanisms — law, theology, science, media, and curriculum — to make a political construction look like a natural fact.</p>
+              <p>The evidence for this argument is in the historical record. Before Bacon's Rebellion, white and Black workers cohabited, organized, and rebelled together. After 1680, a deliberate series of legal interventions created the categories, assigned the privileges, and manufactured the ideology that made racial solidarity across color lines politically unthinkable. The laws are in the archive. The dates are known. The people who wrote them are named.</p>
+              <p><strong>This matters because if racism was built, it can be dismantled.</strong> Not easily, not quickly — the system has had 350 years to entrench itself in law, culture, economics, and psychology. But it was not handed down from nature. It was not written in biology. It was written in legislation by the Virginia General Assembly between 1662 and 1705, extended by pseudo-scientists who fabricated data, maintained by media that recycled stereotypes, and preserved by school curricula that hid the origins.</p>
+              <p>Understanding the construction of race does not require assigning individual guilt to white people living today. Most white Americans did not choose the system they were born into, any more than Black Americans chose the one they were born into. But the system is real, its effects are real, and the record of its construction is available to anyone who looks for it. <strong>The question "why did white people do this?" has a documentable answer: specific white people, in a specific time and place, built a system to solve a political problem. The system outlasted the problem it was built to solve. It is still running. And it was built by human beings, which means it can be changed by them.</strong></p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"White people are not white. Part of the price of the white ticket is not seeing the world clearly — they have invested too much in maintaining a lie."</p>
+              <p class="pull-quote__attribution">— James Baldwin, 1984</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Science Is Settled</div>
+              <p class="consequence-box__text">The Human Genome Project, completed in 2003, confirmed what population geneticists had argued for decades: there is more genetic variation within racial groups than between them. Race is not a biological category. It is a social and political one. <strong>The entire edifice of "scientific racism" — Morton's skulls, polygenism, eugenics — was fabricated to justify what was already policy. The policy came first. The science was invented to explain it.</strong></p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="chain-connector reveal" role="complementary" aria-label="Causal chain">
+          <h2 class="chain-connector__title">The Chain: How Whiteness Was Built</h2>
+          <div class="chain-steps">
+            <div class="chain-step"><div class="chain-step__dot">1</div><div class="chain-step__line" aria-hidden="true"></div><div><div class="chain-step__era">1619–1676</div><div class="chain-step__title">Before race: class is the divide</div><div class="chain-step__desc">White and Black servants work together, resist together, have children together. Race barely exists as a legal category. Class — servant vs. planter — is the primary social divide.</div></div></div>
+            <div class="chain-step"><div class="chain-step__dot">2</div><div class="chain-step__line" aria-hidden="true"></div><div><div class="chain-step__era">1676</div><div class="chain-step__title">Bacon's Rebellion: the multiracial threat</div><div class="chain-step__desc">500 Black and white servants burn Jamestown together. The planter class is terrified. The question becomes: how do you prevent this coalition from forming again?</div></div></div>
+            <div class="chain-step"><div class="chain-step__dot">3</div><div class="chain-step__line" aria-hidden="true"></div><div><div class="chain-step__era">1680–1705</div><div class="chain-step__title">Whiteness invented as law</div><div class="chain-step__desc">Virginia Slave Codes build racial hierarchy into legislation. Slavery becomes heritable. Whiteness becomes a legal status with attached privileges. The word "white" enters law as a racial category for the first time.</div></div></div>
+            <div class="chain-step"><div class="chain-step__dot">4</div><div class="chain-step__line" aria-hidden="true"></div><div><div class="chain-step__era">1700s–1800s</div><div class="chain-step__title">Religion and science provide justification</div><div class="chain-step__desc">The Curse of Ham. Polygenism. Skull measurements. Ideology is constructed to make political policy look like natural order. The science is fabricated; the theology is invented. Both serve the economics.</div></div></div>
+            <div class="chain-step"><div class="chain-step__dot">5</div><div class="chain-step__line" aria-hidden="true"></div><div><div class="chain-step__era">1865–Present</div><div class="chain-step__title">The "wages of whiteness" maintain the system</div><div class="chain-step__desc">Poor white people who receive no material benefit from racial hierarchy receive a psychological wage: status, deference, the certainty of being above someone. This prevents class solidarity across color lines.</div></div></div>
+            <div class="chain-step"><div class="chain-step__dot">6</div><div class="chain-step__line" aria-hidden="true"></div><div><div class="chain-step__era">1915–Present</div><div class="chain-step__title">Media, schools, and institutions reproduce the ideology</div><div class="chain-step__desc">Birth of a Nation. Lost Cause curricula. Mass incarceration optics. Each generation receives a version of the racial ideology appropriate to its era. The construction is continuous, not historical.</div></div></div>
+            <div class="chain-step"><div class="chain-step__dot">7</div><div class="chain-step__line" aria-hidden="true"></div><div><div class="chain-step__era">Present</div><div class="chain-step__title">Race has no biological basis — and the system persists anyway</div><div class="chain-step__desc">The Human Genome Project settled the biology in 2003. The political and economic system built on the false biology continues. Systems outlast the justifications that built them. They require active dismantling.</div></div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="sidebar" aria-label="Thread sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">In This Thread</div>
+          <nav aria-label="Thread table of contents">
+            <ul class="sidebar-toc__list">
+              <li><a href="#entry-before" class="sidebar-toc__link">01 — Before Whiteness Existed</a></li>
+              <li><a href="#entry-bacon" class="sidebar-toc__link">02 — Bacon's Rebellion, 1676</a></li>
+              <li><a href="#entry-laws" class="sidebar-toc__link">03 — The Virginia Slave Codes</a></li>
+              <li><a href="#entry-religion" class="sidebar-toc__link">04 — The Church's Justification</a></li>
+              <li><a href="#entry-science" class="sidebar-toc__link">05 — Pseudo-Scientific Racism</a></li>
+              <li><a href="#entry-wages" class="sidebar-toc__link">06 — The Wages of Whiteness</a></li>
+              <li><a href="#entry-media" class="sidebar-toc__link">07 — How Racism Is Reproduced</a></li>
+              <li><a href="#entry-conclusion" class="sidebar-toc__link">08 — It Was a Choice</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Numbers</div>
+          <div class="sidebar-fact__stat">1676</div>
+          <div class="sidebar-fact__label">Bacon's Rebellion — the specific event that triggered the invention of whiteness as a legal category</div>
+          <div class="sidebar-fact__divider"></div>
+          <div class="sidebar-fact__stat">75%</div>
+          <div class="sidebar-fact__label">Of Southern white families who owned no enslaved people in 1860 — but enforced the system</div>
+          <div class="sidebar-fact__divider"></div>
+          <div class="sidebar-fact__stat">2003</div>
+          <div class="sidebar-fact__label">Human Genome Project confirms: race has no biological basis in genetics</div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Related Threads</div>
+          <a href="thread-diaspora.html" class="related-thread"><div class="related-thread__num">Identity Thread</div><div class="related-thread__title">Who Black People Are: The African Diaspora</div></a>
+          <a href="thread-racial-capitalism.html" class="related-thread"><div class="related-thread__num">Economics Thread</div><div class="related-thread__title">Same Ledger, New Name: Racial Capitalism</div></a>
+          <a href="thread-end-of-slavery.html" class="related-thread"><div class="related-thread__num">History Thread</div><div class="related-thread__title">How Slavery Really Ended</div></a>
+          <a href="thread-mass-incarceration.html" class="related-thread"><div class="related-thread__num">Justice Thread</div><div class="related-thread__title">The 13th: Mass Incarceration</div></a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Further Reading</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3)">
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">The History of White People</strong> — Nell Irvin Painter (2010). A comprehensive history of how "whiteness" as a concept was constructed over time.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">Black Reconstruction in America</strong> — W.E.B. Du Bois (1935). Origin of the "wages of whiteness" concept.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">The Mismeasure of Man</strong> — Stephen Jay Gould (1981). Definitive dismantling of scientific racism, including Morton's fabricated data.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">How Race Is Made</strong> — Mark M. Smith (2006). The construction of racial ideology through sensory culture and everyday practice.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<section class="thread-bottom-cta" aria-labelledby="ctaTitle">
+  <div class="container">
+    <div class="thread-bottom-cta__eyebrow">The Full Picture</div>
+    <h2 class="thread-bottom-cta__title" id="ctaTitle">Race was invented. The extraction system that used it is still running.</h2>
+    <p class="thread-bottom-cta__sub">Whiteness was built in Virginia in 40 years. The economic system it enabled has run for 400. Follow the economic thread.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="thread-racial-capitalism.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Next: Racial Capitalism →</a>
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="index.html" class="site-footer__wordmark" aria-label="Chain — Home">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav" aria-label="Footer navigation"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims in this thread are sourced. See <a href="sources.html" class="site-footer__link">Sources</a> for citations.</p></div>
+  </div>
+</footer>
+<script>
+(function(){
+  var tb=document.getElementById('themeToggle'),mi=tb?tb.querySelector('.icon-moon'):null,si=tb?tb.querySelectorAll('.icon-sun'):[];
+  function at(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);if(mi)mi.style.display=t==='dark'?'none':'';si.forEach(function(e){e.style.display=t==='dark'?'':'none'})}
+  at(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  if(tb)tb.addEventListener('click',function(){at(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')});
+  var mb=document.getElementById('mobileMenuToggle'),cb=document.getElementById('mobileClose'),mn=document.getElementById('mobileNav'),bd=document.getElementById('mobileBackdrop');
+  function on(){mn.classList.add('is-open');mn.setAttribute('aria-hidden','false');mb&&mb.setAttribute('aria-expanded','true')}
+  function cn(){mn.classList.remove('is-open');mn.setAttribute('aria-hidden','true');mb&&mb.setAttribute('aria-expanded','false')}
+  if(mb)mb.addEventListener('click',on);if(cb)cb.addEventListener('click',cn);if(bd)bd.addEventListener('click',cn);
+  var st=document.getElementById('searchToggle'),sc=document.getElementById('searchClose'),so=document.getElementById('searchOverlay'),si2=document.getElementById('searchInput');
+  if(st)st.addEventListener('click',function(){so.classList.add('is-open');so.setAttribute('aria-hidden','false');st.setAttribute('aria-expanded','true');if(si2)si2.focus()});
+  if(sc)sc.addEventListener('click',function(){so.classList.remove('is-open');so.setAttribute('aria-hidden','true');st&&st.setAttribute('aria-expanded','false')});
+  if('IntersectionObserver' in window){
+    var ro=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');ro.unobserve(e.target)}})},{threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
+    var to=new IntersectionObserver(function(e){e.forEach(function(e){var id=e.target.getAttribute('id');var lk=document.querySelector('.sidebar-toc__link[href="#'+id+'"]');if(lk&&e.isIntersecting){document.querySelectorAll('.sidebar-toc__link').forEach(function(l){l.classList.remove('is-active')});lk.classList.add('is-active')}})},{rootMargin:'-10% 0px -80% 0px'});
+    document.querySelectorAll('.entry-item[id]').forEach(function(el){to.observe(el)});
+  } else {document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('is-visible')})}
+  var lb=document.getElementById('listenBtn'),ll=document.getElementById('listenLabel'),li=document.getElementById('listenIcon'),pb=document.getElementById('listenProgressBar'),pf=document.getElementById('listenProgressFill');
+  if(lb&&'speechSynthesis' in window){
+    var ci=0,ip=false;
+    function gc(){var t=document.getElementById('main-content').innerText,w=t.split(/\s+/),c=[],s=40;for(var i=0;i<w.length;i+=s)c.push(w.slice(i,i+s).join(' '));return c}
+    function ui(s){ip=s==='playing';lb.setAttribute('data-state',s);ll.textContent=s==='playing'?'Pause':s==='paused'?'Resume':'Listen';li.innerHTML=s==='playing'?'<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>':'<polygon points="5 3 19 12 5 21 5 3"/>';pb.classList.toggle('is-visible',s!=='idle')}
+    function pf2(idx){var c=gc();if(idx>=c.length){ui('idle');pf.style.width='0%';return}ci=idx;var u=new SpeechSynthesisUtterance(c[idx]);u.rate=0.97;u.onend=function(){pf.style.width=((ci+1)/c.length*100)+'%';pf2(ci+1)};u.onerror=function(){ui('idle')};window.speechSynthesis.speak(u);pf.style.width=(idx/c.length*100)+'%'}
+    lb.addEventListener('click',function(){if(!ip){if(window.speechSynthesis.paused){window.speechSynthesis.resume();ui('playing')}else{window.speechSynthesis.cancel();ui('playing');pf2(ci)}}else{window.speechSynthesis.pause();ui('paused')}});
+  } else if(lb)lb.style.display='none';
+})();
+</script>
+</body>
+</html>
