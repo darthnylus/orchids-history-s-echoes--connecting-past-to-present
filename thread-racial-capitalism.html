@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old Slavery, New Capitalism: The Unbroken Chain of Racial Extraction, 1619–Present — Thread — Chain</title>
+  <meta name="description" content="Slavery didn't end when capitalism began. Capitalism began because of slavery. The same system of racial labor extraction that built the antebellum economy restructured itself into sharecropping, convict leasing, union exclusion, redlining, subprime lending, and prison labor. Different names. Same ledger." />
+  <script>
+    (function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: indigo — #4f46e5 / #818cf8 */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 10% 50%,rgba(79,70,229,.14) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 90% 20%,rgba(67,56,202,.10) 0%,transparent 55%),radial-gradient(ellipse 50% 70% at 50% 100%,rgba(49,46,129,.08) 0%,transparent 50%);pointer-events:none}
+    .thread-hero__inner{position:relative;max-width:760px}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(79,70,229,.10);border:1px solid rgba(79,70,229,.25);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#a5b4fc;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#4f46e5}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#a5b4fc;font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap;align-items:flex-end}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .listen-btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--ink-300);font-size:var(--type-xs);font-weight:var(--weight-semibold);font-family:inherit;cursor:pointer;transition:all var(--duration-fast);margin-left:auto;white-space:nowrap;align-self:flex-end}
+    .listen-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+    .listen-btn[data-state="playing"]{background:rgba(79,70,229,.2);border-color:rgba(79,70,229,.4);color:#a5b4fc}
+    .listen-progress-bar{height:3px;background:rgba(255,255,255,.08);display:none}
+    .listen-progress-bar.is-visible{display:block}
+    .listen-progress-bar__fill{height:100%;background:#4f46e5;width:0%;transition:width 0.5s linear}
+    .argument-bar{background:rgba(79,70,229,.06);border-top:1px solid rgba(79,70,229,.14);border-bottom:1px solid rgba(79,70,229,.14);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(79,70,229,.15);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#a5b4fc;margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#4f46e5;background:rgba(79,70,229,.10);border:1px solid rgba(79,70,229,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(79,70,229,.10);border:1px solid rgba(79,70,229,.22);color:#a5b4fc}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#818cf8;margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#4f46e5;line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:0.7rem;text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-6)}
+    .entry-item__body p{margin-bottom:var(--space-4)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-features{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-bottom:var(--space-6)}
+    @media(min-width:640px){.entry-features{grid-template-columns:repeat(3,1fr)}}
+    .entry-feature{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4)}
+    .entry-feature__icon{font-size:1.25rem;margin-bottom:var(--space-2);line-height:1}
+    .entry-feature__label{font-size:var(--type-xs);font-weight:var(--weight-semibold);color:var(--color-text-primary);margin-bottom:2px}
+    .entry-feature__desc{font-size:0.72rem;color:var(--color-text-tertiary);line-height:1.5}
+    .consequence-box{border:1px solid rgba(79,70,229,.20);border-left:3px solid #4f46e5;background:rgba(79,70,229,.04);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:var(--space-5) var(--space-6);margin-bottom:var(--space-5)}
+    [data-theme="dark"] .consequence-box{background:rgba(79,70,229,.08)}
+    .consequence-box__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#4f46e5;margin-bottom:var(--space-2)}
+    .consequence-box__text{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.65}
+    .consequence-box__text strong{color:var(--color-text-primary)}
+    .pull-quote{border-left:3px solid #4f46e5;padding:var(--space-4) var(--space-6);margin:var(--space-7) 0}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:clamp(1.125rem,2.5vw,1.375rem);font-style:italic;color:var(--color-text-primary);line-height:1.55;margin-bottom:var(--space-3)}
+    .pull-quote__attribution{font-size:var(--type-xs);font-weight:var(--weight-semibold);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:#4f46e5}
+    .ledger-box{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-6);margin-bottom:var(--space-6)}
+    .ledger-box__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#a5b4fc;margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid rgba(79,70,229,.25)}
+    .ledger-row{display:flex;justify-content:space-between;align-items:baseline;padding:var(--space-2) 0;border-bottom:1px solid rgba(255,255,255,.05);gap:var(--space-4)}
+    .ledger-row:last-child{border-bottom:none}
+    .ledger-row__label{font-size:var(--type-xs);color:var(--ink-400);flex:1}
+    .ledger-row__value{font-family:var(--font-editorial);font-size:var(--type-sm);font-weight:var(--weight-bold);color:#818cf8;white-space:nowrap}
+    .chain-connector{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-8);margin:var(--space-12) 0}
+    .chain-connector__title{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#fff;margin-bottom:var(--space-6)}
+    .chain-steps{display:flex;flex-direction:column;gap:0;position:relative}
+    .chain-step{display:grid;grid-template-columns:32px 1fr;gap:var(--space-4);align-items:start;padding-bottom:var(--space-5);position:relative}
+    .chain-step:last-child{padding-bottom:0}
+    .chain-step__line{position:absolute;left:15px;top:32px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(79,70,229,.5),rgba(79,70,229,.1))}
+    .chain-step:last-child .chain-step__line{display:none}
+    .chain-step__dot{width:32px;height:32px;border-radius:50%;border:2px solid #4f46e5;background:rgba(79,70,229,.15);color:#818cf8;font-size:0.7rem;font-weight:var(--weight-bold);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+    .chain-step__era{font-size:0.68rem;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#818cf8;margin-bottom:2px}
+    .chain-step__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:#fff;margin-bottom:3px}
+    .chain-step__desc{font-size:var(--type-xs);color:var(--ink-400);line-height:1.6}
+    .sidebar{display:flex;flex-direction:column;gap:var(--space-5)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5)}
+    [data-theme="dark"] .sidebar-card{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--color-border)}
+    .sidebar-toc__list{list-style:none;display:flex;flex-direction:column;gap:1px}
+    .sidebar-toc__link{display:block;font-size:var(--type-xs);color:var(--color-text-secondary);padding:5px var(--space-3);border-radius:var(--radius-md);transition:all var(--duration-fast);text-decoration:none;line-height:1.3}
+    .sidebar-toc__link:hover{background:var(--color-surface-raised);color:var(--color-text-primary)}
+    .sidebar-toc__link.is-active{background:rgba(79,70,229,.10);color:#4f46e5;font-weight:var(--weight-semibold)}
+    .sidebar-fact__stat{font-family:var(--font-editorial);font-size:2rem;font-weight:900;color:#4f46e5;line-height:1;margin-bottom:var(--space-1)}
+    .sidebar-fact__label{font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5}
+    .sidebar-fact__divider{height:1px;background:var(--color-border);margin:var(--space-4) 0}
+    .related-thread{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);text-decoration:none}
+    .related-thread:last-child{border-bottom:none;padding-bottom:0}
+    .related-thread__num{font-size:0.68rem;font-weight:var(--weight-bold);text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary)}
+    .related-thread__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--color-text-primary);line-height:1.35}
+    .related-thread:hover .related-thread__title{color:#4f46e5}
+    .thread-bottom-cta{background:var(--ink-900);padding:var(--space-16) 0;text-align:center}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#a5b4fc;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-5);max-width:600px;margin-left:auto;margin-right:auto}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-400);max-width:520px;margin:0 auto var(--space-8);line-height:1.65}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-7);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-semibold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:#4338ca;color:#fff}
+    .thread-bottom-cta__btn--primary:hover{background:#3730a3}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+    [data-theme="dark"] .entry-stats{background:var(--ink-800);border-color:var(--ink-700)}
+    [data-theme="dark"] .entry-feature{background:var(--ink-800);border-color:var(--ink-700)}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out)}
+    .reveal.is-visible{opacity:1;transform:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Economics Thread:</strong> Slavery didn't end when capitalism began — capitalism began because of slavery. The extraction system restructured. It didn't stop.</p>
+    <nav class="utility-bar__links"><a href="about.html" class="utility-bar__link">About</a><a href="newsletter.html" class="utility-bar__link">Newsletter</a><a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a></nav>
+  </div>
+</div>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home"><span class="site-nav__name">Chain</span><span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links" aria-label="Primary navigation"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="page">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay"><svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span class="hide-mobile">Search</span></button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/><line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/><line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/></svg></button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search"><label for="searchInput" class="sr-only">Search Chain</label><input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off"/><button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button></form>
+    <div class="search-overlay__hints"><p class="search-overlay__hint-label">Try searching</p><a href="search.html?q=cotton+capitalism" class="search-hint-chip">Cotton Capitalism</a><a href="search.html?q=racial+capitalism" class="search-hint-chip">Racial Capitalism</a><a href="search.html?q=GI+Bill+exclusion" class="search-hint-chip">GI Bill Exclusion</a></div>
+  </div>
+</div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links"><li><a href="explore.html" class="mobile-nav__link">Explore</a></li><li><a href="threads.html" class="mobile-nav__link">Threads</a></li><li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li><li><a href="learn.html" class="mobile-nav__link">Learn</a></li><li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li><li><a href="about.html" class="mobile-nav__link">About</a></li><li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li></ul>
+  </div>
+</nav>
+
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Economics Thread · 1619–Present</div>
+      <h1 class="thread-hero__title" id="heroTitle"><em>Same Ledger,</em><br>New Name</h1>
+      <p class="thread-hero__subtitle">The question isn't how slavery ended and capitalism began. The question is why people assume they are different things. Slavery built American capitalism — its capital, its credit markets, its industrial supply chains, its legal architecture. When slavery was abolished, the extraction system didn't stop. It restructured: into sharecropping, convict leasing, union exclusion, redlining, subprime lending, and prison labor. The names changed. The ledger didn't.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Period</div><div class="thread-meta-item__value">1619 – Present</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Enslaved People as Capital</div><div class="thread-meta-item__value">$3.5B in 1860 — largest asset class in America</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Wealth Gap Today</div><div class="thread-meta-item__value">8:1 — white to Black median wealth</div></div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon"><polygon points="5 3 19 12 5 21 5 3"/></svg><span id="listenLabel">Listen</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true"><div class="listen-progress-bar__fill" id="listenProgressFill"></div></div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a5b4fc" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text"><strong>Slavery and capitalism are not sequential systems. They are the same system at different stages.</strong> American capitalism was not built alongside slavery — it was built from it. The cotton economy financed Northern industry and British textile mills. Enslaved people were the collateral behind Wall Street's earliest financial instruments. When emancipation came, the same class of people who had owned enslaved labor restructured their extraction into new legal forms — each one designed to do what slavery had done: extract maximum labor for minimum or zero cost from Black workers. That system is still running. The 8-to-1 racial wealth gap is not a legacy of slavery. It is slavery's ongoing economic output, restructured for each era.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content" class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <div class="thread-main">
+
+        <!-- ERA I -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era I · Slavery IS Capital, 1619–1865</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 1 -->
+          <article class="entry-item reveal" id="entry-balance-sheet">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates">1619–1865 — United States</div>
+                <h2 class="entry-item__name">Enslaved People Were the Largest Asset Class in America</h2>
+                <div class="entry-item__location">The Balance Sheet of Slavery · American Capital Markets</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">$3.5B</div><div class="entry-stat__label">total value of enslaved people in 1860 — more than all US banks and railroads combined</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">50%</div><div class="entry-stat__label">of all US exports in the 1850s were cotton — produced by enslaved labor</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1/3</div><div class="entry-stat__label">of Southern white wealth in 1860 was human beings listed on a balance sheet</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In 1860, on the eve of the Civil War, the total value of enslaved people in the United States was approximately $3.5 billion — making them the single largest capital asset in the American economy, worth more than all the nation's railroads and factories combined. Enslaved people were not just labor. They were <strong>collateral</strong>. They were mortgaged. They were securitized. They were insured.</p>
+              <p>Northern banks — particularly in New York — issued loans to Southern planters using enslaved people as the underlying asset. When a planter needed capital to expand, he borrowed against the bodies of the people he held. Those loans were bundled into bonds and sold to investors in New York, London, and Amsterdam. <strong>The financial instruments that built Wall Street's earliest capital markets were backed by human beings.</strong> Historians Edward Baptist and Sven Beckert have documented this in meticulous detail: slavery was not a pre-capitalist holdover. It was the engine of American capitalism's first century.</p>
+              <p>Cotton produced by enslaved labor accounted for roughly half of all US exports in the 1850s. The textile mills of New England — the industrial foundation of the Northern economy — ran on Southern cotton. The insurance companies of Hartford insured enslaved people as property. The shipping companies of New York transported the product of their labor. <strong>There was no American economy separate from slavery. There was one economy, and enslaved people were its primary productive input and its most valuable capital asset.</strong></p>
+            </div>
+            <div class="ledger-box">
+              <div class="ledger-box__title">The 1860 Balance Sheet</div>
+              <div class="ledger-row"><span class="ledger-row__label">Value of all enslaved people in the US</span><span class="ledger-row__value">$3.5 billion</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">Value of all US manufacturing</span><span class="ledger-row__value">$1.9 billion</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">Value of all US railroads</span><span class="ledger-row__value">$1.2 billion</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">Share of US exports from cotton</span><span class="ledger-row__value">~50%</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">Share of Southern white wealth held as enslaved people</span><span class="ledger-row__value">~33%</span></div>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The North's Complicity Was Financial</div>
+              <p class="consequence-box__text">The Civil War is often framed as North vs. South over slavery. The financial record is more entangled. <strong>Northern banks held the mortgages. Northern mills bought the cotton. Northern insurance companies insured enslaved people as property. Northern ports shipped the goods.</strong> When slavery was abolished, Northern financial institutions held billions in assets backed by enslaved people. They were compensated through the normal operation of financial markets. The formerly enslaved were not.</p>
+            </div>
+          </article>
+
+          <!-- ENTRY 2 -->
+          <article class="entry-item reveal" id="entry-cotton">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">1793–1865</div>
+                <h2 class="entry-item__name">Cotton Built the Industrial Revolution — On Both Sides of the Atlantic</h2>
+                <div class="entry-item__location">The Cotton Economy · New England Mills · British Textile Industry</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">80%</div><div class="entry-stat__label">of British cotton supply came from American enslaved labor by 1850</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1793</div><div class="entry-stat__label">cotton gin invented — made large-scale enslavement of cotton pickers more profitable, not less</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">2M+</div><div class="entry-stat__label">enslaved people sold in the domestic slave trade 1800–1860 to expand cotton production</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The standard history of the Industrial Revolution centers on steam engines, textile machinery, and British ingenuity. It tends to omit the plantation. By 1850, approximately 80% of the cotton feeding British textile mills — the industrial engine of the world's largest economy — came from American enslaved labor. The mills of Manchester and the plantations of Mississippi were a single integrated system. <strong>The Industrial Revolution was not separate from slavery. It was powered by it.</strong></p>
+              <p>The cotton gin, invented by Eli Whitney in 1793, is often described as a labor-saving device. In practice, it had the opposite effect on enslaved people. The gin made cotton processing faster — which made cotton more profitable — which dramatically increased demand for cotton pickers. The enslaved population of the American South more than doubled between 1790 and 1820, and doubled again by 1860, driven almost entirely by cotton's profitability.</p>
+              <p>Historian Walter Johnson's research on the New Orleans slave market documented how enslaved people were evaluated, priced, and sold as units of productive capacity — their bodies measured, their muscles assessed, their reproductive potential calculated as future capital. <strong>This was not a deviation from capitalism's logic. It was capitalism's logic applied to human beings.</strong></p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"Slavery was not an obstacle to American capitalist development. It was American capitalist development in its most dynamic form."</p>
+              <p class="pull-quote__attribution">— Edward Baptist, <em>The Half Has Never Been Told</em>, 2014</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ERA II -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era II · The Transition: Same Extraction, New Names, 1865–1930</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 3 -->
+          <article class="entry-item reveal" id="entry-sharecrop">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">1865–1940s — Southern United States</div>
+                <h2 class="entry-item__name">Sharecropping: When Debt Replaced Chains</h2>
+                <div class="entry-item__location">Plantation Debt Economy · Company Store · Annual Settlement</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">~$0</div><div class="entry-stat__label">net annual income for most sharecroppers — debt was structurally designed to balance at zero</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1867</div><div class="entry-stat__label">year the first sharecropping contracts were written — within two years of emancipation</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">Illegal</div><div class="entry-stat__label">debt peonage under federal law — enforced anyway for 80 years</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Within two years of emancipation, the plantation economy had restructured itself. The mechanism was debt. Freedpeople, released from slavery with nothing — no land, no tools, no savings — had no economic alternative but to work the same land, for the same people, now as "free" laborers. The sharecropping contract gave them a share of the crop; the plantation store gave them credit for food, tools, and supplies at prices the planter set; and the annual settlement — where accounts were reconciled — produced a number that almost always showed the sharecropper still in debt.</p>
+              <p><strong>The debt was not incidental. It was the mechanism.</strong> Planters controlled both the credit terms and the accounting. There was no independent verification. A sharecropper who disputed the numbers had no legal recourse and faced potential violence. A sharecropper who tried to leave before the debt was settled could be arrested under state peonage statutes for breach of contract — or, if those were unavailable, for vagrancy. Federal law had prohibited debt peonage since 1867. The Justice Department occasionally prosecuted cases. The system persisted into the 1940s.</p>
+              <p>What changed between slavery and sharecropping: the legal form of the relationship. What didn't change: who worked the land, who extracted the surplus, what the annual accounting produced, and what happened if you tried to leave. The plantation class retained its land, its labor, and its economic power. The formerly enslaved retained the right to call themselves free — and the debt that made freedom economically meaningless.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">📋</div><div class="entry-feature__label">The Contract</div><div class="entry-feature__desc">Sharecroppers received 1/3 to 1/2 of crop value. Planters set prices, kept books, and determined the settlement.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🏪</div><div class="entry-feature__label">The Company Store</div><div class="entry-feature__desc">Supplies purchased on credit at planter-set prices. Debt accumulated before the first harvest.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🔒</div><div class="entry-feature__label">Peonage</div><div class="entry-feature__desc">Leaving while in debt = arrest for fraud. Federal law prohibited this. States enforced it anyway.</div></div>
+            </div>
+          </article>
+
+          <!-- ENTRY 4 -->
+          <article class="entry-item reveal" id="entry-convict">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates">1865–1942 — Southern United States</div>
+                <h2 class="entry-item__name">Convict Leasing: The Corporate Form of Re-Enslavement</h2>
+                <div class="entry-item__location">US Steel · Tennessee Coal and Iron · Southern Railway · State Penitentiaries</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">$1.2M</div><div class="entry-stat__label">earned by Alabama leasing convicts to US Steel and TCI — in 1898 alone</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">40%</div><div class="entry-stat__label">annual death rate in some Alabama coal mines using convict labor</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1942</div><div class="entry-stat__label">year the last formal state convict leasing program ended — Mississippi</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>While sharecropping restructured agricultural slavery, convict leasing industrialized it. Southern states, using the 13th Amendment's "punishment for crime" exception, arrested Black men under Black Code statutes — vagrancy, loitering, breach of contract — and leased them to corporations. The state received a per-head annual fee. The corporation received labor with no wages, no rights, and no limit on working conditions. The convict received nothing except, if he survived, release at the end of his sentence.</p>
+              <p>The corporations using convict labor were not marginal operations. <strong>Tennessee Coal and Iron — a subsidiary of US Steel — used convict labor in its Alabama mines into the 20th century.</strong> Southern Railway built track with leased convicts. Lumber and turpentine companies operated camps where men worked in conditions Douglas Blackmon, in his Pulitzer Prize–winning account, documented as indistinguishable from antebellum slavery: chains, whipping, starvation rations, and death rates that would have been economically catastrophic if the laborers had been property rather than rented prisoners.</p>
+              <p>The political economy was identical to slavery — the main difference being that the state, not the individual planter, captured the lease revenue. Alabama was earning over $1 million per year leasing convicts to US Steel by 1898. <strong>The incentive structure was explicit: arrest more Black men, generate more revenue, fund state government with their forced labor.</strong> The system was not ended by moral pressure. It was ended in 1942, largely because the federal government needed Black soldiers and industrial workers for World War II, and convict leasing was a recruitment problem.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">US Steel's Role</div>
+              <p class="consequence-box__text">US Steel — one of the foundational corporations of American industrial capitalism, founded by J.P. Morgan in 1901 — used the labor of convict-leased Black men in its Alabama operations. <strong>The steel that built American infrastructure was partly produced by men who were legally enslaved under the 13th Amendment's exception, arrested on manufactured charges, and leased to the corporation for annual fees paid to the State of Alabama.</strong> This is not a fringe history. It is the documented operational history of one of America's largest corporations.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ERA III -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era III · Industrial Exclusion: Building the White Middle Class, 1900–1965</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 5 -->
+          <article class="entry-item reveal" id="entry-unions">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates">1881–1955 — United States</div>
+                <h2 class="entry-item__name">Union Exclusion: The Labor Movement Built the White Middle Class</h2>
+                <div class="entry-item__location">American Federation of Labor · New Deal Labor Protections · Craft Union Exclusion</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">1881</div><div class="entry-stat__label">AFL founded — its craft unions used constitutional clauses and "tacit consent" to exclude Black workers</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1935</div><div class="entry-stat__label">National Labor Relations Act — excluded agricultural and domestic workers (Black-majority occupations)</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">~80%</div><div class="entry-stat__label">of AFL unions had explicit or de facto racial bars in 1930</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The rise of the organized labor movement in the 20th century is rightly celebrated as one of the most significant improvements in American working-class life. Union membership drove wages up, established the 40-hour week, created workplace safety standards, and built the foundation of the American middle class. That middle class was constructed, by deliberate design, as a white middle class.</p>
+              <p>The American Federation of Labor, founded in 1881, allowed its member unions to set their own membership rules. The result was systematic: electricians, plumbers, carpenters, machinists — the skilled trades that commanded high wages — used explicit racial bars, grandfather clauses (membership passed through family), and apprenticeship programs controlled by existing (white) members to exclude Black workers from the unions that controlled access to the jobs. <strong>By 1930, approximately 80% of AFL-affiliated unions either formally excluded Black members or segregated them into separate, lower-tier locals.</strong></p>
+              <p>The New Deal made this structural. The 1935 National Labor Relations Act — which gave workers the legal right to organize and required employers to bargain — explicitly excluded agricultural workers and domestic servants from its protections. These were the two occupations where the overwhelming majority of Black workers in the South were employed. The exclusion was deliberate: Southern Democrats would not support any New Deal legislation that placed Black and white workers on equal legal footing.</p>
+              <p>The consequence was a divergence that defines the racial wealth gap today. White workers entered the industrial economy with union protections, negotiated wages, pensions, and health benefits. Black workers were confined to the unprotected sector: lower wages, no benefits, no collective bargaining rights, first to be laid off in downturns.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The AFL's racial exclusion was not incidental to its success. The ability to restrict entry to the trade — to create a labor monopoly — was precisely what gave craft unions their wage-setting power. Black exclusion was the mechanism, not the side effect."</p>
+              <p class="pull-quote__attribution">— Paul D. Moreno, <em>Black Americans and Organized Labor</em>, 2006</p>
+            </div>
+          </article>
+
+          <!-- ENTRY 6 -->
+          <article class="entry-item reveal" id="entry-gi-bill">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates">1944–1956 — United States</div>
+                <h2 class="entry-item__name">The GI Bill: $95 Billion in Wealth Creation, Mostly for White Americans</h2>
+                <div class="entry-item__location">Servicemen's Readjustment Act of 1944 · State Administration · Racial Exclusion</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">$95B</div><div class="entry-stat__label">total GI Bill benefits paid — the largest wealth-building program in US history</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">0 of 67K</div><div class="entry-stat__label">GI Bill home mortgages in Mississippi went to Black veterans</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">95%</div><div class="entry-stat__label">of suburbs built under GI Bill financing were closed to Black families by deed restriction</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The GI Bill — the Servicemen's Readjustment Act of 1944 — is the single most consequential wealth-building program in American history. It sent 8 million veterans to college on federal grants. It provided low-interest mortgages that created the American suburb. It funded small-business loans and vocational training. Economists estimate it generated returns of $5–12 for every dollar spent. It built the American middle class of the postwar generation.</p>
+              <p>For Black veterans — 1.2 million of whom served in World War II — it was administered to fail. The bill itself was race-neutral on its face. The implementation was delegated to state and local institutions, which were not. Southern states administered GI Bill benefits through Jim Crow institutions: segregated VA hospitals, segregated universities, banks and mortgage lenders that refused to extend GI Bill loans to Black applicants, and real estate agents bound by deed restrictions that excluded Black families from the suburbs the GI Bill was building.</p>
+              <p>The numbers document the exclusion precisely. In Mississippi, 3,229 GI Bill home and business loans were made to white veterans in 1947. <strong>Two went to Black veterans.</strong> In the suburbs of New York and New Jersey — built with FHA and GI Bill financing — Levittown's original deeds explicitly prohibited non-white residents. 95% of the homes built under federal mortgage programs between 1934 and 1968 were in racially restricted developments closed to Black buyers.</p>
+              <p>The result: a generation of white Americans built equity in homes that appreciated for 30 years, funded by federal subsidies denied to Black Americans who were forced to rent in redlined neighborhoods where no such equity was possible. That single program — correctly and completely applied — would have effectively closed the racial wealth gap. Incorrectly and incompletely applied, it widened it by a generation.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Compounding Math</div>
+              <p class="consequence-box__text">A home purchased for $8,000 in 1948 with a GI Bill mortgage in a suburban development was worth approximately $200,000 by 2000. That appreciation — compounded through inheritance, home equity loans, and intergenerational wealth transfer — is the foundation of white middle-class wealth today. <strong>Black veterans who were denied those mortgages had no equivalent asset. Their children inherited no equity. The wealth gap didn't open here — but here is where it was institutionally locked in for two generations.</strong></p>
+            </div>
+          </article>
+
+          <!-- ENTRY 7 -->
+          <article class="entry-item reveal" id="entry-redlining">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates">1934–1968 — United States</div>
+                <h2 class="entry-item__name">Redlining: The Federal Government Codified the Racial Wealth Gap Into the Housing Market</h2>
+                <div class="entry-item__location">Federal Housing Administration · Home Owners' Loan Corporation · HOLC "Security" Maps</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">98%</div><div class="entry-stat__label">of FHA-backed mortgages between 1934–1962 went to white borrowers</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">239</div><div class="entry-stat__label">cities where HOLC drew redlined maps classifying Black neighborhoods as investment risks</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">$212K</div><div class="entry-stat__label">estimated average wealth loss per Black family from redlining and its downstream effects</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In 1934, the federal government created the Federal Housing Administration to make homeownership accessible to Americans through government-backed mortgages. In the same years, the Home Owners' Loan Corporation drew color-coded maps of 239 American cities rating neighborhoods by investment risk. Neighborhoods colored red — "hazardous" — were systematically Black. The maps' explicit criteria: "infiltration of Negroes" was listed as a factor that lowered a neighborhood's rating.</p>
+              <p>Banks used the HOLC maps to determine mortgage eligibility. <strong>A Black family in a redlined neighborhood could not get a federally backed mortgage regardless of their income, credit history, or the physical condition of the property.</strong> A white family in a "green" neighborhood received subsidized mortgage rates that made ownership straightforward. The result was a federal mandate: white Americans build wealth through homeownership; Black Americans rent and build none.</p>
+              <p>The Fair Housing Act of 1968 formally prohibited redlining. By then, two generations of white American homeownership had compounded — and two generations of Black American families had been locked into rental housing in disinvested neighborhoods where schools underfunded, businesses fled, and health outcomes deteriorated. The maps were formally retired. The neighborhoods they created persisted.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">🗺️</div><div class="entry-feature__label">239 Cities Mapped</div><div class="entry-feature__desc">HOLC drew explicit racial risk maps. "Negro infiltration" listed as a hazard factor in federal documents.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🏦</div><div class="entry-feature__label">Federal Backing</div><div class="entry-feature__desc">FHA insured the mortgages — making the racial exclusion a federal program, not just private discrimination.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">📈</div><div class="entry-feature__label">The Compounding</div><div class="entry-feature__desc">Home equity appreciates. Inheritance compounds. 34 years of exclusion became 2 generations of wealth gap.</div></div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ERA IV -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era IV · Predatory Capitalism: Extracting From the Excluded, 1970–Present</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 8 -->
+          <article class="entry-item reveal" id="entry-subprime">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">08</div>
+              <div>
+                <div class="entry-item__dates">1990s–2008 — United States</div>
+                <h2 class="entry-item__name">Subprime: Wall Street Came to Extract What Redlining Had Excluded</h2>
+                <div class="entry-item__location">Predatory Lending · The 2008 Financial Crisis · $190 Billion Stripped</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">$190B</div><div class="entry-stat__label">wealth stripped from Black homeowners in the 2008 financial crisis</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">53%</div><div class="entry-stat__label">of Black borrowers with qualifying credit were sold subprime loans — vs. 18% of white borrowers</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">2×</div><div class="entry-stat__label">Black foreclosure rate compared to white during 2008 crisis</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In the 1990s and 2000s, a new financial logic arrived in the same neighborhoods redlining had disinvested for 50 years: predatory lending. Banks and mortgage brokers — operating under the Community Reinvestment Act's requirements to serve previously excluded communities — discovered that Black neighborhoods were not unprofitable. They were an extraction opportunity that had been left untapped.</p>
+              <p>The mechanism was the subprime mortgage: higher interest rates, adjustable-rate structures, balloon payments, prepayment penalties, and terms designed to generate maximum fee revenue while obscuring the true cost of borrowing. A 2006 Federal Reserve study found that <strong>53% of Black borrowers who qualified for prime loans were sold subprime loans instead — compared to 18% of similarly qualified white borrowers.</strong> The difference was not creditworthiness. It was race, and the assumption that Black borrowers were less likely to comparison-shop or detect the worse terms.</p>
+              <p>When the subprime market collapsed in 2008, Black homeowners — who had been sold the most exploitative products — lost their homes at twice the rate of white homeowners. The Institute on Assets and Social Policy estimated that Black families lost approximately $190 billion in wealth in the crisis. The same neighborhoods that had been excluded from wealth-building for 50 years under redlining were then entered, stripped, and abandoned by Wall Street in the space of a decade. <strong>Redlining excluded Black families from the wealth-building phase of American homeownership. Subprime extracted what little equity they had managed to accumulate despite it.</strong></p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Reverse Wealth Machine</div>
+              <p class="consequence-box__text">From 1934 to 1968: redlining excluded Black families from federally-backed mortgage wealth. From the 1990s to 2008: predatory lending extracted from the same zip codes. <strong>The American housing market functioned as a reverse wealth machine for Black families: locked out during the appreciation phase, targeted for exploitation during the credit boom, foreclosed during the crash. Each phase documented, each phase predictable, each phase producing the same result: Black wealth transferred to white institutions.</strong></p>
+            </div>
+          </article>
+
+          <!-- ENTRY 9 -->
+          <article class="entry-item reveal" id="entry-prison-labor">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">09</div>
+              <div>
+                <div class="entry-item__dates">Present Day</div>
+                <h2 class="entry-item__name">Prison Labor: The 13th Amendment's Exception, Still Running</h2>
+                <div class="entry-item__location">Federal Prison Industries · State Prison Labor Programs · Corporate Contracts</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">$0.23</div><div class="entry-stat__label">average hourly wage for prison labor in the US — federally legal under the 13th Amendment</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">$11B</div><div class="entry-stat__label">estimated annual value of prison labor in the US economy</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">40%</div><div class="entry-stat__label">of US prison labor is Black workers — in a country where Black people are 13% of the population</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The 13th Amendment's exception clause — "except as a punishment for crime" — has never been repealed. It remains the operative law. In 2024, corporations including McDonald's, Walmart, Whole Foods, Boeing, Victoria's Secret, and hundreds of others use products made or processed by prison labor, paid at rates that range from $0.14 to $1.41 per hour in most states, and as low as $0.00 in seven states that permit unpaid prison labor.</p>
+              <p>Federal Prison Industries (UNICOR) is a government corporation that employs approximately 17,000 federal prisoners at wages of $0.23–$1.15 per hour, manufacturing goods sold to federal agencies. State prison labor programs operate similarly, often under contracts with private corporations. <strong>The legal architecture is unchanged from convict leasing: the 13th Amendment permits slavery as criminal punishment, and incarcerated people have no labor rights, no minimum wage protections, no right to organize, and no ability to refuse work without losing "good time" credits that affect release dates.</strong></p>
+              <p>The racial composition of prison labor mirrors the racial composition of incarceration: approximately 38–40% Black in a country where Black Americans are 13% of the population. As documented in the mass incarceration thread, this disproportion is not a function of crime rates. It is a function of policing patterns, prosecutorial discretion, and sentencing structures that trace directly to the Black Codes designed to enable this exact outcome. The supply chain from plantation to prison runs without interruption across 400 years. The corporate beneficiaries have changed. The labor source has not.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">🏭</div><div class="entry-feature__label">UNICOR</div><div class="entry-feature__desc">Federal Prison Industries. 17,000 prisoners. $0.23–$1.15/hr. Sells to federal agencies — legally required in some procurement.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🛒</div><div class="entry-feature__label">Corporate Contracts</div><div class="entry-feature__desc">McDonald's, Boeing, Whole Foods, Walmart — all documented users of prison labor supply chains.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">⚖️</div><div class="entry-feature__label">The Legal Basis</div><div class="entry-feature__desc">13th Amendment, 1865. Exception clause: still operative. No minimum wage. No right to refuse. No union.</div></div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ERA V -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era V · The Through-Line: Racial Capitalism</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 10 -->
+          <article class="entry-item reveal" id="entry-racial-capitalism">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">10</div>
+              <div>
+                <div class="entry-item__dates">1619–Present</div>
+                <h2 class="entry-item__name">Racial Capitalism: The System Was Never Broken — It Worked as Designed</h2>
+                <div class="entry-item__location">Cedric Robinson · The Unbroken Chain · Present-Day Wealth Gap</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">$14T</div><div class="entry-stat__label">estimated reparations owed based on unpaid labor, denied wealth-building, and compounded interest</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">8:1</div><div class="entry-stat__label">white-to-Black median household wealth ratio — unchanged in direction for 400 years</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">171 yrs</div><div class="entry-stat__label">projected time to close the racial wealth gap at current rates — if no new extractions occur</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In 1983, scholar Cedric Robinson published <em>Black Marxism</em>, which introduced the concept of "racial capitalism" — the argument that capitalism did not accidentally develop alongside racial hierarchy. Racial hierarchy is how capitalism developed. The extraction of surplus value from enslaved, colonized, and racially subordinated labor was not a pre-capitalist holdover that "real" capitalism would eventually overcome. It was the primitive accumulation that made capitalism possible and the ongoing mechanism that makes it profitable.</p>
+              <p>The thread documented in these ten entries is not a series of separate injustices. It is one continuous system with the following consistent features across 400 years: <strong>a legally structured relationship that extracts maximum labor from Black workers at minimum or zero cost; a political system that maintains that relationship against the interests of those it exploits; and an ideological apparatus that reframes each iteration as something other than what it is.</strong></p>
+              <p>Slavery was called property law. Convict leasing was called criminal justice. Sharecropping was called free labor. Union exclusion was called membership criteria. Redlining was called credit risk assessment. Subprime lending was called financial inclusion. Prison labor is called rehabilitation. Each name obscures the same underlying operation: a system for extracting wealth from Black Americans and transferring it to white institutions.</p>
+              <p>The racial wealth gap — the 8-to-1 ratio of white to Black median household wealth — is not a legacy of past discrimination. It is the current output of a system that has operated continuously since 1619, restructuring its legal form each time the previous form was abolished, but never stopping. At current rates of wealth convergence, economists estimate it would take 171 years to close — assuming the extraction stopped today. It has not stopped.</p>
+            </div>
+            <div class="ledger-box">
+              <div class="ledger-box__title">The Unbroken Ledger: 400 Years of Extraction</div>
+              <div class="ledger-row"><span class="ledger-row__label">1619–1865: Unpaid enslaved labor (246 years)</span><span class="ledger-row__value">$14T+ estimated</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">1865–1940: Sharecropping and debt peonage</span><span class="ledger-row__value">Unquantified billions</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">1865–1942: Convict leasing revenue to states</span><span class="ledger-row__value">$100M+ (1860s dollars)</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">1934–1968: Redlining — denied mortgage equity</span><span class="ledger-row__value">$212K avg. per family</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">1944–1956: GI Bill exclusion</span><span class="ledger-row__value">$95B program, 2% to Black vets</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">2000–2008: Subprime wealth extraction</span><span class="ledger-row__value">$190B stripped</span></div>
+              <div class="ledger-row"><span class="ledger-row__label">Present day: Prison labor (annual)</span><span class="ledger-row__value">$11B/year</span></div>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"Capitalism was not the great alternative to slavery. Capitalism was the reason slavery took the form it did — and the reason it did not, in any functional sense, end."</p>
+              <p class="pull-quote__attribution">— Cedric Robinson, <em>Black Marxism: The Making of the Black Radical Tradition</em>, 1983</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CAUSAL CHAIN -->
+        <div class="chain-connector reveal" role="complementary" aria-label="Causal chain">
+          <h2 class="chain-connector__title">The Unbroken Chain: One System, Eight Legal Forms</h2>
+          <div class="chain-steps">
+            <div class="chain-step">
+              <div class="chain-step__dot">1</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1619–1865</div>
+                <div class="chain-step__title">Chattel slavery</div>
+                <div class="chain-step__desc">Legal form: property law. Mechanism: total ownership of body and labor. Abolished by: 13th Amendment — with an exception clause.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">2</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1865–1942</div>
+                <div class="chain-step__title">Convict leasing</div>
+                <div class="chain-step__desc">Legal form: 13th Amendment exception + Black Codes. Mechanism: arrest on manufactured charges, lease to corporations. Ended by: World War II labor needs.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">3</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1865–1940s</div>
+                <div class="chain-step__title">Sharecropping and debt peonage</div>
+                <div class="chain-step__desc">Legal form: contract law + state peonage statutes. Mechanism: structurally unpayable debt tied to inability to leave. Nominally ended by: WWII economic disruption and Great Migration.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">4</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1881–1955</div>
+                <div class="chain-step__title">Union exclusion</div>
+                <div class="chain-step__desc">Legal form: private membership rules + NLRA exclusions. Mechanism: locked Black workers out of wage-protected industrial economy while white workers built middle-class wealth.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">5</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1934–1968</div>
+                <div class="chain-step__title">Redlining</div>
+                <div class="chain-step__desc">Legal form: federal mortgage policy. Mechanism: 98% of FHA loans to white borrowers. Two generations of homeownership equity denied. Formally ended by: Fair Housing Act, 1968 — neighborhoods persisted.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">6</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1944–1956</div>
+                <div class="chain-step__title">GI Bill exclusion</div>
+                <div class="chain-step__desc">Legal form: state administration of federal benefits. Mechanism: Jim Crow institutions administered wealth-building program exclusively to white veterans. No corrective legislation followed.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">7</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1990s–2008</div>
+                <div class="chain-step__title">Predatory lending / subprime</div>
+                <div class="chain-step__desc">Legal form: deregulated mortgage market. Mechanism: same zip codes excluded from wealth-building for 40 years targeted for most exploitative financial products. $190B extracted in crash.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">8</div>
+              <div>
+                <div class="chain-step__era">Present Day</div>
+                <div class="chain-step__title">Prison labor</div>
+                <div class="chain-step__desc">Legal form: 13th Amendment exception, unchanged since 1865. Mechanism: $0.23/hr. 40% Black. $11B/year. The same constitutional clause, the same corporate beneficiaries, the same racial composition of the labor force.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="Thread sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">In This Thread</div>
+          <nav aria-label="Thread table of contents">
+            <ul class="sidebar-toc__list">
+              <li><a href="#entry-balance-sheet" class="sidebar-toc__link">01 — Enslaved People as Capital</a></li>
+              <li><a href="#entry-cotton" class="sidebar-toc__link">02 — Cotton Built Both Economies</a></li>
+              <li><a href="#entry-sharecrop" class="sidebar-toc__link">03 — Sharecropping: Debt as Chain</a></li>
+              <li><a href="#entry-convict" class="sidebar-toc__link">04 — Convict Leasing &amp; US Steel</a></li>
+              <li><a href="#entry-unions" class="sidebar-toc__link">05 — Union Exclusion</a></li>
+              <li><a href="#entry-gi-bill" class="sidebar-toc__link">06 — The GI Bill</a></li>
+              <li><a href="#entry-redlining" class="sidebar-toc__link">07 — Redlining</a></li>
+              <li><a href="#entry-subprime" class="sidebar-toc__link">08 — Subprime: $190B Stripped</a></li>
+              <li><a href="#entry-prison-labor" class="sidebar-toc__link">09 — Prison Labor Today</a></li>
+              <li><a href="#entry-racial-capitalism" class="sidebar-toc__link">10 — Racial Capitalism</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Numbers</div>
+          <div class="sidebar-fact__stat">$3.5B</div>
+          <div class="sidebar-fact__label">Value of enslaved people in 1860 — more than all US banks and railroads combined</div>
+          <div class="sidebar-fact__divider"></div>
+          <div class="sidebar-fact__stat">0 of 67K</div>
+          <div class="sidebar-fact__label">GI Bill mortgages in Mississippi that went to Black veterans</div>
+          <div class="sidebar-fact__divider"></div>
+          <div class="sidebar-fact__stat">$190B</div>
+          <div class="sidebar-fact__label">Wealth stripped from Black families in the 2008 subprime crash</div>
+          <div class="sidebar-fact__divider"></div>
+          <div class="sidebar-fact__stat">$0.23</div>
+          <div class="sidebar-fact__label">Average hourly wage for US prison labor — legal under the 13th Amendment today</div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Related Threads</div>
+          <a href="thread-end-of-slavery.html" class="related-thread">
+            <div class="related-thread__num">History Thread</div>
+            <div class="related-thread__title">How Slavery Really Ended</div>
+          </a>
+          <a href="thread-stolen-labor.html" class="related-thread">
+            <div class="related-thread__num">Economics Thread</div>
+            <div class="related-thread__title">Stolen Labor: The Racial Wealth Gap</div>
+          </a>
+          <a href="thread-mass-incarceration.html" class="related-thread">
+            <div class="related-thread__num">Justice Thread</div>
+            <div class="related-thread__title">The 13th: Mass Incarceration</div>
+          </a>
+          <a href="thread-displacement.html" class="related-thread">
+            <div class="related-thread__num">Housing Thread</div>
+            <div class="related-thread__title">The Flooded City: Five Ways Communities Were Taken</div>
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Further Reading</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3)">
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">The Half Has Never Been Told</strong> — Edward Baptist (2014). How slavery was not peripheral but central to American economic development.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">Empire of Cotton</strong> — Sven Beckert (2014). How enslaved cotton labor built the global industrial economy.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">Slavery by Another Name</strong> — Douglas Blackmon (2008). Convict leasing and debt peonage from 1865 to 1940.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">Black Marxism</strong> — Cedric Robinson (1983). The theoretical foundation of racial capitalism as a concept.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">The Color of Law</strong> — Richard Rothstein (2017). How the federal government explicitly built racial segregation into the housing market.</li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</main>
+
+<section class="thread-bottom-cta" aria-labelledby="ctaTitle">
+  <div class="container">
+    <div class="thread-bottom-cta__eyebrow">The Chain Continues</div>
+    <h2 class="thread-bottom-cta__title" id="ctaTitle">Eight legal forms. One continuous system.</h2>
+    <p class="thread-bottom-cta__sub">Slavery. Convict leasing. Sharecropping. Redlining. Subprime. Prison labor. The extraction didn't stop — it restructured. Follow the other threads.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="thread-stolen-labor.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Next: The Wealth Gap →</a>
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="index.html" class="site-footer__wordmark" aria-label="Chain — Home">Chain</a>
+        <p class="site-footer__tagline">Understand the chain, not just the event.</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="threads.html" class="site-footer__link">Threads</a>
+        <a href="explore.html" class="site-footer__link">Explore</a>
+        <a href="maps.html" class="site-footer__link">Maps</a>
+        <a href="about.html" class="site-footer__link">About</a>
+        <a href="sources.html" class="site-footer__link">Sources</a>
+        <a href="donate.html" class="site-footer__link">Donate</a>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">All claims in this thread are sourced. See <a href="sources.html" class="site-footer__link">Sources</a> for full citations.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggleBtn=document.getElementById('themeToggle');
+  var moonIcon=toggleBtn?toggleBtn.querySelector('.icon-moon'):null;
+  var sunIcons=toggleBtn?toggleBtn.querySelectorAll('.icon-sun'):[];
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);if(moonIcon)moonIcon.style.display=t==='dark'?'none':'';sunIcons.forEach(function(el){el.style.display=t==='dark'?'':'none'})}
+  applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  if(toggleBtn)toggleBtn.addEventListener('click',function(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')});
+  var menuBtn=document.getElementById('mobileMenuToggle'),closeBtn=document.getElementById('mobileClose'),mobileNav=document.getElementById('mobileNav'),backdrop=document.getElementById('mobileBackdrop');
+  function openNav(){mobileNav.classList.add('is-open');mobileNav.setAttribute('aria-hidden','false');menuBtn&&menuBtn.setAttribute('aria-expanded','true')}
+  function closeNav(){mobileNav.classList.remove('is-open');mobileNav.setAttribute('aria-hidden','true');menuBtn&&menuBtn.setAttribute('aria-expanded','false')}
+  if(menuBtn)menuBtn.addEventListener('click',openNav);
+  if(closeBtn)closeBtn.addEventListener('click',closeNav);
+  if(backdrop)backdrop.addEventListener('click',closeNav);
+  var searchToggle=document.getElementById('searchToggle'),searchClose=document.getElementById('searchClose'),searchOverlay=document.getElementById('searchOverlay'),searchInput=document.getElementById('searchInput');
+  if(searchToggle)searchToggle.addEventListener('click',function(){searchOverlay.classList.add('is-open');searchOverlay.setAttribute('aria-hidden','false');searchToggle.setAttribute('aria-expanded','true');if(searchInput)searchInput.focus()});
+  if(searchClose)searchClose.addEventListener('click',function(){searchOverlay.classList.remove('is-open');searchOverlay.setAttribute('aria-hidden','true');searchToggle&&searchToggle.setAttribute('aria-expanded','false')});
+  if('IntersectionObserver' in window){
+    var ro=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');ro.unobserve(e.target)}})},{threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
+  } else {document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('is-visible')})}
+  if('IntersectionObserver' in window){
+    var to=new IntersectionObserver(function(e){e.forEach(function(e){var id=e.target.getAttribute('id');var lk=document.querySelector('.sidebar-toc__link[href="#'+id+'"]');if(lk&&e.isIntersecting){document.querySelectorAll('.sidebar-toc__link').forEach(function(l){l.classList.remove('is-active')});lk.classList.add('is-active')}})},{rootMargin:'-10% 0px -80% 0px'});
+    document.querySelectorAll('.entry-item[id]').forEach(function(el){to.observe(el)});
+  }
+  var lb=document.getElementById('listenBtn'),ll=document.getElementById('listenLabel'),li=document.getElementById('listenIcon'),pb=document.getElementById('listenProgressBar'),pf=document.getElementById('listenProgressFill');
+  if(lb&&'speechSynthesis' in window){
+    var ci=0,ip=false;
+    function gc(){var t=document.getElementById('main-content').innerText,w=t.split(/\s+/),c=[],s=40;for(var i=0;i<w.length;i+=s)c.push(w.slice(i,i+s).join(' '));return c}
+    function ui(s){ip=s==='playing';lb.setAttribute('data-state',s);ll.textContent=s==='playing'?'Pause':s==='paused'?'Resume':'Listen';li.innerHTML=s==='playing'?'<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>':'<polygon points="5 3 19 12 5 21 5 3"/>';pb.classList.toggle('is-visible',s!=='idle')}
+    function pf2(idx){var c=gc();if(idx>=c.length){ui('idle');pf.style.width='0%';return}ci=idx;var u=new SpeechSynthesisUtterance(c[idx]);u.rate=0.97;u.onend=function(){pf.style.width=((ci+1)/c.length*100)+'%';pf2(ci+1)};u.onerror=function(){ui('idle')};window.speechSynthesis.speak(u);pf.style.width=(idx/c.length*100)+'%'}
+    lb.addEventListener('click',function(){if(!ip){if(window.speechSynthesis.paused){window.speechSynthesis.resume();ui('playing')}else{window.speechSynthesis.cancel();ui('playing');pf2(ci)}}else{window.speechSynthesis.pause();ui('paused')}});
+  } else if(lb)lb.style.display='none';
+})();
+</script>
+</body>
+</html>
