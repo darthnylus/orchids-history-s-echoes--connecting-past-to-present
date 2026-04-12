@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built by Black Hands: The Inventors America Erased — Thread — Chain</title>
+  <meta name="description" content="Granville Woods. Lewis Howard Latimer. Jan Matzeliger. Madam C.J. Walker. Garrett Morgan. Black inventors didn't just contribute to American industry — they defined it. Then were systematically uncredited for it." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent color: electric blue / cyan — #67e8f9 / #22d3ee */
+    .thread-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative; overflow: hidden;
+    }
+    .thread-hero__bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 50%, rgba(34,211,238,.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 90% 20%, rgba(99,102,241,.10) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 50% 100%, rgba(16,185,129,.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .thread-hero__inner { position: relative; max-width: 760px; }
+    .thread-hero__kicker {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(34,211,238,.10); border: 1px solid rgba(34,211,238,.25);
+      border-radius: 999px; padding: var(--space-1) var(--space-4);
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: #a5f3fc; margin-bottom: var(--space-6);
+    }
+    .thread-hero__kicker-dot { width:6px; height:6px; border-radius:50%; background:#22d3ee; }
+    .thread-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 900; color: #fff; line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: var(--space-6);
+    }
+    .thread-hero__title em { color: #a5f3fc; font-style: normal; }
+    .thread-hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem); color: var(--ink-300);
+      line-height: 1.7; max-width: 640px; margin-bottom: var(--space-8);
+    }
+    .thread-hero__meta { display: flex; gap: var(--space-6); flex-wrap: wrap; align-items: flex-end; }
+    .thread-meta-item__label { font-size: var(--type-xs); color: var(--ink-500); text-transform: uppercase; letter-spacing: var(--tracking-wide); margin-bottom: 2px; }
+    .thread-meta-item__value { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: var(--ink-200); }
+
+    .listen-btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: var(--space-2) var(--space-4); border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06);
+      color: var(--ink-300); font-size: var(--type-xs); font-weight: var(--weight-semibold);
+      font-family: inherit; cursor: pointer; transition: all var(--duration-fast);
+      margin-left: auto; white-space: nowrap; align-self: flex-end;
+    }
+    .listen-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+    .listen-btn[data-state="playing"] { background: rgba(34,211,238,.2); border-color: rgba(34,211,238,.4); color: #a5f3fc; }
+    .listen-progress-bar { height:3px; background:rgba(255,255,255,.08); display:none; }
+    .listen-progress-bar.is-visible { display:block; }
+    .listen-progress-bar__fill { height:100%; background:#22d3ee; width:0%; transition:width 0.5s linear; }
+
+    .argument-bar {
+      background: rgba(34,211,238,.06);
+      border-top: 1px solid rgba(34,211,238,.14);
+      border-bottom: 1px solid rgba(34,211,238,.14);
+      padding: var(--space-5) 0;
+    }
+    .argument-bar__inner { display: flex; align-items: flex-start; gap: var(--space-5); }
+    .argument-bar__icon { width:36px; height:36px; flex-shrink:0; background:rgba(34,211,238,.15); border-radius:50%; display:grid; place-items:center; margin-top:2px; }
+    .argument-bar__label { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:#67e8f9; margin-bottom:var(--space-1); }
+    .argument-bar__text { font-size:var(--type-md); color:var(--ink-200); line-height:1.65; max-width:820px; }
+    .argument-bar__text strong { color:#fff; }
+
+    .thread-body { padding: var(--space-14) 0; }
+    .thread-layout { display:grid; grid-template-columns:1fr; gap:var(--space-10); align-items:start; }
+    @media (min-width:1024px) { .thread-layout { grid-template-columns:1fr 300px; gap:var(--space-12); } }
+
+    .era-divider {
+      display: flex; align-items: center; gap: var(--space-4);
+      margin: var(--space-10) 0 var(--space-4);
+    }
+    .era-divider__line { flex:1; height:1px; background:var(--color-border); }
+    .era-divider__badge {
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: #22d3ee; background: rgba(34,211,238,.10);
+      border: 1px solid rgba(34,211,238,.22);
+      border-radius: 999px; padding: 3px var(--space-4);
+      white-space: nowrap;
+    }
+
+    .entry-list { display:flex; flex-direction:column; gap:0; }
+    .entry-item { scroll-margin-top:80px; padding:var(--space-10) 0; border-bottom:1px solid var(--color-border); }
+    .entry-item:last-of-type { border-bottom:none; }
+    .entry-item__header { display:grid; grid-template-columns:56px 1fr; gap:var(--space-5); align-items:start; margin-bottom:var(--space-6); }
+    .entry-item__num { width:56px; height:56px; border-radius:var(--radius-lg); display:grid; place-items:center; flex-shrink:0; font-family:var(--font-editorial); font-size:1.375rem; font-weight:900; background:rgba(34,211,238,.10); border:1px solid rgba(34,211,238,.22); color:#a5f3fc; }
+    .entry-item__dates { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:#67e8f9; margin-bottom:var(--space-1); }
+    .entry-item__name { font-family:var(--font-editorial); font-size:clamp(1.375rem,3vw,1.875rem); font-weight:900; color:var(--color-text-primary); line-height:1.15; margin-bottom:var(--space-1); }
+    .entry-item__location { font-size:var(--type-sm); color:var(--color-text-tertiary); }
+
+    .entry-stats { display:flex; gap:var(--space-5); flex-wrap:wrap; padding:var(--space-4) var(--space-5); background:var(--color-surface); border-radius:var(--radius-lg); border:1px solid var(--color-border); margin-bottom:var(--space-6); }
+    .entry-stat__num { font-family:var(--font-editorial); font-size:1.25rem; font-weight:var(--weight-bold); color:#22d3ee; line-height:1; margin-bottom:2px; }
+    .entry-stat__label { font-size:0.7rem; text-transform:uppercase; letter-spacing:var(--tracking-wide); color:var(--color-text-tertiary); }
+
+    .entry-item__body { font-size:var(--type-md); color:var(--color-text-secondary); line-height:var(--leading-loose); margin-bottom:var(--space-6); }
+    .entry-item__body p { margin-bottom:var(--space-4); }
+    .entry-item__body p:last-child { margin-bottom:0; }
+    .entry-item__body strong { color:var(--color-text-primary); font-weight:var(--weight-semibold); }
+
+    .entry-features { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin-bottom:var(--space-6); }
+    @media (min-width:640px) { .entry-features { grid-template-columns:repeat(3,1fr); } }
+    .entry-feature { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:var(--space-4); }
+    .entry-feature__icon { font-size:1.25rem; margin-bottom:var(--space-2); line-height:1; }
+    .entry-feature__label { font-size:var(--type-xs); font-weight:var(--weight-semibold); color:var(--color-text-primary); margin-bottom:2px; }
+    .entry-feature__desc { font-size:0.72rem; color:var(--color-text-tertiary); line-height:1.5; }
+
+    .consequence-box { border:1px solid rgba(34,211,238,.20); border-left:3px solid #22d3ee; background:rgba(34,211,238,.04); border-radius:0 var(--radius-lg) var(--radius-lg) 0; padding:var(--space-5) var(--space-6); margin-bottom:var(--space-5); }
+    [data-theme="dark"] .consequence-box { background:rgba(34,211,238,.07); }
+    .consequence-box__label { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:#22d3ee; margin-bottom:var(--space-2); }
+    .consequence-box__text { font-size:var(--type-sm); color:var(--color-text-secondary); line-height:1.65; }
+    .consequence-box__text strong { color:var(--color-text-primary); }
+
+    .pull-quote { border-left:3px solid #22d3ee; padding:var(--space-4) var(--space-6); margin:var(--space-7) 0; }
+    .pull-quote__text { font-family:var(--font-editorial); font-size:clamp(1.125rem,2.5vw,1.375rem); font-style:italic; color:var(--color-text-primary); line-height:1.55; margin-bottom:var(--space-3); }
+    .pull-quote__attribution { font-size:var(--type-xs); font-weight:var(--weight-semibold); text-transform:uppercase; letter-spacing:var(--tracking-wider); color:#22d3ee; }
+
+    .chain-connector { background:var(--ink-900); border-radius:var(--radius-xl); padding:var(--space-8); margin:var(--space-12) 0; }
+    .chain-connector__title { font-family:var(--font-editorial); font-size:1.25rem; font-weight:var(--weight-bold); color:#fff; margin-bottom:var(--space-6); }
+    .chain-steps { display:flex; flex-direction:column; gap:0; position:relative; }
+    .chain-step { display:grid; grid-template-columns:32px 1fr; gap:var(--space-4); align-items:start; padding-bottom:var(--space-5); position:relative; }
+    .chain-step:last-child { padding-bottom:0; }
+    .chain-step__line { position:absolute; left:15px; top:32px; bottom:0; width:2px; background:linear-gradient(to bottom,rgba(34,211,238,.5),rgba(34,211,238,.1)); }
+    .chain-step:last-child .chain-step__line { display:none; }
+    .chain-step__dot { width:32px; height:32px; border-radius:50%; border:2px solid #22d3ee; background:rgba(34,211,238,.15); color:#22d3ee; font-size:0.7rem; font-weight:var(--weight-bold); display:grid; place-items:center; flex-shrink:0; position:relative; z-index:1; }
+    .chain-step__era { font-size:0.68rem; font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:#22d3ee; margin-bottom:2px; }
+    .chain-step__title { font-size:var(--type-sm); font-weight:var(--weight-semibold); color:#fff; margin-bottom:3px; }
+    .chain-step__desc { font-size:var(--type-xs); color:var(--ink-400); line-height:1.6; }
+
+    .sidebar { display:flex; flex-direction:column; gap:var(--space-5); }
+    .sidebar-card { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-xl); padding:var(--space-5); }
+    [data-theme="dark"] .sidebar-card { background:var(--ink-800); border-color:var(--ink-700); }
+    .sidebar-card__title { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--color-text-tertiary); margin-bottom:var(--space-4); padding-bottom:var(--space-3); border-bottom:1px solid var(--color-border); }
+    .sidebar-toc__list { list-style:none; display:flex; flex-direction:column; gap:1px; }
+    .sidebar-toc__link { display:block; font-size:var(--type-xs); color:var(--color-text-secondary); padding:5px var(--space-3); border-radius:var(--radius-md); transition:all var(--duration-fast); text-decoration:none; line-height:1.3; }
+    .sidebar-toc__link:hover { background:var(--color-surface-raised); color:var(--color-text-primary); }
+    .sidebar-toc__link.is-active { background:rgba(34,211,238,.10); color:#22d3ee; font-weight:var(--weight-semibold); }
+    .sidebar-fact__stat { font-family:var(--font-editorial); font-size:2rem; font-weight:900; color:#22d3ee; line-height:1; margin-bottom:var(--space-1); }
+    .sidebar-fact__label { font-size:var(--type-xs); color:var(--color-text-secondary); line-height:1.5; }
+    .sidebar-fact__divider { height:1px; background:var(--color-border); margin:var(--space-4) 0; }
+    .related-thread { display:flex; flex-direction:column; gap:var(--space-1); padding:var(--space-3) 0; border-bottom:1px solid var(--color-border); text-decoration:none; }
+    .related-thread:last-child { border-bottom:none; padding-bottom:0; }
+    .related-thread__num { font-size:0.68rem; font-weight:var(--weight-bold); text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text-tertiary); }
+    .related-thread__title { font-size:var(--type-sm); font-weight:var(--weight-semibold); color:var(--color-text-primary); line-height:1.35; }
+    .related-thread:hover .related-thread__title { color:#22d3ee; }
+
+    .thread-bottom-cta { background:var(--ink-900); padding:var(--space-16) 0; text-align:center; }
+    .thread-bottom-cta__eyebrow { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:#a5f3fc; margin-bottom:var(--space-4); }
+    .thread-bottom-cta__title { font-family:var(--font-editorial); font-size:clamp(1.75rem,4vw,2.75rem); font-weight:900; color:#fff; line-height:1.15; margin-bottom:var(--space-5); max-width:600px; margin-left:auto; margin-right:auto; }
+    .thread-bottom-cta__sub { font-size:var(--type-md); color:var(--ink-400); max-width:520px; margin:0 auto var(--space-8); line-height:1.65; }
+    .thread-bottom-cta__btns { display:flex; gap:var(--space-3); justify-content:center; flex-wrap:wrap; }
+    .thread-bottom-cta__btn { display:inline-flex; align-items:center; gap:var(--space-2); padding:var(--space-3) var(--space-7); border-radius:999px; font-size:var(--type-sm); font-weight:var(--weight-semibold); text-decoration:none; transition:all var(--duration-fast); }
+    .thread-bottom-cta__btn--primary { background:#0891b2; color:#fff; }
+    .thread-bottom-cta__btn--primary:hover { background:#0e7490; }
+    .thread-bottom-cta__btn--secondary { background:transparent; color:var(--ink-300); border:1px solid rgba(255,255,255,.15); }
+    .thread-bottom-cta__btn--secondary:hover { background:rgba(255,255,255,.06); color:#fff; }
+
+    [data-theme="dark"] .entry-stats { background:var(--ink-800); border-color:var(--ink-700); }
+    [data-theme="dark"] .entry-feature { background:var(--ink-800); border-color:var(--ink-700); }
+    .reveal { opacity:0; transform:translateY(14px); transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity:1; transform:none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Inventors Thread:</strong> Built by Black Hands — the inventions that powered modern America, and the erasure that followed.</p>
+    <nav class="utility-bar__links">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html" class="site-nav__link">Explore</a>
+      <a href="threads.html" class="site-nav__link" aria-current="page">Threads</a>
+      <a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html" class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off"/>
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Try searching</p>
+      <a href="search.html?q=Granville+Woods" class="search-hint-chip">Granville Woods</a>
+      <a href="search.html?q=Lewis+Latimer" class="search-hint-chip">Lewis Howard Latimer</a>
+      <a href="search.html?q=Garrett+Morgan" class="search-hint-chip">Garrett Morgan</a>
+    </div>
+  </div>
+</div>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html" class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html" class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html" class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+      <li><a href="about.html" class="mobile-nav__link">About</a></li>
+      <li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
+        Innovation Thread · 1821–Present
+      </div>
+      <h1 class="thread-hero__title" id="heroTitle">
+        <em>Built by Black Hands:</em><br>
+        The Inventors America Erased
+      </h1>
+      <p class="thread-hero__subtitle">
+        The traffic light. The carbon filament in Edison's bulb. The modern shoe-lasting machine. The gas mask. The automatic lubricator that made steam locomotives run. The blood bank. Fiber optics. The modern home security system. A Black inventor built all of it — and was written out of the story every time. This thread covers 20 Black inventors from 1821 to the present, the patents they held, the companies that bought or stole their work, and why their names are not in the history books.
+      </p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Period</div>
+          <div class="thread-meta-item__value">1821 – Present</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Inventors Profiled</div>
+          <div class="thread-meta-item__value">20 inventors, 50+ patents</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Industries Changed</div>
+          <div class="thread-meta-item__value">Rail, medicine, electricity, safety</div>
+        </div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span id="listenLabel">Listen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true">
+    <div class="listen-progress-bar__fill" id="listenProgressFill"></div>
+  </div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text">
+          <strong>The myth that Black Americans did not contribute to science and technology is not an accident — it was manufactured.</strong> Between Reconstruction and the Great Depression, Black inventors filed hundreds of patents, built entire industries, and solved problems that stumped white engineers. Then a pattern repeated: their patents were purchased for a fraction of their value, their names were removed from the products they built, and the history books credited someone else. When a Black inventor did succeed — Madam C.J. Walker becoming America's first female self-made millionaire — the story was minimized. The erasure wasn't just personal injustice. It was economic extraction: take the innovation, remove the innovator, and deny the community the generational wealth that invention creates.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+        <div class="entry-list">
+
+          <!-- ERA 1: ANTEBELLUM & RECONSTRUCTION -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <span class="era-divider__badge">Era I · Antebellum &amp; Reconstruction · 1821–1883</span>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <!-- 01: THOMAS JENNINGS -->
+          <article class="entry-item reveal" id="entry-jennings">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates">1821</div>
+                <h2 class="entry-item__name">Thomas L. Jennings</h2>
+                <div class="entry-item__location">New York City, NY · First Black American to hold a U.S. patent</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1821</div>
+                <div class="entry-stat__label">Year of patent</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1st</div>
+                <div class="entry-stat__label">Black American patent holder</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">$</div>
+                <div class="entry-stat__label">Used profits to buy family's freedom</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Thomas Jennings was a free Black tailor in New York City who, in 1821, became <strong>the first African American to receive a United States patent</strong> — for a dry-cleaning process he called "dry scouring." At the time, most Black people in America were legally property, barred from owning anything, including their inventions. Jennings was a rare exception: a free man in New York operating a successful tailoring business.</p>
+              <p>The patent law of the time excluded enslaved people from filing patents because they couldn't enter into legal contracts — the government explicitly acknowledged the contradiction and allowed it to stand for nearly 40 more years. Jennings used the income from his dry-scouring business to purchase the freedom of his wife and children from slavery. His daughter, Elizabeth Jennings Graham, would later be at the center of a landmark civil rights case in 1854 — <strong>she was forcibly removed from a New York City streetcar, sued the transit company, and won</strong>, establishing the desegregation of New York public transit a full century before Rosa Parks.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The erasure</div>
+              <p class="consequence-box__text">Jennings appears in almost no standard history of American invention. His name was largely unknown until the late 20th century. The Smithsonian's early records of "firsts in American invention" did not include him. <strong>The first Black patent holder in U.S. history had to be rediscovered.</strong></p>
+            </div>
+          </article>
+
+          <!-- 02: NORBERT RILLIEUX -->
+          <article class="entry-item reveal" id="entry-rillieux">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">1843</div>
+                <h2 class="entry-item__name">Norbert Rillieux</h2>
+                <div class="entry-item__location">New Orleans, LA · Transformed the sugar refining industry</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1846</div>
+                <div class="entry-stat__label">U.S. patent granted</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">80%</div>
+                <div class="entry-stat__label">Reduction in refining cost</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Global</div>
+                <div class="entry-stat__label">Adopted worldwide within decades</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Norbert Rillieux was a free Creole man born in New Orleans, educated as an engineer in Paris, and responsible for <strong>one of the most economically significant industrial inventions of the 19th century</strong> — the multiple-effect evaporator, which revolutionized sugar refining. Before Rillieux's invention, refining sugar was an extremely dangerous and inefficient process that required enslaved workers to ladle boiling cane juice between open kettles. His vacuum-evaporation system replaced this with a closed, steam-heated process that was simultaneously <strong>safer, faster, and 80% cheaper</strong>.</p>
+              <p>The invention was adopted across Louisiana sugar plantations, then Cuba, Mexico, and Europe. Charles A. Brown, the Smithsonian's chief food technologist, later called it "the greatest invention in the history of American chemical engineering." Yet Rillieux returned to France in 1854, driven out by Louisiana's tightening Black Code laws that restricted the movement of free people of color. He spent his later decades in Paris, where he published Egyptological research and died in relative obscurity.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The legacy</div>
+              <p class="consequence-box__text">Every industrial evaporation process in the modern world — from sugar to pharmaceuticals to chemical production — descends from Rillieux's multiple-effect evaporator. <strong>The inventor who transformed the global food industry left America because America made it illegal for him to exist freely within it.</strong></p>
+            </div>
+          </article>
+
+          <!-- 03: ELIJAH McCOY -->
+          <article class="entry-item reveal" id="entry-mccoy">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">1872</div>
+                <h2 class="entry-item__name">Elijah McCoy</h2>
+                <div class="entry-item__location">Ypsilanti, MI · "The Real McCoy" of railroad engineering</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">57</div>
+                <div class="entry-stat__label">Patents held over his lifetime</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1872</div>
+                <div class="entry-stat__label">Automatic lubricator patented</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">$</div>
+                <div class="entry-stat__label">Died nearly penniless, 1929</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Elijah McCoy was born in Canada to parents who had escaped slavery via the Underground Railroad. He trained as a mechanical engineer in Scotland, returned to the United States after the Civil War, and could find only one job: <strong>oiling locomotive engines by hand</strong> for the Michigan Central Railroad. It was beneath his qualification. He used the time to solve the problem himself.</p>
+              <p>Steam locomotives of the 1870s had to stop completely every few miles so workers could manually lubricate the moving parts. McCoy invented an automatic lubricating cup that distributed oil continuously while the engine ran. The device worked so well that rail companies across the country adopted it — <strong>and competitors began making imitation devices that didn't work as reliably</strong>. Railroad engineers started specifically requesting McCoy's version, reportedly asking for "the real McCoy." The phrase entered the language. Elijah McCoy's name did not make it into standard history books for another hundred years.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🚂</div>
+                <div class="entry-feature__label">Lubricating Cup</div>
+                <div class="entry-feature__desc">1872 — Allowed continuous lubrication without stopping trains; transformed railroad efficiency</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">⚙️</div>
+                <div class="entry-feature__label">Graphite Lubricator</div>
+                <div class="entry-feature__desc">1915 — Adapted for "superheater" locomotives running at higher temperatures</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🌡️</div>
+                <div class="entry-feature__label">Steam Dome</div>
+                <div class="entry-feature__desc">Further innovations in steam regulation that remained in use for decades</div>
+              </div>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The phrase without the man</div>
+              <p class="consequence-box__text">"The real McCoy" is one of the most commonly used idioms in the English language. The man it came from held 57 patents, built the technology that allowed American railroads to run efficiently, and <strong>died in a poorhouse in 1929 after a car accident depleted his savings</strong>. No major railroad company paid tribute. His name was added to the National Inventors Hall of Fame in 2001 — 72 years after his death.</p>
+            </div>
+          </article>
+
+          <!-- 04: JAN ERNST MATZELIGER -->
+          <article class="entry-item reveal" id="entry-matzeliger">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates">1883</div>
+                <h2 class="entry-item__name">Jan Ernst Matzeliger</h2>
+                <div class="entry-item__location">Lynn, MA · Invented the modern shoe-lasting machine</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">150%</div>
+                <div class="entry-stat__label">Increase in shoe production</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">50%</div>
+                <div class="entry-stat__label">Drop in shoe prices for Americans</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">$</div>
+                <div class="entry-stat__label">Sold patent for $15K; company worth millions</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Jan Ernst Matzeliger emigrated from Suriname to Massachusetts and found work in a shoe factory in Lynn — at the time the shoe capital of the world. The most difficult part of shoemaking was "lasting": attaching the leather upper to the sole by hand. Skilled lasters earned high wages and were considered irreplaceable. Matzeliger, working alone in his boarding room with almost no resources, <strong>spent five years building a machine that could last a shoe automatically</strong>. Patent examiners sent an agent to his workshop in disbelief. The agent confirmed it worked.</p>
+              <p>His 1883 patent transformed the American shoe industry. Production doubled, then tripled. Shoe prices dropped by half, putting shoes within reach of working-class Americans for the first time. The company that bought his patent — United Shoe Machinery Company — became one of the largest corporations in the United States. Matzeliger received $15,000 in shares. He died of tuberculosis in 1889 at age 37, having never collected the full value of his invention.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"He was sickly and poor, he was colored, and he had nothing to fall back on — and yet he made a machine that no one else in the world had been able to make."</p>
+              <p class="pull-quote__attribution">— Contemporary account, Lynn, MA, 1883</p>
+            </div>
+          </article>
+
+          <!-- ERA 2: GILDED AGE & JIM CROW -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <span class="era-divider__badge">Era II · Gilded Age &amp; Jim Crow · 1884–1920</span>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <!-- 05: GRANVILLE WOODS -->
+          <article class="entry-item reveal" id="entry-woods">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates">1884–1907</div>
+                <h2 class="entry-item__name">Granville T. Woods</h2>
+                <div class="entry-item__location">Columbus, OH · "The Black Edison"</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">60+</div>
+                <div class="entry-stat__label">Patents in his lifetime</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">2x</div>
+                <div class="entry-stat__label">Defeated Edison in patent court</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">$</div>
+                <div class="entry-stat__label">Sold patents to GE, died penniless, 1910</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Granville Woods was a self-taught engineer who became one of the most prolific inventors in American history — holding over 60 patents in electrical engineering, railway systems, and telecommunications. His most important invention, the "Induction Telegraph" (1887), allowed moving trains to communicate with stations and with each other using electromagnetic induction. <strong>Before this invention, train conductors had no way to know if another train was on the same track ahead of them.</strong> The Induction Telegraph directly reduced rail collisions.</p>
+              <p>Thomas Edison challenged Woods in court twice, claiming prior invention. Woods won both cases. Edison then offered to bring Woods into the Edison Company as a partner; Woods declined. He sold patents individually to General Electric, Westinghouse, and the American Bell Telephone Company — each time receiving a fraction of what the patents earned those companies. He invented the third rail system used by electric railways and subways, a version of which still powers the New York City subway. He died in 1910 in New York City, penniless.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🚇</div>
+                <div class="entry-feature__label">Third Rail System</div>
+                <div class="entry-feature__desc">Foundational technology for electric railways and subway systems including the NYC MTA</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📡</div>
+                <div class="entry-feature__label">Induction Telegraph</div>
+                <div class="entry-feature__desc">1887 — Allowed train-to-station communication, preventing deadly collisions</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">⚡</div>
+                <div class="entry-feature__label">Electric Railway Conduit</div>
+                <div class="entry-feature__desc">Improved underground power delivery systems for urban transit networks</div>
+              </div>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">Who got the credit</div>
+              <p class="consequence-box__text">General Electric and Westinghouse built billion-dollar companies in part on patents they purchased from Granville Woods. Edison's name defines the era of electrical invention in American popular history. <strong>Woods — who defeated Edison in patent court — is barely taught in schools.</strong> His third rail technology runs under New York City every day.</p>
+            </div>
+          </article>
+
+          <!-- 06: LEWIS HOWARD LATIMER -->
+          <article class="entry-item reveal" id="entry-latimer">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates">1882</div>
+                <h2 class="entry-item__name">Lewis Howard Latimer</h2>
+                <div class="entry-item__location">Chelsea, MA · Made the light bulb last</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1882</div>
+                <div class="entry-stat__label">Carbon filament patent</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Hours</div>
+                <div class="entry-stat__label">Edison's bulb lasted without Latimer's fix</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Years</div>
+                <div class="entry-stat__label">Latimer's filament lasted; made bulbs viable</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Lewis Howard Latimer was born to parents who had escaped slavery from Virginia. He taught himself drafting by sneaking looks at books in the Boston law office where he worked as an office boy. By the time he was an adult, he was among the finest draftsmen in the country — he drafted the patent drawings for Alexander Graham Bell's telephone application in 1876. But his most significant contribution came in electrical engineering.</p>
+              <p>Thomas Edison's original light bulb used a carbonized paper filament that burned out within hours. <strong>Latimer invented a carbon filament made from a cotton thread process that lasted significantly longer</strong>, patented in 1882. Without a practical filament, electric lighting was a laboratory curiosity, not a commercial product. Latimer's invention made the light bulb viable for widespread use. He supervised the installation of electric light systems in New York, Philadelphia, Montreal, and London, and later joined Edison's company — where he was the only Black member of the elite "Edison Pioneers."</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"We create the world we live in. If we do not make it beautiful, it will not be beautiful."</p>
+              <p class="pull-quote__attribution">— Lewis Howard Latimer</p>
+            </div>
+          </article>
+
+          <!-- 07: SARAH BOONE -->
+          <article class="entry-item reveal" id="entry-boone">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates">1892</div>
+                <h2 class="entry-item__name">Sarah Boone</h2>
+                <div class="entry-item__location">New Haven, CT · Redesigned the ironing board</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1892</div>
+                <div class="entry-stat__label">Patent granted</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">2nd</div>
+                <div class="entry-stat__label">Black woman to receive a U.S. patent</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">130+</div>
+                <div class="entry-stat__label">Years later, her design is still the standard</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Sarah Boone was born into slavery in Craven County, North Carolina. She was freed after the Civil War, moved to New Haven, Connecticut, and became a dressmaker. In 1892, she became one of the first Black women to hold a United States patent — for an improved design of the ironing board.</p>
+              <p>Before Boone's innovation, ironing boards were flat, wide planks that made it difficult to iron the curved sleeves and the narrow bodies of women's dresses without wrinkling them further. <strong>Boone's design narrowed and curved the board to follow the shape of a sleeve, and made it reversible so both sides of a garment could be pressed smoothly.</strong> The adjustable, narrowed ironing board that every home in America uses today descends directly from Sarah Boone's 1892 patent. Her name is not on it.</p>
+            </div>
+          </article>
+
+          <!-- 08: GARRETT MORGAN -->
+          <article class="entry-item reveal" id="entry-morgan">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">08</div>
+              <div>
+                <div class="entry-item__dates">1914–1923</div>
+                <h2 class="entry-item__name">Garrett A. Morgan</h2>
+                <div class="entry-item__location">Cleveland, OH · Invented the gas mask and traffic signal</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1914</div>
+                <div class="entry-stat__label">Safety hood (gas mask) patented</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1923</div>
+                <div class="entry-stat__label">Traffic signal patented; sold to GE</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">32</div>
+                <div class="entry-stat__label">Workers rescued using his gas mask, 1916</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Garrett Morgan was a self-taught inventor who solved two of the most deadly problems of his era: gas exposure and traffic collisions. In 1914, he patented the "safety hood" — a device that filtered toxic fumes so that a wearer could breathe in smoke-filled spaces. In 1916, an explosion trapped 32 workers deep inside a tunnel under Lake Erie in Cleveland. <strong>Morgan put on his own device and personally led rescue teams into the tunnel, saving all 32 workers.</strong> The story made national news — until newspapers discovered he was Black. Several papers rewrote the story to credit white rescuers.</p>
+              <p>Morgan sold the safety hood patent to the U.S. Army, which used it as the basis for gas masks in World War I. He then invented a three-position traffic signal in 1923 — adding an intermediate "warning" position between stop and go — the foundational design of every traffic light in the world. He sold that patent to General Electric for $40,000. <strong>The modern traffic light generates hundreds of billions of dollars in economic activity. Morgan received $40,000 and eventually went blind.</strong></p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">😷</div>
+                <div class="entry-feature__label">Safety Hood</div>
+                <div class="entry-feature__desc">1914 — Direct ancestor of the modern gas mask; used in WWI by the U.S. Army</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🚦</div>
+                <div class="entry-feature__label">Traffic Signal</div>
+                <div class="entry-feature__desc">1923 — Three-position design still used globally; sold to GE for $40,000</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🏆</div>
+                <div class="entry-feature__label">Cleveland Rescue</div>
+                <div class="entry-feature__desc">1916 — Personally led tunnel rescue of 32 trapped workers using his own invention</div>
+              </div>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The story that was rewritten</div>
+              <p class="consequence-box__text">When reporters discovered Morgan was Black, multiple newspapers rewrote the Cleveland rescue story to give credit to white rescue workers who arrived after Morgan had already done the work. <strong>This was not exceptional. It was standard practice.</strong> The Southern states refused to buy his gas mask after learning its inventor was Black, even as their firefighters died without it.</p>
+            </div>
+          </article>
+
+          <!-- 09: MADAM C.J. WALKER -->
+          <article class="entry-item reveal" id="entry-walker">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">09</div>
+              <div>
+                <div class="entry-item__dates">1905–1919</div>
+                <h2 class="entry-item__name">Madam C.J. Walker</h2>
+                <div class="entry-item__location">Denver, CO → Indianapolis, IN · First female self-made millionaire in America</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">$1M+</div>
+                <div class="entry-stat__label">Net worth at death (1919)</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">40,000</div>
+                <div class="entry-stat__label">Sales agents employed nationwide</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1st</div>
+                <div class="entry-stat__label">Female self-made millionaire in the U.S.</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Sarah Breedlove — known as Madam C.J. Walker — was born in 1867 on a Louisiana cotton plantation to parents who had just been freed. Both parents died when she was seven. She was married at 14, widowed at 20, and a laundress in St. Louis earning $1.50 a day. By 1919, she was <strong>the first self-made female millionaire in American history</strong> — of any race.</p>
+              <p>Walker developed a line of hair care products specifically for Black women, using a heated metal comb she designed and a proprietary formula she developed after suffering from scalp disease caused by harsh chemicals. She built a distribution network of 40,000 Black women sales agents across the United States — <strong>creating an economic infrastructure during Jim Crow that gave Black women an income independent of white employers</strong>. Her Indianapolis headquarters employed hundreds. She lobbied President Woodrow Wilson personally to make lynching a federal crime. He refused. She donated to the NAACP anyway.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"I am not merely satisfied in making money for myself. I endeavor to provide employment for hundreds of women of my race."</p>
+              <p class="pull-quote__attribution">— Madam C.J. Walker, 1912</p>
+            </div>
+          </article>
+
+          <!-- ERA 3: HARLEM RENAISSANCE & MID-CENTURY -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <span class="era-divider__badge">Era III · Harlem Renaissance &amp; Mid-Century · 1920–1965</span>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <!-- 10: CHARLES DREW -->
+          <article class="entry-item reveal" id="entry-drew">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">10</div>
+              <div>
+                <div class="entry-item__dates">1940</div>
+                <h2 class="entry-item__name">Dr. Charles R. Drew</h2>
+                <div class="entry-item__location">Washington, D.C. · Invented the blood bank</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1940</div>
+                <div class="entry-stat__label">Blood bank system developed</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Millions</div>
+                <div class="entry-stat__label">Lives saved by blood transfusion worldwide</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1941</div>
+                <div class="entry-stat__label">Resigned after Army ordered segregated blood</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Charles Drew was a physician and medical researcher who developed the first large-scale blood bank and the techniques for processing and preserving blood plasma that are still in use today. As the United States entered World War II, Drew was appointed director of the first major American Red Cross blood bank — <strong>the "Blood for Britain" project</strong> — which collected plasma for Allied troops. He then designed and ran the U.S. Army and Navy blood bank programs.</p>
+              <p>In 1941, the American Red Cross ordered that blood donations from Black and white donors be labeled and stored separately, so that white soldiers would not receive blood from Black donors. Drew — the man who invented the blood bank — resigned in protest. The science was clear: <strong>there is no racial difference in blood</strong>. The policy was pure Jim Crow, applied to battlefield medicine. The policy remained in effect until 1950. Drew died in 1950 in a car accident in North Carolina; some accounts suggest he was refused treatment at a white hospital, though this is disputed.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The segregated blood</div>
+              <p class="consequence-box__text">The man who invented the system for storing blood was forced out of the institution that used his system because that institution decided his blood was inferior. <strong>The American Red Cross acknowledged in 1942 that the policy was based on "no scientific basis" — and kept it anyway.</strong> It took a direct order from the Secretary of War to end it in 1950.</p>
+            </div>
+          </article>
+
+          <!-- 11: ALICE BALL -->
+          <article class="entry-item reveal" id="entry-ball">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">11</div>
+              <div>
+                <div class="entry-item__dates">1915</div>
+                <h2 class="entry-item__name">Alice Augusta Ball</h2>
+                <div class="entry-item__location">Honolulu, HI · Found the cure for leprosy — then had it stolen</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">23</div>
+                <div class="entry-stat__label">Age when she developed the treatment</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1st</div>
+                <div class="entry-stat__label">Black person &amp; woman to graduate from U of Hawaii with an M.S.</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1922</div>
+                <div class="entry-stat__label">Year her work was finally attributed to her, by a colleague</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Alice Ball was 23 years old when she developed the first effective treatment for leprosy (Hansen's disease) — an injectable extract of chaulmoogra oil that, for the first time, allowed patients to be released from isolation hospitals and live normal lives. She was the first Black person and the first woman to earn a Master's degree from the University of Hawaii. She died in 1916 at age 24.</p>
+              <p><strong>The University of Hawaii's president Arthur Dean then published her research under his own name</strong>, calling it the "Dean Method." Dean used the treatment for years without crediting Ball. It was not until 1922 that a colleague, Dr. Harry Hollmann, published a paper acknowledging that Ball had developed the technique. The University of Hawaii did not officially honor her until 2000 — <strong>84 years after her death</strong>. The state of Hawaii declared February 29 "Alice Ball Day" in 2000.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The stolen cure</div>
+              <p class="consequence-box__text">Alice Ball solved a disease that had been incurable for all of human history. She was 23. She died before she could publish. Her university president put his name on her work. <strong>For decades, leprosy patients around the world were healed by a treatment called "the Dean Method."</strong> The man who stole it bore no penalty. The woman who created it was forgotten for 84 years.</p>
+            </div>
+          </article>
+
+          <!-- 12: PERCY JULIAN -->
+          <article class="entry-item reveal" id="entry-julian">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">12</div>
+              <div>
+                <div class="entry-item__dates">1935–1953</div>
+                <h2 class="entry-item__name">Percy Lavon Julian</h2>
+                <div class="entry-item__location">Chicago, IL · Made cortisone affordable — and was bombed for it</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">130+</div>
+                <div class="entry-stat__label">Patents held</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1948</div>
+                <div class="entry-stat__label">Synthesized cortisone from soy — cut cost by 95%</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">2x</div>
+                <div class="entry-stat__label">His home was firebombed after he moved to Oak Park</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Percy Julian was one of the most important chemists of the 20th century. A grandson of Alabama slaves, he became the first Black person to earn a Ph.D. in chemistry from the University of Vienna in 1931. He synthesized physostigmine from the calabar bean — ending the threat of blindness from glaucoma for millions of people. He then synthesized progesterone and testosterone from soy sterols, which eventually led to the development of synthetic cortisone. <strong>Before Julian's process, cortisone cost $200 per drop. His synthesis from soybean oil made it affordable for mass use</strong>, transforming treatment for arthritis and immune disorders.</p>
+              <p>In 1950, Percy Julian moved his family into a house in Oak Park, Illinois — a white suburb of Chicago. Two weeks later, his home was bombed. The following year, someone attempted to burn it down while his children slept inside. <strong>No one was ever arrested.</strong> He held 130 patents, was named one of the greatest chemists in American history by the American Chemical Society, and spent a significant portion of his life defending his family from violent white neighbors.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"I have had one goal in my life: to prove that a man can be born in Alabama as a Negro and become a scientist."</p>
+              <p class="pull-quote__attribution">— Percy Lavon Julian</p>
+            </div>
+          </article>
+
+          <!-- 13: CHARLES SPURGEON JOHNSON / KATHERINE JOHNSON -->
+          <article class="entry-item reveal" id="entry-kjohnson">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">13</div>
+              <div>
+                <div class="entry-item__dates">1953–1986</div>
+                <h2 class="entry-item__name">Katherine Johnson</h2>
+                <div class="entry-item__location">Hampton, VA · Calculated the trajectories that sent Americans to the Moon</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1962</div>
+                <div class="entry-stat__label">John Glenn refused to fly until she checked the computer's math</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Apollo 11</div>
+                <div class="entry-stat__label">Moon landing trajectory calculations</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">2015</div>
+                <div class="entry-stat__label">Presidential Medal of Freedom — 53 years after the Glenn flight</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Katherine Johnson was a mathematician who joined NASA's predecessor, NACA, in 1953 — assigned to the pool of Black women "computers" who performed calculations by hand. She quickly distinguished herself as exceptional. When NASA began using electronic computers in the early 1960s, astronaut John Glenn insisted that Johnson personally verify the computer's orbital calculations before he would board Friendship 7. <strong>If she said the numbers were right, he would fly.</strong></p>
+              <p>Johnson calculated the trajectory for the first American crewed spaceflight (Alan Shepard, 1961), John Glenn's orbital mission (1962), the Apollo 11 Moon landing (1969), and the emergency return trajectory for Apollo 13 (1970). She worked at NASA for 33 years and was critical to the success of every major American space mission of the 20th century. Her work was classified for decades. She was not publicly credited by NASA until the 2015 release of the book (and subsequent film) <em>Hidden Figures</em>. She received the Presidential Medal of Freedom in 2015. She was 97 years old.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">Hidden by design</div>
+              <p class="consequence-box__text">The West Computing Group — the segregated unit of Black women mathematicians at NASA — was essential to the U.S. space program. They were paid less than their white counterparts, forced to use separate bathrooms, and their contributions were systematically unattributed. <strong>John Glenn trusted Katherine Johnson's math more than the machines. NASA's public communications never mentioned her name.</strong></p>
+            </div>
+          </article>
+
+          <!-- ERA 4: CIVIL RIGHTS ERA & BEYOND -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <span class="era-divider__badge">Era IV · Civil Rights Era &amp; Beyond · 1965–Present</span>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <!-- 14: LONNIE JOHNSON -->
+          <article class="entry-item reveal" id="entry-ljohnson">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">14</div>
+              <div>
+                <div class="entry-item__dates">1982–Present</div>
+                <h2 class="entry-item__name">Lonnie G. Johnson</h2>
+                <div class="entry-item__location">Atlanta, GA · NASA engineer who invented the Super Soaker</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">$1B+</div>
+                <div class="entry-stat__label">Super Soaker lifetime sales</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">80+</div>
+                <div class="entry-stat__label">Patents held</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">$73M</div>
+                <div class="entry-stat__label">Jury award from Hasbro for underpaid royalties (2013)</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Lonnie Johnson earned a degree in mechanical engineering from Tuskegee University, worked as a nuclear engineer in the U.S. Air Force, and then joined NASA's Jet Propulsion Laboratory, where he worked on the Galileo mission to Jupiter and the Mars Observer project. In his home laboratory in 1982, while experimenting with an environmentally friendly heat pump that used water instead of freon, <strong>he accidentally shot a stream of water across his bathroom and thought: that would make a great water gun</strong>.</p>
+              <p>The Super Soaker became one of the best-selling toys in American history, generating over $1 billion in sales. Johnson licensed it to Hasbro — and then spent years in litigation after Hasbro underpaid his royalties. A jury awarded him $73 million in 2013. He used the proceeds to fund Johnson Research and Development, which is working on a next-generation battery (the Johnson Thermo-Electrochemical Converter) that could potentially triple the energy density of current lithium-ion batteries.</p>
+            </div>
+          </article>
+
+          <!-- 15: MARK DEAN -->
+          <article class="entry-item reveal" id="entry-dean">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">15</div>
+              <div>
+                <div class="entry-item__dates">1984–1999</div>
+                <h2 class="entry-item__name">Dr. Mark E. Dean</h2>
+                <div class="entry-item__location">Jefferson City, TN / IBM Research · Built the modern personal computer</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">3</div>
+                <div class="entry-stat__label">Of IBM's original 9 PC patents are his</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1999</div>
+                <div class="entry-stat__label">Led team that built first 1 GHz chip</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1st</div>
+                <div class="entry-stat__label">Black IBM Fellow (1996)</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Mark Dean co-invented the ISA bus — the Industry Standard Architecture system that allowed peripheral devices like printers, monitors, and keyboards to communicate with a computer's processor. <strong>Without the ISA bus, there is no personal computer as we know it.</strong> He holds three of the nine original patents on the IBM PC. He also led the team that developed the first 1 gigahertz computer chip in 1999, breaking a milestone that had been considered years away.</p>
+              <p>Dean became the first Black IBM Fellow — the company's highest technical honor — in 1996. He later became a computer science professor at the University of Tennessee. He noted in a 2011 essay that he had moved on from personal computers to tablets: "When I helped design the PC, I didn't think I'd live long enough to witness its decline." His name is almost never included in popular histories of the personal computer revolution.</p>
+            </div>
+          </article>
+
+          <!-- 16: PATRICIA BATH -->
+          <article class="entry-item reveal" id="entry-bath">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">16</div>
+              <div>
+                <div class="entry-item__dates">1988</div>
+                <h2 class="entry-item__name">Dr. Patricia E. Bath</h2>
+                <div class="entry-item__location">Harlem, NY · Restored sight to the blind — first Black female doctor to hold a medical patent</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1988</div>
+                <div class="entry-stat__label">Laserphaco Probe patented</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1st</div>
+                <div class="entry-stat__label">Black female physician to receive a medical patent in the U.S.</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Millions</div>
+                <div class="entry-stat__label">Cataract patients who have regained sight using her technique</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Patricia Bath grew up in Harlem and was mentored as a teenager by the same Percy Julian mentioned in this thread. She became an ophthalmologist and, in 1981, co-founded the American Institute for the Prevention of Blindness — based on the principle that <strong>"eyesight is a basic human right."</strong> She observed that Black Americans suffered far higher rates of blindness than white Americans — not from any biological cause, but from lack of access to eye care. She spent her career closing that gap.</p>
+              <p>In 1988, she patented the Laserphaco Probe — a device using laser technology to remove cataracts more precisely and with less trauma than the mechanical tools then in use. The invention allowed patients who had been blind for over 30 years to have their sight restored. Bath was the first Black female physician to receive a medical patent in the United States. Her device is used in surgeries worldwide.</p>
+            </div>
+          </article>
+
+          <!-- 17: JAMES WEST -->
+          <article class="entry-item reveal" id="entry-west">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">17</div>
+              <div>
+                <div class="entry-item__dates">1964–Present</div>
+                <h2 class="entry-item__name">Dr. James E. West</h2>
+                <div class="entry-item__location">Farmville, VA / Bell Labs · Invented the microphone in your phone</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">90%</div>
+                <div class="entry-stat__label">Of microphones worldwide use his foil electret design</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">250+</div>
+                <div class="entry-stat__label">Patents held</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">1964</div>
+                <div class="entry-stat__label">Foil electret microphone patented with Gerhard Sessler</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>James West grew up in Virginia and was warned by his family not to pursue science — it wasn't considered a viable career for a Black man. He ignored the advice, attended Temple University, and joined Bell Laboratories in 1957. In 1964, he and colleague Gerhard Sessler co-invented the foil electret microphone — a small, lightweight, inexpensive condenser microphone that could be mass-produced for almost nothing.</p>
+              <p><strong>The foil electret microphone is now in virtually every device in the world that records or transmits sound.</strong> It is in your smartphone, your laptop, your baby monitor, your hearing aid, your car's hands-free system, and your smoke detector. 90% of the more than one billion microphones manufactured each year use West's design. West holds over 250 patents and is a member of the National Inventors Hall of Fame. He continues to work on acoustic technology at Johns Hopkins University.</p>
+            </div>
+          </article>
+
+          <!-- 18: SHIRLEY ANN JACKSON -->
+          <article class="entry-item reveal" id="entry-jackson">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">18</div>
+              <div>
+                <div class="entry-item__dates">1973–Present</div>
+                <h2 class="entry-item__name">Dr. Shirley Ann Jackson</h2>
+                <div class="entry-item__location">Washington, D.C. / MIT · Theoretical physicist who made modern telecommunications possible</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1st</div>
+                <div class="entry-stat__label">Black woman to earn a Ph.D. from MIT (1973)</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Caller ID</div>
+                <div class="entry-stat__label">Her research enabled caller ID, call waiting, and fiber optic cables</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Touch-Tone</div>
+                <div class="entry-stat__label">Research contributed to the touch-tone telephone</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Shirley Ann Jackson became the first Black woman to earn a doctorate from MIT in 1973 — at a time when she was one of fewer than twenty Black students at the institution, and the only Black woman in the physics program. She conducted research in theoretical physics at Bell Laboratories that contributed directly to <strong>the development of the touch-tone telephone, portable fax machines, caller ID, call waiting, solar cells, and fiber optic cables</strong>.</p>
+              <p>Jackson's research on the properties of electrons at surfaces and interfaces — semiconductor physics — laid the groundwork for the telecommunications infrastructure of the modern world. She later became chair of the U.S. Nuclear Regulatory Commission under President Clinton and is currently president of Rensselaer Polytechnic Institute. Bill Clinton described her as "perhaps the ultimate role model for women in science." Her name is rarely included in standard accounts of the telecommunications revolution.</p>
+            </div>
+          </article>
+
+          <!-- 19: JERRY LAWSON -->
+          <article class="entry-item reveal" id="entry-lawson">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">19</div>
+              <div>
+                <div class="entry-item__dates">1976</div>
+                <h2 class="entry-item__name">Jerry Lawson</h2>
+                <div class="entry-item__location">Queens, NY / Sunnyvale, CA · Invented the video game cartridge</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">1976</div>
+                <div class="entry-stat__label">Fairchild Channel F — first cartridge-based console</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">$200B+</div>
+                <div class="entry-stat__label">Modern video game industry annual revenue</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">Nintendo</div>
+                <div class="entry-stat__label">Atari, Sega, and Nintendo all built on his architecture</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Jerry Lawson was a self-taught engineer who joined Fairchild Semiconductor in the 1970s as one of the only Black engineers in Silicon Valley. Before Lawson, video game consoles were fixed-hardware machines — you bought the console, and the games were hardwired in. You couldn't change them. Lawson designed the Fairchild Channel F in 1976: <strong>the first home video game console with a removable, interchangeable cartridge</strong>. Each cartridge was a self-contained program the machine could read and run.</p>
+              <p>Atari, Nintendo, Sega, and every other console maker that followed adopted the cartridge architecture. The $200+ billion video game industry runs on the concept that Lawson invented. He was the chief hardware engineer at Fairchild and received no royalties from the cartridge format he created. He left the company and founded his own game studio — one of the first Black-owned video game companies in America. He died in 2011. Google honored him with a Doodle in 2022.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The foundation of a $200B industry</div>
+              <p class="consequence-box__text">The concept that you can buy a device and then buy software for it separately — that separation of hardware from software — is the architecture of the entire modern consumer technology industry. Jerry Lawson invented it for video games. <strong>He received no royalties. He received a Google Doodle 11 years after his death.</strong></p>
+            </div>
+          </article>
+
+          <!-- 20: MARIAN CROAK -->
+          <article class="entry-item reveal" id="entry-croak">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">20</div>
+              <div>
+                <div class="entry-item__dates">1998–Present</div>
+                <h2 class="entry-item__name">Dr. Marian R. Croak</h2>
+                <div class="entry-item__location">New York, NY / Google · Invented voice over internet protocol (VoIP)</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">200+</div>
+                <div class="entry-stat__label">Patents held</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">VoIP</div>
+                <div class="entry-stat__label">Her patents underpin Zoom, FaceTime, WhatsApp, Google Meet</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">2022</div>
+                <div class="entry-stat__label">National Inventors Hall of Fame inductee</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Marian Croak holds over 200 patents and is the engineer most responsible for Voice over Internet Protocol (VoIP) — the technology that allows voice and video calls to travel over the internet rather than traditional phone lines. Working at AT&amp;T Bell Labs, she developed the technical foundations for transmitting voice data in digital packets, solving the latency and quality problems that had made early internet voice calls unreliable.</p>
+              <p><strong>Every call you make on Zoom, FaceTime, WhatsApp, Google Meet, or Skype runs on the architecture that Marian Croak built.</strong> The shift from circuit-switched to packet-switched voice communication is one of the most consequential changes in the history of human communication — it moved billions of phone calls from physical infrastructure to software, collapsing the cost to near zero. Croak currently leads responsible AI development at Google. She was inducted into the National Inventors Hall of Fame in 2022 — one of the few inventors in this thread to be recognized while still alive.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The key is to make sure that the people who need technology the most can actually access it."</p>
+              <p class="pull-quote__attribution">— Dr. Marian R. Croak</p>
+            </div>
+          </article>
+
+          <!-- CAUSAL CHAIN -->
+          <div class="chain-connector reveal" role="note" aria-label="Causal chain">
+            <h2 class="chain-connector__title">The Pattern Across 200 Years</h2>
+            <div class="chain-steps">
+              <div class="chain-step">
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__dot" aria-hidden="true">1</div>
+                <div>
+                  <div class="chain-step__era">Invention</div>
+                  <div class="chain-step__title">Black inventor solves a real problem</div>
+                  <div class="chain-step__desc">Often self-taught, working with few resources, in an industry that would not hire them at a professional level. The problem got solved anyway.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__dot" aria-hidden="true">2</div>
+                <div>
+                  <div class="chain-step__era">Extraction</div>
+                  <div class="chain-step__title">Patent purchased at a fraction of its value — or simply stolen</div>
+                  <div class="chain-step__desc">GE bought Granville Woods's patents. Hasbro underpaid Lonnie Johnson for decades. Alice Ball's cure was published under someone else's name. The pattern is consistent.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__dot" aria-hidden="true">3</div>
+                <div>
+                  <div class="chain-step__era">Erasure</div>
+                  <div class="chain-step__title">Name removed from the history of the invention</div>
+                  <div class="chain-step__desc">The "Dean Method." The Edison light bulb without Latimer. The traffic light without Morgan. The blood bank without Drew. The space program without Katherine Johnson.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__dot" aria-hidden="true">4</div>
+                <div>
+                  <div class="chain-step__era">Compounding</div>
+                  <div class="chain-step__title">Wealth stays in white institutions; Black community sees none of the return</div>
+                  <div class="chain-step__desc">The generational wealth that invention creates — companies, royalties, stock, licensing — flowed entirely to the corporations that bought the patents. The inventors died poor.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">5</div>
+                <div>
+                  <div class="chain-step__era">Today</div>
+                  <div class="chain-step__title">The racial wealth gap — and the myth of non-contribution</div>
+                  <div class="chain-step__desc">The narrative that Black Americans "didn't build this country" is not just historically false — it required active effort to construct and maintain. That effort was the erasure itself.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.entry-list -->
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" aria-label="Thread navigation and facts">
+
+          <div class="sidebar-card" id="toc-card">
+            <div class="sidebar-card__title">In This Thread</div>
+            <nav aria-label="Thread table of contents">
+              <ul class="sidebar-toc__list">
+                <li><a class="sidebar-toc__link" href="#entry-jennings">01 · Thomas Jennings — 1821</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-rillieux">02 · Norbert Rillieux — 1843</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-mccoy">03 · Elijah McCoy — 1872</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-matzeliger">04 · Jan Matzeliger — 1883</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-woods">05 · Granville Woods — 1884</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-latimer">06 · Lewis Latimer — 1882</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-boone">07 · Sarah Boone — 1892</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-morgan">08 · Garrett Morgan — 1914</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-walker">09 · Madam C.J. Walker — 1905</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-drew">10 · Charles Drew — 1940</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-ball">11 · Alice Ball — 1915</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-julian">12 · Percy Julian — 1935</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-kjohnson">13 · Katherine Johnson — 1953</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-ljohnson">14 · Lonnie Johnson — 1982</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-dean">15 · Mark Dean — 1984</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-bath">16 · Patricia Bath — 1988</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-west">17 · James West — 1964</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-jackson">18 · Shirley Jackson — 1973</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-lawson">19 · Jerry Lawson — 1976</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-croak">20 · Marian Croak — 1998</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">By the Numbers</div>
+            <div class="sidebar-fact__stat">90%</div>
+            <div class="sidebar-fact__label">Of microphones worldwide use James West's foil electret design — invented in 1964</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">57</div>
+            <div class="sidebar-fact__label">Patents held by Elijah McCoy — the man behind the phrase "the real McCoy." He died in a poorhouse.</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">$40K</div>
+            <div class="sidebar-fact__label">What Garrett Morgan received for the traffic light. GE built a global business on it.</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">84 yrs</div>
+            <div class="sidebar-fact__label">How long it took the University of Hawaii to officially credit Alice Ball for the leprosy cure she developed at age 23</div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Related Threads</div>
+            <a href="thread-abolitionism.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">The Fire Next Time: Black Abolitionists, 1829–1865</span>
+            </a>
+            <a href="thread-african-empires.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">Before the Chain: 7 African Empires</span>
+            </a>
+            <a href="thread-displacement.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">The Flooded City: How Black Neighborhoods Are Erased</span>
+            </a>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Further Reading</div>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);">
+              <strong style="color:var(--color-text-primary);">Hidden Figures</strong> — Margot Lee Shetterly (2016). The West Computing Group at NASA.
+            </p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);">
+              <strong style="color:var(--color-text-primary);">Black Inventors in the Age of Segregation</strong> — Rayvon Fouché (2003). Granville Woods, Lewis Latimer, and Shelby Davidson.
+            </p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);">
+              <strong style="color:var(--color-text-primary);">The Real McCoy</strong> — Wendy Towle (1993). Children's biography; first wide-audience account of Elijah McCoy.
+            </p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;">
+              <strong style="color:var(--color-text-primary);">National Inventors Hall of Fame</strong> — invent.org — profiles for all inventors in this thread.
+            </p>
+          </div>
+
+        </aside>
+      </div><!-- /.thread-layout -->
+    </div><!-- /.container -->
+  </div><!-- /.thread-body -->
+</main>
+
+<!-- BOTTOM CTA -->
+<section class="thread-bottom-cta" aria-labelledby="cta-title">
+  <div class="container">
+    <p class="thread-bottom-cta__eyebrow">The chain continues</p>
+    <h2 class="thread-bottom-cta__title" id="cta-title">They built it. The record erased them. The wealth stayed.</h2>
+    <p class="thread-bottom-cta__sub">These weren't exceptions. This was the system. The same pattern of extraction and erasure that moved wealth from Black hands to white institutions runs through every thread in this archive.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Explore all threads →</a>
+      <a href="maps.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">View Maps &amp; Timelines</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="index.html" class="site-footer__wordmark">Chain</a>
+      <p class="site-footer__tagline">Black history &amp; present-day America. Every consequence has an origin.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Learn</h3>
+        <a href="threads.html" class="site-footer__link">Threads</a>
+        <a href="maps.html" class="site-footer__link">Maps &amp; Timelines</a>
+        <a href="today.html" class="site-footer__link">Today in History</a>
+        <a href="explore.html" class="site-footer__link">Explore</a>
+      </div>
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Site</h3>
+        <a href="about.html" class="site-footer__link">About</a>
+        <a href="sources.html" class="site-footer__link">Sources</a>
+        <a href="teaching.html" class="site-footer__link">Teaching</a>
+        <a href="contact.html" class="site-footer__link">Contact</a>
+      </div>
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Support</h3>
+        <a href="donate.html" class="site-footer__link">Donate</a>
+        <a href="newsletter.html" class="site-footer__link">Newsletter</a>
+      </div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <div class="container site-footer__bottom-inner">
+      <p class="site-footer__legal">Chain is an independent educational archive. All historical claims are sourced.</p>
+      <a href="sources.html" class="site-footer__sources-link">View sources</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon = document.querySelector('.icon-moon');
+  const sunIcons = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    if (t === 'dark') {
+      moonIcon.style.display = 'none';
+      sunIcons.forEach(el => el.style.display = '');
+    } else {
+      moonIcon.style.display = '';
+      sunIcons.forEach(el => el.style.display = 'none');
+    }
+  }
+  applyTheme(localStorage.getItem('chain-theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () => {
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // Mobile nav
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  const mobileBackdrop = document.getElementById('mobileBackdrop');
+  function openMobileNav() { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMobileNav() { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // Search overlay
+  const searchToggle = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose = document.getElementById('searchClose');
+  const searchInput = document.getElementById('searchInput');
+  searchToggle.addEventListener('click', () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchToggle.setAttribute('aria-expanded','true'); setTimeout(() => searchInput.focus(), 50); });
+  searchClose.addEventListener('click', () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); searchToggle.setAttribute('aria-expanded','false'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); } });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); } });
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Sidebar TOC active state
+  const tocLinks = document.querySelectorAll('.sidebar-toc__link');
+  const entryItems = document.querySelectorAll('.entry-item');
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  entryItems.forEach(el => tocObserver.observe(el));
+
+  // Text-to-speech
+  const listenBtn = document.getElementById('listenBtn');
+  const listenLabel = document.getElementById('listenLabel');
+  const listenIcon = document.getElementById('listenIcon');
+  const progressBar = document.getElementById('listenProgressBar');
+  const progressFill = document.getElementById('listenProgressFill');
+  let utterances = [], currentUtterance = 0, speaking = false;
+  const PLAY_SVG = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  const PAUSE_SVG = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  function getTextChunks() {
+    const articles = document.querySelectorAll('.entry-item');
+    const allText = Array.from(articles).map(a => a.innerText).join(' ');
+    const words = allText.split(/\s+/);
+    const chunks = [];
+    for (let i = 0; i < words.length; i += 40) chunks.push(words.slice(i, i + 40).join(' '));
+    return chunks;
+  }
+  function speakChunk(chunks, idx) {
+    if (idx >= chunks.length) { resetListen(); return; }
+    const utt = new SpeechSynthesisUtterance(chunks[idx]);
+    utt.onend = () => { currentUtterance = idx + 1; progressFill.style.width = ((currentUtterance / chunks.length) * 100) + '%'; speakChunk(chunks, currentUtterance); };
+    utt.onerror = () => resetListen();
+    speechSynthesis.speak(utt);
+  }
+  function resetListen() {
+    speaking = false; speechSynthesis.cancel();
+    listenBtn.setAttribute('data-state','idle'); listenLabel.textContent = 'Listen';
+    listenIcon.innerHTML = PLAY_SVG; progressBar.classList.remove('is-visible');
+    progressFill.style.width = '0%'; currentUtterance = 0;
+  }
+  listenBtn.addEventListener('click', () => {
+    if (!speaking) {
+      speaking = true; listenBtn.setAttribute('data-state','playing');
+      listenLabel.textContent = 'Pause'; listenIcon.innerHTML = PAUSE_SVG;
+      progressBar.classList.add('is-visible');
+      const chunks = getTextChunks();
+      speakChunk(chunks, currentUtterance);
+    } else {
+      resetListen();
+    }
+  });
+</script>
+</body>
+</html>
