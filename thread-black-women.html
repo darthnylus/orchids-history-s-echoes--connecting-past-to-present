@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Twice Invisible: Black Women's Labor, Bodies, and Resistance — Thread — Chain</title>
+  <meta name="description" content="Black women built this country twice: once as enslaved labor, and again as the domestic workers, caregivers, and organizers who held the Civil Rights Movement together. Their labor has been systematically underpaid, their bodies systematically exploited, and their contributions systematically erased. This thread is the record." />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: fuchsia — #a21caf / #e879f9 */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(162,28,175,.18) 0%,transparent 70%);pointer-events:none}
+    .thread-hero__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6);position:relative}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#e879f9;margin-bottom:var(--space-5)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#a21caf;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:var(--ink-0);line-height:1.1;max-width:780px;margin-bottom:var(--space-6)}
+    .thread-hero__title em{font-style:italic;color:#e879f9}
+    .thread-hero__deck{font-family:var(--font-ui);font-size:1.05rem;line-height:1.7;color:var(--ink-300);max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta-row{display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center;border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-6)}
+    .thread-hero__meta-item{display:flex;flex-direction:column;gap:2px}
+    .thread-hero__meta-label{font-family:var(--font-ui);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500)}
+    .thread-hero__meta-value{font-family:var(--font-ui);font-size:.9rem;font-weight:500;color:var(--ink-200)}
+    .argument-bar{border-left:3px solid #a21caf;padding:var(--space-5) var(--space-6);margin:var(--space-10) auto;max-width:1100px;background:rgba(162,28,175,.06)}
+    .argument-bar__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6)}
+    .argument-bar__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#a21caf;margin-bottom:var(--space-2)}
+    .argument-bar__text{font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;color:var(--ink-800);line-height:1.6}
+    [data-theme=dark] .argument-bar__text{color:var(--ink-200)}
+    .thread-body{max-width:1100px;margin:0 auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:1fr 280px;gap:var(--space-12);align-items:start}
+    @media(max-width:860px){.thread-body{grid-template-columns:1fr}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-12) 0 var(--space-8)}
+    .era-divider__badge{flex-shrink:0;font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#a21caf;padding:var(--space-1) var(--space-3);border-radius:2px}
+    .era-divider__line{flex:1;height:1px;background:var(--ink-200)}
+    [data-theme=dark] .era-divider__line{background:var(--ink-700)}
+    .era-divider__label{font-family:var(--font-ui);font-size:.8rem;font-weight:600;color:var(--ink-400)}
+    .entry{margin-bottom:var(--space-12);padding-bottom:var(--space-12);border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .entry{border-bottom-color:var(--ink-800)}
+    .entry:last-child{border-bottom:none}
+    .entry__header{display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)}
+    .entry__num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#a21caf;color:#fff;font-family:var(--font-ui);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .entry__meta{display:flex;flex-direction:column;gap:2px}
+    .entry__date{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#a21caf}
+    .entry__title{font-family:var(--font-editorial);font-size:1.35rem;font-weight:700;color:var(--ink-900);line-height:1.2}
+    [data-theme=dark] .entry__title{color:var(--ink-50)}
+    .entry__body{font-family:var(--font-ui);font-size:.97rem;line-height:1.8;color:var(--ink-700);padding-left:52px}
+    [data-theme=dark] .entry__body{color:var(--ink-300)}
+    .entry__body p{margin-bottom:var(--space-4)}
+    .entry__body p:last-child{margin-bottom:0}
+    .stat-highlight{display:inline;font-family:var(--font-editorial);font-size:1.1em;font-weight:700;color:#a21caf}
+    .pull-quote{border-left:3px solid #a21caf;padding:var(--space-4) var(--space-6);margin:var(--space-6) 0;background:var(--ink-50)}
+    [data-theme=dark] .pull-quote{background:var(--ink-800)}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:1.1rem;font-style:italic;line-height:1.6;color:var(--ink-800);margin-bottom:var(--space-2)}
+    [data-theme=dark] .pull-quote__text{color:var(--ink-200)}
+    .pull-quote__attr{font-family:var(--font-ui);font-size:.78rem;font-weight:600;color:var(--ink-400)}
+    /* Exclusion box — what was excluded from */
+    .exclusion-box{background:var(--ink-900);border:1px solid rgba(162,28,175,.35);border-radius:4px;overflow:hidden;margin:var(--space-6) 0}
+    [data-theme=dark] .exclusion-box{background:#0f0013}
+    .exclusion-box__title{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e879f9;padding:var(--space-4) var(--space-5);border-bottom:1px solid rgba(162,28,175,.25)}
+    .exclusion-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,.05)}
+    .exclusion-row:last-child{border-bottom:none}
+    .exclusion-cell{padding:var(--space-3) var(--space-5);font-family:var(--font-ui);font-size:.82rem;line-height:1.5;border-right:1px solid rgba(255,255,255,.05)}
+    .exclusion-cell:last-child{border-right:none}
+    .exclusion-cell--what{color:#e879f9;font-weight:600}
+    .exclusion-cell--effect{color:#d1d5db}
+    .consequence-box{background:rgba(162,28,175,.07);border:1px solid rgba(162,28,175,.2);border-radius:4px;padding:var(--space-5);margin:var(--space-6) 0}
+    .consequence-box__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#a21caf;margin-bottom:var(--space-3)}
+    .consequence-box__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .consequence-box__list li{font-family:var(--font-ui);font-size:.88rem;color:var(--ink-700);padding-left:var(--space-4);position:relative;line-height:1.5}
+    [data-theme=dark] .consequence-box__list li{color:var(--ink-300)}
+    .consequence-box__list li::before{content:'→';position:absolute;left:0;color:#a21caf;font-weight:700}
+    .thread-sidebar{position:sticky;top:var(--space-8)}
+    .sidebar-widget{background:var(--ink-50);border:1px solid var(--ink-100);border-radius:4px;padding:var(--space-5);margin-bottom:var(--space-5)}
+    [data-theme=dark] .sidebar-widget{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-widget__title{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);margin-bottom:var(--space-4)}
+    .toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-1)}
+    .toc-item a{display:block;font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-1) var(--space-2);border-left:2px solid transparent;transition:all .15s}
+    .toc-item a:hover,.toc-item--active a{color:#a21caf;border-left-color:#a21caf;background:rgba(162,28,175,.05)}
+    .related-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .related-list a{font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-2);display:block;border-radius:3px;transition:background .15s}
+    .related-list a:hover{background:var(--ink-100);color:var(--ink-800)}
+    [data-theme=dark] .related-list a:hover{background:var(--ink-700);color:var(--ink-100)}
+    .tts-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--space-2);background:none;border:1px solid var(--ink-200);border-radius:3px;padding:var(--space-3);font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-500);cursor:pointer;transition:all .15s}
+    [data-theme=dark] .tts-btn{border-color:var(--ink-600);color:var(--ink-400)}
+    .tts-btn:hover{border-color:#a21caf;color:#a21caf}
+    .tts-btn svg{flex-shrink:0}
+    .causal-chain{background:var(--ink-900);padding:var(--space-12) var(--space-6);margin:var(--space-16) 0 0}
+    .causal-chain__inner{max-width:1100px;margin:0 auto}
+    .causal-chain__title{font-family:var(--font-editorial);font-size:1.5rem;font-weight:700;color:var(--ink-0);margin-bottom:var(--space-8);text-align:center}
+    .chain-steps{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0}
+    .chain-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-2);flex:0 0 auto}
+    .chain-step__node{width:52px;height:52px;border-radius:50%;border:2px solid #a21caf;background:rgba(162,28,175,.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:.62rem;font-weight:700;color:#e879f9;line-height:1.2;padding:4px;text-align:center}
+    .chain-step__label{font-family:var(--font-ui);font-size:.68rem;color:var(--ink-400);max-width:80px;line-height:1.3}
+    .chain-arrow{color:#a21caf;font-size:1.2rem;padding:0 var(--space-1);align-self:center;padding-bottom:24px}
+    .thread-cta{background:var(--ink-50);border-top:1px solid var(--ink-100);padding:var(--space-12) var(--space-6)}
+    [data-theme=dark] .thread-cta{background:var(--ink-900);border-top-color:var(--ink-800)}
+    .thread-cta__inner{max-width:640px;margin:0 auto;text-align:center}
+    .thread-cta__title{font-family:var(--font-editorial);font-size:1.6rem;font-weight:700;color:var(--ink-900);margin-bottom:var(--space-4)}
+    [data-theme=dark] .thread-cta__title{color:var(--ink-50)}
+    .thread-cta__body{font-family:var(--font-ui);font-size:.95rem;line-height:1.7;color:var(--ink-500);margin-bottom:var(--space-6)}
+    .thread-cta__btn{display:inline-block;background:#a21caf;color:#fff;font-family:var(--font-ui);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:var(--space-3) var(--space-7);border-radius:2px;transition:background .15s}
+    .thread-cta__btn:hover{background:#86198f}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    .site-nav{background:var(--ink-900);border-bottom:1px solid rgba(255,255,255,.07);padding:0 var(--space-6);display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100}
+    .site-nav__logo{font-family:var(--font-editorial);font-size:1.1rem;font-weight:700;color:var(--ink-0);text-decoration:none}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-6)}
+    .site-nav__link{font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-400);text-decoration:none;transition:color .15s}
+    .site-nav__link:hover{color:var(--ink-0)}
+    .site-nav__theme-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:var(--space-1) var(--space-3);font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);cursor:pointer;transition:all .15s}
+    .site-nav__theme-btn:hover{border-color:rgba(255,255,255,.4);color:var(--ink-100)}
+    .site-footer{background:var(--ink-900);border-top:1px solid rgba(255,255,255,.07);padding:var(--space-8) var(--space-6);text-align:center}
+    .site-footer__text{font-family:var(--font-ui);font-size:.8rem;color:var(--ink-500);line-height:1.6}
+    .site-footer__text a{color:var(--ink-400);text-decoration:none}
+    .site-footer__text a:hover{color:var(--ink-200)}
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__logo">Chain</a>
+    <div class="site-nav__links">
+      <a href="threads.html" class="site-nav__link">All threads</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+      <button class="site-nav__theme-btn" id="theme-toggle">Light</button>
+    </div>
+  </nav>
+
+  <header class="thread-hero">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Labor · Body · Resistance</div>
+      <h1 class="thread-hero__title">Twice Invisible: <em>Black Women's Labor, Bodies, and Resistance</em></h1>
+      <p class="thread-hero__deck">Black women built this country twice over — as enslaved labor and as the caregivers, domestics, and organizers who kept everything running after emancipation. Their bodies were exploited by medicine. Their labor was excluded from legal protections written for everyone else. They built the Civil Rights Movement and were pushed out of its public face. This thread is the record they were not given.</p>
+      <div class="thread-hero__meta-row">
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Period</span><span class="thread-hero__meta-value">1619 — Present</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Entries</span><span class="thread-hero__meta-value">9 documented events</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Domain</span><span class="thread-hero__meta-value">Labor · Medicine · Organizing</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Status</span><span class="thread-hero__meta-value">Live</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="argument-bar">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__label">The argument</div>
+      <p class="argument-bar__text">Black women have been excluded from every protection that America built for workers, citizens, and patients — often deliberately. The legal exclusions were not oversights. The Social Security Act excluded domestic workers and farmworkers — the occupations overwhelmingly held by Black women — by the explicit demand of Southern Democratic senators who would not allow legislation that created parity between Black and white labor. These exclusions compound across generations. The story of Black women in America is the story of building everything, owning nothing, and being thanked later, if at all.</p>
+    </div>
+  </div>
+
+  <div class="thread-body">
+    <main id="thread-main">
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 1</span><div class="era-divider__line"></div><span class="era-divider__label">The Body as Property, 1619–1865</span></div>
+
+      <article class="entry reveal" id="entry-1">
+        <div class="entry__header"><div class="entry__num">1</div><div class="entry__meta"><span class="entry__date">1619–1865 — Slavery's Specific Violence Against Women</span><h2 class="entry__title">Enslaved Women Were Breeders, Field Workers, Domestic Laborers, and Rape Victims — With No Legal Recourse</h2></div></div>
+        <div class="entry__body">
+          <p>The institution of slavery extracted specific, gendered labor from enslaved women that was distinct from — and in addition to — the forced agricultural labor extracted from everyone. Enslaved women were field workers who met the same quotas as men. They were domestic workers inside enslavers' households, subject to constant surveillance and proximity to white men with absolute power over them. And after 1808, when the international slave trade was closed, they were the primary means of reproducing the enslaved labor force — a function the system depended on.</p>
+          <p>The law of partus sequitur ventrem — established in Virginia in 1662 — determined that the status of a child followed the status of the mother. This meant that the rape of an enslaved woman by a white man not only went unpunished — it was economically productive for the enslaver. The children born of rape were enslaved property. There was no legal protection for enslaved women against sexual violence. The law explicitly exempted enslaved women from the rape statutes that applied to white women.</p>
+          <p>Harriet Jacobs, who escaped slavery and published her memoir <em>Incidents in the Life of a Slave Girl</em> in 1861, described the specific horror of enslaved womanhood: "Slavery is terrible for men; but it is far more terrible for women." She described being pursued by her enslaver from age 15 until she hid for seven years in a crawl space above her grandmother's house, unable to stand, watching her children grow up through a crack in the wood.</p>
+          <div class="pull-quote">
+            <p class="pull-quote__text">"I would rather see them killed than have them grow up as slaves."</p>
+            <span class="pull-quote__attr">— Harriet Jacobs, <em>Incidents in the Life of a Slave Girl</em>, 1861</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-2">
+        <div class="entry__header"><div class="entry__num">2</div><div class="entry__meta"><span class="entry__date">1845–1883 — J. Marion Sims</span><h2 class="entry__title">The "Father of Modern Gynecology" Built His Career on Surgical Experiments on Enslaved Black Women Without Anesthesia</h2></div></div>
+        <div class="entry__body">
+          <p>J. Marion Sims is called the "father of modern gynecology." His statue stood in Central Park in New York City until 2018. He is credited with developing the speculum and surgical techniques for repairing vesico-vaginal fistulas — a debilitating condition common in women after difficult childbirth. His techniques saved many lives.</p>
+          <p>He developed them by performing repeated, non-consensual surgeries on enslaved Black women in Alabama in the 1840s — without anesthesia. Sims believed, as many of his contemporaries did, that Black people felt less pain than white people. This was not fringe pseudoscience: it was mainstream medical belief, published in medical journals, that justified subjecting Black patients to procedures that would not have been performed on white patients without pain relief. Sims operated on one woman, Anarcha, at least 30 times.</p>
+          <p>The racist belief that Black people have higher pain tolerance has never been fully purged from American medicine. A 2016 study in the <em>Proceedings of the National Academy of Sciences</em> found that a significant percentage of medical students and residents still endorsed false beliefs about biological racial differences in pain tolerance — and that these beliefs predicted treatment disparities. Black patients in emergency rooms receive pain medication at significantly lower rates than white patients with identical injuries. This is Sims's legacy, not just his technique.</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 2</span><div class="era-divider__line"></div><span class="era-divider__label">Excluded from Every Protection, 1865–1965</span></div>
+
+      <article class="entry reveal" id="entry-3">
+        <div class="entry__header"><div class="entry__num">3</div><div class="entry__meta"><span class="entry__date">1935–1938 — The New Deal Exclusions</span><h2 class="entry__title">Every Major New Deal Labor Law Excluded the Occupations Where Black Women Worked</h2></div></div>
+        <div class="entry__body">
+          <p>The New Deal labor legislation of the 1930s transformed the economic position of American workers — for those it covered. The Social Security Act (1935), the Fair Labor Standards Act (1938), and the National Labor Relations Act (1935) established minimum wages, overtime protections, collective bargaining rights, and retirement security. They excluded domestic workers and agricultural workers from most of their provisions.</p>
+          <div class="exclusion-box">
+            <div class="exclusion-box__title">What Black Women Were Excluded From — and Why</div>
+            <div class="exclusion-row">
+              <div class="exclusion-cell exclusion-cell--what">Social Security Act, 1935</div>
+              <div class="exclusion-cell exclusion-cell--effect">Excluded domestic and agricultural workers. Over 60% of Black workers were in these categories. Southern Democratic senators conditioned their support on the exclusion — they would not support legislation that gave Black workers equal retirement security.</div>
+            </div>
+            <div class="exclusion-row">
+              <div class="exclusion-cell exclusion-cell--what">Fair Labor Standards Act, 1938</div>
+              <div class="exclusion-cell exclusion-cell--effect">Excluded domestic workers from minimum wage and overtime protections. Black women performing the same labor in a white household as a factory worker received no federal wage floor.</div>
+            </div>
+            <div class="exclusion-row">
+              <div class="exclusion-cell exclusion-cell--what">National Labor Relations Act, 1935</div>
+              <div class="exclusion-cell exclusion-cell--effect">Excluded domestic and agricultural workers from the right to organize and collectively bargain. Black women in domestic work could be fired for discussing wages.</div>
+            </div>
+            <div class="exclusion-row">
+              <div class="exclusion-cell exclusion-cell--what">GI Bill, 1944</div>
+              <div class="exclusion-cell exclusion-cell--effect">Black women who served in WWII as WACs and nurses were formally eligible. In practice, VA offices in the South refused applications, referred Black women to segregated and inferior programs, and denied college benefits to women deemed unlikely to "benefit" from higher education.</div>
+            </div>
+          </div>
+          <p>Domestic workers were not included in federal minimum wage protections until 1974. They were not included in OSHA workplace safety protections until 2013. The care and domestic labor sector — where Black and immigrant women remain concentrated — is the lowest-paid, least protected sector of the American economy, and it was made so by deliberate policy.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-4">
+        <div class="entry__header"><div class="entry__num">4</div><div class="entry__meta"><span class="entry__date">1951–1976 — Henrietta Lacks</span><h2 class="entry__title">Her Cells Became a $100 Billion Industry. Her Family Received Nothing.</h2></div></div>
+        <div class="entry__body">
+          <p>Henrietta Lacks was a 31-year-old Black woman from Baltimore who was treated for cervical cancer at Johns Hopkins Hospital in 1951. Without her knowledge or consent, her cancer cells were taken and given to researcher George Gey, who discovered that they could reproduce indefinitely in laboratory conditions — the first human cell line to do so. He named them HeLa cells and distributed them freely to researchers worldwide.</p>
+          <p>HeLa cells have been used in virtually every major medical advance of the past 70 years: the development of the polio vaccine, cancer research, HIV/AIDS research, COVID-19 vaccine development, and countless others. There are estimated to be more HeLa cells in existence than Henrietta Lacks weighed in life. The commercial value of HeLa-derived research exceeds <span class="stat-highlight">$100 billion</span>. Henrietta Lacks's family was never told her cells had been taken. They did not learn of her contribution to medicine until 1973. They received nothing.</p>
+          <p>The non-consensual use of Black patients' bodies for medical research had precedent — the Tuskegee Syphilis Study, ongoing at the time, was withholding treatment from Black men with syphilis to observe the disease's progression. The legal question of consent for the use of Henrietta Lacks's cells was not resolved in her family's favor. A 2023 settlement between the family and a cell line company remains confidential. Johns Hopkins has established programs in her name but the family has received no share of the commercial value her cells generated.</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 3</span><div class="era-divider__line"></div><span class="era-divider__label">The Movement They Built and Were Erased From, 1954–1968</span></div>
+
+      <article class="entry reveal" id="entry-5">
+        <div class="entry__header"><div class="entry__num">5</div><div class="entry__meta"><span class="entry__date">1954–1968 — The Movement's Infrastructure</span><h2 class="entry__title">Black Women Built the Civil Rights Movement. They Were Kept Off the Stage.</h2></div></div>
+        <div class="entry__body">
+          <p>The Civil Rights Movement was organized, sustained, and strategically shaped primarily by Black women. Ella Baker trained a generation of organizers, founded SNCC, and explicitly resisted the movement's tendency toward charismatic male leadership. Fannie Lou Hamer organized voter registration in Mississippi after being evicted from her plantation, beaten in jail, and receiving death threats. Diane Nash co-founded SNCC, organized the Nashville sit-ins, and designed the Birmingham Children's Crusade strategy.</p>
+          <p>At the 1963 March on Washington — the event most associated with the movement's public face — no women were permitted to speak from the main platform. Dorothy Height, president of the National Council of Negro Women, sat on the stage. She was not given a speaking role. She later described being told women would have their "time" after the main program. Their time never came. The march's program listed women only in a separate "tribute to women" section, not as principals.</p>
+          <p>Bayard Rustin, who organized the entire logistical operation of the March on Washington in eight weeks, was kept invisible because he was gay. The women who built the movement were kept invisible because they were women. The history that was captured was the history of the men who were visible. Ella Baker's comment on this was characteristically direct: "The movement made Martin rather than Martin making the movement."</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 4</span><div class="era-divider__line"></div><span class="era-divider__label">The Compounded Present, 1980–Now</span></div>
+
+      <article class="entry reveal" id="entry-6">
+        <div class="entry__header"><div class="entry__num">6</div><div class="entry__meta"><span class="entry__date">Present — The Maternal Mortality Crisis</span><h2 class="entry__title">Black Women Die in Childbirth at Three Times the Rate of White Women. This Is Not Explained by Income or Education.</h2></div></div>
+        <div class="entry__body">
+          <p>Black women in the United States die from pregnancy-related causes at <span class="stat-highlight">2.6 times the rate</span> of white women. This is not a gap that disappears with income or education. Black women with college degrees have worse maternal outcomes than white women who did not finish high school. A 2016 ProPublica investigation found that college-educated Black women had higher maternal mortality rates than white women with eighth-grade educations.</p>
+          <p>The causes are documented: implicit bias in clinical settings, where Black women's pain reports are taken less seriously; chronic physiological stress from lifelong exposure to racism (researchers call it "weathering" — Black women's bodies age faster biologically due to sustained stress); and specific failures in post-partum care. Tennis star Serena Williams, one of the most watched and celebrated athletes in the world, had to argue with nurses to receive a CT scan after her C-section — she recognized the symptoms of a pulmonary embolism from a previous episode. They initially dismissed her. She was right. She survived. Many Black women in the same situation do not have her insistence or resources.</p>
+          <div class="consequence-box">
+            <div class="consequence-box__label">The data on Black women's health disparities</div>
+            <ul class="consequence-box__list">
+              <li>Maternal mortality: Black women die at <strong>2.6× the rate</strong> of white women — the largest racial disparity in maternal health</li>
+              <li>Breast cancer: Black women are <strong>40% more likely to die</strong> from breast cancer than white women despite lower incidence rates</li>
+              <li>Fibroids: Black women are <strong>2–3× more likely</strong> to develop uterine fibroids and develop them younger and more severely</li>
+              <li>Pain management: Black patients receive pain medication at significantly lower rates than white patients with identical conditions</li>
+              <li>The pay gap: Black women earn <strong>$0.67</strong> for every dollar earned by white non-Hispanic men — a gap that costs Black women $2,000+ per month</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-7">
+        <div class="entry__header"><div class="entry__num">7</div><div class="entry__meta"><span class="entry__date">2013–Present — Say Her Name</span><h2 class="entry__title">Black Women Are Also Killed by Police. Their Names Are Less Likely to Become Movements.</h2></div></div>
+        <div class="entry__body">
+          <p>The killings of Black men by police — Michael Brown, Eric Garner, Trayvon Martin, George Floyd — became the visible cases around which movements organized. Black women are also killed by police, at disproportionate rates, and their cases receive significantly less public attention and less prosecutorial action. Kimberlé Crenshaw, who coined the term "intersectionality," launched the #SayHerName campaign in 2015 specifically to address this gap.</p>
+          <p>Breonna Taylor was killed by Louisville police officers on March 13, 2020 in her own home during a no-knock raid on the wrong address. She was 26 years old, a Black woman, an EMT. Her boyfriend fired one shot at the intruders, believing they were being burglarized. She was shot six times. The officers fired <span class="stat-highlight">32 shots</span> into the apartment. No officer was charged for her death. One officer was charged with "wanton endangerment" for shots that passed through a wall into a neighboring apartment — not for the shots that killed Taylor.</p>
+          <p>Sandra Bland was found dead in a Texas jail cell in 2015, three days after being arrested during a traffic stop for failing to signal a lane change. The official ruling was suicide. Her family and advocates disputed this. The officer who arrested her was indicted for perjury; charges were later dismissed. No one was charged for her death.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-8">
+        <div class="entry__header"><div class="entry__num">8</div><div class="entry__meta"><span class="entry__date">The Wealth Gap</span><h2 class="entry__title">Single Black Women Have a Median Net Worth of $200. Single White Women: $15,640.</h2></div></div>
+        <div class="entry__body">
+          <p>A 2017 study by the Insight Center for Community Economic Development found that the median net worth of single Black women was <span class="stat-highlight">$200</span>. The median for single white women was $15,640. The median for single white men was $28,900. These numbers reflect the compounding of every exclusion documented in this thread: from New Deal labor protections, from the GI Bill, from fair wages in domestic and care work, from fair lending in the housing market, from equitable medical treatment, from the public credit that their organizing work produced.</p>
+          <p>The wealth gap between Black and white Americans is largest for Black women specifically, because they face both the racial wealth gap and the gender pay gap — and because the care and domestic labor sector, where they are concentrated, was excluded from wealth-building policy by design. The Black woman who cleaned a white family's house for 30 years, under the Fair Labor Standards Act's domestic worker exclusion, received no minimum wage, no overtime, no Social Security credit for that work, and no pension. The family she worked for may have used her labor to build the wealth that allowed them to buy a home that doubled in value.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-9">
+        <div class="entry__header"><div class="entry__num">9</div><div class="entry__meta"><span class="entry__date">The Resistance</span><h2 class="entry__title">They Kept Going. They Are Still Going.</h2></div></div>
+        <div class="entry__body">
+          <p>Every generation of Black women in America has produced extraordinary resistance under conditions that were designed to make resistance impossible. Harriet Tubman made <span class="stat-highlight">13 trips</span> back into slave territory after her own escape, freeing over 70 people. Ida B. Wells documented lynchings after receiving death threats and never stopped. Fannie Lou Hamer was beaten, evicted, and shot at — and testified before the Democratic National Convention anyway, while LBJ preempted her testimony with a press conference because he was afraid of what she would say.</p>
+          <p>The Black Lives Matter movement was co-founded in 2013 by Alicia Garza, Patrisse Cullors, and Opal Tometi — three Black women — after the acquittal of George Zimmerman for Trayvon Martin's murder. The most recent iteration of the voting rights movement in Georgia was led by Stacey Abrams. The "Squad" in Congress — Alexandria Ocasio-Cortez, Ilhan Omar, Ayanna Pressley, Rashida Tlaib — changed the visible demographics of progressive political organizing.</p>
+          <p>This is not a redemption narrative. The conditions that produced these extraordinary people are not conditions that should exist. The measure of a society is not the extraordinary individuals who survive its violence — it is whether the violence was necessary to begin with. It was not. It was chosen. And it is still being chosen, in every legislative decision that leaves domestic workers without protections, in every hospital that dismisses Black women's pain, in every movement that uses Black women's organizing and then keeps them off the stage.</p>
+          <div class="pull-quote">
+            <p class="pull-quote__text">"I am not free while any woman is unfree, even when her shackles are very different from my own."</p>
+            <span class="pull-quote__attr">— Audre Lorde</span>
+          </div>
+        </div>
+      </article>
+
+    </main>
+
+    <aside class="thread-sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-widget__title">Contents</div>
+        <ol class="toc-list">
+          <li class="toc-item" id="toc-1"><a href="#entry-1">Slavery's Gendered Violence</a></li>
+          <li class="toc-item" id="toc-2"><a href="#entry-2">J. Marion Sims</a></li>
+          <li class="toc-item" id="toc-3"><a href="#entry-3">New Deal Exclusions</a></li>
+          <li class="toc-item" id="toc-4"><a href="#entry-4">Henrietta Lacks</a></li>
+          <li class="toc-item" id="toc-5"><a href="#entry-5">Built the Movement</a></li>
+          <li class="toc-item" id="toc-6"><a href="#entry-6">Maternal Mortality</a></li>
+          <li class="toc-item" id="toc-7"><a href="#entry-7">Say Her Name</a></li>
+          <li class="toc-item" id="toc-8"><a href="#entry-8">Wealth Gap $200</a></li>
+          <li class="toc-item" id="toc-9"><a href="#entry-9">The Resistance</a></li>
+        </ol>
+      </div>
+      <div class="sidebar-widget">
+        <button class="tts-btn" id="tts-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread</button>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-widget__title">Related threads</div>
+        <ul class="related-list">
+          <li><a href="thread-civil-rights.html">The Civil Rights Movement</a></li>
+          <li><a href="thread-health-disparities.html">Black Health Disparities</a></li>
+          <li><a href="thread-racial-capitalism.html">Same Ledger, New Name</a></li>
+          <li><a href="thread-reparations.html">The Reparations Question</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <section class="causal-chain">
+    <div class="causal-chain__inner">
+      <h2 class="causal-chain__title">Built Everything. Protected by Nothing.</h2>
+      <div class="chain-steps">
+        <div class="chain-step"><div class="chain-step__node">Enslaved labor + forced reproduction</div><div class="chain-step__label">Body as capital</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">Medical experiments without consent</div><div class="chain-step__label">Body as research</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">New Deal exclusions 1935</div><div class="chain-step__label">Labor unprotected</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">Built Civil Rights Movement</div><div class="chain-step__label">Kept off stage</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">Maternal mortality 2.6×</div><div class="chain-step__label">Body still unprotected</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">Median wealth $200</div><div class="chain-step__label">Compounded exclusion</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="thread-cta">
+    <div class="thread-cta__inner">
+      <h2 class="thread-cta__title">They built what exists. They are owed what was taken.</h2>
+      <p class="thread-cta__body">The exclusions documented here — from New Deal protections, from medical ethics, from movement credit — are not accidental. They are the compounding interest on 400 years of unpaid labor. Read the reparations argument.</p>
+      <a href="thread-reparations.html" class="thread-cta__btn">Read: The Reparations Question →</a>
+    </div>
+  </section>
+
+  <footer class="site-footer"><p class="site-footer__text">Chain — a public archive. <a href="threads.html">All threads</a> · <a href="teaching.html">Teaching guides</a></p></footer>
+
+  <script>
+    const themeBtn=document.getElementById('theme-toggle');
+    function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);themeBtn.textContent=t==='dark'?'Light':'Dark';}
+    applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+    themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+    const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');ro.unobserve(e.target);}});},{threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+    const to=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.toc-item').forEach(t=>t.classList.remove('toc-item--active'));const tel=document.getElementById(e.target.id.replace('entry-','toc-'));if(tel)tel.classList.add('toc-item--active');}});},{rootMargin:'-10% 0px -80% 0px'});
+    document.querySelectorAll('.entry').forEach(el=>to.observe(el));
+    const ttsBtn=document.getElementById('tts-btn');let speaking=false;
+    ttsBtn.addEventListener('click',()=>{if(speaking){window.speechSynthesis.cancel();speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}
+    const t=Array.from(document.querySelectorAll('.entry__body p')).map(n=>n.textContent).join(' ');const w=t.split(' ');const c=[];for(let i=0;i<w.length;i+=40)c.push(w.slice(i,i+40).join(' '));speaking=true;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Stop listening';let idx=0;
+    function sn(){if(idx>=c.length||!speaking){speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}const u=new SpeechSynthesisUtterance(c[idx++]);u.rate=0.95;u.onend=sn;window.speechSynthesis.speak(u);}sn();});
+  </script>
+</body>
+</html>

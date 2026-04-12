@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is Owed: The Reparations Question — Thread — Chain</title>
+  <meta name="description" content="Forty acres were promised and taken back. Congress has introduced H.R. 40 every year since 1989. Economists have calculated the debt. This thread is not an argument for a political position. It is a record of what was promised, what was taken, and what has been calculated." />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: lime — #4d7c0f / #bef264 */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(77,124,15,.2) 0%,transparent 70%);pointer-events:none}
+    .thread-hero__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6);position:relative}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#bef264;margin-bottom:var(--space-5)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#4d7c0f;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:var(--ink-0);line-height:1.1;max-width:780px;margin-bottom:var(--space-6)}
+    .thread-hero__title em{font-style:italic;color:#bef264}
+    .thread-hero__deck{font-family:var(--font-ui);font-size:1.05rem;line-height:1.7;color:var(--ink-300);max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta-row{display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center;border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-6)}
+    .thread-hero__meta-item{display:flex;flex-direction:column;gap:2px}
+    .thread-hero__meta-label{font-family:var(--font-ui);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500)}
+    .thread-hero__meta-value{font-family:var(--font-ui);font-size:.9rem;font-weight:500;color:var(--ink-200)}
+    .argument-bar{border-left:3px solid #4d7c0f;padding:var(--space-5) var(--space-6);margin:var(--space-10) auto;max-width:1100px;background:rgba(77,124,15,.07)}
+    .argument-bar__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6)}
+    .argument-bar__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4d7c0f;margin-bottom:var(--space-2)}
+    .argument-bar__text{font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;color:var(--ink-800);line-height:1.6}
+    [data-theme=dark] .argument-bar__text{color:var(--ink-200)}
+    .thread-body{max-width:1100px;margin:0 auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:1fr 280px;gap:var(--space-12);align-items:start}
+    @media(max-width:860px){.thread-body{grid-template-columns:1fr}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-12) 0 var(--space-8)}
+    .era-divider__badge{flex-shrink:0;font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#4d7c0f;padding:var(--space-1) var(--space-3);border-radius:2px}
+    .era-divider__line{flex:1;height:1px;background:var(--ink-200)}
+    [data-theme=dark] .era-divider__line{background:var(--ink-700)}
+    .era-divider__label{font-family:var(--font-ui);font-size:.8rem;font-weight:600;color:var(--ink-400)}
+    .entry{margin-bottom:var(--space-12);padding-bottom:var(--space-12);border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .entry{border-bottom-color:var(--ink-800)}
+    .entry:last-child{border-bottom:none}
+    .entry__header{display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)}
+    .entry__num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#4d7c0f;color:#fff;font-family:var(--font-ui);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .entry__meta{display:flex;flex-direction:column;gap:2px}
+    .entry__date{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4d7c0f}
+    .entry__title{font-family:var(--font-editorial);font-size:1.35rem;font-weight:700;color:var(--ink-900);line-height:1.2}
+    [data-theme=dark] .entry__title{color:var(--ink-50)}
+    .entry__body{font-family:var(--font-ui);font-size:.97rem;line-height:1.8;color:var(--ink-700);padding-left:52px}
+    [data-theme=dark] .entry__body{color:var(--ink-300)}
+    .entry__body p{margin-bottom:var(--space-4)}
+    .entry__body p:last-child{margin-bottom:0}
+    .stat-highlight{display:inline;font-family:var(--font-editorial);font-size:1.1em;font-weight:700;color:#4d7c0f}
+    .pull-quote{border-left:3px solid #4d7c0f;padding:var(--space-4) var(--space-6);margin:var(--space-6) 0;background:var(--ink-50)}
+    [data-theme=dark] .pull-quote{background:var(--ink-800)}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:1.1rem;font-style:italic;line-height:1.6;color:var(--ink-800);margin-bottom:var(--space-2)}
+    [data-theme=dark] .pull-quote__text{color:var(--ink-200)}
+    .pull-quote__attr{font-family:var(--font-ui);font-size:.78rem;font-weight:600;color:var(--ink-400)}
+    /* Precedent box — unique component: other reparations paid */
+    .precedent-box{background:var(--ink-50);border:1px solid var(--ink-200);border-radius:4px;overflow:hidden;margin:var(--space-6) 0}
+    [data-theme=dark] .precedent-box{background:var(--ink-800);border-color:var(--ink-700)}
+    .precedent-box__title{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4d7c0f;padding:var(--space-4) var(--space-5);border-bottom:1px solid var(--ink-200)}
+    [data-theme=dark] .precedent-box__title{border-bottom-color:var(--ink-700)}
+    .precedent-row{display:grid;grid-template-columns:160px 1fr 120px;border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .precedent-row{border-bottom-color:var(--ink-700)}
+    .precedent-row:last-child{border-bottom:none}
+    .precedent-cell{padding:var(--space-3) var(--space-4);font-family:var(--font-ui);font-size:.82rem;color:var(--ink-700);line-height:1.4;border-right:1px solid var(--ink-100)}
+    [data-theme=dark] .precedent-cell{color:var(--ink-300);border-right-color:var(--ink-700)}
+    .precedent-cell:last-child{border-right:none}
+    .precedent-cell--who{font-weight:700;color:#4d7c0f}
+    .precedent-cell--amount{font-weight:700;color:var(--ink-800);text-align:right}
+    [data-theme=dark] .precedent-cell--amount{color:var(--ink-200)}
+    .consequence-box{background:rgba(77,124,15,.07);border:1px solid rgba(77,124,15,.22);border-radius:4px;padding:var(--space-5);margin:var(--space-6) 0}
+    .consequence-box__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4d7c0f;margin-bottom:var(--space-3)}
+    .consequence-box__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .consequence-box__list li{font-family:var(--font-ui);font-size:.88rem;color:var(--ink-700);padding-left:var(--space-4);position:relative;line-height:1.5}
+    [data-theme=dark] .consequence-box__list li{color:var(--ink-300)}
+    .consequence-box__list li::before{content:'→';position:absolute;left:0;color:#4d7c0f;font-weight:700}
+    .thread-sidebar{position:sticky;top:var(--space-8)}
+    .sidebar-widget{background:var(--ink-50);border:1px solid var(--ink-100);border-radius:4px;padding:var(--space-5);margin-bottom:var(--space-5)}
+    [data-theme=dark] .sidebar-widget{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-widget__title{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);margin-bottom:var(--space-4)}
+    .toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-1)}
+    .toc-item a{display:block;font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-1) var(--space-2);border-left:2px solid transparent;transition:all .15s}
+    .toc-item a:hover,.toc-item--active a{color:#4d7c0f;border-left-color:#4d7c0f;background:rgba(77,124,15,.05)}
+    .related-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .related-list a{font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-2);display:block;border-radius:3px;transition:background .15s}
+    .related-list a:hover{background:var(--ink-100);color:var(--ink-800)}
+    [data-theme=dark] .related-list a:hover{background:var(--ink-700);color:var(--ink-100)}
+    .tts-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--space-2);background:none;border:1px solid var(--ink-200);border-radius:3px;padding:var(--space-3);font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-500);cursor:pointer;transition:all .15s}
+    [data-theme=dark] .tts-btn{border-color:var(--ink-600);color:var(--ink-400)}
+    .tts-btn:hover{border-color:#4d7c0f;color:#4d7c0f}
+    .tts-btn svg{flex-shrink:0}
+    .causal-chain{background:var(--ink-900);padding:var(--space-12) var(--space-6);margin:var(--space-16) 0 0}
+    .causal-chain__inner{max-width:1100px;margin:0 auto}
+    .causal-chain__title{font-family:var(--font-editorial);font-size:1.5rem;font-weight:700;color:var(--ink-0);margin-bottom:var(--space-8);text-align:center}
+    .chain-steps{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0}
+    .chain-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-2);flex:0 0 auto}
+    .chain-step__node{width:52px;height:52px;border-radius:50%;border:2px solid #4d7c0f;background:rgba(77,124,15,.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:.62rem;font-weight:700;color:#bef264;line-height:1.2;padding:4px;text-align:center}
+    .chain-step__label{font-family:var(--font-ui);font-size:.68rem;color:var(--ink-400);max-width:80px;line-height:1.3}
+    .chain-arrow{color:#4d7c0f;font-size:1.2rem;padding:0 var(--space-1);align-self:center;padding-bottom:24px}
+    .thread-cta{background:var(--ink-50);border-top:1px solid var(--ink-100);padding:var(--space-12) var(--space-6)}
+    [data-theme=dark] .thread-cta{background:var(--ink-900);border-top-color:var(--ink-800)}
+    .thread-cta__inner{max-width:640px;margin:0 auto;text-align:center}
+    .thread-cta__title{font-family:var(--font-editorial);font-size:1.6rem;font-weight:700;color:var(--ink-900);margin-bottom:var(--space-4)}
+    [data-theme=dark] .thread-cta__title{color:var(--ink-50)}
+    .thread-cta__body{font-family:var(--font-ui);font-size:.95rem;line-height:1.7;color:var(--ink-500);margin-bottom:var(--space-6)}
+    .thread-cta__btn{display:inline-block;background:#4d7c0f;color:#fff;font-family:var(--font-ui);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:var(--space-3) var(--space-7);border-radius:2px;transition:background .15s}
+    .thread-cta__btn:hover{background:#3f6a0c}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    .site-nav{background:var(--ink-900);border-bottom:1px solid rgba(255,255,255,.07);padding:0 var(--space-6);display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100}
+    .site-nav__logo{font-family:var(--font-editorial);font-size:1.1rem;font-weight:700;color:var(--ink-0);text-decoration:none}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-6)}
+    .site-nav__link{font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-400);text-decoration:none;transition:color .15s}
+    .site-nav__link:hover{color:var(--ink-0)}
+    .site-nav__theme-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:var(--space-1) var(--space-3);font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);cursor:pointer;transition:all .15s}
+    .site-nav__theme-btn:hover{border-color:rgba(255,255,255,.4);color:var(--ink-100)}
+    .site-footer{background:var(--ink-900);border-top:1px solid rgba(255,255,255,.07);padding:var(--space-8) var(--space-6);text-align:center}
+    .site-footer__text{font-family:var(--font-ui);font-size:.8rem;color:var(--ink-500);line-height:1.6}
+    .site-footer__text a{color:var(--ink-400);text-decoration:none}
+    .site-footer__text a:hover{color:var(--ink-200)}
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__logo">Chain</a>
+    <div class="site-nav__links">
+      <a href="threads.html" class="site-nav__link">All threads</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+      <button class="site-nav__theme-btn" id="theme-toggle">Light</button>
+    </div>
+  </nav>
+
+  <header class="thread-hero">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Repair · Debt · Policy</div>
+      <h1 class="thread-hero__title">What Is Owed: <em>The Reparations Question</em></h1>
+      <p class="thread-hero__deck">Forty acres were promised to formerly enslaved people in 1865 — and then taken back by President Andrew Johnson. Congress has introduced H.R. 40, a bill to study reparations, every year since 1989. It has never received a full floor vote. Economists have calculated the compounding value of stolen labor, stolen land, and stolen opportunity. This thread is not an argument for a political position. It is a record of what was promised, what was taken, and what has been calculated.</p>
+      <div class="thread-hero__meta-row">
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Period</span><span class="thread-hero__meta-value">1865 — Present</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Entries</span><span class="thread-hero__meta-value">9 documented events</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Domain</span><span class="thread-hero__meta-value">Policy · Economics · Repair</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Status</span><span class="thread-hero__meta-value">Live</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="argument-bar">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__label">The argument</div>
+      <p class="argument-bar__text">The reparations question is not primarily a question about charity. It is a question about arithmetic. The United States government made specific promises — 40 acres, citizenship, the right to vote — and then broke each of them by force. It ran programs that extracted wealth from Black Americans — slavery, convict leasing, redlining, the GI Bill exclusions — and transferred it to white Americans. Economists have calculated the resulting gap. The reparations debate is a debate about whether governments are obligated to repair what they deliberately broke. Every other government that has faced this question has eventually said yes.</p>
+    </div>
+  </div>
+
+  <div class="thread-body">
+    <main id="thread-main">
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 1</span><div class="era-divider__line"></div><span class="era-divider__label">The Promise and Its Betrayal, 1865</span></div>
+
+      <article class="entry reveal" id="entry-1">
+        <div class="entry__header"><div class="entry__num">1</div><div class="entry__meta"><span class="entry__date">January 16, 1865 — Special Field Order No. 15</span><h2 class="entry__title">Forty Acres Were Promised. Congress Confirmed It. Andrew Johnson Gave the Land Back to the Enslavers.</h2></div></div>
+        <div class="entry__body">
+          <p>On January 16, 1865, General William T. Sherman issued Special Field Order No. 15, setting aside a 400,000-acre strip of land along the South Carolina, Georgia, and Florida coasts — seized from Confederate landowners — for the settlement of formerly enslaved people. Each family would receive 40 acres. Army mules were also to be distributed. This is the origin of the phrase "40 acres and a mule."</p>
+          <p>By June 1865, approximately 40,000 formerly enslaved people had been settled on 400,000 acres of this land. The Freedmen's Bureau Act of 1865 gave the Bureau authority to distribute confiscated and abandoned lands to freedpeople in 40-acre plots. Congress confirmed this policy as a fundamental component of Reconstruction. The formerly enslaved people settled on this land began to farm it, establish communities, and build the beginnings of economic independence.</p>
+          <p>In the fall of 1865, President Andrew Johnson — who had assumed the presidency after Lincoln's assassination and who was committed to rapid restoration of the former Confederate states without conditions — issued a blanket pardon to former Confederate landowners and ordered the land restored to them. The Freedmen's Bureau was ordered to evict the Black families who had settled it. When they resisted, Union soldiers were deployed to remove them from land that had been promised to them by the United States government. The land transfer that defined the economic history of the American South was not a market outcome. It was a government decision, made and then reversed.</p>
+          <div class="pull-quote">
+            <p class="pull-quote__text">"The way in which Congress and the country have gone back on the freed people is an outrage that I will not countenance."</p>
+            <span class="pull-quote__attr">— General Oliver Howard, Commissioner of the Freedmen's Bureau, to the freedpeople of Edisto Island, 1865, upon being ordered to return their land to former Confederates</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-2">
+        <div class="entry__header"><div class="entry__num">2</div><div class="entry__meta"><span class="entry__date">1865–1877 — Reconstruction and Its Destruction</span><h2 class="entry__title">Black Wealth Was Built During Reconstruction. It Was Systematically Confiscated and Destroyed When Reconstruction Ended.</h2></div></div>
+        <div class="entry__body">
+          <p>During Reconstruction (1865–1877), Black Americans made extraordinary economic and political gains under federal protection. Black men voted, held office, built businesses, purchased land, established churches, and founded schools. By 1870, Black Americans owned approximately <span class="stat-highlight">$68 million</span> in property — accumulated in five years from nothing. Black political power in several Southern states was substantial enough to elect Black members to Congress, state legislatures, and local offices.</p>
+          <p>When federal troops withdrew in 1877 as part of the political compromise that ended Reconstruction, the systematic destruction of this wealth began. Black landowners were dispossessed through violence, fraud, and legal manipulation. The convict lease system — documented in the mass incarceration thread — used manufactured criminal charges to re-enslave Black men whose labor was then leased to private companies. Black political gains were reversed through the full toolkit of voter suppression documented in the voting rights thread. The economic and political infrastructure built during Reconstruction was dismantled in a process that took decades but was nearly comprehensive.</p>
+          <p>The destruction of Black wealth during and after the end of Reconstruction was not incidental. It was the explicit goal of the Redeemer governments that replaced Reconstruction-era administrations. The wealth gap that exists today between Black and white Americans has its deepest roots not just in slavery but in the specific, deliberate destruction of the wealth that Black Americans accumulated the moment they were legally free to accumulate it.</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 2</span><div class="era-divider__line"></div><span class="era-divider__label">Calculating What Was Taken, 1619–Present</span></div>
+
+      <article class="entry reveal" id="entry-3">
+        <div class="entry__header"><div class="entry__num">3</div><div class="entry__meta"><span class="entry__date">The Debt — 246 Years of Unpaid Labor</span><h2 class="entry__title">Economists Have Calculated the Compounding Value of Enslaved Labor. The Estimates Range from $14 Trillion to $97 Trillion.</h2></div></div>
+        <div class="entry__body">
+          <p>Enslaved people in the United States worked without compensation from 1619 to 1865 — a period of 246 years. Economists have attempted to calculate the present-day value of that labor using different methodologies. The estimates vary significantly based on assumptions about interest rates, what count as "wages," and which aspects of the harm are included.</p>
+          <div class="consequence-box">
+            <div class="consequence-box__label">Economic calculations of the reparations debt</div>
+            <ul class="consequence-box__list">
+              <li>Thomas Craemer (University of Connecticut, 2018): <strong>$14 trillion</strong> — based on enslaved labor valued at market wage rates, compounded at 3% annual interest</li>
+              <li>William Darity &amp; A. Kirsten Mullen (<em>From Here to Equality</em>, 2020): <strong>$10–12 trillion</strong> — focused specifically on the racial wealth gap and what would be required to close it</li>
+              <li>Broader estimates including post-slavery extractive policies (convict leasing, redlining, GI Bill exclusions): <strong>$40–97 trillion</strong></li>
+              <li>Current racial wealth gap (Federal Reserve, 2020): White family median wealth <strong>$188,200</strong>; Black family median wealth <strong>$24,100</strong> — a gap of $164,100 per family, across roughly 18 million Black families</li>
+              <li>Total current racial wealth gap: approximately <strong>$2.95 trillion</strong> — what reparations would need to close to achieve parity at today's values</li>
+            </ul>
+          </div>
+          <p>The range of estimates reflects genuine methodological disagreements, not whether harm occurred. The harm is not in dispute. The questions are about scope: Do calculations include only slavery? Or also convict leasing, the destruction of Reconstruction wealth, redlining, GI Bill exclusions, and the school funding gap? The narrower the scope, the lower the estimate. But even the narrowest credible estimates run into the trillions.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-4">
+        <div class="entry__header"><div class="entry__num">4</div><div class="entry__meta"><span class="entry__date">The Precedent — America Has Paid Reparations Before</span><h2 class="entry__title">The United States Has Paid Reparations Multiple Times. Never to Black Americans.</h2></div></div>
+        <div class="entry__body">
+          <p>The argument that reparations are unprecedented or un-American is not supported by the historical record. The United States has paid reparations or reparations-equivalent programs on multiple occasions — each time to non-Black recipients. What is unprecedented is not reparations. What is unprecedented is the refusal to pay them to the group with the largest, most documented, and longest-sustained claim.</p>
+          <div class="precedent-box">
+            <div class="precedent-box__title">Reparations the United States Has Paid</div>
+            <div class="precedent-row">
+              <div class="precedent-cell precedent-cell--who">Japanese American internment</div>
+              <div class="precedent-cell">Civil Liberties Act of 1988: $20,000 per surviving internee for the unconstitutional internment of Japanese Americans during WWII (1942–1945). President Reagan signed it.</div>
+              <div class="precedent-cell precedent-cell--amount">$1.6B paid</div>
+            </div>
+            <div class="precedent-row">
+              <div class="precedent-cell precedent-cell--who">Slave owners at emancipation</div>
+              <div class="precedent-cell">The District of Columbia Compensated Emancipation Act (1862) paid slave owners — not enslaved people — up to $300 per enslaved person for their "property." The people whose labor had been stolen received nothing.</div>
+              <div class="precedent-cell precedent-cell--amount">$1M+ paid to owners</div>
+            </div>
+            <div class="precedent-row">
+              <div class="precedent-cell precedent-cell--who">Native Americans</div>
+              <div class="precedent-cell">Multiple treaty settlements and the Indian Claims Commission (1946) have resulted in billions in payments for land taken in violation of treaties — though these remain deeply inadequate relative to actual harm.</div>
+              <div class="precedent-cell precedent-cell--amount">$billions paid</div>
+            </div>
+            <div class="precedent-row">
+              <div class="precedent-cell precedent-cell--who">Rosewood, Florida</div>
+              <div class="precedent-cell">Florida paid $2.1 million to survivors and descendants of the 1923 Rosewood Massacre, in which a Black community was destroyed by a white mob. The first state reparations payment to Black Americans.</div>
+              <div class="precedent-cell precedent-cell--amount">$2.1M paid (1994)</div>
+            </div>
+          </div>
+          <p>The German government has paid over <span class="stat-highlight">$80 billion</span> in reparations to Holocaust survivors and their families, and continues to make payments. South Africa established the Truth and Reconciliation Commission. Canada paid reparations to survivors of its residential school system. The international precedent is clear: governments that deliberately harm populations are obligated to repair the harm. The United States is the outlier.</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 3</span><div class="era-divider__line"></div><span class="era-divider__label">The Legislative History, 1865–Present</span></div>
+
+      <article class="entry reveal" id="entry-5">
+        <div class="entry__header"><div class="entry__num">5</div><div class="entry__meta"><span class="entry__date">1989–Present — H.R. 40</span><h2 class="entry__title">Congress Has Introduced a Reparations Study Bill Every Year Since 1989. It Has Never Received a Full Floor Vote.</h2></div></div>
+        <div class="entry__body">
+          <p>Representative John Conyers of Michigan introduced H.R. 40 — the Commission to Study and Develop Reparation Proposals for African Americans Act — in every session of Congress from 1989 until his retirement in 2017. Representative Sheila Jackson Lee reintroduced it in subsequent sessions. The bill does not mandate reparations. It does not specify any particular program or payment. It establishes a commission to study the effects of slavery and subsequent discriminatory policies and to develop proposals. It is the minimum procedural step — acknowledging that the question deserves serious study.</p>
+          <p>In <span class="stat-highlight">35 years</span>, H.R. 40 has never received a vote on the full floor of the House of Representatives. It passed the House Judiciary Committee for the first time in April 2021 — the first committee vote in its 32-year history — but was not brought to a full House vote before the end of that Congress. The refusal to allow even a study is itself a political statement: that the United States government does not consider the question of what it owes Black Americans to be worth investigating.</p>
+          <p>The name "H.R. 40" is itself a reference: to the 40 acres promised and taken. Conyers chose the number deliberately. The bill has been introduced for longer than many of the harms it addresses lasted. The gap between what it asks — a study — and the political will to allow even that is the measure of where American political institutions stand on the question.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-6">
+        <div class="entry__header"><div class="entry__num">6</div><div class="entry__meta"><span class="entry__date">2021–2023 — Evanston, Illinois</span><h2 class="entry__title">Evanston Became the First U.S. City to Pay Reparations. The Model Is Specific, Local, and Replicable.</h2></div></div>
+        <div class="entry__body">
+          <p>In March 2021, Evanston, Illinois became the first city in the United States to provide reparations payments to Black residents. The program — developed over years of community input — is specifically targeted: it provides $25,000 housing grants to Black Evanston residents who lived in the city between 1919 and 1969 (the period of documented housing discrimination) or are direct descendants of those residents. The money can be used for home repair, down payments, or mortgage assistance — directly addressing the documented harm of housing discrimination that prevented Black families from building equity.</p>
+          <p>The program was funded by a 3% tax on recreational cannabis sales — revenue generated by a legal industry that itself emerged from the selective enforcement of drug laws against Black communities. Evanston used approximately <span class="stat-highlight">$10 million</span> for the first phase. The program does not attempt to address the full scope of harm. It addresses a specific, documented harm — housing discrimination — with a specific, documented remedy — housing assistance.</p>
+          <p>Evanston's model has been studied as a potential template for other municipalities. Cities including Asheville, NC, Providence, RI, and others have passed reparations resolutions or begun similar processes. The Evanston model demonstrates that reparations can be implemented at the local level, targeted to specific documented harms, funded by identifiable revenue sources, and administered without the federal political paralysis that has blocked H.R. 40 for 35 years.</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 4</span><div class="era-divider__line"></div><span class="era-divider__label">The Arguments and the Record, 2024</span></div>
+
+      <article class="entry reveal" id="entry-7">
+        <div class="entry__header"><div class="entry__num">7</div><div class="entry__meta"><span class="entry__date">The Counter-Arguments — Examined</span><h2 class="entry__title">The Standard Objections to Reparations and What the Historical Record Says About Them</h2></div></div>
+        <div class="entry__body">
+          <p>The principal objections to reparations are well-known. The historical record addresses each of them:</p>
+          <div class="consequence-box">
+            <div class="consequence-box__label">Objection and response</div>
+            <ul class="consequence-box__list">
+              <li><strong>"No one alive today enslaved anyone or was enslaved."</strong> The reparations claim is not based on individual guilt. It is based on institutional liability. The U.S. government made promises (40 acres), broke them, and then ran programs that extracted wealth from Black Americans (convict leasing, redlining, GI Bill exclusions) and transferred it to others. The government — which is still operating — made those choices and received those benefits.</li>
+              <li><strong>"My ancestors weren't even here."</strong> Taxpayers pay for debts incurred before they were born routinely — infrastructure bonds, Social Security, war debt. The principle that current generations are liable for obligations incurred by prior governments is foundational to how government works. The GI Bill benefits that created the white middle class were paid for by taxes including Black taxpayers who were excluded from the program.</li>
+              <li><strong>"How would you even calculate it / who would qualify?"</strong> These are implementation questions, not objections to the principle. Every reparations program in history has faced them and resolved them. The Evanston model demonstrates that targeted programs with clear eligibility criteria are administratively feasible. Economists have proposed multiple credible methodologies.</li>
+              <li><strong>"Reparations would divide the country."</strong> The racial wealth gap — $188,200 vs $24,100 in median family wealth — is already a form of division. The question is whether division is preferable to repair. Germany's reparations payments did not divide Germany. They are now considered essential to its post-war moral reconstruction.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-8">
+        <div class="entry__header"><div class="entry__num">8</div><div class="entry__meta"><span class="entry__date">California, 2023 — The Task Force</span><h2 class="entry__title">California's Reparations Task Force Produced the Most Comprehensive Government-Issued Reparations Report in American History</h2></div></div>
+        <div class="entry__body">
+          <p>In 2020, California became the first state to establish an official reparations task force. The California Task Force to Study and Develop Reparation Proposals for African Americans spent two years gathering testimony, analyzing historical records, and consulting economists and historians. In 2023, it released a nearly <span class="stat-highlight">1,100-page report</span> — the most comprehensive government-produced analysis of reparations in American history.</p>
+          <p>The report documented specific, quantifiable harms to California's Black residents: housing discrimination, over-policing, disproportionate harm from the war on drugs, educational under-investment, and wealth extraction. It recommended a lineage-based program (for descendants of enslaved people or of free Black people in the U.S. before 1900) rather than a race-based program. The economic estimates for California alone exceeded <span class="stat-highlight">$800 billion</span> — for one state. The task force chair, Kamilah Moore, noted that the report was not an endpoint but a beginning of a political process.</p>
+          <p>The California legislature received the report in 2023. As of 2024, no comprehensive reparations legislation had passed. Governor Gavin Newsom, while acknowledging the task force's work, declined to support a cash payment program. The gap between a government's acknowledgment of documented harm and its willingness to act on that acknowledgment is itself a documented feature of the reparations debate at every level.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-9">
+        <div class="entry__header"><div class="entry__num">9</div><div class="entry__meta"><span class="entry__date">The Present</span><h2 class="entry__title">The Debt Is Documented. The Political Will Is Absent. The Gap Between the Two Is the Ongoing Harm.</h2></div></div>
+        <div class="entry__body">
+          <p>The reparations question is sometimes framed as being about the past. It is more precisely about the present. The racial wealth gap — $188,200 vs $24,100 in median family wealth — is a real, current, measurable condition. It did not arise from neutral market forces. It was built, by law, by policy, by violence, and by the deliberate extraction and transfer of wealth documented across this archive. It is maintained today by the school funding formula that ties school quality to neighborhood wealth, by the criminal justice system that removes Black men from the labor market, by the healthcare system that delivers worse outcomes to Black patients. The harm is not historical. It is ongoing.</p>
+          <p>What distinguishes the reparations debate from most policy debates is that the facts are not seriously in dispute. Historians agree on what happened. Economists agree that harms compound across generations. Legal scholars agree that the government made and broke specific promises. The debate is almost entirely about whether these facts create obligations — whether what happened to Black Americans in this country, and what continues to happen, is the kind of thing that governments are required to address.</p>
+          <p>Every society that has faced this question — Germany and the Holocaust, South Africa and apartheid, Canada and residential schools, Japan and the wartime internment, Florida and Rosewood — has eventually concluded that yes, deliberate, documented, government-administered harm creates government obligations to repair. The United States is not unique in having committed these harms. It is increasingly unusual in having produced comprehensive documentation of them while still declining to address the question of what is owed.</p>
+          <div class="pull-quote">
+            <p class="pull-quote__text">"The question is not whether America can afford reparations. It's whether America can afford not to reckon with this history."</p>
+            <span class="pull-quote__attr">— Ta-Nehisi Coates, "The Case for Reparations," <em>The Atlantic</em>, 2014</span>
+          </div>
+        </div>
+      </article>
+
+    </main>
+
+    <aside class="thread-sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-widget__title">Contents</div>
+        <ol class="toc-list">
+          <li class="toc-item" id="toc-1"><a href="#entry-1">40 Acres Promised &amp; Taken</a></li>
+          <li class="toc-item" id="toc-2"><a href="#entry-2">Reconstruction Wealth Destroyed</a></li>
+          <li class="toc-item" id="toc-3"><a href="#entry-3">The Debt: $14–97T Calculated</a></li>
+          <li class="toc-item" id="toc-4"><a href="#entry-4">Precedents Already Set</a></li>
+          <li class="toc-item" id="toc-5"><a href="#entry-5">H.R. 40: 35 Years, No Vote</a></li>
+          <li class="toc-item" id="toc-6"><a href="#entry-6">Evanston Model 2021</a></li>
+          <li class="toc-item" id="toc-7"><a href="#entry-7">Counter-Arguments Examined</a></li>
+          <li class="toc-item" id="toc-8"><a href="#entry-8">California Task Force 2023</a></li>
+          <li class="toc-item" id="toc-9"><a href="#entry-9">The Ongoing Debt</a></li>
+        </ol>
+      </div>
+      <div class="sidebar-widget">
+        <button class="tts-btn" id="tts-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread</button>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-widget__title">Related threads</div>
+        <ul class="related-list">
+          <li><a href="thread-end-of-slavery.html">How Slavery Really Ended</a></li>
+          <li><a href="thread-redlining.html">The Architecture of Segregation</a></li>
+          <li><a href="thread-education.html">Separate Was Never Equal</a></li>
+          <li><a href="thread-racial-capitalism.html">Same Ledger, New Name</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <section class="causal-chain">
+    <div class="causal-chain__inner">
+      <h2 class="causal-chain__title">The Compounding Debt</h2>
+      <div class="chain-steps">
+        <div class="chain-step"><div class="chain-step__node">246 years unpaid labor 1619–1865</div><div class="chain-step__label">The foundation</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">40 acres promised + taken 1865</div><div class="chain-step__label">Promise broken</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">Reconstruction wealth destroyed 1877</div><div class="chain-step__label">Gains erased</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">Convict lease + redlining + GI Bill exclusion</div><div class="chain-step__label">Wealth extracted</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">H.R. 40 introduced 35 years, no vote</div><div class="chain-step__label">Study refused</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">$188K vs $24K median wealth today</div><div class="chain-step__label">The current gap</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="thread-cta">
+    <div class="thread-cta__inner">
+      <h2 class="thread-cta__title">The debt is documented. The question is whether it is owed.</h2>
+      <p class="thread-cta__body">The full case for reparations begins with understanding what was taken. The mass incarceration thread documents one of the largest ongoing wealth extractions — the removal of Black men from the labor market and the leasing of their labor to corporations through the prison system.</p>
+      <a href="thread-mass-incarceration.html" class="thread-cta__btn">Read: Mass Incarceration →</a>
+    </div>
+  </section>
+
+  <footer class="site-footer"><p class="site-footer__text">Chain — a public archive. <a href="threads.html">All threads</a> · <a href="teaching.html">Teaching guides</a></p></footer>
+
+  <script>
+    const themeBtn=document.getElementById('theme-toggle');
+    function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);themeBtn.textContent=t==='dark'?'Light':'Dark';}
+    applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+    themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+    const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');ro.unobserve(e.target);}});},{threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+    const to=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.toc-item').forEach(t=>t.classList.remove('toc-item--active'));const tel=document.getElementById(e.target.id.replace('entry-','toc-'));if(tel)tel.classList.add('toc-item--active');}});},{rootMargin:'-10% 0px -80% 0px'});
+    document.querySelectorAll('.entry').forEach(el=>to.observe(el));
+    const ttsBtn=document.getElementById('tts-btn');let speaking=false;
+    ttsBtn.addEventListener('click',()=>{if(speaking){window.speechSynthesis.cancel();speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}
+    const t=Array.from(document.querySelectorAll('.entry__body p')).map(n=>n.textContent).join(' ');const w=t.split(' ');const c=[];for(let i=0;i<w.length;i+=40)c.push(w.slice(i,i+40).join(' '));speaking=true;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Stop listening';let idx=0;
+    function sn(){if(idx>=c.length||!speaking){speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}const u=new SpeechSynthesisUtterance(c[idx++]);u.rate=0.95;u.onend=sn;window.speechSynthesis.speak(u);}sn();});
+  </script>
+</body>
+</html>
