@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Slavery Really Ended — And What It Left Behind, 1861–Present — Thread — Chain</title>
+  <meta name="description" content="The standard story: Lincoln freed the slaves. The actual story: enslaved people freed themselves, the Proclamation freed no one Lincoln controlled, the 13th Amendment built in an exception, 40 acres were promised and stolen, and what replaced slavery was designed to function like it." />
+  <script>
+    (function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: rose — #f43f5e / #fb7185 */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 10% 50%,rgba(244,63,94,.13) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 90% 20%,rgba(225,29,72,.09) 0%,transparent 55%),radial-gradient(ellipse 50% 70% at 50% 100%,rgba(159,18,57,.07) 0%,transparent 50%);pointer-events:none}
+    .thread-hero__inner{position:relative;max-width:760px}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(244,63,94,.10);border:1px solid rgba(244,63,94,.25);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#fda4af;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#f43f5e}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#fda4af;font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap;align-items:flex-end}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .listen-btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--ink-300);font-size:var(--type-xs);font-weight:var(--weight-semibold);font-family:inherit;cursor:pointer;transition:all var(--duration-fast);margin-left:auto;white-space:nowrap;align-self:flex-end}
+    .listen-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+    .listen-btn[data-state="playing"]{background:rgba(244,63,94,.2);border-color:rgba(244,63,94,.4);color:#fda4af}
+    .listen-progress-bar{height:3px;background:rgba(255,255,255,.08);display:none}
+    .listen-progress-bar.is-visible{display:block}
+    .listen-progress-bar__fill{height:100%;background:#f43f5e;width:0%;transition:width 0.5s linear}
+    .argument-bar{background:rgba(244,63,94,.06);border-top:1px solid rgba(244,63,94,.14);border-bottom:1px solid rgba(244,63,94,.14);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(244,63,94,.15);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#fda4af;margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#f43f5e;background:rgba(244,63,94,.10);border:1px solid rgba(244,63,94,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(244,63,94,.10);border:1px solid rgba(244,63,94,.22);color:#fda4af}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#fb7185;margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#f43f5e;line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:0.7rem;text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-6)}
+    .entry-item__body p{margin-bottom:var(--space-4)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-features{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-bottom:var(--space-6)}
+    @media(min-width:640px){.entry-features{grid-template-columns:repeat(3,1fr)}}
+    .entry-feature{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4)}
+    .entry-feature__icon{font-size:1.25rem;margin-bottom:var(--space-2);line-height:1}
+    .entry-feature__label{font-size:var(--type-xs);font-weight:var(--weight-semibold);color:var(--color-text-primary);margin-bottom:2px}
+    .entry-feature__desc{font-size:0.72rem;color:var(--color-text-tertiary);line-height:1.5}
+    .consequence-box{border:1px solid rgba(244,63,94,.20);border-left:3px solid #f43f5e;background:rgba(244,63,94,.04);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:var(--space-5) var(--space-6);margin-bottom:var(--space-5)}
+    [data-theme="dark"] .consequence-box{background:rgba(244,63,94,.07)}
+    .consequence-box__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#f43f5e;margin-bottom:var(--space-2)}
+    .consequence-box__text{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.65}
+    .consequence-box__text strong{color:var(--color-text-primary)}
+    .pull-quote{border-left:3px solid #f43f5e;padding:var(--space-4) var(--space-6);margin:var(--space-7) 0}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:clamp(1.125rem,2.5vw,1.375rem);font-style:italic;color:var(--color-text-primary);line-height:1.55;margin-bottom:var(--space-3)}
+    .pull-quote__attribution{font-size:var(--type-xs);font-weight:var(--weight-semibold);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:#f43f5e}
+    .myth-box{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);margin-bottom:var(--space-6);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)}
+    @media(max-width:640px){.myth-box{grid-template-columns:1fr}}
+    [data-theme="dark"] .myth-box{background:var(--ink-800);border-color:var(--ink-700)}
+    .myth-box__col-label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;margin-bottom:var(--space-3);padding-bottom:var(--space-2);border-bottom:2px solid}
+    .myth-box__col--myth .myth-box__col-label{color:#9ca3af;border-color:#4b5563}
+    .myth-box__col--record .myth-box__col-label{color:#f43f5e;border-color:#f43f5e}
+    .myth-box__text{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.6}
+    .myth-box__text strong{color:var(--color-text-primary)}
+    .chain-connector{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-8);margin:var(--space-12) 0}
+    .chain-connector__title{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#fff;margin-bottom:var(--space-6)}
+    .chain-steps{display:flex;flex-direction:column;gap:0;position:relative}
+    .chain-step{display:grid;grid-template-columns:32px 1fr;gap:var(--space-4);align-items:start;padding-bottom:var(--space-5);position:relative}
+    .chain-step:last-child{padding-bottom:0}
+    .chain-step__line{position:absolute;left:15px;top:32px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(244,63,94,.5),rgba(244,63,94,.1))}
+    .chain-step:last-child .chain-step__line{display:none}
+    .chain-step__dot{width:32px;height:32px;border-radius:50%;border:2px solid #f43f5e;background:rgba(244,63,94,.15);color:#fb7185;font-size:0.7rem;font-weight:var(--weight-bold);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+    .chain-step__era{font-size:0.68rem;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#fb7185;margin-bottom:2px}
+    .chain-step__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:#fff;margin-bottom:3px}
+    .chain-step__desc{font-size:var(--type-xs);color:var(--ink-400);line-height:1.6}
+    .sidebar{display:flex;flex-direction:column;gap:var(--space-5)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5)}
+    [data-theme="dark"] .sidebar-card{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--color-border)}
+    .sidebar-toc__list{list-style:none;display:flex;flex-direction:column;gap:1px}
+    .sidebar-toc__link{display:block;font-size:var(--type-xs);color:var(--color-text-secondary);padding:5px var(--space-3);border-radius:var(--radius-md);transition:all var(--duration-fast);text-decoration:none;line-height:1.3}
+    .sidebar-toc__link:hover{background:var(--color-surface-raised);color:var(--color-text-primary)}
+    .sidebar-toc__link.is-active{background:rgba(244,63,94,.10);color:#f43f5e;font-weight:var(--weight-semibold)}
+    .sidebar-fact__stat{font-family:var(--font-editorial);font-size:2rem;font-weight:900;color:#f43f5e;line-height:1;margin-bottom:var(--space-1)}
+    .sidebar-fact__label{font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5}
+    .sidebar-fact__divider{height:1px;background:var(--color-border);margin:var(--space-4) 0}
+    .related-thread{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);text-decoration:none}
+    .related-thread:last-child{border-bottom:none;padding-bottom:0}
+    .related-thread__num{font-size:0.68rem;font-weight:var(--weight-bold);text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary)}
+    .related-thread__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--color-text-primary);line-height:1.35}
+    .related-thread:hover .related-thread__title{color:#f43f5e}
+    .thread-bottom-cta{background:var(--ink-900);padding:var(--space-16) 0;text-align:center}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#fda4af;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-5);max-width:600px;margin-left:auto;margin-right:auto}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-400);max-width:520px;margin:0 auto var(--space-8);line-height:1.65}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-7);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-semibold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:#e11d48;color:#fff}
+    .thread-bottom-cta__btn--primary:hover{background:#be123c}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+    [data-theme="dark"] .entry-stats{background:var(--ink-800);border-color:var(--ink-700)}
+    [data-theme="dark"] .entry-feature{background:var(--ink-800);border-color:var(--ink-700)}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out)}
+    .reveal.is-visible{opacity:1;transform:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>History Thread:</strong> How slavery really ended — and what replaced it. The Proclamation, the 13th Amendment's hidden clause, 40 acres stolen, and the system built in slavery's image.</p>
+    <nav class="utility-bar__links"><a href="about.html" class="utility-bar__link">About</a><a href="newsletter.html" class="utility-bar__link">Newsletter</a><a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a></nav>
+  </div>
+</div>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home"><span class="site-nav__name">Chain</span><span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links" aria-label="Primary navigation"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="page">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay"><svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span class="hide-mobile">Search</span></button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/><line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/><line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/></svg></button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search"><label for="searchInput" class="sr-only">Search Chain</label><input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off"/><button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button></form>
+    <div class="search-overlay__hints"><p class="search-overlay__hint-label">Try searching</p><a href="search.html?q=Emancipation+Proclamation" class="search-hint-chip">Emancipation Proclamation</a><a href="search.html?q=13th+Amendment" class="search-hint-chip">13th Amendment</a><a href="search.html?q=40+acres" class="search-hint-chip">40 Acres</a></div>
+  </div>
+</div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links"><li><a href="explore.html" class="mobile-nav__link">Explore</a></li><li><a href="threads.html" class="mobile-nav__link">Threads</a></li><li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li><li><a href="learn.html" class="mobile-nav__link">Learn</a></li><li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li><li><a href="about.html" class="mobile-nav__link">About</a></li><li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li></ul>
+  </div>
+</nav>
+
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Emancipation Thread · 1861–Present</div>
+      <h1 class="thread-hero__title" id="heroTitle"><em>How Slavery</em><br>Really Ended</h1>
+      <p class="thread-hero__subtitle">The standard story is that Lincoln freed the slaves. The actual record is more complicated, more contested — and more important. Enslaved people were already freeing themselves before Lincoln acted. The Proclamation freed no one he had legal authority over. The 13th Amendment was ratified with a clause that made re-enslavement legal. Forty acres were promised, distributed, then taken back. And what replaced slavery was built to function like it.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Period</div><div class="thread-meta-item__value">1861 – Present</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Black Soldiers</div><div class="thread-meta-item__value">180,000 fought for the Union</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">40 Acres Promised</div><div class="thread-meta-item__value">400,000 acres — taken back in months</div></div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon"><polygon points="5 3 19 12 5 21 5 3"/></svg><span id="listenLabel">Listen</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true"><div class="listen-progress-bar__fill" id="listenProgressFill"></div></div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text"><strong>Slavery did not end. It was transformed — by people fighting to survive it, by a war that made abolition militarily necessary, and by a legal framework deliberately designed to allow its continuation.</strong> The enslaved people who escaped to Union lines, who burned fields, who refused to work, who took up arms — they ended slavery. What the law produced in 1865 was not freedom. It was a new architecture: the exception clause, the Black Codes, convict leasing, sharecropping. Understanding what "the end of slavery" actually was is the only way to understand why its consequences are still with us.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content" class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <div class="thread-main">
+
+        <!-- ERA I -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era I · Self-Emancipation, 1861–1862</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 1 -->
+          <article class="entry-item reveal" id="entry-contraband">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates">May 1861 — Fort Monroe, Virginia</div>
+                <h2 class="entry-item__name">The Enslaved Freed Themselves First</h2>
+                <div class="entry-item__location">The "Contraband" Decision · General Benjamin Butler</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">3</div><div class="entry-stat__label">enslaved men who arrived at Fort Monroe on May 23, 1861</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">500K+</div><div class="entry-stat__label">enslaved people who escaped to Union lines during the war</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">18 mos.</div><div class="entry-stat__label">before the Emancipation Proclamation — self-emancipation was already happening</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>On May 23, 1861 — a month after Fort Sumter, a year and a half before the Emancipation Proclamation — three enslaved men named Frank Baker, Shepard Mallory, and James Townsend escaped from a Confederate work detail and rowed across the James River to Fort Monroe, Virginia. They asked Union General Benjamin Butler for asylum.</p>
+              <p>Their enslaver sent a Confederate officer under a flag of truce to demand their return under the Fugitive Slave Act. Butler refused. He declared the three men "contraband of war" — enemy property that could be seized. It was a legal maneuver, not a moral statement. But it worked. Within days, dozens more enslaved people arrived at Fort Monroe. Within weeks, hundreds. Within months, tens of thousands.</p>
+              <p><strong>Enslaved people understood what the war meant before the Union Army did.</strong> They were not waiting to be freed. They were walking off plantations, burning cotton fields, sabotaging Confederate infrastructure, and moving toward Union lines at every opportunity. Historians W.E.B. Du Bois and later others called this a "general strike" — a mass withdrawal of enslaved labor that made the Southern war economy increasingly unworkable.</p>
+              <p>By the time Lincoln issued the Emancipation Proclamation in January 1863, over half a million enslaved people had already reached Union lines or freed themselves through direct action. The Proclamation codified a reality that the enslaved had already created.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">⛵</div><div class="entry-feature__label">Frank, Shepard &amp; James</div><div class="entry-feature__desc">The three men whose escape triggered Butler's "contraband" ruling — the legal crack that began the collapse.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🏚️</div><div class="entry-feature__label">The General Strike</div><div class="entry-feature__desc">Du Bois's term for the mass withdrawal of enslaved labor. 500K+ people acted before any law freed them.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🔥</div><div class="entry-feature__label">Field Sabotage</div><div class="entry-feature__desc">Burning cotton, breaking tools, poisoning livestock, feigning illness. Resistance was constant and organized.</div></div>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">Who Freed the Enslaved?</div>
+              <p class="consequence-box__text">The conventional narrative gives Lincoln the central role. The historical record gives it to the enslaved themselves. <strong>Their mass flight forced the Union Army to develop a policy. Their labor strike degraded the Confederate war economy. Their military service — 180,000 men — helped win the war. Lincoln responded to a reality they had already created.</strong></p>
+            </div>
+          </article>
+
+          <!-- ENTRY 2 -->
+          <article class="entry-item reveal" id="entry-proclamation">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">January 1, 1863 — Washington, D.C.</div>
+                <h2 class="entry-item__name">What the Emancipation Proclamation Actually Said</h2>
+                <div class="entry-item__location">Executive Order 95 · Abraham Lincoln</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">0</div><div class="entry-stat__label">enslaved people freed in states under Union control</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">4</div><div class="entry-stat__label">slave states exempted: Kentucky, Missouri, Maryland, Delaware</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">48+</div><div class="entry-stat__label">specific counties in Virginia and Louisiana explicitly exempted</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The Emancipation Proclamation is probably the most misunderstood document in American history. Read it in full and the picture is startling: it freed enslaved people only in Confederate states — places where Lincoln had no legal authority whatsoever. In the areas where he did have authority, he explicitly exempted slavery from the order.</p>
+              <p>The border states — Kentucky, Missouri, Maryland, Delaware — remained slave states throughout the war. They were loyal to the Union, so Lincoln could not afford to antagonize them. Slavery there was untouched. Union-controlled parishes in Louisiana were exempted. West Virginia counties were exempted. <strong>The Proclamation was a war measure targeted at the Confederate economy, not a moral emancipation document.</strong></p>
+              <p>Lincoln was direct about this. In a famous 1862 letter to newspaper editor Horace Greeley, he wrote: "If I could save the Union without freeing any slave I would do it, and if I could save it by freeing all the slaves I would do that; and if I could save it by freeing some and leaving others alone I would also do that." The Proclamation was the third option.</p>
+              <p>That doesn't make it unimportant. It transformed the war's meaning and made the abolition of slavery — eventually — a Union war aim. It freed enormous numbers of people in Confederate territory as Union troops advanced. It barred European powers (who had abolished slavery) from recognizing the Confederacy. But it was a military document. Not a freedom document.</p>
+            </div>
+            <div class="myth-box">
+              <div class="myth-box__col myth-box__col--myth">
+                <div class="myth-box__col-label">The Standard Story</div>
+                <p class="myth-box__text">Lincoln issued the Emancipation Proclamation and freed the slaves on January 1, 1863.</p>
+              </div>
+              <div class="myth-box__col myth-box__col--record">
+                <div class="myth-box__col-label">The Actual Record</div>
+                <p class="myth-box__text"><strong>The Proclamation applied only to Confederate-held territory</strong> where Lincoln had no enforcement power. Border states, Union-occupied regions, and areas under federal control remained slave. It freed no one Lincoln could legally compel.</p>
+              </div>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"If I could save the Union without freeing any slave I would do it, and if I could save it by freeing all the slaves I would do that."</p>
+              <p class="pull-quote__attribution">— Abraham Lincoln, letter to Horace Greeley, August 22, 1862</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ERA II -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era II · Black Soldiers and the 13th Amendment, 1863–1865</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 3 -->
+          <article class="entry-item reveal" id="entry-soldiers">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">1863–1865</div>
+                <h2 class="entry-item__name">180,000 Black Soldiers Helped Win the War — Then Were Abandoned</h2>
+                <div class="entry-item__location">United States Colored Troops · Union Army</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">180,000</div><div class="entry-stat__label">Black men served in the Union Army and Navy</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">38,000</div><div class="entry-stat__label">Black soldiers died — approximately 1 in 5</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">$10</div><div class="entry-stat__label">monthly pay for Black soldiers vs. $13 for white — same rank</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>By the war's end, approximately 180,000 Black men had served in the Union Army and Navy — comprising roughly 10% of total Union forces. They fought in over 450 battles. They were essential to Union victory. Grant said so. Lincoln said so: "Without the military help of Black freed men, the war against the South could not have been won."</p>
+              <p>They did not serve as equals. Black soldiers were paid less than white soldiers of the same rank — $10 per month versus $13 — and this disparity was not corrected until June 1864, after months of organized protest and refusal to accept unequal pay. They were denied the opportunity to serve as officers for most of the war. They were assigned disproportionately to fatigue duty — manual labor — rather than combat.</p>
+              <p><strong>When captured by Confederate forces, they were not treated as prisoners of war. They were executed, re-enslaved, or sold back into bondage.</strong> The Fort Pillow Massacre of April 1864 — where Confederate forces under Nathan Bedford Forrest (later a founder of the Ku Klux Klan) slaughtered over 300 Union soldiers, most of them Black, who had surrendered — was the most documented of many such incidents. Lincoln threatened reprisals. None were carried out.</p>
+              <p>After the war, the men who had fought for their own freedom and the Union cause were largely returned to the same social condition they had fought to escape. Their service entitled them to citizenship under the 14th Amendment. It did not protect them from the violence, disenfranchisement, and economic dispossession that followed.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Fort Pillow Massacre</div>
+              <p class="consequence-box__text">April 12, 1864. Confederate troops overran Fort Pillow, Tennessee. Over 300 Union soldiers — the majority Black — were killed after surrendering. Eyewitness accounts described Black soldiers being shot, buried alive, and burned. <strong>Nathan Bedford Forrest, who commanded the attack, later founded the Ku Klux Klan.</strong> Congress investigated. Lincoln threatened retaliation. No Confederate officer was ever charged.</p>
+            </div>
+          </article>
+
+          <!-- ENTRY 4 -->
+          <article class="entry-item reveal" id="entry-13th">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates">December 6, 1865</div>
+                <h2 class="entry-item__name">The 13th Amendment's Hidden Clause</h2>
+                <div class="entry-item__location">United States Constitution · Amendment XIII</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">27</div><div class="entry-stat__label">words that abolished slavery in the US</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">11</div><div class="entry-stat__label">words that preserved it — "except as a punishment for crime"</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">6 mos.</div><div class="entry-stat__label">before Southern states used the exception to re-enslave Black people</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The 13th Amendment, ratified December 6, 1865, reads in full: <em>"Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction."</em></p>
+              <p>The critical phrase: <strong>"except as a punishment for crime."</strong> Slavery remained legal — explicitly — as criminal punishment. This was not an oversight. Abolitionists debated the clause. Some argued it was necessary for the prison system. Most did not anticipate how rapidly it would be weaponized.</p>
+              <p>They did not have to wait long. Within months of ratification, Southern states passed "Black Codes" — laws specifically designed to criminalize Black life. Vagrancy laws made it illegal to be unemployed. Loitering laws made it illegal to stand on a public street. Apprenticeship laws allowed courts to assign Black children to white employers without parental consent. <strong>The moment you were arrested under a Black Code, you could be legally enslaved under the 13th Amendment's exception clause.</strong></p>
+              <p>The convict leasing system that followed — in which states leased convicted prisoners to private businesses, often the same plantations where they had been enslaved — generated enormous profit for state governments and private companies from the 1860s through the 1940s. It was, in every functional sense, slavery: same labor, same conditions, same violence, same absence of freedom — now with a legal conviction attached.</p>
+            </div>
+            <div class="myth-box">
+              <div class="myth-box__col myth-box__col--myth">
+                <div class="myth-box__col-label">The Standard Story</div>
+                <p class="myth-box__text">The 13th Amendment abolished slavery. After 1865, slavery was illegal in the United States.</p>
+              </div>
+              <div class="myth-box__col myth-box__col--record">
+                <div class="myth-box__col-label">The Actual Record</div>
+                <p class="myth-box__text"><strong>The 13th Amendment abolished slavery "except as punishment for crime."</strong> Southern states immediately created criminal codes targeting Black people. Conviction = legal enslavement. The exception was used within months.</p>
+              </div>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"Neither slavery nor involuntary servitude, <em>except as a punishment for crime whereof the party shall have been duly convicted</em>, shall exist within the United States."</p>
+              <p class="pull-quote__attribution">— 13th Amendment, United States Constitution, ratified December 6, 1865</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ERA III -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era III · The Promise and the Betrayal, 1865–1877</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 5 -->
+          <article class="entry-item reveal" id="entry-40acres">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates">January–September 1865</div>
+                <h2 class="entry-item__name">Forty Acres: Promised, Distributed, Stolen</h2>
+                <div class="entry-item__location">Sherman's Field Order No. 15 · President Andrew Johnson's Reversal</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">400,000</div><div class="entry-stat__label">acres distributed to ~40,000 formerly enslaved families</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">Jan→Sep</div><div class="entry-stat__label">1865: eight months between distribution and confiscation</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">$0</div><div class="entry-stat__label">compensation paid when land was returned to former enslavers</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>On January 12, 1865, General William Sherman met with twenty Black ministers in Savannah, Georgia. He asked them what freedpeople needed most. The ministers' spokesman, Garrison Frazier, answered without hesitation: land. "The way we can best take care of ourselves is to have land, and turn it into it by our own labor."</p>
+              <p>Four days later, Sherman issued Special Field Order No. 15. It set aside the Sea Islands of South Carolina and Georgia and a strip of coastal land up to 30 miles inland — approximately 400,000 acres of confiscated Confederate property — for settlement by formerly enslaved people. Each family would receive a plot of up to 40 acres. The Army would lend mules. <strong>Within months, 40,000 people had settled the land.</strong></p>
+              <p>Abraham Lincoln was assassinated on April 14, 1865. Andrew Johnson became president. Johnson was a Tennessee Democrat who had owned enslaved people and opposed Reconstruction. In September 1865, he issued a pardon to nearly all former Confederates and ordered the land in Field Order No. 15 returned to its former owners.</p>
+              <p>Federal troops evicted the freedpeople who had settled the land. In some cases, the soldiers forcibly removed families who had built homes and planted crops. <strong>The forty acres were taken back. No compensation was paid. No alternative land was provided.</strong> The formerly enslaved returned to the same land, working for the same people who had held them in bondage, now as sharecroppers.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The way we can best take care of ourselves is to have land, and turn it into it by our own labor."</p>
+              <p class="pull-quote__attribution">— Rev. Garrison Frazier, speaking for the freedpeople to General Sherman, January 12, 1865</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Wealth Gap Starts Here</div>
+              <p class="consequence-box__text">The 8-to-1 racial wealth gap in the United States today has a specific origin point: freedpeople were denied the land that would have been their economic foundation. <strong>250 years of stolen labor had built no inherited wealth. The one federal program that could have created a starting point was revoked in eight months.</strong> Sharecropping — debt bondage — replaced it. The wealth gap that opened in 1865 has compounded ever since.</p>
+            </div>
+          </article>
+
+          <!-- ENTRY 6 -->
+          <article class="entry-item reveal" id="entry-reconstruction">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates">1865–1877 — Southern United States</div>
+                <h2 class="entry-item__name">Reconstruction: What America Almost Was</h2>
+                <div class="entry-item__location">Radical Reconstruction · Federal Occupation · Black Political Participation</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">2,000</div><div class="entry-stat__label">Black men elected to public office during Reconstruction</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">16</div><div class="entry-stat__label">Black members of the US Congress during Reconstruction</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">12 yrs</div><div class="entry-stat__label">the entire period of meaningful federal Reconstruction: 1865–1877</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>For twelve years after the Civil War, the federal government attempted something unprecedented: the political, economic, and civic integration of four million formerly enslaved people into American democracy. Under Radical Reconstruction, federal troops occupied the South. The 14th and 15th Amendments guaranteed citizenship and voting rights. Freedmen's Bureau agents distributed food, established schools, and mediated labor disputes. Black men voted. Black men ran for office. Black men won.</p>
+              <p>Between 1865 and 1877, approximately 2,000 Black men held public office in the South — as state legislators, sheriffs, judges, tax collectors, and members of Congress. Mississippi sent two Black senators to Washington. South Carolina had a Black majority legislature. <strong>This was not theoretical democracy. It was functioning multiracial democracy, for the first time in American history.</strong></p>
+              <p>It was systematically destroyed. The Ku Klux Klan, founded in 1865 by former Confederate officers, conducted a terrorist campaign against Black voters and officeholders. White supremacist paramilitary groups — the Red Shirts in South Carolina, the White League in Louisiana — used organized violence to suppress Black political participation. Politicians who supported Reconstruction were threatened, beaten, and killed.</p>
+              <p>The federal government, under pressure from Northern weariness with the war's costs and consequences, gradually withdrew. In 1876, a disputed presidential election produced the Compromise of 1877: Rutherford Hayes became president, and the last federal troops were withdrawn from the South. Reconstruction was over.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">What Reconstruction Proved</div>
+              <p class="consequence-box__text">The common claim that Black Americans were "not ready" for political participation after slavery is refuted by the historical record. <strong>When given the vote and federal protection, Black Americans built schools, elected qualified officials, passed civil rights legislation, and participated in democracy at every level.</strong> Reconstruction was not a failure of Black readiness. It was ended by organized white supremacist violence and federal abandonment.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ERA IV -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era IV · After Reconstruction: Slavery by Other Names, 1877–1965</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 7 -->
+          <article class="entry-item reveal" id="entry-replacement">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates">1877–1940s — Across the South</div>
+                <h2 class="entry-item__name">The System Built in Slavery's Image</h2>
+                <div class="entry-item__location">Convict Leasing · Sharecropping · Debt Peonage</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">~1940</div><div class="entry-stat__label">year convict leasing was formally abolished in the last Southern state</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">75 yrs</div><div class="entry-stat__label">duration of post-slavery labor extraction through legal mechanisms</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">$0</div><div class="entry-stat__label">net income for most sharecroppers — debt was structural, not incidental</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>When Reconstruction ended, three interlocking systems replaced slavery. Each was distinct. Together, they functioned as slavery under different legal names.</p>
+              <p><strong>Convict leasing.</strong> Southern states used the 13th Amendment's exception clause as designed. Black Codes criminalized the daily activities of Black life — being unemployed, being without a labor contract, standing on a street corner at night. Those arrested were convicted in proceedings that were rarely public and never fair. Convicted men were leased to mining companies, railroad contractors, turpentine camps, and plantations. They slept in cages. They were beaten for working too slowly. They could be killed. Alabama was still generating state revenue from convict leasing in 1928. Mississippi continued into the 1940s.</p>
+              <p><strong>Sharecropping.</strong> Freed from slavery with nothing — no land, no tools, no savings — most Black families in the South had no alternative to working the same land for the same families who had enslaved them. Sharecroppers received a portion of the crop in exchange for labor, but planters controlled the accounts. Debt was systematically inflated. A sharecropper who tried to leave before the debt was settled could be arrested for fraud. <strong>Debt peonage was federally illegal. The Justice Department occasionally prosecuted it. It persisted for decades.</strong></p>
+              <p>The Great Migration — six million Black Americans leaving the South between 1910 and 1970 — was driven in large part by the impossibility of economic survival under these systems, combined with the constant terror of lynching, which averaged one recorded death every four days between 1877 and 1950.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">⛏️</div><div class="entry-feature__label">Convict Leasing</div><div class="entry-feature__desc">State governments leased convicted Black men to private companies. Death rates were staggering. Alabama earned profit until 1928.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🌾</div><div class="entry-feature__label">Sharecropping</div><div class="entry-feature__desc">Same land, same people, no exit. Debt was structurally designed to be unpayable. Departure = arrest for fraud.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🚂</div><div class="entry-feature__label">Great Migration</div><div class="entry-feature__desc">6 million people fled these conditions. Not economic opportunity alone — survival from a system designed to trap them.</div></div>
+            </div>
+          </article>
+
+          <!-- ENTRY 8 -->
+          <article class="entry-item reveal" id="entry-mississippi">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">08</div>
+              <div>
+                <div class="entry-item__dates">1865 → 1995 → 2013</div>
+                <h2 class="entry-item__name">Mississippi Didn't Ratify the 13th Amendment Until 1995</h2>
+                <div class="entry-item__location">Mississippi State Legislature · National Archives</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">130 yrs</div><div class="entry-stat__label">between the 13th Amendment's ratification and Mississippi's approval</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">1995</div><div class="entry-stat__label">year Mississippi voted to ratify — symbolic only, not filed properly</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">2013</div><div class="entry-stat__label">year Mississippi formally notified the National Archives — after a film inspired a check</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Mississippi rejected the 13th Amendment in 1865. This was not unusual — several former Confederate states initially rejected it before being required to ratify as a condition of readmission to the Union. What was unusual is what happened next.</p>
+              <p>Mississippi finally voted to ratify the 13th Amendment in 1995 — 130 years after ratification. But the state legislature never filed the required paperwork with the Office of the Federal Register. It was, in the technical legal sense, never officially ratified.</p>
+              <p><strong>This was discovered in 2012 by Dr. Rajan Bose and Ken Camarillo, who had watched the Steven Spielberg film Lincoln and went to verify Mississippi's ratification in the historical record. They found the paperwork had never been filed.</strong> They petitioned the state. Mississippi filed the paperwork in February 2013. The National Archives certified the ratification on March 16, 2013 — 148 years after the amendment was passed by Congress.</p>
+              <p>The story is simultaneously trivial (the amendment's legal force never depended on Mississippi's ratification) and clarifying (the symbolism of the delay, the accident of the discovery, the century-and-a-half of official non-acknowledgment — all of it says something real about how American history is curated and who is expected to care about it).</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">What It Actually Tells Us</div>
+              <p class="consequence-box__text">The Mississippi ratification story is not primarily about a clerical error. It is about the fact that <strong>no official in the State of Mississippi — in 1866, 1900, 1965, or 1990 — ever thought it important enough to correct.</strong> The amendment that formally ended slavery in the United States was not considered worth a stamp and an envelope for 148 years. That is a statement about institutional priorities, not bureaucratic oversight.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ERA V -->
+        <div class="era-divider reveal"><div class="era-divider__line"></div><div class="era-divider__badge">Era V · What "The End" Left Behind</div><div class="era-divider__line"></div></div>
+
+        <div class="entry-list">
+
+          <!-- ENTRY 9 -->
+          <article class="entry-item reveal" id="entry-lost-cause">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">09</div>
+              <div>
+                <div class="entry-item__dates">1865–Present</div>
+                <h2 class="entry-item__name">The Lost Cause: Rewriting What the War Was About</h2>
+                <div class="entry-item__location">Confederate Monument Movement · United Daughters of the Confederacy · School Curricula</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">700+</div><div class="entry-stat__label">Confederate monuments erected in the US — most during Jim Crow, 1900–1950</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">4</div><div class="entry-stat__label">Confederate states that cited slavery explicitly in their secession declarations</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">44</div><div class="entry-stat__label">US states with laws restricting how race and slavery are taught in schools (2021–2024)</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Almost immediately after Appomattox, a coordinated effort began to rewrite what the Civil War had been about. The Confederacy had been explicit about slavery — the Confederate Vice President, Alexander Stephens, called it the "cornerstone" of the Confederate government in 1861. South Carolina, Georgia, Mississippi, and Texas cited slavery explicitly and at length in their secession declarations.</p>
+              <p>After defeat, Confederate veterans and their descendants constructed an alternative history: the "Lost Cause." In this telling, the war had been about states' rights, constitutional principle, and Southern honor — not slavery. Confederate soldiers were not enslavers defending human bondage; they were noble men fighting for their homeland. The monuments, textbooks, and memorials that promoted this view were deliberately placed in public spaces during the Jim Crow era — not immediately after the war, but between 1890 and 1950, at the height of racial terror. <strong>They were not memorials. They were messages.</strong></p>
+              <p>The United Daughters of the Confederacy systematically lobbied school boards to adopt Lost Cause–aligned curricula. For much of the 20th century, textbooks in Southern states taught that slavery was a benign institution and that enslaved people were largely content. Children educated in these curricula grew up without an accurate account of what the war was, what slavery was, or what Reconstruction was.</p>
+              <p>As of 2024, legislation restricting how race, slavery, and the Civil War are taught in public schools has passed in 44 states. The names have changed — "critical race theory" replaced "Lost Cause" — but the goal is continuous: preventing an accurate account of how slavery worked and what it produced.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Secession Documents Say It Plainly</div>
+              <p class="consequence-box__text">Mississippi's secession declaration (1861): "Our position is thoroughly identified with the institution of slavery — <em>the greatest material interest of the world.</em>" South Carolina's: the non-slave states had "denounced as sinful the institution of slavery." Texas's: "We hold as undeniable truths that the governments of the various States, and of the confederacy itself, were established exclusively by the white race, <strong>for themselves and their posterity; that the African race had no agency in their establishment.</strong>" The primary sources are available and unambiguous.</p>
+            </div>
+          </article>
+
+          <!-- ENTRY 10 -->
+          <article class="entry-item reveal" id="entry-legacy">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">10</div>
+              <div>
+                <div class="entry-item__dates">1865–Present</div>
+                <h2 class="entry-item__name">What Slavery Left Behind — Specifically</h2>
+                <div class="entry-item__location">The Unbroken Chain · Present-Day America</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div class="entry-stat"><div class="entry-stat__num">8:1</div><div class="entry-stat__label">white-to-Black median wealth ratio — traceable to 1865</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">5×</div><div class="entry-stat__label">Black incarceration rate vs. white — the 13th Amendment's exception, still operating</div></div>
+              <div class="entry-stat"><div class="entry-stat__num">12 yrs</div><div class="entry-stat__label">life expectancy gap between Black and white Americans</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The standard ending of the slavery story is 1865. The actual story continues in an unbroken line to the present day — and the line is traceable, specific, and documented in this archive.</p>
+              <p><strong>The wealth gap</strong> begins with 250 years of unpaid labor, continues through the revocation of 40 acres, passes through sharecropping and debt peonage, runs through redlining and GI Bill exclusion, and arrives at a present-day 8-to-1 white-to-Black median wealth ratio. At no point in this chain is there a year when the gap closed, or when accumulated disadvantage stopped compounding. There is no "after slavery" in the financial ledger — only the ledger itself, with interest.</p>
+              <p><strong>Mass incarceration</strong> uses the exact mechanism the 13th Amendment built in: enslave through criminal conviction. Black Americans are incarcerated at five times the rate of white Americans — not because of higher crime rates, but because of policing patterns, prosecutorial discretion, and sentencing disparities that begin in the same Southern states that wrote the Black Codes. The War on Drugs applied the same architecture nationally from 1971 forward.</p>
+              <p><strong>The health gap, the education gap, the life expectancy gap</strong> — each one has a documented causal chain that leads back to specific decisions, specific laws, and the specific institution that ended imperfectly in 1865 and continued under other names.</p>
+              <p><strong>The question "how did slavery really end?" has a direct answer: it didn't, fully. It transformed. And the archive documents the transformation.</strong></p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">💰</div><div class="entry-feature__label">Wealth Gap</div><div class="entry-feature__desc">8:1. Traced from unpaid labor → stolen land → redlining → exclusion. Every link documented.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">⚖️</div><div class="entry-feature__label">Incarceration</div><div class="entry-feature__desc">5× rate. The 13th Amendment's exception, still operating. Black Codes → War on Drugs → today.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🏥</div><div class="entry-feature__label">Health Gap</div><div class="entry-feature__desc">12-year life expectancy gap. Medical racism, environmental racism, insurance exclusion — all traceable.</div></div>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Archive's Purpose</div>
+              <p class="consequence-box__text">Every thread in this archive connects to this one. The transatlantic slave trade, the stolen labor, mass incarceration, health disparities, the racial wealth gap — <strong>none of these are separate problems. They are the same problem across time, with the same origin point, running through the same institutions, producing the same outcomes for the same reasons.</strong> The chain is not a metaphor. It is a documented sequence of decisions, each one building on the last.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CAUSAL CHAIN -->
+        <div class="chain-connector reveal" role="complementary" aria-label="Causal chain">
+          <h2 class="chain-connector__title">The Chain: How Slavery's "End" Produced the Present</h2>
+          <div class="chain-steps">
+            <div class="chain-step">
+              <div class="chain-step__dot">1</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1861</div>
+                <div class="chain-step__title">Enslaved people begin freeing themselves</div>
+                <div class="chain-step__desc">500,000+ escape to Union lines before any Proclamation. Their self-emancipation forces Union policy. The enslaved were the first abolitionists in practice.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">2</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">January 1, 1863</div>
+                <div class="chain-step__title">Emancipation Proclamation frees no one Lincoln controls</div>
+                <div class="chain-step__desc">Applies only to Confederate territory. Border states, Union-occupied regions, and areas under federal authority are explicitly exempt. A war measure, not a freedom document.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">3</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1863–1865</div>
+                <div class="chain-step__title">180,000 Black soldiers help win the war</div>
+                <div class="chain-step__desc">Their service is essential. They are paid less, executed when captured, and returned to the same social conditions after victory. The military contribution does not produce political protection.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">4</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">December 6, 1865</div>
+                <div class="chain-step__title">13th Amendment ratified — with the exception clause</div>
+                <div class="chain-step__desc">"Except as a punishment for crime." Southern states immediately create criminal codes to use the exception. Black Codes convert freedom into criminality within months.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">5</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">January–September 1865</div>
+                <div class="chain-step__title">40 acres promised, distributed, taken back</div>
+                <div class="chain-step__desc">Sherman's Order distributes 400,000 acres. Johnson pardons the Confederacy and rescinds the order. Freedpeople are evicted. The economic foundation of freedom is confiscated. Sharecropping begins.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">6</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1877</div>
+                <div class="chain-step__title">Reconstruction ends — federal abandonment</div>
+                <div class="chain-step__desc">Compromise of 1877 withdraws the last federal troops. Functioning multiracial democracy dismantled by organized white supremacist violence. Jim Crow begins.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">7</div>
+              <div class="chain-step__line" aria-hidden="true"></div>
+              <div>
+                <div class="chain-step__era">1877–1965</div>
+                <div class="chain-step__title">Convict leasing, sharecropping, debt peonage</div>
+                <div class="chain-step__desc">Slavery by other legal names for 75+ years. Same labor, same conditions, same geography. Wealth accumulation structurally prevented. Great Migration begins as survival strategy.</div>
+              </div>
+            </div>
+            <div class="chain-step">
+              <div class="chain-step__dot">8</div>
+              <div>
+                <div class="chain-step__era">1865–Present</div>
+                <div class="chain-step__title">The compounding gap</div>
+                <div class="chain-step__desc">8:1 racial wealth ratio. 5× incarceration rate. 12-year life expectancy gap. The "end" of slavery in 1865 left no land, no reparations, no protection — and every year since, the gap has compounded.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="Thread sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">In This Thread</div>
+          <nav aria-label="Thread table of contents">
+            <ul class="sidebar-toc__list">
+              <li><a href="#entry-contraband" class="sidebar-toc__link">01 — The Enslaved Freed Themselves First</a></li>
+              <li><a href="#entry-proclamation" class="sidebar-toc__link">02 — What the Proclamation Actually Said</a></li>
+              <li><a href="#entry-soldiers" class="sidebar-toc__link">03 — 180,000 Black Soldiers</a></li>
+              <li><a href="#entry-13th" class="sidebar-toc__link">04 — The 13th Amendment's Exception Clause</a></li>
+              <li><a href="#entry-40acres" class="sidebar-toc__link">05 — 40 Acres: Promised and Stolen</a></li>
+              <li><a href="#entry-reconstruction" class="sidebar-toc__link">06 — Reconstruction: What America Almost Was</a></li>
+              <li><a href="#entry-replacement" class="sidebar-toc__link">07 — Slavery by Other Names</a></li>
+              <li><a href="#entry-mississippi" class="sidebar-toc__link">08 — Mississippi and the 13th Amendment</a></li>
+              <li><a href="#entry-lost-cause" class="sidebar-toc__link">09 — The Lost Cause</a></li>
+              <li><a href="#entry-legacy" class="sidebar-toc__link">10 — What Slavery Left Behind</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Numbers</div>
+          <div class="sidebar-fact__stat">500K+</div>
+          <div class="sidebar-fact__label">Enslaved people who reached Union lines before the Proclamation — self-emancipation at scale</div>
+          <div class="sidebar-fact__divider"></div>
+          <div class="sidebar-fact__stat">0</div>
+          <div class="sidebar-fact__label">States under Union control where the Emancipation Proclamation freed anyone</div>
+          <div class="sidebar-fact__divider"></div>
+          <div class="sidebar-fact__stat">8 mos.</div>
+          <div class="sidebar-fact__label">Between Sherman distributing 40 acres and Johnson taking it back</div>
+          <div class="sidebar-fact__divider"></div>
+          <div class="sidebar-fact__stat">148 yrs</div>
+          <div class="sidebar-fact__label">Before Mississippi formally registered ratification of the 13th Amendment</div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Related Threads</div>
+          <a href="thread-transatlantic-slave-trade.html" class="related-thread">
+            <div class="related-thread__num">Origins Thread</div>
+            <div class="related-thread__title">The Transatlantic Slave Trade, 1441–1808</div>
+          </a>
+          <a href="thread-juneteenth.html" class="related-thread">
+            <div class="related-thread__num">Freedom Thread</div>
+            <div class="related-thread__title">Two and a Half Years Late: Juneteenth</div>
+          </a>
+          <a href="thread-mass-incarceration.html" class="related-thread">
+            <div class="related-thread__num">Continuation Thread</div>
+            <div class="related-thread__title">The 13th: Mass Incarceration &amp; the Second Slavery</div>
+          </a>
+          <a href="thread-stolen-labor.html" class="related-thread">
+            <div class="related-thread__num">Economics Thread</div>
+            <div class="related-thread__title">Stolen Labor: The Racial Wealth Gap</div>
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Primary Sources</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3)">
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">The Emancipation Proclamation</strong> — Executive Order 95, January 1, 1863. Read the actual text. The exemptions are in section one.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">The Black Reconstruction in America</strong> — W.E.B. Du Bois (1935). The definitive account of what Reconstruction actually was and how it was destroyed.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">Slavery by Another Name</strong> — Douglas Blackmon (2008). Pulitzer Prize–winning account of convict leasing and debt peonage from 1865 to 1940.</li>
+            <li style="font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5"><strong style="color:var(--color-text-primary)">Confederate Secession Declarations</strong> — South Carolina (Dec. 1860), Mississippi (Jan. 1861), Georgia (Jan. 1861), Texas (Feb. 1861). All available at Yale Law School's Avalon Project.</li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</main>
+
+<section class="thread-bottom-cta" aria-labelledby="ctaTitle">
+  <div class="container">
+    <div class="thread-bottom-cta__eyebrow">The Chain Continues</div>
+    <h2 class="thread-bottom-cta__title" id="ctaTitle">Slavery didn't end. It transformed.</h2>
+    <p class="thread-bottom-cta__sub">The 13th Amendment's exception became convict leasing. Stolen land became a wealth gap. Broken Reconstruction became mass disenfranchisement. The threads connect.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="thread-mass-incarceration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Next: Mass Incarceration →</a>
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="index.html" class="site-footer__wordmark" aria-label="Chain — Home">Chain</a>
+        <p class="site-footer__tagline">Understand the chain, not just the event.</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="threads.html" class="site-footer__link">Threads</a>
+        <a href="explore.html" class="site-footer__link">Explore</a>
+        <a href="maps.html" class="site-footer__link">Maps</a>
+        <a href="about.html" class="site-footer__link">About</a>
+        <a href="sources.html" class="site-footer__link">Sources</a>
+        <a href="donate.html" class="site-footer__link">Donate</a>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">All claims in this thread are sourced. See <a href="sources.html" class="site-footer__link">Sources</a> for full citations.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggleBtn=document.getElementById('themeToggle');
+  var moonIcon=toggleBtn?toggleBtn.querySelector('.icon-moon'):null;
+  var sunIcons=toggleBtn?toggleBtn.querySelectorAll('.icon-sun'):[];
+  function applyTheme(t){
+    document.documentElement.setAttribute('data-theme',t);
+    localStorage.setItem('chain-theme',t);
+    if(moonIcon) moonIcon.style.display=t==='dark'?'none':'';
+    sunIcons.forEach(function(el){el.style.display=t==='dark'?'':'none'});
+  }
+  applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  if(toggleBtn) toggleBtn.addEventListener('click',function(){
+    applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+  });
+  var menuBtn=document.getElementById('mobileMenuToggle');
+  var closeBtn=document.getElementById('mobileClose');
+  var mobileNav=document.getElementById('mobileNav');
+  var backdrop=document.getElementById('mobileBackdrop');
+  function openNav(){mobileNav.classList.add('is-open');mobileNav.setAttribute('aria-hidden','false');menuBtn&&menuBtn.setAttribute('aria-expanded','true')}
+  function closeNav(){mobileNav.classList.remove('is-open');mobileNav.setAttribute('aria-hidden','true');menuBtn&&menuBtn.setAttribute('aria-expanded','false')}
+  if(menuBtn) menuBtn.addEventListener('click',openNav);
+  if(closeBtn) closeBtn.addEventListener('click',closeNav);
+  if(backdrop) backdrop.addEventListener('click',closeNav);
+  var searchToggle=document.getElementById('searchToggle');
+  var searchClose=document.getElementById('searchClose');
+  var searchOverlay=document.getElementById('searchOverlay');
+  var searchInput=document.getElementById('searchInput');
+  if(searchToggle) searchToggle.addEventListener('click',function(){searchOverlay.classList.add('is-open');searchOverlay.setAttribute('aria-hidden','false');searchToggle.setAttribute('aria-expanded','true');if(searchInput)searchInput.focus()});
+  if(searchClose) searchClose.addEventListener('click',function(){searchOverlay.classList.remove('is-open');searchOverlay.setAttribute('aria-hidden','true');searchToggle&&searchToggle.setAttribute('aria-expanded','false')});
+  if('IntersectionObserver' in window){
+    var revealObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');revealObs.unobserve(e.target)}})},{threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el)});
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('is-visible')});
+  }
+  if('IntersectionObserver' in window){
+    var tocObs=new IntersectionObserver(function(entries){entries.forEach(function(e){var id=e.target.getAttribute('id');var link=document.querySelector('.sidebar-toc__link[href="#'+id+'"]');if(link){if(e.isIntersecting){document.querySelectorAll('.sidebar-toc__link').forEach(function(l){l.classList.remove('is-active')});link.classList.add('is-active')}}})},{rootMargin:'-10% 0px -80% 0px'});
+    document.querySelectorAll('.entry-item[id]').forEach(function(el){tocObs.observe(el)});
+  }
+  var listenBtn=document.getElementById('listenBtn');
+  var listenLabel=document.getElementById('listenLabel');
+  var listenIcon=document.getElementById('listenIcon');
+  var progressBar=document.getElementById('listenProgressBar');
+  var progressFill=document.getElementById('listenProgressFill');
+  if(listenBtn&&'speechSynthesis' in window){
+    var currentIdx=0;var isPlaying=false;
+    function getChunks(){var text=document.getElementById('main-content').innerText;var words=text.split(/\s+/);var chunks=[];var size=40;for(var i=0;i<words.length;i+=size){chunks.push(words.slice(i,i+size).join(' '))}return chunks}
+    function updateUI(state){isPlaying=state==='playing';listenBtn.setAttribute('data-state',state);listenLabel.textContent=state==='playing'?'Pause':state==='paused'?'Resume':'Listen';listenIcon.innerHTML=state==='playing'?'<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>':'<polygon points="5 3 19 12 5 21 5 3"/>';progressBar.classList.toggle('is-visible',state!=='idle')}
+    function playFrom(idx){var chunks=getChunks();if(idx>=chunks.length){updateUI('idle');progressFill.style.width='0%';return;}currentIdx=idx;var u=new SpeechSynthesisUtterance(chunks[idx]);u.rate=0.97;u.pitch=1;u.onend=function(){progressFill.style.width=((currentIdx+1)/chunks.length*100)+'%';playFrom(currentIdx+1)};u.onerror=function(){updateUI('idle')};window.speechSynthesis.speak(u);progressFill.style.width=((idx)/chunks.length*100)+'%'}
+    listenBtn.addEventListener('click',function(){if(!isPlaying){if(window.speechSynthesis.paused){window.speechSynthesis.resume();updateUI('playing')}else{window.speechSynthesis.cancel();updateUI('playing');playFrom(currentIdx)}}else{window.speechSynthesis.pause();updateUI('paused')}});
+  } else if(listenBtn){listenBtn.style.display='none'}
+})();
+</script>
+</body>
+</html>
