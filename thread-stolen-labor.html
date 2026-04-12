@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stolen Labor: The Racial Wealth Gap from Emancipation to Today — Thread — Chain</title>
+  <meta name="description" content="250 years of free labor. Sharecropping. Convict leasing. Tulsa. Redlining. GI Bill exclusion. The racial wealth gap is not a mystery — it is arithmetic. This thread shows the math." />
+  <script>
+    (function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: gold/yellow — #fde047 / #eab308 */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 10% 50%,rgba(234,179,8,.14) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 90% 20%,rgba(202,138,4,.10) 0%,transparent 55%),radial-gradient(ellipse 50% 70% at 50% 100%,rgba(133,77,14,.08) 0%,transparent 50%);pointer-events:none}
+    .thread-hero__inner{position:relative;max-width:760px}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(234,179,8,.10);border:1px solid rgba(234,179,8,.25);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#fef08a;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#eab308}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#fef08a;font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap;align-items:flex-end}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .listen-btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--ink-300);font-size:var(--type-xs);font-weight:var(--weight-semibold);font-family:inherit;cursor:pointer;transition:all var(--duration-fast);margin-left:auto;white-space:nowrap;align-self:flex-end}
+    .listen-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+    .listen-btn[data-state="playing"]{background:rgba(234,179,8,.2);border-color:rgba(234,179,8,.4);color:#fef08a}
+    .listen-progress-bar{height:3px;background:rgba(255,255,255,.08);display:none}
+    .listen-progress-bar.is-visible{display:block}
+    .listen-progress-bar__fill{height:100%;background:#eab308;width:0%;transition:width 0.5s linear}
+    .argument-bar{background:rgba(234,179,8,.06);border-top:1px solid rgba(234,179,8,.14);border-bottom:1px solid rgba(234,179,8,.14);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(234,179,8,.15);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#fef08a;margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#ca8a04;background:rgba(234,179,8,.10);border:1px solid rgba(234,179,8,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(234,179,8,.10);border:1px solid rgba(234,179,8,.22);color:#fef08a}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#fde047;margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#eab308;line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:0.7rem;text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-6)}
+    .entry-item__body p{margin-bottom:var(--space-4)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-features{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-bottom:var(--space-6)}
+    @media(min-width:640px){.entry-features{grid-template-columns:repeat(3,1fr)}}
+    .entry-feature{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4)}
+    .entry-feature__icon{font-size:1.25rem;margin-bottom:var(--space-2);line-height:1}
+    .entry-feature__label{font-size:var(--type-xs);font-weight:var(--weight-semibold);color:var(--color-text-primary);margin-bottom:2px}
+    .entry-feature__desc{font-size:0.72rem;color:var(--color-text-tertiary);line-height:1.5}
+    .consequence-box{border:1px solid rgba(234,179,8,.20);border-left:3px solid #eab308;background:rgba(234,179,8,.04);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:var(--space-5) var(--space-6);margin-bottom:var(--space-5)}
+    [data-theme="dark"] .consequence-box{background:rgba(234,179,8,.07)}
+    .consequence-box__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#eab308;margin-bottom:var(--space-2)}
+    .consequence-box__text{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.65}
+    .consequence-box__text strong{color:var(--color-text-primary)}
+    .pull-quote{border-left:3px solid #eab308;padding:var(--space-4) var(--space-6);margin:var(--space-7) 0}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:clamp(1.125rem,2.5vw,1.375rem);font-style:italic;color:var(--color-text-primary);line-height:1.55;margin-bottom:var(--space-3)}
+    .pull-quote__attribution{font-size:var(--type-xs);font-weight:var(--weight-semibold);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:#eab308}
+    .chain-connector{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-8);margin:var(--space-12) 0}
+    .chain-connector__title{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#fff;margin-bottom:var(--space-6)}
+    .chain-steps{display:flex;flex-direction:column;gap:0;position:relative}
+    .chain-step{display:grid;grid-template-columns:32px 1fr;gap:var(--space-4);align-items:start;padding-bottom:var(--space-5);position:relative}
+    .chain-step:last-child{padding-bottom:0}
+    .chain-step__line{position:absolute;left:15px;top:32px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(234,179,8,.5),rgba(234,179,8,.1))}
+    .chain-step:last-child .chain-step__line{display:none}
+    .chain-step__dot{width:32px;height:32px;border-radius:50%;border:2px solid #eab308;background:rgba(234,179,8,.15);color:#eab308;font-size:0.7rem;font-weight:var(--weight-bold);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+    .chain-step__era{font-size:0.68rem;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#eab308;margin-bottom:2px}
+    .chain-step__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:#fff;margin-bottom:3px}
+    .chain-step__desc{font-size:var(--type-xs);color:var(--ink-400);line-height:1.6}
+    .sidebar{display:flex;flex-direction:column;gap:var(--space-5)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5)}
+    [data-theme="dark"] .sidebar-card{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--color-border)}
+    .sidebar-toc__list{list-style:none;display:flex;flex-direction:column;gap:1px}
+    .sidebar-toc__link{display:block;font-size:var(--type-xs);color:var(--color-text-secondary);padding:5px var(--space-3);border-radius:var(--radius-md);transition:all var(--duration-fast);text-decoration:none;line-height:1.3}
+    .sidebar-toc__link:hover{background:var(--color-surface-raised);color:var(--color-text-primary)}
+    .sidebar-toc__link.is-active{background:rgba(234,179,8,.10);color:#eab308;font-weight:var(--weight-semibold)}
+    .sidebar-fact__stat{font-family:var(--font-editorial);font-size:2rem;font-weight:900;color:#eab308;line-height:1;margin-bottom:var(--space-1)}
+    .sidebar-fact__label{font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5}
+    .sidebar-fact__divider{height:1px;background:var(--color-border);margin:var(--space-4) 0}
+    .related-thread{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);text-decoration:none}
+    .related-thread:last-child{border-bottom:none;padding-bottom:0}
+    .related-thread__num{font-size:0.68rem;font-weight:var(--weight-bold);text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary)}
+    .related-thread__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--color-text-primary);line-height:1.35}
+    .related-thread:hover .related-thread__title{color:#eab308}
+    .thread-bottom-cta{background:var(--ink-900);padding:var(--space-16) 0;text-align:center}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#fef08a;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-5);max-width:600px;margin-left:auto;margin-right:auto}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-400);max-width:520px;margin:0 auto var(--space-8);line-height:1.65}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-7);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-semibold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:#a16207;color:#fff}
+    .thread-bottom-cta__btn--primary:hover{background:#854d0e}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+    [data-theme="dark"] .entry-stats{background:var(--ink-800);border-color:var(--ink-700)}
+    [data-theme="dark"] .entry-feature{background:var(--ink-800);border-color:var(--ink-700)}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out)}
+    .reveal.is-visible{opacity:1;transform:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Labor &amp; Wealth Thread:</strong> Stolen Labor — from 250 years of unpaid work to the $171,000 racial wealth gap today.</p>
+    <nav class="utility-bar__links"><a href="about.html" class="utility-bar__link">About</a><a href="newsletter.html" class="utility-bar__link">Newsletter</a><a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a></nav>
+  </div>
+</div>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home"><span class="site-nav__name">Chain</span><span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links" aria-label="Primary navigation"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="page">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay"><svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span class="hide-mobile">Search</span></button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/><line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/><line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/></svg></button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search"><label for="searchInput" class="sr-only">Search Chain</label><input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off"/><button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button></form>
+    <div class="search-overlay__hints"><p class="search-overlay__hint-label">Try searching</p><a href="search.html?q=redlining" class="search-hint-chip">Redlining</a><a href="search.html?q=GI+Bill" class="search-hint-chip">GI Bill</a><a href="search.html?q=racial+wealth+gap" class="search-hint-chip">Racial wealth gap</a></div>
+  </div>
+</div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links"><li><a href="explore.html" class="mobile-nav__link">Explore</a></li><li><a href="threads.html" class="mobile-nav__link">Threads</a></li><li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li><li><a href="learn.html" class="mobile-nav__link">Learn</a></li><li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li><li><a href="about.html" class="mobile-nav__link">About</a></li><li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li></ul>
+  </div>
+</nav>
+
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Labor &amp; Wealth Thread · 1619–Present</div>
+      <h1 class="thread-hero__title" id="heroTitle"><em>Stolen Labor:</em><br>The Architecture of the Racial Wealth Gap</h1>
+      <p class="thread-hero__subtitle">The median white family in America holds $188,200 in wealth. The median Black family holds $24,100. The gap is $171,000 — and it is not a mystery. It is arithmetic: 250 years of free labor, followed by sharecropping, convict leasing, Tulsa, redlining, GI Bill exclusion, urban renewal, and the War on Drugs. Every policy that built American middle-class wealth was structured to exclude Black Americans. This thread shows how.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Period</div><div class="thread-meta-item__value">1619 – Present</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Wealth Gap Today</div><div class="thread-meta-item__value">$171,000 median disparity</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Root Cause</div><div class="thread-meta-item__value">250 years of uncompensated labor</div></div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon"><polygon points="5 3 19 12 5 21 5 3"/></svg><span id="listenLabel">Listen</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true"><div class="listen-progress-bar__fill" id="listenProgressFill"></div></div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fef08a" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text"><strong>The racial wealth gap is the balance sheet of American history.</strong> It is not explained by cultural differences or individual choices. It is explained by four centuries of specific policies: slavery produced wealth that was never compensated; sharecropping and convict leasing extended that extraction after Emancipation; mob violence destroyed the Black wealth that did accumulate; redlining prevented Black families from participating in the largest wealth-building mechanism in American history (homeownership); the GI Bill funded the white middle class while excluding Black veterans; and present-day policies — from inheritance tax treatment to differential mortgage lending — compound the gap. The wealth gap is not a gap. It is a ledger.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+        <div class="entry-list">
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era I · Slavery &amp; Its Aftermath · 1619–1900</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-unpaidlabor">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div><div class="entry-item__dates">1619–1865</div><h2 class="entry-item__name">250 Years of Uncompensated Labor</h2><div class="entry-item__location">American South · The original theft</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">250 yrs</div><div class="entry-stat__label">Of unpaid labor before Emancipation</div></div>
+              <div><div class="entry-stat__num">$14T</div><div class="entry-stat__label">Estimated value of enslaved labor in today's dollars</div></div>
+              <div><div class="entry-stat__num">$0</div><div class="entry-stat__label">Compensated to formerly enslaved people in 1865</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>From 1619 to 1865 — 246 years — enslaved Black people performed the labor that generated the wealth of the American economy. They cleared the land, grew the tobacco, harvested the cotton, built the houses, cooked the food, raised the children, and constructed the infrastructure of the colonies and the nation. Economists estimate the value of this labor, compounded forward to today's dollars, at between $14 trillion and $20 trillion.</p>
+              <p>When slavery ended in 1865, that labor produced no inheritance for the people who performed it. <strong>Formerly enslaved people entered the economy with nothing — no land, no capital, no legal protections, and no savings</strong> — while the wealth their labor had generated passed directly and exclusively to the white families and institutions that had owned them. This is not metaphor. It is accounting. The starting line in 1865 was not equal. Every subsequent measure of the wealth gap begins with this arithmetic.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">40 acres and a mule — promised and revoked</div>
+              <p class="consequence-box__text">General Sherman's Special Field Order No. 15 (January 1865) set aside 400,000 acres of coastal land for formerly enslaved families — "40 acres and a mule." Approximately 40,000 families received provisional land titles. President Andrew Johnson revoked the order in September 1865 and returned the land to former Confederate slaveholders. <strong>The land redistribution that would have given Black families an economic foundation was overturned within months.</strong></p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-sharecrop">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div><div class="entry-item__dates">1865–1940</div><h2 class="entry-item__name">Sharecropping: Debt as a Permanent Condition</h2><div class="entry-item__location">Mississippi Delta, Alabama Black Belt, Georgia · The trap after slavery</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">4M+</div><div class="entry-stat__label">Black sharecroppers in the South by 1900</div></div>
+              <div><div class="entry-stat__num">-$</div><div class="entry-stat__label">Average sharecropper ended the year in debt to landlord</div></div>
+              <div><div class="entry-stat__num">1867</div><div class="entry-stat__label">Alabama passes law making it a crime to leave debt unpaid</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Without land or capital after Emancipation, most formerly enslaved people had only one option: sharecropping. Under the sharecrop system, a Black family farmed land owned by a white landowner and kept a share of the crop — typically half — in exchange for use of the land and a "furnish" (credit for seeds, tools, and food at the landowner's store). At the end of the year, the landowner calculated the accounts. <strong>Almost no sharecroppers ever showed a profit.</strong></p>
+              <p>The system was designed to keep families in permanent debt. Landowners controlled the books, set the prices at the company store, determined the crop yields, and set the terms. When a Black farmer tried to audit the accounts or leave, they faced violence or arrest — several Southern states made it illegal to leave a farm while in debt. Debt peonage was effectively indistinguishable from slavery. The cycle persisted for three generations, preventing any accumulation of capital.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"They cheat you in the reckoning… They figger it up and they always got it. You might just as well go on and sign it, 'cause if you don't, they'll beat you."</p>
+              <p class="pull-quote__attribution">— Alabama sharecropper testimony, Federal Writers' Project, 1930s</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-tulsa">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div><div class="entry-item__dates">1898–1923</div><h2 class="entry-item__name">Mob Violence: Destroying the Black Wealth That Did Accumulate</h2><div class="entry-item__location">Wilmington, NC · Tulsa, OK · Rosewood, FL · The pattern of destruction</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">35</div><div class="entry-stat__label">Blocks of "Black Wall Street" burned in Tulsa, 1921</div></div>
+              <div><div class="entry-stat__num">300+</div><div class="entry-stat__label">People killed in the Tulsa massacre</div></div>
+              <div><div class="entry-stat__num">$30M</div><div class="entry-stat__label">Estimated value of property destroyed in Tulsa (2021 dollars)</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In the decades after Reconstruction, some Black communities — despite systemic barriers — built significant wealth. Greenwood in Tulsa, Oklahoma was known as "Black Wall Street": 35 blocks of Black-owned businesses including hotels, law offices, a hospital, a library, and hundreds of homes. On May 31–June 1, 1921, a white mob — deputized by city officials and supported by the Oklahoma National Guard — burned 35 blocks of Greenwood to the ground, killed between 100 and 300 people, and left 10,000 Black residents homeless. <strong>Not a single perpetrator was prosecuted. Insurance claims were denied.</strong></p>
+              <p>Tulsa was not unique. The Wilmington Massacre of 1898 overthrew the elected Black and white Fusion government of Wilmington, North Carolina, killed an unknown number of Black residents, and expelled Black leaders from the city — the only successful coup d'état in American history. The Rosewood Massacre of 1923 destroyed a prosperous Black Florida town. The Red Summer of 1919 saw white mobs attack Black communities in 26 cities. <strong>The pattern was consistent: when Black communities built wealth, white mobs destroyed it.</strong></p>
+            </div>
+          </article>
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era II · Federal Policy &amp; the White Middle Class · 1933–1968</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-redlining">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div><div class="entry-item__dates">1934–1968</div><h2 class="entry-item__name">Redlining: The Federal Government Builds the White Middle Class</h2><div class="entry-item__location">239 cities across the United States · The maps that determined everything</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">239</div><div class="entry-stat__label">Cities where HOLC drew redlining maps</div></div>
+              <div><div class="entry-stat__num">98%</div><div class="entry-stat__label">Of FHA loans 1934–1968 went to white families</div></div>
+              <div><div class="entry-stat__num">$120K</div><div class="entry-stat__label">Median home value difference today between formerly red vs. green-lined neighborhoods</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The Federal Housing Administration, created in 1934, made it possible for millions of American families to buy homes through federally insured mortgages. It is the single largest wealth-building program in American history. Between 1934 and 1968, the FHA and the Home Owners' Loan Corporation (HOLC) explicitly directed loans away from Black neighborhoods — marked in red on maps as "declining" or "hazardous" — and toward white neighborhoods marked in green as "desirable." Black families were denied mortgages. Black neighborhoods received no investment. The policy was federal law.</p>
+              <p>Between 1934 and 1968, the FHA backed $120 billion in home loans. <strong>98% went to white families.</strong> Homeownership is the primary mechanism by which American families build generational wealth — the house appreciates, the equity funds college, the inheritance transfers to children. Black families were legally excluded from this mechanism for 34 years. The neighborhoods that were redlined are still, today, lower in value and investment than neighborhoods that received FHA backing.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The gap that compounded</div>
+              <p class="consequence-box__text">A white family that bought a home in 1950 for $30,000 with an FHA loan might see that home appreciate to $300,000 by 2000 — a $270,000 gain, passable to children. The Black family that was denied the same loan in the same year had no equivalent wealth to pass on. <strong>That single 1950 policy decision produced a wealth difference that is still visible in data today.</strong></p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-gibill">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div><div class="entry-item__dates">1944</div><h2 class="entry-item__name">The GI Bill: Benefits That Built a Generation — and Excluded Another</h2><div class="entry-item__location">United States · The most powerful wealth-building program in history</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">16M</div><div class="entry-stat__label">Veterans who received GI Bill benefits</div></div>
+              <div><div class="entry-stat__num">Virtually 0</div><div class="entry-stat__label">Black veterans who received equal access</div></div>
+              <div><div class="entry-stat__num">1M+</div><div class="entry-stat__label">Black veterans who served in WWII — then returned to Jim Crow</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The Servicemen's Readjustment Act of 1944 — the GI Bill — is widely credited with building the American middle class. It provided returning veterans with free college tuition, low-interest home loans, and unemployment insurance. The 16 million veterans who used it gained education, homeownership, and economic security that transformed their families for generations. It was transformative. It was also nearly entirely inaccessible to Black veterans.</p>
+              <p>The GI Bill was administered at the state and local level in the South. White administrators at VA offices directed Black veterans to vocational training rather than college; rejected their home loan applications in suburbs where covenants excluded Black residents; and channeled them into the same segregated, underfunded institutions that existed before the war. <strong>Of the first 67,000 GI Bill mortgages in Mississippi, not one went to a Black veteran.</strong> Meanwhile, 1 million Black men had fought in a war against fascism and returned home to Jim Crow, segregated blood banks, and denial of the benefits their white counterparts received.</p>
+            </div>
+          </article>
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era III · The Present · The Gap Today</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-gaptoday">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div><div class="entry-item__dates">Present</div><h2 class="entry-item__name">The Racial Wealth Gap Today: $171,000</h2><div class="entry-item__location">United States · The ledger as it stands</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">$188K</div><div class="entry-stat__label">Median white family wealth</div></div>
+              <div><div class="entry-stat__num">$24K</div><div class="entry-stat__label">Median Black family wealth</div></div>
+              <div><div class="entry-stat__num">8:1</div><div class="entry-stat__label">Ratio of white to Black median wealth</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The median white family in America holds $188,200 in wealth. The median Black family holds $24,100. The gap — $164,100, approximately $171,000 when adjusted for more recent data — has not meaningfully narrowed since the Civil Rights Act of 1968. Research by economists at the Federal Reserve and the Brookings Institution consistently finds that when controlling for income, education, and other individual characteristics, a substantial wealth gap remains — driven primarily by differences in inheritance, homeownership rates, and investment returns.</p>
+              <p><strong>The gap is not explained by income differences.</strong> Black and white families with the same income show dramatically different wealth — because wealth is not what you earn, it is what you inherit and accumulate. Inheritance is the mechanism by which past policy becomes present inequality. The redlining that excluded Black families from the 1950s housing boom is present today as a $164,100 difference in what families can pass to their children.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">🏠</div><div class="entry-feature__label">Homeownership</div><div class="entry-feature__desc">44% Black homeownership rate vs. 74% white — the primary source of wealth disparity</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">📈</div><div class="entry-feature__label">Inheritance</div><div class="entry-feature__desc">White families 3x more likely to receive inheritance; average inheritance 10x larger</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🎓</div><div class="entry-feature__label">Student Debt</div><div class="entry-feature__desc">Black students borrow more and face worse repayment outcomes — reflecting lack of parental wealth to cover costs</div></div>
+            </div>
+          </article>
+
+          <div class="chain-connector reveal" role="note" aria-label="Causal chain">
+            <h2 class="chain-connector__title">The Wealth Gap Is Not a Gap — It Is a Ledger</h2>
+            <div class="chain-steps">
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">1</div><div><div class="chain-step__era">1619–1865</div><div class="chain-step__title">250 years of uncompensated labor → no starting capital</div><div class="chain-step__desc">The wealth generated by Black labor passed entirely to white families and institutions. Formerly enslaved people entered freedom with nothing.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">2</div><div><div class="chain-step__era">1865–1940</div><div class="chain-step__title">Sharecropping + convict leasing → accumulation prevented</div><div class="chain-step__desc">The systems that replaced slavery kept Black labor exploited and Black families in debt. Capital could not accumulate.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">3</div><div><div class="chain-step__era">1898–1923</div><div class="chain-step__title">Mob violence destroys the wealth that did accumulate</div><div class="chain-step__desc">Tulsa. Wilmington. Rosewood. When Black communities built wealth, they were burned. No compensation. No prosecution.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">4</div><div><div class="chain-step__era">1934–1968</div><div class="chain-step__title">Redlining + GI Bill exclusion → the white middle class is built without Black Americans</div><div class="chain-step__desc">The largest wealth-building programs in American history were explicitly structured to exclude Black families.</div></div></div>
+              <div class="chain-step"><div class="chain-step__dot" aria-hidden="true">5</div><div><div class="chain-step__era">Today</div><div class="chain-step__title">$171,000 median wealth gap — compounding every year</div><div class="chain-step__desc">The gap is not narrowing. It compounds. Wealth produces wealth. The arithmetic of history is the arithmetic of the present.</div></div></div>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="sidebar" aria-label="Thread navigation and facts">
+          <div class="sidebar-card" id="toc-card">
+            <div class="sidebar-card__title">In This Thread</div>
+            <nav aria-label="Thread table of contents">
+              <ul class="sidebar-toc__list">
+                <li><a class="sidebar-toc__link" href="#entry-unpaidlabor">01 · 250 Years of Unpaid Labor</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-sharecrop">02 · Sharecropping — 1865</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-tulsa">03 · Mob Violence — 1898–1923</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-redlining">04 · Redlining — 1934</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-gibill">05 · GI Bill Exclusion — 1944</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-gaptoday">06 · The Wealth Gap Today</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">By the Numbers</div>
+            <div class="sidebar-fact__stat">8:1</div>
+            <div class="sidebar-fact__label">Ratio of white to Black median family wealth — $188K vs. $24K</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">98%</div>
+            <div class="sidebar-fact__label">Of FHA home loans 1934–1968 that went to white families — the program that built the American middle class</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">$30M</div>
+            <div class="sidebar-fact__label">Estimated value of property destroyed in the 1921 Tulsa massacre — no insurance paid, no perpetrators prosecuted</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">0</div>
+            <div class="sidebar-fact__label">Of the first 67,000 GI Bill mortgages in Mississippi that went to Black veterans</div>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Related Threads</div>
+            <a href="thread-transatlantic-slave-trade.html" class="related-thread"><span class="related-thread__num">Thread</span><span class="related-thread__title">The Transatlantic Slave Trade</span></a>
+            <a href="thread-displacement.html" class="related-thread"><span class="related-thread__num">Thread</span><span class="related-thread__title">The Flooded City: Displacement</span></a>
+            <a href="thread-inventors.html" class="related-thread"><span class="related-thread__num">Thread</span><span class="related-thread__title">Built by Black Hands: Inventors</span></a>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Further Reading</div>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);"><strong style="color:var(--color-text-primary);">The Color of Law</strong> — Richard Rothstein (2017). How the federal government segregated America through housing policy.</p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);"><strong style="color:var(--color-text-primary);">The Case for Reparations</strong> — Ta-Nehisi Coates, The Atlantic (2014).</p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);"><strong style="color:var(--color-text-primary);">Wilmington's Lie</strong> — David Zucchino (2020). The 1898 coup and massacre.</p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;"><strong style="color:var(--color-text-primary);">When Affirmative Action Was White</strong> — Ira Katznelson (2005). How New Deal and GI Bill programs excluded Black Americans.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="thread-bottom-cta" aria-labelledby="cta-title">
+  <div class="container">
+    <p class="thread-bottom-cta__eyebrow">The chain continues</p>
+    <h2 class="thread-bottom-cta__title" id="cta-title">The wealth gap is not a gap. It is a ledger.</h2>
+    <p class="thread-bottom-cta__sub">Every dollar of the $171,000 median disparity has a specific policy origin. Understanding that origin is the first step toward understanding what would actually close it.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Explore all threads →</a>
+      <a href="thread-mass-incarceration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">See: Mass Incarceration</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand"><a href="index.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Black history &amp; present-day America. Every consequence has an origin.</p></div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Learn</h3><a href="threads.html" class="site-footer__link">Threads</a><a href="maps.html" class="site-footer__link">Maps &amp; Timelines</a><a href="today.html" class="site-footer__link">Today in History</a><a href="explore.html" class="site-footer__link">Explore</a></div>
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Site</h3><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="teaching.html" class="site-footer__link">Teaching</a><a href="contact.html" class="site-footer__link">Contact</a></div>
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Support</h3><a href="donate.html" class="site-footer__link">Donate</a><a href="newsletter.html" class="site-footer__link">Newsletter</a></div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom"><div class="container site-footer__bottom-inner"><p class="site-footer__legal">Chain is an independent educational archive. All historical claims are sourced.</p><a href="sources.html" class="site-footer__sources-link">View sources</a></div></div>
+</footer>
+
+<script>
+  const themeToggle=document.getElementById('themeToggle'),moonIcon=document.querySelector('.icon-moon'),sunIcons=document.querySelectorAll('.icon-sun');
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);if(t==='dark'){moonIcon.style.display='none';sunIcons.forEach(el=>el.style.display='')}else{moonIcon.style.display='';sunIcons.forEach(el=>el.style.display='none')}}
+  applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  themeToggle.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+  const mobileMenuToggle=document.getElementById('mobileMenuToggle'),mobileNav=document.getElementById('mobileNav'),mobileClose=document.getElementById('mobileClose'),mobileBackdrop=document.getElementById('mobileBackdrop');
+  function openMobileNav(){mobileNav.classList.add('is-open');mobileNav.setAttribute('aria-hidden','false');mobileMenuToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeMobileNav(){mobileNav.classList.remove('is-open');mobileNav.setAttribute('aria-hidden','true');mobileMenuToggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  mobileMenuToggle.addEventListener('click',openMobileNav);mobileClose.addEventListener('click',closeMobileNav);mobileBackdrop.addEventListener('click',closeMobileNav);
+  const searchToggle=document.getElementById('searchToggle'),searchOverlay=document.getElementById('searchOverlay'),searchClose=document.getElementById('searchClose'),searchInput=document.getElementById('searchInput');
+  searchToggle.addEventListener('click',()=>{searchOverlay.classList.add('is-open');searchOverlay.setAttribute('aria-hidden','false');searchToggle.setAttribute('aria-expanded','true');setTimeout(()=>searchInput.focus(),50)});
+  searchClose.addEventListener('click',()=>{searchOverlay.classList.remove('is-open');searchOverlay.setAttribute('aria-hidden','true');searchToggle.setAttribute('aria-expanded','false')});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){searchOverlay.classList.remove('is-open');searchOverlay.setAttribute('aria-hidden','true')}});
+  const revealEls=document.querySelectorAll('.reveal'),revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}})},{threshold:0.08});
+  revealEls.forEach(el=>revealObserver.observe(el));
+  const tocLinks=document.querySelectorAll('.sidebar-toc__link'),entryItems=document.querySelectorAll('.entry-item'),tocObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const id=entry.target.id;tocLinks.forEach(link=>link.classList.toggle('is-active',link.getAttribute('href')==='#'+id))}})},{rootMargin:'-10% 0px -80% 0px'});
+  entryItems.forEach(el=>tocObserver.observe(el));
+  const listenBtn=document.getElementById('listenBtn'),listenLabel=document.getElementById('listenLabel'),listenIcon=document.getElementById('listenIcon'),progressBar=document.getElementById('listenProgressBar'),progressFill=document.getElementById('listenProgressFill');
+  let currentUtterance=0,speaking=false;
+  const PLAY_SVG='<polygon points="5 3 19 12 5 21 5 3"/>',PAUSE_SVG='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  function getTextChunks(){const articles=document.querySelectorAll('.entry-item');const allText=Array.from(articles).map(a=>a.innerText).join(' ');const words=allText.split(/\s+/);const chunks=[];for(let i=0;i<words.length;i+=40)chunks.push(words.slice(i,i+40).join(' '));return chunks}
+  function speakChunk(chunks,idx){if(idx>=chunks.length){resetListen();return}const utt=new SpeechSynthesisUtterance(chunks[idx]);utt.onend=()=>{currentUtterance=idx+1;progressFill.style.width=((currentUtterance/chunks.length)*100)+'%';speakChunk(chunks,currentUtterance)};utt.onerror=()=>resetListen();speechSynthesis.speak(utt)}
+  function resetListen(){speaking=false;speechSynthesis.cancel();listenBtn.setAttribute('data-state','idle');listenLabel.textContent='Listen';listenIcon.innerHTML=PLAY_SVG;progressBar.classList.remove('is-visible');progressFill.style.width='0%';currentUtterance=0}
+  listenBtn.addEventListener('click',()=>{if(!speaking){speaking=true;listenBtn.setAttribute('data-state','playing');listenLabel.textContent='Pause';listenIcon.innerHTML=PAUSE_SVG;progressBar.classList.add('is-visible');const chunks=getTextChunks();speakChunk(chunks,currentUtterance)}else{resetListen()}});
+</script>
+</body>
+</html>

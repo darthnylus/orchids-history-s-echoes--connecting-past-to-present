@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Body as Evidence: Black Health Disparities from Slavery to the Present — Thread — Chain</title>
+  <meta name="description" content="Experiments on enslaved people. Tuskegee. Henrietta Lacks. Environmental racism. A 3.5x Black maternal mortality rate. The health disparities are not biology — they are history recorded in the body." />
+  <script>
+    (function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: purple — #c084fc / #a855f7 */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 10% 50%,rgba(168,85,247,.14) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 90% 20%,rgba(147,51,234,.10) 0%,transparent 55%),radial-gradient(ellipse 50% 70% at 50% 100%,rgba(109,40,217,.08) 0%,transparent 50%);pointer-events:none}
+    .thread-hero__inner{position:relative;max-width:760px}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(168,85,247,.10);border:1px solid rgba(168,85,247,.25);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#e9d5ff;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#a855f7}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#e9d5ff;font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap;align-items:flex-end}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .listen-btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--ink-300);font-size:var(--type-xs);font-weight:var(--weight-semibold);font-family:inherit;cursor:pointer;transition:all var(--duration-fast);margin-left:auto;white-space:nowrap;align-self:flex-end}
+    .listen-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+    .listen-btn[data-state="playing"]{background:rgba(168,85,247,.2);border-color:rgba(168,85,247,.4);color:#e9d5ff}
+    .listen-progress-bar{height:3px;background:rgba(255,255,255,.08);display:none}
+    .listen-progress-bar.is-visible{display:block}
+    .listen-progress-bar__fill{height:100%;background:#a855f7;width:0%;transition:width 0.5s linear}
+    .argument-bar{background:rgba(168,85,247,.06);border-top:1px solid rgba(168,85,247,.14);border-bottom:1px solid rgba(168,85,247,.14);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(168,85,247,.15);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#e9d5ff;margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#9333ea;background:rgba(168,85,247,.10);border:1px solid rgba(168,85,247,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(168,85,247,.10);border:1px solid rgba(168,85,247,.22);color:#e9d5ff}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#c084fc;margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#a855f7;line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:0.7rem;text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-6)}
+    .entry-item__body p{margin-bottom:var(--space-4)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-features{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-bottom:var(--space-6)}
+    @media(min-width:640px){.entry-features{grid-template-columns:repeat(3,1fr)}}
+    .entry-feature{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4)}
+    .entry-feature__icon{font-size:1.25rem;margin-bottom:var(--space-2);line-height:1}
+    .entry-feature__label{font-size:var(--type-xs);font-weight:var(--weight-semibold);color:var(--color-text-primary);margin-bottom:2px}
+    .entry-feature__desc{font-size:0.72rem;color:var(--color-text-tertiary);line-height:1.5}
+    .consequence-box{border:1px solid rgba(168,85,247,.20);border-left:3px solid #a855f7;background:rgba(168,85,247,.04);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:var(--space-5) var(--space-6);margin-bottom:var(--space-5)}
+    [data-theme="dark"] .consequence-box{background:rgba(168,85,247,.07)}
+    .consequence-box__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#a855f7;margin-bottom:var(--space-2)}
+    .consequence-box__text{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.65}
+    .consequence-box__text strong{color:var(--color-text-primary)}
+    .pull-quote{border-left:3px solid #a855f7;padding:var(--space-4) var(--space-6);margin:var(--space-7) 0}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:clamp(1.125rem,2.5vw,1.375rem);font-style:italic;color:var(--color-text-primary);line-height:1.55;margin-bottom:var(--space-3)}
+    .pull-quote__attribution{font-size:var(--type-xs);font-weight:var(--weight-semibold);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:#a855f7}
+    .chain-connector{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-8);margin:var(--space-12) 0}
+    .chain-connector__title{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#fff;margin-bottom:var(--space-6)}
+    .chain-steps{display:flex;flex-direction:column;gap:0;position:relative}
+    .chain-step{display:grid;grid-template-columns:32px 1fr;gap:var(--space-4);align-items:start;padding-bottom:var(--space-5);position:relative}
+    .chain-step:last-child{padding-bottom:0}
+    .chain-step__line{position:absolute;left:15px;top:32px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(168,85,247,.5),rgba(168,85,247,.1))}
+    .chain-step:last-child .chain-step__line{display:none}
+    .chain-step__dot{width:32px;height:32px;border-radius:50%;border:2px solid #a855f7;background:rgba(168,85,247,.15);color:#a855f7;font-size:0.7rem;font-weight:var(--weight-bold);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+    .chain-step__era{font-size:0.68rem;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#a855f7;margin-bottom:2px}
+    .chain-step__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:#fff;margin-bottom:3px}
+    .chain-step__desc{font-size:var(--type-xs);color:var(--ink-400);line-height:1.6}
+    .sidebar{display:flex;flex-direction:column;gap:var(--space-5)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5)}
+    [data-theme="dark"] .sidebar-card{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--color-border)}
+    .sidebar-toc__list{list-style:none;display:flex;flex-direction:column;gap:1px}
+    .sidebar-toc__link{display:block;font-size:var(--type-xs);color:var(--color-text-secondary);padding:5px var(--space-3);border-radius:var(--radius-md);transition:all var(--duration-fast);text-decoration:none;line-height:1.3}
+    .sidebar-toc__link:hover{background:var(--color-surface-raised);color:var(--color-text-primary)}
+    .sidebar-toc__link.is-active{background:rgba(168,85,247,.10);color:#a855f7;font-weight:var(--weight-semibold)}
+    .sidebar-fact__stat{font-family:var(--font-editorial);font-size:2rem;font-weight:900;color:#a855f7;line-height:1;margin-bottom:var(--space-1)}
+    .sidebar-fact__label{font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5}
+    .sidebar-fact__divider{height:1px;background:var(--color-border);margin:var(--space-4) 0}
+    .related-thread{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);text-decoration:none}
+    .related-thread:last-child{border-bottom:none;padding-bottom:0}
+    .related-thread__num{font-size:0.68rem;font-weight:var(--weight-bold);text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary)}
+    .related-thread__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--color-text-primary);line-height:1.35}
+    .related-thread:hover .related-thread__title{color:#a855f7}
+    .thread-bottom-cta{background:var(--ink-900);padding:var(--space-16) 0;text-align:center}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#e9d5ff;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-5);max-width:600px;margin-left:auto;margin-right:auto}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-400);max-width:520px;margin:0 auto var(--space-8);line-height:1.65}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-7);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-semibold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:#7e22ce;color:#fff}
+    .thread-bottom-cta__btn--primary:hover{background:#6b21a8}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+    [data-theme="dark"] .entry-stats{background:var(--ink-800);border-color:var(--ink-700)}
+    [data-theme="dark"] .entry-feature{background:var(--ink-800);border-color:var(--ink-700)}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out)}
+    .reveal.is-visible{opacity:1;transform:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Health Thread:</strong> The Body as Evidence — Black health disparities from medical experimentation to COVID-19.</p>
+    <nav class="utility-bar__links"><a href="about.html" class="utility-bar__link">About</a><a href="newsletter.html" class="utility-bar__link">Newsletter</a><a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a></nav>
+  </div>
+</div>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home"><span class="site-nav__name">Chain</span><span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links" aria-label="Primary navigation"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="page">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay"><svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span class="hide-mobile">Search</span></button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/><line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/><line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/></svg></button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search"><label for="searchInput" class="sr-only">Search Chain</label><input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off"/><button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button></form>
+    <div class="search-overlay__hints"><p class="search-overlay__hint-label">Try searching</p><a href="search.html?q=Tuskegee" class="search-hint-chip">Tuskegee</a><a href="search.html?q=Henrietta+Lacks" class="search-hint-chip">Henrietta Lacks</a><a href="search.html?q=maternal+mortality" class="search-hint-chip">Maternal mortality</a></div>
+  </div>
+</div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links"><li><a href="explore.html" class="mobile-nav__link">Explore</a></li><li><a href="threads.html" class="mobile-nav__link">Threads</a></li><li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li><li><a href="learn.html" class="mobile-nav__link">Learn</a></li><li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li><li><a href="about.html" class="mobile-nav__link">About</a></li><li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li></ul>
+  </div>
+</nav>
+
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Health Thread · 1619–Present</div>
+      <h1 class="thread-hero__title" id="heroTitle"><em>The Body as Evidence:</em><br>Black Health Disparities from Slavery to Now</h1>
+      <p class="thread-hero__subtitle">Black Americans die younger, die in childbirth at 3.5 times the rate of white women, live in neighborhoods with higher pollution, and were the last to receive COVID vaccines and the first to die from COVID. None of this is biology. It is the result of medical experimentation on enslaved people, 40 years of deliberate government deception in Tuskegee, stolen cells, environmental racism, and a healthcare system that trained physicians on the myth that Black people feel less pain. The body holds the record of what was done to it.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Period</div><div class="thread-meta-item__value">1619 – Present</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Maternal Mortality</div><div class="thread-meta-item__value">3.5x higher for Black women</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Life Expectancy Gap</div><div class="thread-meta-item__value">4 years shorter for Black Americans</div></div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon"><polygon points="5 3 19 12 5 21 5 3"/></svg><span id="listenLabel">Listen</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true"><div class="listen-progress-bar__fill" id="listenProgressFill"></div></div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e9d5ff" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text"><strong>Black health disparities are not a medical mystery. They are a historical record.</strong> Every major disparity — in life expectancy, maternal mortality, COVID outcomes, chronic disease, environmental exposure, pain treatment — has a specific historical cause: enslaved bodies used for medical experiments without consent; four decades of government deception that destroyed Black trust in medicine; neighborhoods poisoned by industrial facilities sited there because residents lacked the political power to stop it; a medical education system that taught false beliefs about Black biology that persist in physicians today. The disparities are not gaps in data. They are injuries with addresses.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+        <div class="entry-list">
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era I · Medical Experimentation &amp; the Pseudoscience of Race · 1619–1900</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-sims">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div><div class="entry-item__dates">1845–1849</div><h2 class="entry-item__name">J. Marion Sims and the Women He Experimented On</h2><div class="entry-item__location">Montgomery, Alabama · The "father of modern gynecology"</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">3</div><div class="entry-stat__label">Enslaved women repeatedly operated on without anesthesia</div></div>
+              <div><div class="entry-stat__num">30+</div><div class="entry-stat__label">Operations on one woman, Anarcha, in four years</div></div>
+              <div><div class="entry-stat__num">1845</div><div class="entry-stat__label">Experiments began — Sims's statue stood in Central Park until 2018</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>J. Marion Sims is credited in medical textbooks as the "father of modern gynecology." He developed the surgical technique for repairing vesico-vaginal fistulas — a debilitating complication of childbirth. He developed this technique by performing repeated surgeries, without anesthesia, on enslaved Black women in Montgomery, Alabama, between 1845 and 1849.</p>
+              <p>The three women whose bodies he used most extensively — Anarcha, Betsey, and Lucy — are named in his memoirs. Anarcha underwent more than 30 operations over four years. Sims justified operating without anesthesia on the widely held medical belief of the era that <strong>Black people did not feel pain the same way white people did</strong> — a pseudoscientific claim with no biological basis that originated in the slave economy as a justification for brutal labor conditions. <strong>This belief was not eradicated with the end of slavery. Studies as recent as 2016 found that half of medical students and residents endorsed false beliefs about Black pain tolerance</strong>, leading to under-treatment of pain in Black patients today.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The myth that persists in medicine</div>
+              <p class="consequence-box__text">A 2016 study in the Proceedings of the National Academy of Sciences found that 50% of medical students and residents believed at least one false biological difference between Black and white people — including that Black people's skin is thicker, that they have fewer nerve endings, and that their blood coagulates more quickly. These beliefs led those students to rate Black patients' pain as lower and prescribe less pain medication. <strong>The pseudoscience of 1845 is still shaping treatment decisions in 2024.</strong></p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-tuskegee">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div><div class="entry-item__dates">1932–1972</div><h2 class="entry-item__name">The Tuskegee Syphilis Study: 40 Years of Government Deception</h2><div class="entry-item__location">Macon County, Alabama · The Public Health Service's longest experiment</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">399</div><div class="entry-stat__label">Black men enrolled with syphilis — untreated for 40 years</div></div>
+              <div><div class="entry-stat__num">1947</div><div class="entry-stat__label">Year penicillin became the standard cure — study continued anyway</div></div>
+              <div><div class="entry-stat__num">28</div><div class="entry-stat__label">Men who died of syphilis directly; 100+ deaths total</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Beginning in 1932, the U.S. Public Health Service enrolled 399 Black men with syphilis in Macon County, Alabama, in a study that told them they were receiving treatment for "bad blood." They were not. The study's purpose was to observe the natural progression of untreated syphilis in Black men — based on the racist premise that the disease manifested differently in Black bodies. The men received no treatment. They received placebos, aspirin, and vitamins. They were told this was medicine.</p>
+              <p>In 1947, penicillin became the standard cure for syphilis. The Public Health Service did not inform the study participants or offer them treatment. The study continued for 25 more years. <strong>When the study was finally exposed by journalist Jean Heller in 1972, 28 men had died of syphilis, 100 had died of related complications, 40 wives had been infected, and 19 children had been born with congenital syphilis.</strong> President Clinton issued a formal apology in 1997 — 65 years after the study began and 25 years after it ended. The legacy of Tuskegee — documented in research — continues to reduce Black Americans' willingness to participate in medical trials and to trust healthcare providers.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The legacy of the Tuskegee study is a deadly one — it is the reason so many Black Americans today hesitate to trust the healthcare system with their bodies."</p>
+              <p class="pull-quote__attribution">— Harriet Washington, <em>Medical Apartheid</em>, 2006</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-lacks">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div><div class="entry-item__dates">1951–Present</div><h2 class="entry-item__name">Henrietta Lacks: Cells Taken Without Consent</h2><div class="entry-item__location">Baltimore, Maryland · The most important biological material in medical history</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1951</div><div class="entry-stat__label">Cells taken from Henrietta Lacks without consent</div></div>
+              <div><div class="entry-stat__num">$Billions</div><div class="entry-stat__label">Generated by HeLa cells — her family received nothing</div></div>
+              <div><div class="entry-stat__num">70+ yrs</div><div class="entry-stat__label">HeLa cells have been used in research — the family learned in 1973</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In 1951, Henrietta Lacks — a 31-year-old Black woman from Baltimore — was treated for cervical cancer at Johns Hopkins Hospital. During her treatment, a doctor removed samples of her cells without her knowledge or consent. Those cells — labeled HeLa — turned out to be remarkable: unlike any other human cells scientists had worked with, they survived and reproduced indefinitely in laboratory conditions. <strong>They became the most important biological material in the history of medicine.</strong></p>
+              <p>HeLa cells were used in developing the polio vaccine, cancer research, gene mapping, HIV research, COVID-19 vaccine development, and thousands of other medical breakthroughs. They have been bought, sold, and commercialized for decades by a global industry worth billions of dollars. Henrietta Lacks died in 1951. Her family did not learn that her cells existed until 1973. They received no compensation. Multiple companies continued to profit from her cells for decades without her family's knowledge or consent. In 2023, a federal judge dismissed a lawsuit by her family against Thermo Fisher Scientific, ruling that too much time had passed. <strong>The statute of limitations had run out. The commercial exploitation had not.</strong></p>
+            </div>
+          </article>
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era II · Environmental Racism &amp; Structural Barriers · 1950s–Present</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-environment">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div><div class="entry-item__dates">1950s–Present</div><h2 class="entry-item__name">Environmental Racism: The Poison Placed in Black Neighborhoods</h2><div class="entry-item__location">Flint, MI · Cancer Alley, LA · Chester, PA · The pattern of exposure</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">75%</div><div class="entry-stat__label">Of hazardous waste facilities in the U.S. are in majority non-white communities</div></div>
+              <div><div class="entry-stat__num">2016</div><div class="entry-stat__label">Flint water crisis — 100,000 residents exposed to lead; majority Black city</div></div>
+              <div><div class="entry-stat__num">50x</div><div class="entry-stat__label">Higher cancer risk in Louisiana's "Cancer Alley" — majority Black corridor</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Environmental racism refers to the systematic pattern by which hazardous facilities — chemical plants, waste dumps, refineries, highways — are sited in Black and low-income communities. The pattern is documented across the United States. The original EPA environmental justice report (1992) found that race was the most significant predictor of proximity to hazardous waste sites — more significant than income. Communities with political power successfully fought these facilities. Communities without it did not.</p>
+              <p>In Flint, Michigan, cost-cutting state officials switched the city's water supply to the Flint River in 2014 without adequate treatment. The corrosive water leached lead from aging pipes. 100,000 residents — in a majority-Black city — were exposed to elevated lead levels for 18 months before state officials acknowledged the problem. Lead causes irreversible neurological damage in children. <strong>Louisiana's "Cancer Alley" — an 85-mile stretch of the Mississippi River between Baton Rouge and New Orleans lined with 150+ petrochemical plants — has cancer rates 50 times the national average. It is majority Black.</strong> These are not coincidences of geography. They are decisions made by regulators who responded to political power, and Black communities had less of it.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">💧</div><div class="entry-feature__label">Flint, Michigan</div><div class="entry-feature__desc">2014–2016 — Lead contamination in 100K residents; state officials knowingly delayed response</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🏭</div><div class="entry-feature__label">Cancer Alley, Louisiana</div><div class="entry-feature__desc">150+ petrochemical plants in majority-Black corridor; cancer rates 50x national average</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🛣️</div><div class="entry-feature__label">Urban Highways</div><div class="entry-feature__desc">1950s–1970s — Interstate highways routed through Black neighborhoods, destroying communities and increasing pollution exposure</div></div>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-maternal">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div><div class="entry-item__dates">Present</div><h2 class="entry-item__name">Maternal Mortality: Dying to Give Birth While Black</h2><div class="entry-item__location">United States · The most preventable disparity</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">3.5x</div><div class="entry-stat__label">Higher maternal mortality rate for Black women vs. white women</div></div>
+              <div><div class="entry-stat__num">69.9</div><div class="entry-stat__label">Black maternal deaths per 100,000 live births (2021)</div></div>
+              <div><div class="entry-stat__num">80%</div><div class="entry-stat__label">Of maternal deaths are preventable, per the CDC</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Black women in the United States die from pregnancy-related complications at 3.5 times the rate of white women. The disparity persists across all income levels and education levels — a Black woman with a college degree faces higher maternal mortality risk than a white woman who did not finish high school. This is not explained by poverty or access alone. Research consistently points to two drivers: <strong>the physical toll of chronic stress from racism (the "weathering hypothesis") and systemic failures by healthcare providers to take Black women's symptoms seriously.</strong></p>
+              <p>Serena Williams nearly died after giving birth in 2018 — she had to insist that nurses take her report of shortness of breath seriously before a pulmonary embolism was detected. Her case is not exceptional; it is representative. Studies show that Black patients' self-reported pain and symptoms are more frequently dismissed by providers. The maternal mortality crisis is documented, the causes are known, and the CDC says 80% of these deaths are preventable. They continue. <strong>In 2021, 69.9 Black women died per 100,000 live births — a rate comparable to some low-income countries and far higher than any other wealthy nation.</strong></p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"I almost died after giving birth. I'm one of the lucky ones. I know that. A lot of women aren't as lucky."</p>
+              <p class="pull-quote__attribution">— Serena Williams, Vogue, 2022</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-covid">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div><div class="entry-item__dates">2020–2022</div><h2 class="entry-item__name">COVID-19: The Pandemic Measured the Disparities</h2><div class="entry-item__location">United States · The health inequity made visible</div></div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">2x</div><div class="entry-stat__label">Black COVID death rate vs. white in early pandemic</div></div>
+              <div><div class="entry-stat__num">Last</div><div class="entry-stat__label">Black communities received vaccines last despite dying first</div></div>
+              <div><div class="entry-stat__num">3</div><div class="entry-stat__label">Conditions driving disparity: comorbidities, essential work, housing density — all policy outcomes</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>In the spring of 2020, as COVID-19 spread across the United States, the racial data became impossible to ignore. Black Americans were dying at twice the rate of white Americans. The explanation offered by media and officials was "comorbidities" — higher rates of diabetes, hypertension, and obesity in Black communities. This was true. It was also the wrong conclusion. <strong>Those comorbidities are themselves the product of everything in this thread</strong> — environmental racism increasing pollution exposure, chronic stress from discrimination raising blood pressure, food deserts in redlined neighborhoods limiting diet quality, and economic exclusion limiting healthcare access.</p>
+              <p>Black and Hispanic Americans were also more likely to hold "essential worker" jobs — unable to work from home, exposed daily in warehouses, meatpacking plants, transit systems, and care facilities. They were more likely to live in multigenerational housing where isolation was impossible. When vaccines became available, distribution was handled through systems — pharmacies in suburbs, employer-based programs, technology-dependent registration — that favored white communities. <strong>The communities that died first in the pandemic were vaccinated last.</strong></p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The comorbidities are the history</div>
+              <p class="consequence-box__text">Higher rates of hypertension in Black Americans are explained in part by the "weathering hypothesis" — chronic stress from experiencing racism accelerates biological aging. Higher rates of diabetes are explained in part by food deserts in redlined neighborhoods. <strong>The "comorbidities" cited as individual risk factors are themselves the consequences of structural racism.</strong> The pandemic didn't create the disparity. It measured it.</p>
+            </div>
+          </article>
+
+          <div class="chain-connector reveal" role="note" aria-label="Causal chain">
+            <h2 class="chain-connector__title">History Recorded in the Body</h2>
+            <div class="chain-steps">
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">1</div><div><div class="chain-step__era">1619–1865</div><div class="chain-step__title">Enslaved bodies used for medical experiments — no consent, no pain relief</div><div class="chain-step__desc">The pseudoscience that Black people feel less pain originates here. It has never been fully eradicated from medical training.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">2</div><div><div class="chain-step__era">1932–1972</div><div class="chain-step__title">Tuskegee: 40 years of deliberate deception by the U.S. government</div><div class="chain-step__desc">The documented distrust of medical institutions in Black communities is a rational response to documented betrayal, not irrationality.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">3</div><div><div class="chain-step__era">1950s–Present</div><div class="chain-step__title">Environmental racism: the poison is placed in Black neighborhoods</div><div class="chain-step__desc">Lead, industrial chemicals, highway pollution — concentrated in communities that lacked political power to refuse them.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">4</div><div><div class="chain-step__era">Chronic stress</div><div class="chain-step__title">Racism as a biological stressor — the "weathering" of Black bodies</div><div class="chain-step__desc">Research shows that the experience of racism accelerates cellular aging, raises baseline blood pressure, and produces the comorbidities that drove COVID disparities.</div></div></div>
+              <div class="chain-step"><div class="chain-step__dot" aria-hidden="true">5</div><div><div class="chain-step__era">Today</div><div class="chain-step__title">3.5x maternal mortality. 4-year life expectancy gap. 2x COVID deaths.</div><div class="chain-step__desc">The disparities are not mysteries. They are measurements. Every number in the data has a specific historical cause.</div></div></div>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="sidebar" aria-label="Thread navigation and facts">
+          <div class="sidebar-card" id="toc-card">
+            <div class="sidebar-card__title">In This Thread</div>
+            <nav aria-label="Thread table of contents">
+              <ul class="sidebar-toc__list">
+                <li><a class="sidebar-toc__link" href="#entry-sims">01 · J. Marion Sims — 1845</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-tuskegee">02 · Tuskegee — 1932–1972</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-lacks">03 · Henrietta Lacks — 1951</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-environment">04 · Environmental Racism</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-maternal">05 · Maternal Mortality</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-covid">06 · COVID-19 — 2020</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">By the Numbers</div>
+            <div class="sidebar-fact__stat">3.5x</div>
+            <div class="sidebar-fact__label">Black maternal mortality rate compared to white — 69.9 vs. 19.9 deaths per 100,000 live births (2021)</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">40 yrs</div>
+            <div class="sidebar-fact__label">Duration of the Tuskegee study — the U.S. government knowingly withheld syphilis treatment from Black men for four decades</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">50%</div>
+            <div class="sidebar-fact__label">Of medical students in a 2016 study who believed false biological differences between Black and white patients — leading to under-treatment of pain</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">50x</div>
+            <div class="sidebar-fact__label">Higher cancer risk in Louisiana's Cancer Alley — the majority-Black industrial corridor on the Mississippi River</div>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Related Threads</div>
+            <a href="thread-stolen-labor.html" class="related-thread"><span class="related-thread__num">Thread</span><span class="related-thread__title">Stolen Labor &amp; the Racial Wealth Gap</span></a>
+            <a href="thread-displacement.html" class="related-thread"><span class="related-thread__num">Thread</span><span class="related-thread__title">The Flooded City: Displacement</span></a>
+            <a href="thread-mass-incarceration.html" class="related-thread"><span class="related-thread__num">Thread</span><span class="related-thread__title">The 13th: Mass Incarceration</span></a>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Further Reading</div>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);"><strong style="color:var(--color-text-primary);">Medical Apartheid</strong> — Harriet Washington (2006). The history of medical experimentation on Black Americans.</p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);"><strong style="color:var(--color-text-primary);">The Immortal Life of Henrietta Lacks</strong> — Rebecca Skloot (2010). HeLa cells and the family left behind.</p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);"><strong style="color:var(--color-text-primary);">Unequal Treatment</strong> — Institute of Medicine (2003). Comprehensive report on racial and ethnic disparities in healthcare.</p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;"><strong style="color:var(--color-text-primary);">Race After Technology</strong> — Ruha Benjamin (2019). How technology encodes racial bias in health and beyond.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="thread-bottom-cta" aria-labelledby="cta-title">
+  <div class="container">
+    <p class="thread-bottom-cta__eyebrow">The chain continues</p>
+    <h2 class="thread-bottom-cta__title" id="cta-title">The disparities are not gaps in data. They are injuries with addresses.</h2>
+    <p class="thread-bottom-cta__sub">Every number in the health data has a specific historical cause. Understanding those causes is the first step toward building a healthcare system that treats everyone as equally deserving of life.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Explore all threads →</a>
+      <a href="thread-stolen-labor.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">See: Stolen Labor</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand"><a href="index.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Black history &amp; present-day America. Every consequence has an origin.</p></div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Learn</h3><a href="threads.html" class="site-footer__link">Threads</a><a href="maps.html" class="site-footer__link">Maps &amp; Timelines</a><a href="today.html" class="site-footer__link">Today in History</a><a href="explore.html" class="site-footer__link">Explore</a></div>
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Site</h3><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="teaching.html" class="site-footer__link">Teaching</a><a href="contact.html" class="site-footer__link">Contact</a></div>
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Support</h3><a href="donate.html" class="site-footer__link">Donate</a><a href="newsletter.html" class="site-footer__link">Newsletter</a></div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom"><div class="container site-footer__bottom-inner"><p class="site-footer__legal">Chain is an independent educational archive. All historical claims are sourced.</p><a href="sources.html" class="site-footer__sources-link">View sources</a></div></div>
+</footer>
+
+<script>
+  const themeToggle=document.getElementById('themeToggle'),moonIcon=document.querySelector('.icon-moon'),sunIcons=document.querySelectorAll('.icon-sun');
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);if(t==='dark'){moonIcon.style.display='none';sunIcons.forEach(el=>el.style.display='')}else{moonIcon.style.display='';sunIcons.forEach(el=>el.style.display='none')}}
+  applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  themeToggle.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+  const mobileMenuToggle=document.getElementById('mobileMenuToggle'),mobileNav=document.getElementById('mobileNav'),mobileClose=document.getElementById('mobileClose'),mobileBackdrop=document.getElementById('mobileBackdrop');
+  function openMobileNav(){mobileNav.classList.add('is-open');mobileNav.setAttribute('aria-hidden','false');mobileMenuToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeMobileNav(){mobileNav.classList.remove('is-open');mobileNav.setAttribute('aria-hidden','true');mobileMenuToggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  mobileMenuToggle.addEventListener('click',openMobileNav);mobileClose.addEventListener('click',closeMobileNav);mobileBackdrop.addEventListener('click',closeMobileNav);
+  const searchToggle=document.getElementById('searchToggle'),searchOverlay=document.getElementById('searchOverlay'),searchClose=document.getElementById('searchClose'),searchInput=document.getElementById('searchInput');
+  searchToggle.addEventListener('click',()=>{searchOverlay.classList.add('is-open');searchOverlay.setAttribute('aria-hidden','false');searchToggle.setAttribute('aria-expanded','true');setTimeout(()=>searchInput.focus(),50)});
+  searchClose.addEventListener('click',()=>{searchOverlay.classList.remove('is-open');searchOverlay.setAttribute('aria-hidden','true');searchToggle.setAttribute('aria-expanded','false')});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){searchOverlay.classList.remove('is-open');searchOverlay.setAttribute('aria-hidden','true')}});
+  const revealEls=document.querySelectorAll('.reveal'),revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}})},{threshold:0.08});
+  revealEls.forEach(el=>revealObserver.observe(el));
+  const tocLinks=document.querySelectorAll('.sidebar-toc__link'),entryItems=document.querySelectorAll('.entry-item'),tocObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const id=entry.target.id;tocLinks.forEach(link=>link.classList.toggle('is-active',link.getAttribute('href')==='#'+id))}})},{rootMargin:'-10% 0px -80% 0px'});
+  entryItems.forEach(el=>tocObserver.observe(el));
+  const listenBtn=document.getElementById('listenBtn'),listenLabel=document.getElementById('listenLabel'),listenIcon=document.getElementById('listenIcon'),progressBar=document.getElementById('listenProgressBar'),progressFill=document.getElementById('listenProgressFill');
+  let currentUtterance=0,speaking=false;
+  const PLAY_SVG='<polygon points="5 3 19 12 5 21 5 3"/>',PAUSE_SVG='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  function getTextChunks(){const articles=document.querySelectorAll('.entry-item');const allText=Array.from(articles).map(a=>a.innerText).join(' ');const words=allText.split(/\s+/);const chunks=[];for(let i=0;i<words.length;i+=40)chunks.push(words.slice(i,i+40).join(' '));return chunks}
+  function speakChunk(chunks,idx){if(idx>=chunks.length){resetListen();return}const utt=new SpeechSynthesisUtterance(chunks[idx]);utt.onend=()=>{currentUtterance=idx+1;progressFill.style.width=((currentUtterance/chunks.length)*100)+'%';speakChunk(chunks,currentUtterance)};utt.onerror=()=>resetListen();speechSynthesis.speak(utt)}
+  function resetListen(){speaking=false;speechSynthesis.cancel();listenBtn.setAttribute('data-state','idle');listenLabel.textContent='Listen';listenIcon.innerHTML=PLAY_SVG;progressBar.classList.remove('is-visible');progressFill.style.width='0%';currentUtterance=0}
+  listenBtn.addEventListener('click',()=>{if(!speaking){speaking=true;listenBtn.setAttribute('data-state','playing');listenLabel.textContent='Pause';listenIcon.innerHTML=PAUSE_SVG;progressBar.classList.add('is-visible');const chunks=getTextChunks();speakChunk(chunks,currentUtterance)}else{resetListen()}});
+</script>
+</body>
+</html>
