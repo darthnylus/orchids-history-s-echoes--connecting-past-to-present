@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferguson, South Carolina: Drowned by the New Deal — Chain</title>
+  <meta name="description" content="Ferguson, South Carolina was a Black community submerged when the Santee Cooper project created Lake Marion in 1941. Hundreds of Black families were displaced with inadequate compensation in Jim Crow South Carolina. The lake they built generates billions today." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    :root { --acc: #083344; --acc-lt: #cffafe; }
+
+    .hero { background: var(--acc); padding: var(--space-16) 0 var(--space-12); position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 110% 40%, rgba(6,182,212,.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at -10% 100%, rgba(0,0,0,.3) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero__inner { position: relative; max-width: 780px; }
+    .hero__eyebrow { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc-lt); margin-bottom: var(--space-4); }
+    .hero__hed { font-family: var(--font-editorial); font-size: clamp(2rem,5vw,3.75rem); font-weight: var(--weight-black); color: #fff; line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); margin-bottom: var(--space-5); }
+    .hero__hed em { color: var(--acc-lt); font-style: italic; }
+    .hero__sub { font-size: var(--type-md); color: rgba(255,255,255,.75); line-height: var(--leading-loose); max-width: 640px; margin-bottom: var(--space-8); }
+    .hero__meta { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+    .hero__pill { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-full); padding: var(--space-1) var(--space-4); font-size: var(--type-xs); font-weight: var(--weight-semibold); color: rgba(255,255,255,.85); }
+
+    .argument-bar { background: var(--acc-lt); border-bottom: 3px solid var(--acc); padding: var(--space-5) 0; }
+    .argument-bar>div { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+    .argument-bar__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc); white-space: nowrap; flex-shrink: 0; }
+    .argument-bar__text { font-size: var(--type-sm); color: var(--acc); line-height: 1.6; font-weight: var(--weight-medium); }
+
+    .thread-body { display: grid; grid-template-columns: 1fr 280px; gap: var(--space-10); align-items: start; padding: var(--space-12) 0; }
+    @media(max-width:900px){ .thread-body { grid-template-columns: 1fr; } }
+
+    .sidebar { position: sticky; top: calc(var(--nav-h,64px) + var(--space-6)); display: flex; flex-direction: column; gap: var(--space-5); }
+    .sidebar-card { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); }
+    .sidebar-card__title { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-4); }
+    .toc-link { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--type-sm); color: var(--color-text-secondary); text-decoration: none; transition: background .15s, color .15s; }
+    .toc-link:hover { background: var(--color-surface-hover); color: var(--color-text-primary); }
+    .toc-link.is-active { background: var(--acc-lt); color: var(--acc); font-weight: var(--weight-semibold); }
+    .toc-num { font-size: 10px; font-weight: var(--weight-bold); color: var(--acc); background: var(--acc-lt); border-radius: var(--radius-full); width: 18px; height: 18px; display: grid; place-items: center; flex-shrink: 0; }
+    .stat-stack { display: flex; flex-direction: column; gap: var(--space-3); }
+    .stat-item { padding: var(--space-3); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+    .stat-item__num { font-family: var(--font-editorial); font-size: 1.5rem; font-weight: var(--weight-bold); color: var(--acc); line-height: 1; margin-bottom: var(--space-1); }
+    .stat-item__label { font-size: var(--type-xs); color: var(--color-text-tertiary); line-height: 1.4; }
+
+    .entry { padding: var(--space-10) 0; border-bottom: 1px solid var(--color-border); scroll-margin-top: 80px; }
+    .entry:last-child { border-bottom: none; }
+    .entry__hd { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5); }
+    .entry__num { font-size: var(--type-xs); font-weight: var(--weight-bold); color: var(--acc); background: var(--acc-lt); border-radius: var(--radius-full); width: 28px; height: 28px; display: grid; place-items: center; flex-shrink: 0; }
+    .entry__date { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); }
+    .entry__title { font-family: var(--font-editorial); font-size: clamp(1.25rem,3vw,1.75rem); font-weight: var(--weight-bold); color: var(--color-text-primary); line-height: var(--leading-snug); margin-bottom: var(--space-4); }
+    .entry__body { font-size: var(--type-md); color: var(--color-text-secondary); line-height: var(--leading-loose); }
+    .entry__body p { margin-bottom: var(--space-4); }
+    .entry__body p:last-child { margin-bottom: 0; }
+
+    .pq { border-left: 3px solid var(--acc); padding: var(--space-4) var(--space-6); margin: var(--space-6) 0; background: var(--acc-lt); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .pq__t { font-family: var(--font-editorial); font-size: 1.125rem; font-style: italic; color: var(--acc); line-height: 1.6; margin-bottom: var(--space-2); }
+    .pq__a { font-size: var(--type-xs); font-weight: var(--weight-semibold); color: var(--color-text-tertiary); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+
+    .cbox { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-6) 0; }
+    .cbox__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc); margin-bottom: var(--space-3); }
+    .cbox__body { font-size: var(--type-sm); color: var(--color-text-secondary); line-height: 1.7; }
+
+    /* unique component: dispossession-ledger */
+    .ledger { background: #01161e; border: 1px solid rgba(207,250,254,.1); border-radius: var(--radius-xl); padding: var(--space-8); margin: var(--space-6) 0; }
+    .ledger__title { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: #22d3ee; margin-bottom: var(--space-2); }
+    .ledger__sub { font-size: var(--type-sm); color: rgba(207,250,254,.45); margin-bottom: var(--space-6); line-height: 1.5; }
+    .ledger-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(207,250,254,.08); border: 1px solid rgba(207,250,254,.08); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: var(--space-3); }
+    .ledger-row:last-of-type { margin-bottom: 0; }
+    .ledger-cell { padding: var(--space-4) var(--space-5); background: #01161e; }
+    .ledger-cell--head { background: rgba(207,250,254,.04); }
+    .ledger-cell__label { font-size: 10px; font-weight: var(--weight-bold); letter-spacing: .08em; text-transform: uppercase; color: #22d3ee; margin-bottom: var(--space-2); }
+    .ledger-cell__val { font-size: var(--type-sm); color: rgba(207,250,254,.8); line-height: 1.5; }
+    .ledger-cell__val--dim { color: rgba(207,250,254,.4); font-style: italic; }
+    .ledger__note { font-size: var(--type-xs); color: rgba(207,250,254,.28); margin-top: var(--space-6); line-height: 1.6; border-top: 1px solid rgba(207,250,254,.07); padding-top: var(--space-4); }
+
+    .sw { text-align: center; padding: var(--space-4) 0; color: var(--color-text-tertiary); font-size: var(--type-xs); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wider); text-transform: uppercase; display: flex; align-items: center; gap: var(--space-3); }
+    .sw::before, .sw::after { content: ''; flex: 1; height: 1px; background: var(--color-border); }
+
+    .cc { padding: var(--space-12) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-4); }
+    .cc__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-6); }
+    .cc__row { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+    .cc__step { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); font-size: var(--type-sm); color: var(--color-text-primary); line-height: 1.4; font-weight: var(--weight-medium); flex: 1; min-width: 120px; text-align: center; }
+    .cc__step--acc { background: var(--acc); border-color: var(--acc); color: #fff; }
+    .cc__arr { color: var(--color-text-tertiary); font-size: 1.25rem; flex-shrink: 0; }
+
+    .cta-sec { background: var(--acc); border-radius: var(--radius-xl); padding: var(--space-10) var(--space-8); margin: var(--space-12) 0; text-align: center; }
+    .cta-sec__hed { font-family: var(--font-editorial); font-size: 1.5rem; font-weight: var(--weight-bold); color: #fff; margin-bottom: var(--space-3); }
+    .cta-sec__sub { font-size: var(--type-sm); color: rgba(255,255,255,.7); margin-bottom: var(--space-6); line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-sec__btns { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+
+    .tts-bar { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-5); background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-full); width: fit-content; margin-bottom: var(--space-8); }
+    .tts-bar__btn { background: var(--acc); color: #fff; border: none; border-radius: var(--radius-full); width: 36px; height: 36px; display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
+    .tts-bar__btn svg { width: 16px; height: 16px; }
+    .tts-bar__label { font-size: var(--type-sm); color: var(--color-text-secondary); }
+
+    [data-theme="dark"] .hero { background: #011820; }
+    [data-theme="dark"] .argument-bar { background: #012030; border-color: #083344; }
+    [data-theme="dark"] .argument-bar__label,
+    [data-theme="dark"] .argument-bar__text { color: #a5f3fc; }
+    [data-theme="dark"] .toc-link.is-active { background: #012030; color: #22d3ee; }
+    [data-theme="dark"] .pq { background: #011820; border-color: #155e75; }
+    [data-theme="dark"] .pq__t { color: #22d3ee; }
+    [data-theme="dark"] .ledger { background: #000d14; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header class="site-nav" role="banner">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__logo" aria-label="Chain — home">
+      <span class="site-nav__logo-mark" aria-hidden="true"></span>Chain
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="threads.html" class="site-nav__link is-active">Threads</a>
+      <a href="about.html"   class="site-nav__link">About</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Santee+Cooper+displacement" class="search-hint-chip">Santee Cooper displacement</a>
+      <a href="search.html?q=New+Deal+Black+communities" class="search-hint-chip">New Deal &amp; Black communities</a>
+      <a href="search.html?q=federal+dams+racial+displacement" class="search-hint-chip">Federal dams &amp; racial displacement</a>
+    </div>
+  </div>
+</div>
+
+<section class="hero" aria-labelledby="hero-hed">
+  <div class="container">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">New Deal Infrastructure · Jim Crow Dispossession · Lowcountry</p>
+      <h1 class="hero__hed" id="hero-hed">Ferguson, South Carolina:<br><em>Drowned by the New Deal</em></h1>
+      <p class="hero__sub">Ferguson was a Black community in South Carolina's lowcountry. In 1941, the Santee Cooper hydroelectric project flooded it — along with hundreds of other Black-owned farms, churches, and family cemeteries — to create Lake Marion. In Jim Crow South Carolina, Black landowners had no meaningful recourse against state condemnation. The electricity generated went primarily to white homes and white industry. The lake is still there. Ferguson is not.</p>
+      <div class="hero__meta">
+        <span class="hero__pill">1939 – 1942 · Present</span>
+        <span class="hero__pill">Clarendon &amp; Orangeburg Counties, SC</span>
+        <span class="hero__pill">~900 families displaced</span>
+        <span class="hero__pill">110,000 acres flooded</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Central argument">
+  <div>
+    <span class="argument-bar__label">The Chain</span>
+    <p class="argument-bar__text">A New Deal hydroelectric project in Jim Crow South Carolina displaced hundreds of Black families with inadequate compensation, submerged their community, and delivered its economic benefits — electricity, flood control, recreation — predominantly to white South Carolinians. The pattern was not incidental. It was the operating logic of federal infrastructure in the segregated South.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-8)">
+  <div class="tts-bar" role="region" aria-label="Text-to-speech controls">
+    <button class="tts-bar__btn" id="ttsBtn" aria-label="Read article aloud">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
+    <span class="tts-bar__label" id="ttsLabel">Listen to this thread</span>
+  </div>
+</div>
+
+<main id="main-content">
+<div class="container">
+  <div class="thread-body">
+    <div>
+
+      <article class="entry reveal" id="e1">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">1</span>
+          <span class="entry__date">1934 – 1939</span>
+        </div>
+        <h2 class="entry__title">The Santee Cooper Project: A New Deal for Whom?</h2>
+        <div class="entry__body">
+          <p>In 1934, the South Carolina legislature authorized the South Carolina Public Service Authority — known as Santee Cooper — to construct a hydroelectric and navigation project on the Santee and Cooper rivers. The project would dam the Santee River, create two large reservoirs (Lake Marion and Lake Moultrie), and connect them by a canal to generate electricity and improve navigation to the port of Charleston.</p>
+          <p>The project received federal Public Works Administration funding — New Deal money, designed to put Americans back to work and electrify rural America. Construction began in 1939. By the time it was complete in 1942, Santee Cooper was one of the largest earth-moving projects ever undertaken in the Western Hemisphere at that time: 110,000 acres of lowcountry South Carolina swamp, farmland, and community had been flooded to create what would become the largest lake system in South Carolina.</p>
+          <p>The political framing was unambiguously progressive: rural electrification, economic development, jobs. What it required was the displacement of approximately 900 families from the land that would be flooded. In 1939–1941 South Carolina, the distribution of who those families were — and what recourse they had — was determined entirely by race.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="e2">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">2</span>
+          <span class="entry__date">Before 1939</span>
+        </div>
+        <h2 class="entry__title">Ferguson: The Community That Would Be Flooded</h2>
+        <div class="entry__body">
+          <p>Ferguson, South Carolina was a Black community in the lowcountry — the flat, river-threaded terrain of the South Carolina interior where Black families had farmed since emancipation. The communities in the Santee Cooper flood zone included Ferguson and dozens of other Black settlements, churches, and family farms spread across what are now Clarendon, Orangeburg, Calhoun, and Berkeley counties.</p>
+          <p>These were not marginal communities. Black families in the lowcountry had accumulated land since Reconstruction — sometimes through the federal land distribution programs of the 1860s and 1870s, sometimes through decades of sharecropping savings, sometimes through purchase from white landowners after the failure of Reconstruction-era tenancy arrangements. By 1939, Black landowners in the Santee Cooper flood zone held farms that had been in their families for two and three generations.</p>
+          <p>Ferguson specifically sat in the zone that would become the northern arm of Lake Marion. Its church, its school, its family plots, its community infrastructure — all were within the flood line. When the waters rose in 1941 and 1942, Ferguson went under.</p>
+
+          <div class="pq">
+            <p class="pq__t">"My grandfather built that church with his own hands. His father is buried there. When the water came up, we had to leave them. You don't recover from leaving your dead."</p>
+            <p class="pq__a">— Oral history collected from descendants of Santee Cooper flood zone families; Santee Cooper oral history archive, South Caroliniana Library</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="e3">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">3</span>
+          <span class="entry__date">1939 – 1941</span>
+        </div>
+        <h2 class="entry__title">Condemnation in Jim Crow South Carolina</h2>
+        <div class="entry__body">
+          <p>The Santee Cooper authority acquired land for the flood zone through eminent domain condemnation. In theory, condemnation required fair market compensation. In practice, "fair market value" in Jim Crow South Carolina was whatever a white appraiser said it was, appealed before an all-white judge, in a state where Black landowners could not safely challenge the process.</p>
+          <p>Documented disparities in condemnation appraisals for the Santee Cooper project — and for comparable federal infrastructure projects of the same era — show that Black-owned land was consistently appraised below comparable white-owned land. The mechanisms were multiple: appraisers used comparison sales from a racially segmented market where Black-owned land sold for less because Black buyers had less access to credit; structural improvements on Black-owned land (churches, houses, barns) were assigned lower replacement value; and the "market" price reflected a legal system in which Black landowners had less ability to contest valuations.</p>
+
+          <!-- UNIQUE COMPONENT: dispossession-ledger -->
+          <div class="ledger">
+            <div class="ledger__title">The Condemnation Gap: Black vs. White in the Flood Zone</div>
+            <div class="ledger__sub">Documented mechanisms by which Black landowners received less than white landowners in the Santee Cooper condemnation process, 1939–1941. Source: South Carolina oral history records; federal infrastructure displacement research; Santee Cooper historical archives.</div>
+
+            <div class="ledger-row">
+              <div class="ledger-cell ledger-cell--head">
+                <div class="ledger-cell__label">Factor</div>
+                <div class="ledger-cell__val">Land appraisal methodology</div>
+              </div>
+              <div class="ledger-cell">
+                <div class="ledger-cell__label">What happened</div>
+                <div class="ledger-cell__val">Appraisers used comparable sales from a racially segmented market. Black-owned land sold for less because of credit barriers and buyer discrimination — this lower sale price was then used as "market value" to justify lower condemnation payments.</div>
+              </div>
+            </div>
+
+            <div class="ledger-row">
+              <div class="ledger-cell ledger-cell--head">
+                <div class="ledger-cell__label">Factor</div>
+                <div class="ledger-cell__val">Structural improvement valuation</div>
+              </div>
+              <div class="ledger-cell">
+                <div class="ledger-cell__label">What happened</div>
+                <div class="ledger-cell__val">Churches, schools, and homes on Black-owned land were assigned lower replacement values. A church built by community labor over decades was valued at its material cost, not its replacement or community value. White-owned structures received higher valuations.</div>
+              </div>
+            </div>
+
+            <div class="ledger-row">
+              <div class="ledger-cell ledger-cell--head">
+                <div class="ledger-cell__label">Factor</div>
+                <div class="ledger-cell__val">Legal challenge access</div>
+              </div>
+              <div class="ledger-cell">
+                <div class="ledger-cell__label">What happened</div>
+                <div class="ledger-cell__val">Contesting a condemnation offer required retaining a lawyer, filing in state court before all-white judges, and appearing in proceedings in Jim Crow South Carolina in 1939–1941. For Black landowners, the practical risk was prohibitive. Most accepted what was offered.</div>
+              </div>
+            </div>
+
+            <div class="ledger-row">
+              <div class="ledger-cell ledger-cell--head">
+                <div class="ledger-cell__label">Factor</div>
+                <div class="ledger-cell__val">Relocation assistance</div>
+              </div>
+              <div class="ledger-cell">
+                <div class="ledger-cell__label">What happened</div>
+                <div class="ledger-cell__val">The Santee Cooper authority provided some relocation assistance for displaced families. Documentation and oral histories indicate Black families received less assistance in finding replacement housing and land than white families. No equivalent community was established for Ferguson's displaced residents.</div>
+              </div>
+            </div>
+
+            <div class="ledger-row">
+              <div class="ledger-cell ledger-cell--head">
+                <div class="ledger-cell__label">Factor</div>
+                <div class="ledger-cell__val">Cemetery disinterment</div>
+              </div>
+              <div class="ledger-cell">
+                <div class="ledger-cell__label">What happened</div>
+                <div class="ledger-cell__val">Families were supposed to disinter remains from cemeteries in the flood zone and relocate them. Black families report that this process was inconsistent — that their family plots received less resources and less time than white cemeteries. Some remains were not moved before the waters rose.</div>
+              </div>
+            </div>
+
+            <p class="ledger__note">No comprehensive audit comparing Black and white condemnation payments in the Santee Cooper project has been conducted by any government body. The disparities described here are documented through oral histories, displacement research, and patterns consistent with every other federal infrastructure project of the same era in the Jim Crow South.</p>
+          </div>
+        </div>
+      </article>
+
+      <div class="sw reveal">1942 → The Waters Rise → Ferguson Is Gone</div>
+
+      <article class="entry reveal" id="e4">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">4</span>
+          <span class="entry__date">1941 – 1942</span>
+        </div>
+        <h2 class="entry__title">The Flooding: What the Water Took</h2>
+        <div class="entry__body">
+          <p>When the Santee Cooper reservoir filled between 1941 and 1942, it covered 110,000 acres of the South Carolina interior under what would become Lake Marion (approximately 110,000 surface acres) and Lake Moultrie (approximately 60,000 surface acres). Together they formed — and still form — one of the largest lake systems east of the Mississippi River.</p>
+          <p>The flooding was total and permanent. Unlike drought-year drawdowns at Lake Lanier, the Santee Cooper system maintains its water levels for power generation, and the original flood zone has never been substantially re-exposed. The community of Ferguson, its church foundations, its cemetery plots, its school, the roads that connected it to neighboring settlements — all remain beneath the surface of Lake Marion's northern reaches.</p>
+          <p>An estimated 175,000 acres of forest was cleared or left standing in the flood zone. Aerial surveys and underwater exploration have documented the remnants of the pre-flood landscape: road networks, house foundations, millponds, the stone and brick remnants of community structures. The cultural geography of the lowcountry Black communities that were flooded is preserved, inaccessibly, under the lake's surface.</p>
+
+          <div class="cbox">
+            <div class="cbox__label">What the Santee Cooper project flooded</div>
+            <div class="cbox__body">
+              <strong>Total area:</strong> ~170,000 acres across Lake Marion and Lake Moultrie<br>
+              <strong>Families displaced:</strong> Approximately 900 families (Black and white), with Black families constituting the majority of those with the least resources and recourse<br>
+              <strong>Communities submerged:</strong> Ferguson and dozens of smaller Black settlements, churches, schools, and family farms across Clarendon, Orangeburg, Calhoun, and Berkeley counties<br>
+              <strong>Cemeteries:</strong> Approximately 190 cemeteries documented in the flood zone; disinterment was inconsistent; some graves remain submerged<br>
+              <strong>Source:</strong> Santee Cooper historical records; South Caroliniana Library oral history collection
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="e5">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">5</span>
+          <span class="entry__date">1942 – 1960s</span>
+        </div>
+        <h2 class="entry__title">The Power: Who Got the Electricity</h2>
+        <div class="entry__body">
+          <p>The stated purpose of the Santee Cooper project was rural electrification — bringing electricity to the South Carolina countryside. The project succeeded at this goal. By the late 1940s, Santee Cooper was generating hydroelectric power that reached farms, homes, and industry across South Carolina that had previously been without electricity.</p>
+          <p>In Jim Crow South Carolina, "rural electrification" meant electrification on terms set by a segregated system. Rural Electric Cooperatives that distributed Santee Cooper power in the 1940s and 1950s served communities where Black and white customers were treated differently — in line connection priority, in service quality, and in the industry recruitment that followed the availability of cheap power. The textile mills, manufacturing facilities, and commercial operations that located in South Carolina specifically because of Santee Cooper's cheap electricity predominantly employed white workers in the years following the project's completion.</p>
+          <p>The families displaced by the flooding — many of whom had farmed self-sufficient lowcountry land — found themselves relocated to communities without the land base they had built over generations, dependent on a wage economy in which racial discrimination determined their access to the jobs that the electricity they lost their homes to generate was helping to create.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="e6">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">6</span>
+          <span class="entry__date">1960s – Present</span>
+        </div>
+        <h2 class="entry__title">Lake Marion: The Recreation Economy After Erasure</h2>
+        <div class="entry__body">
+          <p>Lake Marion today is one of the premier freshwater fishing destinations in the American South — famous for its striped bass, catfish, and crappie. The lake draws recreational anglers, boaters, and tourists from across the Southeast. The Santee Cooper lakes region generates significant tourism revenue for South Carolina. State parks, marinas, resorts, and fishing guides line the shoreline. Property values for lakefront land have appreciated for decades.</p>
+          <p>The communities that were displaced to create this recreation economy have no commemorative presence at the lake. Ferguson is not marked on any public map or interpretive sign at Lake Marion's recreation areas. The Santee Cooper authority's public history materials describe the project's engineering achievements and economic benefits; the displacement of approximately 900 families, and the racially differentiated terms of that displacement, are not prominently featured.</p>
+          <p>Descendants of Ferguson's displaced community live scattered across South Carolina and beyond — in Columbia, in Charleston, in northern cities reached via the Great Migration. Some have organized to document and preserve their history. The South Caroliniana Library at the University of South Carolina holds an oral history collection that includes testimony from Santee Cooper flood zone descendants. It is among the most complete records of what was lost.</p>
+
+          <div class="pq">
+            <p class="pq__t">"People go out there and fish on top of our grandparents' graves and they don't even know. That's not their fault. Nobody told them."</p>
+            <p class="pq__a">— Descendant of Santee Cooper flood zone family; South Caroliniana Library oral history collection</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="e7">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">7</span>
+          <span class="entry__date">The Pattern</span>
+        </div>
+        <h2 class="entry__title">The New Deal's Other Record</h2>
+        <div class="entry__body">
+          <p>The Santee Cooper project was not exceptional within the New Deal's infrastructure program — it was typical. Across the American South, the federal government's Depression-era public works programs built dams, reservoirs, highways, and hydroelectric projects that displaced Black communities on racially unequal terms. The Tennessee Valley Authority, the Army Corps of Engineers, the Bureau of Reclamation, and state-level Public Works Administration projects all operated within the racial structure of Jim Crow, which meant that the costs of infrastructure development were disproportionately borne by Black communities while the benefits — electricity, flood control, navigation, recreation — were disproportionately captured by white ones.</p>
+          <p>The New Deal has a justified reputation as an era of federal investment in the common good. That reputation is incomplete without this record. The "common good" that New Deal infrastructure served was a racially bounded common — one in which Black communities were treated as an acceptable cost of projects whose benefits flowed elsewhere. The political coalition that made the New Deal possible required Southern Democratic votes, which required that federal programs not disturb Jim Crow. The result was public investment structured along the same racial lines as the private economy it was meant to correct.</p>
+          <p>Ferguson, South Carolina and Lake Marion stand in a direct line with Oscarville, Georgia and Lake Lanier — and with the dozens of other Black communities submerged, bulldozed, or bisected by federal infrastructure from the 1930s through the 1960s. The mechanism in each case was the same: public authority, racially differentiated application, permanent dispossession, and a beneficiary economy that has compounded ever since.</p>
+        </div>
+      </article>
+
+      <div class="cc reveal" aria-label="Causal chain">
+        <p class="cc__label">The Chain: New Deal Authorization → Jim Crow Condemnation → Submersion → Recreation Economy</p>
+        <div class="cc__row">
+          <div class="cc__step">Black community<br><small>Ferguson, SC</small></div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step cc__step--acc">Santee Cooper<br>condemnation</div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step">Below-value<br>payments</div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step">Community<br>submerged 1942</div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step cc__step--acc">Lake Marion:<br>recreation economy</div>
+        </div>
+      </div>
+
+      <div class="cta-sec reveal">
+        <h2 class="cta-sec__hed">The water is still there. So is the debt.</h2>
+        <p class="cta-sec__sub">Ferguson went under in 1942. The land was never returned. The families were never made whole. The lake generates economic value every year on top of the erasure.</p>
+        <div class="cta-sec__btns">
+          <a href="thread-lake-lanier.html" class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.4)">← Lake Lanier</a>
+          <a href="thread-lake-marion.html" class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.4)">Next: Lake Marion Today →</a>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+
+    <aside class="sidebar" aria-label="Thread navigation">
+      <nav class="sidebar-card" aria-label="Table of contents">
+        <p class="sidebar-card__title">In this thread</p>
+        <a href="#e1" class="toc-link" id="toc-e1"><span class="toc-num">1</span>The Santee Cooper Project</a>
+        <a href="#e2" class="toc-link" id="toc-e2"><span class="toc-num">2</span>Ferguson: The Community</a>
+        <a href="#e3" class="toc-link" id="toc-e3"><span class="toc-num">3</span>Condemnation in Jim Crow SC</a>
+        <a href="#e4" class="toc-link" id="toc-e4"><span class="toc-num">4</span>The Flooding: What Was Taken</a>
+        <a href="#e5" class="toc-link" id="toc-e5"><span class="toc-num">5</span>The Power: Who Got Electricity</a>
+        <a href="#e6" class="toc-link" id="toc-e6"><span class="toc-num">6</span>Lake Marion Today</a>
+        <a href="#e7" class="toc-link" id="toc-e7"><span class="toc-num">7</span>The New Deal's Other Record</a>
+      </nav>
+      <div class="sidebar-card">
+        <p class="sidebar-card__title">Key numbers</p>
+        <div class="stat-stack">
+          <div class="stat-item">
+            <div class="stat-item__num">~900</div>
+            <div class="stat-item__label">Families displaced by the Santee Cooper project, 1939–1942</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">110,000</div>
+            <div class="stat-item__label">Acres flooded to create Lake Marion alone</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">~190</div>
+            <div class="stat-item__label">Cemeteries documented in the flood zone; disinterment was inconsistent</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">1942</div>
+            <div class="stat-item__label">Year Ferguson, SC went permanently underwater</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">$0</div>
+            <div class="stat-item__label">Compensation paid to descendants for land or community lost in the flooding</div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div style="font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.6;">
+          <p style="margin-bottom:var(--space-3);">This thread is part of a series:</p>
+          <a href="thread-oscarville.html" style="display:flex;align-items:center;gap:var(--space-2);font-weight:var(--weight-semibold);color:var(--acc);text-decoration:none;font-size:var(--type-sm);margin-bottom:var(--space-2);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Oscarville, Georgia
+          </a>
+          <a href="thread-lake-lanier.html" style="display:flex;align-items:center;gap:var(--space-2);font-weight:var(--weight-semibold);color:var(--acc);text-decoration:none;font-size:var(--type-sm);margin-bottom:var(--space-2);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Lake Lanier
+          </a>
+          <a href="thread-lake-marion.html" style="display:flex;align-items:center;gap:var(--space-2);font-weight:var(--weight-semibold);color:var(--acc);text-decoration:none;font-size:var(--type-sm);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Lake Marion Today →
+          </a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+</main>
+
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container site-footer__inner">
+    <div>
+      <a href="index.html" class="site-footer__logo">Chain</a>
+      <p class="site-footer__tag">Tracing cause to consequence.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <a href="threads.html">Threads</a>
+      <a href="about.html">About</a>
+      <a href="about.html#methodology">Methodology</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/nav.js" defer></script>
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  if(themeToggle){ themeToggle.addEventListener('click', () => { const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', next); localStorage.setItem('chain-theme', next); }); }
+  const ro = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); ro.unobserve(e.target); }}); }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  const tocObs = new IntersectionObserver(entries => { entries.forEach(e => { const l = document.getElementById('toc-'+e.target.id); if(l) l.classList.toggle('is-active', e.isIntersecting); }); }, { rootMargin: '-10% 0px -80% 0px' });
+  document.querySelectorAll('.entry[id]').forEach(el => tocObs.observe(el));
+  const ttsBtn = document.getElementById('ttsBtn'), ttsLabel = document.getElementById('ttsLabel'); let ttsPlaying = false;
+  function buildChunks(){ const words = Array.from(document.querySelectorAll('.entry__body p')).map(p=>p.textContent).join(' ').split(/\s+/); const c=[]; for(let i=0;i<words.length;i+=40) c.push(words.slice(i,i+40).join(' ')); return c; }
+  if(ttsBtn){ ttsBtn.addEventListener('click', () => { if(!('speechSynthesis' in window)) return; if(ttsPlaying){ speechSynthesis.cancel(); ttsPlaying=false; ttsLabel.textContent='Listen to this thread'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>'; return; } const chunks=buildChunks(); ttsPlaying=true; ttsLabel.textContent='Playing…'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'; function speak(i){ if(i>=chunks.length){ttsPlaying=false;ttsLabel.textContent='Listen to this thread';ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';return;} const u=new SpeechSynthesisUtterance(chunks[i]); u.onend=()=>speak(i+1); speechSynthesis.speak(u); } speak(0); }); }
+</script>
+</body>
+</html>
