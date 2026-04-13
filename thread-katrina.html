@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katrina: What the Flood Revealed — Thread — Chain</title>
+  <meta name="description" content="Hurricane Katrina killed 1,800 people, 80% of them Black. The levees that failed were in Black neighborhoods. The evacuation plan assumed people had cars. The federal response took five days. Then the city used the disaster to displace Black residents permanently. None of this was natural." />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    :root{--acc:#0369a1;--acc-lt:#bae6fd}
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(3,105,161,.25) 0%,transparent 70%);pointer-events:none}
+    .thread-hero__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6);position:relative}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-5)}
+    .kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:var(--ink-0);line-height:1.1;max-width:780px;margin-bottom:var(--space-6)}
+    .thread-hero__title em{font-style:italic;color:var(--acc-lt)}
+    .thread-hero__deck{font-family:var(--font-ui);font-size:1.05rem;line-height:1.7;color:var(--ink-300);max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta-row{display:flex;flex-wrap:wrap;gap:var(--space-6);border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-6)}
+    .meta-item{display:flex;flex-direction:column;gap:2px}
+    .meta-label{font-family:var(--font-ui);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500)}
+    .meta-value{font-family:var(--font-ui);font-size:.9rem;font-weight:500;color:var(--ink-200)}
+    .argument-bar{border-left:3px solid var(--acc);padding:var(--space-5) var(--space-6);margin:var(--space-10) auto;max-width:1100px;background:rgba(3,105,161,.07)}
+    .argument-bar__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-2)}
+    .argument-bar__text{font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;color:var(--ink-800);line-height:1.6}
+    [data-theme=dark] .argument-bar__text{color:var(--ink-200)}
+    .thread-body{max-width:1100px;margin:0 auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:1fr 280px;gap:var(--space-12);align-items:start}
+    @media(max-width:860px){.thread-body{grid-template-columns:1fr}}
+    .era-div{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-12) 0 var(--space-8)}
+    .era-div__badge{flex-shrink:0;font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--acc);padding:var(--space-1) var(--space-3);border-radius:2px}
+    .era-div__line{flex:1;height:1px;background:var(--ink-200)}
+    [data-theme=dark] .era-div__line{background:var(--ink-700)}
+    .era-div__label{font-family:var(--font-ui);font-size:.8rem;font-weight:600;color:var(--ink-400)}
+    .entry{margin-bottom:var(--space-12);padding-bottom:var(--space-12);border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .entry{border-bottom-color:var(--ink-800)}
+    .entry:last-child{border-bottom:none}
+    .entry__hd{display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)}
+    .entry__num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--acc);color:#fff;font-family:var(--font-ui);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .entry__meta{display:flex;flex-direction:column;gap:2px}
+    .entry__date{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+    .entry__title{font-family:var(--font-editorial);font-size:1.3rem;font-weight:700;color:var(--ink-900);line-height:1.2}
+    [data-theme=dark] .entry__title{color:var(--ink-50)}
+    .entry__body{font-family:var(--font-ui);font-size:.97rem;line-height:1.8;color:var(--ink-700);padding-left:52px}
+    [data-theme=dark] .entry__body{color:var(--ink-300)}
+    .entry__body p{margin-bottom:var(--space-4)}.entry__body p:last-child{margin-bottom:0}
+    .sh{font-family:var(--font-editorial);font-size:1.1em;font-weight:700;color:var(--acc)}
+    .pq{border-left:3px solid var(--acc);padding:var(--space-4) var(--space-6);margin:var(--space-6) 0;background:var(--ink-50)}
+    [data-theme=dark] .pq{background:var(--ink-800)}
+    .pq__t{font-family:var(--font-editorial);font-size:1.05rem;font-style:italic;line-height:1.6;color:var(--ink-800);margin-bottom:var(--space-2)}
+    [data-theme=dark] .pq__t{color:var(--ink-200)}
+    .pq__a{font-family:var(--font-ui);font-size:.78rem;font-weight:600;color:var(--ink-400)}
+    /* flood-stats — unique: death/displacement breakdown by race and neighborhood */
+    .flood-stats{background:var(--ink-900);border-radius:4px;overflow:hidden;margin:var(--space-6) 0}
+    .flood-stats__title{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-lt);padding:var(--space-4) var(--space-5);border-bottom:1px solid rgba(255,255,255,.08)}
+    .flood-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)}
+    .flood-cell{background:var(--ink-900);padding:var(--space-4) var(--space-4)}
+    .flood-cell__num{font-family:var(--font-editorial);font-size:1.5rem;font-weight:700;color:var(--acc-lt)}
+    .flood-cell__label{font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);margin-top:2px;line-height:1.4}
+    .cbox{background:rgba(3,105,161,.07);border:1px solid rgba(3,105,161,.2);border-radius:4px;padding:var(--space-5);margin:var(--space-6) 0}
+    .cbox__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-3)}
+    .cbox ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .cbox li{font-family:var(--font-ui);font-size:.88rem;color:var(--ink-700);padding-left:var(--space-4);position:relative;line-height:1.5}
+    [data-theme=dark] .cbox li{color:var(--ink-300)}
+    .cbox li::before{content:'→';position:absolute;left:0;color:var(--acc);font-weight:700}
+    .sidebar{position:sticky;top:var(--space-8)}
+    .sw{background:var(--ink-50);border:1px solid var(--ink-100);border-radius:4px;padding:var(--space-5);margin-bottom:var(--space-5)}
+    [data-theme=dark] .sw{background:var(--ink-800);border-color:var(--ink-700)}
+    .sw__title{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);margin-bottom:var(--space-4)}
+    .toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-1)}
+    .toc-item a{display:block;font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-1) var(--space-2);border-left:2px solid transparent;transition:all .15s}
+    .toc-item a:hover,.toc-item--active a{color:var(--acc);border-left-color:var(--acc);background:rgba(3,105,161,.05)}
+    .rel-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .rel-list a{font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-2);display:block;border-radius:3px;transition:background .15s}
+    .rel-list a:hover{background:var(--ink-100)}[data-theme=dark] .rel-list a:hover{background:var(--ink-700);color:var(--ink-100)}
+    .tts-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--space-2);background:none;border:1px solid var(--ink-200);border-radius:3px;padding:var(--space-3);font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-500);cursor:pointer;transition:all .15s}
+    [data-theme=dark] .tts-btn{border-color:var(--ink-600);color:var(--ink-400)}
+    .tts-btn:hover{border-color:var(--acc);color:var(--acc)}
+    .causal-chain{background:var(--ink-900);padding:var(--space-12) var(--space-6);margin:var(--space-16) 0 0}
+    .cc__inner{max-width:1100px;margin:0 auto}
+    .cc__title{font-family:var(--font-editorial);font-size:1.5rem;font-weight:700;color:var(--ink-0);margin-bottom:var(--space-8);text-align:center}
+    .cc__steps{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0}
+    .cc__step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-2)}
+    .cc__node{width:52px;height:52px;border-radius:50%;border:2px solid var(--acc);background:rgba(3,105,161,.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:.62rem;font-weight:700;color:var(--acc-lt);line-height:1.2;padding:4px;text-align:center}
+    .cc__lbl{font-family:var(--font-ui);font-size:.68rem;color:var(--ink-400);max-width:80px;line-height:1.3}
+    .cc__arr{color:var(--acc);font-size:1.2rem;padding:0 var(--space-1);align-self:center;padding-bottom:24px}
+    .cta-sec{background:var(--ink-50);border-top:1px solid var(--ink-100);padding:var(--space-12) var(--space-6)}
+    [data-theme=dark] .cta-sec{background:var(--ink-900);border-top-color:var(--ink-800)}
+    .cta-sec__inner{max-width:640px;margin:0 auto;text-align:center}
+    .cta-sec__title{font-family:var(--font-editorial);font-size:1.6rem;font-weight:700;color:var(--ink-900);margin-bottom:var(--space-4)}
+    [data-theme=dark] .cta-sec__title{color:var(--ink-50)}
+    .cta-sec__body{font-family:var(--font-ui);font-size:.95rem;line-height:1.7;color:var(--ink-500);margin-bottom:var(--space-6)}
+    .cta-btn{display:inline-block;background:var(--acc);color:#fff;font-family:var(--font-ui);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:var(--space-3) var(--space-7);border-radius:2px;transition:opacity .15s}
+    .cta-btn:hover{opacity:.85}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    .site-nav{background:var(--ink-900);border-bottom:1px solid rgba(255,255,255,.07);padding:0 var(--space-6);display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100}
+    .site-nav__logo{font-family:var(--font-editorial);font-size:1.1rem;font-weight:700;color:var(--ink-0);text-decoration:none}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-6)}
+    .nav-link{font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-400);text-decoration:none;transition:color .15s}
+    .nav-link:hover{color:var(--ink-0)}
+    .theme-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:var(--space-1) var(--space-3);font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);cursor:pointer}
+    .site-footer{background:var(--ink-900);border-top:1px solid rgba(255,255,255,.07);padding:var(--space-8) var(--space-6);text-align:center}
+    .site-footer p{font-family:var(--font-ui);font-size:.8rem;color:var(--ink-500)}
+    .site-footer a{color:var(--ink-400);text-decoration:none}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="site-nav__logo">Chain</a>
+  <div class="site-nav__links">
+    <a href="threads.html" class="nav-link">All threads</a>
+    <a href="teaching.html" class="nav-link">Teaching</a>
+    <button class="theme-btn" id="theme-toggle">Light</button>
+  </div>
+</nav>
+
+<header class="thread-hero">
+  <div class="thread-hero__inner">
+    <div class="thread-hero__kicker"><span class="kicker-dot"></span>Disaster · Abandonment · Displacement</div>
+    <h1 class="thread-hero__title">Katrina: <em>What the Flood Revealed</em></h1>
+    <p class="thread-hero__deck">Hurricane Katrina made landfall on August 29, 2005. The storm itself killed relatively few people. The levee failures that followed — in the Lower Ninth Ward, New Orleans East, and Lakeview — killed 1,800. Eighty percent of the dead were Black. The evacuation plan required a car. The federal response took five days. The city then used the disaster to close public housing, demolish public schools, and displace 100,000 Black residents permanently. None of this was natural.</p>
+    <div class="thread-hero__meta-row">
+      <div class="meta-item"><span class="meta-label">Period</span><span class="meta-value">2005 — Present</span></div>
+      <div class="meta-item"><span class="meta-label">Entries</span><span class="meta-value">8 documented events</span></div>
+      <div class="meta-item"><span class="meta-label">Domain</span><span class="meta-value">Disaster · Policy · Displacement</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Live</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="argument-bar" style="max-width:1100px;margin:var(--space-10) auto">
+  <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-6)">
+    <div class="argument-bar__label">The argument</div>
+    <p class="argument-bar__text">The standard framing of Katrina is that it was a natural disaster compounded by governmental incompetence. The documented record shows something more specific: the levees that failed had been identified as deficient for decades and were not repaired; the evacuation plan was designed for people with cars in a city where 27% of households had none; the federal response was slower to majority-Black neighborhoods; and the rebuilding process was used to permanently reduce Black New Orleans through the destruction of public housing, school privatization, and zoning that prevented return. Incompetence does not explain why the failures consistently fell along racial lines. The pattern is consistent with what this archive documents throughout: disasters — natural and man-made — produce racially differential outcomes because they strike communities made unequal by deliberate policy.</p>
+  </div>
+</div>
+
+<div class="thread-body">
+  <main id="thread-main">
+
+    <div class="era-div reveal"><span class="era-div__badge">Era 1</span><div class="era-div__line"></div><span class="era-div__label">Before the Storm, 1965–2005</span></div>
+
+    <article class="entry reveal" id="e1">
+      <div class="entry__hd"><div class="entry__num">1</div><div class="entry__meta"><span class="entry__date">1965–2005 — The Levees Were Known to Be Deficient</span><h2 class="entry__title">The Army Corps of Engineers Identified the Levee Risk Decades Before Katrina. Funding Was Repeatedly Cut.</h2></div></div>
+      <div class="entry__body">
+        <p>New Orleans sits below sea level — a geological fact that was managed for decades by a levee system built and maintained by the Army Corps of Engineers. After Hurricane Betsy flooded the Lower Ninth Ward in 1965, Congress authorized a comprehensive levee improvement project. The project was never completed. Budget cuts during the 1970s, 1980s, and 1990s left critical sections of the levee system below the design specifications needed to withstand a Category 3 hurricane, which was the standard the project was meant to achieve.</p>
+        <p>In 2001, FEMA ranked a major hurricane striking New Orleans as one of the three most likely catastrophic disasters facing the United States — alongside a terrorist attack on New York and a major earthquake in San Francisco. In 2004, a federal exercise called Hurricane Pam simulated exactly the scenario that occurred in 2005: a major hurricane, levee failures, mass flooding. The simulation predicted that over 60,000 people would die and over 1 million would be displaced. The recommendations from that exercise had not been implemented when Katrina struck 13 months later.</p>
+        <p>The levee sections that failed — the 17th Street Canal, the London Avenue Canal, and the Industrial Canal near the Lower Ninth Ward — failed not because they were overtopped by storm surge but because they were structurally inadequate. The Army Corps of Engineers later acknowledged this in a 2006 report. The levees failed before the water reached their design height. This was an engineering failure, not a natural disaster.</p>
+      </div>
+    </article>
+
+    <div class="era-div reveal"><span class="era-div__badge">Era 2</span><div class="era-div__line"></div><span class="era-div__label">The Storm and the Response, August–September 2005</span></div>
+
+    <article class="entry reveal" id="e2">
+      <div class="entry__hd"><div class="entry__num">2</div><div class="entry__meta"><span class="entry__date">August 28–29, 2005 — The Evacuation That Left 100,000 Behind</span><h2 class="entry__title">The Mayor Ordered a Mandatory Evacuation. The City Had No Plan for the 27% of Households Without Cars.</h2></div></div>
+      <div class="entry__body">
+        <p>Mayor Ray Nagin issued a mandatory evacuation order for New Orleans on August 28, 2005, the day before Katrina made landfall. The order was the right call. The problem was that the evacuation plan — the Contraflow system that reversed highway lanes to facilitate outward traffic — was designed for people who owned cars. According to the 2000 Census, <span class="sh">27% of New Orleans households</span> had no vehicle. In the Lower Ninth Ward, that figure was higher. The population without cars was disproportionately Black, elderly, disabled, and poor.</p>
+        <p>The Superdome and Convention Center were designated as "shelters of last resort." No adequate food, water, medical care, or security planning was in place at either location. Approximately 30,000 people sheltered at the Superdome; another 20,000 at the Convention Center. Both became scenes of humanitarian crisis that were broadcast globally for days while the federal government debated whether to respond. People died waiting for water in 95-degree heat at the Convention Center while the Director of FEMA — Michael Brown — told reporters he had only just learned there were people there.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e3">
+      <div class="entry__hd"><div class="entry__num">3</div><div class="entry__meta"><span class="entry__date">August 29 – September 2, 2005 — Five Days</span><h2 class="entry__title">The Federal Government Took Five Days to Respond. President Bush Was at a Ranch in Texas. The Death Toll Was 1,800.</h2></div></div>
+      <div class="entry__body">
+        <p>Hurricane Katrina made landfall on August 29. The levees failed the same day. By August 30, 80% of New Orleans was flooded. Photographs and news footage of people stranded on rooftops, wading through contaminated water, and dying in the Convention Center were broadcast worldwide. President George W. Bush remained at his ranch in Crawford, Texas until August 31, when he flew back to Washington — not to New Orleans. He did not visit New Orleans until September 2. He praised FEMA Director Brown on camera: "Brownie, you're doing a heck of a job."</p>
+        <p>The National Guard troops, water, food, and medical supplies that eventually arrived did so five days after the levees failed. The congressional investigations that followed documented a systematic failure of federal emergency management: FEMA had been downgraded within the Department of Homeland Security post-9/11, losing budget, staff, and access; its director was a political appointee with no emergency management experience; pre-positioned supplies were inadequate; and communication between local, state, and federal levels broke down completely.</p>
+        <div class="flood-stats">
+          <div class="flood-stats__title">Katrina — Documented Scale of Impact</div>
+          <div class="flood-grid">
+            <div class="flood-cell"><div class="flood-cell__num">1,800</div><div class="flood-cell__label">Deaths (confirmed) — 80% Black</div></div>
+            <div class="flood-cell"><div class="flood-cell__num">80%</div><div class="flood-cell__label">Of New Orleans flooded</div></div>
+            <div class="flood-cell"><div class="flood-cell__num">1.5M</div><div class="flood-cell__label">People displaced from Gulf Coast</div></div>
+            <div class="flood-cell"><div class="flood-cell__num">5 days</div><div class="flood-cell__label">Until meaningful federal response</div></div>
+            <div class="flood-cell"><div class="flood-cell__num">$125B</div><div class="flood-cell__label">Total damage — costliest US disaster at the time</div></div>
+            <div class="flood-cell"><div class="flood-cell__num">100K</div><div class="flood-cell__label">Black residents who did not return</div></div>
+          </div>
+        </div>
+        <div class="pq">
+          <p class="pq__t">"George Bush doesn't care about Black people."</p>
+          <span class="pq__a">— Kanye West, during the NBC telethon "A Concert for Hurricane Relief," September 2, 2005, five days after the levees failed</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="era-div reveal"><span class="era-div__badge">Era 3</span><div class="era-div__line"></div><span class="era-div__label">The Rebuilding as Displacement, 2005–2015</span></div>
+
+    <article class="entry reveal" id="e4">
+      <div class="entry__hd"><div class="entry__num">4</div><div class="entry__meta"><span class="entry__date">2005–2008 — Public Housing Demolished</span><h2 class="entry__title">New Orleans Had 5,100 Public Housing Units Before Katrina. Officials Used the Storm to Demolish All of Them.</h2></div></div>
+      <div class="entry__body">
+        <p>The St. Bernard, Lafitte, C.J. Peete, and B.W. Cooper housing developments — the four major public housing projects in New Orleans — survived Hurricane Katrina with minimal flooding. Many units were intact and habitable. In the months following the storm, the Housing Authority of New Orleans, with federal approval and HUD funding, demolished all four developments and replaced them with mixed-income housing that contained significantly fewer units reserved for low-income residents.</p>
+        <p>The total number of public housing units in New Orleans went from approximately <span class="sh">5,100 before Katrina to fewer than 2,000 by 2010</span>. The demolished units had housed approximately 15,000 people, nearly all Black. The mixed-income replacements housed far fewer, at higher rents, with eligibility requirements (credit checks, employment requirements, drug testing) that excluded many former residents. The demolitions were carried out over the explicit protests of former residents and housing advocates, some of whom were arrested attempting to attend public hearings.</p>
+        <p>City Councilwoman Stacy Head, one of the few white members of the city council, described the demolitions as an opportunity to prevent "the criminal element" from returning. The "criminal element" she was describing was the Black low-income population that had lived in public housing. Her framing was unusually explicit; the intent behind the demolitions — permanent Black displacement — was the consistent policy outcome regardless of the language used to describe it.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e5">
+      <div class="entry__hd"><div class="entry__num">5</div><div class="entry__meta"><span class="entry__date">2005–2010 — The School System Reconstituted</span><h2 class="entry__title">Louisiana Used Katrina to Fire Every Public School Teacher and Privatize the School System. It Was the Largest Mass Firing of Teachers in American History.</h2></div></div>
+      <div class="entry__body">
+        <p>Before Katrina, the New Orleans public school system was underfunded and underperforming — a consequence of decades of disinvestment documented in this archive. In the weeks after the storm, the Louisiana state legislature voted to take over the New Orleans school system and place most of its schools under the control of a new Recovery School District, which converted them to charter schools. The Orleans Parish School Board simultaneously fired all <span class="sh">7,500 teachers and staff</span> — the largest mass firing of public employees in American history — ending their union contracts and benefits.</p>
+        <p>The reconstitution of New Orleans schools as a charter system has been studied extensively, with contested results. Test scores did improve over the following decade, and some charter schools produced strong outcomes. What is not contested: the firing of all teachers disproportionately affected Black educators who made up approximately 71% of the pre-Katrina teaching force; teachers who wanted to return had to reapply without seniority, often to charter organizations with higher expectations of hours and lower pay; and the new system had significantly less Black administrative leadership than the pre-Katrina system. The reconstitution used the disaster to accomplish a restructuring of public education that had been pursued unsuccessfully for years before the storm.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e6">
+      <div class="entry__hd"><div class="entry__num">6</div><div class="entry__meta"><span class="entry__date">2005–2010 — The Road Home Program</span><h2 class="entry__title">The Federal Homeowner Compensation Program Was Calculated in a Way That Systematically Paid Black Homeowners Less Than White Homeowners for the Same Damage.</h2></div></div>
+      <div class="entry__body">
+        <p>The Road Home program — the primary federal mechanism for compensating Louisiana homeowners for Katrina damage — was administered by the Louisiana Recovery Authority and funded by $11.5 billion in federal Community Development Block Grant funds. The program used a formula that calculated compensation based on the lower of either (a) the cost of damage or (b) the pre-storm market value of the property. Because property values in Black neighborhoods had been suppressed by decades of redlining, disinvestment, and discriminatory appraisal practices, Black homeowners consistently received less compensation than white homeowners for equivalent storm damage.</p>
+        <p>A class action lawsuit — filed by the Greater New Orleans Fair Housing Action Center — documented this disparity with data: Black homeowners received on average $8,000 less than white homeowners for the same level of damage. The lawsuit was settled in 2011; the state agreed to recalculate awards and provide additional compensation. By that time, many displaced Black homeowners had already made permanent decisions — selling their flooded properties at distressed prices, relocating to Houston or Atlanta, and not returning. The settlement came too late to reverse the displacement it had documented.</p>
+        <div class="cbox">
+          <div class="cbox__label">Who did not return to New Orleans</div>
+          <ul>
+            <li>New Orleans' pre-Katrina population was approximately 484,000 — 67% Black. By 2010, it was 343,000 — 60% Black. Approximately 100,000 Black residents did not return.</li>
+            <li>The Lower Ninth Ward, which was majority Black homeowner, repopulated at approximately 20% of pre-storm levels by 2010</li>
+            <li>Many displaced residents were absorbed into Houston, Baton Rouge, and Atlanta — cities that experienced documented increases in poverty, crime, and housing pressure following Katrina diaspora influx</li>
+            <li>FEMA trailer communities that housed displaced residents for years while Road Home processed applications contributed to permanent disconnection from New Orleans</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e7">
+      <div class="entry__hd"><div class="entry__num">7</div><div class="entry__meta"><span class="entry__date">2005–Present — The Gretna Bridge Incident</span><h2 class="entry__title">Police From the Predominantly White Suburb of Gretna Blocked Thousands of Black Evacuees From Crossing a Bridge to Safety at Gunpoint.</h2></div></div>
+      <div class="entry__body">
+        <p>On September 1, 2005 — three days after Katrina — approximately 200 New Orleans residents, most of them Black, attempted to walk across the Crescent City Connection bridge to Gretna, Louisiana, a predominantly white suburb on the west bank of the Mississippi. Gretna police, along with Jefferson Parish Sheriff's deputies, blocked the bridge with armed officers and turned the evacuees back at gunpoint. When the crowd grew to approximately 2,000 people the next day, police fired shotguns over their heads to disperse them. People who had walked miles through flooded streets seeking any path to safety were blocked from crossing a bridge by law enforcement who described their action as protecting their community.</p>
+        <p>Gretna Police Chief Arthur Lawson defended the decision: "We're not going to have people coming over here and causing our people any concern." The Governor of Louisiana called the incident "extremely unfortunate." No charges were filed. The incident was documented in video and survivor testimony and became a nationally discussed symbol of the racial dynamics of the Katrina response — a literally visible barrier placed by white law enforcement between Black disaster survivors and safety.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e8">
+      <div class="entry__hd"><div class="entry__num">8</div><div class="entry__meta"><span class="entry__date">The Present — New Orleans Twenty Years Later</span><h2 class="entry__title">New Orleans Has Rebuilt. The People Who Were Displaced Are Not All Back. What Was "Recovered" Is a Whiter, More Tourist-Oriented City.</h2></div></div>
+      <div class="entry__body">
+        <p>New Orleans' population has largely recovered numerically — it stood at approximately 383,000 in 2023, still below the pre-Katrina 484,000 but significantly recovered from the 2010 low. The city's economy, centered on tourism and hospitality, has in many ways prospered. The school system, while contested, has improved some metrics. The flood protection system was rebuilt and significantly upgraded after Katrina — the $14.5 billion Hurricane and Storm Damage Risk Reduction System, completed by 2011, is substantially more robust than the levees that failed.</p>
+        <p>What the numbers show that prosperity claims do not: the city is less Black than before Katrina; the Black homeownership rate in neighborhoods like the Lower Ninth Ward has not recovered; the public housing stock has not been rebuilt; and the workforce that staff the tourism economy is paid wages that do not support living in a city whose gentrification Katrina accelerated. The people who rebuilt New Orleans — many of them Latino immigrants who arrived in the aftermath — were often paid below minimum wage by contractors exploiting post-disaster labor conditions, in a city where OSHA compliance was suspended in the emergency period.</p>
+        <p>The pattern Katrina documents is the pattern this archive traces in every chapter: a community made vulnerable by prior policy, struck by disaster or destruction, abandoned in the immediate crisis, and then displaced by the "recovery" that follows. The disaster is the mechanism; the displacement is the outcome; the prior policy is the cause. Katrina was not exceptional. It was the most documented recent example of a recurring structure.</p>
+      </div>
+    </article>
+
+  </main>
+  <aside class="sidebar">
+    <div class="sw">
+      <div class="sw__title">Contents</div>
+      <ol class="toc-list">
+        <li class="toc-item" id="toc-e1"><a href="#e1">The Levees Were Known Deficient</a></li>
+        <li class="toc-item" id="toc-e2"><a href="#e2">The Evacuation That Left 100K Behind</a></li>
+        <li class="toc-item" id="toc-e3"><a href="#e3">Five Days — 1,800 Dead</a></li>
+        <li class="toc-item" id="toc-e4"><a href="#e4">Public Housing Demolished</a></li>
+        <li class="toc-item" id="toc-e5"><a href="#e5">7,500 Teachers Fired</a></li>
+        <li class="toc-item" id="toc-e6"><a href="#e6">Road Home — Less for Black Owners</a></li>
+        <li class="toc-item" id="toc-e7"><a href="#e7">The Gretna Bridge</a></li>
+        <li class="toc-item" id="toc-e8"><a href="#e8">New Orleans Twenty Years Later</a></li>
+      </ol>
+    </div>
+    <div class="sw">
+      <button class="tts-btn" id="tts-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread</button>
+    </div>
+    <div class="sw">
+      <div class="sw__title">Related threads</div>
+      <ul class="rel-list">
+        <li><a href="thread-displacement.html">Five Ways Black Communities Were Taken</a></li>
+        <li><a href="thread-redlining.html">Redlining</a></li>
+        <li><a href="thread-education.html">Separate Was Never Equal</a></li>
+        <li><a href="thread-subprime.html">The Subprime Trap</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<section class="causal-chain">
+  <div class="cc__inner">
+    <h2 class="cc__title">The Disaster That Was Never Natural</h2>
+    <div class="cc__steps">
+      <div class="cc__step"><div class="cc__node">Levees deficient — unfunded for decades</div><div class="cc__lbl">Known risk</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">Storm hits — evacuation plan excludes carless</div><div class="cc__lbl">Abandoned</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">5-day federal delay — 1,800 dead</div><div class="cc__lbl">Neglected</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">Housing demolished, schools privatized</div><div class="cc__lbl">Restructured</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">100K Black residents don't return</div><div class="cc__lbl">Displaced</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-sec__inner">
+    <h2 class="cta-sec__title">Katrina was the most visible recent example. The displacement thread documents the full pattern.</h2>
+    <p class="cta-sec__body">Highway construction, urban renewal, gentrification — Black communities have been taken five different ways across 125 years. The displacement thread traces each mechanism with the same documentation standard.</p>
+    <a href="thread-displacement.html" class="cta-btn">Read: Five Ways Black Communities Were Taken →</a>
+  </div>
+</section>
+
+<footer class="site-footer"><p>Chain — a public archive. <a href="threads.html">All threads</a> · <a href="teaching.html">Teaching guides</a></p></footer>
+<script>
+  const tb=document.getElementById('theme-toggle');
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);tb.textContent=t==='dark'?'Light':'Dark';}
+  applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  tb.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+  const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');ro.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  const to=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.toc-item').forEach(t=>t.classList.remove('toc-item--active'));const tel=document.getElementById('toc-'+e.target.id);if(tel)tel.classList.add('toc-item--active');}});},{rootMargin:'-10% 0px -80% 0px'});
+  document.querySelectorAll('.entry').forEach(el=>to.observe(el));
+  const ttsBtn=document.getElementById('tts-btn');let speaking=false;
+  ttsBtn.addEventListener('click',()=>{if(speaking){window.speechSynthesis.cancel();speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}
+  const t=Array.from(document.querySelectorAll('.entry__body p')).map(n=>n.textContent).join(' ');const w=t.split(' ');const c=[];for(let i=0;i<w.length;i+=40)c.push(w.slice(i,i+40).join(' '));speaking=true;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Stop';let idx=0;
+  function sn(){if(idx>=c.length||!speaking){speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}const u=new SpeechSynthesisUtterance(c[idx++]);u.rate=0.95;u.onend=sn;window.speechSynthesis.speak(u);}sn();});
+</script>
+</body>
+</html>

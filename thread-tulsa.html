@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Wall Street: The Tulsa Massacre — Thread — Chain</title>
+  <meta name="description" content="On May 31–June 1, 1921, a white mob destroyed 35 blocks of Greenwood — America's wealthiest Black community. 300 people died. No one was ever convicted. The massacre was buried from history for 75 years." />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    :root{--acc:#9f1239;--acc-lt:#fecdd3}
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(159,18,57,.22) 0%,transparent 70%);pointer-events:none}
+    .thread-hero__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6);position:relative}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-5)}
+    .kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:var(--ink-0);line-height:1.1;max-width:780px;margin-bottom:var(--space-6)}
+    .thread-hero__title em{font-style:italic;color:var(--acc-lt)}
+    .thread-hero__deck{font-family:var(--font-ui);font-size:1.05rem;line-height:1.7;color:var(--ink-300);max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta-row{display:flex;flex-wrap:wrap;gap:var(--space-6);border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-6)}
+    .meta-item{display:flex;flex-direction:column;gap:2px}
+    .meta-label{font-family:var(--font-ui);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500)}
+    .meta-value{font-family:var(--font-ui);font-size:.9rem;font-weight:500;color:var(--ink-200)}
+    .argument-bar{border-left:3px solid var(--acc);padding:var(--space-5) var(--space-6);margin:var(--space-10) auto;max-width:1100px;background:rgba(159,18,57,.07)}
+    .argument-bar__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-2)}
+    .argument-bar__text{font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;color:var(--ink-800);line-height:1.6}
+    [data-theme=dark] .argument-bar__text{color:var(--ink-200)}
+    .thread-body{max-width:1100px;margin:0 auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:1fr 280px;gap:var(--space-12);align-items:start}
+    @media(max-width:860px){.thread-body{grid-template-columns:1fr}}
+    .era-div{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-12) 0 var(--space-8)}
+    .era-div__badge{flex-shrink:0;font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--acc);padding:var(--space-1) var(--space-3);border-radius:2px}
+    .era-div__line{flex:1;height:1px;background:var(--ink-200)}
+    [data-theme=dark] .era-div__line{background:var(--ink-700)}
+    .era-div__label{font-family:var(--font-ui);font-size:.8rem;font-weight:600;color:var(--ink-400)}
+    .entry{margin-bottom:var(--space-12);padding-bottom:var(--space-12);border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .entry{border-bottom-color:var(--ink-800)}
+    .entry:last-child{border-bottom:none}
+    .entry__hd{display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)}
+    .entry__num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--acc);color:#fff;font-family:var(--font-ui);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .entry__meta{display:flex;flex-direction:column;gap:2px}
+    .entry__date{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+    .entry__title{font-family:var(--font-editorial);font-size:1.3rem;font-weight:700;color:var(--ink-900);line-height:1.2}
+    [data-theme=dark] .entry__title{color:var(--ink-50)}
+    .entry__body{font-family:var(--font-ui);font-size:.97rem;line-height:1.8;color:var(--ink-700);padding-left:52px}
+    [data-theme=dark] .entry__body{color:var(--ink-300)}
+    .entry__body p{margin-bottom:var(--space-4)}.entry__body p:last-child{margin-bottom:0}
+    .sh{font-family:var(--font-editorial);font-size:1.1em;font-weight:700;color:var(--acc)}
+    .pq{border-left:3px solid var(--acc);padding:var(--space-4) var(--space-6);margin:var(--space-6) 0;background:var(--ink-50)}
+    [data-theme=dark] .pq{background:var(--ink-800)}
+    .pq__t{font-family:var(--font-editorial);font-size:1.05rem;font-style:italic;line-height:1.6;color:var(--ink-800);margin-bottom:var(--space-2)}
+    [data-theme=dark] .pq__t{color:var(--ink-200)}
+    .pq__a{font-family:var(--font-ui);font-size:.78rem;font-weight:600;color:var(--ink-400)}
+    /* damage-box — unique: inventory of what was destroyed */
+    .damage-box{background:var(--ink-900);border-radius:4px;overflow:hidden;margin:var(--space-6) 0}
+    .damage-box__title{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-lt);padding:var(--space-4) var(--space-5);border-bottom:1px solid rgba(255,255,255,.08)}
+    .damage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)}
+    .damage-cell{background:var(--ink-900);padding:var(--space-3) var(--space-4)}
+    .damage-cell__num{font-family:var(--font-editorial);font-size:1.4rem;font-weight:700;color:var(--acc-lt)}
+    .damage-cell__label{font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);margin-top:2px}
+    .cbox{background:rgba(159,18,57,.07);border:1px solid rgba(159,18,57,.2);border-radius:4px;padding:var(--space-5);margin:var(--space-6) 0}
+    .cbox__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-3)}
+    .cbox ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .cbox li{font-family:var(--font-ui);font-size:.88rem;color:var(--ink-700);padding-left:var(--space-4);position:relative;line-height:1.5}
+    [data-theme=dark] .cbox li{color:var(--ink-300)}
+    .cbox li::before{content:'→';position:absolute;left:0;color:var(--acc);font-weight:700}
+    .sidebar{position:sticky;top:var(--space-8)}
+    .sw{background:var(--ink-50);border:1px solid var(--ink-100);border-radius:4px;padding:var(--space-5);margin-bottom:var(--space-5)}
+    [data-theme=dark] .sw{background:var(--ink-800);border-color:var(--ink-700)}
+    .sw__title{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);margin-bottom:var(--space-4)}
+    .toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-1)}
+    .toc-item a{display:block;font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-1) var(--space-2);border-left:2px solid transparent;transition:all .15s}
+    .toc-item a:hover,.toc-item--active a{color:var(--acc);border-left-color:var(--acc);background:rgba(159,18,57,.05)}
+    .rel-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .rel-list a{font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-2);display:block;border-radius:3px;transition:background .15s}
+    .rel-list a:hover{background:var(--ink-100)}[data-theme=dark] .rel-list a:hover{background:var(--ink-700);color:var(--ink-100)}
+    .tts-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--space-2);background:none;border:1px solid var(--ink-200);border-radius:3px;padding:var(--space-3);font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-500);cursor:pointer;transition:all .15s}
+    [data-theme=dark] .tts-btn{border-color:var(--ink-600);color:var(--ink-400)}
+    .tts-btn:hover{border-color:var(--acc);color:var(--acc)}
+    .causal-chain{background:var(--ink-900);padding:var(--space-12) var(--space-6);margin:var(--space-16) 0 0}
+    .cc__inner{max-width:1100px;margin:0 auto}
+    .cc__title{font-family:var(--font-editorial);font-size:1.5rem;font-weight:700;color:var(--ink-0);margin-bottom:var(--space-8);text-align:center}
+    .cc__steps{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0}
+    .cc__step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-2)}
+    .cc__node{width:52px;height:52px;border-radius:50%;border:2px solid var(--acc);background:rgba(159,18,57,.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:.62rem;font-weight:700;color:var(--acc-lt);line-height:1.2;padding:4px;text-align:center}
+    .cc__lbl{font-family:var(--font-ui);font-size:.68rem;color:var(--ink-400);max-width:80px;line-height:1.3}
+    .cc__arr{color:var(--acc);font-size:1.2rem;padding:0 var(--space-1);align-self:center;padding-bottom:24px}
+    .cta-sec{background:var(--ink-50);border-top:1px solid var(--ink-100);padding:var(--space-12) var(--space-6)}
+    [data-theme=dark] .cta-sec{background:var(--ink-900);border-top-color:var(--ink-800)}
+    .cta-sec__inner{max-width:640px;margin:0 auto;text-align:center}
+    .cta-sec__title{font-family:var(--font-editorial);font-size:1.6rem;font-weight:700;color:var(--ink-900);margin-bottom:var(--space-4)}
+    [data-theme=dark] .cta-sec__title{color:var(--ink-50)}
+    .cta-sec__body{font-family:var(--font-ui);font-size:.95rem;line-height:1.7;color:var(--ink-500);margin-bottom:var(--space-6)}
+    .cta-btn{display:inline-block;background:var(--acc);color:#fff;font-family:var(--font-ui);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:var(--space-3) var(--space-7);border-radius:2px;transition:opacity .15s}
+    .cta-btn:hover{opacity:.85}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    .site-nav{background:var(--ink-900);border-bottom:1px solid rgba(255,255,255,.07);padding:0 var(--space-6);display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100}
+    .site-nav__logo{font-family:var(--font-editorial);font-size:1.1rem;font-weight:700;color:var(--ink-0);text-decoration:none}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-6)}
+    .nav-link{font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-400);text-decoration:none;transition:color .15s}
+    .nav-link:hover{color:var(--ink-0)}
+    .theme-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:var(--space-1) var(--space-3);font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);cursor:pointer}
+    .site-footer{background:var(--ink-900);border-top:1px solid rgba(255,255,255,.07);padding:var(--space-8) var(--space-6);text-align:center}
+    .site-footer p{font-family:var(--font-ui);font-size:.8rem;color:var(--ink-500)}
+    .site-footer a{color:var(--ink-400);text-decoration:none}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="site-nav__logo">Chain</a>
+  <div class="site-nav__links">
+    <a href="threads.html" class="nav-link">All threads</a>
+    <a href="teaching.html" class="nav-link">Teaching</a>
+    <button class="theme-btn" id="theme-toggle">Light</button>
+  </div>
+</nav>
+
+<header class="thread-hero">
+  <div class="thread-hero__inner">
+    <div class="thread-hero__kicker"><span class="kicker-dot"></span>Destruction · Impunity · Memory</div>
+    <h1 class="thread-hero__title">Black Wall Street: <em>The Tulsa Massacre, 1921</em></h1>
+    <p class="thread-hero__deck">Greenwood District in Tulsa, Oklahoma was the wealthiest Black community in America. On May 31–June 1, 1921, a white mob — deputized by city officials and supported by aircraft dropping incendiary devices on homes — destroyed 35 square blocks, killed an estimated 300 people, and left 10,000 Black residents homeless. Not a single person was ever charged. The city then used zoning laws to prevent rebuilding. The massacre was systematically erased from Oklahoma's historical record for 75 years.</p>
+    <div class="thread-hero__meta-row">
+      <div class="meta-item"><span class="meta-label">Period</span><span class="meta-value">1905 — Present</span></div>
+      <div class="meta-item"><span class="meta-label">Entries</span><span class="meta-value">8 documented events</span></div>
+      <div class="meta-item"><span class="meta-label">Domain</span><span class="meta-value">Racial Terror · Impunity · Memory</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Live</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="argument-bar" style="max-width:1100px;margin:var(--space-10) auto">
+  <div style="max-width:1100px;margin:0 auto;padding:0 var(--space-6)">
+    <div class="argument-bar__label">The argument</div>
+    <p class="argument-bar__text">The Tulsa Massacre is called a race riot in most of the accounts that acknowledge it at all. It was not a riot. It was a coordinated, city-sanctioned military assault on a prosperous Black community, using police officers, deputized civilians, and aircraft. The goal was the destruction of Black economic power — and it succeeded. The subsequent erasure of the massacre from Oklahoma's textbooks, official records, and public memory was the second act of the same crime: first, destroy the community; then, destroy the memory of the destruction so it cannot be the basis for accountability or repair.</p>
+  </div>
+</div>
+
+<div class="thread-body">
+  <main id="thread-main">
+
+    <div class="era-div reveal"><span class="era-div__badge">Era 1</span><div class="era-div__line"></div><span class="era-div__label">Black Wall Street, 1905–1921</span></div>
+
+    <article class="entry reveal" id="e1">
+      <div class="entry__hd"><div class="entry__num">1</div><div class="entry__meta"><span class="entry__date">1905–1921 — Greenwood District</span><h2 class="entry__title">Booker T. Washington Called It "Black Wall Street." 600 Businesses, a Hospital, a Library, Two Newspapers. Built in 16 Years From Nothing.</h2></div></div>
+      <div class="entry__body">
+        <p>The Greenwood District of Tulsa, Oklahoma was established around 1906 by O.W. Gurley, a Harvard-educated Black businessman who purchased land and sold lots only to Black buyers. By 1921, it contained an estimated <span class="sh">600 Black-owned businesses</span> operating within 35 city blocks: hotels, law offices, a hospital, two newspapers (the Tulsa Star and Oklahoma Sun), a library, a pool hall, grocery stores, barbershops, a bus line, a junior high school, a post office, and Booker T. Washington High School. Black Wall Street had its own economy that largely circulated within the community — a dollar was said to turn over 36–100 times before leaving Greenwood.</p>
+        <p>The community was built under conditions of legal segregation and active white hostility. Its prosperity was both a practical achievement and a political act — proof that Black Americans could build independent economic institutions, and a direct refutation of the arguments used to justify their exclusion from the broader economy. That prosperity was also its vulnerability: it was visible, concentrated, and located in a city that had the means and the will to destroy it.</p>
+      </div>
+    </article>
+
+    <div class="era-div reveal"><span class="era-div__badge">Era 2</span><div class="era-div__line"></div><span class="era-div__label">The Massacre, May 31–June 1, 1921</span></div>
+
+    <article class="entry reveal" id="e2">
+      <div class="entry__hd"><div class="entry__num">2</div><div class="entry__meta"><span class="entry__date">May 30–31, 1921 — The Trigger</span><h2 class="entry__title">A 19-Year-Old Shoe Shiner, an Elevator, a Newspaper Headline. The "Assault" That Never Was.</h2></div></div>
+      <div class="entry__body">
+        <p>On May 30, 1921, Dick Rowland — a 19-year-old Black shoe shiner — used the elevator in the Drexel Building, as he did regularly to reach the only restroom in downtown Tulsa available to Black people. Sarah Page, the white elevator operator, cried out. The exact nature of the incident has never been established. Rowland may have stumbled and grabbed her arm. Page herself did not press charges. The next day, the Tulsa Tribune ran the headline: "Nab Negro for Attacking Girl in Elevator." A white mob began gathering at the courthouse where Rowland was being held.</p>
+        <p>A group of Black veterans — many of them World War I veterans who had fought in Europe and returned to Jim Crow America — arrived at the courthouse armed, offering to help defend Rowland. They were vastly outnumbered. A scuffle broke out. Shots were fired. The Black veterans retreated to Greenwood. The mob — which grew to an estimated <span class="sh">10,000 people</span> — followed. The Tulsa Police Department joined the attacking mob and began deputizing civilians. Dick Rowland was never charged.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e3">
+      <div class="entry__hd"><div class="entry__num">3</div><div class="entry__meta"><span class="entry__date">June 1, 1921 — The Assault</span><h2 class="entry__title">Planes Dropped Incendiary Devices on Homes. The National Guard Was Mobilized Against Black Residents, Not the Mob. This Was the First Aerial Attack on American Civilians.</h2></div></div>
+      <div class="entry__body">
+        <p>Beginning in the early morning hours of June 1, the coordinated assault on Greenwood began. Private aircraft — some owned by law enforcement, some by civilians — flew over the district. Survivors testified to shooting from the planes and the dropping of incendiary materials. The Oklahoma Commission on the Tulsa Race Riot (2001) found "credible evidence" of aerial attack. This was the first time aircraft were used against civilians on American soil.</p>
+        <p>The Oklahoma National Guard was deployed — not to protect Greenwood from the mob, but to intern its residents. Black residents fleeing their burning homes were arrested and taken to the Convention Center and fairgrounds, where approximately <span class="sh">6,000 Black Tulsans</span> were held. Police and members of the mob moved through Greenwood systematically, looting homes and businesses before burning them. By the morning of June 1, 35 blocks had been burned to the ground. The estimated death toll was 100–300. The Red Cross reported 10,000 people homeless.</p>
+        <div class="damage-box">
+          <div class="damage-box__title">Documented Inventory of What Was Destroyed — Greenwood District, June 1, 1921</div>
+          <div class="damage-grid">
+            <div class="damage-cell"><div class="damage-cell__num">35</div><div class="damage-cell__label">City blocks destroyed</div></div>
+            <div class="damage-cell"><div class="damage-cell__num">600+</div><div class="damage-cell__label">Black-owned businesses</div></div>
+            <div class="damage-cell"><div class="damage-cell__num">1,256</div><div class="damage-cell__label">Homes burned</div></div>
+            <div class="damage-cell"><div class="damage-cell__num">21</div><div class="damage-cell__label">Churches destroyed</div></div>
+            <div class="damage-cell"><div class="damage-cell__num">21</div><div class="damage-cell__label">Restaurants destroyed</div></div>
+            <div class="damage-cell"><div class="damage-cell__num">2</div><div class="damage-cell__label">Movie theaters</div></div>
+            <div class="damage-cell"><div class="damage-cell__num">1</div><div class="damage-cell__label">Hospital destroyed</div></div>
+            <div class="damage-cell"><div class="damage-cell__num">1</div><div class="damage-cell__label">Library destroyed</div></div>
+            <div class="damage-cell"><div class="damage-cell__num">10,000</div><div class="damage-cell__label">People left homeless</div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="era-div reveal"><span class="era-div__badge">Era 3</span><div class="era-div__line"></div><span class="era-div__label">The Cover-Up, 1921–1996</span></div>
+
+    <article class="entry reveal" id="e4">
+      <div class="entry__hd"><div class="entry__num">4</div><div class="entry__meta"><span class="entry__date">1921 — Aftermath: No Charges, No Insurance, No Rebuilding</span><h2 class="entry__title">All 6,000 Arrested Were Black. Not One Attacker Was Charged. Insurance Claims Were Denied. The City Blocked Rebuilding With Zoning.</h2></div></div>
+      <div class="entry__body">
+        <p>In the immediate aftermath, a Tulsa grand jury indicted Dick Rowland — the man the mob had gathered to lynch — and blamed "agitation among the colored population" for the massacre. No member of the mob was indicted. No police officer was charged. No city official faced consequences. The Tulsa Police Department received commendations for its role in "restoring order."</p>
+        <p>Black residents filed insurance claims for their destroyed property. Every claim was denied — insurers cited "riot exclusion" clauses. The city of Tulsa proposed a rebuilding plan that would have converted Greenwood into an industrial zone — using the massacre to accomplish through zoning what had just been accomplished through fire. Black residents, led by attorney B.C. Franklin (father of historian John Hope Franklin), went to court and blocked the rezoning. They rebuilt anyway — within a year, most of the district had been reconstructed — but without insurance compensation and without any accountability for its destruction.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e5">
+      <div class="entry__hd"><div class="entry__num">5</div><div class="entry__meta"><span class="entry__date">1921–1996 — The Erasure</span><h2 class="entry__title">The Massacre Was Not Taught in Oklahoma Schools. Survivors Were Told Not to Speak of It. The Historical Record Was Actively Suppressed.</h2></div></div>
+      <div class="entry__body">
+        <p>For 75 years, the Tulsa Massacre was effectively erased from Oklahoma's public record. It was not taught in public schools. The Tulsa Tribune destroyed copies of its own coverage. City records were lost. Survivors were warned not to speak of it — many complied, fearing retaliation and recognizing that the same institutional power that had organized the massacre was still intact. The event was described, when mentioned at all, as a "race riot" — language that implied mutual combat rather than organized assault.</p>
+        <p>The massacre began to re-enter public awareness through the work of Black historians and journalists beginning in the 1970s. Tulsa journalist Don Ross wrote about it in the Black newspaper the Oklahoma Eagle. Historians Scott Ellsworth and John Hope Franklin pushed for official recognition. The story reached broader public consciousness through Randy Krehbiel's Tulsa World coverage and eventually through the HBO series Watchmen (2019), which opened with a dramatization of the massacre and introduced it to millions of viewers who had never heard of it.</p>
+        <div class="pq">
+          <p class="pq__t">"My father told me what happened in 1921. He told me once. Then he never spoke of it again. That's how you knew how serious it was."</p>
+          <span class="pq__a">— Tulsa survivor descendant, testimony before the Oklahoma Tulsa Race Riot Commission, 1999</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="era-div reveal"><span class="era-div__badge">Era 4</span><div class="era-div__line"></div><span class="era-div__label">Reckoning and Its Limits, 2001–Present</span></div>
+
+    <article class="entry reveal" id="e6">
+      <div class="entry__hd"><div class="entry__num">6</div><div class="entry__meta"><span class="entry__date">2001 — The Oklahoma Commission Report</span><h2 class="entry__title">Oklahoma's Own Commission Recommended Reparations. The Legislature Rejected Them.</h2></div></div>
+      <div class="entry__body">
+        <p>In 1997, the Oklahoma legislature created the Tulsa Race Riot Commission to investigate the massacre. Its final report, issued in 2001, was a model of documented historical accountability: it confirmed the death toll, the use of aircraft, the city's role in the attack, the systematic erasure, and the ongoing economic harm to Greenwood descendants. The commission explicitly recommended reparations — direct payments to survivors and their descendants, economic development funds for Greenwood, a memorial, and an educational endowment.</p>
+        <p>The Oklahoma legislature accepted the memorial and the educational components. It rejected the direct reparations payments. Governor Frank Keating called the recommendations "excessive." The legislature passed a bill establishing a scholarship fund — the John Hope Franklin Reconciliation Scholarship — with no appropriation attached to it. The commission's most substantive recommendation, the one that addressed the economic harm directly, was declined.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e7">
+      <div class="entry__hd"><div class="entry__num">7</div><div class="entry__meta"><span class="entry__date">2020–2023 — Survivors Sue. Courts Dismiss.</span><h2 class="entry__title">The Last Known Survivors Filed Suit at 100+ Years Old. The Case Was Dismissed in 2023. Lessie Benningfield Randle, the Last Known Survivor, Died That Same Year.</h2></div></div>
+      <div class="entry__body">
+        <p>In 2020, three of the last surviving witnesses to the Tulsa Massacre — Lessie Benningfield Randle (107), Viola Fletcher (107), and Hughes Van Ellis — filed a lawsuit seeking reparations from the city of Tulsa. Viola Fletcher testified before Congress: "I am 107 years old. I have never seen justice. I pray that one day I will." The lawsuit sought damages under a public nuisance theory — arguing that the conditions created by the massacre constituted an ongoing public nuisance that the city was obligated to remedy.</p>
+        <p>In November 2023, Tulsa District Court Judge Caroline Wall dismissed the lawsuit, finding that the plaintiffs had not established sufficient harm to pursue a public nuisance claim. The same month, Lessie Benningfield Randle died at age 109 — the last known living survivor of the massacre. She had waited 102 years for a legal accounting. It did not come.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e8">
+      <div class="entry__hd"><div class="entry__num">8</div><div class="entry__meta"><span class="entry__date">The Present — Greenwood Today</span><h2 class="entry__title">The Centennial Memorial Was Built. Greenwood is Gentrifying. The Economic Harm Was Never Repaired. The Legal Record Acknowledges the Massacre and Denies Accountability.</h2></div></div>
+      <div class="entry__body">
+        <p>In 2021, on the centennial of the massacre, a memorial was dedicated in the Greenwood District. President Biden visited Tulsa and acknowledged the massacre in full — the first sitting US president to do so. The centennial brought international media coverage and public reckoning. It also coincided with rapid gentrification of the Greenwood area, as the rising property values brought by recognition and new development displaced many of the Black residents and businesses that had survived. The neighborhood is now home to the ONEOK Field baseball stadium and various mixed-use developments. The Black-owned businesses that remain operate in a neighborhood that no longer looks like what was destroyed.</p>
+        <p>The pattern established by the Tulsa Massacre — destroy Black economic power, erase the record, acknowledge the harm when forced to, decline to repair it — is the pattern this archive documents across 400 years. The massacre was not exceptional. It was the system operating as designed: Black prosperity identified, Black prosperity destroyed, accountability denied. What distinguishes Tulsa is only that it happened in 35 blocks in two days, making it impossible — eventually — to ignore.</p>
+      </div>
+    </article>
+
+  </main>
+  <aside class="sidebar">
+    <div class="sw">
+      <div class="sw__title">Contents</div>
+      <ol class="toc-list">
+        <li class="toc-item" id="toc-e1"><a href="#e1">Greenwood District 1905–1921</a></li>
+        <li class="toc-item" id="toc-e2"><a href="#e2">The Trigger — Dick Rowland</a></li>
+        <li class="toc-item" id="toc-e3"><a href="#e3">The Assault June 1, 1921</a></li>
+        <li class="toc-item" id="toc-e4"><a href="#e4">No Charges, No Insurance</a></li>
+        <li class="toc-item" id="toc-e5"><a href="#e5">75 Years of Erasure</a></li>
+        <li class="toc-item" id="toc-e6"><a href="#e6">Commission Report 2001</a></li>
+        <li class="toc-item" id="toc-e7"><a href="#e7">Survivors Sue, Case Dismissed</a></li>
+        <li class="toc-item" id="toc-e8"><a href="#e8">Greenwood Today</a></li>
+      </ol>
+    </div>
+    <div class="sw">
+      <button class="tts-btn" id="tts-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread</button>
+    </div>
+    <div class="sw">
+      <div class="sw__title">Related threads</div>
+      <ul class="rel-list">
+        <li><a href="thread-displacement.html">Five Ways Black Communities Were Taken</a></li>
+        <li><a href="thread-reparations.html">What Is Owed</a></li>
+        <li><a href="thread-stolen-labor.html">Stolen Labor</a></li>
+        <li><a href="thread-lynching.html">Lynching as American Policy</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<section class="causal-chain">
+  <div class="cc__inner">
+    <h2 class="cc__title">From Prosperity to Erasure</h2>
+    <div class="cc__steps">
+      <div class="cc__step"><div class="cc__node">600 businesses, Black Wall Street</div><div class="cc__lbl">Built</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">City-sanctioned assault June 1921</div><div class="cc__lbl">Destroyed</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">No convictions, insurance denied</div><div class="cc__lbl">Impunity</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">75 years erased from textbooks</div><div class="cc__lbl">Buried</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">Commission: reparations recommended</div><div class="cc__lbl">Acknowledged</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">Legislature rejects; survivors' lawsuit dismissed 2023</div><div class="cc__lbl">Denied</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-sec__inner">
+    <h2 class="cta-sec__title">Tulsa was not the only Black community destroyed. It was the most documented.</h2>
+    <p class="cta-sec__body">The displacement thread traces five mechanisms — mob destruction, federal bulldozers, highways, flooding, and gentrification — by which Black communities have been taken across 125 years.</p>
+    <a href="thread-displacement.html" class="cta-btn">Read: Five Ways Black Communities Were Taken →</a>
+  </div>
+</section>
+
+<footer class="site-footer"><p>Chain — a public archive. <a href="threads.html">All threads</a> · <a href="teaching.html">Teaching guides</a></p></footer>
+<script>
+  const tb=document.getElementById('theme-toggle');
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);tb.textContent=t==='dark'?'Light':'Dark';}
+  applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  tb.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+  const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');ro.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  const to=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.toc-item').forEach(t=>t.classList.remove('toc-item--active'));const tel=document.getElementById('toc-'+e.target.id);if(tel)tel.classList.add('toc-item--active');}});},{rootMargin:'-10% 0px -80% 0px'});
+  document.querySelectorAll('.entry').forEach(el=>to.observe(el));
+  const ttsBtn=document.getElementById('tts-btn');let speaking=false;
+  ttsBtn.addEventListener('click',()=>{if(speaking){window.speechSynthesis.cancel();speaking=false;ttsBtn.textContent='Listen to this thread';return;}
+  const t=Array.from(document.querySelectorAll('.entry__body p')).map(n=>n.textContent).join(' ');const w=t.split(' ');const c=[];for(let i=0;i<w.length;i+=40)c.push(w.slice(i,i+40).join(' '));speaking=true;ttsBtn.textContent='Stop listening';let idx=0;
+  function sn(){if(idx>=c.length||!speaking){speaking=false;ttsBtn.textContent='Listen to this thread';return;}const u=new SpeechSynthesisUtterance(c[idx++]);u.rate=0.95;u.onend=sn;window.speechSynthesis.speak(u);}sn();});
+</script>
+</body>
+</html>
