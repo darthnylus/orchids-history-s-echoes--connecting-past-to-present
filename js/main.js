@@ -85,6 +85,24 @@ if (searchOverlay) {
   });
 }
 
+// Focus trap for search overlay
+if (searchOverlay) {
+  searchOverlay.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusable = [...searchOverlay.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )].filter(el => !el.closest('[aria-hidden="true"]'));
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  });
+}
+
 // Keyboard: Escape to close, Cmd+K to open
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
@@ -138,20 +156,27 @@ function initTabs() {
   const panels = tabs.map(tab => $('#' + tab.getAttribute('aria-controls')));
 
   function activateTab(tab) {
-    // Deactivate all
+    // Deactivate all — remove from tab order
     tabs.forEach((t, i) => {
       t.classList.remove('is-active');
       t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
       if (panels[i]) panels[i].hidden = true;
     });
-    // Activate selected
+    // Activate selected — restore to tab order
     const idx = tabs.indexOf(tab);
     tab.classList.add('is-active');
     tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
     if (panels[idx]) {
       panels[idx].hidden = false;
     }
   }
+
+  // Init tabindex state
+  tabs.forEach((t, i) => {
+    t.setAttribute('tabindex', t.getAttribute('aria-selected') === 'true' ? '0' : '-1');
+  });
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => activateTab(tab));
