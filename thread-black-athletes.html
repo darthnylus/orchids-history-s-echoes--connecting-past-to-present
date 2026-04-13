@@ -13,7 +13,8 @@
   <style>
     :root{--acc:#064e3b;--acc-lt:#d1fae5}
     .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
-    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(6,78,59,.3) 0%,transparent 70%);pointer-events:none}
+    .thread-hero__photo{position:absolute;inset:0;background-image:url('images/smith-carlos-1968-olympics.jpg');background-size:cover;background-position:center 25%;opacity:0.18;filter:grayscale(0.3);pointer-events:none}
+    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(6,78,59,.3) 0%,transparent 70%),linear-gradient(to right,rgba(13,13,13,.75) 0%,rgba(13,13,13,.2) 60%);pointer-events:none}
     .thread-hero__inner,.thread-body,.cc__inner,.argument-bar>div{max-width:1100px;margin:0 auto;padding:0 var(--space-6)}
     .argument-bar{padding:var(--space-5) 0;background:rgba(6,78,59,.07);border-left:3px solid var(--acc);margin:var(--space-10) auto;max-width:1100px}
     .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-5)}
@@ -119,6 +120,7 @@
 </nav>
 
 <header class="thread-hero">
+  <div class="thread-hero__photo" aria-hidden="true"></div>
   <div class="thread-hero__inner">
     <div class="thread-hero__kicker"><span class="kicker-dot"></span>Athletics · Protest · Punishment</div>
     <h1 class="thread-hero__title">Shut Up and Play: <em>Ali, Kaepernick, and the Politics of Black Athletic Protest</em></h1>
