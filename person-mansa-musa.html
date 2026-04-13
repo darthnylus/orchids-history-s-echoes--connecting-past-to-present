@@ -1,10 +1,511 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=thread-african-empires.html#mali" />
-  <title>Mansa Musa — Chain</title>
-  <script>window.location.replace('thread-african-empires.html#mali');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mansa Musa I — Chain</title>
+  <meta name="description" content="Mansa Musa I ruled the Mali Empire from 1312 to 1337. He is considered the wealthiest individual in recorded history, with an estimated fortune of $400 billion in modern terms. His 1324 pilgrimage to Mecca caused inflation across the Mediterranean for a decade." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    :root { --acc: #92400e; --acc-lt: #fef3c7; }
+
+    /* hero */
+    .person-hero {
+      background: linear-gradient(135deg, #451a03 0%, #78350f 50%, #92400e 100%);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .person-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(251,191,36,.2) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(0,0,0,.3) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* gold geometric pattern */
+    .person-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(251,191,36,.04) 0, rgba(251,191,36,.04) 1px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-45deg, rgba(251,191,36,.04) 0, rgba(251,191,36,.04) 1px, transparent 0, transparent 50%);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .person-hero__inner { position: relative; display: grid; grid-template-columns: auto 1fr; gap: var(--space-10); align-items: center; }
+    @media(max-width:700px){ .person-hero__inner { grid-template-columns: 1fr; } }
+
+    /* avatar */
+    .person-avatar {
+      width: 140px; height: 140px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #b45309, #d97706);
+      border: 4px solid rgba(251,191,36,.4);
+      display: grid; place-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 40px rgba(251,191,36,.2);
+    }
+    .person-avatar__letter {
+      font-family: var(--font-editorial);
+      font-size: 4rem;
+      font-weight: var(--weight-bold);
+      color: #fef3c7;
+      line-height: 1;
+    }
+
+    .person-hero__eyebrow { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: #fbbf24; margin-bottom: var(--space-3); }
+    .person-hero__name { font-family: var(--font-editorial); font-size: clamp(2.5rem,6vw,4.5rem); font-weight: var(--weight-black); color: #fff; line-height: 1; letter-spacing: var(--tracking-tight); margin-bottom: var(--space-3); }
+    .person-hero__title { font-size: var(--type-md); color: rgba(255,255,255,.7); margin-bottom: var(--space-5); font-style: italic; }
+    .person-hero__pills { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+    .person-hero__pill { background: rgba(251,191,36,.15); border: 1px solid rgba(251,191,36,.3); border-radius: var(--radius-full); padding: var(--space-1) var(--space-4); font-size: var(--type-xs); font-weight: var(--weight-semibold); color: #fde68a; }
+
+    /* key stat bar */
+    .stat-bar { background: #451a03; border-bottom: 1px solid rgba(251,191,36,.2); padding: var(--space-6) 0; }
+    .stat-bar__inner { display: flex; gap: var(--space-10); flex-wrap: wrap; }
+    .stat-bar__item { text-align: center; }
+    .stat-bar__num { font-family: var(--font-editorial); font-size: 2rem; font-weight: var(--weight-bold); color: #fbbf24; line-height: 1; display: block; margin-bottom: var(--space-1); }
+    .stat-bar__label { font-size: var(--type-xs); color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: var(--tracking-wide); font-weight: var(--weight-semibold); }
+
+    /* body layout */
+    .person-body { display: grid; grid-template-columns: 1fr 300px; gap: var(--space-10); padding: var(--space-12) 0; align-items: start; }
+    @media(max-width:900px){ .person-body { grid-template-columns: 1fr; } }
+
+    /* sidebar */
+    .sidebar { position: sticky; top: calc(var(--nav-h,64px) + var(--space-6)); display: flex; flex-direction: column; gap: var(--space-5); }
+    .sidebar-card { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); }
+    .sidebar-card__title { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-4); }
+    .fact-list { display: flex; flex-direction: column; gap: var(--space-3); }
+    .fact-item { display: flex; flex-direction: column; gap: 2px; }
+    .fact-item__label { font-size: var(--type-xs); font-weight: var(--weight-semibold); color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+    .fact-item__val { font-size: var(--type-sm); color: var(--color-text-primary); line-height: 1.5; }
+    .toc-link { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--type-sm); color: var(--color-text-secondary); text-decoration: none; transition: background .15s, color .15s; }
+    .toc-link:hover { background: var(--color-surface-hover); color: var(--color-text-primary); }
+    .toc-link.is-active { background: var(--acc-lt); color: var(--acc); font-weight: var(--weight-semibold); }
+    .toc-num { font-size: 10px; font-weight: var(--weight-bold); color: var(--acc); background: var(--acc-lt); border-radius: var(--radius-full); width: 18px; height: 18px; display: grid; place-items: center; flex-shrink: 0; }
+
+    /* sections */
+    .section { padding: var(--space-10) 0; border-bottom: 1px solid var(--color-border); scroll-margin-top: 80px; }
+    .section:last-child { border-bottom: none; }
+    .section__hd { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5); }
+    .section__num { font-size: var(--type-xs); font-weight: var(--weight-bold); color: var(--acc); background: var(--acc-lt); border-radius: var(--radius-full); width: 28px; height: 28px; display: grid; place-items: center; flex-shrink: 0; }
+    .section__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); }
+    .section__title { font-family: var(--font-editorial); font-size: clamp(1.25rem,3vw,1.75rem); font-weight: var(--weight-bold); color: var(--color-text-primary); line-height: var(--leading-snug); margin-bottom: var(--space-4); }
+    .section__body { font-size: var(--type-md); color: var(--color-text-secondary); line-height: var(--leading-loose); }
+    .section__body p { margin-bottom: var(--space-4); }
+    .section__body p:last-child { margin-bottom: 0; }
+
+    /* pull quote */
+    .pq { border-left: 3px solid var(--acc); padding: var(--space-4) var(--space-6); margin: var(--space-6) 0; background: var(--acc-lt); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .pq__t { font-family: var(--font-editorial); font-size: 1.125rem; font-style: italic; color: var(--acc); line-height: 1.6; margin-bottom: var(--space-2); }
+    .pq__a { font-size: var(--type-xs); font-weight: var(--weight-semibold); color: var(--color-text-tertiary); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+
+    /* gold callout box */
+    .gold-box { background: #1c0a00; border: 1px solid rgba(251,191,36,.2); border-radius: var(--radius-xl); padding: var(--space-8); margin: var(--space-6) 0; }
+    .gold-box__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: #fbbf24; margin-bottom: var(--space-5); }
+    .gold-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    @media(max-width:600px){ .gold-grid { grid-template-columns: 1fr; } }
+    .gold-item { border: 1px solid rgba(251,191,36,.12); border-radius: var(--radius-lg); padding: var(--space-4); background: rgba(251,191,36,.03); }
+    .gold-item__num { font-family: var(--font-editorial); font-size: 1.75rem; font-weight: var(--weight-bold); color: #fbbf24; line-height: 1; margin-bottom: var(--space-1); }
+    .gold-item__label { font-size: var(--type-xs); font-weight: var(--weight-semibold); color: rgba(251,191,36,.6); text-transform: uppercase; letter-spacing: .06em; margin-bottom: var(--space-2); }
+    .gold-item__desc { font-size: var(--type-sm); color: rgba(255,237,213,.6); line-height: 1.5; }
+
+    /* pilgrimage timeline */
+    .pilgrimage { background: #0a0500; border: 1px solid rgba(251,191,36,.15); border-radius: var(--radius-xl); padding: var(--space-8); margin: var(--space-6) 0; }
+    .pilgrimage__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: #fbbf24; margin-bottom: var(--space-6); }
+    .pilgrimage__route { display: flex; flex-direction: column; gap: 0; }
+    .route-stop { display: grid; grid-template-columns: 100px 1fr; gap: var(--space-5); position: relative; padding-bottom: var(--space-6); }
+    .route-stop:last-child { padding-bottom: 0; }
+    .route-stop::before { content: ''; position: absolute; left: 49px; top: 24px; bottom: 0; width: 2px; background: rgba(251,191,36,.15); }
+    .route-stop:last-child::before { display: none; }
+    .route-stop__city { font-size: var(--type-xs); font-weight: var(--weight-bold); color: #fbbf24; text-align: right; padding-top: 4px; }
+    .route-stop__dot { width: 10px; height: 10px; border-radius: 50%; background: #fbbf24; position: absolute; left: 45px; top: 5px; box-shadow: 0 0 8px rgba(251,191,36,.5); }
+    .route-stop__body { padding-left: var(--space-5); }
+    .route-stop__title { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: rgba(255,237,213,.9); margin-bottom: var(--space-1); }
+    .route-stop__desc { font-size: var(--type-sm); color: rgba(255,237,213,.5); line-height: 1.5; }
+
+    /* chain link */
+    .chain-link-box { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); margin-top: var(--space-6); }
+    .chain-link-box__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-3); }
+    .chain-link-box__text { font-size: var(--type-sm); color: var(--color-text-secondary); line-height: 1.65; margin-bottom: var(--space-4); }
+    .chain-link-box a { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: var(--acc); text-decoration: none; }
+    .chain-link-box a:hover { text-decoration: underline; }
+
+    /* cta */
+    .cta-sec { background: #451a03; border-radius: var(--radius-xl); padding: var(--space-10) var(--space-8); margin: var(--space-12) 0; text-align: center; }
+    .cta-sec__hed { font-family: var(--font-editorial); font-size: 1.5rem; font-weight: var(--weight-bold); color: #fff; margin-bottom: var(--space-3); }
+    .cta-sec__sub { font-size: var(--type-sm); color: rgba(255,255,255,.65); margin-bottom: var(--space-6); line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-sec__btns { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+
+    /* dark mode */
+    [data-theme="dark"] .stat-bar { background: #1c0800; }
+    [data-theme="dark"] .pq { background: #1c0a00; border-color: #92400e; }
+    [data-theme="dark"] .pq__t { color: #fbbf24; }
+    [data-theme="dark"] .toc-link.is-active { background: #2c1500; color: #fbbf24; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+  </style>
 </head>
-<body></body>
+<body>
+
+<header class="site-nav" role="banner">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__logo" aria-label="Chain — home">
+      <span class="site-nav__logo-mark" aria-hidden="true"></span>Chain
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html"   class="site-nav__link">About</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="person-hero" aria-labelledby="person-name">
+  <div class="container">
+    <div class="person-hero__inner">
+      <div class="person-avatar" aria-hidden="true">
+        <span class="person-avatar__letter">M</span>
+      </div>
+      <div>
+        <p class="person-hero__eyebrow">Person · Mali Empire · c. 1280–1337 CE</p>
+        <h1 class="person-hero__name" id="person-name">Mansa Musa I</h1>
+        <p class="person-hero__title">Emperor of the Mali Empire, 1312–1337. The wealthiest person in recorded history.</p>
+        <div class="person-hero__pills">
+          <span class="person-hero__pill">Mali Empire</span>
+          <span class="person-hero__pill">West Africa</span>
+          <span class="person-hero__pill">c. 1312–1337 reign</span>
+          <span class="person-hero__pill">Timbuktu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar" aria-label="Key statistics">
+  <div class="container">
+    <div class="stat-bar__inner">
+      <div class="stat-bar__item">
+        <span class="stat-bar__num">$400B</span>
+        <span class="stat-bar__label">Estimated wealth (modern)</span>
+      </div>
+      <div class="stat-bar__item">
+        <span class="stat-bar__num">50%</span>
+        <span class="stat-bar__label">World's gold supply controlled</span>
+      </div>
+      <div class="stat-bar__item">
+        <span class="stat-bar__num">60,000</span>
+        <span class="stat-bar__label">Entourage on 1324 pilgrimage</span>
+      </div>
+      <div class="stat-bar__item">
+        <span class="stat-bar__num">700K</span>
+        <span class="stat-bar__label">Manuscripts in Timbuktu libraries</span>
+      </div>
+      <div class="stat-bar__item">
+        <span class="stat-bar__num">25,000</span>
+        <span class="stat-bar__label">Students at University of Sankore</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<main id="main-content">
+<div class="container">
+  <div class="person-body">
+
+    <!-- MAIN -->
+    <div>
+
+      <div class="section reveal" id="s1">
+        <div class="section__hd">
+          <span class="section__num" aria-hidden="true">1</span>
+          <span class="section__label">Overview</span>
+        </div>
+        <h2 class="section__title">The Wealthiest Person in Recorded History</h2>
+        <div class="section__body">
+          <p>Mansa Musa I — born circa 1280 and ruling the Mali Empire from 1312 to 1337 — is consistently identified by economists and historians as the wealthiest individual in human history. His estimated fortune of $400 billion in modern terms dwarfs every comparable figure: John D. Rockefeller at his peak held approximately $340 billion in comparable terms; Elon Musk and Jeff Bezos have not approached $400 billion simultaneously.</p>
+          <p>The source of this wealth was structural, not personal accumulation. The Mali Empire at its height controlled more than half of the entire world's gold supply and nearly all of its salt trade — the two most economically essential commodities in the medieval world. Gold was the monetary foundation of Mediterranean, trans-Saharan, and Asian trade networks. Salt was essential for food preservation across the entire pre-refrigeration world. The emperor who controlled both was not wealthy in the way we think of individuals being wealthy — he was the governor of an economic system that had no competitor.</p>
+          <p>The West — and most of the world — has been taught almost nothing about Mansa Musa. His absence from standard historical education is not an accident of the historical record. The record is extensive: Arab geographers, Egyptian court officials, and North African scholars documented his reign and his pilgrimage in detail. The absence is a choice about whose history counts.</p>
+        </div>
+      </div>
+
+      <div class="section reveal" id="s2">
+        <div class="section__hd">
+          <span class="section__num" aria-hidden="true">2</span>
+          <span class="section__label">The Empire</span>
+        </div>
+        <h2 class="section__title">The Mali Empire at Its Height</h2>
+        <div class="section__body">
+          <p>The Mali Empire that Mansa Musa inherited and expanded covered modern-day Mali, Senegal, Gambia, Guinea, Guinea-Bissau, Mauritania, and parts of Niger and Burkina Faso — a territory larger than Western Europe. It was built on the foundation Sundiata Keita established in 1235 CE and grew through a combination of military conquest, strategic alliance, and the monopoly control of the Saharan gold-salt trade routes.</p>
+          <p>Timbuktu, the empire's intellectual capital, was one of the great cities of the medieval world. Its population of approximately 100,000 made it larger than London (which had fewer than 50,000 residents at the same time) and comparable to Paris and Florence. The city housed three major universities — the Sankore, Djinguereber, and Sidi Yahia mosques — all functioning as centers of scholarship, not merely worship.</p>
+
+          <div class="gold-box">
+            <div class="gold-box__label">The Mali Empire in numbers</div>
+            <div class="gold-grid">
+              <div class="gold-item">
+                <div class="gold-item__num">100,000</div>
+                <div class="gold-item__label">Population of Timbuktu</div>
+                <div class="gold-item__desc">Larger than London at the same time. A major intellectual and commercial center of the medieval world.</div>
+              </div>
+              <div class="gold-item">
+                <div class="gold-item__num">700,000</div>
+                <div class="gold-item__label">Manuscripts in Timbuktu libraries</div>
+                <div class="gold-item__desc">More books than any European city of the era. Many remain in private family collections in Mali today.</div>
+              </div>
+              <div class="gold-item">
+                <div class="gold-item__num">25,000</div>
+                <div class="gold-item__label">Students at University of Sankore</div>
+                <div class="gold-item__desc">Studying law, mathematics, astronomy, medicine, and history. Oxford was not fully established until 1249.</div>
+              </div>
+              <div class="gold-item">
+                <div class="gold-item__num">&gt; 50%</div>
+                <div class="gold-item__label">World gold supply controlled</div>
+                <div class="gold-item__desc">The economic engine of the entire trans-Saharan and Mediterranean trade network ran through Mali.</div>
+              </div>
+            </div>
+          </div>
+
+          <p>The Sankore mosque functioned as a university whose faculty included scholars of law, mathematics, astronomy, and Quranic studies from across the Islamic world. Students traveled from North Africa, the Middle East, and Europe to study there. Its curriculum predated the formalization of most European universities — and its library holdings dwarfed them.</p>
+        </div>
+      </div>
+
+      <div class="section reveal" id="s3">
+        <div class="section__hd">
+          <span class="section__num" aria-hidden="true">3</span>
+          <span class="section__label">The Hajj, 1324</span>
+        </div>
+        <h2 class="section__title">The Pilgrimage That Broke the Mediterranean Economy</h2>
+        <div class="section__body">
+          <p>In 1324, Mansa Musa undertook the hajj — the Islamic pilgrimage to Mecca — in a manner the world had never witnessed and has never witnessed since. He traveled with an entourage of approximately 60,000 people, including 12,000 enslaved attendants each carrying four pounds of gold, 500 heralds each carrying a gold staff and dressed in fine silk, and a personal retinue of nobles, soldiers, merchants, and scholars. He brought approximately 12 tons of gold to distribute along the route as alms and gifts.</p>
+
+          <div class="pilgrimage">
+            <div class="pilgrimage__label">The 1324 Pilgrimage Route: What Happened Where</div>
+            <div class="pilgrimage__route">
+              <div class="route-stop">
+                <div class="route-stop__city">Mali<br>Empire</div>
+                <div class="route-stop__dot" aria-hidden="true"></div>
+                <div class="route-stop__body">
+                  <div class="route-stop__title">Departure from Niani (capital)</div>
+                  <div class="route-stop__desc">60,000 in the entourage. 12 tons of gold. The procession stretched for miles across the Sahara.</div>
+                </div>
+              </div>
+              <div class="route-stop">
+                <div class="route-stop__city">Cairo,<br>Egypt</div>
+                <div class="route-stop__dot" aria-hidden="true"></div>
+                <div class="route-stop__body">
+                  <div class="route-stop__title">Arrival in Cairo — the gold begins flowing</div>
+                  <div class="route-stop__desc">Mansa Musa distributed so much gold in Cairo — in alms, in gifts, in purchases — that Egyptian court officials scrambled to document what they were witnessing. The Mamluk Sultan received him as an equal.</div>
+                </div>
+              </div>
+              <div class="route-stop">
+                <div class="route-stop__city">Cairo to<br>Mecca</div>
+                <div class="route-stop__dot" aria-hidden="true"></div>
+                <div class="route-stop__body">
+                  <div class="route-stop__title">Gold distributed across North Africa and Arabia</div>
+                  <div class="route-stop__desc">The entourage gave generously at every stop. Merchants, scholars, and beggars received gold. Mansa Musa commissioned the construction of a mosque in every city he passed through on a Friday.</div>
+                </div>
+              </div>
+              <div class="route-stop">
+                <div class="route-stop__city">Return<br>journey</div>
+                <div class="route-stop__dot" aria-hidden="true"></div>
+                <div class="route-stop__body">
+                  <div class="route-stop__title">The inflation crisis sets in</div>
+                  <div class="route-stop__desc">So much gold had entered circulation that the price of gold collapsed across Egypt, North Africa, and the Middle East. Merchants who had traded in gold for decades suddenly found their goods worthless. The resulting inflation persisted for <strong>ten to twelve years</strong> after the pilgrimage.</div>
+                </div>
+              </div>
+              <div class="route-stop">
+                <div class="route-stop__city">Aftermath</div>
+                <div class="route-stop__dot" aria-hidden="true"></div>
+                <div class="route-stop__body">
+                  <div class="route-stop__title">Mali appears on European maps for the first time</div>
+                  <div class="route-stop__desc">The 1375 Catalan Atlas — one of the most important medieval world maps — depicts Mansa Musa on his throne holding a gold nugget, identified by name. European cartographers could not ignore an empire that had just devalued their monetary system.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pq">
+            <p class="pq__t">"This man Musa flooded Cairo with his kindness, leaving no emir or holder of a royal office without the gift of a load of gold. The people of Cairo earned incalculable sums from him, whether by buying and selling or by gifts."</p>
+            <p class="pq__a">— Al-Umari, Mamluk scholar, writing approximately 12 years after the pilgrimage, in <em>Masalik al-Absar</em></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section reveal" id="s4">
+        <div class="section__hd">
+          <span class="section__num" aria-hidden="true">4</span>
+          <span class="section__label">Legacy</span>
+        </div>
+        <h2 class="section__title">What Mansa Musa Built — and What Erased Him</h2>
+        <div class="section__body">
+          <p>During and after his pilgrimage, Mansa Musa commissioned a building program that transformed the architectural landscape of West Africa. He brought back the Andalusian architect Abu Ishaq al-Sahili, who designed the Djinguereber Mosque in Timbuktu — still standing today and a UNESCO World Heritage Site. He built mosques, palaces, and madrasas across the empire. The Sankore Mosque was reconstructed and expanded under his patronage into the institution that would host 25,000 students.</p>
+          <p>The Mali Empire did not survive long after Mansa Musa's death in approximately 1337. Succession disputes weakened the central government; the Songhai Empire absorbed Mali's territory by the late 15th century; and the Portuguese exploration of the West African coast — beginning in the 1440s — established the slave trade infrastructure that would systematically target exactly the populations Mali had governed.</p>
+          <p>The erasure of Mansa Musa from Western historical consciousness was not a passive forgetting. Medieval European cartographers knew about him — the Catalan Atlas of 1375 depicts him by name. The systematic exclusion of African historical figures from the Western curriculum happened alongside the intellectual construction of racism that was used to justify the transatlantic slave trade: if Africans had no history, no civilization, no kings of note, then their enslavement was easier to rationalize. Mansa Musa's existence — the wealthiest man who ever lived, governor of a civilization more learned than contemporary Europe — directly contradicted that construction. So he was omitted.</p>
+
+          <div class="chain-link-box">
+            <div class="chain-link-box__label">The chain from Mansa Musa's empire to the present</div>
+            <p class="chain-link-box__text">The Mali Empire — one of the wealthiest and most sophisticated civilizations in human history — was destabilized by the same Atlantic slave trade whose infrastructure was built by European powers who dismissed African civilization as primitive. The descendants of the people Mansa Musa governed were among those taken in the transatlantic trade. Their labor built American wealth. Their descendants were then systematically excluded from that wealth. The chain runs directly from Timbuktu's libraries to the racial wealth gap today.</p>
+            <a href="thread-african-empires.html">Read the full thread: African Empires and the Origins of the Diaspora →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section reveal" id="s5">
+        <div class="section__hd">
+          <span class="section__num" aria-hidden="true">5</span>
+          <span class="section__label">Why it matters</span>
+        </div>
+        <h2 class="section__title">Why You Were Not Taught This</h2>
+        <div class="section__body">
+          <p>The standard American K-12 curriculum covers Mansa Musa, if at all, in a paragraph. The standard treatment gives him one sentence — "the richest man in history" — without context, without his empire, without his universities, without the pilgrimage, without the manuscripts. He appears as a curiosity rather than as what he was: the ruler of a civilization whose intellectual and economic output surpassed Europe's at the same historical moment.</p>
+          <p>The documentary record is not the obstacle. Al-Umari wrote about the pilgrimage in the 1330s. The Catalan Atlas documented Mali in 1375. Ibn Battuta visited the Mali Empire in 1352 and left a detailed account. The sources exist. The choice not to teach from them is a curriculum decision — one that reflects the same logic that built the racial hierarchy the curriculum was designed, in part, to maintain.</p>
+          <p>Knowing Mansa Musa is not supplementary knowledge. It is corrective knowledge — it corrects a foundational lie about what Africa was before European contact, and therefore about what was taken when that contact became conquest and enslavement. You cannot understand the depth of what the slave trade destroyed without understanding what existed before it. Mansa Musa is part of what existed before it.</p>
+
+          <div class="pq">
+            <p class="pq__t">"To understand what was lost, you first have to know what was there."</p>
+            <p class="pq__a">— Chain editorial principle</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-sec reveal">
+        <h2 class="cta-sec__hed">The empire that built Timbuktu.</h2>
+        <p class="cta-sec__sub">Mansa Musa was not an anomaly. He was the product of a civilization — and that civilization was systematically erased from Western historical memory at the same time its people were being enslaved.</p>
+        <div class="cta-sec__btns">
+          <a href="thread-african-empires.html" class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.3)">African Empires thread →</a>
+          <a href="threads.html" class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.3)">All threads →</a>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Page navigation">
+      <nav class="sidebar-card" aria-label="Table of contents">
+        <p class="sidebar-card__title">On this page</p>
+        <a href="#s1" class="toc-link" id="toc-s1"><span class="toc-num">1</span>Overview</a>
+        <a href="#s2" class="toc-link" id="toc-s2"><span class="toc-num">2</span>The Empire</a>
+        <a href="#s3" class="toc-link" id="toc-s3"><span class="toc-num">3</span>The Hajj, 1324</a>
+        <a href="#s4" class="toc-link" id="toc-s4"><span class="toc-num">4</span>Legacy</a>
+        <a href="#s5" class="toc-link" id="toc-s5"><span class="toc-num">5</span>Why You Weren't Taught This</a>
+      </nav>
+
+      <div class="sidebar-card">
+        <p class="sidebar-card__title">Quick facts</p>
+        <div class="fact-list">
+          <div class="fact-item">
+            <span class="fact-item__label">Born</span>
+            <span class="fact-item__val">c. 1280 CE, Mali Empire</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__label">Died</span>
+            <span class="fact-item__val">c. 1337 CE</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__label">Reign</span>
+            <span class="fact-item__val">1312–1337 CE (25 years)</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__label">Empire</span>
+            <span class="fact-item__val">Mali Empire — modern-day Mali, Senegal, Gambia, Guinea, Mauritania</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__label">Wealth</span>
+            <span class="fact-item__val">~$400 billion (modern est.) — largest in recorded history</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__label">Religion</span>
+            <span class="fact-item__val">Islam; devout; completed hajj 1324</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__label">Primary sources</span>
+            <span class="fact-item__val">Al-Umari (1330s); Ibn Battuta (1352); Catalan Atlas (1375)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <p class="sidebar-card__title">Related threads</p>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+          <a href="thread-african-empires.html" style="font-size:var(--type-sm);color:var(--acc);text-decoration:none;font-weight:var(--weight-medium);display:flex;align-items:center;gap:var(--space-2)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>African Empires
+          </a>
+          <a href="thread-transatlantic-slave-trade.html" style="font-size:var(--type-sm);color:var(--acc);text-decoration:none;font-weight:var(--weight-medium);display:flex;align-items:center;gap:var(--space-2)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>The Transatlantic Slave Trade
+          </a>
+          <a href="thread-stolen-labor.html" style="font-size:var(--type-sm);color:var(--acc);text-decoration:none;font-weight:var(--weight-medium);display:flex;align-items:center;gap:var(--space-2)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>Stolen Labor
+          </a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+</main>
+
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container site-footer__inner">
+    <div>
+      <a href="index.html" class="site-footer__logo">Chain</a>
+      <p class="site-footer__tag">Tracing cause to consequence.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <a href="threads.html">Threads</a>
+      <a href="about.html">About</a>
+      <a href="about.html#methodology">Methodology</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/nav.js" defer></script>
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  if(themeToggle){ themeToggle.addEventListener('click', () => { const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', next); localStorage.setItem('chain-theme', next); }); }
+  const ro = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); ro.unobserve(e.target); }}); }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  const tocObs = new IntersectionObserver(entries => { entries.forEach(e => { const l = document.getElementById('toc-'+e.target.id); if(l) l.classList.toggle('is-active', e.isIntersecting); }); }, { rootMargin: '-10% 0px -80% 0px' });
+  document.querySelectorAll('.section[id]').forEach(el => tocObs.observe(el));
+</script>
+</body>
 </html>
