@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore — Chain</title>
   <meta name="description" content="Browse threads, people, policies, places, and events across the full arc of African and Black history — from sovereign civilizations to present-day America." />
+  <meta property="og:title" content="Explore — Chain" />
+  <meta property="og:description" content="Browse people, policies, places, and events across the full arc of African and Black history." />
+  <meta property="og:image" content="https://chain.education/og/chain-explore.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://chain.education/og/chain-explore.png" />
   <script>
     (function(){
       var t = localStorage.getItem('chain-theme') ||
@@ -194,6 +202,24 @@
         align-items: start;
         gap: var(--space-10);
       }
+    }
+
+    /* ── Mobile filter bar ──────────────────────────────────── */
+    .explore-mobile-filters {
+      display: flex;
+      gap: var(--space-2);
+      overflow-x: auto;
+      padding: var(--space-3) 0 var(--space-4);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .explore-mobile-filters::-webkit-scrollbar { display: none; }
+    @media (min-width: 1024px) {
+      .explore-mobile-filters { display: none; }
+    }
+    .explore-mobile-filters .filter-chip {
+      flex-shrink: 0;
     }
 
     /* ── Sidebar ────────────────────────────────────────────── */
@@ -749,6 +775,20 @@
 
   <!-- ARCHIVE CONTENT -->
   <div class="container">
+
+    <!-- MOBILE FILTER BAR (hidden ≥1024px, replaced by sidebar) -->
+    <nav class="explore-mobile-filters" aria-label="Filter by section" role="group">
+      <button class="filter-chip is-active" data-mobile-filter="all"          aria-pressed="true">All</button>
+      <button class="filter-chip"           data-mobile-filter="era-origins"  aria-pressed="false">African Origins</button>
+      <button class="filter-chip"           data-mobile-filter="era-slave-trade" aria-pressed="false">Slave Trade</button>
+      <button class="filter-chip"           data-mobile-filter="era-reconstruction" aria-pressed="false">Reconstruction</button>
+      <button class="filter-chip"           data-mobile-filter="era-20c"      aria-pressed="false">20th Century</button>
+      <button class="filter-chip"           data-mobile-filter="era-present"  aria-pressed="false">Present Day</button>
+      <button class="filter-chip"           data-mobile-filter="section-people"   aria-pressed="false">People</button>
+      <button class="filter-chip"           data-mobile-filter="section-policies" aria-pressed="false">Policies</button>
+      <button class="filter-chip"           data-mobile-filter="section-places"   aria-pressed="false">Places</button>
+    </nav>
+
     <div class="explore-layout">
 
       <!-- SIDEBAR -->
@@ -840,7 +880,7 @@
                   <div class="thread-card__node-dot"></div>
                 </div>
                 <span class="thread-card__node-label">6 chapters</span>
-                <span class="thread-card__cta">Read thread →</span>
+                <span class="thread-card__cta">Read thread <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
@@ -858,7 +898,7 @@
                   <div class="thread-card__node-dot"></div>
                 </div>
                 <span class="thread-card__node-label">Coming soon</span>
-                <span class="thread-card__cta">Preview →</span>
+                <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
@@ -876,7 +916,7 @@
                   <div class="thread-card__node-dot"></div>
                 </div>
                 <span class="thread-card__node-label">Coming soon</span>
-                <span class="thread-card__cta">Preview →</span>
+                <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
@@ -894,7 +934,7 @@
                   <div class="thread-card__node-dot"></div>
                 </div>
                 <span class="thread-card__node-label">Coming soon</span>
-                <span class="thread-card__cta">Preview →</span>
+                <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
@@ -912,7 +952,7 @@
                   <div class="thread-card__node-dot"></div>
                 </div>
                 <span class="thread-card__node-label">Coming soon</span>
-                <span class="thread-card__cta">Preview →</span>
+                <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
@@ -1403,6 +1443,22 @@
   }, { rootMargin: '-40% 0px -50% 0px' });
 
   scrollSections.forEach(sec => sectionObserver.observe(sec));
+
+  // ── MOBILE FILTER CHIPS ──────────────────────────────────────
+  const mobileFilterChips = document.querySelectorAll('[data-mobile-filter]');
+  mobileFilterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      mobileFilterChips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
+      chip.classList.add('is-active'); chip.setAttribute('aria-pressed','true');
+      const target = chip.dataset.mobileFilter;
+      if (target === 'all') {
+        window.scrollTo({ top: document.querySelector('.explore-layout').offsetTop - 80, behavior: 'smooth' });
+      } else {
+        const el = document.getElementById(target);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 </script>
 </body>
 </html>

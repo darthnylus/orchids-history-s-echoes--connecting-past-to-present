@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Threads — Chain</title>
   <meta name="description" content="Follow a causal thread from its origin to its present-day consequence. Each thread traces how a historical event, policy, or system created conditions that persist today." />
+  <meta property="og:title" content="Threads — Chain" />
+  <meta property="og:description" content="45+ causal threads tracing how historical decisions created present-day inequality." />
+  <meta property="og:image" content="https://chain.education/og/chain-threads.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://chain.education/og/chain-threads.png" />
   <script>
     (function(){
       var t = localStorage.getItem('chain-theme') ||
@@ -162,29 +170,56 @@
       white-space: nowrap;
     }
     .filter-chip:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .filter-chip:active { transform: scale(0.95); }
     .filter-chip.is-active { background: var(--color-accent-dark); border-color: var(--color-accent-dark); color: #fff; }
+    .filter-count {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-left: auto;
+      white-space: nowrap;
+      align-self: center;
+    }
+    .filter-empty {
+      text-align: center;
+      padding: var(--space-16) var(--space-8);
+      color: var(--color-text-tertiary);
+      font-size: var(--type-md);
+      display: none;
+    }
+    .filter-empty.is-visible { display: block; }
 
     /* ── Thread cards ───────────────────────────────────────── */
     .threads-section {
       padding: var(--space-10) 0 var(--space-16);
     }
 
-    /* Featured (first) thread — full-width */
+    /* Featured (first) thread — full-width, visually elevated */
     .thread-featured {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
+      background: var(--ink-900);
+      border: 1px solid rgba(224,122,0,.25);
       border-radius: var(--radius-xl);
       overflow: hidden;
       margin-bottom: var(--space-6);
       display: grid;
       grid-template-columns: 1fr;
-      transition: box-shadow var(--duration-normal);
+      transition: box-shadow var(--duration-normal), border-color var(--duration-normal);
       text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18);
+      position: relative;
+    }
+    .thread-featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
     }
     @media (min-width: 768px) {
       .thread-featured { grid-template-columns: 1fr 340px; }
     }
-    .thread-featured:hover { box-shadow: var(--shadow-lg); }
+    .thread-featured:hover { box-shadow: 0 8px 40px rgba(0,0,0,.28); border-color: rgba(224,122,0,.45); }
+    .thread-featured:active { transform: scale(0.995); }
+    [data-theme="light"] .thread-featured { background: var(--ink-900); }
     .thread-featured__body {
       padding: var(--space-8) var(--space-8) var(--space-7);
       display: flex;
@@ -198,7 +233,7 @@
       font-weight: var(--weight-bold);
       letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
-      color: var(--color-accent-dark);
+      color: var(--amber-300);
       margin-bottom: var(--space-5);
     }
     .thread-featured__label-dot {
@@ -210,14 +245,14 @@
       font-family: var(--font-editorial);
       font-size: clamp(1.375rem, 3vw, 1.875rem);
       font-weight: var(--weight-bold);
-      color: var(--color-text-primary);
+      color: #ffffff;
       line-height: var(--leading-snug);
       letter-spacing: var(--tracking-tight);
       margin-bottom: var(--space-4);
     }
     .thread-featured__summary {
       font-size: var(--type-md);
-      color: var(--color-text-secondary);
+      color: rgba(255,255,255,.7);
       line-height: var(--leading-loose);
       margin-bottom: var(--space-6);
       flex: 1;
@@ -235,9 +270,9 @@
     .thread-chain-node {
       font-size: var(--type-xs);
       font-weight: var(--weight-semibold);
-      color: var(--color-text-secondary);
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
+      color: rgba(255,255,255,.8);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
       padding: 3px var(--space-3);
       border-radius: var(--radius-pill);
       white-space: nowrap;
@@ -722,7 +757,11 @@
       <button class="filter-chip"           data-filter="health"    aria-pressed="false">Health</button>
       <button class="filter-chip"           data-filter="education" aria-pressed="false">Education</button>
       <button class="filter-chip"           data-filter="history"   aria-pressed="false">History &amp; Culture</button>
+      <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true"></span>
     </div>
+
+    <!-- EMPTY STATE -->
+    <div class="filter-empty" id="filterEmpty">No threads match this filter yet. <a href="#" class="filter-reset" style="color:var(--color-accent-dark);text-decoration:underline">Show all</a></div>
 
     <!-- FEATURED THREAD — Thread 1 -->
     <a href="thread-african-empires.html" class="thread-featured reveal" data-domain="all" aria-labelledby="featured-title">
@@ -754,7 +793,7 @@
             Live
           </span>
           <span class="thread-meta-tag">7 empires · 1070 BCE – 1897 CE</span>
-          <span class="thread-meta-tag" style="margin-left:auto; color:var(--color-accent-dark); font-weight:600;">Read thread →</span>
+          <span class="thread-meta-tag" style="margin-left:auto; color:var(--color-accent-dark); font-weight:600;">Read thread <span aria-hidden="true">→</span></span>
         </div>
       </div>
       <div class="thread-featured__aside" aria-hidden="true">
@@ -801,7 +840,7 @@
             </div>
           </div>
         </div>
-        <a href="thread-african-empires.html" class="thread-featured__aside-cta">Start reading →</a>
+        <a href="thread-african-empires.html" class="thread-featured__aside-cta">Start reading <span aria-hidden="true">→</span></a>
       </div>
     </a>
 
@@ -1445,7 +1484,7 @@
         <p class="suggest-cta__body">Chain is built in public. If there's a causal connection between a historical act and a present-day condition that we haven't covered, we want to know. Researchers, educators, and community members can submit thread proposals.</p>
       </div>
       <div class="suggest-cta__actions">
-        <a href="contact.html" class="btn btn--primary">Propose a thread →</a>
+        <a href="contact.html" class="btn btn--primary">Propose a thread <span aria-hidden="true">→</span></a>
         <a href="about.html#methodology" class="btn btn--ghost" style="color:var(--ink-300);border-color:var(--ink-700);">Our methodology</a>
       </div>
     </div>
@@ -1540,20 +1579,41 @@
   mobileBackdrop.addEventListener('click', closeMobileNav);
 
   // ── DOMAIN FILTER ─────────────────────────────────────────
-  const filterChips = document.querySelectorAll('.filter-chip');
-  const allCards    = document.querySelectorAll('[data-domain]');
+  const filterChips  = document.querySelectorAll('.filter-chip');
+  const allCards     = document.querySelectorAll('[data-domain]');
+  const filterCount  = document.getElementById('filterCount');
+  const filterEmpty  = document.getElementById('filterEmpty');
+
+  function applyFilter(f) {
+    filterChips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
+    const active = document.querySelector(`.filter-chip[data-filter="${f}"]`);
+    if (active) { active.classList.add('is-active'); active.setAttribute('aria-pressed','true'); }
+
+    let visible = 0;
+    allCards.forEach(card => {
+      const domains = card.dataset.domain || '';
+      const show = (f === 'all' || domains.includes(f));
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    if (filterCount) {
+      filterCount.textContent = f === 'all' ? '' : `${visible} thread${visible !== 1 ? 's' : ''}`;
+    }
+    if (filterEmpty) {
+      filterEmpty.classList.toggle('is-visible', visible === 0);
+    }
+  }
 
   filterChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      filterChips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
-      chip.classList.add('is-active'); chip.setAttribute('aria-pressed','true');
-      const f = chip.dataset.filter;
-      allCards.forEach(card => {
-        const domains = card.dataset.domain || '';
-        card.style.display = (f === 'all' || domains.includes(f)) ? '' : 'none';
-      });
-    });
+    chip.addEventListener('click', () => applyFilter(chip.dataset.filter));
   });
+
+  // Reset link inside empty state
+  const filterReset = document.querySelector('.filter-reset');
+  if (filterReset) {
+    filterReset.addEventListener('click', (e) => { e.preventDefault(); applyFilter('all'); });
+  }
 
   // ── SCROLL REVEAL ─────────────────────────────────────────
   const observer = new IntersectionObserver(entries => {

@@ -314,20 +314,52 @@ function initThreadSteps() {
     }
   }
 
-  // Pause on user interaction
+  // Pause button
+  let manuallyPaused = false;
+  const pauseBtn   = document.getElementById('stepsPauseBtn');
+  const pauseIcon  = document.getElementById('stepsPauseIcon');
+  const pauseLabel = document.getElementById('stepsPauseLabel');
+  const PLAY_SVG  = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  const PAUSE_SVG = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', () => {
+      manuallyPaused = !manuallyPaused;
+      pauseBtn.setAttribute('aria-pressed', String(manuallyPaused));
+      if (manuallyPaused) {
+        stopAutoAdvance();
+        pauseIcon.innerHTML = PLAY_SVG;
+        pauseLabel.textContent = 'Play';
+        pauseBtn.setAttribute('aria-label', 'Resume auto-advancing steps');
+      } else {
+        startAutoAdvance();
+        pauseIcon.innerHTML = PAUSE_SVG;
+        pauseLabel.textContent = 'Pause';
+        pauseBtn.setAttribute('aria-label', 'Pause auto-advancing steps');
+      }
+    });
+  }
+
+  // Pause on user step click (but don't toggle the button state)
   steps.forEach((step, idx) => {
     step.addEventListener('click', () => {
       stopAutoAdvance();
       autoIdx = idx;
+      manuallyPaused = true;
+      if (pauseBtn) {
+        pauseBtn.setAttribute('aria-pressed', 'true');
+        if (pauseIcon) pauseIcon.innerHTML = PLAY_SVG;
+        if (pauseLabel) pauseLabel.textContent = 'Play';
+      }
     });
   });
 
-  // Start auto-advance when section enters viewport
+  // Start auto-advance when section enters viewport (only if not manually paused)
   const threadSection = $('#follow-thread');
   if (threadSection && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !manuallyPaused) {
           startAutoAdvance();
         } else {
           stopAutoAdvance();
