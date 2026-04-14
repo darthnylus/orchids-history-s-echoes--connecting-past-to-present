@@ -558,32 +558,348 @@
   // ── SEARCH DATA ───────────────────────────────────────────
   // Static corpus for client-side search
   const CORPUS = [
-    { type:'thread',  title:'Housing & the Racial Wealth Gap',               href:'thread.html',   meta:'Thread · 1933–present', excerpt:'Traces how HOLC redlining, FHA mortgage exclusion, and the GI Bill built the white middle class while systematically blocking Black wealth accumulation — producing the 6:1 wealth gap that persists today.' },
-    { type:'thread',  title:'Stolen Labor: From Slavery to Wage Theft',      href:'threads.html',  meta:'Thread · 1619–present', excerpt:'Documents the economic extraction of Black labor — from enslaved people who built American capitalism to present-day wage theft and income disparities.' },
-    { type:'thread',  title:'Mass Incarceration',                             href:'threads.html',  meta:'Thread · 1865–present', excerpt:'Traces Black Codes → convict leasing → Jim Crow → the War on Drugs → a carceral system that incarcerates Black Americans at 5.6× the rate of white Americans.' },
-    { type:'thread',  title:'Health Disparities',                             href:'threads.html',  meta:'Thread · 1865–present', excerpt:'How residential segregation, environmental racism, and healthcare exclusion produced a 5-year Black–white life expectancy gap that cannot be explained by genetics.' },
-    { type:'person',  title:'Malcolm X',                                      href:'person-malcolm-x.html', meta:'Person · 1925–1965 · United States', excerpt:'el-Hajj Malik el-Shabazz — born Malcolm Little, raised in a Garveyite household targeted by white supremacists, orphaned by state violence, imprisoned at 20, converted to Islam in prison, rose to become the Nation of Islam\'s national voice, made the Hajj in 1964 and transformed from Black separatism to Pan-African internationalism, founded the Organization of Afro-American Unity, and was assassinated at 39. COINTELPRO. Black nationalism. By any means necessary.' },
-    { type:'person',  title:'Mansa Musa',                                     href:'explore.html',  meta:'Person · c. 1280–1337 · Mali Empire', excerpt:'Emperor of the Mali Empire, whose 1324 pilgrimage to Mecca — the wealthiest individual journey in recorded history — demonstrated the scale of pre-colonial African civilization.' },
-    { type:'person',  title:'Frederick Douglass',                             href:'explore.html',  meta:'Person · 1818–1895', excerpt:'Abolitionist, orator, and writer whose accounts of slavery provided primary testimony for the causal chain from enslavement to post-war exclusion.' },
-    { type:'person',  title:'Ida B. Wells',                                   href:'explore.html',  meta:'Person · 1862–1931', excerpt:'Journalist and anti-lynching crusader who documented the use of racial terror as an economic and political control mechanism after Reconstruction.' },
-    { type:'person',  title:'Thurgood Marshall',                              href:'explore.html',  meta:'Person · 1908–1993', excerpt:'Lead attorney in Brown v. Board of Education (1954) and first Black Supreme Court Justice. Central to the legal dismantling of de jure segregation.' },
-    { type:'policy',  title:'Home Owners\' Loan Corporation (HOLC), 1933',    href:'explore.html',  meta:'Policy · 1933 · Federal Housing', excerpt:'Created neighborhood security maps grading areas A–D. Black neighborhoods were graded D regardless of condition, making them ineligible for federally backed mortgage insurance.' },
-    { type:'policy',  title:'FHA Underwriting Manual, 1938',                  href:'explore.html',  meta:'Policy · 1938 · Federal Housing Administration', excerpt:'Institutionalized redlining in the federal mortgage guarantee program, explicitly citing "inharmonious racial groups" as grounds for denying insurance in Black neighborhoods.' },
-    { type:'policy',  title:'GI Bill (Servicemen\'s Readjustment Act), 1944', href:'explore.html',  meta:'Policy · 1944 · Congress', excerpt:'Built the white middle class through home loans, college funding, and business grants. Black veterans were largely excluded by racially discriminatory administration.' },
-    { type:'policy',  title:'Fair Housing Act, 1968',                         href:'explore.html',  meta:'Policy · 1968 · Civil Rights', excerpt:'Prohibited future housing discrimination but could not undo 35 years of accumulated wealth exclusion. The racial homeownership gap is wider today than in 1968.' },
-    { type:'policy',  title:'Anti-Drug Abuse Act, 1986',                      href:'explore.html',  meta:'Policy · 1986 · Congress', excerpt:'Established 100:1 crack-to-powder cocaine sentencing disparity, disproportionately targeting Black communities. Reduced to 18:1 by the Fair Sentencing Act (2010).' },
-    { type:'policy',  title:'Black Codes, 1865',                              href:'explore.html',  meta:'Policy · 1865 · Southern States', excerpt:'Laws passed immediately after emancipation that re-imposed forced labor through vagrancy, apprenticeship, and anti-enticement statutes — the legal foundation for convict leasing.' },
-    { type:'event',   title:'Fort Pillow Massacre, 1864',                     href:'today.html',    meta:'Event · April 12, 1864 · Civil War', excerpt:'Confederate forces under Nathan Bedford Forrest massacred Black Union soldiers after they surrendered at Fort Pillow, Tennessee. Became a rallying cry for Black military service and civil rights.' },
-    { type:'event',   title:'Tulsa Race Massacre, 1921',                      href:'explore.html',  meta:'Event · May 31–June 1, 1921 · Tulsa, Oklahoma', excerpt:'The destruction of Greenwood ("Black Wall Street"), one of the wealthiest Black communities in America, by a white mob with tacit government support. Up to 300 killed.' },
-    { type:'event',   title:'Reconstruction, 1865–1877',                      href:'explore.html',  meta:'Event · 1865–1877', excerpt:'The period of federal effort to integrate formerly enslaved people into American civic life. Its violent termination established the political and legal framework for Jim Crow.' },
-    { type:'event',   title:'The Great Migration, 1910–1970',                 href:'explore.html',  meta:'Event · 1910–1970', excerpt:'Six million Black Americans fled the South to escape racial terror and seek economic opportunity. Their arrival in Northern cities triggered white flight and accelerated residential segregation.' },
-    { type:'place',   title:'Greenwood District, Tulsa (Black Wall Street)',  href:'explore.html',  meta:'Place · Tulsa, Oklahoma', excerpt:'The wealthiest Black community in America before its destruction in the 1921 Tulsa Race Massacre. A case study in how Black wealth accumulation was systematically targeted.' },
-    { type:'place',   title:'Timbuktu, Mali Empire',                          href:'explore.html',  meta:'Place · Mali Empire, c. 1300–1591', excerpt:'Center of Islamic scholarship and trade in the Mali Empire, with universities predating many European institutions. Represents the pre-colonial intellectual tradition disrupted by the slave trade.' },
-    { type:'thread',  title:'Al-Andalus: The Moorish Civilization Europe Erased',  href:'thread-moors.html',       meta:'Thread · 711–1492 · Al-Andalus, Iberia', excerpt:'For 781 years, Muslim Africans and Arabs governed the most advanced civilization in medieval Europe. Córdoba had 500,000 people and 70 libraries when London had 15,000 and no sewers. The Reconquista burned a million books, invented the first racial purity laws in European history — limpieza de sangre — and expelled the Moors the same year Columbus sailed. The erasure was the precondition for the Transatlantic Slave Trade.' },
-    { type:'thread',  title:'The Lily White Movement: How the GOP Became a White-Only Institution', href:'thread-lily-white.html', meta:'Thread · 1877–1968 · Republican Party', excerpt:'Black men held 22 seats in Congress during Reconstruction — all Republican. By 1901 there were none, and none for 28 years. The Republican Party did not drift away from Black voters. It expelled them — one county committee at a time — in a coordinated campaign from 1888 through Hoover\'s presidency. The Southern Strategy did not build a white Republican Party in the South. It inherited one.' },
-    { type:'thread',  title:'The Pipeline: How Rap Was Captured and Communities Were Criminalized', href:'thread-rap-pipeline.html', meta:'Thread · 1973–Present · Music & Incarceration', excerpt:'Rap was invented in the South Bronx as a community technology. Within 20 years it was owned by four conglomerates, distributed through radio controlled by one company, and rewarded for content that made mass incarceration easier to justify. The same institutional investors — Vanguard, BlackRock, Fidelity — held both the music conglomerate stocks and the private prison stocks. Nobody had to hold a meeting.' },
-    { type:'map',     title:'Transatlantic Slave Trade Routes',               href:'maps.html',     meta:'Map · 1500–1900', excerpt:'Visualizes the scale and geography of the transatlantic slave trade — 12.5 million departures, major ports, routes, and mortality at sea across four centuries.' },
-    { type:'map',     title:'HOLC Redlining Maps, 1935–1940',                 href:'maps.html',     meta:'Map · 1935–1940', excerpt:'The original HOLC security maps overlaid on modern cities, showing the direct spatial relationship between graded neighborhoods and current racial wealth and health outcomes.' },
+
+    // ── THREADS ───────────────────────────────────────────────
+    { type:'thread', title:'The Fire Next Time: Black Abolitionists and the War on Slavery',
+      href:'thread-abolitionism.html', meta:'Thread · 1829–1865 · History & Resistance',
+      excerpt:'Black abolitionists led the anti-slavery movement for 40 years before white abolitionists joined. They articulated the moral, economic, and political case against slavery — and were then erased from the history of their own struggle.' },
+
+    { type:'thread', title:'Before the Chain: 7 African Empires',
+      href:'thread-african-empires.html', meta:'Thread · Pre-1441 · African History',
+      excerpt:'African empires — Ghana, Mali, Songhai, Kush, Axum, Benin, and more — developed complex political systems, universities, and trade networks centuries before European colonization. The slave trade did not find a primitive continent. It destroyed an advanced one.' },
+
+    { type:'thread', title:'Al-Andalus: The Moorish Civilization Europe Erased',
+      href:'thread-moors.html', meta:'Thread · 711–1492 · Al-Andalus, Iberia',
+      excerpt:'For 781 years, Muslim Africans and Arabs governed the most advanced civilization in medieval Europe. Córdoba had 500,000 people and 70 libraries when London had 15,000 and no sewers. The Reconquista burned a million books, invented the first racial purity laws in European history — limpieza de sangre — and expelled the Moors the same year Columbus sailed.' },
+
+    { type:'thread', title:'The Rupture: The Transatlantic Slave Trade',
+      href:'thread-transatlantic-slave-trade.html', meta:'Thread · 1441–1808 · Forced Migration & Origins',
+      excerpt:'12.5 million people. 400 years. The largest forced migration in human history and the economic foundation of the modern world. This thread traces the trade routes, mortality statistics, and economic legacy of the Middle Passage.' },
+
+    { type:'thread', title:'How Slavery Really Ended — And What It Left Behind',
+      href:'thread-end-of-slavery.html', meta:'Thread · 1861–Present · Abolition & Its Aftermath',
+      excerpt:'Slavery was not ended by moral progress. It was restructured into sharecropping, convict leasing, and mass incarceration. The 13th Amendment contained the exception clause that made the restructuring legal.' },
+
+    { type:'thread', title:'Two and a Half Years Late: Juneteenth and the Promise That Wasn\'t',
+      href:'thread-juneteenth.html', meta:'Thread · 1863–Present · Emancipation & Memory',
+      excerpt:'Juneteenth was June 19, 1865 — two and a half years after the Emancipation Proclamation. The delay was not accidental. And the "freedom" that followed was immediately countered by Black Codes, convict leasing, and debt peonage.' },
+
+    { type:'thread', title:'The Invention of Race: Why Racism Was Created',
+      href:'thread-invention-of-race.html', meta:'Thread · 1676–Present · Origins of Racism',
+      excerpt:'Race was invented in 1676 as a legal category to divide poor laborers after Bacon\'s Rebellion. Before that, slavery existed but "race" did not. This thread traces the creation of whiteness as a political technology.' },
+
+    { type:'thread', title:'Stolen Labor: The Racial Wealth Gap from Emancipation to Today',
+      href:'thread-stolen-labor.html', meta:'Thread · 1619–Present · Economics & Wealth',
+      excerpt:'250 years of free labor, then sharecropping, redlining, and GI Bill exclusion. The racial wealth gap is arithmetic. This thread traces the compounding extraction from slavery to the present-day $171,000 median wealth gap.' },
+
+    { type:'thread', title:'The GI Bill That Built the White Middle Class',
+      href:'thread-gi-bill.html', meta:'Thread · 1944–1968 · Wealth & Policy',
+      excerpt:'The GI Bill created the American middle class — exclusively. Black veterans were excluded from home loans, college funding, and business grants by racially discriminatory administration. The bill built the suburbs white.' },
+
+    { type:'thread', title:'Housing & the Racial Wealth Gap',
+      href:'thread.html', meta:'Thread · 1933–Present · Redlining & Wealth',
+      excerpt:'Traces how HOLC redlining, FHA mortgage exclusion, and the GI Bill built the white middle class while systematically blocking Black wealth accumulation — producing the 6:1 wealth gap that persists today.' },
+
+    { type:'thread', title:'The Subprime Trap',
+      href:'thread-subprime.html', meta:'Thread · 1990s–2008 · Lending & Extraction',
+      excerpt:'Wells Fargo called them "ghetto loans" and steered Black customers into subprime mortgages even when they qualified for conventional rates. The 2008 crash stripped $40,000 in median Black household wealth — the largest destruction of Black wealth since Reconstruction.' },
+
+    { type:'thread', title:'Patrol and Punish: The Invention of American Policing',
+      href:'thread-police.html', meta:'Thread · 1704–Present · Law Enforcement & Control',
+      excerpt:'American police were invented to capture enslaved people and suppress Black rebellion. Slave patrols became police departments. The mission never changed — only the paperwork.' },
+
+    { type:'thread', title:'The 13th: Mass Incarceration and the Second Slavery',
+      href:'thread-mass-incarceration.html', meta:'Thread · 1865–Present · Criminal Justice & Control',
+      excerpt:'The 13th Amendment abolished slavery except as punishment for crime. Black Codes → convict leasing → Jim Crow → the War on Drugs → a carceral system that incarcerates Black Americans at 5.6× the rate of white Americans.' },
+
+    { type:'thread', title:'The War on Drugs: Nixon\'s Confession',
+      href:'thread-war-on-drugs.html', meta:'Thread · 1971–Present · Policy & Incarceration',
+      excerpt:'Nixon\'s aide John Ehrlichman admitted in 1994 that the War on Drugs was designed to target Black people and the anti-war left. The result: 2.3 million incarcerated today, disproportionately Black and Latino.' },
+
+    { type:'thread', title:'The Pipeline: How Rap Was Captured and Communities Were Criminalized',
+      href:'thread-rap-pipeline.html', meta:'Thread · 1973–Present · Music & Incarceration',
+      excerpt:'Rap was invented in the South Bronx as a community technology. Within 20 years it was owned by four conglomerates and rewarded for content that made mass incarceration easier to justify. The same institutional investors held both the music conglomerate stocks and the private prison stocks.' },
+
+    { type:'thread', title:'The Stolen Vote: Black Voting Rights in America',
+      href:'thread-voting-rights.html', meta:'Thread · 1865–Present · Politics & Suppression',
+      excerpt:'The 15th Amendment granted voting rights in 1870. Within a decade, every Southern state abolished that right through poll taxes, literacy tests, grandfather clauses, and terror. It\'s still being stolen — through voter ID laws, purges, and partisan gerrymandering.' },
+
+    { type:'thread', title:'The Lily White Movement: How the GOP Became a White-Only Institution',
+      href:'thread-lily-white.html', meta:'Thread · 1877–1968 · Republican Party',
+      excerpt:'Black men held 22 seats in Congress during Reconstruction — all Republican. By 1901 there were none for 28 years. The Republican Party expelled Black voters one county committee at a time. The Southern Strategy did not build a white Republican Party in the South. It inherited one.' },
+
+    { type:'thread', title:'The Movement: The Civil Rights Struggle, 1954–1968',
+      href:'thread-civil-rights.html', meta:'Thread · 1954–1968 · Politics & Resistance',
+      excerpt:'The Civil Rights Movement was a documented campaign of organized political action, not a spontaneous moral shift. It faced violent federal suppression through COINTELPRO. The victories were real, partial, and immediately attacked.' },
+
+    { type:'thread', title:'What They Were Afraid Of: The Fear of Black Assembly',
+      href:'thread-fear-of-black-assembly.html', meta:'Thread · 1739–Present · Politics & Control',
+      excerpt:'The United States has systematically criminalized Black assembly and organization for 400 years — from the Negro Act of 1740 to COINTELPRO to the surveillance of Black Lives Matter.' },
+
+    { type:'thread', title:'What the Panthers Actually Were',
+      href:'thread-black-panthers.html', meta:'Thread · 1966–1982 · Politics & Resistance',
+      excerpt:'The Black Panther Party operated free breakfast programs, medical clinics, and political education in 68 cities. The FBI destroyed it through assassinations, informants, and fabricated criminal charges under COINTELPRO. Fred Hampton was killed at 21.' },
+
+    { type:'thread', title:'After the Panthers: The Origins of the Crips and Bloods',
+      href:'thread-gangs.html', meta:'Thread · 1969–1971 · Urban History',
+      excerpt:'The Crips and Bloods emerged in Los Angeles in the years immediately after the Black Panthers were destroyed by COINTELPRO. This thread traces the direct causal line from political organization to street organization.' },
+
+    { type:'thread', title:'The Right to Defend: Black Organized Self-Defense',
+      href:'thread-self-defense.html', meta:'Thread · 1892–1982 · Resistance & Violence',
+      excerpt:'Black Americans organized armed self-defense against mob violence — from Ida B. Wells\'s call to arms to the Deacons for Defense to the Panthers. This history was criminalized and erased from the civil rights narrative.' },
+
+    { type:'thread', title:'The Great Migration: Six Million Leave the South',
+      href:'thread-great-migration.html', meta:'Thread · 1910–1970 · Migration & Labor',
+      excerpt:'Six million Black Americans fled Southern segregation and racial terror for Northern factories between 1910 and 1970. Northern racism was waiting — in housing covenants, union exclusion, and redlined neighborhoods.' },
+
+    { type:'thread', title:'Spectacle and Terror: Lynching as American Policy',
+      href:'thread-lynching.html', meta:'Thread · 1877–1950 · Violence & Terror',
+      excerpt:'Between 1877 and 1950, at least 4,400 Black Americans were lynched in front of crowds. Photographs were sold as postcards. No one was convicted. Lynching was not extrajudicial — it was the justice system.' },
+
+    { type:'thread', title:'Separate Was Never Equal: Black Education in America',
+      href:'thread-education.html', meta:'Thread · 1865–Present · Education & Inequality',
+      excerpt:'From Reconstruction to today, the American education system was designed to perpetuate racial inequality — through underfunded segregated schools, standardized tests designed to codify race, and school-to-prison pipeline policies.' },
+
+    { type:'thread', title:'HBCUs: Founded Under Exclusion',
+      href:'thread-hbcus.html', meta:'Thread · 1837–1954 · Education & Institution',
+      excerpt:'Historically Black colleges were founded because every American university refused to admit Black students. They became the foundation of Black intellectual and professional life, producing most of America\'s Black doctors, lawyers, and engineers.' },
+
+    { type:'thread', title:'Gridiron Separate and Unequal: HBCU Football',
+      href:'thread-hbcu-football.html', meta:'Thread · 1892–Present · Sports & Education',
+      excerpt:'HBCU football produced some of the greatest athletes in American history while operating on a fraction of white college football\'s resources. Integration of major conferences drained HBCU talent without compensation.' },
+
+    { type:'thread', title:'Shut Up and Play',
+      href:'thread-black-athletes.html', meta:'Thread · 1936–Present · Sports & Politics',
+      excerpt:'Black athletes have been told to "shut up and play" since Jesse Owens was denied a White House reception. This thread documents their political resistance — from Jack Johnson to Jackie Robinson to Muhammad Ali to Colin Kaepernick.' },
+
+    { type:'thread', title:'The Negro Leagues: Black Baseball',
+      href:'thread-negro-leagues.html', meta:'Thread · 1920–1960 · Sports & Segregation',
+      excerpt:'The Negro Leagues produced Josh Gibson, Satchel Paige, and some of baseball\'s greatest players. When MLB integrated, it signed players without compensation and let the leagues collapse — eliminating Black-owned enterprises worth millions.' },
+
+    { type:'thread', title:'The Black Press: The Counter-Record',
+      href:'thread-black-press.html', meta:'Thread · 1827–Present · Media & Journalism',
+      excerpt:'The Black press documented what mainstream media ignored: lynching, segregation, police violence, and Black resistance and achievement. 200 newspapers built a parallel information infrastructure that the government worked to suppress.' },
+
+    { type:'thread', title:'How America Images Blackness',
+      href:'thread-media.html', meta:'Thread · 1619–Present · Media & Representation',
+      excerpt:'American media has consistently portrayed Black people as criminal, dangerous, and deserving of punishment — from minstrelsy to Birth of a Nation to nightly news crime coverage to hip-hop vilification.' },
+
+    { type:'thread', title:'The Bombed Church: The Black Church in America',
+      href:'thread-black-church.html', meta:'Thread · 1750–Present · Religion & Resistance',
+      excerpt:'The Black church has been a center of political organizing, mutual aid, and spiritual resistance since its formation. It has also been a target — from plantation laws banning Black worship to the 1963 Birmingham bombing to the 2015 Charleston massacre.' },
+
+    { type:'thread', title:'Twice Invisible: Black Women\'s Labor, Bodies, and Resistance',
+      href:'thread-black-women.html', meta:'Thread · 1619–Present · Gender & Labor',
+      excerpt:'Black women\'s labor was enslaved, then devalued. Their bodies were medically experimented on. Their political organizing — for suffrage, civil rights, and today\'s movements — has been continuously erased from historical record.' },
+
+    { type:'thread', title:'The Body as Evidence: Black Health Disparities from Slavery to the Present',
+      href:'thread-health-disparities.html', meta:'Thread · 1619–Present · Medicine & Health',
+      excerpt:'Black Americans have shorter lifespans and worse outcomes on nearly every health metric. This is not biological — it is structural. Residential segregation, environmental racism, and healthcare exclusion are measurable causes with documented history.' },
+
+    { type:'thread', title:'Why the United States Has No Universal Healthcare',
+      href:'thread-healthcare.html', meta:'Thread · 1917–Present · Healthcare & Policy',
+      excerpt:'The US rejected universal healthcare in 1917, 1945, and 2009. Each time, racial politics were central. Southern Democrats and Republicans blocked healthcare rather than guarantee it to Black Americans.' },
+
+    { type:'thread', title:'14 Million Acres: Black Farmers and the USDA',
+      href:'thread-black-farmers.html', meta:'Thread · 1865–Present · Agriculture & Dispossession',
+      excerpt:'Black farmers owned 14 million acres in 1910. Through USDA loan discrimination, foreclosure, and violence, that fell to under 2 million. The USDA was found guilty of racial discrimination. Black farmers received partial compensation 130 years later.' },
+
+    { type:'thread', title:'The First and the Punished: Haiti',
+      href:'thread-haiti.html', meta:'Thread · 1492–Present · Revolution & Imperialism',
+      excerpt:'Haiti was the first free Black nation, the only successful slave revolution in history. The United States has spent 200 years punishing it — through a $21 billion independence debt forced on Haiti by France, military occupation, CIA coups, and continued economic sabotage.' },
+
+    { type:'thread', title:'Old Slavery, New Capitalism: The Unbroken Chain of Racial Extraction',
+      href:'thread-racial-capitalism.html', meta:'Thread · 1619–Present · Economics & Extraction',
+      excerpt:'Slavery didn\'t end when capitalism began — capitalism began because of slavery. Cotton, built on enslaved labor, was the foundation of American industrial capital. The extraction system restructured but never stopped.' },
+
+    { type:'thread', title:'What Is Owed: The Reparations Question',
+      href:'thread-reparations.html', meta:'Thread · 1865–Present · Policy & Repair',
+      excerpt:'Congress has introduced H.R. 40 for 35 years without a vote. Economists have calculated what is owed. Precedents exist — Japanese internment, German Holocaust reparations, Tulsa survivors. This thread documents the case and the obstruction.' },
+
+    { type:'thread', title:'Built to Be Dismantled: The DEI Backlash',
+      href:'thread-dei.html', meta:'Thread · 2020–Present · Politics & Culture',
+      excerpt:'Corporate DEI programs were largely symbolic from the start. Their dismantling in 2023–2025 demonstrates that diversity without redistribution is spectacle — and that spectacle can be cancelled when politically convenient.' },
+
+    { type:'thread', title:'The Black Statue of Liberty',
+      href:'thread-statue-of-liberty.html', meta:'Thread · 1865–Present · Symbols & Rebranding',
+      excerpt:'The Statue of Liberty was originally conceived as a monument to abolition, modeled on a freed Black woman. The sculptor changed the design to attract American funding. The immigration rebranding came later. The original meaning was buried.' },
+
+    { type:'thread', title:'Built by Black Hands: The Inventors America Erased',
+      href:'thread-inventors.html', meta:'Thread · 1800–1900s · Technology & Erasure',
+      excerpt:'Black inventors created key components of the cotton gin, the peanut industry, the light bulb filament, blood banks, and hundreds of other technologies. Patent law, enslavement, and racial erasure stripped them of credit and wealth.' },
+
+    { type:'thread', title:'Who Black People Are: From African Civilizations to the Diaspora',
+      href:'thread-diaspora.html', meta:'Thread · Pre-1441–Present · Identity & History',
+      excerpt:'Black identity was forged across continents by the transatlantic slave trade. Understanding the diaspora — and why it is diaspora, not simply "African American" — requires understanding the rupture that created it.' },
+
+    { type:'thread', title:'The Flooded City: Five Ways Black Communities Were Displaced',
+      href:'thread-displacement.html', meta:'Thread · 1898–Present · Displacement & Erasure',
+      excerpt:'Five distinct Black communities were destroyed by flood, fire, confiscation, and development — Greenwood, Oscarville, Lake Lanier, Lake Marion, and more. Their stories were buried. In some cases, their remains are still underwater.' },
+
+    { type:'thread', title:'Black Wall Street: The Tulsa Massacre',
+      href:'thread-tulsa.html', meta:'Thread · 1921 · Massacre & Destruction',
+      excerpt:'On May 31–June 1, 1921, a white mob destroyed the Greenwood District — 35 blocks of Black-owned businesses, homes, and institutions. 300 people died. The city used airplanes. No one was convicted. The city refused reparations for a century.' },
+
+    { type:'thread', title:'Oscarville, Georgia: The Racial Cleansing of Forsyth County',
+      href:'thread-oscarville.html', meta:'Thread · 1912 · Massacre & Displacement',
+      excerpt:'Forsyth County was violently emptied of its 1,000 Black residents in 1912 after a white woman was assaulted. The county remained nearly all-white — a "sundown county" — until the 1990s. The land seized from Black families was never returned.' },
+
+    { type:'thread', title:'Lake Lanier: Atlanta\'s Playground Was Built on a Racial Crime Scene',
+      href:'thread-lake-lanier.html', meta:'Thread · 1912 · Infrastructure & Displacement',
+      excerpt:'Lake Lanier — Atlanta\'s recreational reservoir — was created by flooding Forsyth County, which had been violently cleared of its Black population in 1912. The Army Corps of Engineers drowned the crime scene.' },
+
+    { type:'thread', title:'Lake Marion: The Economy Built Over Ferguson',
+      href:'thread-lake-marion.html', meta:'Thread · 1941 · Displacement & Erasure',
+      excerpt:'Lake Marion in South Carolina was built by the Santee Cooper dam project, flooding the town of Ferguson — a prosperous Black community. The New Deal funded the erasure. Descendants were not compensated.' },
+
+    { type:'thread', title:'Katrina: What the Flood Revealed',
+      href:'thread-katrina.html', meta:'Thread · 2005 · Disaster & Inequality',
+      excerpt:'Hurricane Katrina did not treat everyone equally. The levee failures were concentrated in Black neighborhoods. The federal rescue response was systematically slower in Black areas. The reconstruction rebuilt the white city.' },
+
+    // ── PEOPLE ────────────────────────────────────────────────
+    { type:'person', title:'Malcolm X',
+      href:'person-malcolm-x.html', meta:'Person · 1925–1965 · United States',
+      excerpt:'el-Hajj Malik el-Shabazz — raised in a Garveyite household targeted by the KKK, orphaned by state violence, imprisoned at 20, transformed by Islam in prison, rose to become the Nation of Islam\'s national voice, made the Hajj in 1964, founded the OAAU, and was assassinated at 39. COINTELPRO. Black nationalism. By any means necessary.' },
+
+    { type:'person', title:'Mansa Musa I',
+      href:'person-mansa-musa.html', meta:'Person · c. 1280–1337 · Mali Empire',
+      excerpt:'Emperor of the Mali Empire and considered the wealthiest individual in recorded history. His 1324 pilgrimage to Mecca — a 60,000-person caravan distributing gold — caused Mediterranean inflation for a decade and announced the scale of pre-colonial African civilization to the world.' },
+
+    { type:'person', title:'Queen Nzinga of Ndongo',
+      href:'person-queen-nzinga.html', meta:'Person · 1583–1663 · Angolan Resistance',
+      excerpt:'Queen Nzinga resisted Portuguese colonization and the transatlantic slave trade for three decades through diplomatic genius and military leadership. She negotiated directly with the Portuguese governor, built military alliances, and led armies into battle into her 60s.' },
+
+    { type:'person', title:'Askia Mohammed I',
+      href:'person-askia-mohammed.html', meta:'Person · 1443–1538 · Songhai Empire',
+      excerpt:'Askia Mohammed I ruled the Songhai Empire at its peak and transformed Timbuktu into the Islamic world\'s greatest center of scholarship — 25,000 students, 700 manuscripts, and the University of Sankore. He represents the intellectual tradition the slave trade destroyed.' },
+
+    { type:'person', title:'Mansa Musa',
+      href:'person-mansa-musa.html', meta:'Person · c. 1280–1337 · Mali Empire',
+      excerpt:'Emperor of the Mali Empire, whose 1324 pilgrimage to Mecca — the wealthiest individual journey in recorded history — demonstrated the scale of pre-colonial African civilization to Europe and the Arab world.' },
+
+    { type:'person', title:'Frederick Douglass',
+      href:'explore.html', meta:'Person · 1818–1895 · Abolitionism',
+      excerpt:'Abolitionist, orator, and writer whose firsthand accounts of slavery provided primary testimony for the causal chain from enslavement to post-war exclusion. His break with Lincoln over the pace of emancipation anticipated debates that persist today.' },
+
+    { type:'person', title:'Ida B. Wells',
+      href:'person-ida-wells.html', meta:'Person · 1862–1931 · Journalism & Anti-lynching',
+      excerpt:'Journalist and anti-lynching crusader who documented the use of racial terror as an economic and political control mechanism after Reconstruction. Her investigative work proved that lynching was not about crime — it was about eliminating Black economic competition.' },
+
+    { type:'person', title:'Fannie Lou Hamer',
+      href:'person-fannie-lou-hamer.html', meta:'Person · 1917–1977 · Voting Rights & Organizing',
+      excerpt:'Sharecropper turned civil rights leader who was beaten, jailed, and sterilized without consent for registering to vote. Her 1964 Democratic National Convention testimony — broadcast and then suppressed by LBJ — is among the most powerful political speeches in American history.' },
+
+    { type:'person', title:'Thurgood Marshall',
+      href:'person-thurgood-marshall.html', meta:'Person · 1908–1993 · Law & Civil Rights',
+      excerpt:'Lead attorney in Brown v. Board of Education (1954) and the first Black Supreme Court Justice. Marshall won 29 of 32 cases before the Supreme Court, dismantling the legal architecture of Jim Crow before it was rebuilt through mass incarceration.' },
+
+    { type:'person', title:'Charles Hamilton Houston',
+      href:'person-charles-hamilton-houston.html', meta:'Person · 1895–1950 · Law & Education',
+      excerpt:'The architect of the legal strategy that ended de jure segregation. Houston trained Thurgood Marshall and designed the NAACP\'s decades-long campaign to dismantle Plessy v. Ferguson. He died five years before Brown. Marshall called him "the man who killed Jim Crow."' },
+
+    { type:'person', title:'Sundiata Keita',
+      href:'person-sundiata-keita.html', meta:'Person · c. 1217–c. 1255 · Mali Empire',
+      excerpt:'Founder of the Mali Empire, who united the Mandinka people and defeated the Sosso Empire to create one of the largest political entities of the 13th century. His story — the Lion King of Mali — survived 800 years in oral tradition.' },
+
+    { type:'person', title:'Ira Katznelson',
+      href:'person-ira-katznelson.html', meta:'Person · Scholar · New Deal & Racial Policy',
+      excerpt:'Political scientist whose book "When Affirmative Action Was White" documented how the New Deal and GI Bill were designed to exclude Black Americans through Southern Democratic control of Congressional committees.' },
+
+    { type:'person', title:'Richard Rothstein',
+      href:'person-richard-rothstein.html', meta:'Person · Scholar · Housing & Segregation',
+      excerpt:'Author of "The Color of Law," which documented that residential segregation was not de facto but de jure — created by explicit federal, state, and local policy. His work is the primary source for understanding redlining as government action, not market outcome.' },
+
+    // ── POLICIES ──────────────────────────────────────────────
+    { type:'policy', title:'Home Owners\' Loan Corporation (HOLC), 1933',
+      href:'explore.html', meta:'Policy · 1933 · Federal Housing',
+      excerpt:'Created neighborhood security maps grading areas A–D. Black neighborhoods were graded D (red) regardless of condition, making them ineligible for federally backed mortgage insurance. The practice became known as redlining.' },
+
+    { type:'policy', title:'FHA Underwriting Manual, 1938',
+      href:'explore.html', meta:'Policy · 1938 · Federal Housing Administration',
+      excerpt:'Institutionalized redlining in the federal mortgage guarantee program, explicitly citing "inharmonious racial groups" as grounds for denying insurance in Black neighborhoods. Set the template for 30 years of federally guaranteed segregation.' },
+
+    { type:'policy', title:'GI Bill (Servicemen\'s Readjustment Act), 1944',
+      href:'thread-gi-bill.html', meta:'Policy · 1944 · Congress',
+      excerpt:'Built the white middle class through home loans, college funding, and business grants — administered through local banks and institutions that excluded Black veterans. The largest affirmative action program in American history. For white people only.' },
+
+    { type:'policy', title:'Fair Housing Act, 1968',
+      href:'explore.html', meta:'Policy · 1968 · Civil Rights',
+      excerpt:'Prohibited future housing discrimination but could not undo 35 years of accumulated wealth exclusion. The racial homeownership gap is wider today than it was in 1968. Enforcement has been consistently underfunded.' },
+
+    { type:'policy', title:'Anti-Drug Abuse Act, 1986',
+      href:'thread-war-on-drugs.html', meta:'Policy · 1986 · Congress',
+      excerpt:'Established 100:1 crack-to-powder cocaine sentencing disparity, disproportionately targeting Black communities. Reduced to 18:1 by the Fair Sentencing Act (2010) — but not retroactively.' },
+
+    { type:'policy', title:'Black Codes, 1865',
+      href:'explore.html', meta:'Policy · 1865 · Southern States',
+      excerpt:'Laws passed immediately after emancipation that re-imposed forced labor through vagrancy, apprenticeship, and anti-enticement statutes. Made it illegal for Black people to be unemployed, then gave employers the labor of those convicted. The legal foundation for convict leasing.' },
+
+    { type:'policy', title:'13th Amendment — The Exception Clause, 1865',
+      href:'thread-mass-incarceration.html', meta:'Policy · 1865 · Constitution',
+      excerpt:'The 13th Amendment abolished slavery "except as a punishment for crime." Southern states immediately passed Black Codes to criminalize Black existence and reactivate forced labor through the prison system. The exception was the design.' },
+
+    { type:'policy', title:'Compromise of 1877',
+      href:'thread-lily-white.html', meta:'Policy · 1877 · Reconstruction',
+      excerpt:'The backroom deal that ended Reconstruction — Republicans awarded the disputed 1876 presidential election to Hayes; Democrats got federal troops withdrawn from the South. Black Americans lost all federal protection overnight. Reconstruction\'s promise died in a hotel room.' },
+
+    // ── EVENTS ────────────────────────────────────────────────
+    { type:'event', title:'Fort Pillow Massacre, 1864',
+      href:'today.html', meta:'Event · April 12, 1864 · Civil War',
+      excerpt:'Confederate forces under Nathan Bedford Forrest massacred Black Union soldiers after they surrendered at Fort Pillow, Tennessee. Became a rallying cry for Black military service and civil rights. Forrest later founded the Ku Klux Klan.' },
+
+    { type:'event', title:'Tulsa Race Massacre, 1921',
+      href:'thread-tulsa.html', meta:'Event · May 31–June 1, 1921 · Tulsa, Oklahoma',
+      excerpt:'The destruction of Greenwood ("Black Wall Street"), one of the wealthiest Black communities in America, by a white mob with tacit government support — including use of aircraft. Up to 300 killed. No one convicted. City governments blocked reparations for a century.' },
+
+    { type:'event', title:'Reconstruction, 1865–1877',
+      href:'explore.html', meta:'Event · 1865–1877 · Post-Civil War',
+      excerpt:'The period of federal effort to integrate formerly enslaved people into American civic life — 22 Black congressmen, land redistribution proposals, constitutional amendments. Its violent termination by the Compromise of 1877 established the framework for Jim Crow.' },
+
+    { type:'event', title:'The Great Migration, 1910–1970',
+      href:'thread-great-migration.html', meta:'Event · 1910–1970 · Migration',
+      excerpt:'Six million Black Americans fled the South to escape racial terror and seek economic opportunity. Their arrival in Northern cities triggered white flight, redlining, and accelerated residential segregation.' },
+
+    { type:'event', title:'Bacon\'s Rebellion, 1676',
+      href:'thread-invention-of-race.html', meta:'Event · 1676 · Colonial Virginia',
+      excerpt:'The multiracial uprising of indentured servants that terrified the planter class and directly led to the invention of race as a legal category — elevating poor white colonists above Black and Indigenous laborers to prevent future interracial class solidarity.' },
+
+    { type:'event', title:'Haitian Revolution, 1791–1804',
+      href:'thread-haiti.html', meta:'Event · 1791–1804 · Saint-Domingue',
+      excerpt:'The only successful slave revolution in history. Enslaved Haitians defeated Napoleon\'s army and established the first free Black republic. France forced Haiti to pay $21 billion in today\'s dollars as "reparations" to slaveholders for their lost property.' },
+
+    { type:'event', title:'March on Washington, 1963',
+      href:'thread-civil-rights.html', meta:'Event · August 28, 1963 · Washington D.C.',
+      excerpt:'250,000 people gathered at the National Mall — the largest political demonstration in American history to that point. The march\'s demands included jobs, fair wages, and an end to discrimination. The economic demands were largely ignored by history.' },
+
+    { type:'event', title:'COINTELPRO, 1956–1971',
+      href:'thread-black-panthers.html', meta:'Event · 1956–1971 · FBI Program',
+      excerpt:'The FBI\'s Counter Intelligence Program systematically targeted Black political organizations — the NAACP, SNCC, the Black Panther Party, and Martin Luther King Jr. — through surveillance, infiltration, fabricated charges, and assassination.' },
+
+    // ── PLACES ────────────────────────────────────────────────
+    { type:'place', title:'Greenwood District, Tulsa (Black Wall Street)',
+      href:'thread-tulsa.html', meta:'Place · Tulsa, Oklahoma · 1906–1921',
+      excerpt:'The wealthiest Black community in America before its destruction in the 1921 Tulsa Race Massacre. 35 blocks, 600 businesses, hospitals, schools, and law offices. A case study in how Black wealth accumulation was systematically targeted and destroyed.' },
+
+    { type:'place', title:'Timbuktu, Mali Empire',
+      href:'thread-african-empires.html', meta:'Place · Mali Empire · c. 1300–1591',
+      excerpt:'Center of Islamic scholarship and trade in the Mali and Songhai empires — 25,000 students, the University of Sankore, and over 700,000 manuscripts. Its intellectual tradition was disrupted by the Moroccan invasion of 1591 and the subsequent slave trade.' },
+
+    { type:'place', title:'Córdoba, Al-Andalus',
+      href:'thread-moors.html', meta:'Place · Iberia · 700s–1031',
+      excerpt:'Capital of Moorish Spain and the most advanced city in medieval Europe. Population of 500,000 with 70 libraries, paved streets, and street lighting when London had 15,000 people and no sewers. Its intellectual tradition preserved and advanced Greek philosophy for Europe.' },
+
+    { type:'place', title:'Forsyth County, Georgia',
+      href:'thread-oscarville.html', meta:'Place · Georgia · 1912–Present',
+      excerpt:'Forsyth County was violently emptied of its 1,000 Black residents in 1912. The perpetrators were never prosecuted. The county became a sundown county, remaining 99% white into the 1980s. The land seized from Black families was never returned.' },
+
+    // ── MAPS ──────────────────────────────────────────────────
+    { type:'map', title:'Transatlantic Slave Trade Routes',
+      href:'maps.html', meta:'Map · 1500–1900',
+      excerpt:'Visualizes the scale and geography of the transatlantic slave trade — 12.5 million departures, major ports, routes, and mortality at sea across four centuries.' },
+
+    { type:'map', title:'HOLC Redlining Maps, 1935–1940',
+      href:'maps.html', meta:'Map · 1935–1940',
+      excerpt:'The original HOLC security maps overlaid on modern cities, showing the direct spatial relationship between redlined neighborhoods and current racial wealth, health, and environmental outcomes.' },
   ];
 
   // ── THEME ─────────────────────────────────────────────────
