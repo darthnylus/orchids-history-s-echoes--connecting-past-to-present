@@ -1540,6 +1540,7 @@ input, textarea, select { font-family: inherit; }
   background-position: center top;
   opacity: 0.7;
   transition: transform var(--duration-slow);
+  will-change: transform;
 }
 
 .object-card:hover .object-card__image-bg { transform: scale(1.05); }
@@ -2885,6 +2886,7 @@ input, textarea, select { font-family: inherit; }
 .reveal {
   opacity: 0;
   transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  will-change: opacity, transform;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -2894,6 +2896,7 @@ input, textarea, select { font-family: inherit; }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto; /* release compositor layer once animation is done */
 }
 
 /* Disable all non-essential animations for users who prefer reduced motion */
@@ -2917,4 +2920,22 @@ input, textarea, select { font-family: inherit; }
 
 @media (min-width: 768px) {
   .hide-desktop { display: none !important; }
+}
+
+/* ============================================================
+   PRINT — global (applies to all pages)
+   ============================================================ */
+@media print {
+  .site-nav,
+  .utility-bar,
+  .mobile-nav,
+  .search-overlay,
+  .site-footer,
+  .hero-scroll-hint { display: none !important; }
+
+  * { background: #fff !important; color: #000 !important; box-shadow: none !important; }
+  body { font-size: 12pt; line-height: 1.6; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  img { max-width: 100% !important; }
 }

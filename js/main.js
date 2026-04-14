@@ -357,7 +357,7 @@ function initThreadSteps() {
   // Start auto-advance when section enters viewport (only if not manually paused)
   const threadSection = $('#follow-thread');
   if (threadSection && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
+    const ioSteps = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !manuallyPaused) {
           startAutoAdvance();
@@ -366,7 +366,8 @@ function initThreadSteps() {
         }
       });
     }, { threshold: 0.3 });
-    io.observe(threadSection);
+    ioSteps.observe(threadSection);
+    window.addEventListener('pagehide', () => { ioSteps.disconnect(); stopAutoAdvance(); }, { once: true });
   }
 }
 
@@ -382,11 +383,11 @@ function initScrollReveal() {
     return;
   }
 
-  const io = new IntersectionObserver((entries) => {
+  const ioReveal = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
+        ioReveal.unobserve(entry.target);
       }
     });
   }, {
@@ -394,7 +395,9 @@ function initScrollReveal() {
     rootMargin: '0px 0px -60px 0px'
   });
 
-  $$('.reveal').forEach(el => io.observe(el));
+  $$('.reveal').forEach(el => ioReveal.observe(el));
+  // Disconnect once all items are revealed (self-cleaning)
+  window.addEventListener('pagehide', () => ioReveal.disconnect(), { once: true });
 }
 
 initScrollReveal();
@@ -406,7 +409,7 @@ function initNavShadow() {
   const nav = $('.site-nav');
   if (!nav) return;
 
-  const io = new IntersectionObserver((entries) => {
+  const ioNav = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       nav.style.boxShadow = entry.isIntersecting
         ? 'none'
@@ -418,7 +421,8 @@ function initNavShadow() {
   const sentinel = document.createElement('div');
   sentinel.style.cssText = 'position:absolute;top:1px;left:0;height:1px;width:1px;pointer-events:none;';
   document.body.insertBefore(sentinel, document.body.firstChild);
-  io.observe(sentinel);
+  ioNav.observe(sentinel);
+  window.addEventListener('pagehide', () => ioNav.disconnect(), { once: true });
 }
 
 initNavShadow();

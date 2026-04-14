@@ -103,3 +103,59 @@
 .source-cite {
   position: relative;
 }
+
+/* ============================================================
+   PRINT STYLESHEET
+   Optimised for printing thread pages and long-form articles.
+   ============================================================ */
+@media print {
+  /* Hide chrome */
+  .site-nav,
+  .utility-bar,
+  .mobile-nav,
+  .search-overlay,
+  .reading-progress,
+  .chapter-nav,
+  .thread-page-sidebar,
+  .thread-bottom-cta,
+  .site-footer,
+  .hero-scroll-hint,
+  [aria-label="Thread navigation"] { display: none !important; }
+
+  /* Reset backgrounds */
+  * { background: #fff !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+
+  /* Readable typography */
+  body { font-size: 12pt; line-height: 1.6; font-family: Georgia, serif; }
+  h1 { font-size: 24pt; margin-bottom: 12pt; }
+  h2 { font-size: 18pt; margin-bottom: 8pt; }
+  h3 { font-size: 14pt; margin-bottom: 6pt; }
+
+  /* Full-width layout */
+  .thread-page-layout,
+  .thread-layout,
+  .container { display: block !important; width: 100% !important; max-width: 100% !important; }
+
+  /* Show URLs for external links */
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555 !important; }
+
+  /* Avoid page breaks inside key sections */
+  .chapter,
+  .entry-item,
+  .stat-callout,
+  .pull-quote,
+  .evidence-box { page-break-inside: avoid; break-inside: avoid; }
+
+  /* Reveal all scroll-hidden elements */
+  .reveal { opacity: 1 !important; transform: none !important; }
+
+  /* Images */
+  img { max-width: 100% !important; page-break-inside: avoid; }
+
+  /* Pull quotes */
+  .pull-quote { border-left: 3pt solid #000 !important; padding-left: 12pt; margin: 12pt 0; }
+
+  /* Callout boxes */
+  .stat-callout,
+  .evidence-box { border: 1pt solid #ccc !important; padding: 8pt; margin: 8pt 0; }
+}

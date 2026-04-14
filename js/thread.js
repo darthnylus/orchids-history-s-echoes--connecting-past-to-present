@@ -90,19 +90,20 @@ document.querySelectorAll('.chapter-nav__item').forEach(item => {
    REVEAL CHAPTERS ON SCROLL
    ========================================================= */
 if ('IntersectionObserver' in window) {
-  const io = new IntersectionObserver((entries) => {
+  const ioChapters = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
+        ioChapters.unobserve(entry.target);
       }
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -80px 0px' });
 
   document.querySelectorAll('.chapter, .stat-callout, .pull-quote, .evidence-box, .causal-chain, .relations-block').forEach(el => {
     el.classList.add('reveal');
-    io.observe(el);
+    ioChapters.observe(el);
   });
+  window.addEventListener('pagehide', () => ioChapters.disconnect(), { once: true });
 }
 
 /* =========================================================
