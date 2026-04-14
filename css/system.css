@@ -566,6 +566,7 @@ input, textarea, select { font-family: inherit; }
   inset: 0;
   background: rgba(13,13,13,.95);
   backdrop-filter: blur(8px);
+  contain: layout paint;
   z-index: var(--z-modal);
   display: grid;
   place-items: start center;
@@ -841,6 +842,7 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   backdrop-filter: blur(4px);
+  contain: layout paint;
   display: none;
 }
 
@@ -995,7 +997,7 @@ input, textarea, select { font-family: inherit; }
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: all var(--duration-normal) var(--ease-out);
+  transition: border-color var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
   text-align: left;
 }
 
@@ -1236,7 +1238,7 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--radius-pill);
   font-size: 11px;
   color: var(--ink-400);
-  transition: all var(--duration-fast);
+  transition: border-color var(--duration-fast), color var(--duration-fast);
 }
 
 .thread-step__tag:hover {
@@ -1600,7 +1602,7 @@ input, textarea, select { font-family: inherit; }
   background: var(--color-thread-bg);
   color: var(--color-thread-dark);
   border: 1px solid rgba(160, 75, 48, .2);
-  transition: all var(--duration-fast);
+  transition: background var(--duration-fast), color var(--duration-fast), border-color var(--duration-fast);
 }
 
 .thread-tag:hover {
@@ -1761,7 +1763,7 @@ input, textarea, select { font-family: inherit; }
   padding: var(--space-7);
   border: 1px solid rgba(255,255,255,.07);
   border-radius: var(--radius-lg);
-  transition: all var(--duration-normal) var(--ease-out);
+  transition: background var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
   background: rgba(255,255,255,.02);
 }
 
@@ -1849,7 +1851,7 @@ input, textarea, select { font-family: inherit; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  transition: all var(--duration-normal) var(--ease-out);
+  transition: border-color var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
 }
 
 .source-card:hover {
@@ -1925,7 +1927,7 @@ input, textarea, select { font-family: inherit; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all var(--duration-normal) var(--ease-out);
+  transition: box-shadow var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
 }
 
 .editorial-card:hover {
@@ -2061,7 +2063,7 @@ input, textarea, select { font-family: inherit; }
   font-weight: var(--weight-semibold);
   color: var(--color-accent-dark);
   border-bottom: 1px solid transparent;
-  transition: all var(--duration-fast);
+  transition: border-color var(--duration-fast), color var(--duration-fast);
 }
 
 .view-all:hover {
@@ -2128,7 +2130,7 @@ input, textarea, select { font-family: inherit; }
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  transition: all var(--duration-fast);
+  transition: background var(--duration-fast), color var(--duration-fast), border-color var(--duration-fast);
 }
 
 .footer-btn--primary {
@@ -2615,7 +2617,7 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--radius-pill);
   font-size: var(--type-sm);
   color: var(--color-text-secondary);
-  transition: all var(--duration-fast);
+  transition: border-color var(--duration-fast), color var(--duration-fast), background var(--duration-fast);
 }
 
 .relation-link:hover {

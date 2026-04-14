@@ -23,8 +23,8 @@
   <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:64px}.utility-bar{background:#0d0d0d;min-height:36px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="preload" href="css/system.css" as="style" />
   <link rel="stylesheet" href="css/system.css" />
   <style>
@@ -887,7 +887,10 @@
 
       <a href="thread.html" class="thread-card thread-card--has-img reveal" data-domain="housing education">
         <div class="thread-card__img" aria-hidden="true">
-          <img src="images/holc-redlining-philadelphia.jpg" alt="1930s HOLC redlining map of Philadelphia showing color-coded neighborhood grades" loading="lazy" />
+          <picture>
+            <source type="image/webp" srcset="images/holc-redlining-philadelphia-800.webp 800w, images/holc-redlining-philadelphia.webp 1600w" sizes="(max-width:640px) 100vw, 1600px" />
+            <img src="images/holc-redlining-philadelphia.jpg" alt="1930s HOLC redlining map of Philadelphia showing color-coded neighborhood grades" width="1600" height="2046" loading="lazy" />
+          </picture>
         </div>
         <span class="thread-card__domain">Housing &amp; Wealth</span>
         <h2 class="thread-card__title">From Redlining to the Racial Wealth Gap</h2>
@@ -932,7 +935,10 @@
 
       <a href="thread-transatlantic-slave-trade.html" class="thread-card thread-card--has-img reveal" data-domain="labor">
         <div class="thread-card__img" aria-hidden="true">
-          <img src="images/slave-ship-brookes.jpg" alt="Diagram of the slave ship Brookes showing the layout of enslaved people, published by abolitionists in 1788" loading="lazy" />
+          <picture>
+            <source type="image/webp" srcset="images/slave-ship-brookes-800.webp 800w, images/slave-ship-brookes.webp 1400w" sizes="(max-width:640px) 100vw, 1400px" />
+            <img src="images/slave-ship-brookes.jpg" alt="Diagram of the slave ship Brookes showing the layout of enslaved people, published by abolitionists in 1788" width="1400" height="1774" loading="lazy" />
+          </picture>
         </div>
         <span class="thread-card__domain">Origins &amp; Labor</span>
         <h2 class="thread-card__title">The Rupture: The Transatlantic Slave Trade, 1441–1808</h2>
@@ -1479,7 +1485,10 @@
 
       <a href="thread-black-athletes.html" class="thread-card thread-card--has-img reveal" data-domain="sports culture protest history">
         <div class="thread-card__img" aria-hidden="true">
-          <img src="images/smith-carlos-1968-olympics.jpg" alt="Tommie Smith and John Carlos raise black-gloved fists on the 1968 Mexico City Olympic podium" loading="lazy" />
+          <picture>
+            <source type="image/webp" srcset="images/smith-carlos-1968-olympics.webp" />
+            <img src="images/smith-carlos-1968-olympics.jpg" alt="Tommie Smith and John Carlos raise black-gloved fists on the 1968 Mexico City Olympic podium" width="685" height="1024" loading="lazy" />
+          </picture>
         </div>
         <span class="thread-card__domain">Athletics · Protest · Punishment</span>
         <h2 class="thread-card__title">Shut Up and Play: Ali, Kaepernick, and the Politics of Black Athletic Protest</h2>
@@ -1496,7 +1505,10 @@
 
       <a href="thread-hbcu-football.html" class="thread-card thread-card--has-img reveal" data-domain="sports education history">
         <div class="thread-card__img" aria-hidden="true">
-          <img src="images/hbcu-football-1920.jpg" alt="New Orleans University HBCU football team, 1920" loading="lazy" />
+          <picture>
+            <source type="image/webp" srcset="images/hbcu-football-1920.webp" />
+            <img src="images/hbcu-football-1920.jpg" alt="New Orleans University HBCU football team, 1920" width="507" height="390" loading="lazy" />
+          </picture>
         </div>
         <span class="thread-card__domain">Sports · Segregation · Resilience</span>
         <h2 class="thread-card__title">Gridiron Separate and Unequal: The NFL's Color Ban and the HBCU Football Culture They Couldn't Stop</h2>
@@ -1513,7 +1525,10 @@
 
       <a href="thread-negro-leagues.html" class="thread-card thread-card--has-img reveal" data-domain="sports history segregation">
         <div class="thread-card__img" aria-hidden="true">
-          <img src="images/negro-league-allstar-1936.jpg" alt="1936 Negro League East-West All-Star Game at Comiskey Park, Chicago" loading="lazy" />
+          <picture>
+            <source type="image/webp" srcset="images/negro-league-allstar-1936-800.webp 800w, images/negro-league-allstar-1936.webp 1599w" sizes="(max-width:640px) 100vw, 1599px" />
+            <img src="images/negro-league-allstar-1936.jpg" alt="1936 Negro League East-West All-Star Game at Comiskey Park, Chicago" width="1599" height="900" loading="lazy" />
+          </picture>
         </div>
         <span class="thread-card__domain">Baseball · Segregation · Erasure</span>
         <h2 class="thread-card__title">The Negro Leagues: The Greatest Baseball Never Seen by White America</h2>

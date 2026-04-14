@@ -17,8 +17,8 @@
   <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:64px}.utility-bar{background:#0d0d0d;min-height:36px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="preload" href="css/system.css" as="style" />
   <link rel="stylesheet" href="css/system.css" />
   <link rel="stylesheet" href="css/home.css" />
@@ -282,7 +282,10 @@
 
         <article class="civ-card" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
-            <img src="images/great-mosque-djenne.jpg" alt="Great Mosque of Djenné, Mali — hallmark of West African Sahelian architecture" loading="lazy" />
+            <picture>
+            <source type="image/webp" srcset="images/great-mosque-djenne-800.webp 800w, images/great-mosque-djenne.webp 1024w" sizes="(max-width:640px) 100vw, 1024px" />
+              <img src="images/great-mosque-djenne.jpg" alt="Great Mosque of Djenné, Mali — hallmark of West African Sahelian architecture" width="1024" height="768" loading="lazy" />
+            </picture>
             <span class="civ-card__thumb-caption">Great Mosque of Djenné</span>
           </div>
           <div class="civ-card__inner">
@@ -314,7 +317,10 @@
 
         <article class="civ-card" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
-            <img src="images/mansa-musa-catalan-atlas.jpg" alt="Mansa Musa depicted in the Catalan Atlas of 1375, holding a golden orb" loading="lazy" />
+            <picture>
+            <source type="image/webp" srcset="images/mansa-musa-catalan-atlas.webp" />
+              <img src="images/mansa-musa-catalan-atlas.jpg" alt="Mansa Musa depicted in the Catalan Atlas of 1375, holding a golden orb" width="500" height="381" loading="lazy" />
+            </picture>
             <span class="civ-card__thumb-caption">Catalan Atlas, 1375</span>
           </div>
           <div class="civ-card__inner">
@@ -346,7 +352,10 @@
 
         <article class="civ-card" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
-            <img src="images/sankore-mosque.jpg" alt="Sankore Mosque in Timbuktu, center of the University of Sankore during the Songhai Empire" loading="lazy" />
+            <picture>
+            <source type="image/webp" srcset="images/sankore-mosque-800.webp 800w, images/sankore-mosque.webp 1465w" sizes="(max-width:640px) 100vw, 1465px" />
+              <img src="images/sankore-mosque.jpg" alt="Sankore Mosque in Timbuktu, center of the University of Sankore during the Songhai Empire" width="1465" height="1046" loading="lazy" />
+            </picture>
             <span class="civ-card__thumb-caption">Sankore Mosque, Timbuktu</span>
           </div>
           <div class="civ-card__inner">
@@ -378,7 +387,10 @@
 
         <article class="civ-card" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
-            <img src="images/meroe-pyramids.jpg" alt="Nubian pyramids at Meroe, Sudan — burial site of the Kushite kings" loading="lazy" />
+            <picture>
+            <source type="image/webp" srcset="images/meroe-pyramids.webp" />
+              <img src="images/meroe-pyramids.jpg" alt="Nubian pyramids at Meroe, Sudan — burial site of the Kushite kings" width="1277" height="429" loading="lazy" />
+            </picture>
             <span class="civ-card__thumb-caption">Meroe Pyramids, Sudan</span>
           </div>
           <div class="civ-card__inner">
@@ -410,7 +422,10 @@
 
         <article class="civ-card" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
-            <img src="images/axum-obelisk.jpg" alt="Obelisk at Aksum, Ethiopia — monumental stelae of the ancient Aksumite Empire" loading="lazy" />
+            <picture>
+            <source type="image/webp" srcset="images/axum-obelisk-800.webp 800w, images/axum-obelisk.webp 1251w" sizes="(max-width:640px) 100vw, 1251px" />
+              <img src="images/axum-obelisk.jpg" alt="Obelisk at Aksum, Ethiopia — monumental stelae of the ancient Aksumite Empire" width="1251" height="1482" loading="lazy" />
+            </picture>
             <span class="civ-card__thumb-caption">Obelisk at Aksum, Ethiopia</span>
           </div>
           <div class="civ-card__inner">
@@ -442,7 +457,10 @@
 
         <article class="civ-card" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
-            <img src="images/benin-bronze-warrior.jpg" alt="Benin Bronze plaque depicting a warrior — from the Royal Palace of Benin, now held at the Metropolitan Museum of Art" loading="lazy" />
+            <picture>
+            <source type="image/webp" srcset="images/benin-bronze-warrior-800.webp 800w, images/benin-bronze-warrior.webp 1055w" sizes="(max-width:640px) 100vw, 1055px" />
+              <img src="images/benin-bronze-warrior.jpg" alt="Benin Bronze plaque depicting a warrior — from the Royal Palace of Benin, now held at the Metropolitan Museum of Art" width="1055" height="1200" loading="lazy" />
+            </picture>
             <span class="civ-card__thumb-caption">Benin Bronze, c. 16th–17th c. (Met Museum)</span>
           </div>
           <div class="civ-card__inner">
@@ -1637,6 +1655,6 @@
 <!-- =========================================================
      JAVASCRIPT
      ========================================================= -->
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
