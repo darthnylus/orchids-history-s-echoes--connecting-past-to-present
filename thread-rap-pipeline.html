@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pipeline: How Rap Was Captured and Communities Were Criminalized — Thread — Chain</title>
+  <link rel="canonical" href="https://chain.education/thread-rap-pipeline.html" />
+  <meta name="description" content="Rap music emerged from the South Bronx as a community technology. Within 20 years it was owned by four conglomerates promoting content that made mass incarceration easier to sell. The same capital stack profited from both." />
+  <meta property="og:title" content="The Pipeline: How Rap Was Captured and Communities Were Criminalized" />
+  <meta property="og:description" content="The same investors who held prison stocks controlled what urban radio played. This is not a conspiracy. It is a system." />
+  <meta property="og:type" content="article" />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:64px}.utility-bar{background:#0d0d0d;min-height:36px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+    /* Accent: indigo/violet — representing institutional power over culture */
+    :root{--acc:#7c3aed;--acc-lt:#ede9fe}
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 8% 50%,rgba(124,58,237,.18) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 92% 20%,rgba(109,40,217,.12) 0%,transparent 55%),radial-gradient(ellipse 50% 70% at 50% 100%,rgba(17,24,39,.5) 0%,transparent 50%);pointer-events:none}
+    .thread-hero__inner{position:relative;max-width:760px}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.28);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#c4b5fd;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#7c3aed}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#c4b5fd;font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap;align-items:flex-end}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .argument-bar{background:rgba(124,58,237,.06);border-top:1px solid rgba(124,58,237,.16);border-bottom:1px solid rgba(124,58,237,.16);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(124,58,237,.15);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#c4b5fd;margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    [data-theme="dark"] .argument-bar__text{color:var(--ink-200)}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#7c3aed;background:rgba(124,58,237,.10);border:1px solid rgba(124,58,237,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(124,58,237,.10);border:1px solid rgba(124,58,237,.22);color:#c4b5fd}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#a78bfa;margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    [data-theme="dark"] .entry-stats{background:var(--ink-800);border-color:var(--ink-700)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#7c3aed;line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:0.7rem;text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-6)}
+    .entry-item__body p{margin-bottom:var(--space-4)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .cbox{background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.20);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);margin-bottom:var(--space-5)}
+    [data-theme="dark"] .cbox{background:rgba(124,58,237,.08)}
+    .cbox__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#7c3aed;margin-bottom:var(--space-2)}
+    .cbox__text{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.65}
+    .cbox__text strong{color:var(--color-text-primary)}
+    .pull-quote{border-left:3px solid #7c3aed;padding:var(--space-4) var(--space-6);margin:var(--space-7) 0}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:clamp(1.125rem,2.5vw,1.375rem);font-style:italic;color:var(--color-text-primary);line-height:1.55;margin-bottom:var(--space-3)}
+    .pull-quote__attribution{font-size:var(--type-xs);font-weight:var(--weight-semibold);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:#7c3aed}
+    /* Named actors grid */
+    .actor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-bottom:var(--space-6)}
+    @media(min-width:640px){.actor-grid{grid-template-columns:repeat(3,1fr)}}
+    .actor-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4)}
+    [data-theme="dark"] .actor-card{background:var(--ink-800);border-color:var(--ink-700)}
+    .actor-card__role{font-size:0.62rem;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#7c3aed;margin-bottom:var(--space-1)}
+    .actor-card__name{font-size:var(--type-sm);font-weight:var(--weight-bold);color:var(--color-text-primary);margin-bottom:3px;line-height:1.25}
+    .actor-card__detail{font-size:0.68rem;color:var(--color-text-tertiary);line-height:1.4}
+    /* Capital stack table */
+    .stack-table{width:100%;border-collapse:collapse;margin-bottom:var(--space-6);font-size:var(--type-xs)}
+    .stack-table th{text-align:left;padding:var(--space-2) var(--space-4);background:rgba(124,58,237,.10);color:#a78bfa;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;border-bottom:2px solid rgba(124,58,237,.2)}
+    .stack-table td{padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--color-border);color:var(--color-text-secondary);vertical-align:top}
+    .stack-table td:first-child{font-weight:var(--weight-semibold);color:var(--color-text-primary);white-space:nowrap}
+    .stack-table tr:last-child td{border-bottom:none}
+    [data-theme="dark"] .stack-table td{border-bottom-color:var(--ink-700)}
+    /* Chain connector */
+    .chain-connector{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-8);margin:var(--space-12) 0}
+    .chain-connector__title{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#fff;margin-bottom:var(--space-6)}
+    .chain-connector__cta{margin-top:var(--space-6);padding-top:var(--space-6);border-top:1px solid rgba(124,58,237,.2)}
+    .chain-connector__cta p{font-size:var(--type-sm);color:var(--ink-400);margin-bottom:var(--space-3);line-height:1.6}
+    .chain-connector__cta a{color:#c4b5fd;font-weight:var(--weight-semibold)}
+    .chain-connector__cta a:hover{color:#a78bfa}
+    .chain-steps{display:flex;flex-direction:column;gap:0;position:relative}
+    .chain-step{display:grid;grid-template-columns:32px 1fr;gap:var(--space-4);align-items:start;padding-bottom:var(--space-5);position:relative}
+    .chain-step:last-child{padding-bottom:0}
+    .chain-step__line{position:absolute;left:15px;top:32px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(124,58,237,.5),rgba(124,58,237,.1))}
+    .chain-step:last-child .chain-step__line{display:none}
+    .chain-step__dot{width:32px;height:32px;border-radius:50%;border:2px solid #7c3aed;background:rgba(124,58,237,.15);color:#a78bfa;font-size:0.7rem;font-weight:var(--weight-bold);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+    .chain-step__era{font-size:0.68rem;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#7c3aed;margin-bottom:2px}
+    .chain-step__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:#fff;margin-bottom:3px}
+    .chain-step__desc{font-size:var(--type-xs);color:var(--ink-400);line-height:1.6}
+    /* Sidebar */
+    .sidebar{display:flex;flex-direction:column;gap:var(--space-5)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5)}
+    [data-theme="dark"] .sidebar-card{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--color-border)}
+    .sidebar-toc__list{list-style:none;display:flex;flex-direction:column;gap:1px}
+    .sidebar-toc__link{display:block;font-size:var(--type-xs);color:var(--color-text-secondary);padding:5px var(--space-3);border-radius:var(--radius-md);transition:color var(--duration-fast),background var(--duration-fast);text-decoration:none;line-height:1.3}
+    .sidebar-toc__link:hover{background:var(--color-surface-raised);color:var(--color-text-primary)}
+    .sidebar-toc__link.is-active{background:rgba(124,58,237,.10);color:#7c3aed;font-weight:var(--weight-semibold)}
+    .sidebar-fact__stat{font-family:var(--font-editorial);font-size:2rem;font-weight:900;color:#7c3aed;line-height:1;margin-bottom:var(--space-1)}
+    .sidebar-fact__label{font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5}
+    .sidebar-fact__divider{height:1px;background:var(--color-border);margin:var(--space-4) 0}
+    .related-thread{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);text-decoration:none}
+    .related-thread:last-child{border-bottom:none;padding-bottom:0}
+    .related-thread__num{font-size:0.68rem;font-weight:var(--weight-bold);text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary)}
+    .related-thread__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--color-text-primary);line-height:1.35}
+    .related-thread:hover .related-thread__title{color:#7c3aed}
+    /* CTA */
+    .thread-bottom-cta{background:var(--ink-900);padding:var(--space-16) 0;text-align:center}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#c4b5fd;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-5);max-width:600px;margin-left:auto;margin-right:auto}
+    .thread-bottom-cta__title em{color:#c4b5fd;font-style:normal}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-400);max-width:520px;margin:0 auto var(--space-8);line-height:1.65}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-7);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-semibold);text-decoration:none;transition:background var(--duration-fast),color var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:#7c3aed;color:#fff}
+    .thread-bottom-cta__btn--primary:hover{background:#6d28d9}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out)}
+    .reveal.is-visible{opacity:1;transform:none;will-change:auto}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Culture & Power:</strong> How the music industry and the prison industry operated as one system — and who ran both.</p>
+    <nav class="utility-bar__links"><a href="about.html" class="utility-bar__link">About</a><a href="newsletter.html" class="utility-bar__link">Newsletter</a><a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a></nav>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home"><span class="site-nav__name">Chain</span><span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links" aria-label="Primary navigation"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="page">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay"><svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span class="hide-mobile">Search</span></button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/><line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/><line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/></svg></button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search"><label for="searchInput" class="sr-only">Search Chain</label><input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off"/><button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button></form>
+    <div class="search-overlay__hints"><p class="search-overlay__hint-label">Try searching</p><a href="search.html?q=prison+industrial+complex" class="search-hint-chip">Prison industrial complex</a><a href="search.html?q=war+on+drugs" class="search-hint-chip">War on Drugs</a><a href="search.html?q=Clear+Channel" class="search-hint-chip">Clear Channel</a></div>
+  </div>
+</div>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links"><li><a href="explore.html" class="mobile-nav__link">Explore</a></li><li><a href="threads.html" class="mobile-nav__link">Threads</a></li><li><a href="maps.html" class="mobile-nav__link">Maps &amp; Timelines</a></li><li><a href="learn.html" class="mobile-nav__link">Learn</a></li><li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li><li><a href="about.html" class="mobile-nav__link">About</a></li><li><a href="donate.html" class="mobile-nav__link mobile-nav__link--cta">Donate</a></li></ul>
+  </div>
+</nav>
+
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Culture &amp; Power · 1973–Present</div>
+      <h1 class="thread-hero__title" id="heroTitle">The Pipeline:<br><em>How Rap Was Captured and Communities Were Criminalized</em></h1>
+      <p class="thread-hero__subtitle">Rap music was invented in the South Bronx as a community technology — a way to turn grief and scarcity into celebration and political speech. Within twenty years it was owned by four conglomerates, distributed through radio stations controlled by one company, and rewarded for content that made mass incarceration easier to justify. The same institutional investors held the prison stocks and the media stocks. Nobody had to hold a meeting. The incentives aligned automatically.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Period</div><div class="thread-meta-item__value">1973 – Present</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Prison population increase</div><div class="thread-meta-item__value">200K → 2.3M (1972–2020)</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Radio stations, Clear Channel</div><div class="thread-meta-item__value">40 → 1,200 (1996–2003)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text"><strong>The capture of rap music and the expansion of mass incarceration are not parallel stories. They are the same story.</strong> Both required the destruction of independent Black economic infrastructure. Both were enabled by federal legislation in the 1980s and 1990s. Both extracted value from Black communities while concentrating it in white-owned institutions. And the culture promoted by the captured music industry provided the <em>cultural alibi</em> — the story that what happened to those communities was the result of individual bad choices rather than engineered conditions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+        <div class="entry-list">
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era I · The Foundation · 1865–1973</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-13th">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates">1865</div>
+                <h2 class="entry-item__name">The 13th Amendment Exception: Slavery by Another Name</h2>
+                <div class="entry-item__location">United States Constitution</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">0</div><div class="entry-stat__label">Words debated on the exception clause</div></div>
+              <div><div class="entry-stat__num">160 yrs</div><div class="entry-stat__label">That exception has been in use</div></div>
+              <div><div class="entry-stat__num">$0.13</div><div class="entry-stat__label">Avg. hourly wage for prison labor today</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The 13th Amendment reads: "Neither slavery nor involuntary servitude, <strong>except as a punishment for crime</strong> whereof the party shall have been duly convicted, shall exist within the United States." That five-word exception — inserted with almost no congressional debate — became the constitutional architecture for 160 years of coerced Black labor.</p>
+              <p>Within months of ratification, Southern states passed Black Codes criminalizing vagrancy, unemployment, and "insolence." Freedmen were arrested, convicted, and leased to the same plantations they had just been freed from. The names changed — "convict leasing," "chain gangs," "the War on Drugs," "mandatory minimums" — but the mechanism was identical: convert Black freedom into criminal status, then extract labor under the 13th Amendment's exception.</p>
+              <p>This is the foundation that everything else rests on. The prison-for-profit industry is not a corruption of the American legal system. It is the legal system <strong>functioning as designed</strong> from the moment slavery was nominally abolished.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The 13th Amendment didn't end slavery. It privatized it."</p>
+              <div class="pull-quote__attribution">— Commonly attributed to prison abolition advocates; grounded in constitutional text</div>
+            </div>
+          </article>
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era II · The Infrastructure Is Built · 1973–1991</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-origins">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">1973–1979</div>
+                <h2 class="entry-item__name">Rap Is Born From Structural Abandonment</h2>
+                <div class="entry-item__location">South Bronx, New York City</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">600K</div><div class="entry-stat__label">South Bronx residents displaced by Robert Moses' Cross Bronx Expressway</div></div>
+              <div><div class="entry-stat__num">40%</div><div class="entry-stat__label">South Bronx unemployment rate, 1975</div></div>
+              <div><div class="entry-stat__num">$0</div><div class="entry-stat__label">Label money in hip-hop's first six years</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Rap did not emerge from prosperity. It emerged from <strong>deliberate disinvestment</strong>. Robert Moses' Cross Bronx Expressway (completed 1963) demolished 60,000 homes and displaced 600,000 residents, destroying the economic base of the South Bronx. Federal redlining had already denied mortgages and business loans for decades. Landlords, unable to sell or profit from their buildings, began burning them for insurance — 12,000 fires in the South Bronx between 1970 and 1975.</p>
+              <p>Into this landscape, DJ Kool Herc invented hip-hop at 1520 Sedgwick Avenue on August 11, 1973. He extended the breakbeat — the percussion break in a funk record — by playing two copies of the same record on two turntables. No instrument. No studio. No label. <strong>Just physics and community</strong>.</p>
+              <p>Afrika Bambaataa explicitly designed the Universal Zulu Nation as a gang violence alternative — turning territorial wars into DJ battles and b-boy competitions. The technology was a social intervention before it was ever an art form. And critically: it was ungovernable by corporate infrastructure because it required nothing corporate infrastructure could provide.</p>
+            </div>
+            <div class="cbox">
+              <div class="cbox__label">What was deliberately removed from the South Bronx before rap was born</div>
+              <p class="cbox__text"><strong>Manufacturing jobs:</strong> 600,000 lost from NYC between 1969–1977 as factories relocated to the suburbs and South. <strong>Federal housing investment:</strong> Nixon declared a moratorium on all federal housing subsidies in 1973. <strong>Youth services:</strong> NYC's fiscal crisis of 1975 closed 26 firehouses (mostly in the Bronx and Harlem), cut school budgets, and eliminated after-school programs. Rap filled the void that policy created.</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-crack">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">1981–1989</div>
+                <h2 class="entry-item__name">Crack, Iran-Contra, and the Managed Flood</h2>
+                <div class="entry-item__location">Los Angeles, CIA, Nicaragua</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">100:1</div><div class="entry-stat__label">Crack vs. powder cocaine sentencing disparity, 1986 law</div></div>
+              <div><div class="entry-stat__num">$50M</div><div class="entry-stat__label">Estimated cocaine revenue funding Contras, per Kerry Committee</div></div>
+              <div><div class="entry-stat__num">500%</div><div class="entry-stat__label">Increase in Black incarceration, 1975–1990</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The crack epidemic was not an accident of market forces. The Kerry Committee Report (1989) — a U.S. Senate investigation — documented that CIA-connected operatives allowed cocaine to flow into American cities to fund the Nicaraguan Contras. Gary Webb's 1996 <em>Dark Alliance</em> series in the San Jose Mercury News traced the supply chain directly to South Central Los Angeles, where Ricky Ross and the Crips distribution network dispersed it nationally.</p>
+              <p>The Reagan administration's response was not treatment. It was criminalization. The 1986 Anti-Drug Abuse Act established a <strong>100:1 sentencing disparity</strong> between crack cocaine (used primarily in Black communities) and powder cocaine (used primarily in white communities). Five grams of crack triggered a mandatory five-year sentence. It took 500 grams of powder to receive the same sentence. Same molecule. Racially differentiated enforcement.</p>
+              <p>The effect was mathematical: the same communities the CIA had flooded with crack were now funneling people into a prison system that was simultaneously being privatized. <strong>Corrections Corporation of America was founded in 1983. GEO Group in 1984.</strong> The supply chain and the processing facility went into business at the same moment.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"Freeway" Rick Ross moved $3 million in crack per day at his peak. He learned later that his supplier, Oscar Danilo Blandon, was working with the CIA. Ross went to prison for life. Blandon got immunity and became a DEA informant.</p>
+              <div class="pull-quote__attribution">— Gary Webb, Dark Alliance, San Jose Mercury News, 1996</div>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-privatization">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates">1983–1994</div>
+                <h2 class="entry-item__name">Prison Goes Public: CCA, GEO, and the IPO</h2>
+                <div class="entry-item__location">Nashville, TN · Boca Raton, FL · Wall Street</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">$80B</div><div class="entry-stat__label">Annual US prison industry revenue today</div></div>
+              <div><div class="entry-stat__num">$35K</div><div class="entry-stat__label">Per-prisoner annual state payment to private facilities</div></div>
+              <div><div class="entry-stat__num">8%</div><div class="entry-stat__label">Of US prisoners held in private facilities</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>Thomas Beasley and Doctor Crants</strong> founded Corrections Corporation of America in 1983 with a simple pitch to the state of Tennessee: we'll run your prisons for less than you do, and make a profit. The model worked because prison labor cost almost nothing — the 13th Amendment made it legal — and because the state was legally obligated to pay the per-diem regardless of occupancy.</p>
+              <p>CCA went public on the New York Stock Exchange in 1994. <strong>GEO Group</strong> (founded 1984 as Wackenhut Corrections) followed. Suddenly, incarceration rates were not just policy outcomes — they were <em>earnings forecasts</em>. Every mandatory minimum sentence, every three-strikes law, every drug conviction was a revenue event for publicly traded companies whose institutional investors included pension funds, university endowments, and mutual funds held by ordinary Americans.</p>
+              <p>The perverse incentive was structural: private prison companies lobbied directly for harsher sentencing laws. CCA and GEO collectively spent over $25 million on lobbying between 2000–2015. They funded the American Legislative Exchange Council (ALEC), which drafted mandatory minimum legislation adopted by state legislatures across the country. <strong>The prison industry was not a passive beneficiary of tough-on-crime politics. It was its funder.</strong></p>
+            </div>
+            <div class="cbox">
+              <div class="cbox__label">The ALEC-prison pipeline</div>
+              <p class="cbox__text">The American Legislative Exchange Council (ALEC) is a corporate-funded organization that drafts model legislation for state lawmakers. CCA and GEO Group were ALEC members. ALEC's model "Truth in Sentencing" and "Three Strikes" bills — adopted in 28 states — directly increased the prison population. The same bills that filled private prison beds were written by the companies that owned those beds and distributed to legislators who received campaign contributions from those companies. <strong>This is legal.</strong></p>
+            </div>
+          </article>
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era III · The Capture · 1988–2003</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-labels">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates">1988–1998</div>
+                <h2 class="entry-item__name">The Label Architecture: Who Owned What</h2>
+                <div class="entry-item__location">Los Angeles · New York · Nashville</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Rap's commercial breakthrough created something labels could monetize but didn't understand. The initial response was to sign acts whose content was <em>legible</em> to white A&R executives and program directors — either crossover party rap or, increasingly, content whose danger read as exotic rather than political.</p>
+              <p><strong>NWA</strong> and <strong>Public Enemy</strong> both broke in 1988. The market could hold both — truth-telling and provocation — because both moved units. But the infrastructure rewarded one and quietly strangled the other. Public Enemy's label, Def Jam (founded by Rick Rubin and Russell Simmons), was distributed by CBS Records, which was acquired by Sony in 1988. Every politically radical record made on Def Jam flowed through a Japanese electronics conglomerate's distribution network. The artists had no masters, no publishing, and no leverage.</p>
+              <p>By the mid-1990s, four conglomerates controlled 80% of music distribution: <strong>Universal, Sony, Warner, and EMI</strong>. Each had absorbed independent labels that had built genuine relationships with artists and communities. The independent infrastructure — which had protected some creative autonomy — was gone.</p>
+            </div>
+
+            <div class="actor-grid">
+              <div class="actor-card">
+                <div class="actor-card__role">Interscope / Universal</div>
+                <div class="actor-card__name">Jimmy Iovine</div>
+                <div class="actor-card__detail">Signed Death Row distribution. Later co-founded Beats Electronics, sold to Apple for $3B in 2014. Now runs music at Apple.</div>
+              </div>
+              <div class="actor-card">
+                <div class="actor-card__role">Def Jam / Universal</div>
+                <div class="actor-card__name">Lyor Cohen</div>
+                <div class="actor-card__detail">Signed Public Enemy and Run-DMC. Rose to run Warner Music, then Universal. Now head of music at YouTube/Google.</div>
+              </div>
+              <div class="actor-card">
+                <div class="actor-card__role">Universal Music Group</div>
+                <div class="actor-card__name">Doug Morris</div>
+                <div class="actor-card__detail">Ran UMG for 15 years, then Sony Music. His model: acquire catalog and distribution; sign volume; drop what doesn't recoup in 18 months.</div>
+              </div>
+              <div class="actor-card">
+                <div class="actor-card__role">Death Row Records</div>
+                <div class="actor-card__name">Suge Knight</div>
+                <div class="actor-card__detail">Industrialized gangsta rap. Created the threat environment that made labels unwilling to sign anything requiring explanation. Currently serving 28 years for voluntary manslaughter.</div>
+              </div>
+              <div class="actor-card">
+                <div class="actor-card__role">Bad Boy Entertainment</div>
+                <div class="actor-card__name">Sean Combs</div>
+                <div class="actor-card__detail">Invented "shiny suit rap" — aspiration, excess, and legal cynicism as aesthetic. The content normalized exactly the lifestyle that mandatory minimums were designed to prosecute.</div>
+              </div>
+              <div class="actor-card">
+                <div class="actor-card__role">Viacom / BET</div>
+                <div class="actor-card__name">Robert Johnson</div>
+                <div class="actor-card__detail">Sold BET to Viacom in 2001 for $3B. His own co-founder, Sheila Johnson, said publicly: "I am ashamed of what we've created." The content didn't change after the sale. It got worse.</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-radio">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates">1996–2003</div>
+                <h2 class="entry-item__name">The Telecom Act and the Radio Chokepoint</h2>
+                <div class="entry-item__location">Washington D.C. · Clear Channel HQ, San Antonio TX</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">40→1,200</div><div class="entry-stat__label">Clear Channel stations, 1996–2003</div></div>
+              <div><div class="entry-stat__num">3</div><div class="entry-stat__label">Companies controlling majority of urban radio by 2003</div></div>
+              <div><div class="entry-stat__num">$0</div><div class="entry-stat__label">Compensation paid to independent artists shut out of playlists</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The Telecommunications Act of 1996, signed by <strong>Bill Clinton</strong> and lobbied through by the National Association of Broadcasters, removed the cap on how many radio stations a single company could own nationally. Before the Act: a company could own 40 stations total. After: unlimited.</p>
+              <p><strong>Lowry Mays</strong>' Clear Channel Communications immediately began acquiring stations at scale — from 40 to 1,200 in seven years. <strong>Bob Pittman</strong>, who had co-created MTV in 1981 (the network that initially refused to play Black artists until Michael Jackson forced the issue), was installed as CEO. Clear Channel installed centralized programming from corporate headquarters — one consultant in Dallas could now determine what played on urban radio in 40 cities simultaneously.</p>
+              <p>The effect on music was decisive. <strong>Payola</strong> — legal and illegal — meant labels paid for spins. Only major-label-backed acts could afford the payments. Independent labels, political artists, and regional scenes were starved of airtime. <strong>Dead Prez, Mos Def, Talib Kweli, Jean Grae, and Immortal Technique</strong> were making some of the most sophisticated political music in American history during this period. They were functionally inaudible on commercial radio.</p>
+              <p>The content that <em>did</em> get spins — content that normalized drug dealing, gun possession, and legal cynicism as aspirational — made the communities being depicted easier to prosecute. A jury that has absorbed 10,000 hours of radio content depicting Black men as criminals is not an impartial jury. The culture promoted by captured radio created the <strong>cultural preconditions for mass conviction</strong>.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"We're not in the business of providing news and information. We're not in the business of providing well-researched music. We're simply in the business of selling our customers products."</p>
+              <div class="pull-quote__attribution">— Lowry Mays, Clear Channel founder, Fortune magazine, 2003</div>
+            </div>
+          </article>
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era IV · The Shared Capital Stack · 1994–Present</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-capital">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates">1994–2020</div>
+                <h2 class="entry-item__name">The Same Investors, Both Industries</h2>
+                <div class="entry-item__location">Wall Street · Vanguard · BlackRock · Fidelity</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>There was no conspiracy meeting. There didn't need to be. What existed was something more durable: a <strong>shared portfolio</strong>.</p>
+              <p>Vanguard, BlackRock, and Fidelity are the three largest institutional investors in the United States. They hold significant positions in virtually every major publicly traded company — including <strong>Vivendi/Universal Music Group, Warner Music Group, Sony Corporation, Corrections Corporation of America (CoreCivic), and GEO Group</strong>. The same mutual funds held by teachers' pension plans and university endowments simultaneously profited from the music that promoted the lifestyle and from the prisons that prosecuted it.</p>
+              <p>This is not a moral indictment of individual fund managers. It is a description of how <strong>diversified portfolio capitalism</strong> functions: when you own everything, you profit from every outcome, including contradictory ones. The investor who holds both Warner Music and CoreCivic stock has no financial incentive to resolve the tension between those two holdings. The tension <em>is</em> the business model.</p>
+            </div>
+
+            <table class="stack-table" aria-label="Shared institutional investors across music and prison industries">
+              <thead>
+                <tr><th>Institution</th><th>Music Industry Stake</th><th>Prison Industry Stake</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Vanguard Group</td><td>Universal Music Group, Warner Music, Sony</td><td>CoreCivic, GEO Group</td></tr>
+                <tr><td>BlackRock</td><td>Universal Music Group, Warner Music</td><td>CoreCivic, GEO Group</td></tr>
+                <tr><td>Fidelity Investments</td><td>Vivendi (UMG parent), Sony</td><td>CoreCivic, GEO Group</td></tr>
+                <tr><td>State Street Global Advisors</td><td>Warner Music Group</td><td>CoreCivic</td></tr>
+              </tbody>
+            </table>
+
+            <div class="cbox">
+              <div class="cbox__label">Michael Milken and the prison finance connection</div>
+              <p class="cbox__text">Michael Milken — the junk bond king who financed the leveraged buyout wave of the 1980s, later convicted of securities fraud — was connected to the same Los Angeles entertainment finance networks that capitalized Death Row Records' distribution through Interscope. Milken personally funded early private prison bonds through Drexel Burnham Lambert. He is also a major funder of education reform organizations. His career is a single thread running from the financialization of entertainment to the financialization of incarceration to the financialization of public schooling — all three extracting value from the same communities.</p>
+            </div>
+          </article>
+
+          <article class="entry-item reveal" id="entry-alibi">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">08</div>
+              <div>
+                <div class="entry-item__dates">1992–2010</div>
+                <h2 class="entry-item__name">The Cultural Alibi: Making Criminalization Look Like Choice</h2>
+                <div class="entry-item__location">American mass media</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The most durable function of captured rap music was not economic. It was <strong>epistemic</strong>: it provided the story that explained why certain communities had the outcomes they had.</p>
+              <p>If the dominant narrative available to a white juror, a white judge, a white prosecutor, and a white legislator is that Black men in those communities <em>choose</em> drug dealing, <em>celebrate</em> gun violence, and <em>reject</em> mainstream values — a narrative reinforced by 10,000 hours of commercial radio and 500 music videos — then every prosecution becomes a moral verdict rather than a policy outcome. The defendant chose this. The community endorses it. The incarceration is justice, not extraction.</p>
+              <p>This is what sociologists call a <strong>cultural alibi</strong>: content that displaces structural explanation with individual-choice explanation. The crack epidemic was not a choice — it was a supply-chain operation with CIA fingerprints. The poverty was not a choice — it was the compounded consequence of redlining, GI Bill exclusion, convict leasing, and urban disinvestment. But the culture that commercial radio promoted, at scale, in the precise communities being targeted by mandatory minimums, <strong>made the structural story invisible and the individual-choice story ubiquitous</strong>.</p>
+              <p>Harry Belafonte spent his final decades making exactly this argument — that commercially prominent Black artists had an obligation to use their platforms politically, and that their failure to do so was not neutral but actively harmful. Jay-Z dismissed him in a verse. Which is its own data point about what the industry had successfully promoted as the correct response to political responsibility.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"They're not saying anything. I respect Jay-Z — but not those who just perform and collect money... You've got to take a stand somewhere."</p>
+              <div class="pull-quote__attribution">— Harry Belafonte, 2012</div>
+            </div>
+          </article>
+
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era V · Streaming, Algorithms &amp; the Present · 2005–Now</span><div class="era-divider__line"></div></div>
+
+          <article class="entry-item reveal" id="entry-streaming">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">09</div>
+              <div>
+                <div class="entry-item__dates">2005–Present</div>
+                <h2 class="entry-item__name">The Algorithm Completes the Capture</h2>
+                <div class="entry-item__location">Spotify, Apple Music, TikTok, YouTube</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">$0.003</div><div class="entry-stat__label">Spotify per-stream payout (avg.)</div></div>
+              <div><div class="entry-stat__num">15 sec</div><div class="entry-stat__label">TikTok audio clip unit — the new "single"</div></div>
+              <div><div class="entry-stat__num">333K</div><div class="entry-stat__label">Streams needed to earn US minimum wage monthly on Spotify</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The internet briefly looked like it would reopen the gates. MySpace and YouTube created direct artist-to-audience channels. Soulja Boy self-distributed "Crank That" in 2007 before any label touched him. The tools of distribution seemed democratized.</p>
+              <p>Then <strong>Daniel Ek</strong> launched Spotify with a payout model — fractions of a cent per stream — that made album economics irrelevant and made 90-second hooks more valuable than five-minute story songs. Then TikTok reduced the unit of rap to a <strong>15-second sound</strong>. The algorithm rewards what generates immediate engagement: novelty, provocation, aspiration-signaling. It punishes depth, narrative, and accumulated meaning — the exact qualities that made Public Enemy, Rakim, and Lauryn Hill's <em>Miseducation</em> politically transformative.</p>
+              <p>The prison industry's second act is the same: <strong>electronic monitoring, private probation, and prison phone contracts</strong> (GTL, Securus Technologies) now extract revenue from formerly incarcerated people who have been released but remain under supervision. The same communities. The same extraction. Updated delivery mechanism.</p>
+            </div>
+            <div class="cbox">
+              <div class="cbox__label">The tradition never stopped — it was just defunded</div>
+              <p class="cbox__text">Kendrick Lamar released <em>To Pimp a Butterfly</em> (2015) and <em>Mr. Morale &amp; the Big Steppers</em> (2022) — conceptual albums about Black American identity, trauma, and institutional power. He won a Pulitzer Prize. <strong>Billy Woods, Mavi, Noname, Little Simz, JID, and JPEGmafia</strong> are making the most sophisticated political rap ever recorded. They exist in a parallel economy that the mainstream infrastructure ignores — not because the audience doesn't exist, but because the infrastructure was built to route attention and money away from exactly this kind of work. The pipeline didn't eliminate political rap. It defunded it by redirection.</p>
+            </div>
+          </article>
+
+          <!-- Causal Chain -->
+          <div class="chain-connector reveal" id="causal-chain" aria-labelledby="chain-title">
+            <h2 class="chain-connector__title" id="chain-title">The Causal Chain: From 1865 to This Morning</h2>
+            <div class="chain-steps" role="list">
+              <div class="chain-step" role="listitem">
+                <div class="chain-step__dot" aria-hidden="true">01</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">1865</div>
+                  <div class="chain-step__title">13th Amendment exception written into the Constitution</div>
+                  <div class="chain-step__desc">Slavery abolished — except as criminal punishment. Black Codes immediately convert freedom into criminal status across the South.</div>
+                </div>
+              </div>
+              <div class="chain-step" role="listitem">
+                <div class="chain-step__dot" aria-hidden="true">02</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">1963–1975</div>
+                  <div class="chain-step__title">South Bronx deliberately destroyed; Black communities systematically disinvested</div>
+                  <div class="chain-step__desc">Robert Moses, federal redlining, Nixon's housing moratorium, and NYC's fiscal crisis converge. Rap is invented from the wreckage.</div>
+                </div>
+              </div>
+              <div class="chain-step" role="listitem">
+                <div class="chain-step__dot" aria-hidden="true">03</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">1981–1989</div>
+                  <div class="chain-step__title">Crack floods targeted communities; private prisons open for business</div>
+                  <div class="chain-step__desc">Iran-Contra supply chain. CCA founded 1983. GEO Group 1984. 1986 Anti-Drug Abuse Act: 100:1 sentencing disparity. The supply chain and the processing facility open simultaneously.</div>
+                </div>
+              </div>
+              <div class="chain-step" role="listitem">
+                <div class="chain-step__dot" aria-hidden="true">04</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">1988–1998</div>
+                  <div class="chain-step__title">Rap captured by four conglomerates; political rap systematically starved</div>
+                  <div class="chain-step__desc">Sony acquires CBS Records. Time Warner acquires Atlantic. Universal absorbs PolyGram. Independent labels gone. Artists lose masters and publishing.</div>
+                </div>
+              </div>
+              <div class="chain-step" role="listitem">
+                <div class="chain-step__dot" aria-hidden="true">05</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">1996</div>
+                  <div class="chain-step__title">Telecom Act: Clear Channel acquires 1,200 stations; centralized programming locks out independent voices</div>
+                  <div class="chain-step__desc">One company controls what urban America hears. Payola routes money to label-backed acts. Political rap disappears from commercial airwaves.</div>
+                </div>
+              </div>
+              <div class="chain-step" role="listitem">
+                <div class="chain-step__dot" aria-hidden="true">06</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">1994–2015</div>
+                  <div class="chain-step__title">Vanguard, BlackRock, and Fidelity hold both music conglomerates and prison stocks</div>
+                  <div class="chain-step__desc">The same capital that profits from content normalizing criminalization also profits from the prisons that prosecute it. No conspiracy required. Portfolio diversification achieves the same result.</div>
+                </div>
+              </div>
+              <div class="chain-step" role="listitem">
+                <div class="chain-step__dot" aria-hidden="true">07</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">2006–Present</div>
+                  <div class="chain-step__title">Streaming algorithms complete the structural pressure; TikTok reduces rap to 15-second sounds</div>
+                  <div class="chain-step__desc">The economic infrastructure now punishes depth at every layer — label deal, streaming payout, social algorithm. The community tradition continues in a defunded parallel economy.</div>
+                </div>
+              </div>
+            </div>
+            <div class="chain-connector__cta">
+              <p>The communities that invented hip-hop — and that are disproportionately incarcerated — are the same communities. The people who profited from both industries are also, largely, the same people. This is not an accident of history. It is the <strong>consistent functioning of a system</strong> that has been converting Black community wealth into white institutional wealth since 1865.</p>
+              <p>The 13th Amendment exception is still in the Constitution. <a href="thread-mass-incarceration.html">Read the mass incarceration thread →</a></p>
+            </div>
+          </div>
+
+        </div><!-- /entry-list -->
+
+        <!-- Sidebar -->
+        <aside class="sidebar" aria-label="Thread navigation and related content">
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">In this thread</div>
+            <nav aria-label="Thread table of contents">
+              <ul class="sidebar-toc__list">
+                <li><a href="#entry-13th" class="sidebar-toc__link">01 · The 13th Amendment Exception</a></li>
+                <li><a href="#entry-origins" class="sidebar-toc__link">02 · Rap Born From Abandonment</a></li>
+                <li><a href="#entry-crack" class="sidebar-toc__link">03 · Crack, Iran-Contra, the Flood</a></li>
+                <li><a href="#entry-privatization" class="sidebar-toc__link">04 · Prison Goes Public</a></li>
+                <li><a href="#entry-labels" class="sidebar-toc__link">05 · The Label Architecture</a></li>
+                <li><a href="#entry-radio" class="sidebar-toc__link">06 · The Radio Chokepoint</a></li>
+                <li><a href="#entry-capital" class="sidebar-toc__link">07 · The Shared Capital Stack</a></li>
+                <li><a href="#entry-alibi" class="sidebar-toc__link">08 · The Cultural Alibi</a></li>
+                <li><a href="#entry-streaming" class="sidebar-toc__link">09 · Algorithms Complete the Capture</a></li>
+                <li><a href="#causal-chain" class="sidebar-toc__link">Causal Chain</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Key numbers</div>
+            <div class="sidebar-fact__stat">1,000%</div>
+            <div class="sidebar-fact__label">Increase in US incarceration, 1972–2020 (200K to 2.3M people)</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">100:1</div>
+            <div class="sidebar-fact__label">Crack vs. powder cocaine sentencing disparity under the 1986 Anti-Drug Abuse Act — same molecule, racially differentiated enforcement</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">$25M</div>
+            <div class="sidebar-fact__label">Spent by CCA and GEO Group lobbying for harsher sentencing laws, 2000–2015</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">1,200</div>
+            <div class="sidebar-fact__label">Radio stations controlled by Clear Channel by 2003, up from 40 before the 1996 Telecom Act</div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Related threads</div>
+            <a href="thread-mass-incarceration.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">The 13th: Mass Incarceration and the Second Slavery</span>
+            </a>
+            <a href="thread-war-on-drugs.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">The War on Drugs: Design, Targets, and Consequences</span>
+            </a>
+            <a href="thread-racial-capitalism.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">Racial Capitalism: How Race Makes Markets</span>
+            </a>
+            <a href="thread-black-press.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">The Black Press: The Counter-Record</span>
+            </a>
+          </div>
+        </aside>
+
+      </div><!-- /thread-layout -->
+    </div>
+  </div>
+</main>
+
+<section class="thread-bottom-cta" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="thread-bottom-cta__eyebrow">The chain is unbroken</div>
+    <h2 class="thread-bottom-cta__title" id="cta-title">The communities that <em>invented</em> hip-hop are the communities the prison system is <em>built on.</em></h2>
+    <p class="thread-bottom-cta__sub">The 13th Amendment exception is still in the Constitution. The same institutional investors still hold both portfolios. Naming the system is the first condition of changing it.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="thread-mass-incarceration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Read: Mass Incarceration thread</a>
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All threads</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand"><a href="index.html" class="site-footer__wordmark" aria-label="Chain home">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+    <nav class="site-footer__nav" aria-label="Footer navigation"><a href="threads.html">Threads</a><a href="explore.html">Explore</a><a href="maps.html">Maps</a><a href="sources.html">Sources</a><a href="about.html">About</a><a href="donate.html">Donate</a></nav>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
