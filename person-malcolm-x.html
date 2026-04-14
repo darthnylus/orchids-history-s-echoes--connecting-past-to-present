@@ -19,7 +19,7 @@
 
     /* hero — deep crimson/charcoal */
     .person-hero{background:linear-gradient(135deg,#0c0505 0%,#3b0a0a 50%,#7f1d1d 100%);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
-    .person-hero__bg-img{position:absolute;inset:0;background-image:url('images/malcolm-x-portrait.webp');background-size:cover;background-position:center 15%;opacity:0.12;filter:saturate(0.3) brightness(0.7);pointer-events:none}
+    .person-hero__bg-img{position:absolute;inset:0;background-image:url('images/malcolm-x-portrait.webp?v=2');background-size:cover;background-position:center 15%;opacity:0.12;filter:saturate(0.3) brightness(0.7);pointer-events:none}
     .person-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 100% 0%,rgba(185,28,28,.20) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 0% 100%,rgba(0,0,0,.40) 0%,transparent 65%);pointer-events:none}
     .person-hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(185,28,28,.03) 0,rgba(185,28,28,.03) 1px,transparent 0,transparent 28px),repeating-linear-gradient(90deg,rgba(185,28,28,.03) 0,rgba(185,28,28,.03) 1px,transparent 0,transparent 28px);background-size:28px 28px;pointer-events:none}
 
@@ -175,8 +175,8 @@
     <div class="person-hero__inner">
       <div class="person-avatar">
         <picture>
-          <source type="image/webp" srcset="images/malcolm-x-portrait.webp" />
-          <img src="images/malcolm-x-portrait.webp" alt="Malcolm X — black and white portrait, glasses raised to temple, c. 1964" width="968" height="945" fetchpriority="high" />
+          <source type="image/webp" srcset="images/malcolm-x-portrait.webp?v=2" />
+          <img src="images/malcolm-x-portrait.webp?v=2" alt="Malcolm X — black and white portrait, glasses raised to temple, c. 1964" width="800" height="960" fetchpriority="high" style="object-position:center top" />
         </picture>
         <span class="person-avatar__caption">Malcolm X, c. 1964</span>
       </div>
