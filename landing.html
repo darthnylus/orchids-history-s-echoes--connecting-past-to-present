@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retrieve Your Roots — The story begins long before 1619</title>
+  <meta name="description" content="Before the ships… there were empires. An immersive digital history experience tracing the full arc of African and Black history." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" />
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0b0b;
+      --accent:    #c26a2e;
+      --gold-1:    #f5c27a;
+      --gold-2:    #d98a3a;
+      --text:      #f5f5f5;
+      --text-dim:  #a0957f;
+      --text-mute: #5a5040;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'Inter', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    .nav.is-solid {
+      background: rgba(11,11,11,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(194,106,46,0.15);
+    }
+    .nav__brand {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-right: auto;
+    }
+    .nav__brand span {
+      background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.825rem;
+      font-weight: 500;
+      color: rgba(245,245,245,0.65);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--text); }
+    .nav__links li.is-active a { color: var(--gold-1); }
+    .nav__cta {
+      margin-left: 2rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav__cta:hover { background: #d4783a; transform: translateY(-1px); }
+    .nav__mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+      cursor: pointer;
+    }
+    .nav__mobile-toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__mobile-toggle { display: flex; margin-left: auto; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    /* Particle canvas */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Africa silhouette SVG background */
+    .hero__africa-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero__africa-bg svg {
+      width: min(70vw, 600px);
+      height: auto;
+      opacity: 0.04;
+      filter: blur(0.5px);
+    }
+
+    /* Warm vignette */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(194,106,46,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 100% 50% at 50% 100%, rgba(0,0,0,0.7) 0%, transparent 60%),
+        radial-gradient(ellipse 100% 50% at 50% 0%, rgba(0,0,0,0.5) 0%, transparent 60%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 3;
+      max-width: 860px;
+    }
+
+    .hero__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero__line {
+      display: block;
+      font-family: var(--serif);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .hero__line-1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.6s forwards;
+    }
+    .hero__line-2 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--text-dim);
+      font-style: italic;
+      opacity: 0;
+      animation: slideIn 0.9s ease 1.1s forwards;
+    }
+    .hero__line-3 {
+      font-size: clamp(4rem, 12vw, 10rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-1) 0%, var(--accent) 60%, #8b3a0a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0;
+      animation: scaleGlow 1.1s cubic-bezier(0.16,1,0.3,1) 1.8s forwards;
+      filter: drop-shadow(0 0 40px rgba(194,106,46,0));
+    }
+
+    .hero__sub {
+      margin-top: 2rem;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--text-dim);
+      letter-spacing: 0.01em;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 2.7s forwards;
+    }
+
+    .hero__btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 3.1s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: linear-gradient(135deg, var(--accent), var(--gold-2));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      border-radius: 999px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(194,106,46,0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(194,106,46,0.5);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      border-radius: 999px;
+      border: 1px solid rgba(245,245,245,0.2);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold-1);
+      background: rgba(245,194,122,0.07);
+      transform: translateY(-2px);
+    }
+
+    .hero__scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease 3.8s forwards;
+    }
+    .hero__scroll-text {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+    }
+    .hero__scroll-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent), 0 0 20px rgba(194,106,46,0.4);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .hero__scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       TIMELINE WRAPPER
+    ═══════════════════════════════════════════════════════════ */
+    .timeline-wrapper {
+      position: relative;
+    }
+
+    /* Vertical glowing line */
+    .timeline-spine {
+      position: absolute;
+      left: clamp(1.5rem, 6vw, 7rem);
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(194,106,46,0.6) 8%,
+        rgba(194,106,46,0.6) 92%,
+        transparent 100%
+      );
+      z-index: 10;
+      pointer-events: none;
+    }
+    .timeline-spine::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(245,194,122,0.3) 8%,
+        rgba(245,194,122,0.3) 92%,
+        transparent 100%
+      );
+      filter: blur(4px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       TIMELINE SCENE (each era)
+    ═══════════════════════════════════════════════════════════ */
+    .scene {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Background layer */
+    .scene__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      transition: opacity 0.8s ease;
+    }
+    .scene__bg-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.07;
+    }
+
+    /* Scene 1 — Civilizations */
+    .scene--civ .scene__bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(194,106,46,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 20% 60%, rgba(245,194,122,0.1) 0%, transparent 55%),
+        linear-gradient(135deg, #0b0b0b 0%, #120d07 40%, #1a0f06 100%);
+    }
+    .scene--civ .scene__bg-pattern {
+      background-image:
+        repeating-linear-gradient(60deg, rgba(245,194,122,0.3) 0, rgba(245,194,122,0.3) 1px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-60deg, rgba(245,194,122,0.3) 0, rgba(245,194,122,0.3) 1px, transparent 0, transparent 50%);
+      background-size: 40px 40px;
+    }
+
+    /* Scene 2 — Transatlantic */
+    .scene--trans .scene__bg {
+      background:
+        radial-gradient(ellipse 60% 60% at 30% 50%, rgba(20,10,5,0.9) 0%, transparent 60%),
+        linear-gradient(180deg, #0b0b0b 0%, #0a0805 50%, #060404 100%);
+    }
+
+    /* Scene 3 — Reconstruction */
+    .scene--recon .scene__bg {
+      background:
+        radial-gradient(ellipse 70% 50% at 60% 40%, rgba(100,70,30,0.15) 0%, transparent 60%),
+        linear-gradient(135deg, #0c0b09 0%, #100e0a 50%, #0c0b09 100%);
+    }
+
+    /* Scene 4 — Redlining */
+    .scene--redline .scene__bg {
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 50%, rgba(30,15,5,0.7) 0%, transparent 60%),
+        linear-gradient(180deg, #0a090b 0%, #0d0b0f 100%);
+    }
+
+    /* Scene 5 — Today */
+    .scene--today .scene__bg {
+      background: linear-gradient(135deg, #0b0b0b 0%, #0d0b08 100%);
+    }
+
+    .scene__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .scene__content {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      padding: 8rem clamp(1.5rem, 8vw, 8rem) 8rem clamp(5rem, 14vw, 16rem);
+      max-width: 1100px;
+    }
+
+    /* Timeline node */
+    .scene__node {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .scene__node.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .scene__node-dot {
+      position: relative;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
+      margin-left: calc(-1 * clamp(5rem, 14vw, 16rem) + clamp(1.5rem, 6vw, 7rem) - 7px);
+      transition: box-shadow 0.4s ease, background 0.4s ease;
+    }
+    .scene__node.is-visible .scene__node-dot {
+      background: var(--accent);
+      box-shadow:
+        0 0 0 4px rgba(194,106,46,0.2),
+        0 0 20px rgba(194,106,46,0.5),
+        0 0 40px rgba(194,106,46,0.2);
+    }
+    .scene__node-era {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .scene__label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: none;
+    }
+    .scene__label.is-visible {
+      opacity: 1;
+      transition: opacity 0.6s ease 0.1s;
+    }
+
+    .scene__title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
+    }
+    .scene__title.is-visible { opacity: 1; transform: translateY(0); }
+    .scene__title em { color: var(--gold-1); font-style: italic; }
+
+    .scene__body {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--text-dim);
+      line-height: 1.75;
+      max-width: 580px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease 0.35s, transform 0.7s ease 0.35s;
+    }
+    .scene__body.is-visible { opacity: 1; transform: translateY(0); }
+    .scene__body strong { color: var(--text); font-weight: 600; }
+
+    .scene__cta {
+      margin-top: 2.5rem;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+    }
+    .scene__cta.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Scene-specific decorations ── */
+
+    /* Scene 1 — kente/geometric pattern overlay */
+    .scene--civ .kente-overlay {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 45%;
+      background:
+        repeating-linear-gradient(90deg, rgba(245,194,122,0.03) 0px, rgba(245,194,122,0.03) 2px, transparent 2px, transparent 40px),
+        repeating-linear-gradient(0deg, rgba(194,106,46,0.03) 0px, rgba(194,106,46,0.03) 2px, transparent 2px, transparent 40px);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .scene--civ .empire-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.75rem;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.6s ease 0.55s, transform 0.6s ease 0.55s;
+    }
+    .scene--civ .empire-badges.is-visible { opacity: 1; transform: translateY(0); }
+    .empire-badge {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245,194,122,0.25);
+      background: rgba(245,194,122,0.06);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--gold-1);
+    }
+
+    /* Scene 2 — chain animation */
+    .chains-svg {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.06;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Scene 3 — flicker */
+    .scene--recon .flicker-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background: rgba(194,106,46,0.015);
+      pointer-events: none;
+      animation: flicker 8s ease-in-out infinite;
+    }
+
+    /* Scene 4 — grid lines */
+    .scene--redline .grid-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .grid-line-h {
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(194,106,46,0.15) 30%, rgba(194,106,46,0.15) 70%, transparent 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.2s ease;
+    }
+    .grid-line-v {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, transparent 0%, rgba(194,106,46,0.12) 30%, rgba(194,106,46,0.12) 70%, transparent 100%);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 1.2s ease;
+    }
+    .scene--redline.is-active .grid-line-h,
+    .scene--redline.is-active .grid-line-v { transform: scale(1); }
+
+    /* Redline zone cards */
+    .redline-zones {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.6s ease 0.55s, transform 0.6s ease 0.55s;
+    }
+    .redline-zones.is-visible { opacity: 1; transform: translateY(0); }
+    .redline-zone {
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .rz-a { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); color: #4ade80; }
+    .rz-b { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #60a5fa; }
+    .rz-c { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3); color: #fbbf24; }
+    .rz-d { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); color: #f87171; }
+
+    /* Scene 5 — stat display */
+    .wealth-stat {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s;
+    }
+    .wealth-stat.is-visible { opacity: 1; transform: translateY(0); }
+    .wealth-num {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .wealth-num--black { color: var(--text-mute); }
+    .wealth-num--white {
+      background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 20px rgba(245,194,122,0.3));
+    }
+    .wealth-divider {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--text-mute);
+      font-weight: 300;
+    }
+    .wealth-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      margin-top: 0.4rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CLOSING CTA SECTION
+    ═══════════════════════════════════════════════════════════ */
+    .closing {
+      position: relative;
+      padding: 10rem 1.5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .closing::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(194,106,46,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .closing__inner {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .closing__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .closing__title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .closing__title em {
+      background: linear-gradient(135deg, var(--gold-1), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: italic;
+    }
+    .closing__sub {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .closing__btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER STRIP
+    ═══════════════════════════════════════════════════════════ */
+    .footer-strip {
+      border-top: 1px solid rgba(194,106,46,0.1);
+      padding: 2rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-strip__brand {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-mute);
+    }
+    .footer-strip__brand span {
+      background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer-strip__links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-strip__links a {
+      font-size: 0.8rem;
+      color: var(--text-mute);
+      transition: color 0.2s;
+    }
+    .footer-strip__links a:hover { color: var(--text-dim); }
+    .footer-strip__copy {
+      font-size: 0.75rem;
+      color: var(--text-mute);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       KEYFRAMES
+    ═══════════════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleGlow {
+      0%   { opacity: 0; transform: scale(0.8); filter: drop-shadow(0 0 0px rgba(194,106,46,0)); }
+      60%  { opacity: 1; transform: scale(1.04); filter: drop-shadow(0 0 60px rgba(194,106,46,0.5)); }
+      100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 30px rgba(194,106,46,0.3)); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+    @keyframes flicker {
+      0%,100% { opacity: 1; }
+      48% { opacity: 1; }
+      50% { opacity: 0.7; }
+      52% { opacity: 1; }
+      70% { opacity: 1; }
+      72% { opacity: 0.85; }
+      74% { opacity: 1; }
+    }
+    @keyframes chainDrift {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-20px); }
+    }
+    @keyframes particleFloat {
+      0%   { transform: translateY(0) translateX(0); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-100vh) translateX(var(--drift, 30px)); opacity: 0; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       MOBILE RESPONSIVE
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .timeline-spine { display: none; }
+      .scene__content {
+        padding: 6rem 1.5rem 6rem 1.5rem;
+      }
+      .scene__node-dot { margin-left: 0; }
+      .scene__node { margin-left: 0; }
+      .hero__line-3 { font-size: clamp(4rem, 20vw, 6rem); }
+      .wealth-stat { gap: 1rem; }
+      .wealth-divider { font-size: 2rem; }
+      .chains-svg { display: none; }
+    }
+
+    /* Parallax elements */
+    .parallax-layer {
+      will-change: transform;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════════ -->
+<nav class="nav" id="navbar" aria-label="Primary navigation">
+  <a href="landing.html" class="nav__brand">Retrieve <span>Your Roots</span></a>
+  <ul class="nav__links">
+    <li data-section="hero"><a href="#hero">Explore</a></li>
+    <li data-section="scene-civ"><a href="#scene-civ">Civilizations</a></li>
+    <li data-section="scene-trans"><a href="#scene-trans">The Chain</a></li>
+    <li data-section="scene-redline"><a href="threads.html">Threads</a></li>
+    <li data-section="closing"><a href="teaching.html">Teaching</a></li>
+  </ul>
+  <a href="threads.html" class="nav__cta">Follow a Thread →</a>
+  <button class="nav__mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+  <!-- Africa silhouette -->
+  <div class="hero__africa-bg" aria-hidden="true">
+    <svg viewBox="0 0 400 520" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M200 12 C245 16 285 35 310 65 C338 100 345 140 342 178 C340 210 350 238 358 268 C368 304 365 340 355 374 C342 415 318 450 292 478 C268 504 234 520 200 524 C166 520 132 504 108 478 C82 450 58 415 45 374 C35 340 32 304 42 268 C50 238 60 210 58 178 C55 140 62 100 90 65 C115 35 155 16 200 12Z" />
+      <path d="M200 12 C178 40 168 75 172 108 C176 138 195 162 200 190 C205 162 224 138 228 108 C232 75 222 40 200 12Z" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="hero__inner">
+    <p class="hero__eyebrow">A Digital History Experience</p>
+    <h1>
+      <span class="hero__line hero__line-1">The story begins</span>
+      <span class="hero__line hero__line-2">long before</span>
+      <span class="hero__line hero__line-3">1619.</span>
+    </h1>
+    <p class="hero__sub">Before the ships… there were empires.</p>
+    <div class="hero__btns">
+      <a href="#scene-civ" class="btn-primary">Start the Journey →</a>
+      <a href="thread-african-empires.html" class="btn-secondary">Explore Civilizations</a>
+    </div>
+  </div>
+
+  <div class="hero__scroll-indicator" aria-hidden="true">
+    <span class="hero__scroll-text">Scroll</span>
+    <div class="hero__scroll-dot"></div>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TIMELINE
+══════════════════════════════════════════════════════════ -->
+<div class="timeline-wrapper" id="timeline">
+  <div class="timeline-spine" aria-hidden="true"></div>
+
+  <!-- ── SCENE 1: Sovereign Civilizations ───────────────── -->
+  <section class="scene scene--civ" id="scene-civ" data-nav="scene-civ">
+    <div class="scene__bg" aria-hidden="true">
+      <div class="scene__bg-pattern"></div>
+    </div>
+    <div class="kente-overlay" aria-hidden="true"></div>
+
+    <div class="scene__content">
+      <div class="scene__node" data-reveal>
+        <div class="scene__node-dot"></div>
+        <span class="scene__node-era">300 – 1600 CE</span>
+      </div>
+      <p class="scene__label" data-reveal>Chapter One</p>
+      <h2 class="scene__title" data-reveal>
+        <em>Sovereign Civilizations</em><br />ruled the earth.
+      </h2>
+      <p class="scene__body" data-reveal>
+        Thriving empires, immense wealth, and vast knowledge flourished across Africa long before the invasions. The Mali Empire controlled <strong>half the world's gold supply</strong>. Timbuktu held 700,000 manuscripts. The Kingdom of Kush built more pyramids than Egypt. These were not primitive societies — they were the <strong>intellectual and economic centers of the world</strong>.
+      </p>
+      <div class="empire-badges" data-reveal>
+        <span class="empire-badge">Mali Empire</span>
+        <span class="empire-badge">Kingdom of Kush</span>
+        <span class="empire-badge">Songhai Empire</span>
+        <span class="empire-badge">Kingdom of Benin</span>
+        <span class="empire-badge">Great Zimbabwe</span>
+        <span class="empire-badge">Axum</span>
+        <span class="empire-badge">Kingdom of Oyo</span>
+      </div>
+      <div class="scene__cta" data-reveal>
+        <a href="thread-african-empires.html" class="btn-secondary">Read: 7 African Empires →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCENE 2: Transatlantic Disruption ──────────────── -->
+  <section class="scene scene--trans" id="scene-trans" data-nav="scene-trans">
+    <div class="scene__bg" aria-hidden="true"></div>
+
+    <!-- Chain SVG decoration -->
+    <svg class="chains-svg" width="300" height="500" viewBox="0 0 300 500" fill="none" aria-hidden="true" style="animation: chainDrift 6s ease-in-out alternate infinite;">
+      <g stroke="rgba(194,106,46,0.8)" stroke-width="8" stroke-linecap="round">
+        <!-- vertical chain links -->
+        <ellipse cx="150" cy="50"  rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="90"  rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="130" rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="170" rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="210" rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="250" rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="290" rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="330" rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="370" rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="410" rx="30" ry="18" fill="none"/>
+        <ellipse cx="150" cy="450" rx="30" ry="18" fill="none"/>
+      </g>
+    </svg>
+
+    <div class="scene__content">
+      <div class="scene__node" data-reveal>
+        <div class="scene__node-dot"></div>
+        <span class="scene__node-era">1441 – 1867</span>
+      </div>
+      <p class="scene__label" data-reveal>Chapter Two</p>
+      <h2 class="scene__title" data-reveal>
+        The Transatlantic<br /><em>Disruption.</em>
+      </h2>
+      <p class="scene__body" data-reveal>
+        Over four centuries, <strong>12.5 million African people</strong> were forcibly transported across the Atlantic. But the slave trade was not the beginning of the story — it was the destruction of one. The political instability created by European gunpowder weapons, the collapse of West African empires, and the construction of a global economy built on stolen labor — these are the links in the chain that follows.
+      </p>
+      <div class="scene__cta" data-reveal>
+        <a href="thread-transatlantic-slave-trade.html" class="btn-secondary">Read: The Transatlantic Slave Trade →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCENE 3: Reconstruction ────────────────────────── -->
+  <section class="scene scene--recon" id="scene-recon" data-nav="scene-recon">
+    <div class="scene__bg" aria-hidden="true"></div>
+    <div class="flicker-overlay" aria-hidden="true"></div>
+
+    <div class="scene__content">
+      <div class="scene__node" data-reveal>
+        <div class="scene__node-dot"></div>
+        <span class="scene__node-era">1865 – 1877</span>
+      </div>
+      <p class="scene__label" data-reveal>Chapter Three</p>
+      <h2 class="scene__title" data-reveal>
+        Reconstruction —<br /><em>the promise that flickered.</em>
+      </h2>
+      <p class="scene__body" data-reveal>
+        For twelve years after the Civil War, Black Americans held Congressional seats, built schools and churches, and began accumulating land and wealth. It was the closest America came to its stated ideals — and it was <strong>violently dismantled</strong>. The Compromise of 1877 withdrew federal troops. Reconstruction was killed by politics, not by time. Every promise made was deliberately broken.
+      </p>
+      <div class="scene__cta" data-reveal>
+        <a href="thread-end-of-slavery.html" class="btn-secondary">Read: How Slavery Really Ended →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCENE 4: Redlining ─────────────────────────────── -->
+  <section class="scene scene--redline" id="scene-redline" data-nav="scene-redline">
+    <div class="scene__bg" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true">
+      <!-- Horizontal lines -->
+      <div class="grid-line-h" style="top:20%; transition-delay:0.0s"></div>
+      <div class="grid-line-h" style="top:40%; transition-delay:0.15s"></div>
+      <div class="grid-line-h" style="top:60%; transition-delay:0.3s"></div>
+      <div class="grid-line-h" style="top:80%; transition-delay:0.45s"></div>
+      <!-- Vertical lines -->
+      <div class="grid-line-v" style="left:20%; transition-delay:0.1s"></div>
+      <div class="grid-line-v" style="left:40%; transition-delay:0.25s"></div>
+      <div class="grid-line-v" style="left:60%; transition-delay:0.4s"></div>
+      <div class="grid-line-v" style="left:80%; transition-delay:0.55s"></div>
+    </div>
+
+    <div class="scene__content">
+      <div class="scene__node" data-reveal>
+        <div class="scene__node-dot"></div>
+        <span class="scene__node-era">1934 – 1968</span>
+      </div>
+      <p class="scene__label" data-reveal>Chapter Four</p>
+      <h2 class="scene__title" data-reveal>
+        <em>Redlining America.</em><br />By design.
+      </h2>
+      <p class="scene__body" data-reveal>
+        The federal government drew maps dividing American cities into four grades. Grade D neighborhoods — marked in red — were predominantly Black. Banks refused to lend in them. The GI Bill sent white veterans to new suburban homes while Black veterans were locked out. <strong>The racial wealth gap was not an accident. It was policy.</strong> These maps still predict outcomes in 2024.
+      </p>
+      <div class="redline-zones" data-reveal>
+        <span class="redline-zone rz-a">A — Best (white suburbs)</span>
+        <span class="redline-zone rz-b">B — Still desirable</span>
+        <span class="redline-zone rz-c">C — Declining</span>
+        <span class="redline-zone rz-d">D — Hazardous (Black neighborhoods)</span>
+      </div>
+      <div class="scene__cta" data-reveal>
+        <a href="thread.html" class="btn-secondary">Read: From Redlining to the Racial Wealth Gap →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCENE 5: Today ─────────────────────────────────── -->
+  <section class="scene scene--today" id="scene-today" data-nav="scene-today">
+    <div class="scene__bg" aria-hidden="true"></div>
+
+    <div class="scene__content">
+      <div class="scene__node" data-reveal>
+        <div class="scene__node-dot"></div>
+        <span class="scene__node-era">Today</span>
+      </div>
+      <p class="scene__label" data-reveal>Chapter Five</p>
+      <h2 class="scene__title" data-reveal>
+        The <em>wealth gap</em><br />is not a coincidence.
+      </h2>
+      <div class="wealth-stat" data-reveal>
+        <div>
+          <div class="wealth-num wealth-num--black">$24k</div>
+          <div class="wealth-label">Median Black family wealth</div>
+        </div>
+        <div class="wealth-divider">vs</div>
+        <div>
+          <div class="wealth-num wealth-num--white">$188k</div>
+          <div class="wealth-label">Median white family wealth</div>
+        </div>
+      </div>
+      <p class="scene__body" data-reveal style="margin-top:1.75rem;">
+        This gap did not emerge from individual choices. It is the compounded result of <strong>centuries of deliberate policy</strong> — slavery, redlining, the GI Bill, mass incarceration, predatory lending. Every policy documented on this platform contributed to this number. <strong>Understanding the chain is how you understand the present.</strong>
+      </p>
+      <div class="scene__cta" data-reveal>
+        <a href="thread-stolen-labor.html" class="btn-secondary">Read: The Architecture of the Racial Wealth Gap →</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /timeline-wrapper -->
+
+<!-- ══════════════════════════════════════════════════════════
+     CLOSING CTA
+══════════════════════════════════════════════════════════ -->
+<section class="closing" id="closing" data-nav="closing">
+  <div class="closing__inner">
+    <p class="closing__eyebrow">The full history. Free to everyone.</p>
+    <h2 class="closing__title">
+      Now you know<br />the <em>whole chain.</em>
+    </h2>
+    <p class="closing__sub">
+      49 threads. 13 people. 8 policies. 8 events. The full arc from sovereign African civilization to present-day America — documented, sourced, and free.
+    </p>
+    <div class="closing__btns">
+      <a href="threads.html"              class="btn-primary">Explore All Threads →</a>
+      <a href="thread-african-empires.html" class="btn-secondary">Start from the Beginning</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER STRIP
+══════════════════════════════════════════════════════════ -->
+<footer class="footer-strip">
+  <div class="footer-strip__brand">Retrieve <span>Your Roots</span></div>
+  <ul class="footer-strip__links">
+    <li><a href="threads.html">Threads</a></li>
+    <li><a href="maps.html">Maps</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="donate.html">Donate</a></li>
+  </ul>
+  <p class="footer-strip__copy">© 2025 Chain. Free to use, share, and teach.</p>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ── Particle canvas ──────────────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  const ctx    = canvas.getContext('2d');
+  let W, H, particles = [], raf;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function createParticle() {
+    return {
+      x:    Math.random() * W,
+      y:    H + Math.random() * 40,
+      vx:   (Math.random() - 0.5) * 0.4,
+      vy:   -(Math.random() * 0.6 + 0.3),
+      r:    Math.random() * 1.5 + 0.3,
+      a:    0,
+      life: 0,
+      max:  Math.random() * 200 + 100,
+    };
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({ length: 60 }, createParticle).map(p => {
+      p.y = Math.random() * H; // distribute initially
+      p.life = Math.random() * p.max;
+      return p;
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life++;
+      if (p.life < 20) {
+        p.a = p.life / 20;
+      } else if (p.life > p.max - 20) {
+        p.a = (p.max - p.life) / 20;
+      } else {
+        p.a = 1;
+      }
+      if (p.life >= p.max) {
+        particles[i] = createParticle();
+        continue;
+      }
+      const hue = 25 + Math.random() * 15;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${hue}, 70%, 65%, ${p.a * 0.55})`;
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  init();
+  draw();
+})();
+
+
+/* ── Navbar scroll solid ──────────────────────────────────── */
+(function() {
+  const nav = document.getElementById('navbar');
+  let ticking = false;
+  function update() {
+    nav.classList.toggle('is-solid', window.scrollY > 40);
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+})();
+
+
+/* ── Active nav link tracking ─────────────────────────────── */
+(function() {
+  const navItems = document.querySelectorAll('.nav__links li[data-section]');
+  const sections = document.querySelectorAll('section[id], .scene[id]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(li => li.classList.remove('is-active'));
+        const match = document.querySelector(`.nav__links li[data-section="${entry.target.id}"]`);
+        if (match) match.classList.add('is-active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => obs.observe(s));
+})();
+
+
+/* ── Scroll reveal for scene content ─────────────────────── */
+(function() {
+  const items = document.querySelectorAll('[data-reveal]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+  items.forEach(el => obs.observe(el));
+})();
+
+
+/* ── Redline scene: activate grid on enter ────────────────── */
+(function() {
+  const scene = document.querySelector('.scene--redline');
+  if (!scene) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      scene.classList.toggle('is-active', entry.isIntersecting);
+    });
+  }, { threshold: 0.3 });
+  obs.observe(scene);
+})();
+
+
+/* ── Parallax on scenes ───────────────────────────────────── */
+(function() {
+  const scenes = document.querySelectorAll('.scene__bg');
+  let ticking = false;
+  function update() {
+    const scrollY = window.scrollY;
+    scenes.forEach(bg => {
+      const scene = bg.closest('.scene');
+      const rect = scene.getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+      const shift = center * 0.08;
+      bg.style.transform = `translateY(${shift}px)`;
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+})();
+
+
+/* ── Smooth scroll for anchor links ──────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
