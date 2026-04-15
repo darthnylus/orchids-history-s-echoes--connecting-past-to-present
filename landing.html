@@ -217,16 +217,17 @@
 
   /* ── Subtext ── */
   .hero__sub {
-    margin-top: 1.25rem;
+    margin-top: 1.5rem;
     font-family: var(--serif);
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--text);
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    font-style: italic;
+    color: rgba(245,240,234,0.82);
     font-weight: 400;
     letter-spacing: 0.01em;
     opacity: 0;
     animation: fadeUp 0.8s ease 2.5s forwards;
   }
-  .hero__sub strong { font-weight: 700; }
+  .hero__sub strong { font-weight: 700; font-style: normal; color: var(--text); }
 
   /* ── Buttons ── */
   .hero__btns {
@@ -292,7 +293,7 @@
   .chain {
     position: relative;
     z-index: 1;
-    padding: 5rem clamp(1.25rem, 6vw, 6rem) 6rem;
+    padding: 4rem clamp(1.25rem, 5vw, 5rem) 5rem;
   }
 
   /* Section header */
@@ -325,9 +326,9 @@
   /* Two-column layout: [timeline] [image] */
   .chain__layout {
     display: grid;
-    grid-template-columns: 1fr minmax(240px, 380px);
-    gap: 0 clamp(1.5rem, 4vw, 4rem);
-    max-width: 1060px;
+    grid-template-columns: 1fr minmax(260px, 400px);
+    gap: 0 clamp(2rem, 5vw, 5rem);
+    max-width: 1080px;
     margin: 0 auto;
     align-items: start;
   }
@@ -340,23 +341,14 @@
   .timeline {
     position: relative;
   }
-  /* The vertical spine line sits at the node column */
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: calc(50% - 1px); /* Will be overridden by grid */
-    /* We'll use a wrapper trick — spine is drawn via a pseudo on the whole timeline */
-    top: 8px; bottom: 8px;
-    width: 2px;
-  }
 
   .tl-row {
     display: grid;
-    grid-template-columns: 1fr 24px;
-    gap: 0;
+    grid-template-columns: 24px 1fr;
+    gap: 0 1rem;
     align-items: start;
     position: relative;
-    padding-bottom: 3.5rem;
+    padding-bottom: 3rem;
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.6s ease, transform 0.6s ease;
@@ -364,57 +356,25 @@
   .tl-row:last-child { padding-bottom: 0; }
   .tl-row.vis { opacity: 1; transform: translateY(0); }
 
-  /* Spine line between rows */
+  /* Spine line between rows — left side now */
   .tl-row::after {
     content: '';
     position: absolute;
-    right: 11px;
+    left: 11px;
     top: 18px;
-    bottom: -3.5rem;
+    bottom: -3rem;
     width: 2px;
-    background: linear-gradient(to bottom, rgba(232,146,42,0.55), rgba(212,132,58,0.2));
+    background: linear-gradient(to bottom, rgba(232,146,42,0.55), rgba(212,132,58,0.12));
     z-index: 0;
   }
   .tl-row:last-child::after { display: none; }
 
-  /* Left cell — text right-aligned to meet the spine */
-  .tl-left {
-    text-align: right;
-    padding-right: 1.5rem;
-    padding-top: 2px;
-  }
-  .tl-era {
-    font-family: var(--sans);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--mute);
-    margin-bottom: 0.3rem;
-  }
-  .tl-title {
-    font-family: var(--serif);
-    font-size: clamp(1.15rem, 2vw, 1.5rem);
-    font-weight: 900;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 0.55rem;
-  }
-  .tl-title em { font-style: italic; color: var(--gold); }
-  .tl-body {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    color: var(--dim);
-    line-height: 1.65;
-  }
-  .tl-body strong { color: var(--text); font-weight: 600; }
-
-  /* Right cell — node dot */
+  /* Left cell — node dot */
   .tl-node {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 3px;
+    padding-top: 4px;
     position: relative;
     z-index: 2;
   }
@@ -435,13 +395,44 @@
       0 0 30px rgba(212,132,58,0.3);
   }
 
+  /* Right cell — text left-aligned */
+  .tl-left {
+    text-align: left;
+    padding-top: 0;
+  }
+  .tl-era {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 0.3rem;
+  }
+  .tl-title {
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .tl-title em { font-style: italic; color: var(--gold); }
+  .tl-body {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--dim);
+    line-height: 1.65;
+  }
+  .tl-body strong { color: var(--text); font-weight: 600; }
+
   /* ── Stat display (row 4) ── */
   .tl-stat {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   .tl-stat__n {
     font-family: var(--serif);
@@ -463,12 +454,12 @@
     .chain__image-col { position: relative; top: auto; }
   }
   .chain__image-frame {
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
-    aspect-ratio: 3/4;
+    aspect-ratio: 2/3;
     background: #1a0c06;
-    box-shadow: 0 8px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,132,58,0.1);
+    box-shadow: 0 12px 70px rgba(0,0,0,0.8), 0 0 0 1px rgba(212,132,58,0.12);
   }
   .chain__image-frame img {
     width: 100%; height: 100%;
@@ -656,6 +647,7 @@
 
       <!-- Row 1 -->
       <div class="tl-row" id="tl1">
+        <div class="tl-node"><div class="tl-node__dot"></div></div>
         <div class="tl-left">
           <div class="tl-era">300–1600 CE</div>
           <h2 class="tl-title">Sovereign<br />Civilizations</h2>
@@ -663,29 +655,29 @@
             Thriving empires, immense wealth, and vast knowledge <strong>flourished</strong> across Africa long before the invasions.
           </p>
         </div>
-        <div class="tl-node"><div class="tl-node__dot"></div></div>
       </div>
 
       <!-- Row 2 -->
       <div class="tl-row" id="tl2">
+        <div class="tl-node"><div class="tl-node__dot"></div></div>
         <div class="tl-left">
           <div class="tl-era">1441–1867 CE</div>
           <h2 class="tl-title">The Transatlantic<br /><em>Disruption</em></h2>
         </div>
-        <div class="tl-node"><div class="tl-node__dot"></div></div>
       </div>
 
       <!-- Row 3 -->
       <div class="tl-row" id="tl3">
+        <div class="tl-node"><div class="tl-node__dot"></div></div>
         <div class="tl-left">
           <div class="tl-era">1865–1877</div>
           <h2 class="tl-title"><em>Redlining</em> America</h2>
         </div>
-        <div class="tl-node"><div class="tl-node__dot"></div></div>
       </div>
 
       <!-- Row 4 -->
       <div class="tl-row" id="tl4">
+        <div class="tl-node"><div class="tl-node__dot"></div></div>
         <div class="tl-left">
           <div class="tl-era">1934–1968 · Today</div>
           <div class="tl-stat">
@@ -694,7 +686,6 @@
             <span class="tl-stat__n tl-stat__n--gold">$188k</span>
           </div>
         </div>
-        <div class="tl-node"><div class="tl-node__dot"></div></div>
       </div>
 
     </div><!-- /timeline -->
