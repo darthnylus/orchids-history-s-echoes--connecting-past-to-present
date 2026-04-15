@@ -190,6 +190,7 @@
       display: none;
     }
     .filter-empty.is-visible { display: block; }
+    .thread-hidden { display: none !important; }
 
     /* ── Thread cards ───────────────────────────────────────── */
     .threads-section {
@@ -1728,14 +1729,15 @@
 
     let visible = 0;
     allCards.forEach(card => {
-      const domains = (card.dataset.domain || '').toLowerCase().split(/\s+/);
+      const domains = (card.dataset.domain || '').split(/\s+/);
       const show = f === 'all' || domains.includes(f);
-      card.style.display = show ? '' : 'none';
-      // Ensure filtered-in cards are visible (fix reveal opacity issue)
-      if (show && !card.classList.contains('is-visible')) {
-        card.classList.add('is-visible');
+      if (show) {
+        card.classList.remove('thread-hidden');
+        card.classList.add('is-visible'); // always ensure reveal is complete
+        visible++;
+      } else {
+        card.classList.add('thread-hidden');
       }
-      if (show) visible++;
     });
 
     if (filterCount) {
