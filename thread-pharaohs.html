@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Black Pharaohs: Egypt's African Kings — Thread — Chain</title>
+  <link rel="canonical" href="https://chain.education/thread-pharaohs.html" />
+  <meta name="description" content="Ancient Egypt was an African civilization — built, ruled, and perpetuated by African people. This thread traces the Black pharaohs of Egypt, from the earliest dynasties through the Nubian 25th Dynasty, and examines why this history was erased." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:64px}.utility-bar{background:#0d0d0d;min-height:36px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .thread-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .thread-hero__bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .thread-hero__bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('images/meroe-pyramids-2.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.16;
+      filter: sepia(0.7) saturate(0.4);
+    }
+    .thread-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 15% 50%, rgba(180,120,0,.25) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 90% 20%, rgba(100,50,10,.18) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 50% 100%, rgba(60,20,5,.18) 0%, transparent 50%);
+    }
+    .thread-hero__inner { position: relative; max-width: 760px; }
+    .thread-hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(196,106,0,.15);
+      border: 1px solid rgba(196,106,0,.3);
+      border-radius: 999px;
+      padding: var(--space-1) var(--space-4);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-6);
+    }
+    .thread-hero__kicker-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber-400);
+    }
+    .thread-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-6);
+    }
+    .thread-hero__title em { color: var(--amber-300); font-style: normal; }
+    .thread-hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--ink-300);
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: var(--space-8);
+    }
+    .thread-hero__meta {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+    .thread-meta-item__label {
+      font-size: var(--type-xs);
+      color: var(--ink-500);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      margin-bottom: 2px;
+    }
+    .thread-meta-item__value {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--ink-200);
+    }
+
+    /* ── Listen button ───────────────────────────────────────── */
+    .listen-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: var(--ink-300);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      font-family: inherit;
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      margin-left: auto;
+      white-space: nowrap;
+      align-self: flex-end;
+    }
+    .listen-btn:hover { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.3); }
+    .listen-btn[data-state="playing"] { background: rgba(196,106,0,.2); border-color: rgba(196,106,0,.4); color: var(--amber-300); }
+
+    .listen-progress-bar {
+      height: 3px;
+      background: rgba(255,255,255,.08);
+      position: relative;
+      overflow: hidden;
+      display: none;
+    }
+    .listen-progress-bar.is-visible { display: block; }
+    .listen-progress-bar__fill {
+      height: 100%;
+      background: var(--amber-400);
+      width: 0%;
+      transition: width 0.5s linear;
+    }
+
+    /* ── Argument bar ────────────────────────────────────────── */
+    .argument-bar {
+      background: rgba(196,106,0,.1);
+      border-top: 1px solid rgba(196,106,0,.2);
+      border-bottom: 1px solid rgba(196,106,0,.2);
+      padding: var(--space-5) 0;
+    }
+    .argument-bar__inner {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-5);
+    }
+    .argument-bar__icon {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      background: rgba(196,106,0,.2);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-top: 2px;
+    }
+    .argument-bar__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-400);
+      margin-bottom: var(--space-1);
+    }
+    .argument-bar__text {
+      font-size: var(--type-md);
+      color: var(--ink-200);
+      line-height: 1.65;
+      max-width: 820px;
+    }
+    .argument-bar__text strong { color: #fff; }
+
+    /* ── Thread layout ───────────────────────────────────────── */
+    .thread-body { padding: var(--space-14) 0; }
+    .thread-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .thread-layout { grid-template-columns: 1fr 300px; gap: var(--space-12); }
+    }
+
+    /* ── Pharaoh cards ───────────────────────────────────────── */
+    .pharaoh-list { display: flex; flex-direction: column; gap: 0; }
+    .pharaoh-entry {
+      scroll-margin-top: 80px;
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .pharaoh-entry:last-child { border-bottom: none; }
+    .pharaoh-entry__header {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: var(--space-5);
+      align-items: start;
+      margin-bottom: var(--space-6);
+    }
+    .pharaoh-entry__num {
+      width: 56px; height: 56px;
+      border-radius: var(--radius-lg);
+      background: var(--color-accent-dark);
+      color: #fff;
+      font-family: var(--font-editorial);
+      font-size: 1.375rem;
+      font-weight: 900;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .pharaoh-entry__dates {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-1);
+    }
+    .pharaoh-entry__name {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.375rem, 3vw, 1.875rem);
+      font-weight: 900;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+      margin-bottom: var(--space-1);
+    }
+    .pharaoh-entry__dynasty {
+      font-size: var(--type-sm);
+      color: var(--color-text-tertiary);
+    }
+    .pharaoh-stats {
+      display: flex;
+      gap: var(--space-5);
+      flex-wrap: wrap;
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: var(--space-6);
+    }
+    [data-theme="dark"] .pharaoh-stats { background: var(--ink-800); border-color: var(--ink-700); }
+    .pharaoh-stat__num {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-dark);
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .pharaoh-stat__label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-tertiary);
+    }
+    .pharaoh-entry__body {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+      margin-bottom: var(--space-6);
+    }
+    .pharaoh-entry__body p { margin-bottom: var(--space-4); }
+    .pharaoh-entry__body p:last-child { margin-bottom: 0; }
+    .pharaoh-entry__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+    .pharaoh-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    @media (min-width: 640px) { .pharaoh-features { grid-template-columns: repeat(3, 1fr); } }
+    .pharaoh-feature {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+    }
+    [data-theme="dark"] .pharaoh-feature { background: var(--ink-800); border-color: var(--ink-700); }
+    .pharaoh-feature__icon { font-size: 1.25rem; margin-bottom: var(--space-2); line-height: 1; }
+    .pharaoh-feature__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+    }
+    .pharaoh-feature__desc { font-size: 0.72rem; color: var(--color-text-tertiary); line-height: 1.5; }
+
+    /* Legacy box */
+    .legacy-box {
+      border: 1px solid rgba(251,191,36,.25);
+      border-left: 3px solid var(--amber-400);
+      background: rgba(251,191,36,.04);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: var(--space-5) var(--space-6);
+    }
+    [data-theme="dark"] .legacy-box { background: rgba(251,191,36,.07); }
+    .legacy-box__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--amber-500);
+      margin-bottom: var(--space-2);
+    }
+    .legacy-box__text { font-size: var(--type-sm); color: var(--color-text-secondary); line-height: 1.65; }
+    .legacy-box__text strong { color: var(--color-text-primary); }
+
+    /* Erasure box */
+    .erasure-box {
+      border: 1px solid rgba(239,68,68,.25);
+      border-left: 3px solid #ef4444;
+      background: rgba(239,68,68,.04);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: var(--space-5) var(--space-6);
+      margin-top: var(--space-4);
+    }
+    [data-theme="dark"] .erasure-box { background: rgba(239,68,68,.07); }
+    .erasure-box__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: #ef4444;
+      margin-bottom: var(--space-2);
+    }
+    .erasure-box__text { font-size: var(--type-sm); color: var(--color-text-secondary); line-height: 1.65; }
+    .erasure-box__text strong { color: var(--color-text-primary); }
+
+    /* ── Intro section ───────────────────────────────────────── */
+    .intro-section {
+      scroll-margin-top: 80px;
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .intro-section__header {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: var(--space-5);
+      align-items: start;
+      margin-bottom: var(--space-6);
+    }
+    .intro-section__icon {
+      width: 56px; height: 56px;
+      border-radius: var(--radius-lg);
+      background: rgba(99,102,241,.15);
+      border: 1px solid rgba(99,102,241,.3);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .intro-section__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: #818cf8;
+      margin-bottom: var(--space-1);
+    }
+    .intro-section__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.375rem, 3vw, 1.875rem);
+      font-weight: 900;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+    }
+    .intro-section__body {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+      margin-bottom: var(--space-6);
+    }
+    .intro-section__body p { margin-bottom: var(--space-4); }
+    .intro-section__body p:last-child { margin-bottom: 0; }
+    .intro-section__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+
+    /* Question/answer explainer cards */
+    .explainer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      margin: var(--space-7) 0;
+    }
+    @media (min-width: 640px) { .explainer-grid { grid-template-columns: 1fr 1fr; } }
+    .explainer-card {
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+    [data-theme="dark"] .explainer-card { background: var(--ink-800); border-color: var(--ink-700); }
+    .explainer-card__q {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: #818cf8;
+      margin-bottom: var(--space-3);
+    }
+    .explainer-card__a {
+      font-family: var(--font-editorial);
+      font-size: 1.05rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-3);
+    }
+    .explainer-card__detail {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+    .explainer-card__detail strong { color: var(--color-text-primary); }
+
+    /* ── Causal chain connector ───────────────────────────────── */
+    .chain-connector {
+      background: var(--ink-900);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin: var(--space-12) 0;
+    }
+    .chain-connector__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: #fff;
+      margin-bottom: var(--space-6);
+    }
+    .chain-steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .chain-step {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: var(--space-4);
+      align-items: start;
+      padding-bottom: var(--space-5);
+      position: relative;
+    }
+    .chain-step:last-child { padding-bottom: 0; }
+    .chain-step__line {
+      position: absolute;
+      left: 15px; top: 32px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(196,106,0,.5), rgba(196,106,0,.1));
+    }
+    .chain-step:last-child .chain-step__line { display: none; }
+    .chain-step__dot {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--amber-400);
+      background: rgba(196,106,0,.15);
+      color: var(--amber-300);
+      font-size: 0.7rem;
+      font-weight: var(--weight-bold);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .chain-step__era {
+      font-size: 0.68rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--amber-400);
+      margin-bottom: 2px;
+    }
+    .chain-step__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .chain-step__desc { font-size: var(--type-xs); color: var(--ink-400); line-height: 1.6; }
+    .chain-connector__cta {
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .chain-connector__cta p { font-size: var(--type-sm); color: var(--ink-400); }
+    .chain-connector__cta a {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--amber-300);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .chain-connector__cta a:hover { color: var(--amber-200); }
+
+    /* ── Sidebar ─────────────────────────────────────────────── */
+    .thread-sidebar { display: flex; flex-direction: column; gap: var(--space-5); }
+    .sidebar-toc {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-4);
+    }
+    [data-theme="dark"] .sidebar-toc { background: var(--ink-800); border-color: var(--ink-700); }
+    @media (min-width: 1024px) { .sidebar-toc { position: sticky; top: 80px; } }
+    .sidebar-toc__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-2);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sidebar-toc__list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+    .sidebar-toc__link {
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      padding: 5px var(--space-3);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      transition: all var(--duration-fast);
+      border-left: 2px solid transparent;
+      line-height: 1.3;
+    }
+    .sidebar-toc__link:hover,
+    .sidebar-toc__link.is-active {
+      color: var(--color-accent-dark);
+      background: var(--color-accent-light);
+      border-left-color: var(--color-accent-dark);
+    }
+    .sidebar-toc__num { font-size: 0.65rem; font-weight: var(--weight-bold); color: var(--color-accent-dark); opacity: .6; }
+
+    .sidebar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    [data-theme="dark"] .sidebar-card { background: var(--ink-800); border-color: var(--ink-700); }
+    .sidebar-card__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sidebar-timeline { display: flex; flex-direction: column; gap: var(--space-3); }
+    .sidebar-timeline-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: var(--space-3);
+      align-items: start;
+    }
+    .sidebar-timeline-item__dates {
+      font-size: 0.65rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-dark);
+      text-align: right;
+      padding-top: 2px;
+      line-height: 1.3;
+    }
+    .sidebar-timeline-item__name {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-bottom: 1px;
+    }
+    .sidebar-timeline-item__region { font-size: 0.65rem; color: var(--color-text-tertiary); }
+
+    .next-thread-card {
+      background: var(--ink-900);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .next-thread-card__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--amber-400);
+      margin-bottom: var(--space-3);
+    }
+    .next-thread-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1rem;
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: var(--space-4);
+    }
+    .next-thread-card__link {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      color: var(--amber-300);
+      text-decoration: none;
+    }
+    .next-thread-card__link:hover { color: var(--amber-200); }
+
+    /* ── Bottom CTA ──────────────────────────────────────────── */
+    .thread-bottom-cta {
+      background: var(--ink-900);
+      padding: var(--space-14) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .thread-bottom-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,106,0,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .thread-bottom-cta__inner { position: relative; max-width: 560px; margin: 0 auto; }
+    .thread-bottom-cta__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      margin-bottom: var(--space-4);
+    }
+    .thread-bottom-cta__title em { color: var(--amber-300); font-style: normal; }
+    .thread-bottom-cta__sub {
+      font-size: var(--type-sm);
+      color: var(--ink-400);
+      line-height: 1.65;
+      margin-bottom: var(--space-7);
+    }
+    .thread-bottom-cta__btns { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+    .thread-bottom-cta__btn {
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-md);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      text-decoration: none;
+      transition: all var(--duration-fast);
+    }
+    .thread-bottom-cta__btn--primary { background: var(--amber-500); color: var(--ink-900); }
+    .thread-bottom-cta__btn--primary:hover { background: var(--amber-400); }
+    .thread-bottom-cta__btn--secondary { background: transparent; color: var(--ink-300); border: 1px solid rgba(255,255,255,.15); }
+    .thread-bottom-cta__btn--secondary:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>Foundation Thread:</strong> The Black Pharaohs — Egypt's African kings and the civilization they built.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="explore.html"  class="site-nav__link">Explore</a>
+      <a href="threads.html"  class="site-nav__link" aria-current="page">Threads</a>
+      <a href="maps.html"     class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html"    class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Ask a question or search a topic…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Try searching</p>
+      <a href="search.html?q=Ramesses+II"       class="search-hint-chip">Ramesses II</a>
+      <a href="search.html?q=Nubian+pharaohs"   class="search-hint-chip">Nubian pharaohs</a>
+      <a href="search.html?q=25th+Dynasty"      class="search-hint-chip">25th Dynasty</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="explore.html"  class="mobile-nav__link">Explore</a></li>
+      <li><a href="threads.html"  class="mobile-nav__link">Threads</a></li>
+      <li><a href="maps.html"     class="mobile-nav__link">Maps &amp; Timelines</a></li>
+      <li><a href="learn.html"    class="mobile-nav__link">Learn</a></li>
+      <li><a href="teaching.html" class="mobile-nav__link">Teaching</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================================================================
+     MAIN
+     ================================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="thread-hero" aria-labelledby="thread-heading">
+    <div class="thread-hero__bg" aria-hidden="true"></div>
+    <div class="container thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
+        Foundation Thread · Ancient Africa
+      </div>
+      <h1 id="thread-heading" class="thread-hero__title">
+        The Black Pharaohs:<br /><em>Egypt's African Kings</em>
+      </h1>
+      <p class="thread-hero__subtitle">
+        Ancient Egypt was not a civilization that existed in isolation from Africa — it was an African civilization, built on African soil, by African people. This thread traces 10 of the most consequential pharaohs in Egyptian history, centers the African identity of the civilization they ruled, and examines the deliberate erasure of that identity in Western scholarship.
+      </p>
+      <div class="thread-hero__meta">
+        <div>
+          <div class="thread-meta-item__label">Timespan</div>
+          <div class="thread-meta-item__value">c. 3100 BCE – 332 BCE</div>
+        </div>
+        <div>
+          <div class="thread-meta-item__label">Pharaohs covered</div>
+          <div class="thread-meta-item__value">10</div>
+        </div>
+        <div>
+          <div class="thread-meta-item__label">Dynasties</div>
+          <div class="thread-meta-item__value">1st through 26th</div>
+        </div>
+        <div>
+          <div class="thread-meta-item__label">Region</div>
+          <div class="thread-meta-item__value">Nile Valley, Northeast Africa</div>
+        </div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" id="listenIcon" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span id="listenLabel">Listen</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true">
+    <div class="listen-progress-bar__fill" id="listenProgressFill"></div>
+  </div>
+
+  <!-- ARGUMENT BAR -->
+  <div class="argument-bar" aria-label="Thread argument">
+    <div class="container argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--amber-300)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The causal argument</div>
+        <p class="argument-bar__text">The depiction of ancient Egypt as a white or Middle Eastern civilization — dominant in Western textbooks, Hollywood films, and museum exhibitions — is <strong>not a neutral mistake</strong>. It is the product of a deliberate 19th-century scholarly project to sever Africa's most visible ancient civilization from the African people. <strong>Erasing Egypt's Africanism made it easier to argue that Black people had no civilization worth protecting</strong> — and that argument was used to justify the slave trade, colonialism, and segregation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <section class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+
+        <!-- MAIN CONTENT -->
+        <div>
+
+          <!-- ── INTRO: WAS EGYPT BLACK? ────────────────────── -->
+          <div class="intro-section reveal" id="intro">
+            <div class="intro-section__header">
+              <div class="intro-section__icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <div class="intro-section__eyebrow">The Question Western Scholars Avoided</div>
+                <h2 class="intro-section__title">Was Ancient Egypt an African Civilization?</h2>
+              </div>
+            </div>
+
+            <div class="intro-section__body">
+              <p>The debate over Egypt's racial identity has been one of the most politically charged arguments in modern scholarship — not because the evidence is ambiguous, but because the answer was inconvenient. <strong>Ancient Egypt was geographically, culturally, and genetically part of Africa.</strong> This is not an Afrocentric invention. It is the position of the UNESCO General History of Africa, the work of Cheikh Anta Diop, and an increasing body of ancient DNA research published in peer-reviewed journals since 2017.</p>
+              <p>The relevant question is not whether all ancient Egyptians were Black in the modern sense — they were not a monolithic population. The question is whether Egypt was an African civilization with deep Nile Valley roots, including significant Black African ancestry among its ruling classes, its priestly class, its builders, and its pharaohs. The answer to that question is <strong>yes</strong>.</p>
+              <p>The denial of this — the insistence that Egypt was somehow detached from the continent it sits on — was constructed in the 18th and 19th centuries by European scholars who needed Africa to have no civilization in order to justify European colonialism. It was not a scholarly conclusion. It was a political one.</p>
+            </div>
+
+            <div class="explainer-grid">
+              <div class="explainer-card">
+                <div class="explainer-card__q">Geographic fact</div>
+                <div class="explainer-card__a">Egypt is in Africa. It always has been.</div>
+                <div class="explainer-card__detail">The Nile flows from Central Africa northward. Egypt's earliest settlers came from <strong>sub-Saharan Africa and the Nile Valley</strong> — this is established by archaeology, not contested by it. The idea that Egypt belongs to the "Middle East" is a modern political construct, not a geographic one.</div>
+              </div>
+              <div class="explainer-card">
+                <div class="explainer-card__q">Ancient DNA research (2017–2024)</div>
+                <div class="explainer-card__a">Genetic links to sub-Saharan Africa are documented.</div>
+                <div class="explainer-card__detail">Studies from the Max Planck Institute and Nature journal found that ancient Egyptians had significant ancestry from the Nile Valley and northeast Africa. <strong>Sub-Saharan African ancestry increased in Egyptian populations after the New Kingdom</strong> — meaning earlier populations had even stronger African ties.</div>
+              </div>
+              <div class="explainer-card">
+                <div class="explainer-card__q">Ancient testimony</div>
+                <div class="explainer-card__a">Greeks and Romans described Egyptians as Black.</div>
+                <div class="explainer-card__detail">Herodotus (c. 450 BCE) described Egyptians as having <strong>"black skin and woolly hair"</strong> — a description he used to compare them to the Colchians of the Black Sea. Aristotle described Egyptians and Ethiopians as dark-skinned peoples of the same origin. These were not compliments or insults — they were observations.</div>
+              </div>
+              <div class="explainer-card">
+                <div class="explainer-card__q">The 19th-century rewrite</div>
+                <div class="explainer-card__a">Scholars literally erased Blackness from Egyptian depictions.</div>
+                <div class="explainer-card__detail">When scholars like Johann Friedrich Blumenbach and Samuel Morton categorized ancient Egyptians in the 1800s, they <strong>created a new racial category</strong> — "Caucasian" — specifically to include Egyptians. Flinders Petrie, an influential Egyptologist, described dark-skinned pharaohs in his own field notes but drew them lighter in published illustrations.</div>
+              </div>
+            </div>
+
+            <div class="erasure-box">
+              <div class="erasure-box__label">The political stakes of this erasure</div>
+              <p class="erasure-box__text">The denial of Egypt's African identity was not an academic disagreement. It was deployed politically. In the antebellum United States, pro-slavery scholars like Josiah Nott and George Gliddon published <em>Types of Mankind</em> (1854), arguing that Egyptians were white — specifically to counter abolitionist arguments that Black Africans had built one of humanity's greatest civilizations. <strong>The argument that Black people had no civilization was used to justify enslaving them.</strong> The whitening of Egypt was part of that argument.</p>
+            </div>
+          </div>
+
+          <!-- ── PHARAOHS LIST ────────────────────────────────── -->
+          <div class="pharaoh-list">
+
+            <!-- ── 1. Narmer / Menes ───────────────────────── -->
+            <div class="pharaoh-entry reveal" id="narmer">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">1</div>
+                <div>
+                  <div class="pharaoh-entry__dates">c. 3100 BCE</div>
+                  <h2 class="pharaoh-entry__name">Narmer (Menes)</h2>
+                  <div class="pharaoh-entry__dynasty">Unifier of Egypt · 1st Dynasty founder</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">c. 3100 BCE</div><div class="pharaoh-stat__label">Unification date</div></div>
+                <div><div class="pharaoh-stat__num">1st</div><div class="pharaoh-stat__label">Dynasty of Egypt</div></div>
+                <div><div class="pharaoh-stat__num">3,000+</div><div class="pharaoh-stat__label">Years of pharaonic rule established</div></div>
+                <div><div class="pharaoh-stat__num">Upper Egypt</div><div class="pharaoh-stat__label">Origin region (southern/African interior)</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Narmer — identified by many scholars as the legendary Menes — is credited with uniting Upper and Lower Egypt into a single state around 3100 BCE, establishing the world's first nation-state and inaugurating 3,000 years of continuous pharaonic civilization. The Narmer Palette, discovered in 1898, is among the oldest historical documents ever found and depicts this unification event.</p>
+                <p>His origin is critical: Narmer came from <strong>Upper Egypt</strong> — the southern, more African interior of the Nile Valley, closer to Nubia and the sub-Saharan heartland. Upper Egyptian culture was deeply rooted in northeast African traditions, including cattle herding, cosmology, and burial practices traceable to peoples of the Saharan interior. <strong>The civilization that would become ancient Egypt was born in Africa's interior and moved northward.</strong></p>
+                <p>The Narmer Palette shows the king wearing the White Crown of Upper Egypt and the Red Crown of Lower Egypt in alternating panels — the earliest surviving image of a unified Egyptian state. He is depicted in the classic pharaonic pose: large, powerful, victorious over enemies. This image established the visual vocabulary of pharaonic authority that would last for three millennia.</p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">𓋹</div>
+                  <div class="pharaoh-feature__label">Narmer Palette</div>
+                  <div class="pharaoh-feature__desc">Oldest known historical narrative document — records Egypt's unification in carved relief</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">◈</div>
+                  <div class="pharaoh-feature__label">Dual crown</div>
+                  <div class="pharaoh-feature__desc">First ruler to wear both White and Red crowns — symbolizing control of all Egypt</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🏛</div>
+                  <div class="pharaoh-feature__label">Memphis founded</div>
+                  <div class="pharaoh-feature__desc">Established the capital city that would anchor Egyptian power for centuries</div>
+                </div>
+              </div>
+              <div class="legacy-box">
+                <div class="legacy-box__label">Legacy</div>
+                <p class="legacy-box__text">Narmer's unification was the founding act of one of humanity's most enduring civilizations. The political structure he established — a god-king ruling over a bureaucratic state with standardized administration — persisted for 3,000 years. <strong>That state was built by people of the African Nile Valley.</strong> Its founder was not Mediterranean, not Middle Eastern — he was from southern Egypt, where the culture, the people, and the traditions were continuous with sub-Saharan Africa.</p>
+              </div>
+            </div>
+
+            <!-- ── 2. Djoser ───────────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="djoser">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">2</div>
+                <div>
+                  <div class="pharaoh-entry__dates">r. c. 2670–2648 BCE</div>
+                  <h2 class="pharaoh-entry__name">Djoser</h2>
+                  <div class="pharaoh-entry__dynasty">3rd Dynasty · Step Pyramid builder</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">2650 BCE</div><div class="pharaoh-stat__label">Step Pyramid built</div></div>
+                <div><div class="pharaoh-stat__num">First</div><div class="pharaoh-stat__label">Stone monument in human history</div></div>
+                <div><div class="pharaoh-stat__num">Imhotep</div><div class="pharaoh-stat__label">Architect (later deified)</div></div>
+                <div><div class="pharaoh-stat__num">62 meters</div><div class="pharaoh-stat__label">Height of Step Pyramid at Saqqara</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Djoser's reign produced the <strong>first large-scale stone structure in human history</strong> — the Step Pyramid at Saqqara, designed by his chancellor and architect Imhotep. Before Djoser, monumental architecture was built in mud brick. Imhotep's innovation of stacking mastaba tombs into a six-stepped pyramid, then casing the entire complex in white limestone, represented a technological and artistic leap without precedent in any civilization on earth at the time.</p>
+                <p>Imhotep himself is one of history's most extraordinary figures: an architect, physician, and high priest who was later deified as a god of medicine by both Egyptians and — centuries later — by Greeks, who identified him with Asclepius. A <strong>Black African man became the foundation of Western medicine's divine mythology.</strong> That fact does not appear in most Western medical histories.</p>
+                <p>The Step Pyramid complex at Saqqara was not just a tomb — it was a ritual landscape of courts, temples, and chapels designed to perpetuate Djoser's divine kingship in the afterlife. Its construction required the organization of thousands of skilled workers, a supply chain for millions of tons of limestone, and architectural planning of a precision not seen again for centuries.</p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">△</div>
+                  <div class="pharaoh-feature__label">First pyramid</div>
+                  <div class="pharaoh-feature__desc">Step Pyramid at Saqqara — the prototype for all pyramids that followed</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">⚕</div>
+                  <div class="pharaoh-feature__label">Imhotep</div>
+                  <div class="pharaoh-feature__desc">His architect — later deified as the father of medicine, the origin of Asclepius</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🪨</div>
+                  <div class="pharaoh-feature__label">Stone masonry</div>
+                  <div class="pharaoh-feature__desc">First use of cut stone as primary building material — an innovation that transformed architecture</div>
+                </div>
+              </div>
+              <div class="legacy-box">
+                <div class="legacy-box__label">Legacy</div>
+                <p class="legacy-box__text">Djoser's pyramid set the template that led directly to the Great Pyramid at Giza 100 years later. <strong>The engineering tradition that produced the most recognizable structures in human history began here — in Africa, with African builders, under an African king.</strong> The Saqqara complex remains one of the best-preserved ancient sites in the world and is a UNESCO World Heritage site.</p>
+              </div>
+            </div>
+
+            <!-- ── 3. Khufu ────────────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="khufu">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">3</div>
+                <div>
+                  <div class="pharaoh-entry__dates">r. c. 2589–2566 BCE</div>
+                  <h2 class="pharaoh-entry__name">Khufu (Cheops)</h2>
+                  <div class="pharaoh-entry__dynasty">4th Dynasty · Great Pyramid builder</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">2.3M</div><div class="pharaoh-stat__label">Stone blocks in Great Pyramid</div></div>
+                <div><div class="pharaoh-stat__num">146.5m</div><div class="pharaoh-stat__label">Original height (tallest structure for 3,800 years)</div></div>
+                <div><div class="pharaoh-stat__num">20,000+</div><div class="pharaoh-stat__label">Workers (paid laborers, not slaves)</div></div>
+                <div><div class="pharaoh-stat__num">2560 BCE</div><div class="pharaoh-stat__label">Completion date</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Khufu's Great Pyramid of Giza stood as the tallest structure on earth for <strong>3,800 years</strong> — from its completion around 2560 BCE until the Lincoln Cathedral in England surpassed it in 1311 CE. No structure built by any civilization anywhere on earth came close for nearly four millennia. It was built in Africa, by Africans, for an African king.</p>
+                <p>The pyramid's engineering precision is staggering even by modern standards: its base is level to within 2.1 centimeters, its sides aligned to the cardinal compass points within 0.05 degrees, and its four corners are nearly perfect right angles. The workers who built it were not slaves — we know this from the payroll records, the workers' village at Giza, the medical facilities available to them, and the graffiti they left proudly identifying their work crews. <strong>They were skilled, organized, paid Egyptian workers.</strong></p>
+                <p>The enslaved-builder myth was popularized in the medieval period and has been comprehensively refuted by archaeology. It persists in popular culture because it makes the pyramid a monument to suffering rather than to African achievement — a political preference, not a historical one.</p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🔺</div>
+                  <div class="pharaoh-feature__label">Great Pyramid</div>
+                  <div class="pharaoh-feature__desc">World's tallest structure for 3,800 years — an African achievement with no parallel</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">📐</div>
+                  <div class="pharaoh-feature__label">Precision engineering</div>
+                  <div class="pharaoh-feature__desc">Base level within 2.1cm, aligned to cardinal points within 0.05° — without modern tools</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">👷</div>
+                  <div class="pharaoh-feature__label">Paid labor force</div>
+                  <div class="pharaoh-feature__desc">Workers' village, bakeries, medical facilities — this was organized, compensated labor</div>
+                </div>
+              </div>
+              <div class="erasure-box">
+                <div class="erasure-box__label">The slave myth — and who benefits from it</div>
+                <p class="erasure-box__text">The claim that the pyramids were built by enslaved people has been <strong>definitively disproven by archaeology</strong>. Workers' villages, payroll records, and tomb inscriptions all show organized, paid labor forces. The myth was not an ancient one — it originates in medieval texts and was amplified in the 18th–19th centuries. <strong>Its function is to reframe Egypt's greatest achievement as a story of exploitation rather than African mastery.</strong> A civilization that built the world's greatest monuments with organized free labor is a more threatening argument than one that did it through coercion.</p>
+              </div>
+            </div>
+
+            <!-- ── 4. Hatshepsut ───────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="hatshepsut">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">4</div>
+                <div>
+                  <div class="pharaoh-entry__dates">r. c. 1478–1458 BCE</div>
+                  <h2 class="pharaoh-entry__name">Hatshepsut</h2>
+                  <div class="pharaoh-entry__dynasty">18th Dynasty · Female pharaoh</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">20 years</div><div class="pharaoh-stat__label">Reign as pharaoh</div></div>
+                <div><div class="pharaoh-stat__num">Punt</div><div class="pharaoh-stat__label">Established trade route to East Africa</div></div>
+                <div><div class="pharaoh-stat__num">Deir el-Bahri</div><div class="pharaoh-stat__label">Mortuary temple — architectural masterpiece</div></div>
+                <div><div class="pharaoh-stat__num">Erased</div><div class="pharaoh-stat__label">Memory destroyed by successor Thutmose III</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Hatshepsut ruled Egypt as pharaoh for approximately 20 years — not as regent, not as queen consort, but as <em>pharaoh</em>, wearing the double crown and the false beard, depicted in statues as the male pharaoh's body with her own name. She was one of the most successful rulers in Egyptian history, overseeing an era of monumental building, trade expansion, and political stability.</p>
+                <p>Her most celebrated achievement was a <strong>trading expedition to the land of Punt</strong> — a wealthy African civilization on the East African coast (likely modern Eritrea or Somalia). The expedition returned with living myrrh trees, ebony, gold, ivory, and exotic animals. The entire journey is documented in painted reliefs at her mortuary temple at Deir el-Bahri — the most detailed depiction of an African trade expedition from the ancient world.</p>
+                <p>After her death, her successor Thutmose III <strong>systematically erased her from history</strong> — smashing her statues, chiseling her name off inscriptions, and plastering over her images. She was effectively erased for 3,500 years. Her identity was only recovered in the 19th century when Egyptologists began decoding the defaced records. This was not ancient sexism in isolation — it was a deliberate political erasure of a powerful African woman's legacy, a pattern that has repeated itself at every scale.</p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🌿</div>
+                  <div class="pharaoh-feature__label">Expedition to Punt</div>
+                  <div class="pharaoh-feature__desc">East African trade mission — brought living trees, gold, ivory; documented in full relief</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🏛</div>
+                  <div class="pharaoh-feature__label">Deir el-Bahri</div>
+                  <div class="pharaoh-feature__desc">Mortuary temple — considered one of the finest ancient buildings in the world</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">⛏</div>
+                  <div class="pharaoh-feature__label">Erased by Thutmose III</div>
+                  <div class="pharaoh-feature__desc">3,500 years of systematic erasure — a pattern that would be repeated across Black history</div>
+                </div>
+              </div>
+              <div class="legacy-box">
+                <div class="legacy-box__label">Legacy — and what erasure looks like</div>
+                <p class="legacy-box__text">Hatshepsut was one of ancient Egypt's most effective rulers. She was also a Black African woman. Her erasure by her successor and the subsequent 3,500-year hole in the historical record is a case study in how <strong>the history of powerful Black women is systematically destroyed</strong>. The pattern — documented achievement, political erasure, historical invisibility, partial recovery centuries later — is not unique to pharaonic Egypt. It is the operating pattern of the entire history this website documents.</p>
+              </div>
+            </div>
+
+            <!-- ── 5. Thutmose III ─────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="thutmose">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">5</div>
+                <div>
+                  <div class="pharaoh-entry__dates">r. c. 1458–1425 BCE</div>
+                  <h2 class="pharaoh-entry__name">Thutmose III</h2>
+                  <div class="pharaoh-entry__dynasty">18th Dynasty · "Napoleon of Egypt"</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">17</div><div class="pharaoh-stat__label">Military campaigns</div></div>
+                <div><div class="pharaoh-stat__num">350+</div><div class="pharaoh-stat__label">Cities conquered</div></div>
+                <div><div class="pharaoh-stat__num">Euphrates</div><div class="pharaoh-stat__label">Northern border of empire at peak</div></div>
+                <div><div class="pharaoh-stat__num">4th Cataract</div><div class="pharaoh-stat__label">Southern border (deep into Nubia)</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Thutmose III is often called the "Napoleon of Egypt" by Western historians — a comparison that simultaneously acknowledges his military genius and centers Europe as the reference point for greatness. He conducted <strong>17 military campaigns in 20 years</strong>, expanding Egypt's empire from the Euphrates River in modern Syria to the Fourth Cataract of the Nile deep in Nubia. At its peak, his Egypt was the dominant military power on earth.</p>
+                <p>His Battle of Megiddo (c. 1457 BCE) is the <strong>earliest battle in recorded history</strong> described in detail — not in legend, but in firsthand military records. His scribes documented troop movements, logistics, battlefield decisions, and diplomatic outcomes. This is the first time in human history we can read a battle account that reads like modern military reporting.</p>
+                <p>He also consolidated Egypt's administrative system, creating a professional bureaucracy that governed a multi-ethnic empire stretching across northeastern Africa and the Near East. He was simultaneously architect, administrator, military commander, and the most powerful man on earth for most of his 33-year sole reign.</p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">⚔</div>
+                  <div class="pharaoh-feature__label">Battle of Megiddo</div>
+                  <div class="pharaoh-feature__desc">First battle in recorded history described in full military detail</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🌍</div>
+                  <div class="pharaoh-feature__label">Largest Egyptian empire</div>
+                  <div class="pharaoh-feature__desc">From Euphrates to deep Nubia — spanning northeast Africa and the Levant</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">📜</div>
+                  <div class="pharaoh-feature__label">Military records</div>
+                  <div class="pharaoh-feature__desc">Detailed campaign annals — the earliest strategic military documentation in history</div>
+                </div>
+              </div>
+              <div class="legacy-box">
+                <div class="legacy-box__label">Legacy</div>
+                <p class="legacy-box__text">Thutmose III's empire was the ancient world's superpower. His campaigns, administrative reforms, and military records set the template for imperial governance that later empires — including Rome — would study and imitate. <strong>The most powerful man on earth in 1450 BCE was an African king ruling from African soil.</strong> That this is not the first name American students learn in history class is itself a form of erasure.</p>
+              </div>
+            </div>
+
+            <!-- ── 6. Akhenaten ────────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="akhenaten">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">6</div>
+                <div>
+                  <div class="pharaoh-entry__dates">r. c. 1353–1336 BCE</div>
+                  <h2 class="pharaoh-entry__name">Akhenaten</h2>
+                  <div class="pharaoh-entry__dynasty">18th Dynasty · Monotheism's first documented ruler</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">First</div><div class="pharaoh-stat__label">Documented monotheist ruler in history</div></div>
+                <div><div class="pharaoh-stat__num">Aten</div><div class="pharaoh-stat__label">Single god of the sun disk</div></div>
+                <div><div class="pharaoh-stat__num">Amarna</div><div class="pharaoh-stat__label">New capital city built from nothing</div></div>
+                <div><div class="pharaoh-stat__num">Erased</div><div class="pharaoh-stat__label">Name removed from all official records after death</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Akhenaten is history's first documented monotheist ruler — a pharaoh who, in the 14th century BCE, abolished Egypt's entire polytheistic pantheon and declared that there was only one god: Aten, the sun disk. He built a new capital city — Akhetaten, modern Amarna — from scratch in the Egyptian desert, devoted entirely to this new theology.</p>
+                <p>The theological implications were radical. Akhenaten's <strong>"Great Hymn to the Aten"</strong> — a surviving religious poem — bears striking similarities to Psalm 104 of the Hebrew Bible. Scholars including Sigmund Freud (<em>Moses and Monotheism</em>, 1939) and more recently Donald Redford have argued that Akhenaten's monotheism influenced or directly contributed to the development of Hebrew monotheism, and through it, Christianity and Islam. <strong>If this connection holds, an African pharaoh may be the origin point of the three largest religions on earth.</strong></p>
+                <p>After his death, Egypt's priestly class erased him — just as Thutmose III had erased Hatshepsut. His name was removed from inscriptions, his city was abandoned and dismantled, and his statues were defaced. He was known to modern scholars only as "the heretic king" until the 19th century. His queen was Nefertiti — whose famous bust, now in Berlin, was removed from Egypt by German archaeologists in 1912 and has never been returned.</p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">☀</div>
+                  <div class="pharaoh-feature__label">First monotheism</div>
+                  <div class="pharaoh-feature__desc">Abolished the Egyptian pantheon — declared one god 1,300 years before Islam</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">📖</div>
+                  <div class="pharaoh-feature__label">Hymn to the Aten</div>
+                  <div class="pharaoh-feature__desc">Theological poem with direct parallels to Psalm 104 — possible source of Hebrew monotheism</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🏛</div>
+                  <div class="pharaoh-feature__label">Amarna</div>
+                  <div class="pharaoh-feature__desc">Entire city built to a new theology — abandoned and dismantled after his death</div>
+                </div>
+              </div>
+              <div class="legacy-box">
+                <div class="legacy-box__label">Legacy — religion, erasure, and stolen artifacts</div>
+                <p class="legacy-box__text">If the scholarly connection between Akhenaten's monotheism and Hebrew theology is correct, <strong>the origin of Judaism, Christianity, and Islam traces to a Black African pharaoh.</strong> That is not a marginal claim — it is the position of serious mainstream Egyptologists. Nefertiti's bust — one of the most recognized ancient artifacts in the world — remains in Berlin, taken in violation of export agreements. <strong>Egyptian antiquities looted during the colonial era sit in Western museums while Egypt continues to request their return.</strong></p>
+              </div>
+            </div>
+
+            <!-- ── 7. Ramesses II ──────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="ramesses">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">7</div>
+                <div>
+                  <div class="pharaoh-entry__dates">r. c. 1279–1213 BCE</div>
+                  <h2 class="pharaoh-entry__name">Ramesses II (Ramesses the Great)</h2>
+                  <div class="pharaoh-entry__dynasty">19th Dynasty · Most celebrated pharaoh</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">66 years</div><div class="pharaoh-stat__label">Length of reign</div></div>
+                <div><div class="pharaoh-stat__num">96</div><div class="pharaoh-stat__label">Estimated age at death</div></div>
+                <div><div class="pharaoh-stat__num">Abu Simbel</div><div class="pharaoh-stat__label">Greatest monument to self in history</div></div>
+                <div><div class="pharaoh-stat__num">1259 BCE</div><div class="pharaoh-stat__label">Treaty of Kadesh — oldest surviving peace treaty</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Ramesses II is the most celebrated pharaoh in history — a man who ruled Egypt for 66 years, outlived most of his 100+ children, and covered Egypt in monuments to himself with a thoroughness that modern PR firms would envy. The colossal seated statues at Abu Simbel — 20 meters tall, carved directly into a sandstone cliff — were built to intimidate anyone traveling southward up the Nile into Nubia. They worked.</p>
+                <p>His reign is known for the <strong>Battle of Kadesh</strong> (c. 1274 BCE) against the Hittites — a battle that ended in a draw but was recorded by Ramesses as a great victory. More significantly, it ended with the <strong>Treaty of Kadesh in 1259 BCE — the oldest surviving peace treaty in recorded history</strong>, copies of which hang today in the United Nations building in New York. An African king's diplomatic agreement is the template for international law.</p>
+                <p>He is also the pharaoh most frequently identified as the pharaoh of the Exodus in biblical tradition — though this remains contested by historians. What is uncontested is that his mummy, now in the Cairo Museum, shows <strong>red-tinged hair</strong> — a fact that 19th-century scholars used to argue he was "light-skinned." Modern forensic analysis confirms this coloring is caused by the chemistry of the mummification process, not his living skin color.</p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">📜</div>
+                  <div class="pharaoh-feature__label">Treaty of Kadesh</div>
+                  <div class="pharaoh-feature__desc">Oldest peace treaty in history — a copy hangs at the United Nations today</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🗿</div>
+                  <div class="pharaoh-feature__label">Abu Simbel</div>
+                  <div class="pharaoh-feature__desc">Four 20-meter statues carved into solid rock — still standing 3,200 years later</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">👑</div>
+                  <div class="pharaoh-feature__label">66-year reign</div>
+                  <div class="pharaoh-feature__desc">One of the longest reigns in ancient history — survived most of his 100+ children</div>
+                </div>
+              </div>
+              <div class="erasure-box">
+                <div class="erasure-box__label">The red hair myth — and how race science distorted Egyptology</div>
+                <p class="erasure-box__text">The claim that Ramesses II's reddish mummy hair proved he was white or light-skinned circulated widely in the 19th and early 20th centuries. It was used by race scientists to argue that Egypt's greatest achievements were produced by non-Black people. <strong>Modern chemistry shows the red color is caused by henna treatment and the oxidation of melanin during mummification.</strong> The same process affects dark-haired mummies across Egypt. The myth was never based on evidence — it was based on the political need to separate African greatness from African people.</p>
+              </div>
+            </div>
+
+            <!-- ── 8. Nefertari ────────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="nefertari">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">8</div>
+                <div>
+                  <div class="pharaoh-entry__dates">c. 1295–1255 BCE</div>
+                  <h2 class="pharaoh-entry__name">Nefertari</h2>
+                  <div class="pharaoh-entry__dynasty">19th Dynasty · Queen of Ramesses II</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">QV66</div><div class="pharaoh-stat__label">Her tomb — most beautiful in the Valley of the Queens</div></div>
+                <div><div class="pharaoh-stat__num">Abu Simbel</div><div class="pharaoh-stat__label">Her own temple built alongside Ramesses'</div></div>
+                <div><div class="pharaoh-stat__num">Diplomatic</div><div class="pharaoh-stat__label">Corresponded directly with Hittite queen</div></div>
+                <div><div class="pharaoh-stat__num">African</div><div class="pharaoh-stat__label">Skeletal analysis confirms sub-Saharan ancestry</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Nefertari was the Great Royal Wife of Ramesses II and one of the most powerful women in Egyptian history. Her tomb in the Valley of the Queens — designated QV66 — contains some of the most vibrant and best-preserved paintings in all of ancient Egypt. Every surface of its walls is covered in detailed scenes of Nefertari's journey through the afterlife, rendered in colors that remain vivid 3,200 years later.</p>
+                <p>She was not merely a consort. She participated directly in <strong>international diplomacy</strong>, corresponding with the Hittite queen after the Treaty of Kadesh. She had her own temple built at Abu Simbel — the only time in Egyptian history a temple of this scale was dedicated to a queen. The inscription reads: <em>"The one for whom the sun shines."</em></p>
+                <p>Analysis of Nefertari's skeletal remains by forensic anthropologists has confirmed <strong>sub-Saharan African ancestry</strong> in her bone structure. Her wall portraits show her with dark brown skin — a depiction consistent throughout all representations of her, without the lightening that appears in some depictions of other royals. She was, by every measure of evidence, a Black African queen — one of the most celebrated, one of the most erased.</p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🎨</div>
+                  <div class="pharaoh-feature__label">Tomb QV66</div>
+                  <div class="pharaoh-feature__desc">Most beautifully painted tomb in Egypt — preserved in vivid color for 3,200 years</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🏛</div>
+                  <div class="pharaoh-feature__label">Abu Simbel temple</div>
+                  <div class="pharaoh-feature__desc">Only non-pharaoh to have a temple of this scale in her own honor</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🦴</div>
+                  <div class="pharaoh-feature__label">Forensic confirmation</div>
+                  <div class="pharaoh-feature__desc">Skeletal analysis confirms sub-Saharan African ancestry — documented, not disputed</div>
+                </div>
+              </div>
+              <div class="legacy-box">
+                <div class="legacy-box__label">Legacy</div>
+                <p class="legacy-box__text">Nefertari's wall portraits show a dark-skinned woman of evident African ancestry in elaborate gold jewelry and white linen — one of the most documented women in ancient history. Her identity as a Black African queen is not an interpretation. It is the consistent evidence of every portrait, every forensic study, and every ancient inscription. <strong>She was the most celebrated queen of the most powerful state on earth, and she was Black.</strong></p>
+              </div>
+            </div>
+
+            <!-- ── 9. Piankhi / Piye ────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="piye">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">9</div>
+                <div>
+                  <div class="pharaoh-entry__dates">r. c. 744–714 BCE</div>
+                  <h2 class="pharaoh-entry__name">Piye (Piankhi)</h2>
+                  <div class="pharaoh-entry__dynasty">25th Dynasty founder · Nubian pharaoh of Egypt</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">25th</div><div class="pharaoh-stat__label">Dynasty — the Nubian / Kushite dynasty</div></div>
+                <div><div class="pharaoh-stat__num">Kush</div><div class="pharaoh-stat__label">Origin — modern-day Sudan</div></div>
+                <div><div class="pharaoh-stat__num">730 BCE</div><div class="pharaoh-stat__label">Conquered all of Egypt from the south</div></div>
+                <div><div class="pharaoh-stat__num">Victory Stele</div><div class="pharaoh-stat__label">Most detailed military narrative in Egyptian history</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Piye was a Nubian king from the Kingdom of Kush — from what is now Sudan, deep in sub-Saharan Africa — who marched north and <strong>conquered all of Egypt</strong> around 730 BCE, founding the 25th Dynasty. He was not an invader stealing someone else's heritage. He was a Black African king from a civilization that shared deep roots with Egypt's own foundations, reclaiming a tradition he understood as his by ancestry.</p>
+                <p>The Victory Stele he erected to commemorate his conquest is the most detailed military and political narrative text from ancient Egypt — more than 150 lines describing battles, negotiations, the submission of local rulers, and Piye's religious scruples (he refused to eat with defeated kings until they purified themselves, because they were uncircumcised). It reveals a ruler of <strong>extraordinary strategic intelligence, religious conviction, and political sophistication.</strong></p>
+                <p>The 25th Dynasty's reign is often called a "renaissance" of Egyptian culture — the Nubian pharaohs revived pyramid-building, restored temples, championed traditional Egyptian religious practices, and produced some of the finest small bronze sculpture in Egyptian history. <strong>Black Africans from south of the Sahara not only participated in Egyptian civilization — they saved and revived it.</strong></p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">👑</div>
+                  <div class="pharaoh-feature__label">Conquered Egypt from Kush</div>
+                  <div class="pharaoh-feature__desc">Marched from modern Sudan northward — unified all of Egypt under Nubian rule</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">📜</div>
+                  <div class="pharaoh-feature__label">Victory Stele</div>
+                  <div class="pharaoh-feature__desc">Most detailed historical narrative text from all of ancient Egypt — 150+ lines</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">△</div>
+                  <div class="pharaoh-feature__label">Pyramid revival</div>
+                  <div class="pharaoh-feature__desc">25th Dynasty restarted pyramid building — Nubian pyramids at Meroë still stand</div>
+                </div>
+              </div>
+              <div class="legacy-box">
+                <div class="legacy-box__label">Legacy</div>
+                <p class="legacy-box__text">Piye's conquest and the 25th Dynasty's reign is the clearest single proof that Egypt and sub-Saharan Africa were part of the same civilizational continuum. When Egypt was weakened, <strong>Black Africans from the Nile Valley's interior came north and restored it</strong> — building pyramids, rebuilding temples, returning to traditional Egyptian religious practices. The separateness of "Egypt" from "Africa" is a modern fiction. Piye is its refutation.</p>
+              </div>
+            </div>
+
+            <!-- ── 10. Taharqa ─────────────────────────────── -->
+            <div class="pharaoh-entry reveal" id="taharqa">
+              <div class="pharaoh-entry__header">
+                <div class="pharaoh-entry__num">10</div>
+                <div>
+                  <div class="pharaoh-entry__dates">r. c. 690–664 BCE</div>
+                  <h2 class="pharaoh-entry__name">Taharqa</h2>
+                  <div class="pharaoh-entry__dynasty">25th Dynasty · The Black Pharaoh of the Bible</div>
+                </div>
+              </div>
+              <div class="pharaoh-stats">
+                <div><div class="pharaoh-stat__num">Bible</div><div class="pharaoh-stat__label">Named in 2 Kings 19 and Isaiah 37</div></div>
+                <div><div class="pharaoh-stat__num">Kush to Sinai</div><div class="pharaoh-stat__label">Empire span — largest Kushite territory</div></div>
+                <div><div class="pharaoh-stat__num">Assyria</div><div class="pharaoh-stat__label">Fought back the world's most powerful army</div></div>
+                <div><div class="pharaoh-stat__num">Colossus</div><div class="pharaoh-stat__label">His statues show unmistakably African features</div></div>
+              </div>
+              <div class="pharaoh-entry__body">
+                <p>Taharqa is the only African pharaoh named in the Hebrew Bible — in both 2 Kings 19:9 and Isaiah 37:9, he is depicted as a king coming to the aid of Jerusalem against the Assyrian king Sennacherib. This biblical reference is historically corroborated: Taharqa did confront the Assyrian army, and Sennacherib's campaigns against Judah did end inconclusively, at least partially due to Egyptian/Kushite military pressure.</p>
+                <p>His statues — some of the finest surviving sculptures from ancient Egypt — show a man with <strong>unmistakably African features</strong>: broad nose, full lips, strong jaw, dark skin clearly intended in the painted versions. The National Museum of Sudan holds his most famous colossal head. It is one of the most powerful surviving portraits of any ancient ruler. He looks, unmistakably, like a Black African man — because he was one.</p>
+                <p>Taharqa ruled the largest empire the 25th Dynasty ever controlled, stretching from deep in modern Sudan to the Sinai Peninsula. He built extensively — temples, pyramids, additions to the great complexes at Karnak and Kawa. He was the last great Nubian pharaoh before Assyrian invasions forced the dynasty south. <strong>He was also, literally, a figure in the Bible — a Black African king whose intervention shaped the history of the Hebrew people.</strong></p>
+              </div>
+              <div class="pharaoh-features">
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">📖</div>
+                  <div class="pharaoh-feature__label">Named in the Bible</div>
+                  <div class="pharaoh-feature__desc">2 Kings 19:9 — the only African pharaoh explicitly named in Hebrew scripture</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">🗿</div>
+                  <div class="pharaoh-feature__label">African portraiture</div>
+                  <div class="pharaoh-feature__desc">Surviving colossal sculptures show unmistakably African features — no ambiguity</div>
+                </div>
+                <div class="pharaoh-feature">
+                  <div class="pharaoh-feature__icon">⚔</div>
+                  <div class="pharaoh-feature__label">Halted Assyria</div>
+                  <div class="pharaoh-feature__desc">Fought the ancient world's most powerful military — and kept them from completing their campaign</div>
+                </div>
+              </div>
+              <div class="legacy-box">
+                <div class="legacy-box__label">Legacy — the Black pharaoh in scripture</div>
+                <p class="legacy-box__text">Taharqa's presence in the Bible as a defender of Jerusalem against Assyrian aggression means that one of the pivotal moments in Hebrew history involved the military intervention of a Black African king. <strong>Western Christianity's foundational texts include a Black African pharaoh as an ally of God's chosen people.</strong> This fact is almost never discussed in Western Sunday schools, history classes, or popular culture. Its omission is not accidental.</p>
+              </div>
+            </div>
+
+          </div><!-- /pharaoh-list -->
+
+          <!-- ── CAUSAL CHAIN ───────────────────────────────── -->
+          <div class="chain-connector reveal" id="chain">
+            <div class="chain-connector__title">The Chain: From Pharaonic Egypt to the Erasure of Black History</div>
+            <div class="chain-steps">
+              <div class="chain-step">
+                <div class="chain-step__dot">1</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">3100–30 BCE</div>
+                  <div class="chain-step__title">Egypt builds civilization</div>
+                  <div class="chain-step__desc">For 3,000 years, an African civilization on African soil produces the world's most documented ancient achievement — pyramids, monotheism, the first peace treaty, the first detailed military records, architecture that has not been surpassed.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot">2</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">30 BCE – 1500 CE</div>
+                  <div class="chain-step__title">Rome colonizes, Greek and Roman records persist</div>
+                  <div class="chain-step__desc">Egypt is absorbed into the Roman Empire. Greek and Roman writers who recorded Egypt's African character — Herodotus, Aristotle, Diodorus — are preserved in European libraries, but their descriptions of Egyptians as dark-skinned are de-emphasized.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot">3</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">1700–1850</div>
+                  <div class="chain-step__title">19th-century race science rewrites Egypt</div>
+                  <div class="chain-step__desc">European scholars construct racial categories specifically designed to classify Egyptians as "Caucasian." Blumenbach, Morton, Nott, and Gliddon publish work arguing Egypt was white — funded by a political need to justify slavery by proving Black Africans had no civilization.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot">4</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">1850–present</div>
+                  <div class="chain-step__title">Hollywood and textbooks reinforce the white Egypt myth</div>
+                  <div class="chain-step__desc">From Cecil B. DeMille's 1956 <em>Ten Commandments</em> (Charlton Heston as Moses, Yul Brynner as Ramesses) to Ridley Scott's 2014 <em>Exodus: Gods and Kings</em> (all-white cast in African roles), popular culture continuously represents ancient Egyptians as white or ambiguously Mediterranean.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot">5</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div>
+                  <div class="chain-step__era">Present day</div>
+                  <div class="chain-step__title">The argument is used against Black dignity</div>
+                  <div class="chain-step__desc">The claim that Black people "have no history before slavery" depends on the erasure of Egypt's African identity. Restore that identity, and the argument collapses. Black people were building the world's greatest civilization 4,000 years before the Transatlantic Slave Trade. That is the chain this thread establishes.</div>
+                </div>
+              </div>
+            </div>
+            <div class="chain-connector__cta">
+              <p>This thread connects to the erasure of African civilizations before the slave trade.</p>
+              <a href="thread-african-empires.html">Read: 7 African Empires →</a>
+            </div>
+          </div>
+
+        </div><!-- /main content -->
+
+        <!-- SIDEBAR -->
+        <aside class="thread-sidebar" id="thread-sidebar">
+
+          <!-- TOC -->
+          <nav class="sidebar-toc" id="toc-card" aria-label="Thread contents">
+            <div class="sidebar-toc__label">In this thread</div>
+            <ul class="sidebar-toc__list">
+              <li><a href="#intro"      class="sidebar-toc__link"><span class="sidebar-toc__num">0</span> Was Egypt African?</a></li>
+              <li><a href="#narmer"     class="sidebar-toc__link"><span class="sidebar-toc__num">1</span> Narmer</a></li>
+              <li><a href="#djoser"     class="sidebar-toc__link"><span class="sidebar-toc__num">2</span> Djoser</a></li>
+              <li><a href="#khufu"      class="sidebar-toc__link"><span class="sidebar-toc__num">3</span> Khufu</a></li>
+              <li><a href="#hatshepsut" class="sidebar-toc__link"><span class="sidebar-toc__num">4</span> Hatshepsut</a></li>
+              <li><a href="#thutmose"   class="sidebar-toc__link"><span class="sidebar-toc__num">5</span> Thutmose III</a></li>
+              <li><a href="#akhenaten"  class="sidebar-toc__link"><span class="sidebar-toc__num">6</span> Akhenaten</a></li>
+              <li><a href="#ramesses"   class="sidebar-toc__link"><span class="sidebar-toc__num">7</span> Ramesses II</a></li>
+              <li><a href="#nefertari"  class="sidebar-toc__link"><span class="sidebar-toc__num">8</span> Nefertari</a></li>
+              <li><a href="#piye"       class="sidebar-toc__link"><span class="sidebar-toc__num">9</span> Piye</a></li>
+              <li><a href="#taharqa"    class="sidebar-toc__link"><span class="sidebar-toc__num">10</span> Taharqa</a></li>
+              <li><a href="#chain"      class="sidebar-toc__link"><span class="sidebar-toc__num">↓</span> The Chain</a></li>
+            </ul>
+          </nav>
+
+          <!-- Timeline card -->
+          <div class="sidebar-card" id="sidebar-rulers">
+            <div class="sidebar-card__title">Key rulers at a glance</div>
+            <div class="sidebar-timeline">
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">c. 3100 BCE</div>
+                <div><div class="sidebar-timeline-item__name">Narmer</div><div class="sidebar-timeline-item__region">Unifier — 1st Dynasty founder</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">c. 2670 BCE</div>
+                <div><div class="sidebar-timeline-item__name">Djoser</div><div class="sidebar-timeline-item__region">First pyramid builder</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">c. 2589 BCE</div>
+                <div><div class="sidebar-timeline-item__name">Khufu</div><div class="sidebar-timeline-item__region">Great Pyramid of Giza</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">c. 1478 BCE</div>
+                <div><div class="sidebar-timeline-item__name">Hatshepsut</div><div class="sidebar-timeline-item__region">Female pharaoh — erased by successor</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">c. 1353 BCE</div>
+                <div><div class="sidebar-timeline-item__name">Akhenaten</div><div class="sidebar-timeline-item__region">First monotheist ruler in history</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">c. 1279 BCE</div>
+                <div><div class="sidebar-timeline-item__name">Ramesses II</div><div class="sidebar-timeline-item__region">First international peace treaty</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">c. 744 BCE</div>
+                <div><div class="sidebar-timeline-item__name">Piye</div><div class="sidebar-timeline-item__region">Nubian conquest — 25th Dynasty</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">c. 690 BCE</div>
+                <div><div class="sidebar-timeline-item__name">Taharqa</div><div class="sidebar-timeline-item__region">The pharaoh named in the Bible</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next thread -->
+          <div class="next-thread-card">
+            <div class="next-thread-card__label">Continue the chain</div>
+            <div class="next-thread-card__title">7 African Empires: What existed before the slave trade</div>
+            <a href="thread-african-empires.html" class="next-thread-card__link">Read thread →</a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="thread-bottom-cta" aria-labelledby="thread-cta-heading">
+    <div class="container thread-bottom-cta__inner">
+      <h2 id="thread-cta-heading" class="thread-bottom-cta__title">
+        Egypt was <em>African.</em><br />Always was.
+      </h2>
+      <p class="thread-bottom-cta__sub">Share this thread with someone who was taught that ancient Egypt had nothing to do with Black people. The evidence says otherwise.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-african-empires.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Continue the chain →</a>
+        <a href="threads.html"                class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All threads</a>
+        <a href="donate.html"                 class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">Support Chain</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── SIDEBAR TOC SCROLLSPY ─────────────────────────────────
+  const tocLinks = document.querySelectorAll('.sidebar-toc__link');
+  const sectionIds = ['intro','narmer','djoser','khufu','hatshepsut','thutmose','akhenaten','ramesses','nefertari','piye','taharqa','chain'];
+  const tocObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('is-active'));
+        const active = document.querySelector(`.sidebar-toc__link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('is-active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) tocObs.observe(el);
+  });
+
+  // ── TEXT-TO-SPEECH ────────────────────────────────────────
+  const listenBtn    = document.getElementById('listenBtn');
+  const listenLabel  = document.getElementById('listenLabel');
+  const listenIcon   = document.getElementById('listenIcon');
+  const progressBar  = document.getElementById('listenProgressBar');
+  const progressFill = document.getElementById('listenProgressFill');
+
+  const PLAY_ICON  = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  const PAUSE_ICON = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+  function getReadableText() {
+    const main = document.getElementById('main-content');
+    if (!main) return '';
+    const els = main.querySelectorAll(
+      '.intro-section h2, .intro-section__body p, .explainer-card__a, .explainer-card__detail, .pharaoh-entry__name, .pharaoh-entry__dates, .pharaoh-entry__body p, .legacy-box__text, .erasure-box__text, .chain-step__title, .chain-step__desc'
+    );
+    return Array.from(els).map(el => el.innerText.trim()).filter(Boolean).join('. ');
+  }
+
+  let utterance = null;
+  let totalChunks = 1;
+
+  function setListenState(state) {
+    listenBtn.dataset.state = state;
+    if (state === 'idle') {
+      listenIcon.innerHTML = PLAY_ICON;
+      listenLabel.textContent = 'Listen';
+      progressBar.classList.remove('is-visible');
+      progressFill.style.width = '0%';
+    } else if (state === 'playing') {
+      listenIcon.innerHTML = PAUSE_ICON;
+      listenLabel.textContent = 'Pause';
+      progressBar.classList.add('is-visible');
+    } else if (state === 'paused') {
+      listenIcon.innerHTML = PLAY_ICON;
+      listenLabel.textContent = 'Resume';
+    }
+  }
+
+  listenBtn.addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) { listenLabel.textContent = 'Not supported'; listenBtn.disabled = true; return; }
+    const state = listenBtn.dataset.state;
+    if (state === 'idle') {
+      const text = getReadableText();
+      const words = text.split(' ');
+      const chunkSize = 40;
+      const chunks = [];
+      for (let i = 0; i < words.length; i += chunkSize) chunks.push(words.slice(i, i + chunkSize).join(' '));
+      totalChunks = chunks.length || 1;
+      window.speechSynthesis.cancel();
+      function speakChunk(i) {
+        if (i >= chunks.length) { setListenState('idle'); return; }
+        utterance = new SpeechSynthesisUtterance(chunks[i]);
+        utterance.rate = 0.92; utterance.pitch = 1; utterance.lang = 'en-US';
+        const voices = window.speechSynthesis.getVoices();
+        const preferred = voices.find(v => /samantha|karen|daniel|google us/i.test(v.name));
+        if (preferred) utterance.voice = preferred;
+        utterance.onstart = () => { progressFill.style.width = `${Math.round((i / totalChunks) * 100)}%`; };
+        utterance.onend = () => speakChunk(i + 1);
+        utterance.onerror = () => setListenState('idle');
+        window.speechSynthesis.speak(utterance);
+      }
+      speakChunk(0);
+      setListenState('playing');
+    } else if (state === 'playing') {
+      window.speechSynthesis.pause(); setListenState('paused');
+    } else if (state === 'paused') {
+      window.speechSynthesis.resume(); setListenState('playing');
+    }
+  });
+  window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.04 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+<script src="js/thread.js" defer></script>
+</body>
+</html>
