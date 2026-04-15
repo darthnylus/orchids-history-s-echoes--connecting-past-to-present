@@ -792,19 +792,17 @@
       <span class="threads-filter__label">Domain</span>
       <button class="filter-chip is-active" data-filter="all"       aria-pressed="true">All threads</button>
       <button class="filter-chip"           data-filter="housing"   aria-pressed="false">Housing</button>
-      <button class="filter-chip"           data-filter="labor"     aria-pressed="false">Labor &amp; Wealth</button>
-      <button class="filter-chip"           data-filter="justice"   aria-pressed="false">Criminal Justice</button>
-      <button class="filter-chip"           data-filter="health"    aria-pressed="false">Health</button>
-      <button class="filter-chip"           data-filter="education" aria-pressed="false">Education</button>
-      <button class="filter-chip"           data-filter="history"   aria-pressed="false">History &amp; Culture</button>
+      <button class="filter-chip"           data-filter="labor-wealth"      aria-pressed="false">Labor &amp; Wealth</button>
+      <button class="filter-chip"           data-filter="criminal-justice"  aria-pressed="false">Criminal Justice</button>
+      <button class="filter-chip"           data-filter="health"            aria-pressed="false">Health</button>
+      <button class="filter-chip"           data-filter="education"         aria-pressed="false">Education</button>
+      <button class="filter-chip"           data-filter="history-culture"   aria-pressed="false">History &amp; Culture</button>
       <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true"></span>
     </div>
 
-    <!-- EMPTY STATE -->
-    <div class="filter-empty" id="filterEmpty">No threads match this filter yet. <a href="#" class="filter-reset" style="color:var(--color-accent-dark);text-decoration:underline">Show all</a></div>
 
     <!-- FEATURED THREAD — Thread 1 -->
-    <a href="thread-african-empires.html" class="thread-featured reveal" data-domain="all" aria-labelledby="featured-title">
+    <a href="thread-african-empires.html" class="thread-featured reveal" data-domain="history-culture" aria-labelledby="featured-title">
       <div class="thread-featured__body">
         <span class="thread-featured__label">
           <span class="thread-featured__label-dot" aria-hidden="true"></span>
@@ -887,7 +885,7 @@
     <!-- THREAD GRID -->
     <div class="threads-grid" id="threads-grid">
 
-      <a href="thread.html" class="thread-card thread-card--has-img reveal" data-domain="housing education">
+      <a href="thread.html" class="thread-card thread-card--has-img reveal" data-domain="housing labor-wealth">
         <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/holc-redlining-philadelphia-800.webp 800w, images/holc-redlining-philadelphia.webp 1600w" sizes="(max-width:640px) 100vw, 1600px" />
@@ -907,7 +905,7 @@
         </div>
       </a>
 
-      <a href="thread-inventors.html" class="thread-card reveal" data-domain="labor education">
+      <a href="thread-inventors.html" class="thread-card reveal" data-domain="history-culture labor-wealth">
         <span class="thread-card__domain">Innovation &amp; Erasure</span>
         <h2 class="thread-card__title">Built by Black Hands: The Inventors America Erased</h2>
         <p class="thread-card__summary">The traffic light. The light bulb filament. The blood bank. The gas mask. The microphone in your phone. The video game cartridge. 20 Black inventors, 200 years of patents — and the systematic extraction of their wealth and erasure of their names from the record.</p>
@@ -921,7 +919,7 @@
         </div>
       </a>
 
-      <a href="thread-abolitionism.html" class="thread-card reveal" data-domain="labor justice">
+      <a href="thread-abolitionism.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Abolition &amp; Resistance</span>
         <h2 class="thread-card__title">The Fire Next Time: Black Abolitionists, 1829–1865</h2>
         <p class="thread-card__summary">David Walker. Frederick Douglass. Harriet Tubman. Henry Highland Garnet. Sojourner Truth. Before the Civil War was a military conflict, it was a moral argument — and Black Americans made it first. Walker wrote the Appeal in 1829. The war came 32 years later.</p>
@@ -935,7 +933,7 @@
         </div>
       </a>
 
-      <a href="thread-moors.html" class="thread-card reveal" data-domain="civilization africa history erasure">
+      <a href="thread-moors.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Civilization · Erasure · Origins of Race</span>
         <h2 class="thread-card__title">Al-Andalus: The Moorish Civilization Europe Erased From Its Own History</h2>
         <p class="thread-card__summary">For 781 years, Muslim Africans governed the most advanced civilization in medieval Europe. Córdoba had 500,000 people, 70 libraries, and 900 public baths when London had 15,000 people and no sewers. Then the Reconquista expelled them, burned a million books, invented the first racial purity laws in European history — and Columbus sailed. All in the same year. The erasure was not incidental. It was the precondition for everything that followed.</p>
@@ -949,7 +947,7 @@
         </div>
       </a>
 
-      <a href="thread-transatlantic-slave-trade.html" class="thread-card thread-card--has-img reveal" data-domain="labor">
+      <a href="thread-transatlantic-slave-trade.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture labor-wealth">
         <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/slave-ship-brookes-800.webp 800w, images/slave-ship-brookes.webp 1400w" sizes="(max-width:640px) 100vw, 1400px" />
@@ -969,7 +967,7 @@
         </div>
       </a>
 
-      <a href="thread-stolen-labor.html" class="thread-card reveal" data-domain="labor">
+      <a href="thread-stolen-labor.html" class="thread-card reveal" data-domain="labor-wealth">
         <span class="thread-card__domain">Labor &amp; Wealth</span>
         <h2 class="thread-card__title">Stolen Labor: The Architecture of the Racial Wealth Gap</h2>
         <p class="thread-card__summary">250 years of unpaid labor. Sharecropping. Tulsa burned. Redlining. GI Bill exclusion. The $171,000 median wealth gap between white and Black families is not a mystery — it is arithmetic. This thread shows the math.</p>
@@ -983,7 +981,7 @@
         </div>
       </a>
 
-      <a href="thread-mass-incarceration.html" class="thread-card reveal" data-domain="justice">
+      <a href="thread-mass-incarceration.html" class="thread-card reveal" data-domain="criminal-justice">
         <span class="thread-card__domain">Criminal Justice</span>
         <h2 class="thread-card__title">The 13th: Mass Incarceration &amp; the Second Slavery</h2>
         <p class="thread-card__summary">Black Codes in 1865. Convict leasing. Nixon's War on Drugs — his aide later confessed the real purpose. The crack/powder disparity. 2.3 million incarcerated today. The 13th Amendment banned slavery except as punishment for crime. That exception became a system.</p>
@@ -997,7 +995,7 @@
         </div>
       </a>
 
-      <a href="thread-rap-pipeline.html" class="thread-card reveal" data-domain="culture music justice incarceration">
+      <a href="thread-rap-pipeline.html" class="thread-card reveal" data-domain="criminal-justice history-culture">
         <span class="thread-card__domain">Music · Power · Incarceration</span>
         <h2 class="thread-card__title">The Pipeline: How Rap Was Captured and Communities Were Criminalized</h2>
         <p class="thread-card__summary">Rap music was invented in the South Bronx as a community technology. Within twenty years it was owned by four conglomerates, distributed through radio controlled by one company, and rewarded for content that made mass incarceration easier to justify. The same institutional investors held the prison stocks and the media stocks. Nobody had to hold a meeting. The incentives aligned automatically.</p>
@@ -1025,7 +1023,7 @@
         </div>
       </a>
 
-      <a href="thread-juneteenth.html" class="thread-card reveal" data-domain="justice labor">
+      <a href="thread-juneteenth.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Freedom &amp; Emancipation</span>
         <h2 class="thread-card__title">Two and a Half Years Late: Juneteenth and the Promise That Wasn't</h2>
         <p class="thread-card__summary">January 1, 1863: the Emancipation Proclamation. June 19, 1865: freedom finally arrives in Texas — 929 days later. The celebration that followed became Juneteenth. The broken promises that followed became everything else in this archive.</p>
@@ -1039,7 +1037,7 @@
         </div>
       </a>
 
-      <a href="thread-racial-capitalism.html" class="thread-card reveal" data-domain="economics labor">
+      <a href="thread-racial-capitalism.html" class="thread-card reveal" data-domain="labor-wealth">
         <span class="thread-card__domain">Economics &amp; Extraction</span>
         <h2 class="thread-card__title">Same Ledger, New Name: Old Slavery to New Capitalism</h2>
         <p class="thread-card__summary">Slavery and capitalism aren't sequential — they're the same system at different stages. Enslaved people were America's largest capital asset in 1860. When slavery ended, the extraction restructured: sharecropping, convict leasing, union exclusion, redlining, subprime, prison labor. Eight legal forms. One unbroken ledger.</p>
@@ -1053,7 +1051,7 @@
         </div>
       </a>
 
-      <a href="thread-end-of-slavery.html" class="thread-card reveal" data-domain="history justice">
+      <a href="thread-end-of-slavery.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Emancipation &amp; Betrayal</span>
         <h2 class="thread-card__title">How Slavery Really Ended</h2>
         <p class="thread-card__summary">The standard story: Lincoln freed the slaves. The actual record: the enslaved freed themselves first. The Proclamation freed no one Lincoln controlled. The 13th Amendment built in an exception clause. 40 acres were promised and taken back in eight months. What followed was slavery under other legal names.</p>
@@ -1067,7 +1065,7 @@
         </div>
       </a>
 
-      <a href="thread-healthcare.html" class="thread-card reveal" data-domain="health policy">
+      <a href="thread-healthcare.html" class="thread-card reveal" data-domain="health">
         <span class="thread-card__domain">Policy &amp; Power</span>
         <h2 class="thread-card__title">By Design: Why America Has No Universal Healthcare</h2>
         <p class="thread-card__summary">Every other wealthy nation has universal healthcare. The US has spent over a century choosing not to — through AMA lobbying campaigns, deliberate racial exclusions, industry-funded ad wars, and $700 million in annual lobbying. This is the documented sequence.</p>
@@ -1081,7 +1079,7 @@
         </div>
       </a>
 
-      <a href="thread-self-defense.html" class="thread-card reveal" data-domain="justice labor">
+      <a href="thread-self-defense.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
         <span class="thread-card__domain">Resistance &amp; Civil Rights</span>
         <h2 class="thread-card__title">The Right to Defend: Black Organized Self-Defense</h2>
         <p class="thread-card__summary">From Ida B. Wells's 1892 call to arms to the Black Panthers' Oakland patrols — a continuous, documented tradition of organized self-defense. And the thread that runs through it: every time a Black community armed itself legally and effectively, the gun laws changed.</p>
@@ -1095,7 +1093,7 @@
         </div>
       </a>
 
-      <a href="thread-displacement.html" class="thread-card reveal" data-domain="housing labor">
+      <a href="thread-displacement.html" class="thread-card reveal" data-domain="housing">
         <span class="thread-card__domain">Housing &amp; Urban Policy</span>
         <h2 class="thread-card__title">The Flooded City: Five Ways Black Communities Were Taken</h2>
         <p class="thread-card__summary">Mob destruction. Federal bulldozers. Interstate highways. Literal flooding. Gentrification. Five mechanisms across 125 years — but the same neighborhoods, taken again and again. Tulsa, Tremé, Harlem, Bronzeville, Oakland. The through-line is documented policy, not bad luck.</p>
@@ -1121,7 +1119,7 @@
         </div>
       </a>
 
-      <a href="thread-diaspora.html" class="thread-card reveal" data-domain="history identity">
+      <a href="thread-diaspora.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Identity &amp; Diaspora</span>
         <h2 class="thread-card__title">Before, During, and After: Who Black People Are</h2>
         <p class="thread-card__summary">Black people are not defined by slavery. They are Yoruba, Akan, Igbo, Wolof, BaKongo — descendants of empires of gold, universities of manuscript, mathematicians and architects. This thread covers what was, what was taken, what survived the Middle Passage, and who Black people built themselves into on the other side.</p>
@@ -1135,7 +1133,7 @@
         </div>
       </a>
 
-      <a href="thread-invention-of-race.html" class="thread-card reveal" data-domain="history ideology">
+      <a href="thread-invention-of-race.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Ideology &amp; Power</span>
         <h2 class="thread-card__title">The Invention of Race: Why Racism Was Created</h2>
         <p class="thread-card__summary">Race is not biology — it is policy. In 1676, Black and white servants burned Jamestown together. Within a decade, Virginia had invented "whiteness" as a legal category to prevent that coalition from forming again. This thread documents who built racism, why, and how it has been maintained through law, science, religion, and media ever since.</p>
@@ -1149,7 +1147,7 @@
         </div>
       </a>
 
-      <a href="thread-police.html" class="thread-card reveal" data-domain="justice history">
+      <a href="thread-police.html" class="thread-card reveal" data-domain="criminal-justice">
         <span class="thread-card__domain">Criminal Justice &amp; Control</span>
         <h2 class="thread-card__title">Patrol and Punish: The Invention of American Policing</h2>
         <p class="thread-card__summary">The first organized police forces in America were slave patrols. South Carolina formalized them in 1704. Their purpose was to catch runaways, suppress uprisings, and enforce racial order. This thread traces the unbroken line from those patrols through strike-breaking, Red Summer, Nixon's War on Crime, and the Pentagon's 1033 military equipment program — to the present.</p>
@@ -1163,7 +1161,7 @@
         </div>
       </a>
 
-      <a href="thread-fear-of-black-assembly.html" class="thread-card reveal" data-domain="history power">
+      <a href="thread-fear-of-black-assembly.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
         <span class="thread-card__domain">Power &amp; Resistance</span>
         <h2 class="thread-card__title">What They Were Afraid Of: The Fear of Black Assembly</h2>
         <p class="thread-card__summary">The fear of Black people gathering has a very specific logic. In the slaveholding South, Black people outnumbered white people in dozens of counties. The fear was always this: that if Black people were allowed to organize, they would demand what was taken from them. From the 1739 Stono Rebellion to COINTELPRO to banning Black history in schools — this thread documents the response that has never changed.</p>
@@ -1177,7 +1175,7 @@
         </div>
       </a>
 
-      <a href="thread-voting-rights.html" class="thread-card reveal" data-domain="justice power">
+      <a href="thread-voting-rights.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Democracy &amp; Power</span>
         <h2 class="thread-card__title">The Right They Keep Taking: Black Voting Rights in America</h2>
         <p class="thread-card__summary">The 15th Amendment guaranteed the right to vote in 1870. By 1900, it had been effectively nullified across the South through poll taxes, literacy tests, grandfather clauses, and organized terror. Shelby County v. Holder gutted what remained. The suppression toolkit is documented.</p>
@@ -1191,7 +1189,7 @@
         </div>
       </a>
 
-      <a href="thread-lily-white.html" class="thread-card reveal" data-domain="politics power history reconstruction">
+      <a href="thread-lily-white.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Politics · Betrayal · Party History</span>
         <h2 class="thread-card__title">The Lily White Movement: How the Party of Lincoln Became a White-Only Institution</h2>
         <p class="thread-card__summary">Black men held 22 seats in Congress during Reconstruction — all Republican. By 1901 there were none, and there would be none for 28 years. The Republican Party did not drift away from Black voters. It expelled them, one county committee at a time, in a coordinated campaign called the Lily White Movement that ran from 1888 through Hoover's presidency. The Southern Strategy did not build a white Republican Party in the South. It inherited one.</p>
@@ -1205,7 +1203,7 @@
         </div>
       </a>
 
-      <a href="thread-civil-rights.html" class="thread-card reveal" data-domain="justice history">
+      <a href="thread-civil-rights.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Movement &amp; Strategy</span>
         <h2 class="thread-card__title">The Movement That Was Not Spontaneous: The Civil Rights Era</h2>
         <p class="thread-card__summary">Rosa Parks was not tired. She was trained. The Montgomery bus boycott was planned for a year. The sit-ins were rehearsed. The Civil Rights Movement was built by people whose names textbooks don't teach — and achieved through strategy, not moral suasion alone. The history has been sanitized almost beyond recognition.</p>
@@ -1219,7 +1217,7 @@
         </div>
       </a>
 
-      <a href="thread-great-migration.html" class="thread-card reveal" data-domain="history labor">
+      <a href="thread-great-migration.html" class="thread-card reveal" data-domain="history-culture housing">
         <span class="thread-card__domain">Migration &amp; Culture</span>
         <h2 class="thread-card__title">Six Million People: The Great Migration, 1910–1970</h2>
         <p class="thread-card__summary">Between 1910 and 1970, six million Black Americans left the South. They were escaping lynching, sharecropping, and Jim Crow. They brought blues, jazz, and gospel with them. They found redlining, sundown suburbs, and urban renewal — which James Baldwin called "Negro removal." A continent-scale act of collective survival.</p>
@@ -1233,7 +1231,7 @@
         </div>
       </a>
 
-      <a href="thread-lynching.html" class="thread-card reveal" data-domain="justice terror history">
+      <a href="thread-lynching.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
         <span class="thread-card__domain">Terror &amp; Political Control</span>
         <h2 class="thread-card__title">Spectacle and Terror: Lynching as American Policy, 1877–1950</h2>
         <p class="thread-card__summary">Over 4,000 Black people were lynched between 1877 and 1950. Lynchings were often announced in advance, photographed, and sold as postcards. Congress introduced more than 200 anti-lynching bills. None passed for 122 years. This was not a failure of the system. It was the system.</p>
@@ -1247,7 +1245,7 @@
         </div>
       </a>
 
-      <a href="thread-black-women.html" class="thread-card reveal" data-domain="labor justice">
+      <a href="thread-black-women.html" class="thread-card reveal" data-domain="labor-wealth health">
         <span class="thread-card__domain">Labor · Body · Resistance</span>
         <h2 class="thread-card__title">Twice Invisible: Black Women's Labor, Bodies, and Resistance</h2>
         <p class="thread-card__summary">Black women built this country twice over — as enslaved labor and as the caregivers and organizers who kept everything running after emancipation. Their bodies were used to develop American medicine without consent. Every major New Deal labor law excluded the occupations they held. Their median net worth today: $200.</p>
@@ -1261,7 +1259,7 @@
         </div>
       </a>
 
-      <a href="thread-education.html" class="thread-card reveal" data-domain="education policy">
+      <a href="thread-education.html" class="thread-card reveal" data-domain="education">
         <span class="thread-card__domain">Education &amp; Opportunity</span>
         <h2 class="thread-card__title">Separate Was Never Equal: Black Education in America</h2>
         <p class="thread-card__summary">By 1835, every Southern state had criminalized teaching an enslaved person to read. When that ended, Black schools received a fraction of white school funding. When integration came, 38,000 Black teachers were fired. Today, school funding tied to property taxes guarantees that redlined neighborhoods get the least-funded schools.</p>
@@ -1275,7 +1273,7 @@
         </div>
       </a>
 
-      <a href="thread-black-church.html" class="thread-card reveal" data-domain="faith community history">
+      <a href="thread-black-church.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Faith · Community · Terror</span>
         <h2 class="thread-card__title">The Bombed Church: The Black Church in America</h2>
         <p class="thread-card__summary">The Black church was the only institution Black Americans could own and control — simultaneously the school, the mutual aid society, the political organizing center, and the sanctuary of an entire people. Which is exactly why it kept being bombed. From 1822 to Mother Emanuel in 2015. You bomb what you fear.</p>
@@ -1289,7 +1287,7 @@
         </div>
       </a>
 
-      <a href="thread-gangs.html" class="thread-card reveal" data-domain="justice history">
+      <a href="thread-gangs.html" class="thread-card reveal" data-domain="criminal-justice">
         <span class="thread-card__domain">COINTELPRO · Gangs · Crack</span>
         <h2 class="thread-card__title">After the Panthers: The Origins of the Crips and Bloods</h2>
         <p class="thread-card__summary">The Crips were founded in 1969 — the same year COINTELPRO finished destroying the Black Panther Party in Los Angeles. The FBI engineered lethal conflict between Black organizations, destroyed the community infrastructure, and left a vacuum. What filled it is documented. What the government then did with crack cocaine and mandatory minimums is documented. The story of gangs is a story of policy.</p>
@@ -1303,7 +1301,7 @@
         </div>
       </a>
 
-      <a href="thread-dei.html" class="thread-card reveal" data-domain="justice policy">
+      <a href="thread-dei.html" class="thread-card reveal" data-domain="labor-wealth history-culture">
         <span class="thread-card__domain">Policy · Backlash · Power</span>
         <h2 class="thread-card__title">Built to Be Dismantled: The DEI Backlash</h2>
         <p class="thread-card__summary">DEI began as a legal mandate — the Civil Rights Act of 1964 and Executive Order 11246. It was diluted into voluntary programs, performed as corporate theater after George Floyd's murder, then systematically dismantled via the Supreme Court and executive orders. The $50 billion in 2020 pledges. The 2025 rollbacks. The 150-year pattern.</p>
@@ -1317,7 +1315,7 @@
         </div>
       </a>
 
-      <a href="thread-reparations.html" class="thread-card reveal" data-domain="policy economics">
+      <a href="thread-reparations.html" class="thread-card reveal" data-domain="labor-wealth history-culture">
         <span class="thread-card__domain">Repair · Debt · Policy</span>
         <h2 class="thread-card__title">What Is Owed: The Reparations Question</h2>
         <p class="thread-card__summary">Forty acres were promised in 1865 and taken back within months. Congress has introduced H.R. 40 — a bill to study reparations — every year since 1989. It has never received a full floor vote. Economists have calculated the debt. Germany paid. Japan paid. Florida paid for Rosewood. The U.S. paid slave owners at emancipation. The record is clear.</p>
@@ -1331,7 +1329,7 @@
         </div>
       </a>
 
-      <a href="thread-haiti.html" class="thread-card reveal" data-domain="history policy">
+      <a href="thread-haiti.html" class="thread-card reveal" data-domain="history-culture labor-wealth">
         <span class="thread-card__domain">Empire · Debt · Occupation</span>
         <h2 class="thread-card__title">Haiti: The $21 Billion Punishment for Revolution</h2>
         <p class="thread-card__summary">Haiti declared independence in 1804 after defeating Napoleon's army — the only successful slave revolution in history. France responded by demanding $21 billion in reparations for the "loss" of enslaved people. Haiti paid it, over 122 years, in debt that crippled the nation. The U.S. then occupied it for 19 years. None of Haiti's poverty is natural.</p>
@@ -1345,7 +1343,7 @@
         </div>
       </a>
 
-      <a href="thread-oscarville.html" class="thread-card reveal" data-domain="history terror labor">
+      <a href="thread-oscarville.html" class="thread-card reveal" data-domain="history-culture housing">
         <span class="thread-card__domain">Racial Cleansing · Land Theft · Erasure</span>
         <h2 class="thread-card__title">Oscarville, Georgia: The Erasure of Forsyth County</h2>
         <p class="thread-card__summary">In six weeks in 1912, every Black resident of Forsyth County, Georgia — 1,098 people — was driven out by armed night riders who burned churches, schools, and homes. Their land was seized. The county remained 99% white for 75 years. In 1987, Klan members attacked civil rights marchers on national television. No one has ever been prosecuted. The land is now some of the most valuable real estate in the Atlanta metro area.</p>
@@ -1359,7 +1357,7 @@
         </div>
       </a>
 
-      <a href="thread-lake-lanier.html" class="thread-card reveal" data-domain="history labor infrastructure">
+      <a href="thread-lake-lanier.html" class="thread-card reveal" data-domain="housing history-culture">
         <span class="thread-card__domain">Federal Infrastructure · Submersion · Resort Economy</span>
         <h2 class="thread-card__title">Lake Lanier: Atlanta's Playground Was Built on a Racial Crime Scene</h2>
         <p class="thread-card__summary">In 1956, the Army Corps of Engineers flooded 38,000 acres of north Georgia — including Oscarville, the Black community expelled at gunpoint in 1912. The physical site of the racial cleansing went 60 feet underwater. White landowners received federal condemnation payments. The families originally dispossessed in 1912 received nothing. Today Lake Lanier generates $11 billion a year. The submerged roads, foundations, and church sites are still down there.</p>
@@ -1373,7 +1371,7 @@
         </div>
       </a>
 
-      <a href="thread-ferguson.html" class="thread-card reveal" data-domain="history labor infrastructure">
+      <a href="thread-ferguson.html" class="thread-card reveal" data-domain="housing history-culture">
         <span class="thread-card__domain">New Deal · Jim Crow Condemnation · Submersion</span>
         <h2 class="thread-card__title">Ferguson, South Carolina: Drowned by the New Deal</h2>
         <p class="thread-card__summary">Ferguson was a Black community in South Carolina's lowcountry. In 1941–42, the Santee Cooper hydroelectric project flooded it — along with hundreds of Black-owned farms, churches, and cemeteries — to create Lake Marion. In Jim Crow South Carolina, Black landowners had no meaningful recourse against state condemnation. The electricity generated went primarily to white homes and white industry. The lake is still there. Ferguson is not.</p>
@@ -1387,7 +1385,7 @@
         </div>
       </a>
 
-      <a href="thread-lake-marion.html" class="thread-card reveal" data-domain="history labor infrastructure economics">
+      <a href="thread-lake-marion.html" class="thread-card reveal" data-domain="housing labor-wealth">
         <span class="thread-card__domain">Recreation Economy · Compounding Dispossession · 83 Years</span>
         <h2 class="thread-card__title">Lake Marion: The Economy Built Over Ferguson</h2>
         <p class="thread-card__summary">Lake Marion is South Carolina's largest lake and a premier fishing destination. Santee Cooper, the state utility that created it, generates $1.5 billion a year. The land the lake covers — farmed by Black families including Ferguson's — has appreciated for 83 years. The displaced families received inadequate condemnation payments in 1941 and nothing since. This thread measures what compounded in their absence.</p>
@@ -1401,7 +1399,7 @@
         </div>
       </a>
 
-      <a href="thread-tulsa.html" class="thread-card reveal" data-domain="history labor">
+      <a href="thread-tulsa.html" class="thread-card reveal" data-domain="labor-wealth history-culture">
         <span class="thread-card__domain">Massacre · Erasure · Black Wealth</span>
         <h2 class="thread-card__title">Black Wall Street: The Tulsa Massacre of 1921</h2>
         <p class="thread-card__summary">Greenwood, Tulsa was the wealthiest Black community in America — 600+ businesses, a hospital, a library, a Black-owned airline. On June 1, 1921, a white mob and deputized civilians burned it to the ground in 18 hours, with aircraft overhead. 10,000 Black residents were left homeless. No one was charged. No insurance paid. The city buried the record for 75 years.</p>
@@ -1415,7 +1413,7 @@
         </div>
       </a>
 
-      <a href="thread-gi-bill.html" class="thread-card reveal" data-domain="policy economics">
+      <a href="thread-gi-bill.html" class="thread-card reveal" data-domain="housing labor-wealth">
         <span class="thread-card__domain">Exclusion · Wealth · Inheritance</span>
         <h2 class="thread-card__title">The GI Bill That Built the White Middle Class</h2>
         <p class="thread-card__summary">The GI Bill of 1944 built the American middle class — for white veterans. Southern Democrats ensured benefits were administered through local institutions that denied Black applicants. In Mississippi, only 2 of 3,229 VA home loans in 1947 went to Black veterans. Three generations of compounding equity later, that decision is the racial wealth gap.</p>
@@ -1429,7 +1427,7 @@
         </div>
       </a>
 
-      <a href="thread-black-panthers.html" class="thread-card reveal" data-domain="community justice history">
+      <a href="thread-black-panthers.html" class="thread-card reveal" data-domain="history-culture health">
         <span class="thread-card__domain">Community · Repression · Legacy</span>
         <h2 class="thread-card__title">What the Panthers Actually Were</h2>
         <p class="thread-card__summary">The Black Panther Party fed 20,000 children a day before the federal school breakfast program existed. They ran 13 free health clinics and pioneered mass sickle cell screening. J. Edgar Hoover called them the greatest threat to America and ordered the FBI to destroy them — including their breakfast program. The government then adopted the breakfast program nationally.</p>
@@ -1443,7 +1441,7 @@
         </div>
       </a>
 
-      <a href="thread-katrina.html" class="thread-card reveal" data-domain="disaster policy">
+      <a href="thread-katrina.html" class="thread-card reveal" data-domain="housing health">
         <span class="thread-card__domain">Disaster · Abandonment · Displacement</span>
         <h2 class="thread-card__title">Katrina: What the Flood Revealed</h2>
         <p class="thread-card__summary">Hurricane Katrina killed 1,800 people, 80% of them Black. The levees that failed had been identified as deficient for decades. The evacuation plan assumed car ownership in a city where 27% of households had none. The federal response took five days. Then the city used the disaster to demolish public housing and permanently displace 100,000 Black residents. None of this was natural.</p>
@@ -1457,7 +1455,7 @@
         </div>
       </a>
 
-      <a href="thread-war-on-drugs.html" class="thread-card reveal" data-domain="justice policy">
+      <a href="thread-war-on-drugs.html" class="thread-card reveal" data-domain="criminal-justice health">
         <span class="thread-card__domain">Policy · Incarceration · Design</span>
         <h2 class="thread-card__title">The War on Drugs: Nixon's Confession</h2>
         <p class="thread-card__summary">Nixon's aide John Ehrlichman later admitted it: the War on Drugs was designed to target Black people and the anti-war left. The 100:1 crack/powder sentencing disparity. $1 trillion spent. 2.3 million incarcerated. Permanent collateral consequences that outlast the sentence. The drug war did not fail its stated public health goals — incarceration was the goal.</p>
@@ -1471,7 +1469,7 @@
         </div>
       </a>
 
-      <a href="thread-statue-of-liberty.html" class="thread-card reveal" data-domain="history symbolism">
+      <a href="thread-statue-of-liberty.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Origins · Erasure · National Symbol</span>
         <h2 class="thread-card__title">The Black Statue of Liberty</h2>
         <p class="thread-card__summary">The Statue of Liberty was conceived by a French abolitionist in 1865 to celebrate the end of slavery. Bartholdi's early sketches show a freed Black woman with broken chains. The broken chains are still at her feet — visible but almost never photographed. The immigration story came 40 years later. The South refused to fund an emancipation monument, so the story changed.</p>
@@ -1485,7 +1483,7 @@
         </div>
       </a>
 
-      <a href="thread-black-farmers.html" class="thread-card reveal" data-domain="labor land">
+      <a href="thread-black-farmers.html" class="thread-card reveal" data-domain="labor-wealth">
         <span class="thread-card__domain">Land · USDA Discrimination · Pigford</span>
         <h2 class="thread-card__title">14 Million Acres: Black Farmers and the USDA</h2>
         <p class="thread-card__summary">Black Americans owned 14 million acres of farmland in 1910. By 1997, they owned 2 million. The USDA's own investigations documented that county-level loan officers denied Black farmers access to credit, disaster relief, and price supports extended to white neighbors. The Pigford settlement was called the largest civil rights settlement in US history. It barely touched the documented losses.</p>
@@ -1499,7 +1497,7 @@
         </div>
       </a>
 
-      <a href="thread-subprime.html" class="thread-card reveal" data-domain="economics housing">
+      <a href="thread-subprime.html" class="thread-card reveal" data-domain="housing labor-wealth">
         <span class="thread-card__domain">Predatory Lending · 2008 Crisis · Wealth Destruction</span>
         <h2 class="thread-card__title">The Subprime Trap: How the 2008 Crisis Was Built on Black Neighborhoods</h2>
         <p class="thread-card__summary">Wells Fargo's own loan officers — in sworn testimony — called subprime mortgages "ghetto loans" and confirmed steering Black customers into them even when they qualified for prime rates. The crisis wiped out an estimated $40,000 in median Black household wealth. It was not a random market failure. It was the latest chapter in a century of using Black homeownership as an extraction mechanism.</p>
@@ -1513,7 +1511,7 @@
         </div>
       </a>
 
-      <a href="thread-media.html" class="thread-card reveal" data-domain="media culture history">
+      <a href="thread-media.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
         <span class="thread-card__domain">Media · Image · Policy Pipeline</span>
         <h2 class="thread-card__title">How America Images Blackness: From Birth of a Nation to Superpredator</h2>
         <p class="thread-card__summary">Birth of a Nation (1915) directly inspired a Klan revival that reached 6 million members. The "superpredator" myth (1995) drove the Crime Bill's mandatory minimums. The "welfare queen" narrative dismantled federal assistance programs. Media images of Black criminality are not neutral entertainment — they have documented, traceable policy consequences.</p>
@@ -1527,7 +1525,7 @@
         </div>
       </a>
 
-      <a href="thread-black-athletes.html" class="thread-card thread-card--has-img reveal" data-domain="sports culture protest history">
+      <a href="thread-black-athletes.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture">
         <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/smith-carlos-1968-olympics.webp" />
@@ -1547,7 +1545,7 @@
         </div>
       </a>
 
-      <a href="thread-hbcu-football.html" class="thread-card thread-card--has-img reveal" data-domain="sports education history">
+      <a href="thread-hbcu-football.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture education">
         <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/hbcu-football-1920.webp" />
@@ -1567,7 +1565,7 @@
         </div>
       </a>
 
-      <a href="thread-negro-leagues.html" class="thread-card thread-card--has-img reveal" data-domain="sports history segregation">
+      <a href="thread-negro-leagues.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture">
         <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/negro-league-allstar-1936-800.webp 800w, images/negro-league-allstar-1936.webp 1599w" sizes="(max-width:640px) 100vw, 1599px" />
@@ -1587,7 +1585,7 @@
         </div>
       </a>
 
-      <a href="thread-black-press.html" class="thread-card reveal" data-domain="press media history">
+      <a href="thread-black-press.html" class="thread-card reveal" data-domain="history-culture">
         <span class="thread-card__domain">Press · Counter-Record · Survival</span>
         <h2 class="thread-card__title">The Black Press: Ida B. Wells, the Chicago Defender, and the Counter-Record</h2>
         <p class="thread-card__summary">When the white press ignored or celebrated lynching, the Black press documented it. When the Great Migration needed organizing, the Chicago Defender ran train schedules out of Southern cities. Ida B. Wells was run out of Memphis at gunpoint for her journalism. The Black press created the archive that survived when no one else was keeping it — and built the information network that made civil rights organizing possible.</p>
@@ -1601,7 +1599,7 @@
         </div>
       </a>
 
-      <a href="thread-hbcus.html" class="thread-card reveal" data-domain="education institution">
+      <a href="thread-hbcus.html" class="thread-card reveal" data-domain="education">
         <span class="thread-card__domain">Education · Excellence · Underfunding</span>
         <h2 class="thread-card__title">HBCUs: Founded Under Exclusion, $12 Billion Underfunded Today</h2>
         <p class="thread-card__summary">HBCUs were founded because every white institution refused Black students. They produced the lawyers who argued Brown v. Board, the scientists who calculated orbital mechanics for NASA's early space program, and three-quarters of all Black doctors and dentists for a century. Their reward: documented underfunding of $12 billion below comparable white land-grant institutions since 1987.</p>
@@ -1722,35 +1720,16 @@
   const filterChips  = document.querySelectorAll('.filter-chip');
   const allCards     = document.querySelectorAll('[data-domain]');
   const filterCount  = document.getElementById('filterCount');
-  const filterEmpty  = document.getElementById('filterEmpty');
-
-  // Map filter button values → domain keywords that should match
-  const FILTER_MAP = {
-    all:       null,
-    housing:   ['housing'],
-    labor:     ['labor','land','economics','economic'],
-    justice:   ['justice','incarceration','terror','protest'],
-    health:    ['health','disaster'],
-    education: ['education','institution'],
-    history:   ['history','civilization','africa','identity','ideology','symbolism','culture','media','press','faith','community','sports','segregation','reconstruction','power','politics','sport']
-  };
 
   function applyFilter(f) {
     filterChips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
     const active = document.querySelector(`.filter-chip[data-filter="${f}"]`);
     if (active) { active.classList.add('is-active'); active.setAttribute('aria-pressed','true'); }
 
-    const keywords = FILTER_MAP[f] || null;
-
     let visible = 0;
     allCards.forEach(card => {
       const domains = (card.dataset.domain || '').toLowerCase().split(/\s+/);
-      let show;
-      if (!keywords) {
-        show = true; // "all"
-      } else {
-        show = keywords.some(kw => domains.some(d => d.includes(kw)));
-      }
+      const show = f === 'all' || domains.includes(f);
       card.style.display = show ? '' : 'none';
       // Ensure filtered-in cards are visible (fix reveal opacity issue)
       if (show && !card.classList.contains('is-visible')) {
@@ -1762,20 +1741,11 @@
     if (filterCount) {
       filterCount.textContent = f === 'all' ? '' : `${visible} thread${visible !== 1 ? 's' : ''}`;
     }
-    if (filterEmpty) {
-      filterEmpty.classList.toggle('is-visible', visible === 0);
-    }
   }
 
   filterChips.forEach(chip => {
     chip.addEventListener('click', () => applyFilter(chip.dataset.filter));
   });
-
-  // Reset link inside empty state
-  const filterReset = document.querySelector('.filter-reset');
-  if (filterReset) {
-    filterReset.addEventListener('click', (e) => { e.preventDefault(); applyFilter('all'); });
-  }
 
   // ── SCROLL REVEAL ─────────────────────────────────────────
   const observer = new IntersectionObserver(entries => {
