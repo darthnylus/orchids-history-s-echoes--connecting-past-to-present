@@ -20,6 +20,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="preload" href="css/system.css" as="style" />
   <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
   <style>
     :root { --acc: #92400e; --acc-lt: #fef3c7; }
 
@@ -541,5 +542,6 @@
   const tocObs = new IntersectionObserver(entries => { entries.forEach(e => { const l = document.getElementById('toc-'+e.target.id); if(l) l.classList.toggle('is-active', e.isIntersecting); }); }, { rootMargin: '-10% 0px -80% 0px' });
   document.querySelectorAll('.section[id]').forEach(el => tocObs.observe(el));
 </script>
+<script src="js/thread.js" defer></script>
 </body>
 </html>

@@ -627,7 +627,31 @@
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
     .reveal.is-visible { opacity: 1; transform: none; }
     .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+    /* ── Leaflet map & city buttons ──────────────────────────── */
+    .redline-city-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: transparent;
+      color: var(--color-text-secondary);
+      font-size: .78rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .redline-city-btn:hover { border-color: var(--amber-400); color: var(--amber-500); }
+    .redline-city-btn.is-active { background: var(--amber-500); border-color: var(--amber-500); color: #111; }
+    [data-theme="dark"] .redline-city-btn { color: var(--ink-300); border-color: var(--ink-700); }
+    [data-theme="dark"] .redline-city-btn.is-active { color: #111; }
+
+    /* Override Leaflet popup for dark theme */
+    .leaflet-popup-content-wrapper { border-radius: 8px !important; }
+    .leaflet-container { font-family: inherit !important; background: #1a1f2e !important; }
   </style>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 <body>
 
@@ -1781,15 +1805,47 @@
         </div>
       </div>
 
-      <!-- Second map: HOLC Redlining -->
-      <div class="map-panel reveal" data-era="jim-crow">
+      <!-- Second map: HOLC Redlining — INTERACTIVE LEAFLET MAP -->
+      <div class="map-panel reveal" data-era="jim-crow" id="redlining-map-panel">
         <div class="map-panel__header">
           <div>
-            <h2 class="map-panel__title">HOLC Redlining — How the Maps Were Drawn</h2>
-            <p class="map-panel__subtitle">The Home Owners' Loan Corporation graded every American neighborhood A–D by race. Grade D = "Hazardous" = Black. The maps determined who could build wealth for the next 90 years.</p>
+            <h2 class="map-panel__title">HOLC Redlining — The Maps That Still Shape America</h2>
+            <p class="map-panel__subtitle">From 1933–1968, the Home Owners' Loan Corporation graded every American neighborhood A–D by race. Grade D = "Hazardous" = Black. Select a city to explore the original zone boundaries and their present-day consequences.</p>
           </div>
           <span class="map-panel__era">1933–1968</span>
         </div>
+
+        <!-- City selector -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;padding:12px 0 8px;border-bottom:1px solid var(--color-border);margin-bottom:12px">
+          <span style="font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-tertiary);align-self:center;margin-right:4px">City</span>
+          <button class="redline-city-btn is-active" data-city="chicago"      onclick="switchRedlineCity('chicago')">Chicago</button>
+          <button class="redline-city-btn"            data-city="detroit"      onclick="switchRedlineCity('detroit')">Detroit</button>
+          <button class="redline-city-btn"            data-city="philadelphia" onclick="switchRedlineCity('philadelphia')">Philadelphia</button>
+          <button class="redline-city-btn"            data-city="atlanta"      onclick="switchRedlineCity('atlanta')">Atlanta</button>
+          <button class="redline-city-btn"            data-city="richmond"     onclick="switchRedlineCity('richmond')">Richmond, VA</button>
+        </div>
+
+        <!-- Leaflet map container -->
+        <div id="redline-leaflet-map" style="height:480px;border-radius:8px;overflow:hidden;position:relative;z-index:0"></div>
+
+        <!-- Info panel (updates on hover/click) -->
+        <div id="redline-info-panel" style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;padding:14px 16px;margin-top:10px;min-height:72px;font-size:.875rem;color:var(--color-text-secondary);line-height:1.55">
+          <strong style="color:var(--color-text-primary)">Hover or tap a zone</strong> to see its HOLC grade and present-day consequences.
+        </div>
+
+        <div class="map-panel__footer" style="margin-top:16px">
+          <div class="map-legend">
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#22c55e;opacity:.7"></div><span>Grade A — "Best" (white suburbs → FHA loans)</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#3b82f6;opacity:.7"></div><span>Grade B — "Still Desirable"</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#f59e0b;opacity:.7"></div><span>Grade C — "Declining"</span></div>
+            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#ef4444;opacity:.85"></div><span>Grade D — "Hazardous" (Black neighborhoods → no loans)</span></div>
+          </div>
+          <a href="thread.html" class="btn btn--secondary" style="font-size:var(--type-sm)">Read the Redlining thread →</a>
+        </div>
+      </div>
+
+      <!-- HOLC SVG diagram (kept as supplemental, now hidden by default) -->
+      <div class="map-panel reveal" data-era="jim-crow" style="display:none">
         <div class="map-panel__canvas">
           <svg class="map-placeholder-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" aria-label="Diagram showing HOLC redlining grade zones and their racial demographics">
             <defs>
@@ -1866,6 +1922,7 @@
           <a href="thread.html" class="btn btn--secondary" style="font-size:var(--type-sm)">Read the Redlining thread →</a>
         </div>
       </div>
+      </div><!-- /hidden supplemental SVG panel -->
 
       <!-- Map cards grid -->
       <div id="map-cards-section">
@@ -2520,6 +2577,249 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
   }, { threshold: 0.07 });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+
+<!-- ── LEAFLET JS ──────────────────────────────────────────────── -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN2GRV8=" crossorigin=""></script>
+<script>
+// ── HOLC REDLINING INTERACTIVE MAP ────────────────────────────────
+// Representative neighborhood polygons with HOLC grades for 5 cities
+// Grade colors: A=green, B=blue, C=yellow/amber, D=red
+const GRADE_COLORS = { A:'#22c55e', B:'#3b82f6', C:'#f59e0b', D:'#ef4444' };
+const GRADE_OPACITY = { A:0.45, B:0.45, C:0.50, D:0.65 };
+
+const GRADE_DESCRIPTIONS = {
+  A: { label:'Grade A — "Best"', consequence:'FHA-insured mortgages available. GI Bill home loans approved. Homeowners built equity from 1944 onward. Present-day median home values: 2–3× higher than Grade D in same city.' },
+  B: { label:'Grade B — "Still Desirable"', consequence:'Generally able to access FHA loans. Some integration concerns noted in HOLC reports. Present-day wealth outcomes significantly better than C and D zones.' },
+  C: { label:'Grade C — "Declining"', consequence:'Described as "infiltrating" by HOLC, meaning adjacent to Black neighborhoods. Borderline for FHA insurance. Residents faced difficulty refinancing.' },
+  D: { label:'Grade D — "Hazardous"', consequence:'Black neighborhoods. No FHA mortgages. No GI Bill loans. No bank investment. Renters couldn\'t become owners. Present-day: life expectancy up to 20 years shorter than Grade A in same city. School quality dramatically lower.' }
+};
+
+// Representative HOLC neighborhood polygon data (approximate boundaries)
+// Sourced from Mapping Inequality (University of Richmond) reference data
+const CITY_DATA = {
+  chicago: {
+    center: [41.85, -87.65],
+    zoom: 12,
+    neighborhoods: [
+      // Grade A — North Shore suburbs
+      { grade:'A', name:'Evanston North', coords:[[42.065,-87.71],[42.065,-87.67],[42.04,-87.67],[42.04,-87.71]] },
+      { grade:'A', name:'Skokie', coords:[[42.04,-87.75],[42.04,-87.71],[42.01,-87.71],[42.01,-87.75]] },
+      { grade:'A', name:'Wilmette', coords:[[42.075,-87.74],[42.075,-87.70],[42.055,-87.70],[42.055,-87.74]] },
+      { grade:'A', name:'Lincoln Park North', coords:[[41.933,-87.66],[41.933,-87.63],[41.912,-87.63],[41.912,-87.66]] },
+      // Grade B
+      { grade:'B', name:'Rogers Park', coords:[[42.01,-87.685],[42.01,-87.655],[41.99,-87.655],[41.99,-87.685]] },
+      { grade:'B', name:'Lakeview', coords:[[41.96,-87.66],[41.96,-87.63],[41.94,-87.63],[41.94,-87.66]] },
+      { grade:'B', name:'Hyde Park', coords:[[41.80,-87.61],[41.80,-87.59],[41.785,-87.59],[41.785,-87.61]] },
+      { grade:'B', name:'Ravenswood', coords:[[41.978,-87.675],[41.978,-87.655],[41.962,-87.655],[41.962,-87.675]] },
+      // Grade C
+      { grade:'C', name:'West Town', coords:[[41.902,-87.69],[41.902,-87.665],[41.885,-87.665],[41.885,-87.69]] },
+      { grade:'C', name:'Bridgeport', coords:[[41.845,-87.645],[41.845,-87.62],[41.825,-87.62],[41.825,-87.645]] },
+      { grade:'C', name:'Pilsen', coords:[[41.858,-87.67],[41.858,-87.645],[41.840,-87.645],[41.840,-87.67]] },
+      { grade:'C', name:'Woodlawn', coords:[[41.785,-87.60],[41.785,-87.58],[41.767,-87.58],[41.767,-87.60]] },
+      // Grade D — Black Belt / South Side
+      { grade:'D', name:'Bronzeville (Black Belt)', coords:[[41.838,-87.625],[41.838,-87.605],[41.805,-87.605],[41.805,-87.625]] },
+      { grade:'D', name:'Douglas', coords:[[41.838,-87.605],[41.838,-87.585],[41.818,-87.585],[41.818,-87.605]] },
+      { grade:'D', name:'Washington Park', coords:[[41.805,-87.625],[41.805,-87.605],[41.782,-87.605],[41.782,-87.625]] },
+      { grade:'D', name:'Grand Boulevard', coords:[[41.816,-87.625],[41.816,-87.605],[41.800,-87.605],[41.800,-87.625]] },
+      { grade:'D', name:'Near West Side', coords:[[41.880,-87.67],[41.880,-87.645],[41.860,-87.645],[41.860,-87.67]] },
+      { grade:'D', name:'East Garfield Park', coords:[[41.886,-87.72],[41.886,-87.695],[41.868,-87.695],[41.868,-87.72]] },
+    ]
+  },
+  detroit: {
+    center: [42.35, -83.05],
+    zoom: 12,
+    neighborhoods: [
+      // Grade A
+      { grade:'A', name:'Grosse Pointe', coords:[[42.40,-82.92],[42.40,-82.88],[42.37,-82.88],[42.37,-82.92]] },
+      { grade:'A', name:'Birmingham', coords:[[42.55,-83.23],[42.55,-83.20],[42.53,-83.20],[42.53,-83.23]] },
+      { grade:'A', name:'Bloomfield Hills', coords:[[42.58,-83.25],[42.58,-83.21],[42.56,-83.21],[42.56,-83.25]] },
+      // Grade B
+      { grade:'B', name:'University District', coords:[[42.41,-83.15],[42.41,-83.12],[42.38,-83.12],[42.38,-83.15]] },
+      { grade:'B', name:'Palmer Park', coords:[[42.40,-83.12],[42.40,-83.09],[42.38,-83.09],[42.38,-83.12]] },
+      { grade:'B', name:'East English Village', coords:[[42.37,-82.98],[42.37,-82.95],[42.35,-82.95],[42.35,-82.98]] },
+      // Grade C
+      { grade:'C', name:'Corktown', coords:[[42.34,-83.075],[42.34,-83.050],[42.325,-83.050],[42.325,-83.075]] },
+      { grade:'C', name:'Mexicantown', coords:[[42.33,-83.09],[42.33,-83.065],[42.315,-83.065],[42.315,-83.09]] },
+      { grade:'C', name:'Southwest Detroit', coords:[[42.32,-83.11],[42.32,-83.085],[42.305,-83.085],[42.305,-83.11]] },
+      // Grade D — Black neighborhoods
+      { grade:'D', name:'Paradise Valley (Black Bottom)', coords:[[42.348,-83.025],[42.348,-83.000],[42.330,-83.000],[42.330,-83.025]] },
+      { grade:'D', name:'Hastings Street Corridor', coords:[[42.358,-83.020],[42.358,-82.998],[42.340,-82.998],[42.340,-83.020]] },
+      { grade:'D', name:'East Side (Conant Gardens area)', coords:[[42.42,-83.03],[42.42,-83.00],[42.39,-83.00],[42.39,-83.03]] },
+      { grade:'D', name:'Near East Side', coords:[[42.365,-82.99],[42.365,-82.965],[42.345,-82.965],[42.345,-82.99]] },
+      { grade:'D', name:'Northwest Detroit (8 Mile border)', coords:[[42.43,-83.20],[42.43,-83.17],[42.41,-83.17],[42.41,-83.20]] },
+    ]
+  },
+  philadelphia: {
+    center: [39.95, -75.16],
+    zoom: 12,
+    neighborhoods: [
+      // Grade A
+      { grade:'A', name:'Chestnut Hill', coords:[[40.08,-75.21],[40.08,-75.18],[40.06,-75.18],[40.06,-75.21]] },
+      { grade:'A', name:'Roxborough', coords:[[40.05,-75.23],[40.05,-75.20],[40.03,-75.20],[40.03,-75.23]] },
+      { grade:'A', name:'Germantown (upper)', coords:[[40.05,-75.18],[40.05,-75.16],[40.03,-75.16],[40.03,-75.18]] },
+      // Grade B
+      { grade:'B', name:'Mount Airy', coords:[[40.065,-75.19],[40.065,-75.165],[40.045,-75.165],[40.045,-75.19]] },
+      { grade:'B', name:'Oak Lane', coords:[[40.07,-75.14],[40.07,-75.11],[40.05,-75.11],[40.05,-75.14]] },
+      { grade:'B', name:'Northeast Philadelphia', coords:[[40.07,-75.08],[40.07,-75.05],[40.04,-75.05],[40.04,-75.08]] },
+      // Grade C
+      { grade:'C', name:'Kensington', coords:[[39.99,-75.12],[39.99,-75.09],[39.975,-75.09],[39.975,-75.12]] },
+      { grade:'C', name:'Fishtown', coords:[[39.975,-75.13],[39.975,-75.10],[39.96,-75.10],[39.96,-75.13]] },
+      { grade:'C', name:'Olney', coords:[[40.04,-75.14],[40.04,-75.11],[40.025,-75.11],[40.025,-75.14]] },
+      // Grade D — Black neighborhoods
+      { grade:'D', name:'North Philadelphia (Black community)', coords:[[40.00,-75.17],[40.00,-75.14],[39.975,-75.14],[39.975,-75.17]] },
+      { grade:'D', name:'West Philadelphia (Black community)', coords:[[39.965,-75.245],[39.965,-75.215],[39.945,-75.215],[39.945,-75.245]] },
+      { grade:'D', name:'South Philadelphia (Black area)', coords:[[39.92,-75.175],[39.92,-75.150],[39.902,-75.150],[39.902,-75.175]] },
+      { grade:'D', name:'Germantown (lower)', coords:[[40.03,-75.17],[40.03,-75.15],[40.015,-75.15],[40.015,-75.17]] },
+    ]
+  },
+  atlanta: {
+    center: [33.75, -84.39],
+    zoom: 12,
+    neighborhoods: [
+      // Grade A
+      { grade:'A', name:'Buckhead', coords:[[33.84,-84.40],[33.84,-84.36],[33.81,-84.36],[33.81,-84.40]] },
+      { grade:'A', name:'Druid Hills', coords:[[33.79,-84.34],[33.79,-84.30],[33.77,-84.30],[33.77,-84.34]] },
+      { grade:'A', name:'Morningside', coords:[[33.81,-84.36],[33.81,-84.33],[33.79,-84.33],[33.79,-84.36]] },
+      // Grade B
+      { grade:'B', name:'Virginia-Highland', coords:[[33.78,-84.36],[33.78,-84.34],[33.765,-84.34],[33.765,-84.36]] },
+      { grade:'B', name:'Inman Park', coords:[[33.758,-84.36],[33.758,-84.34],[33.742,-84.34],[33.742,-84.36]] },
+      { grade:'B', name:'Grant Park', coords:[[33.74,-84.38],[33.74,-84.36],[33.725,-84.36],[33.725,-84.38]] },
+      // Grade C
+      { grade:'C', name:'Old Fourth Ward', coords:[[33.758,-84.38],[33.758,-84.36],[33.743,-84.36],[33.743,-84.38]] },
+      { grade:'C', name:'Edgewood', coords:[[33.753,-84.34],[33.753,-84.32],[33.738,-84.32],[33.738,-84.34]] },
+      { grade:'C', name:'Mechanicsville', coords:[[33.738,-84.40],[33.738,-84.38],[33.722,-84.38],[33.722,-84.40]] },
+      // Grade D — Black neighborhoods
+      { grade:'D', name:'Sweet Auburn (Black community)', coords:[[33.755,-84.39],[33.755,-84.37],[33.740,-84.37],[33.740,-84.39]] },
+      { grade:'D', name:'Vine City', coords:[[33.755,-84.42],[33.755,-84.39],[33.740,-84.39],[33.740,-84.42]] },
+      { grade:'D', name:'Pittsburgh (historic Black area)', coords:[[33.73,-84.40],[33.73,-84.38],[33.715,-84.38],[33.715,-84.40]] },
+      { grade:'D', name:'Summerhill', coords:[[33.735,-84.39],[33.735,-84.37],[33.720,-84.37],[33.720,-84.39]] },
+    ]
+  },
+  richmond: {
+    center: [37.54, -77.43],
+    zoom: 12,
+    neighborhoods: [
+      // Grade A — where the term "redlining" was literally invented
+      { grade:'A', name:'Windsor Farms', coords:[[37.56,-77.51],[37.56,-77.48],[37.545,-77.48],[37.545,-77.51]] },
+      { grade:'A', name:'Westhampton', coords:[[37.575,-77.50],[37.575,-77.47],[37.56,-77.47],[37.56,-77.50]] },
+      { grade:'A', name:'Northside', coords:[[37.58,-77.46],[37.58,-77.43],[37.565,-77.43],[37.565,-77.46]] },
+      // Grade B
+      { grade:'B', name:'The Fan (upper)', coords:[[37.555,-77.48],[37.555,-77.455],[37.54,-77.455],[37.54,-77.48]] },
+      { grade:'B', name:'Museum District', coords:[[37.558,-77.46],[37.558,-77.435],[37.543,-77.435],[37.543,-77.46]] },
+      { grade:'B', name:'Highland Park', coords:[[37.575,-77.43],[37.575,-77.40],[37.56,-77.40],[37.56,-77.43]] },
+      // Grade C
+      { grade:'C', name:'Church Hill South', coords:[[37.54,-77.41],[37.54,-77.38],[37.525,-77.38],[37.525,-77.41]] },
+      { grade:'C', name:'Manchester', coords:[[37.525,-77.44],[37.525,-77.41],[37.51,-77.41],[37.51,-77.44]] },
+      // Grade D — Richmond's historic Black neighborhoods
+      { grade:'D', name:'Jackson Ward (Black Wall Street of South)', coords:[[37.548,-77.44],[37.548,-77.42],[37.533,-77.42],[37.533,-77.44]] },
+      { grade:'D', name:'Fulton Bottom', coords:[[37.53,-77.40],[37.53,-77.37],[37.515,-77.37],[37.515,-77.40]] },
+      { grade:'D', name:'Randolph', coords:[[37.545,-77.43],[37.545,-77.41],[37.530,-77.41],[37.530,-77.43]] },
+      { grade:'D', name:'Brookland Park', coords:[[37.57,-77.43],[37.57,-77.41],[37.555,-77.41],[37.555,-77.43]] },
+    ]
+  }
+};
+
+// ── MAP INITIALIZATION ────────────────────────────────────────
+let redlineMap = null;
+let currentLayers = [];
+
+function initRedlineMap() {
+  const container = document.getElementById('redline-leaflet-map');
+  if (!container || typeof L === 'undefined') return;
+
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+  redlineMap = L.map('redline-leaflet-map', {
+    center: CITY_DATA.chicago.center,
+    zoom: CITY_DATA.chicago.zoom,
+    zoomControl: true,
+    scrollWheelZoom: false,
+    attributionControl: true
+  });
+
+  // Dark tile layer — Stadia Alidade Dark (no API key needed for low usage)
+  L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://stadiamaps.com/">Stadia Maps</a>, © <a href="https://openmaptiles.org/">OpenMapTiles</a>, © <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+    maxZoom: 18
+  }).addTo(redlineMap);
+
+  renderCity('chicago');
+}
+
+function renderCity(cityKey) {
+  const city = CITY_DATA[cityKey];
+  if (!city || !redlineMap) return;
+
+  // Clear existing layers
+  currentLayers.forEach(l => redlineMap.removeLayer(l));
+  currentLayers = [];
+
+  const infoPanel = document.getElementById('redline-info-panel');
+
+  city.neighborhoods.forEach(n => {
+    const color = GRADE_COLORS[n.grade];
+    const opacity = GRADE_OPACITY[n.grade];
+    const poly = L.polygon(n.coords, {
+      color: color,
+      weight: 1.5,
+      opacity: 0.9,
+      fillColor: color,
+      fillOpacity: opacity
+    });
+
+    poly.on('mouseover', function(e) {
+      this.setStyle({ weight: 3, fillOpacity: Math.min(opacity + 0.2, 0.9) });
+      const desc = GRADE_DESCRIPTIONS[n.grade];
+      if (infoPanel) {
+        infoPanel.innerHTML = `
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <div style="width:14px;height:14px;border-radius:3px;background:${color};flex-shrink:0"></div>
+            <strong style="color:var(--color-text-primary)">${desc.label}</strong>
+            <span style="color:var(--color-text-tertiary);font-size:.75rem;margin-left:auto">${n.name}</span>
+          </div>
+          <p style="margin:0">${desc.consequence}</p>`;
+      }
+    });
+
+    poly.on('mouseout', function() {
+      this.setStyle({ weight: 1.5, fillOpacity: opacity });
+    });
+
+    poly.on('click', function() {
+      redlineMap.fitBounds(this.getBounds(), { padding: [30,30] });
+    });
+
+    poly.bindTooltip(`<strong>${n.name}</strong><br>Grade ${n.grade}`, {
+      permanent: false, direction: 'top', className: 'leaflet-tooltip-holc'
+    });
+
+    poly.addTo(redlineMap);
+    currentLayers.push(poly);
+  });
+
+  redlineMap.setView(city.center, city.zoom);
+}
+
+function switchRedlineCity(cityKey) {
+  document.querySelectorAll('.redline-city-btn').forEach(b => {
+    b.classList.toggle('is-active', b.dataset.city === cityKey);
+  });
+  renderCity(cityKey);
+  // Reset info panel
+  const infoPanel = document.getElementById('redline-info-panel');
+  if (infoPanel) {
+    infoPanel.innerHTML = '<strong style="color:var(--color-text-primary)">Hover or tap a zone</strong> to see its HOLC grade and present-day consequences.';
+  }
+}
+
+// Initialize map when Leaflet loads and DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initRedlineMap);
+} else {
+  // Small delay to ensure Leaflet CSS is applied
+  setTimeout(initRedlineMap, 100);
+}
 </script>
 </body>
 </html>

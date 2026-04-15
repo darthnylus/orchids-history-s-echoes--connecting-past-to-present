@@ -596,3 +596,32 @@
   color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
 }
+
+/* ── Linked thread nodes in hero chain ──────────────────── */
+.thread-node--link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+  margin: 0 -8px;
+  padding: 4px 8px;
+}
+.thread-node--link:hover {
+  background: rgba(255,255,255,0.05);
+}
+.thread-node--link:hover .thread-node__year {
+  color: var(--amber-400, #fbbf24);
+}
+.thread-node__cta {
+  display: none;
+  font-size: 0.7rem;
+  color: var(--amber-400, #fbbf24);
+  margin-top: 2px;
+  letter-spacing: 0.03em;
+}
+.thread-node--link:hover .thread-node__cta {
+  display: block;
+}

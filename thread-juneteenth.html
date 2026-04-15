@@ -16,6 +16,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="preload" href="css/system.css" as="style" />
   <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
   <style>
     /* Accent: emerald green — #34d399 / #10b981 */
     .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
@@ -643,5 +644,6 @@
   function resetListen(){speaking=false;speechSynthesis.cancel();listenBtn.setAttribute('data-state','idle');listenLabel.textContent='Listen';listenIcon.innerHTML=PLAY_SVG;progressBar.classList.remove('is-visible');progressFill.style.width='0%';currentUtterance=0}
   listenBtn.addEventListener('click',()=>{if(!speaking){speaking=true;listenBtn.setAttribute('data-state','playing');listenLabel.textContent='Pause';listenIcon.innerHTML=PAUSE_SVG;progressBar.classList.add('is-visible');const chunks=getTextChunks();speakChunk(chunks,currentUtterance)}else{resetListen()}});
 </script>
+<script src="js/thread.js" defer></script>
 </body>
 </html>

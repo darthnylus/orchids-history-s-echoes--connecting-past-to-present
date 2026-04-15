@@ -20,6 +20,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="preload" href="css/system.css" as="style" />
   <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
   <style>
     :root { --acc: #083344; --acc-lt: #cffafe; }
 
@@ -456,5 +457,6 @@
   function buildChunks(){ const words = Array.from(document.querySelectorAll('.entry__body p')).map(p=>p.textContent).join(' ').split(/\s+/); const c=[]; for(let i=0;i<words.length;i+=40) c.push(words.slice(i,i+40).join(' ')); return c; }
   if(ttsBtn){ ttsBtn.addEventListener('click', () => { if(!('speechSynthesis' in window)) return; if(ttsPlaying){ speechSynthesis.cancel(); ttsPlaying=false; ttsLabel.textContent='Listen to this thread'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>'; return; } const chunks=buildChunks(); ttsPlaying=true; ttsLabel.textContent='Playing…'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'; function speak(i){ if(i>=chunks.length){ttsPlaying=false;ttsLabel.textContent='Listen to this thread';ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';return;} const u=new SpeechSynthesisUtterance(chunks[i]); u.onend=()=>speak(i+1); speechSynthesis.speak(u); } speak(0); }); }
 </script>
+<script src="js/thread.js" defer></script>
 </body>
 </html>

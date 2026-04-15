@@ -159,3 +159,124 @@
   .stat-callout,
   .evidence-box { border: 1pt solid #ccc !important; padding: 8pt; margin: 8pt 0; }
 }
+
+/* ============================================================
+   READING PROGRESS BAR (auto-injected)
+   ============================================================ */
+#chain-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #f97316, #fbbf24);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ============================================================
+   BOOKMARK BUTTON (auto-injected into sidebar)
+   ============================================================ */
+.bookmark-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: var(--type-sm);
+  font-family: inherit;
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+.bookmark-btn:hover {
+  border-color: #f97316;
+  color: #f97316;
+}
+.bookmark-btn.is-saved {
+  background: rgba(249,115,22,.10);
+  border-color: rgba(249,115,22,.4);
+  color: #f97316;
+}
+.bookmark-btn__icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.bookmark-btn.is-saved .bookmark-btn__icon {
+  fill: #f97316;
+}
+[data-theme="dark"] .bookmark-btn {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+  color: var(--ink-300);
+}
+[data-theme="dark"] .bookmark-btn:hover {
+  border-color: #f97316;
+  color: #f97316;
+}
+[data-theme="dark"] .bookmark-btn.is-saved {
+  background: rgba(249,115,22,.12);
+  border-color: rgba(249,115,22,.35);
+  color: #fb923c;
+}
+
+/* ============================================================
+   SAVED THREADS PANEL (shown on threads.html if bookmarks exist)
+   ============================================================ */
+.saved-threads-banner {
+  background: rgba(249,115,22,.08);
+  border: 1px solid rgba(249,115,22,.25);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-6);
+  display: none;
+}
+.saved-threads-banner.is-visible { display: block; }
+.saved-threads-banner__title {
+  font-size: var(--type-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: #f97316;
+  margin-bottom: var(--space-3);
+}
+.saved-threads-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.saved-thread-chip {
+  font-size: var(--type-xs);
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(249,115,22,.12);
+  border: 1px solid rgba(249,115,22,.25);
+  color: #f97316;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s;
+}
+.saved-thread-chip:hover { background: rgba(249,115,22,.22); }
+.saved-thread-chip__remove {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  font-size: 0.7rem;
+  line-height: 1;
+  opacity: 0.6;
+}
+.saved-thread-chip__remove:hover { opacity: 1; }

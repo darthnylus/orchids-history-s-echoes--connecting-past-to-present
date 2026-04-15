@@ -1724,16 +1724,38 @@
   const filterCount  = document.getElementById('filterCount');
   const filterEmpty  = document.getElementById('filterEmpty');
 
+  // Map filter button values → domain keywords that should match
+  const FILTER_MAP = {
+    all:       null,
+    housing:   ['housing'],
+    labor:     ['labor','land','economics','economic'],
+    justice:   ['justice','incarceration','terror','protest'],
+    health:    ['health','disaster'],
+    education: ['education','institution'],
+    history:   ['history','civilization','africa','identity','ideology','symbolism','culture','media','press','faith','community','sports','segregation','reconstruction','power','politics','sport']
+  };
+
   function applyFilter(f) {
     filterChips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
     const active = document.querySelector(`.filter-chip[data-filter="${f}"]`);
     if (active) { active.classList.add('is-active'); active.setAttribute('aria-pressed','true'); }
 
+    const keywords = FILTER_MAP[f] || null;
+
     let visible = 0;
     allCards.forEach(card => {
-      const domains = card.dataset.domain || '';
-      const show = (f === 'all' || domains.includes(f));
+      const domains = (card.dataset.domain || '').toLowerCase().split(/\s+/);
+      let show;
+      if (!keywords) {
+        show = true; // "all"
+      } else {
+        show = keywords.some(kw => domains.some(d => d.includes(kw)));
+      }
       card.style.display = show ? '' : 'none';
+      // Ensure filtered-in cards are visible (fix reveal opacity issue)
+      if (show && !card.classList.contains('is-visible')) {
+        card.classList.add('is-visible');
+      }
       if (show) visible++;
     });
 

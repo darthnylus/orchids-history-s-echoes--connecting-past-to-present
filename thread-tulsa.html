@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
   <link rel="preload" href="css/system.css" as="style" />
   <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
   <style>
     :root{--acc:#9f1239;--acc-lt:#fecdd3}
     .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
@@ -306,5 +307,6 @@
   const t=Array.from(document.querySelectorAll('.entry__body p')).map(n=>n.textContent).join(' ');const w=t.split(' ');const c=[];for(let i=0;i<w.length;i+=40)c.push(w.slice(i,i+40).join(' '));speaking=true;ttsBtn.textContent='Stop listening';let idx=0;
   function sn(){if(idx>=c.length||!speaking){speaking=false;ttsBtn.textContent='Listen to this thread';return;}const u=new SpeechSynthesisUtterance(c[idx++]);u.rate=0.95;u.onend=sn;window.speechSynthesis.speak(u);}sn();});
 </script>
+<script src="js/thread.js" defer></script>
 </body>
 </html>
