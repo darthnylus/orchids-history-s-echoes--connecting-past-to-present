@@ -415,7 +415,10 @@
     letter-spacing: 0.07em;
     text-transform: uppercase;
     color: rgba(180,148,110,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
   }
+  .hero__hint:hover { color: rgba(212,132,58,0.75); }
   .hero__hint-icon {
     font-size: 0.9rem;
     line-height: 1;
@@ -696,7 +699,7 @@
      NAVBAR
 ════════════════════════════════ -->
 <nav class="nav" id="navbar">
-  <a href="landing.html" class="nav__logo" aria-label="Retrieve Your Roots home">
+  <a href="index.html" class="nav__logo" aria-label="Retrieve Your Roots home">
     <span class="nav__logo-retrieve">Retrieve</span>
     <span class="nav__logo-sub">Your Roots</span>
   </a>
@@ -707,7 +710,7 @@
     <li><a href="threads.html">Threads</a></li>
     <li><a href="teaching.html">Teaching</a></li>
   </ul>
-  <a href="threads.html" class="nav__cta">Follow a Thread →</a>
+  <a href="threads.html" class="nav__cta">Start the Journey →</a>
   <button class="nav__hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -786,10 +789,10 @@
     </div>
 
     <!-- Tertiary visual hints -->
-    <div class="hero__hints" aria-hidden="true">
-      <span class="hero__hint"><span class="hero__hint-icon">📜</span> Threads</span>
-      <span class="hero__hint"><span class="hero__hint-icon">🗺</span> Maps</span>
-      <span class="hero__hint"><span class="hero__hint-icon">📅</span> Timeline</span>
+    <div class="hero__hints">
+      <a href="threads.html" class="hero__hint"><span class="hero__hint-icon">📜</span> Threads</a>
+      <a href="maps.html" class="hero__hint"><span class="hero__hint-icon">🗺</span> Maps</a>
+      <a href="explore.html" class="hero__hint"><span class="hero__hint-icon">📅</span> Timeline</a>
     </div>
 
   </div>
@@ -1054,11 +1057,11 @@
     pillsEl.appendChild(btn);
   });
 
-  // Search submit — navigate to threads page with query param
+  // Search submit — navigate to search page with query param
   function doSearch() {
     const q = inputEl.value.trim();
     if (!q) { inputEl.focus(); return; }
-    window.location.href = 'threads.html?q=' + encodeURIComponent(q);
+    window.location.href = 'search.html?q=' + encodeURIComponent(q);
   }
   searchBtn.addEventListener('click', doSearch);
   inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
