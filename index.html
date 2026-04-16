@@ -180,14 +180,36 @@
         <p class="hero__subhead animate-fade-up animate-delay-200">
           Before the slave ships. Before the plantations. Before the codes and the redlines and the compromises. There were civilizations — sophisticated, sovereign, and abundant — that were deliberately destroyed to make what followed possible. The chain starts there.
         </p>
-        <div class="hero__cta-group animate-fade-up animate-delay-300">
-          <a href="threads.html" class="btn btn--primary">
-            Start exploring
-            <span class="btn__arrow" aria-hidden="true">→</span>
-          </a>
-          <a href="#origins" class="hero__text-link">
-            What came before slavery?
-          </a>
+        <!-- Question-driven entry — primary interaction -->
+        <div class="hero__search-entry animate-fade-up animate-delay-300">
+          <form class="hero__search-form" action="search.html" method="get" role="search" aria-label="Search Chain">
+            <label for="heroSearchMain" class="sr-only">What's your question about how history shapes today?</label>
+            <div class="hero__search-row">
+              <input
+                id="heroSearchMain"
+                name="q"
+                type="search"
+                class="hero__search-input"
+                placeholder="What's your question about how history shapes today?"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button type="submit" class="hero__search-submit" aria-label="Search">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </form>
+
+          <!-- 3 visible pills + "more" overflow -->
+          <div class="hero__q-pills" role="group" aria-label="Common questions">
+            <a href="thread-african-empires.html"        class="hero__q-pill">What was Africa before the slave trade?</a>
+            <a href="thread-displacement.html"           class="hero__q-pill">Why does housing inequality persist?</a>
+            <a href="thread-mass-incarceration.html"     class="hero__q-pill">Roots of mass incarceration?</a>
+            <a href="thread-stolen-labor.html"           class="hero__q-pill hero__q-pill--more">Why is there a wealth gap?</a>
+            <a href="thread-voting-rights.html"          class="hero__q-pill hero__q-pill--more">How was voting suppressed?</a>
+            <a href="thread-transatlantic-slave-trade.html" class="hero__q-pill hero__q-pill--more">Who built the slave trade?</a>
+          </div>
+          <a href="#questions" class="hero__browse-link">Browse all questions <span aria-hidden="true">↓</span></a>
         </div>
       </div>
 
@@ -581,7 +603,7 @@
        SECTION 2: STARTING QUESTIONS
        Question-led discovery — curiosity as entry point
        ======================================================= -->
-  <section class="questions-section section--sm" aria-labelledby="questions-heading">
+  <section class="questions-section section--sm" id="questions" aria-labelledby="questions-heading">
     <div class="container">
       <div class="questions-section__header">
         <h2 id="questions-heading" class="questions-section__title">Start with a question</h2>
