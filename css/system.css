@@ -785,6 +785,22 @@ input, textarea, select { font-family: inherit; }
   outline-offset: 3px;
 }
 
+/* Plain text link for secondary hero action */
+.hero__text-link {
+  font-family: var(--font-sans);
+  font-size: var(--type-sm);
+  font-weight: var(--weight-medium);
+  color: rgba(255,255,255,0.52);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+}
+.hero__text-link:hover {
+  color: var(--amber-300);
+  border-bottom-color: rgba(196,146,0,0.4);
+}
+
 .btn--secondary {
   background: transparent;
   color: var(--ink-300);

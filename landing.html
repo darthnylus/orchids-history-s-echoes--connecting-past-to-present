@@ -322,9 +322,9 @@
   }
   .hero__search-btn {
     position: absolute;
-    right: 0.6rem;
+    right: 0.5rem;
     top: 50%; transform: translateY(-50%);
-    width: 34px; height: 34px;
+    width: 44px; height: 44px;
     border-radius: 6px;
     background: var(--cta);
     border: none;
@@ -334,7 +334,7 @@
     flex-shrink: 0;
   }
   .hero__search-btn:hover { background: #d45e20; transform: translateY(calc(-50% - 1px)); }
-  .hero__search-btn svg { width: 15px; height: 15px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; }
+  .hero__search-btn svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; }
 
   /* Question pills */
   .hero__pills {
@@ -670,6 +670,124 @@
   }
   .scroll-btn.gone { opacity: 0 !important; pointer-events: none; }
 
+  /* ── Skip link ── */
+  .skip-to-main {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.6rem 1.2rem;
+    background: var(--gold);
+    color: #1a0c06;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: top 0.15s;
+  }
+  .skip-to-main:focus { top: 0.75rem; }
+
+  /* ── Footer ── */
+  .landing-footer {
+    position: relative;
+    z-index: 1;
+    background: rgba(8,4,2,0.92);
+    border-top: 1px solid rgba(212,132,58,0.12);
+    padding: 3rem clamp(1.25rem, 5vw, 5rem) 2rem;
+  }
+  .landing-footer__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 2rem 3rem;
+  }
+  @media (max-width: 860px) {
+    .landing-footer__inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .landing-footer__inner { grid-template-columns: 1fr; }
+  }
+  .landing-footer__brand-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .landing-footer__brand-sub {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--mute);
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+  }
+  .landing-footer__btns {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .landing-footer__btn {
+    padding: 0.45rem 1rem;
+    border-radius: 5px;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .landing-footer__btn--primary {
+    background: var(--cta);
+    color: #fff;
+    border: 1.5px solid var(--cta);
+  }
+  .landing-footer__btn--primary:hover { background: #d45e20; }
+  .landing-footer__btn--outline {
+    background: transparent;
+    color: var(--dim);
+    border: 1.5px solid rgba(245,240,234,0.2);
+  }
+  .landing-footer__btn--outline:hover { border-color: var(--gold); color: var(--text); }
+  .landing-footer__nav-heading {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.85rem;
+  }
+  .landing-footer__nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .landing-footer__nav-list a {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--mute);
+    transition: color 0.2s;
+  }
+  .landing-footer__nav-list a:hover { color: var(--dim); }
+  .landing-footer__bottom {
+    max-width: 1080px;
+    margin: 2rem auto 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(245,240,234,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .landing-footer__legal {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    color: rgba(107,80,64,0.7);
+  }
+
   /* ═══════════════════════════════════════════════════════
      KEYFRAMES
   ═══════════════════════════════════════════════════════ */
@@ -691,6 +809,8 @@
 <body>
 
 <!-- Full-page ember canvas -->
+<a class="skip-to-main" href="#hero">Skip to main content</a>
+
 <canvas id="ember-canvas" aria-hidden="true"></canvas>
 
 <div class="page">
@@ -880,6 +1000,53 @@
   </div><!-- /chain__layout -->
 </section>
 
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer class="landing-footer" role="contentinfo" aria-label="Site footer">
+  <div class="landing-footer__inner">
+    <div>
+      <div class="landing-footer__brand-name">Retrieve Your Roots</div>
+      <p class="landing-footer__brand-sub">A digital history platform tracing the full arc of African and Black history — from sovereign civilizations to the present day.</p>
+      <div class="landing-footer__btns">
+        <a href="donate.html" class="landing-footer__btn landing-footer__btn--primary">Donate</a>
+        <a href="newsletter.html" class="landing-footer__btn landing-footer__btn--outline">Newsletter</a>
+      </div>
+    </div>
+    <nav aria-label="Explore navigation">
+      <p class="landing-footer__nav-heading">Explore</p>
+      <ul class="landing-footer__nav-list">
+        <li><a href="threads.html">All Threads</a></li>
+        <li><a href="explore.html">Encyclopedia</a></li>
+        <li><a href="maps.html">Maps &amp; Timelines</a></li>
+        <li><a href="today.html">Today in History</a></li>
+        <li><a href="sources.html">Sources Archive</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Learn navigation">
+      <p class="landing-footer__nav-heading">Learn</p>
+      <ul class="landing-footer__nav-list">
+        <li><a href="teaching.html">Teaching Resources</a></li>
+        <li><a href="learn.html">Learning Paths</a></li>
+        <li><a href="teaching.html#lessons">Lesson Plans</a></li>
+        <li><a href="teaching.html#guides">Discussion Guides</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="About navigation">
+      <p class="landing-footer__nav-heading">About</p>
+      <ul class="landing-footer__nav-list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#team">Editorial Team</a></li>
+        <li><a href="about.html#methodology">Methodology</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="landing-footer__bottom">
+    <p class="landing-footer__legal">© 2026 Retrieve Your Roots. Content under Creative Commons Attribution 4.0.</p>
+  </div>
+</footer>
+
 </div><!-- /page -->
 
 <!-- Scroll indicator -->
@@ -1065,20 +1232,95 @@
     pillsEl.appendChild(btn);
   });
 
-  // Search submit — navigate directly if query matches a known question, else threads page
+  // Search submit — active pill goes direct to thread; typed text goes to search.html
   function doSearch() {
     const q = inputEl.value.trim();
     if (!q) { inputEl.focus(); return; }
-    // Check if typed value matches an active pill's destination
     const active = pillsEl.querySelector('.hero__pill.active');
     if (active && active.dataset.href) {
       window.location.href = active.dataset.href;
     } else {
-      window.location.href = 'threads.html?q=' + encodeURIComponent(q);
+      window.location.href = 'search.html?q=' + encodeURIComponent(q);
     }
   }
   searchBtn.addEventListener('click', doSearch);
   inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+})();
+
+
+/* ── Hamburger mobile nav ──────────────────────────────── */
+(function(){
+  const btn   = document.getElementById('navHamburger');
+  const links = document.querySelector('.nav__links');
+  const cta   = document.querySelector('.nav__cta');
+  if (!btn || !links) return;
+
+  let open = false;
+
+  // Create mobile drawer on first open
+  let drawer;
+  function buildDrawer() {
+    drawer = document.createElement('div');
+    drawer.id = 'mobileDrawer';
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.style.cssText = [
+      'position:fixed;inset:0;z-index:190',
+      'background:rgba(8,4,2,0.97)',
+      'display:flex;flex-direction:column',
+      'padding:4.5rem 1.5rem 2rem',
+      'gap:1.5rem',
+      'transform:translateX(100%)',
+      'transition:transform 0.3s cubic-bezier(0.16,1,0.3,1)',
+    ].join(';');
+
+    // Clone nav links into drawer
+    const navItems = [
+      ['explore.html',              'Explore'],
+      ['thread-african-empires.html','Civilizations'],
+      ['#chain',                    'The Chain'],
+      ['threads.html',              'Threads'],
+      ['teaching.html',             'Teaching'],
+    ];
+    navItems.forEach(([href, label]) => {
+      const a = document.createElement('a');
+      a.href = href; a.textContent = label;
+      a.style.cssText = 'font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--text);text-decoration:none;';
+      a.addEventListener('click', closeMenu);
+      drawer.appendChild(a);
+    });
+
+    // CTA
+    const ctaEl = document.createElement('a');
+    ctaEl.href = 'threads.html';
+    ctaEl.textContent = 'Start the Journey →';
+    ctaEl.style.cssText = 'margin-top:auto;padding:0.9rem 1.5rem;background:var(--cta);color:#fff;font-family:var(--sans);font-size:0.9rem;font-weight:700;border-radius:8px;text-align:center;text-decoration:none;';
+    drawer.appendChild(ctaEl);
+
+    document.body.appendChild(drawer);
+  }
+
+  function openMenu() {
+    if (!drawer) buildDrawer();
+    open = true;
+    drawer.style.transform = 'translateX(0)';
+    drawer.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close navigation menu');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    open = false;
+    if (drawer) {
+      drawer.style.transform = 'translateX(100%)';
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open navigation menu');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', () => open ? closeMenu() : openMenu());
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) closeMenu(); });
 })();
 
 
