@@ -1025,43 +1025,57 @@
 
 /* ── Question pills ────────────────────────────────────── */
 (function(){
+  // Each entry: [question text, destination thread page]
   const QUESTIONS = [
-    'Why is the wealth gap so large today?',
-    'What happened after slavery ended?',
-    'How did redlining shape American cities?',
-    'Which African civilizations came before colonization?',
-    'What is the legacy of the Transatlantic slave trade?',
-    'How does mass incarceration connect to history?',
+    ['Why is the wealth gap so large today?',               'thread-stolen-labor.html'],
+    ['What happened after slavery ended?',                  'thread-end-of-slavery.html'],
+    ['How did redlining shape American cities?',            'thread-displacement.html'],
+    ['Which African civilizations came before colonization?','thread-african-empires.html'],
+    ['What is the legacy of the Transatlantic slave trade?','thread-transatlantic-slave-trade.html'],
+    ['How does mass incarceration connect to history?',     'thread-mass-incarceration.html'],
+    ['Why do racial health disparities exist?',             'thread-health-disparities.html'],
+    ['How have voting rights been suppressed?',             'thread-voting-rights.html'],
+    ['What caused the Great Migration?',                    'thread-great-migration.html'],
+    ['What happened at Tulsa in 1921?',                     'thread-tulsa.html'],
+    ['Who were the Moors and why does it matter?',          'thread-moors.html'],
+    ['How did the GI Bill exclude Black veterans?',         'thread-gi-bill.html'],
   ];
 
-  const pillsEl  = document.getElementById('heroPills');
-  const inputEl  = document.getElementById('heroSearch');
+  const pillsEl   = document.getElementById('heroPills');
+  const inputEl   = document.getElementById('heroSearch');
   const searchBtn = document.getElementById('heroSearchBtn');
 
   // Show 3 questions, rotated each page load
   const offset = Math.floor(Math.random() * QUESTIONS.length);
   const shown  = [0, 1, 2].map(i => QUESTIONS[(offset + i) % QUESTIONS.length]);
 
-  shown.forEach(q => {
+  shown.forEach(([q, href]) => {
     const btn = document.createElement('button');
     btn.className = 'hero__pill';
     btn.textContent = q;
     btn.setAttribute('type', 'button');
+    btn.dataset.href = href;
     btn.addEventListener('click', () => {
-      // Fill input + mark pill active
+      // Fill input + mark pill active — single click navigates directly
       inputEl.value = q;
       pillsEl.querySelectorAll('.hero__pill').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
-      inputEl.focus();
+      window.location.href = href;
     });
     pillsEl.appendChild(btn);
   });
 
-  // Search submit — navigate to search page with query param
+  // Search submit — navigate directly if query matches a known question, else threads page
   function doSearch() {
     const q = inputEl.value.trim();
     if (!q) { inputEl.focus(); return; }
-    window.location.href = 'search.html?q=' + encodeURIComponent(q);
+    // Check if typed value matches an active pill's destination
+    const active = pillsEl.querySelector('.hero__pill.active');
+    if (active && active.dataset.href) {
+      window.location.href = active.dataset.href;
+    } else {
+      window.location.href = 'threads.html?q=' + encodeURIComponent(q);
+    }
   }
   searchBtn.addEventListener('click', doSearch);
   inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
