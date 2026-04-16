@@ -98,7 +98,7 @@
      NAVBAR
   ═══════════════════════════════════════════════════════ */
   .nav {
-    position: fixed;
+    position: sticky;
     top: 0; left: 0; right: 0;
     z-index: 200;
     height: 52px;
@@ -239,30 +239,6 @@
     .nav__cta { display: none; }
   }
 
-  /* ── Mobile hero / search ── */
-  @media (max-width: 480px) {
-    .hero__search-block {
-      max-width: 100%;
-    }
-    .hero__search-input {
-      font-size: 1rem; /* prevent iOS zoom */
-    }
-    .hero__hints {
-      gap: 1.25rem;
-    }
-    .hero {
-      padding: 6.5rem 1.25rem 4rem;
-    }
-  }
-  @media (max-width: 320px) {
-    .hero__line-3 {
-      font-size: 4.8rem;
-    }
-    .hero__line-1, .hero__line-2 {
-      font-size: 2.2rem;
-    }
-  }
-
   /* ═══════════════════════════════════════════════════════
      HERO
   ═══════════════════════════════════════════════════════ */
@@ -274,7 +250,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 7rem 1.5rem 5rem;
+    padding: 8rem 1.5rem 5rem; /* 8rem = 52px nav + 36px utility bar + breathing room */
     overflow: hidden;
   }
 
@@ -502,6 +478,30 @@
     opacity: 0.6;
   }
 
+  /* ── Mobile hero / search ── */
+  @media (max-width: 480px) {
+    .hero {
+      padding: 6.5rem 1.25rem 4rem;
+    }
+    .hero__search-block {
+      max-width: 100%;
+    }
+    .hero__search-input {
+      font-size: 1rem; /* prevent iOS zoom on focus */
+    }
+    .hero__hints {
+      gap: 1.25rem;
+    }
+  }
+  @media (max-width: 320px) {
+    .hero__line-3 {
+      font-size: 4.8rem;
+    }
+    .hero__line-1, .hero__line-2 {
+      font-size: 2.2rem;
+    }
+  }
+
   /* ═══════════════════════════════════════════════════════
      THE FULL CHAIN
   ═══════════════════════════════════════════════════════ */
@@ -663,7 +663,7 @@
   /* ── Right column: image ── */
   .chain__image-col {
     position: sticky;
-    top: 72px;
+    top: 60px; /* height of sticky nav */
   }
   @media (max-width: 860px) {
     .chain__image-col { position: relative; top: auto; }
