@@ -7,6 +7,7 @@
 /* ---- DESIGN TOKENS ---------------------------------------- */
 :root {
   /* Color: Base Neutrals */
+  --ink-0:   #ffffff;
   --ink-900: #0d0d0d;
   --ink-800: #1a1a1a;
   --ink-700: #2e2e2e;
