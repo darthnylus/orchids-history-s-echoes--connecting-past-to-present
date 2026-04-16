@@ -269,6 +269,54 @@
       text-decoration: underline;
     }
 
+    /* ---- COMING SOON state for download links ---- */
+    .download-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--slate-400);
+      cursor: default;
+      pointer-events: none;
+      text-decoration: none;
+      margin-top: auto;
+    }
+    .download-soon__badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--slate-200);
+      color: var(--slate-500);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+    [data-theme="dark"] .download-soon__badge {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.35);
+    }
+    .download-soon-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.45);
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      border-radius: 0.5rem;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      cursor: default;
+      pointer-events: none;
+    }
+    .download-soon-btn .download-soon__badge {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.4);
+    }
+
     /* ---- FEATURED RESOURCE (full-width) ---- */
     .featured-resource {
       background: var(--slate-800);
@@ -543,7 +591,7 @@
           </p>
         </div>
         <div class="featured-resource__cta">
-          <a href="#" class="btn btn--primary">Download PDF guide</a>
+          <span class="download-soon-btn" aria-disabled="true" role="link">Download PDF guide <span class="download-soon__badge">Coming soon</span></span>
           <a href="#lessons" class="btn btn--ghost" style="color: var(--ink-200); border: 1.5px solid rgba(255,255,255,0.2);">View individual lessons</a>
         </div>
       </div>
@@ -617,7 +665,7 @@
                 PDF · 24 pages
               </span>
             </div>
-            <a href="#" class="lesson-card__link">Download →</a>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
           </div>
         </article>
 
@@ -641,7 +689,7 @@
                 PDF · 20 pages
               </span>
             </div>
-            <a href="#" class="lesson-card__link">Download →</a>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
           </div>
         </article>
 
@@ -665,7 +713,7 @@
                 PDF · 14 pages
               </span>
             </div>
-            <a href="#" class="lesson-card__link">Download →</a>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
           </div>
         </article>
 
@@ -689,7 +737,7 @@
                 PDF · 16 pages
               </span>
             </div>
-            <a href="#" class="lesson-card__link">Download →</a>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
           </div>
         </article>
 
@@ -713,7 +761,7 @@
                 PDF · 15 pages
               </span>
             </div>
-            <a href="#" class="lesson-card__link">Download →</a>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
           </div>
         </article>
 
@@ -747,7 +795,7 @@
           <p class="guide-card__summary">
             A structured discussion connecting the federal redlining maps of the 1930s to current debates about housing policy, school funding, and neighborhood investment. Includes opening readings, tiered discussion questions, and a "chain of causation" activity.
           </p>
-          <a href="#" class="guide-card__link" aria-label="Download Redlining discussion guide">Download guide →</a>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
         </article>
 
         <article class="guide-card" aria-label="Discussion Guide: Reparations">
@@ -761,7 +809,7 @@
           <p class="guide-card__summary">
             Examines the historical and contemporary arguments around reparations — from Frederick Douglass to H.R. 40 — using primary sources and economic evidence. Designed for structured academic controversy or Socratic seminar.
           </p>
-          <a href="#" class="guide-card__link">Download guide →</a>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
         </article>
 
         <article class="guide-card" aria-label="Discussion Guide: Mass Incarceration">
@@ -775,7 +823,7 @@
           <p class="guide-card__summary">
             Traces the historical arc from Reconstruction-era Black Codes through the War on Drugs to the present carceral state. Includes data, firsthand accounts, and comparative policy analysis prompts.
           </p>
-          <a href="#" class="guide-card__link">Download guide →</a>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
         </article>
 
         <article class="guide-card" aria-label="Discussion Guide: What Was Lost — African Civilizations">
@@ -789,7 +837,7 @@
           <p class="guide-card__summary">
             An opening-unit discussion guide for orienting students to the civilizations — Mali, Songhai, Kush, Benin, Great Zimbabwe — that existed before European colonization and the slave trade. Challenges common assumptions about Africa's pre-colonial history.
           </p>
-          <a href="#" class="guide-card__link">Download guide →</a>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
         </article>
 
         <article class="guide-card" aria-label="Discussion Guide: The Achievement Gap">
@@ -803,7 +851,7 @@
           <p class="guide-card__summary">
             Connects property-tax school funding, neighborhood segregation, and educational outcomes to trace why the "achievement gap" is more accurately a resource gap — and how that gap traces back through decades of deliberate policy.
           </p>
-          <a href="#" class="guide-card__link">Download guide →</a>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
         </article>
 
         <article class="guide-card" aria-label="Discussion Guide: Voting Rights">
@@ -817,7 +865,7 @@
           <p class="guide-card__summary">
             Tracks the history of voting rights legislation and restriction — from Reconstruction amendments through the Voting Rights Act of 1965 to the Supreme Court's 2013 decision — and examines what the pattern reveals about how rights are expanded and contracted.
           </p>
-          <a href="#" class="guide-card__link">Download guide →</a>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
         </article>
 
       </div>
@@ -926,7 +974,7 @@
           <li><a href="about.html"               class="footer-link">About Chain</a></li>
           <li><a href="about.html#methodology"   class="footer-link">Methodology</a></li>
           <li><a href="contact.html"             class="footer-link">Contact</a></li>
-          <li><a href="press.html"               class="footer-link">Press</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </nav>
 
@@ -934,7 +982,7 @@
 
     <div class="footer-bottom">
       <p class="footer-legal">
-        © 2026 Chain. Content published under <a href="license.html" style="text-decoration: underline; color: inherit;">Creative Commons Attribution 4.0</a> unless otherwise noted.
+        © 2026 Chain. Content published under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="text-decoration: underline; color: inherit;">Creative Commons Attribution 4.0</a> unless otherwise noted.
       </p>
       <div class="footer-trust" aria-label="Trust indicators">
         <div class="footer-trust-item">

@@ -37,6 +37,51 @@
   a { color: inherit; text-decoration: none; }
   img { display: block; max-width: 100%; }
 
+  /* ── Utility bar ── */
+  .l-utility-bar {
+    position: relative;
+    z-index: 201;
+    background: rgba(8,4,2,0.97);
+    border-bottom: 1px solid rgba(212,132,58,0.1);
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+    gap: 1rem;
+  }
+  .l-utility-bar__msg {
+    flex: 1;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: rgba(180,148,110,0.65);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .l-utility-bar__msg strong { color: var(--gold); font-weight: 600; }
+  .l-utility-bar__links {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-shrink: 0;
+  }
+  .l-utility-bar__link {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(180,148,110,0.65);
+    transition: color 0.2s;
+  }
+  .l-utility-bar__link:hover { color: var(--dim); }
+  .l-utility-bar__link--cta {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .l-utility-bar__link--cta:hover { color: var(--gold-lt); }
+  @media (max-width: 680px) {
+    .l-utility-bar__msg { display: none; }
+  }
+
   /* ── Ember canvas (full-page fixed) ───────────────────── */
   #ember-canvas {
     position: fixed;
@@ -131,6 +176,38 @@
     transition: background 0.2s, transform 0.15s;
   }
   .nav__cta:hover { background: #d45e20; transform: translateY(-1px); }
+
+  /* Today pill */
+  .nav__today {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.32rem 0.75rem;
+    background: rgba(212,132,58,0.12);
+    border: 1px solid rgba(212,132,58,0.25);
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--gold-lt);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .nav__today:hover { background: rgba(212,132,58,0.2); border-color: rgba(212,132,58,0.45); }
+  .nav__today-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold-glo);
+    box-shadow: 0 0 6px rgba(232,146,42,0.8);
+    animation: todayPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes todayPulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:0.6; transform:scale(0.8); }
+  }
 
   /* ── Hamburger (mobile nav) ── */
   .nav__hamburger {
@@ -816,21 +893,40 @@
 <div class="page">
 
 <!-- ════════════════════════════════
+     UTILITY BAR
+════════════════════════════════ -->
+<div class="l-utility-bar" role="banner" aria-label="Site utility bar">
+  <p class="l-utility-bar__msg">
+    <strong>New:</strong> The story begins long before 1619 — explore the full chain of causes.
+  </p>
+  <nav class="l-utility-bar__links" aria-label="Utility navigation">
+    <a href="about.html"      class="l-utility-bar__link">About</a>
+    <a href="newsletter.html" class="l-utility-bar__link">Newsletter</a>
+    <a href="donate.html"     class="l-utility-bar__link l-utility-bar__link--cta">Donate</a>
+  </nav>
+</div>
+
+<!-- ════════════════════════════════
      NAVBAR
 ════════════════════════════════ -->
-<nav class="nav" id="navbar">
+<nav class="nav" id="navbar" aria-label="Primary navigation">
   <a href="index.html" class="nav__logo" aria-label="Retrieve Your Roots home">
     <span class="nav__logo-retrieve">Retrieve</span>
     <span class="nav__logo-sub">Your Roots</span>
   </a>
   <ul class="nav__links">
     <li><a href="explore.html">Explore</a></li>
-    <li><a href="thread-african-empires.html">Civilizations</a></li>
-    <li><a href="#chain" class="active">The Chain</a></li>
     <li><a href="threads.html">Threads</a></li>
+    <li><a href="maps.html">Maps &amp; Timelines</a></li>
+    <li><a href="learn.html">Learn</a></li>
     <li><a href="teaching.html">Teaching</a></li>
   </ul>
-  <a href="threads.html" class="nav__cta">Start the Journey →</a>
+  <div style="display:flex;align-items:center;gap:0.65rem;flex-shrink:0;">
+    <a href="today.html" class="nav__today" aria-label="Today in Black history">
+      <span class="nav__today-dot" aria-hidden="true"></span>Today
+    </a>
+    <a href="threads.html" class="nav__cta">Start the Journey →</a>
+  </div>
   <button class="nav__hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -1273,13 +1369,14 @@
       'transition:transform 0.3s cubic-bezier(0.16,1,0.3,1)',
     ].join(';');
 
-    // Clone nav links into drawer
+    // Clone nav links into drawer — matches main site nav
     const navItems = [
-      ['explore.html',              'Explore'],
-      ['thread-african-empires.html','Civilizations'],
-      ['#chain',                    'The Chain'],
-      ['threads.html',              'Threads'],
-      ['teaching.html',             'Teaching'],
+      ['explore.html',   'Explore'],
+      ['threads.html',   'Threads'],
+      ['maps.html',      'Maps & Timelines'],
+      ['learn.html',     'Learn'],
+      ['teaching.html',  'Teaching'],
+      ['today.html',     'Today in History'],
     ];
     navItems.forEach(([href, label]) => {
       const a = document.createElement('a');
