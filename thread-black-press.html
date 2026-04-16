@@ -48,6 +48,11 @@
     .entry__title{font-family:var(--font-editorial);font-size:1.3rem;font-weight:700;color:var(--ink-900);line-height:1.2}
     [data-theme=dark] .entry__title{color:var(--ink-50)}
     .entry__body{font-family:var(--font-ui);font-size:.97rem;line-height:1.8;color:var(--ink-700);padding-left:52px}
+    .entry__portrait{float:right;margin:0 0 1.25rem 1.75rem;width:clamp(140px,28%,220px);border-radius:6px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,0.15);shape-outside:inset(0 round 6px)}
+    .entry__portrait img{width:100%;height:auto;display:block;filter:sepia(15%) contrast(1.05)}
+    .entry__portrait figcaption{font-family:var(--font-ui);font-size:.68rem;color:var(--ink-400);text-align:center;padding:.5rem .6rem .4rem;line-height:1.45;background:var(--ink-50);border-top:1px solid var(--color-border)}
+    [data-theme=dark] .entry__portrait figcaption{background:var(--ink-800);color:var(--ink-400)}
+    @media(max-width:520px){.entry__portrait{float:none;width:100%;max-width:260px;margin:0 auto 1.25rem}}
     [data-theme=dark] .entry__body{color:var(--ink-300)}
     .entry__body p{margin-bottom:var(--space-4)}.entry__body p:last-child{margin-bottom:0}
     .sh{font-family:var(--font-editorial);font-size:1.1em;font-weight:700;color:var(--acc)}
@@ -213,6 +218,16 @@
     <article class="entry reveal" id="e2">
       <div class="entry__hd"><div class="entry__num">2</div><div class="entry__meta"><span class="entry__date">1889–1895 — Ida B. Wells</span><h2 class="entry__title">Wells Documented Lynching With Evidence When the White Press Called It Justice. Her Office Was Burned. She Was Threatened With Death. She Kept Documenting.</h2></div></div>
       <div class="entry__body">
+        <figure class="entry__portrait">
+          <img
+            src="images/ida-b-wells.webp"
+            alt="Portrait of Ida B. Wells, journalist and anti-lynching activist, c. 1893"
+            width="400"
+            height="500"
+            loading="lazy"
+          />
+          <figcaption>Ida B. Wells · c. 1893<br/>Journalist, activist, co-founder of the NAACP</figcaption>
+        </figure>
         <p>Ida B. Wells began her anti-lynching journalism in 1892 after three of her friends — successful Black grocery store owners in Memphis — were lynched for the crime of competing too successfully with a white-owned store. The white Memphis press covered the lynchings approvingly. Wells investigated: she documented the actual facts of the case, showed that the "rape" justification commonly used to rationalize lynching was frequently a post-hoc explanation for economic or personal conflicts, and published her findings in her newspaper <em>The Memphis Free Speech</em>.</p>
         <p>The response was immediate: a white mob destroyed the Free Speech's office while Wells was traveling. She was warned that she would be lynched if she returned to Memphis. She did not return. She moved to New York, continued writing for the <em>New York Age</em>, published two landmark pamphlets — <em>Southern Horrors: Lynch Law in All Its Phases</em> (1892) and <em>A Red Record</em> (1895) — and conducted a speaking tour of England that generated international pressure on the United States to address lynching. Her work established the factual record that all subsequent anti-lynching advocacy depended on: case-by-case documentation of who was killed, the stated reason, and what the evidence actually showed.</p>
         <div class="pq">
