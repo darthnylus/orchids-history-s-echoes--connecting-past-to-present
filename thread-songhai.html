@@ -16,7 +16,11 @@
   <style>
     :root{--acc:#9e5e0a;--acc-lt:#f5c060}
     .thread-hero{background:#0f0a02;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
-    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 55% 45%,rgba(158,94,10,.42) 0%,transparent 70%);pointer-events:none}
+    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 25% 50%,rgba(158,94,10,.38) 0%,transparent 65%);pointer-events:none;z-index:1}
+    .hero-map{position:absolute;right:0;top:0;bottom:0;width:60%;pointer-events:none;z-index:0;opacity:.55}
+    .hero-map svg{width:100%;height:100%}
+    @media(max-width:700px){.hero-map{width:100%;opacity:.25}}
+    .thread-hero__inner{position:relative;z-index:2;max-width:700px}
     .thread-hero__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6);position:relative}
     .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-5)}
     .kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt);animation:pulse 2s infinite}
@@ -128,6 +132,83 @@
 </nav>
 
 <header class="thread-hero">
+
+  <!-- Songhai Empire territory map — decorative background -->
+  <div class="hero-map" aria-hidden="true">
+    <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <!-- Empire territory at peak (c. 1520) — approximate outline -->
+      <polygon
+        points="90,420 60,280 80,160 130,80 220,50 340,38 460,44 580,70 660,130 700,220 680,340 620,430 500,480 340,490 180,472"
+        fill="rgba(158,94,10,0.18)"
+        stroke="rgba(245,192,96,0.28)"
+        stroke-width="1.5"
+        stroke-linejoin="round"
+      />
+
+      <!-- Saharan northern fringe — hatched feel via dashed arc -->
+      <path d="M 130,80 Q 340,20 660,130" fill="none" stroke="rgba(245,192,96,0.10)" stroke-width="1" stroke-dasharray="6 8"/>
+
+      <!-- Trans-Saharan trade routes -->
+      <!-- Route 1: Timbuktu north to Morocco -->
+      <line x1="318" y1="175" x2="280" y2="50" stroke="rgba(245,192,96,0.18)" stroke-width="1" stroke-dasharray="5 7"/>
+      <!-- Route 2: Gao east to Tripoli -->
+      <line x1="448" y1="210" x2="660" y2="130" stroke="rgba(245,192,96,0.14)" stroke-width="1" stroke-dasharray="5 7"/>
+      <!-- Route 3: Djenné south to forest -->
+      <line x1="218" y1="278" x2="160" y2="430" stroke="rgba(245,192,96,0.12)" stroke-width="1" stroke-dasharray="4 8"/>
+
+      <!-- Niger River — the defining geographic feature -->
+      <!-- Upper Niger flowing NE from the SW -->
+      <path
+        d="M 30,490 C 60,460 80,430 100,400 C 120,368 130,340 148,312 C 162,290 178,278 218,278"
+        fill="none" stroke="rgba(125,211,224,0.55)" stroke-width="3" stroke-linecap="round"
+      />
+      <!-- Inner delta fan — characteristic spreading near Djenné -->
+      <path
+        d="M 218,278 C 238,270 248,262 262,268 C 272,272 278,280 290,275"
+        fill="none" stroke="rgba(125,211,224,0.35)" stroke-width="1.5" stroke-linecap="round"
+      />
+      <!-- Niger continues NE toward Timbuktu (the great bend) -->
+      <path
+        d="M 218,278 C 242,268 268,240 300,210 C 320,190 336,178 318,175"
+        fill="none" stroke="rgba(125,211,224,0.55)" stroke-width="3" stroke-linecap="round"
+      />
+      <!-- Bend at Timbuktu — river turns east then SE -->
+      <path
+        d="M 318,175 C 326,172 338,172 354,178 C 374,186 400,198 448,210"
+        fill="none" stroke="rgba(125,211,224,0.55)" stroke-width="3" stroke-linecap="round"
+      />
+      <!-- Lower Niger flowing SE past Gao and out -->
+      <path
+        d="M 448,210 C 490,225 520,252 550,292 C 575,324 595,365 640,420 C 660,448 700,490 760,500"
+        fill="none" stroke="rgba(125,211,224,0.55)" stroke-width="3" stroke-linecap="round"
+      />
+
+      <!-- City markers -->
+      <!-- Djenné -->
+      <circle cx="218" cy="278" r="5" fill="rgba(245,192,96,0.55)" stroke="rgba(245,192,96,0.8)" stroke-width="1"/>
+      <!-- Timbuktu — the bend city -->
+      <circle cx="318" cy="175" r="7" fill="rgba(245,192,96,0.70)" stroke="rgba(245,192,96,0.95)" stroke-width="1.5"/>
+      <!-- Gao — the capital -->
+      <circle cx="448" cy="210" r="9" fill="rgba(245,192,96,0.85)" stroke="rgba(245,192,96,1)" stroke-width="2"/>
+      <!-- Gao pulse ring -->
+      <circle cx="448" cy="210" r="16" fill="none" stroke="rgba(245,192,96,0.25)" stroke-width="1"/>
+
+      <!-- City labels -->
+      <text x="230" y="296" fill="rgba(245,192,96,0.65)" font-size="11" font-family="Georgia,serif" letter-spacing="0.5">Djenné</text>
+      <text x="329" y="168" fill="rgba(245,192,96,0.85)" font-size="12" font-family="Georgia,serif" letter-spacing="0.5">Timbuktu</text>
+      <text x="462" y="207" fill="rgba(245,192,96,1)" font-size="13" font-family="Georgia,serif" font-weight="bold" letter-spacing="0.5">Gao ✦</text>
+
+      <!-- Empire label -->
+      <text x="200" y="420" fill="rgba(245,192,96,0.20)" font-size="28" font-family="Georgia,serif" font-style="italic" letter-spacing="3">Songhai</text>
+
+      <!-- Niger label -->
+      <text x="95" y="355" fill="rgba(125,211,224,0.40)" font-size="9.5" font-family="Georgia,serif" font-style="italic" transform="rotate(-50 95 355)">Niger R.</text>
+
+      <!-- Sahara label -->
+      <text x="380" y="72" fill="rgba(245,192,96,0.14)" font-size="15" font-family="Georgia,serif" font-style="italic" letter-spacing="4" text-anchor="middle">SAHARA</text>
+    </svg>
+  </div>
+
   <div class="thread-hero__inner">
     <div class="thread-hero__kicker"><span class="kicker-dot"></span>West Africa · Empire · Timbuktu · Erasure</div>
     <h1 class="thread-hero__title">The Songhai Empire: <em>The Largest in African History</em> — and How It Was Erased</h1>
