@@ -1113,13 +1113,11 @@
     }
 
     const q = query.toLowerCase();
+    const words = q.split(/\s+/).filter(Boolean);
     const filtered = CORPUS.filter(item => {
       if (activeType !== 'all' && item.type !== activeType) return false;
-      return (
-        item.title.toLowerCase().includes(q) ||
-        item.excerpt.toLowerCase().includes(q) ||
-        item.meta.toLowerCase().includes(q)
-      );
+      const hay = (item.title + ' ' + item.excerpt + ' ' + item.meta).toLowerCase();
+      return words.every(w => hay.includes(w));
     });
 
     emptyState.style.display = 'none';
