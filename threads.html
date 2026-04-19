@@ -728,12 +728,31 @@
       font-weight: var(--weight-semibold);
       flex: 1;
     }
+    .journey-thread-row__years {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      white-space: nowrap;
+      margin-left: auto;
+      padding-left: var(--space-3);
+    }
     .journey-thread-row__arrow {
       color: var(--color-text-tertiary);
       font-size: .85rem;
       transition: color .15s;
     }
     .journey-thread-row:hover .journey-thread-row__arrow { color: var(--amber-400); }
+
+    /* Medium screens — hide year range, keep row readable */
+    @media (max-width: 860px) {
+      .journey-thread-row .journey-thread-row__years { display: none; }
+      .journey-thread-row { gap: var(--space-3); padding: var(--space-3) var(--space-4); }
+    }
+    @media (max-width: 540px) {
+      .journey-thread-row__num { display: none; }
+      .journey-thread-row { padding: var(--space-3); }
+      .journey-era-header { gap: var(--space-3); }
+      .journey-era-years { display: none; }
+    }
 
     /* Reveal */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
@@ -2125,7 +2144,7 @@
         html += `<a href="${t.href}" class="journey-thread-row" data-domain="${t.domain}">
           <span class="journey-thread-row__num">${String(threadNum).padStart(2,'0')}</span>
           <span class="journey-thread-row__title">${t.title}</span>
-          <span style="font-size:var(--type-xs);color:var(--color-text-tertiary);white-space:nowrap;margin-left:auto;padding-left:var(--space-3)">${t.years}</span>
+          <span class="journey-thread-row__years">${t.years}</span>
           <span class="journey-thread-row__arrow">→</span>
         </a>`;
       });
