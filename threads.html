@@ -625,6 +625,116 @@
     [data-theme="dark"] .thread-chain-node { background: var(--ink-700); border-color: var(--ink-600); }
     [data-theme="dark"] .suggest-cta { background: var(--ink-800); border: 1px solid var(--ink-700); }
 
+    /* ── View toggle ────────────────────────────────────────── */
+    .view-toggle {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+      flex-shrink: 0;
+    }
+    [data-theme="dark"] .view-toggle { background: var(--ink-800); border-color: var(--ink-700); }
+    .view-toggle__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-pill);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-tertiary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .view-toggle__btn.is-active {
+      background: var(--ink-900);
+      color: #fff;
+    }
+    [data-theme="dark"] .view-toggle__btn.is-active {
+      background: var(--amber-500);
+      color: var(--ink-900);
+    }
+
+    /* ── Journey view ───────────────────────────────────────── */
+    #journey-view { display: none; }
+    #journey-view.is-active { display: block; }
+    #topic-view.is-hidden { display: none; }
+
+    .journey-era-section { margin-bottom: var(--space-12); }
+    .journey-era-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-5);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .journey-era-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-family: var(--font-editorial);
+      font-size: 1rem;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .journey-era-label {
+      font-family: var(--font-editorial);
+      font-size: 1.125rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+    }
+    .journey-era-years {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .journey-thread-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .journey-thread-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: var(--color-text-primary);
+      transition: all .15s;
+    }
+    [data-theme="dark"] .journey-thread-row { background: var(--ink-800); border-color: var(--ink-700); }
+    .journey-thread-row:hover { border-color: var(--amber-300); transform: translateX(4px); }
+    .journey-thread-row__num {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-tertiary);
+      min-width: 32px;
+      font-variant-numeric: tabular-nums;
+    }
+    .journey-thread-row__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      flex: 1;
+    }
+    .journey-thread-row__arrow {
+      color: var(--color-text-tertiary);
+      font-size: .85rem;
+      transition: color .15s;
+    }
+    .journey-thread-row:hover .journey-thread-row__arrow { color: var(--amber-400); }
+
     /* Reveal */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
     .reveal.is-visible { opacity: 1; transform: none; }
@@ -788,19 +898,36 @@
 
   <div class="container threads-section">
 
-    <!-- FILTER -->
-    <div class="threads-filter" role="group" aria-label="Filter threads by domain">
-      <span class="threads-filter__label">Domain</span>
-      <button class="filter-chip is-active" data-filter="all"       aria-pressed="true">All threads</button>
-      <button class="filter-chip"           data-filter="housing"   aria-pressed="false">Housing</button>
-      <button class="filter-chip"           data-filter="labor-wealth"      aria-pressed="false">Labor &amp; Wealth</button>
-      <button class="filter-chip"           data-filter="criminal-justice"  aria-pressed="false">Criminal Justice</button>
-      <button class="filter-chip"           data-filter="health"            aria-pressed="false">Health</button>
-      <button class="filter-chip"           data-filter="education"         aria-pressed="false">Education</button>
-      <button class="filter-chip"           data-filter="history-culture"   aria-pressed="false">History &amp; Culture</button>
-      <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true"></span>
+    <!-- VIEW TOGGLE + FILTER ROW -->
+    <div style="display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;padding:var(--space-6) 0 var(--space-2)">
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button class="view-toggle__btn is-active" id="btnTopicView" aria-pressed="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Browse by topic
+        </button>
+        <button class="view-toggle__btn" id="btnJourneyView" aria-pressed="false">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><polyline points="18 8 12 2 6 8"/></svg>
+          Follow the journey
+        </button>
+      </div>
+      <div class="threads-filter" id="topic-filters" role="group" aria-label="Filter threads by domain" style="padding:0;flex:1">
+        <span class="threads-filter__label">Domain</span>
+        <button class="filter-chip is-active" data-filter="all"       aria-pressed="true">All</button>
+        <button class="filter-chip"           data-filter="housing"   aria-pressed="false">Housing</button>
+        <button class="filter-chip"           data-filter="labor-wealth"      aria-pressed="false">Labor &amp; Wealth</button>
+        <button class="filter-chip"           data-filter="criminal-justice"  aria-pressed="false">Criminal Justice</button>
+        <button class="filter-chip"           data-filter="health"            aria-pressed="false">Health</button>
+        <button class="filter-chip"           data-filter="education"         aria-pressed="false">Education</button>
+        <button class="filter-chip"           data-filter="history-culture"   aria-pressed="false">History &amp; Culture</button>
+        <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true"></span>
+      </div>
     </div>
 
+    <!-- JOURNEY VIEW — chronological, 1–58 -->
+    <div id="journey-view" aria-label="All threads in chronological order" role="region"></div>
+
+    <!-- TOPIC VIEW wrapper -->
+    <div id="topic-view">
 
     <!-- FEATURED THREAD — Thread 1 -->
     <a href="thread-african-empires.html" class="thread-featured reveal" data-domain="history-culture" aria-labelledby="featured-title">
@@ -1742,6 +1869,8 @@
 
     </div>
 
+    </div><!-- /topic-view -->
+
     <!-- SUGGEST CTA -->
     <div class="suggest-cta reveal">
       <div>
@@ -1880,6 +2009,154 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.07 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── VIEW TOGGLE (Topic ↔ Journey) ─────────────────────────
+  const btnTopic   = document.getElementById('btnTopicView');
+  const btnJourney = document.getElementById('btnJourneyView');
+  const topicView  = document.getElementById('topic-view');
+  const journeyView= document.getElementById('journey-view');
+  const topicFilters = document.getElementById('topic-filters');
+
+  const JOURNEY_DATA = [
+    // ERA 1 — African Origins
+    {era:1,label:'African Origins',color:'#b8972a',threads:[
+      {href:'thread-pharaohs.html',       title:'The Black Pharaohs: Egypt\'s African Kings',           domain:'history-culture',years:'c. 3100 BCE – 332 BCE'},
+      {href:'thread-african-empires.html',title:'Before the Chain: 7 African Empires',                   domain:'history-culture',years:'1070 BCE – 1897 CE'},
+      {href:'thread-moors.html',          title:'Al-Andalus: The Moorish Civilization',                  domain:'history-culture',years:'711 CE – Present'},
+      {href:'thread-songhai.html',        title:'The Songhai Empire',                                    domain:'history-culture',years:'c. 800 CE – 1591'},
+    ]},
+    // ERA 2 — The Rupture
+    {era:2,label:'The Rupture',color:'#c0392b',threads:[
+      {href:'thread-transatlantic-slave-trade.html',title:'The Transatlantic Slave Trade, 1441–1808',    domain:'history-culture labor-wealth',years:'1441 – 1808'},
+      {href:'thread-invention-of-race.html',        title:'The Invention of Race: Why Racism Was Created',domain:'history-culture',years:'1676 – Present'},
+      {href:'thread-blumenbach.html',               title:'The Man Who Invented Race: Blumenbach',        domain:'history-culture',years:'1775 – Present'},
+      {href:'thread-haiti.html',                    title:'Haiti: The $21 Billion Punishment for Revolution',domain:'history-culture labor-wealth',years:'1791 – Present'},
+    ]},
+    // ERA 3 — Slavery & Resistance
+    {era:3,label:'Slavery & Resistance',color:'#1a6b3a',threads:[
+      {href:'thread-stolen-labor.html',     title:'Stolen Labor: The Architecture of the Racial Wealth Gap',domain:'labor-wealth',years:'1619 – Present'},
+      {href:'thread-abolitionism.html',     title:'The Fire Next Time: Black Abolitionists, 1829–1865',    domain:'history-culture',years:'1829 – 1865'},
+      {href:'thread-mexico-freedom.html',   title:'South to Freedom: Mexico Offered Liberty',             domain:'history-culture',years:'1829 – 1865'},
+      {href:'thread-seneca-village.html',   title:'Seneca Village: Destroyed to Build Central Park',      domain:'history-culture housing',years:'1825 – 1857'},
+      {href:'thread-weeksville.html',       title:'Weeksville: The Free Black City Built Inside Brooklyn', domain:'history-culture',years:'1838 – Present'},
+      {href:'thread-black-church.html',     title:'The Bombed Church: The Black Church in America',       domain:'history-culture',years:'1773 – Present'},
+      {href:'thread-black-press.html',      title:'The Black Press: Ida B. Wells & the Counter-Record',   domain:'history-culture',years:'1827 – Present'},
+    ]},
+    // ERA 4 — Emancipation & Betrayal
+    {era:4,label:'Emancipation & Betrayal',color:'#7a3e3e',threads:[
+      {href:'thread-end-of-slavery.html',         title:'How Slavery Really Ended',                          domain:'history-culture',years:'1861 – Present'},
+      {href:'thread-juneteenth.html',             title:'Two and a Half Years Late: Juneteenth',             domain:'history-culture',years:'1865 – Present'},
+      {href:'thread-lynching.html',               title:'Spectacle and Terror: Lynching as American Policy', domain:'history-culture criminal-justice',years:'1877 – 2022'},
+      {href:'thread-fear-of-black-assembly.html', title:'What They Were Afraid Of: Fear of Black Assembly',  domain:'history-culture criminal-justice',years:'1739 – Present'},
+    ]},
+    // ERA 5 — Jim Crow Era
+    {era:5,label:'Jim Crow Era',color:'#5c4a1e',threads:[
+      {href:'thread-great-migration.html', title:'Six Million People: The Great Migration, 1910–1970',      domain:'history-culture housing',years:'1910 – Present'},
+      {href:'thread-tulsa.html',           title:'Black Wall Street: The Tulsa Massacre of 1921',           domain:'labor-wealth history-culture',years:'1905 – 2023'},
+      {href:'thread-negro-leagues.html',   title:'The Negro Leagues',                                       domain:'history-culture',years:'1867 – Present'},
+      {href:'thread-hbcus.html',           title:'HBCUs: Founded Under Exclusion, $12B Underfunded Today',  domain:'education',years:'1837 – Present'},
+      {href:'thread-black-women.html',     title:'Twice Invisible: Black Women\'s Labor & Resistance',      domain:'labor-wealth health',years:'1619 – Present'},
+      {href:'thread-inventors.html',       title:'Built by Black Hands: The Inventors America Erased',      domain:'history-culture labor-wealth',years:'1821 – Present'},
+      {href:'thread-bruces-beach.html',    title:'Bruce\'s Beach: The Black Resort Manhattan Beach Stole',  domain:'history-culture housing labor-wealth',years:'1912 – 2022'},
+      {href:'thread-oscarville.html',      title:'Oscarville, Georgia: The Erasure of Forsyth County',      domain:'history-culture housing',years:'1912 – Present'},
+      {href:'thread-lake-lanier.html',     title:'Lake Lanier: Atlanta\'s Playground Was Built on a Crime Scene',domain:'housing history-culture',years:'1912 – Present'},
+      {href:'thread-lake-marion.html',     title:'Lake Marion: The Economy Built Over Ferguson',            domain:'housing labor-wealth',years:'1942 – Present'},
+    ]},
+    // ERA 6 — WWII & Post-War
+    {era:6,label:'WWII & Post-War',color:'#1a4a6b',threads:[
+      {href:'thread-golden-thirteen.html', title:'The Golden Thirteen: First Black Naval Officers',         domain:'history-culture',years:'1775 – 1987'},
+      {href:'thread-gi-bill.html',         title:'The GI Bill That Built the White Middle Class',           domain:'housing labor-wealth',years:'1944 – Present'},
+      {href:'thread-lily-white.html',      title:'The Lily White Movement: Party of Lincoln',               domain:'history-culture',years:'1877 – 1968'},
+      {href:'thread-displacement.html',    title:'The Flooded City: Five Ways Black Communities Were Taken',domain:'housing labor-wealth',years:'1898 – Present'},
+    ]},
+    // ERA 7 — Civil Rights
+    {era:7,label:'Civil Rights',color:'#1a5c3a',threads:[
+      {href:'thread-civil-rights.html',    title:'The Movement That Was Not Spontaneous',                   domain:'history-culture',years:'1954 – Present'},
+      {href:'thread-voting-rights.html',   title:'The Right They Keep Taking: Black Voting Rights',         domain:'history-culture',years:'1870 – Present'},
+      {href:'thread-self-defense.html',    title:'The Right to Defend: Black Organized Self-Defense',       domain:'history-culture criminal-justice',years:'1892 – 1982'},
+      {href:'thread-black-athletes.html',  title:'Shut Up and Play: Ali, Kaepernick, and Athletic Protest', domain:'history-culture',years:'1908 – Present'},
+      {href:'thread-hbcu-football.html',   title:'Gridiron Separate and Unequal: HBCU Football',            domain:'history-culture education',years:'1892 – Present'},
+      {href:'thread-black-panthers.html',  title:'What the Panthers Actually Were',                         domain:'history-culture health',years:'1966 – Present'},
+      {href:'thread-statue-of-liberty.html',title:'The Black Statue of Liberty',                            domain:'history-culture',years:'1865 – Present'},
+    ]},
+    // ERA 8 — Backlash Era
+    {era:8,label:'Backlash Era',color:'#4a2060',threads:[
+      {href:'thread-war-on-drugs.html',      title:'The War on Drugs: Nixon\'s Confession',                 domain:'criminal-justice health',years:'1971 – Present'},
+      {href:'thread-mass-incarceration.html',title:'The 13th: Mass Incarceration & the Second Slavery',     domain:'criminal-justice',years:'1865 – Present'},
+      {href:'thread-police.html',            title:'Patrol and Punish: The Invention of American Policing', domain:'criminal-justice',years:'1704 – Present'},
+      {href:'thread-media.html',             title:'How America Images Blackness',                          domain:'history-culture criminal-justice',years:'1915 – Present'},
+      {href:'thread-rap-pipeline.html',      title:'The Pipeline: How Rap Was Captured',                    domain:'criminal-justice history-culture',years:'1973 – Present'},
+      {href:'thread-gangs.html',             title:'After the Panthers: Origins of the Crips and Bloods',   domain:'criminal-justice',years:'1965 – Present'},
+      {href:'thread-white-terror-la.html',   title:'Before the Crips: White Terror Gangs in L.A.',          domain:'history-culture criminal-justice housing',years:'1940s – 1969'},
+      {href:'thread-subprime.html',          title:'The Subprime Trap: 2008 Crisis Built on Black Neighborhoods',domain:'housing labor-wealth',years:'1990s – Present'},
+      {href:'thread-racial-capitalism.html', title:'Same Ledger, New Name: Old Slavery to New Capitalism',  domain:'labor-wealth',years:'1619 – Present'},
+    ]},
+    // ERA 9 — Present Day
+    {era:9,label:'Present Day',color:'#2a4a6b',threads:[
+      {href:'thread-katrina.html',           title:'Katrina: What the Flood Revealed',                      domain:'housing health',years:'2005 – Present'},
+      {href:'thread-health-disparities.html',title:'The Body as Evidence: Black Health Disparities',        domain:'health',years:'1619 – Present'},
+      {href:'thread-healthcare.html',        title:'By Design: Why America Has No Universal Healthcare',    domain:'health',years:'1917 – Present'},
+      {href:'thread-education.html',         title:'Separate Was Never Equal: Black Education in America',  domain:'education',years:'1835 – Present'},
+      {href:'thread-black-farmers.html',     title:'14 Million Acres: Black Farmers and the USDA',          domain:'labor-wealth',years:'1865 – Present'},
+      {href:'thread-ferguson.html',          title:'Ferguson, South Carolina: Drowned by the New Deal',     domain:'housing history-culture',years:'1939 – Present'},
+      {href:'thread-dei.html',               title:'Built to Be Dismantled: The DEI Backlash',              domain:'labor-wealth history-culture',years:'1964 – 2025'},
+      {href:'thread-reparations.html',       title:'What Is Owed: The Reparations Question',                domain:'labor-wealth history-culture',years:'1865 – Present'},
+      {href:'thread-diaspora.html',          title:'Before, During, and After: Who Black People Are',       domain:'history-culture',years:'Ancient Africa – Present'},
+    ]},
+  ];
+
+  // Render journey view
+  function renderJourneyView() {
+    if (journeyView.dataset.rendered) return;
+    journeyView.dataset.rendered = '1';
+    let threadNum = 0;
+    let html = '';
+    JOURNEY_DATA.forEach(era => {
+      const totalInEra = era.threads.length;
+      html += `<div class="journey-era-section">
+        <div class="journey-era-header">
+          <div class="journey-era-num" style="background:${era.color}">${era.era}</div>
+          <div class="journey-era-label">${era.label}</div>
+          <div class="journey-era-years">${totalInEra} thread${totalInEra !== 1 ? 's' : ''}</div>
+        </div>
+        <div class="journey-thread-list">`;
+      era.threads.forEach(t => {
+        threadNum++;
+        html += `<a href="${t.href}" class="journey-thread-row" data-domain="${t.domain}">
+          <span class="journey-thread-row__num">${String(threadNum).padStart(2,'0')}</span>
+          <span class="journey-thread-row__title">${t.title}</span>
+          <span style="font-size:var(--type-xs);color:var(--color-text-tertiary);white-space:nowrap;margin-left:auto;padding-left:var(--space-3)">${t.years}</span>
+          <span class="journey-thread-row__arrow">→</span>
+        </a>`;
+      });
+      html += `</div></div>`;
+    });
+    journeyView.innerHTML = html;
+  }
+
+  function showTopicView() {
+    topicView.classList.remove('is-hidden');
+    journeyView.classList.remove('is-active');
+    btnTopic.classList.add('is-active'); btnTopic.setAttribute('aria-pressed','true');
+    btnJourney.classList.remove('is-active'); btnJourney.setAttribute('aria-pressed','false');
+    if (topicFilters) topicFilters.style.display = '';
+  }
+  function showJourneyView() {
+    renderJourneyView();
+    topicView.classList.add('is-hidden');
+    journeyView.classList.add('is-active');
+    btnJourney.classList.add('is-active'); btnJourney.setAttribute('aria-pressed','true');
+    btnTopic.classList.remove('is-active'); btnTopic.setAttribute('aria-pressed','false');
+    if (topicFilters) topicFilters.style.display = 'none';
+  }
+
+  btnTopic.addEventListener('click', showTopicView);
+  btnJourney.addEventListener('click', showJourneyView);
+
+  // Auto-activate journey view if ?view=journey in URL
+  if (new URLSearchParams(window.location.search).get('view') === 'journey') {
+    showJourneyView();
+  }
 </script>
 </body>
 </html>
