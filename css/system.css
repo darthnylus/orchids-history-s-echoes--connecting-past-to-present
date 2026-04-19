@@ -873,30 +873,33 @@ input, textarea, select { font-family: inherit; }
   display: flex;
   align-items: center;
   gap: var(--space-5);
-  margin: var(--space-6) 0 var(--space-2);
+  margin: var(--space-7) 0 var(--space-4);
   flex-wrap: wrap;
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255,255,255,.08);
 }
 
 .hero__journey-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  background: var(--amber-500);
-  color: var(--ink-950);
+  background: var(--amber-300);
+  color: #1a0e00;
   border-radius: var(--radius-pill);
-  padding: var(--space-3) var(--space-6);
-  font-size: var(--type-base);
+  padding: var(--space-3) var(--space-7);
+  font-size: 1.05rem;
   font-weight: var(--weight-bold);
   text-decoration: none;
   letter-spacing: -0.01em;
   transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 2px 16px rgba(224,162,0,.28);
+  box-shadow: 0 0 0 4px rgba(245,147,50,.18), 0 4px 24px rgba(245,147,50,.30);
+  white-space: nowrap;
 }
 
 .hero__journey-btn:hover {
-  background: var(--amber-400);
-  transform: translateX(3px);
-  box-shadow: 0 4px 24px rgba(224,162,0,.38);
+  background: var(--amber-200);
+  transform: translateX(4px);
+  box-shadow: 0 0 0 6px rgba(245,147,50,.22), 0 6px 32px rgba(245,147,50,.38);
 }
 
 .hero__journey-btn-icon {

@@ -14,9 +14,12 @@
     ['thread-african-empires.html',       'African Empires & Civilizations',   'African Origins',   1],
     ['thread-moors.html',                 'The Moors of Europe',               'African Origins',   1],
     ['thread-songhai.html',               'The Songhai Empire',                'African Origins',   1],
+    ['thread-arab-slave-trade.html',      'The Arab Slave Trade',              'African Origins',   1],
 
     // ERA 2 — The Rupture
     ['thread-transatlantic-slave-trade.html', 'The Transatlantic Slave Trade', 'The Rupture',       2],
+    ['thread-slave-ship-resistance.html', 'Resistance on the Middle Passage',  'The Rupture',       2],
+    ['thread-code-noir.html',             'The Code Noir',                     'The Rupture',       2],
     ['thread-invention-of-race.html',     'The Invention of Race',             'The Rupture',       2],
     ['thread-blumenbach.html',            'The Man Who Invented Race',         'The Rupture',       2],
     ['thread-haiti.html',                 'The Haitian Revolution',            'The Rupture',       2],
