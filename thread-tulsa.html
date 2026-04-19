@@ -323,5 +323,6 @@
   function sn(){if(idx>=c.length||!speaking){speaking=false;ttsBtn.textContent='Listen to this thread';return;}const u=new SpeechSynthesisUtterance(c[idx++]);u.rate=0.95;u.onend=sn;window.speechSynthesis.speak(u);}sn();});
 </script>
 <script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
 </body>
 </html>

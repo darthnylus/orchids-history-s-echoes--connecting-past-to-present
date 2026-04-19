@@ -491,5 +491,6 @@
   if(ttsBtn){ ttsBtn.addEventListener('click', () => { if(!('speechSynthesis' in window)) return; if(ttsPlaying){ speechSynthesis.cancel(); ttsPlaying=false; ttsLabel.textContent='Listen to this thread'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>'; return; } const chunks=buildChunks(); ttsPlaying=true; ttsLabel.textContent='Playing…'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'; function speak(i){ if(i>=chunks.length){ttsPlaying=false;ttsLabel.textContent='Listen to this thread';ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';return;} const u=new SpeechSynthesisUtterance(chunks[i]); u.onend=()=>speak(i+1); speechSynthesis.speak(u); } speak(0); }); }
 </script>
 <script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
 </body>
 </html>

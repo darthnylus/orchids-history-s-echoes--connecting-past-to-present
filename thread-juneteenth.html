@@ -645,5 +645,6 @@
   listenBtn.addEventListener('click',()=>{if(!speaking){speaking=true;listenBtn.setAttribute('data-state','playing');listenLabel.textContent='Pause';listenIcon.innerHTML=PAUSE_SVG;progressBar.classList.add('is-visible');const chunks=getTextChunks();speakChunk(chunks,currentUtterance)}else{resetListen()}});
 </script>
 <script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
 </body>
 </html>
