@@ -886,6 +886,64 @@
       transform: translateX(2px);
     }
 
+    /* ── Era Jump Bar ───────────────────────────────────────── */
+    .era-jump-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      padding: var(--space-3) 0 var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--space-4);
+    }
+
+    .era-jump-bar__label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      white-space: nowrap;
+      margin-right: var(--space-2);
+    }
+
+    .era-jump-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid color-mix(in srgb, var(--era-c) 35%, transparent);
+      color: color-mix(in srgb, var(--era-c) 90%, var(--color-text-primary));
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+
+    /* Fallback for browsers that don't support color-mix */
+    @supports not (color: color-mix(in srgb, red 50%, blue)) {
+      .era-jump-chip {
+        border: 1px solid var(--era-c);
+        color: var(--era-c);
+        opacity: 0.85;
+      }
+    }
+
+    .era-jump-chip:hover,
+    .era-jump-chip.is-active {
+      background: color-mix(in srgb, var(--era-c) 15%, transparent);
+      border-color: var(--era-c);
+      opacity: 1;
+    }
+
+    [data-theme="dark"] .era-jump-chip {
+      border-color: color-mix(in srgb, var(--era-c) 45%, transparent);
+    }
+
     /* Context ribbon on threads.html */
     .context-ribbon {
       background: var(--slate-800);
@@ -1125,6 +1183,20 @@
         <button class="filter-chip"           data-filter="history-culture"   aria-pressed="false">History &amp; Culture</button>
         <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true"></span>
       </div>
+    </div>
+
+    <!-- ERA JUMP BAR — skip to any era without scrolling (visible in Journey view only) -->
+    <div class="era-jump-bar" id="eraJumpBar" role="group" aria-label="Jump to era" style="display:none">
+      <span class="era-jump-bar__label">Jump to era</span>
+      <a href="#era-section-1" class="era-jump-chip" data-era="1" style="--era-c:#b8972a">1 · Origins</a>
+      <a href="#era-section-2" class="era-jump-chip" data-era="2" style="--era-c:#c0392b">2 · Rupture</a>
+      <a href="#era-section-3" class="era-jump-chip" data-era="3" style="--era-c:#1a6b3a">3 · Slavery</a>
+      <a href="#era-section-4" class="era-jump-chip" data-era="4" style="--era-c:#7a3e3e">4 · Emancipation</a>
+      <a href="#era-section-5" class="era-jump-chip" data-era="5" style="--era-c:#5c4a1e">5 · Jim Crow</a>
+      <a href="#era-section-6" class="era-jump-chip" data-era="6" style="--era-c:#1a4a6b">6 · Post-War</a>
+      <a href="#era-section-7" class="era-jump-chip" data-era="7" style="--era-c:#1a5c3a">7 · Civil Rights</a>
+      <a href="#era-section-8" class="era-jump-chip" data-era="8" style="--era-c:#4a2060">8 · Backlash</a>
+      <a href="#era-section-9" class="era-jump-chip" data-era="9" style="--era-c:#2a4a6b">9 · Present</a>
     </div>
 
     <!-- TABLE VIEW — research-grade sortable table -->
@@ -2459,7 +2531,7 @@
     let html = '';
     JOURNEY_DATA.forEach(era => {
       const totalInEra = era.threads.length;
-      html += `<div class="journey-era-section">
+      html += `<div class="journey-era-section" id="era-section-${era.era}">
         <div class="journey-era-header">
           <div class="journey-era-num" style="background:${era.color}">${era.era}</div>
           <div class="journey-era-label">${era.label}</div>
@@ -2568,10 +2640,13 @@
     });
   }
 
+  var eraJumpBar = document.getElementById('eraJumpBar');
+
   function showTopicView() {
     topicView.classList.remove('is-hidden');
     journeyView.classList.remove('is-active');
     tableView.style.display = 'none';
+    if (eraJumpBar) eraJumpBar.style.display = 'none';
     btnTopic.classList.add('is-active'); btnTopic.setAttribute('aria-pressed','true');
     btnJourney.classList.remove('is-active'); btnJourney.setAttribute('aria-pressed','false');
     if (btnTable) { btnTable.classList.remove('is-active'); btnTable.setAttribute('aria-pressed','false'); }
@@ -2582,6 +2657,7 @@
     topicView.classList.add('is-hidden');
     journeyView.classList.add('is-active');
     tableView.style.display = 'none';
+    if (eraJumpBar) eraJumpBar.style.display = '';
     btnJourney.classList.add('is-active'); btnJourney.setAttribute('aria-pressed','true');
     btnTopic.classList.remove('is-active'); btnTopic.setAttribute('aria-pressed','false');
     if (btnTable) { btnTable.classList.remove('is-active'); btnTable.setAttribute('aria-pressed','false'); }
@@ -2592,6 +2668,7 @@
     topicView.classList.add('is-hidden');
     journeyView.classList.remove('is-active');
     tableView.style.display = 'block';
+    if (eraJumpBar) eraJumpBar.style.display = 'none';
     btnTable.classList.add('is-active'); btnTable.setAttribute('aria-pressed','true');
     btnTopic.classList.remove('is-active'); btnTopic.setAttribute('aria-pressed','false');
     btnJourney.classList.remove('is-active'); btnJourney.setAttribute('aria-pressed','false');
@@ -2604,8 +2681,27 @@
 
   // Auto-activate from URL params
   var urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('view') === 'journey') { showJourneyView(); }
-  else if (urlParams.get('view') === 'table') { showTableView(); }
+  var eraParam  = urlParams.get('era');
+
+  if (urlParams.get('view') === 'table') {
+    showTableView();
+  } else if (eraParam || urlParams.get('view') === 'journey') {
+    // Era jump: switch to journey view, then scroll to section
+    showJourneyView();
+    if (eraParam) {
+      // Highlight the matching chip
+      document.querySelectorAll('.era-jump-chip').forEach(function(c) {
+        c.classList.toggle('is-active', c.getAttribute('data-era') === eraParam);
+      });
+      // Scroll after a short delay so the section is rendered
+      setTimeout(function() {
+        var target = document.getElementById('era-section-' + eraParam);
+        if (target) {
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }, 120);
+    }
+  }
 
   // ?filter=housing — pre-select domain filter chip
   var filterParam = urlParams.get('filter');

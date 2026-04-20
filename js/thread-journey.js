@@ -191,10 +191,50 @@
     target.parentNode.insertBefore(el.firstChild, target);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inject);
-  } else {
+  // ── Populate context ribbon with orientation data ──────────────────────────
+  function populateRibbon() {
+    var ribbon = document.getElementById('contextRibbon');
+    if (!ribbon) return;
+
+    // Build era progress dots (small, for the ribbon)
+    var ribbonDots = '';
+    for (var e = 0; e < eraNums.length; e++) {
+      var en = eraNums[e];
+      var ec = ERA_COLORS[en];
+      var isAct = (en === current[3]);
+      var isPast = (en < current[3]);
+      var s = 'display:inline-block;width:6px;height:6px;border-radius:50%;margin:0 2px;vertical-align:middle;' +
+        (isAct  ? 'background:' + ec + ';transform:scale(1.5);box-shadow:0 0 0 2px ' + hexToRgba(ec, 0.25) :
+         isPast ? 'background:' + hexToRgba(ec, 0.5) :
+                  'background:rgba(255,255,255,0.15)');
+      ribbonDots += '<span aria-hidden="true" title="' + eraLabels[e] + '" style="' + s + '"></span>';
+    }
+
+    var statsEl = ribbon.querySelector('#ribbonStats');
+    if (statsEl) {
+      statsEl.innerHTML =
+        '<span class="context-ribbon__era-badge" style="background:' + hexToRgba(color, 0.18) + ';border-color:' + hexToRgba(color, 0.4) + ';color:' + color + '">' +
+          'Era ' + current[3] + ' · ' + current[2] +
+        '</span>' +
+        '<span class="context-ribbon__divider" aria-hidden="true">·</span>' +
+        '<span class="context-ribbon__stat" style="white-space:nowrap">' +
+          '<strong>' + (idx + 1) + '</strong> of ' + total +
+        '</span>' +
+        '<span class="context-ribbon__divider" aria-hidden="true">·</span>' +
+        '<span aria-hidden="true" style="display:inline-flex;align-items:center;gap:2px">' + ribbonDots + '</span>';
+    }
+    ribbon.classList.add('context-ribbon--thread');
+  }
+
+  function initAll() {
     inject();
+    populateRibbon();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
   }
 
 })();
