@@ -502,6 +502,98 @@ input, textarea, select { font-family: inherit; }
   stroke-linecap: round;
 }
 
+/* ⌘K badge on nav search button */
+.nav-search-kbd {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--ink-500);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 1px 4px;
+  letter-spacing: 0.02em;
+  margin-left: 2px;
+}
+
+/* Context Ribbon — global base (dark slate, always dark) */
+.context-ribbon {
+  background: var(--slate-800);
+  border-bottom: 1px solid var(--slate-700);
+  font-size: 11px;
+  position: sticky;
+  top: var(--nav-total); /* 100px = utility + main nav */
+  z-index: 89;
+}
+
+.context-ribbon__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: 36px;
+  max-width: var(--max-w-full);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.context-ribbon__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+
+.context-ribbon__stat {
+  color: var(--slate-300);
+  white-space: nowrap;
+}
+
+.context-ribbon__stat strong {
+  color: var(--amber-300);
+  font-weight: 600;
+}
+
+.context-ribbon__divider {
+  color: var(--slate-600);
+  flex-shrink: 0;
+}
+
+.context-ribbon__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-shrink: 0;
+}
+
+.context-ribbon__link {
+  color: var(--slate-300);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.context-ribbon__link:hover { color: #fff; }
+
+.context-ribbon__link--live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--amber-300);
+}
+
+.context-ribbon__live-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--amber-400);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .context-ribbon__live-dot { animation: pulse-dot 2s infinite; }
+}
+
 /* Today pill */
 .today-pill {
   display: flex;

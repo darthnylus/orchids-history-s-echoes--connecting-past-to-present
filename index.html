@@ -69,11 +69,12 @@
 
     <!-- Actions -->
     <div class="site-nav__actions">
-      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search (⌘K)" aria-expanded="false" aria-controls="searchOverlay">
         <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
         <span class="hide-mobile">Search</span>
+        <kbd class="nav-search-kbd hide-mobile" aria-hidden="true">⌘K</kbd>
       </button>
       <a href="today.html" class="today-pill" aria-label="Today in Black history">
         <span class="today-pill__dot" aria-hidden="true"></span>
@@ -99,6 +100,35 @@
 </header>
 
 <!-- =========================================================
+     CONTEXT RIBBON — Global metadata bar
+     On homepage: shows site-wide stats
+     On thread pages: shows era/position tracker (injected by JS)
+     ========================================================= -->
+<div class="context-ribbon" id="contextRibbon" role="complementary" aria-label="Site context">
+  <div class="container context-ribbon__inner">
+    <div class="context-ribbon__stats">
+      <span class="context-ribbon__stat"><strong>66</strong> Threads</span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>9</strong> Eras</span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>500 BCE – 2026</strong></span>
+      <span class="context-ribbon__divider hide-mobile" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat hide-mobile"><strong>6</strong> Domains</span>
+      <span class="context-ribbon__divider hide-mobile" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat hide-mobile"><strong>200+</strong> People</span>
+    </div>
+    <nav class="context-ribbon__nav" aria-label="Quick access">
+      <a href="threads.html" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
+        <span class="context-ribbon__live-dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+<!-- =========================================================
      SEARCH OVERLAY
      ========================================================= -->
 <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
@@ -110,14 +140,14 @@
         id="searchInput"
         name="q"
         class="search-overlay__input"
-        placeholder="Ask a question or search a topic…"
+        placeholder="Search by person, year, policy, or event…"
         autocomplete="off"
         spellcheck="false"
       />
       <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
     </form>
     <div class="search-overlay__hints">
-      <p class="search-overlay__hint-label">Start with a question</p>
+      <p class="search-overlay__hint-label">Jump to</p>
       <a href="search.html?q=Why+does+housing+inequality+persist"           class="search-hint-chip">Why does housing inequality persist?</a>
       <a href="search.html?q=How+did+redlining+affect+schools"              class="search-hint-chip">How did redlining affect schools?</a>
       <a href="search.html?q=Reconstruction+voting+rights"                  class="search-hint-chip">Reconstruction &amp; voting rights</a>
@@ -170,48 +200,39 @@
 <main id="main-content">
 
   <!-- =======================================================
-       SECTION 1: HERO
-       Promise: "Understand the chain, not just the event"
+       SECTION 1: HERO — Data-Forward Research Tool
        ======================================================= -->
   <section class="hero" aria-labelledby="hero-headline">
     <div class="hero__texture" aria-hidden="true"></div>
     <div class="hero__grid-overlay" aria-hidden="true"></div>
     <div class="container hero__inner">
 
-      <!-- Left: Value prop -->
+      <!-- Left: Functional value prop + command search -->
       <div class="hero__content">
         <p class="hero__eyebrow animate-fade-up">
-          A digital history platform
+          <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+          66 threads · 9 eras · 500 BCE – present
         </p>
         <h1 id="hero-headline" class="hero__headline animate-fade-up animate-delay-100">
-          The story begins<br />
-          <em>long before 1619.</em>
+          The causal chain of<br />
+          <em>Black history, mapped.</em>
         </h1>
         <p class="hero__subhead animate-fade-up animate-delay-200">
-          Before the slave ships. Before the plantations. Before the codes and the redlines and the compromises. There were civilizations — sophisticated, sovereign, and abundant — that were deliberately destroyed to make what followed possible. The chain starts there.
+          Each thread traces how a policy, law, or decision created conditions that persist today. Start anywhere in the chain — from African civilizations to present-day America.
         </p>
 
-        <!-- Primary CTA: Start the Journey -->
-        <div class="hero__journey-cta animate-fade-up animate-delay-250">
-          <a href="thread-pharaohs.html" class="hero__journey-btn" aria-label="Start the Journey — Thread 1 of 66">
-            <span class="hero__journey-btn-icon" aria-hidden="true">→</span>
-            Start the Journey
-            <span class="hero__journey-btn-sub">Thread 1 of 66 · African Origins</span>
-          </a>
-          <a href="threads.html?view=journey" class="hero__journey-browse">See all 66 threads in order</a>
-        </div>
-
-        <!-- Question-driven entry — secondary interaction -->
-        <div class="hero__search-entry animate-fade-up animate-delay-300">
-          <form class="hero__search-form" action="search.html" method="get" role="search" aria-label="Search Chain">
-            <label for="heroSearchMain" class="sr-only">What's your question about how history shapes today?</label>
+        <!-- Command-K style search — primary interaction -->
+        <div class="hero__search-entry animate-fade-up animate-delay-250">
+          <form class="hero__search-form hero__search-form--cmd" action="search.html" method="get" role="search" aria-label="Search Chain">
+            <label for="heroSearchMain" class="sr-only">Search by person, year, policy, or event</label>
             <div class="hero__search-row">
+              <span class="hero__search-kbd" aria-hidden="true">⌘K</span>
               <input
                 id="heroSearchMain"
                 name="q"
                 type="search"
                 class="hero__search-input"
-                placeholder="What's your question about how history shapes today?"
+                placeholder="Search by person, year, policy, or event…"
                 autocomplete="off"
                 spellcheck="false"
               />
@@ -221,123 +242,99 @@
             </div>
           </form>
 
-          <!-- 3 visible pills + "more" overflow -->
-          <div class="hero__q-pills" role="group" aria-label="Common questions">
-            <a href="thread-african-empires.html"        class="hero__q-pill">What was Africa before the slave trade?</a>
-            <a href="thread-displacement.html"           class="hero__q-pill">Why does housing inequality persist?</a>
-            <a href="thread-mass-incarceration.html"     class="hero__q-pill">Roots of mass incarceration?</a>
-            <a href="thread-stolen-labor.html"           class="hero__q-pill hero__q-pill--more">Why is there a wealth gap?</a>
-            <a href="thread-voting-rights.html"          class="hero__q-pill hero__q-pill--more">How was voting suppressed?</a>
-            <a href="thread-transatlantic-slave-trade.html" class="hero__q-pill hero__q-pill--more">Who built the slave trade?</a>
+          <!-- Quick-jump chips — domain shortcuts -->
+          <div class="hero__q-pills" role="group" aria-label="Jump to domain">
+            <a href="threads.html?filter=housing"          class="hero__q-pill">Housing</a>
+            <a href="threads.html?filter=criminal-justice" class="hero__q-pill">Criminal Justice</a>
+            <a href="threads.html?filter=labor-wealth"     class="hero__q-pill">Wealth Gap</a>
+            <a href="threads.html?filter=education"        class="hero__q-pill hero__q-pill--more">Education</a>
+            <a href="threads.html?filter=health"           class="hero__q-pill hero__q-pill--more">Health</a>
           </div>
-          <a href="#questions" class="hero__browse-link">Browse all questions <span aria-hidden="true">↓</span></a>
+        </div>
+
+        <!-- Primary CTA -->
+        <div class="hero__journey-cta animate-fade-up animate-delay-300">
+          <a href="thread-pharaohs.html" class="hero__journey-btn" aria-label="Start the Journey — Thread 1 of 66">
+            <span class="hero__journey-btn-icon" aria-hidden="true">→</span>
+            Start the Journey
+            <span class="hero__journey-btn-sub">Thread 1 of 66 · African Origins</span>
+          </a>
+          <a href="threads.html" class="hero__journey-browse">Browse all 66 threads <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
-      <!-- Right: The full chain — from origins to today -->
-      <aside class="hero__feature animate-fade-up animate-delay-400" aria-label="The full chain from African origins to today">
-        <div class="hero__feature-label">
-          <span>●</span> The Full Chain
+      <!-- Right: Era distribution chart — the data artifact -->
+      <aside class="hero__artifact animate-fade-up animate-delay-400" aria-label="Thread distribution across 9 historical eras">
+        <div class="artifact__header">
+          <span class="artifact__label">Thread Distribution</span>
+          <span class="artifact__meta">66 threads · 9 eras · ~2,500 years</span>
         </div>
-        <h2 class="hero__feature-title">
-          From African civilizations<br />to present-day America
-        </h2>
-        <p class="hero__feature-summary">
-          The chain doesn't begin at enslavement. It begins with what was taken: sovereign kingdoms, intellectual traditions, accumulated wealth, and self-determination.
-        </p>
-        <div class="thread-nodes" role="list" aria-label="The full historical chain">
-          <a class="thread-node thread-node--link" href="thread-african-empires.html" role="listitem">
-            <div class="thread-node__connector" aria-hidden="true">
-              <div class="thread-node__dot"></div>
-              <div class="thread-node__line"></div>
-            </div>
-            <div class="thread-node__text">
-              <span class="thread-node__year">300–1600 CE</span>
-              Mali, Songhai, Kush, Benin — sovereign empires with universities, trade networks, and law
-              <span class="thread-node__cta" aria-hidden="true">Read thread →</span>
-            </div>
+
+        <div class="artifact__chart" role="list" aria-label="Threads per era">
+
+          <a href="threads.html?era=1" class="artifact__row" role="listitem" style="--era-color:#b8972a">
+            <span class="artifact__era-num">Era 1</span>
+            <span class="artifact__era-name">African Origins</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:45%"></span></span>
+            <span class="artifact__count">5</span>
           </a>
-          <a class="thread-node thread-node--link" href="thread-transatlantic-slave-trade.html" role="listitem">
-            <div class="thread-node__connector" aria-hidden="true">
-              <div class="thread-node__dot"></div>
-              <div class="thread-node__line"></div>
-            </div>
-            <div class="thread-node__text">
-              <span class="thread-node__year">1441–1808</span>
-              The Transatlantic Slave Trade — 12.5 million people forcibly removed from Africa
-              <span class="thread-node__cta" aria-hidden="true">Read thread →</span>
-            </div>
+          <a href="threads.html?era=2" class="artifact__row" role="listitem" style="--era-color:#c0392b">
+            <span class="artifact__era-num">Era 2</span>
+            <span class="artifact__era-name">The Rupture</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:55%"></span></span>
+            <span class="artifact__count">6</span>
           </a>
-          <a class="thread-node thread-node--link" href="thread-stolen-labor.html" role="listitem">
-            <div class="thread-node__connector" aria-hidden="true">
-              <div class="thread-node__dot"></div>
-              <div class="thread-node__line"></div>
-            </div>
-            <div class="thread-node__text">
-              <span class="thread-node__year">1619–1865</span>
-              246 years of enslaved labor — the economic foundation of the modern United States
-              <span class="thread-node__cta" aria-hidden="true">Read thread →</span>
-            </div>
+          <a href="threads.html?era=3" class="artifact__row" role="listitem" style="--era-color:#1a6b3a">
+            <span class="artifact__era-num">Era 3</span>
+            <span class="artifact__era-name">Slavery &amp; Resistance</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:73%"></span></span>
+            <span class="artifact__count">8</span>
           </a>
-          <a class="thread-node thread-node--link" href="thread-end-of-slavery.html" role="listitem">
-            <div class="thread-node__connector" aria-hidden="true">
-              <div class="thread-node__dot"></div>
-              <div class="thread-node__line"></div>
-            </div>
-            <div class="thread-node__text">
-              <span class="thread-node__year">1865–1877</span>
-              Reconstruction — a brief democratic opening, then deliberately dismantled
-              <span class="thread-node__cta" aria-hidden="true">Read thread →</span>
-            </div>
+          <a href="threads.html?era=4" class="artifact__row" role="listitem" style="--era-color:#7a3e3e">
+            <span class="artifact__era-num">Era 4</span>
+            <span class="artifact__era-name">Emancipation &amp; Betrayal</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:55%"></span></span>
+            <span class="artifact__count">6</span>
           </a>
-          <a class="thread-node thread-node--link" href="thread-lynching.html" role="listitem">
-            <div class="thread-node__connector" aria-hidden="true">
-              <div class="thread-node__dot"></div>
-              <div class="thread-node__line"></div>
-            </div>
-            <div class="thread-node__text">
-              <span class="thread-node__year">1877–1950</span>
-              Jim Crow, lynching, and the terror state — 4,000+ documented racial killings
-              <span class="thread-node__cta" aria-hidden="true">Read thread →</span>
-            </div>
+          <a href="threads.html?era=5" class="artifact__row artifact__row--largest" role="listitem" style="--era-color:#5c4a1e">
+            <span class="artifact__era-num">Era 5</span>
+            <span class="artifact__era-name">Jim Crow Era</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:100%"></span></span>
+            <span class="artifact__count">11</span>
           </a>
-          <a class="thread-node thread-node--link" href="thread-gi-bill.html" role="listitem">
-            <div class="thread-node__connector" aria-hidden="true">
-              <div class="thread-node__dot"></div>
-              <div class="thread-node__line"></div>
-            </div>
-            <div class="thread-node__text">
-              <span class="thread-node__year">1934–1968</span>
-              Federal redlining and GI Bill exclusion — the construction of the racial wealth gap
-              <span class="thread-node__cta" aria-hidden="true">Read thread →</span>
-            </div>
+          <a href="threads.html?era=6" class="artifact__row" role="listitem" style="--era-color:#1a4a6b">
+            <span class="artifact__era-num">Era 6</span>
+            <span class="artifact__era-name">WWII &amp; Post-War</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:36%"></span></span>
+            <span class="artifact__count">4</span>
           </a>
-          <a class="thread-node thread-node--link" href="thread-civil-rights.html" role="listitem">
-            <div class="thread-node__connector" aria-hidden="true">
-              <div class="thread-node__dot"></div>
-              <div class="thread-node__line"></div>
-            </div>
-            <div class="thread-node__text">
-              <span class="thread-node__year">1954–1968</span>
-              The Civil Rights Movement — rights won, then systematically dismantled through new law
-              <span class="thread-node__cta" aria-hidden="true">Read thread →</span>
-            </div>
+          <a href="threads.html?era=7" class="artifact__row" role="listitem" style="--era-color:#1a5c3a">
+            <span class="artifact__era-num">Era 7</span>
+            <span class="artifact__era-name">Civil Rights</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:73%"></span></span>
+            <span class="artifact__count">8</span>
           </a>
-          <a class="thread-node thread-node--link" href="thread-mass-incarceration.html" role="listitem">
-            <div class="thread-node__connector" aria-hidden="true">
-              <div class="thread-node__dot"></div>
-              <div class="thread-node__line"></div>
-            </div>
-            <div class="thread-node__text">
-              <span class="thread-node__year">1971–Present</span>
-              The War on Drugs and mass incarceration — 2.3 million people caged. The chain holds.
-              <span class="thread-node__cta" aria-hidden="true">Read thread →</span>
-            </div>
+          <a href="threads.html?era=8" class="artifact__row" role="listitem" style="--era-color:#4a2060">
+            <span class="artifact__era-num">Era 8</span>
+            <span class="artifact__era-name">Backlash Era</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:82%"></span></span>
+            <span class="artifact__count">9</span>
           </a>
+          <a href="threads.html?era=9" class="artifact__row" role="listitem" style="--era-color:#2a4a6b">
+            <span class="artifact__era-num">Era 9</span>
+            <span class="artifact__era-name">Present Day</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:82%"></span></span>
+            <span class="artifact__count">9</span>
+          </a>
+
         </div>
-        <a href="threads.html?view=journey" class="hero__feature-link" aria-label="Browse all threads from origins to today">
-          All 66 threads in order <span aria-hidden="true">→</span>
-        </a>
+
+        <div class="artifact__footer">
+          <div class="artifact__stat"><span class="artifact__stat-n">500 BCE</span><span class="artifact__stat-l">Earliest thread</span></div>
+          <div class="artifact__stat"><span class="artifact__stat-n">2026</span><span class="artifact__stat-l">Most recent</span></div>
+          <div class="artifact__stat"><span class="artifact__stat-n">9</span><span class="artifact__stat-l">Domains</span></div>
+        </div>
+        <a href="threads.html?view=journey" class="artifact__cta">View full chronological sequence <span aria-hidden="true">→</span></a>
       </aside>
 
     </div>
