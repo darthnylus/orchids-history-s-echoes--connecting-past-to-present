@@ -39,10 +39,19 @@
     ['thread-thirteenth-amendment.html',  'The 13th Amendment Loophole',       'Emancipation & Betrayal', 4],
     ['thread-freedmens-bureau.html',      "The Freedmen's Bureau",             'Emancipation & Betrayal', 4],
     ['thread-juneteenth.html',            'Juneteenth',                        'Emancipation & Betrayal', 4],
+    ['thread-black-codes.html',           'Black Codes',                       'Emancipation & Betrayal', 4],
+    ['thread-reconstruction.html',        'Reconstruction',                    'Emancipation & Betrayal', 4],
+    ['thread-kkk.html',                   'The Ku Klux Klan',                  'Emancipation & Betrayal', 4],
     ['thread-lynching.html',              'Lynching in America',               'Emancipation & Betrayal', 4],
     ['thread-fear-of-black-assembly.html','Fear of Black Assembly',            'Emancipation & Betrayal', 4],
 
     // ERA 5 — Jim Crow & Building Community
+    ['thread-sharecropping.html',         'Sharecropping',                     'Jim Crow Era',      5],
+    ['thread-plessy.html',                'Plessy v. Ferguson',                'Jim Crow Era',      5],
+    ['thread-voter-suppression-mechanics.html', 'Voter Suppression Mechanics','Jim Crow Era',      5],
+    ['thread-garvey.html',                'Marcus Garvey & Black Nationalism', 'Jim Crow Era',      5],
+    ['thread-harlem-renaissance.html',    'The Harlem Renaissance',            'Jim Crow Era',      5],
+    ['thread-jazz-blues.html',            'Jazz, Blues & Cultural Theft',      'Jim Crow Era',      5],
     ['thread-great-migration.html',       'The Great Migration',               'Jim Crow Era',      5],
     ['thread-tulsa.html',                 'Black Wall Street, Tulsa',          'Jim Crow Era',      5],
     ['thread-greenwood-pattern.html',     'The Greenwood Pattern',             'Jim Crow Era',      5],
@@ -60,6 +69,9 @@
     ['thread-gi-bill.html',               'The GI Bill',                       'WWII & Post-War',   6],
     ['thread-lily-white.html',            'Lily-White Suburbs',                'WWII & Post-War',   6],
     ['thread-displacement.html',          'Redlining & Displacement',          'WWII & Post-War',   6],
+    ['thread-tuskegee.html',              'The Tuskegee Study',                'WWII & Post-War',   6],
+    ['thread-brown-v-board.html',         'Brown v. Board of Education',       'WWII & Post-War',   6],
+    ['thread-urban-renewal.html',         'Urban Renewal & Displacement',      'WWII & Post-War',   6],
 
     // ERA 7 — Civil Rights
     ['thread-civil-rights.html',          'The Civil Rights Movement',         'Civil Rights',      7],
@@ -72,8 +84,10 @@
     ['thread-cointelpro.html',            'COINTELPRO',                        'Civil Rights',      7],
 
     // ERA 8 — Backlash & Dismantling
+    ['thread-deindustrialization.html',   'Deindustrialization',               'Backlash Era',      8],
     ['thread-war-on-drugs.html',          'The War on Drugs',                  'Backlash Era',      8],
     ['thread-mass-incarceration.html',    'Mass Incarceration',                'Backlash Era',      8],
+    ['thread-capital-punishment.html',    'Capital Punishment & Race',         'Backlash Era',      8],
     ['thread-police.html',                'The Invention of Policing',         'Backlash Era',      8],
     ['thread-media.html',                 'Media & Stereotypes',               'Backlash Era',      8],
     ['thread-rap-pipeline.html',          'The Rap-to-Prison Pipeline',        'Backlash Era',      8],
@@ -84,8 +98,11 @@
 
     // ERA 9 — Present Day
     ['thread-katrina.html',               'Hurricane Katrina',                 'Present Day',       9],
+    ['thread-bail-system.html',           'The Bail System',                   'Present Day',       9],
+    ['thread-shelby-county.html',         'Shelby County v. Holder',           'Present Day',       9],
     ['thread-health-disparities.html',    'Racial Health Disparities',         'Present Day',       9],
     ['thread-healthcare.html',            'Healthcare & Race',                 'Present Day',       9],
+    ['thread-environmental-racism.html',  'Environmental Racism',              'Present Day',       9],
     ['thread-education.html',             'Education & Inequality',            'Present Day',       9],
     ['thread-black-farmers.html',         'Black Farmers',                     'Present Day',       9],
     ['thread-ferguson.html',              'Ferguson & After',                  'Present Day',       9],
