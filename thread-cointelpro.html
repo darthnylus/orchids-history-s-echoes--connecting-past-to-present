@@ -19,8 +19,26 @@
     :root{--acc:#4a2060;--acc-lt:#c084fc}
     [data-theme="dark"]{--acc:#6d28d9;--acc-lt:#d8b4fe}
     .thread-hero{background:#08040f;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
-    .thread-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 15% 50%,rgba(74,32,96,.18) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 85% 20%,rgba(50,20,70,.10) 0%,transparent 55%),radial-gradient(ellipse 60% 40% at 50% 100%,rgba(30,10,50,.10) 0%,transparent 50%);pointer-events:none;z-index:0}
-    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
+    .thread-hero__bg{
+      position:absolute;inset:0;z-index:0;pointer-events:none;
+      /* Photo layer */
+      background-image: url('images/march-on-washington-1963.webp');
+      background-size:cover;
+      background-position:center 30%;
+      background-repeat:no-repeat;
+      /* Dark desaturated tint: deep purple-black washes out the photo */
+      filter: grayscale(40%) brightness(0.28) sepia(20%);
+    }
+    /* Second overlay for purple tint + vignette — sits above the photo */
+    .thread-hero__bg::after{
+      content:'';
+      position:absolute;inset:0;
+      background:
+        radial-gradient(ellipse 80% 90% at 50% 50%, rgba(30,8,55,.72) 0%, transparent 70%),
+        radial-gradient(ellipse 120% 100% at 0% 50%, rgba(74,32,96,.55) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(8,4,15,.45) 0%, rgba(8,4,15,.25) 50%, rgba(8,4,15,.65) 100%);
+    }
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
     .thread-hero__inner{position:relative;max-width:760px;z-index:2}
     .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(74,32,96,.12);border:1px solid rgba(74,32,96,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
     .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc)}
