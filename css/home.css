@@ -421,8 +421,18 @@
 }
 
 /* Editorial card full height inside grid cell */
-.editorial-grid > article {
+.editorial-grid > article,
+.editorial-grid > a {
   height: 100%;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.editorial-grid > a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.18);
 }
 
 /* Ensure consistent thread feature background on light mode */

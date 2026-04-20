@@ -574,11 +574,12 @@
 
         <article class="civ-card" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
-            <picture>
-              <source type="image/webp" srcset="images/great-mosque-djenne.webp" />
-              <img src="images/great-mosque-djenne.jpg" alt="The Alhambra palace in Granada — the greatest surviving monument of Moorish architecture in Europe" width="1024" height="768" loading="lazy" />
-            </picture>
-            <span class="civ-card__thumb-caption">Al-Andalus, Iberian Peninsula</span>
+            <div style="width:100%;height:100%;min-height:200px;background:linear-gradient(135deg,#3a1f6e 0%,#7a3a8a 35%,#c2860e 70%,#5c1a0e 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:var(--space-6)">
+              <span style="font-size:2.5rem" aria-hidden="true">🕌</span>
+              <span style="font-size:var(--type-xs);color:rgba(255,255,255,.7);letter-spacing:.1em;text-transform:uppercase">711–1492 CE</span>
+              <span style="font-family:var(--font-editorial);font-size:1.1rem;color:#fff;font-weight:700;text-align:center">Al-Andalus</span>
+            </div>
+            <span class="civ-card__thumb-caption">Iberian Peninsula · Moorish Era</span>
           </div>
           <div class="civ-card__inner">
             <div class="civ-card__era-marker" aria-hidden="true">
@@ -654,14 +655,187 @@
   </section>
 
   <!-- =======================================================
-       SECTION 2: STARTING QUESTIONS
-       Question-led discovery — curiosity as entry point
+       SECTION 2: FOLLOW A THREAD — Interactive scrollytelling
+       Signature causal chain experience — moved before Questions
+       so the narrative arc flows: Origins → Chain → Questions
+       ======================================================= -->
+  <section class="thread-feature section" id="follow-thread" aria-labelledby="thread-feature-heading">
+    <div class="thread-feature__bg-accent" aria-hidden="true"></div>
+    <div class="container">
+
+      <div class="thread-feature__header">
+        <p class="thread-feature__label">
+          <span class="thread-feature__label-dot" aria-hidden="true"></span>
+          The Chain
+        </p>
+        <h2 id="thread-feature-heading" class="thread-feature__title">
+          Follow it from the beginning
+        </h2>
+        <p class="thread-feature__description">
+          Each step connects to the next. From sovereign African civilizations to this morning's headlines — the chain is unbroken. Click any step to expand.
+        </p>
+        <button id="stepsPauseBtn" class="steps-pause-btn" aria-label="Pause auto-advancing steps" aria-pressed="false">
+          <svg id="stepsPauseIcon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          <span id="stepsPauseLabel">Pause</span>
+        </button>
+      </div>
+
+      <div class="thread-scroller">
+        <!-- Steps (left) -->
+        <div class="thread-steps" role="list" aria-label="The full chain: from African civilizations to present day">
+
+          <article class="thread-step is-active" role="listitem" data-step="0" aria-expanded="true">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">01</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">300 BCE–1600 CE — Origin</p>
+              <h3 class="thread-step__title">Sovereign African Civilizations</h3>
+              <p class="thread-step__text">
+                Before the slave trade, Africa was home to sophisticated empires: Kush with its iron technology and pyramids; the Mali Empire with its universities at Timbuktu; the Songhai, the largest empire in African history; the Aksumite trade state; the Benin Kingdom with its extraordinary bronze art. These were not primitive societies — they were worlds. That is what was taken.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread-african-empires.html#mali" class="thread-step__tag">Mali Empire</a>
+                <a href="thread-african-empires.html#songhai" class="thread-step__tag">Songhai Empire</a>
+                <a href="thread-african-empires.html#mali" class="thread-step__tag">Timbuktu</a>
+                <a href="thread-african-empires.html#kush" class="thread-step__tag">Kingdom of Kush</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="1" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">02</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">1441–1867 — Rupture</p>
+              <h3 class="thread-step__title">The Transatlantic Slave Trade</h3>
+              <p class="thread-step__text">
+                Portuguese traders made the first transatlantic slave voyage in 1441. Over the next four centuries, an estimated 12.5 million African people were forcibly transported to the Americas. Roughly 2 million died during the Middle Passage. The trade depopulated West and Central Africa, destabilized kingdoms, and created the labor infrastructure of the Atlantic economy — all built on terror.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread-transatlantic-slave-trade.html" class="thread-step__tag">The Slave Trade</a>
+                <a href="thread-transatlantic-slave-trade.html#entry-passage" class="thread-step__tag">The Middle Passage</a>
+                <a href="thread-transatlantic-slave-trade.html" class="thread-step__tag">1619: Point Comfort</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="2" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">03</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">1619–1865 — 246 Years</p>
+              <h3 class="thread-step__title">Slavery as the Architecture of American Wealth</h3>
+              <p class="thread-step__text">
+                Enslaved African Americans generated the capital that built American banking, insurance, universities, and infrastructure. Cotton picked by enslaved labor financed Wall Street. The legal system was designed to maintain enslavement — and when it ended, those 246 years of stolen labor produced no reparation, no land, no capital transfer to those who had built the country.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread-stolen-labor.html" class="thread-step__tag">Stolen Labor, Stolen Wealth</a>
+                <a href="thread-end-of-slavery.html" class="thread-step__tag">Black Codes</a>
+                <a href="thread-end-of-slavery.html" class="thread-step__tag">Emancipation, 1863</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="3" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">04</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">1865–1877 — Opening and Reversal</p>
+              <h3 class="thread-step__title">Reconstruction: A Brief Democratic Opening</h3>
+              <p class="thread-step__text">
+                After the Civil War, Black Americans voted, held office, and built schools. 16 Black men served in Congress. But without land redistribution — the promised "40 acres" — the structural foundations of inequality remained. Under the Compromise of 1877, federal troops withdrew and Reconstruction was violently dismantled by white supremacist state governments.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread-end-of-slavery.html" class="thread-step__tag">Reconstruction Era</a>
+                <a href="thread-end-of-slavery.html" class="thread-step__tag">Compromise of 1877</a>
+                <a href="thread-lynching.html" class="thread-step__tag">Jim Crow &amp; Terror</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="4" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">05</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">1934–1968 — Federal Architecture</p>
+              <h3 class="thread-step__title">The Government Builds Segregation Into Housing</h3>
+              <p class="thread-step__text">
+                The New Deal's HOLC program created "residential security maps" — redlining. The FHA and VA backed mortgages almost exclusively in white suburbs. The GI Bill distributed record postwar wealth, but Black veterans were systematically excluded. The federal government didn't just permit inequality — it constructed it into the physical geography of American cities.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread-displacement.html" class="thread-step__tag">HOLC Maps</a>
+                <a href="thread-gi-bill.html" class="thread-step__tag">GI Bill Exclusion</a>
+                <a href="thread-displacement.html" class="thread-step__tag">FHA Policy</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="thread-step" role="listitem" data-step="5" aria-expanded="false">
+            <div class="thread-step__marker" aria-hidden="true">
+              <div class="thread-step__number">06</div>
+            </div>
+            <div class="thread-step__body">
+              <p class="thread-step__era">Today — The Present</p>
+              <h3 class="thread-step__title">Where the Chain Ends Up</h3>
+              <p class="thread-step__text">
+                Median Black household wealth: $24,100. Median white household wealth: $188,200. Majority-Black school districts receive $1,800 less per student per year. Formerly redlined neighborhoods show measurably higher rates of asthma, cardiovascular disease, and shorter life expectancy. The chain from sovereign African civilization to this morning's headlines is unbroken.
+              </p>
+              <div class="thread-step__links">
+                <a href="thread-health-disparities.html" class="thread-step__tag">Health Data</a>
+                <a href="thread-stolen-labor.html" class="thread-step__tag">Wealth Gap</a>
+                <a href="thread-education.html" class="thread-step__tag">Education Equity</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Panel (right sidebar) -->
+        <aside class="thread-panel" aria-label="Thread context panel" aria-live="polite">
+          <div class="thread-panel__header">
+            <span class="thread-panel__title">Step</span>
+            <span class="thread-panel__counter" id="panelCounter" aria-live="polite">01 / 06</span>
+          </div>
+          <p class="thread-panel__caption" id="panelCaption">
+            "Enslavement was not the starting condition of Black life — it was an interruption of it."
+          </p>
+          <blockquote class="thread-panel__source" id="panelSource">
+            The Mali Empire's Sankore University in Timbuktu held an estimated 25,000 students and 700,000 manuscripts at its peak in the 14th century — one of the largest libraries in the medieval world.
+          </blockquote>
+          <div class="thread-panel__then-now">
+            <div class="then-now-cell then-now-cell--then">
+              <p class="then-now-cell__label">Then</p>
+              <p class="then-now-cell__value" id="panelThen">Mansa Musa of Mali — the wealthiest individual in recorded human history — ruled an empire larger than Western Europe (c. 1312–1337)</p>
+            </div>
+            <div class="then-now-cell then-now-cell--now">
+              <p class="then-now-cell__label">Now</p>
+              <p class="then-now-cell__value" id="panelNow">The descendants of enslaved Africans have a median household wealth of $24,100 — vs. $188,200 for white households (Federal Reserve, 2022)</p>
+            </div>
+          </div>
+          <a href="threads.html" class="btn btn--thread" style="width:100%; justify-content:center;">
+            Explore all threads
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </aside>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =======================================================
+       SECTION 3: STARTING QUESTIONS
+       Now positioned AFTER the chain — user has context first
        ======================================================= -->
   <section class="questions-section section--sm" id="questions" aria-labelledby="questions-heading">
     <div class="container">
       <div class="questions-section__header">
-        <h2 id="questions-heading" class="questions-section__title">Start with a question</h2>
-        <p class="questions-section__sub">Every thread on Chain begins with a question people actually ask.</p>
+        <h2 id="questions-heading" class="questions-section__title">Now — where does your question lead?</h2>
+        <p class="questions-section__sub">Every thread on Chain begins with a question people actually ask. Pick one and follow it.</p>
       </div>
       <ul class="question-grid" role="list">
         <li>
@@ -836,178 +1010,6 @@
           </a>
         </li>
       </ul>
-    </div>
-  </section>
-
-  <!-- =======================================================
-       SECTION 3: FOLLOW A THREAD — Interactive scrollytelling
-       Signature causal chain experience
-       ======================================================= -->
-  <section class="thread-feature section" id="follow-thread" aria-labelledby="thread-feature-heading">
-    <div class="thread-feature__bg-accent" aria-hidden="true"></div>
-    <div class="container">
-
-      <div class="thread-feature__header">
-        <p class="thread-feature__label">
-          <span class="thread-feature__label-dot" aria-hidden="true"></span>
-          Signature Feature
-        </p>
-        <h2 id="thread-feature-heading" class="thread-feature__title">
-          Follow a thread
-        </h2>
-        <p class="thread-feature__description">
-          Each thread traces a causal chain across time — not just what happened, but what led to it, what changed because of it, and where its effects remain visible today. Click any step to expand.
-        </p>
-        <button id="stepsPauseBtn" class="steps-pause-btn" aria-label="Pause auto-advancing steps" aria-pressed="false">
-          <svg id="stepsPauseIcon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          <span id="stepsPauseLabel">Pause</span>
-        </button>
-      </div>
-
-      <div class="thread-scroller">
-        <!-- Steps (left) -->
-        <div class="thread-steps" role="list" aria-label="The full chain: from African civilizations to present day">
-
-          <article class="thread-step is-active" role="listitem" data-step="0" aria-expanded="true">
-            <div class="thread-step__marker" aria-hidden="true">
-              <div class="thread-step__number">01</div>
-            </div>
-            <div class="thread-step__body">
-              <p class="thread-step__era">300 BCE–1600 CE — Origin</p>
-              <h3 class="thread-step__title">Sovereign African Civilizations</h3>
-              <p class="thread-step__text">
-                Before the slave trade, Africa was home to sophisticated empires: Kush with its iron technology and pyramids; the Mali Empire with its universities at Timbuktu; the Songhai, the largest empire in African history; the Aksumite trade state; the Benin Kingdom with its extraordinary bronze art. These were not primitive societies — they were worlds. That is what was taken.
-              </p>
-              <div class="thread-step__links">
-                <a href="thread-african-empires.html#mali" class="thread-step__tag">Mali Empire</a>
-                <a href="thread-african-empires.html#songhai" class="thread-step__tag">Songhai Empire</a>
-                <a href="thread-african-empires.html#mali" class="thread-step__tag">Timbuktu</a>
-                <a href="thread-african-empires.html#kush" class="thread-step__tag">Kingdom of Kush</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="thread-step" role="listitem" data-step="1" aria-expanded="false">
-            <div class="thread-step__marker" aria-hidden="true">
-              <div class="thread-step__number">02</div>
-            </div>
-            <div class="thread-step__body">
-              <p class="thread-step__era">1441–1867 — Rupture</p>
-              <h3 class="thread-step__title">The Transatlantic Slave Trade</h3>
-              <p class="thread-step__text">
-                Portuguese traders made the first transatlantic slave voyage in 1441. Over the next four centuries, an estimated 12.5 million African people were forcibly transported to the Americas. Roughly 2 million died during the Middle Passage. The trade depopulated West and Central Africa, destabilized kingdoms, and created the labor infrastructure of the Atlantic economy — all built on terror.
-              </p>
-              <div class="thread-step__links">
-                <a href="thread-transatlantic-slave-trade.html" class="thread-step__tag">The Slave Trade</a>
-                <a href="thread-transatlantic-slave-trade.html#entry-passage" class="thread-step__tag">The Middle Passage</a>
-                <a href="thread-transatlantic-slave-trade.html" class="thread-step__tag">1619: Point Comfort</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="thread-step" role="listitem" data-step="2" aria-expanded="false">
-            <div class="thread-step__marker" aria-hidden="true">
-              <div class="thread-step__number">03</div>
-            </div>
-            <div class="thread-step__body">
-              <p class="thread-step__era">1619–1865 — 246 Years</p>
-              <h3 class="thread-step__title">Slavery as the Architecture of American Wealth</h3>
-              <p class="thread-step__text">
-                Enslaved African Americans generated the capital that built American banking, insurance, universities, and infrastructure. Cotton picked by enslaved labor financed Wall Street. The legal system was designed to maintain enslavement — and when it ended, those 246 years of stolen labor produced no reparation, no land, no capital transfer to those who had built the country.
-              </p>
-              <div class="thread-step__links">
-                <a href="thread-stolen-labor.html" class="thread-step__tag">Stolen Labor, Stolen Wealth</a>
-                <a href="thread-end-of-slavery.html" class="thread-step__tag">Black Codes</a>
-                <a href="thread-end-of-slavery.html" class="thread-step__tag">Emancipation, 1863</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="thread-step" role="listitem" data-step="3" aria-expanded="false">
-            <div class="thread-step__marker" aria-hidden="true">
-              <div class="thread-step__number">04</div>
-            </div>
-            <div class="thread-step__body">
-              <p class="thread-step__era">1865–1877 — Opening and Reversal</p>
-              <h3 class="thread-step__title">Reconstruction: A Brief Democratic Opening</h3>
-              <p class="thread-step__text">
-                After the Civil War, Black Americans voted, held office, and built schools. 16 Black men served in Congress. But without land redistribution — the promised "40 acres" — the structural foundations of inequality remained. Under the Compromise of 1877, federal troops withdrew and Reconstruction was violently dismantled by white supremacist state governments.
-              </p>
-              <div class="thread-step__links">
-                <a href="thread-end-of-slavery.html" class="thread-step__tag">Reconstruction Era</a>
-                <a href="thread-end-of-slavery.html" class="thread-step__tag">Compromise of 1877</a>
-                <a href="thread-lynching.html" class="thread-step__tag">Jim Crow &amp; Terror</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="thread-step" role="listitem" data-step="4" aria-expanded="false">
-            <div class="thread-step__marker" aria-hidden="true">
-              <div class="thread-step__number">05</div>
-            </div>
-            <div class="thread-step__body">
-              <p class="thread-step__era">1934–1968 — Federal Architecture</p>
-              <h3 class="thread-step__title">The Government Builds Segregation Into Housing</h3>
-              <p class="thread-step__text">
-                The New Deal's HOLC program created "residential security maps" — redlining. The FHA and VA backed mortgages almost exclusively in white suburbs. The GI Bill distributed record postwar wealth, but Black veterans were systematically excluded. The federal government didn't just permit inequality — it constructed it into the physical geography of American cities.
-              </p>
-              <div class="thread-step__links">
-                <a href="thread-displacement.html" class="thread-step__tag">HOLC Maps</a>
-                <a href="thread-gi-bill.html" class="thread-step__tag">GI Bill Exclusion</a>
-                <a href="thread-displacement.html" class="thread-step__tag">FHA Policy</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="thread-step" role="listitem" data-step="5" aria-expanded="false">
-            <div class="thread-step__marker" aria-hidden="true">
-              <div class="thread-step__number">06</div>
-            </div>
-            <div class="thread-step__body">
-              <p class="thread-step__era">Today — The Present</p>
-              <h3 class="thread-step__title">Where the Chain Ends Up</h3>
-              <p class="thread-step__text">
-                Median Black household wealth: $24,100. Median white household wealth: $188,200. Majority-Black school districts receive $1,800 less per student per year. Formerly redlined neighborhoods show measurably higher rates of asthma, cardiovascular disease, and shorter life expectancy. The chain from sovereign African civilization to this morning's headlines is unbroken.
-              </p>
-              <div class="thread-step__links">
-                <a href="thread-health-disparities.html" class="thread-step__tag">Health Data</a>
-                <a href="thread-stolen-labor.html" class="thread-step__tag">Wealth Gap</a>
-                <a href="thread-education.html" class="thread-step__tag">Education Equity</a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Panel (right sidebar) -->
-        <aside class="thread-panel" aria-label="Thread context panel" aria-live="polite">
-          <div class="thread-panel__header">
-            <span class="thread-panel__title">Step</span>
-            <span class="thread-panel__counter" id="panelCounter" aria-live="polite">01 / 06</span>
-          </div>
-          <p class="thread-panel__caption" id="panelCaption">
-            "Enslavement was not the starting condition of Black life — it was an interruption of it."
-          </p>
-          <blockquote class="thread-panel__source" id="panelSource">
-            The Mali Empire's Sankore University in Timbuktu held an estimated 25,000 students and 700,000 manuscripts at its peak in the 14th century — one of the largest libraries in the medieval world.
-          </blockquote>
-          <div class="thread-panel__then-now">
-            <div class="then-now-cell then-now-cell--then">
-              <p class="then-now-cell__label">Then</p>
-              <p class="then-now-cell__value" id="panelThen">Mansa Musa of Mali — the wealthiest individual in recorded human history — ruled an empire larger than Western Europe (c. 1312–1337)</p>
-            </div>
-            <div class="then-now-cell then-now-cell--now">
-              <p class="then-now-cell__label">Now</p>
-              <p class="then-now-cell__value" id="panelNow">The descendants of enslaved Africans have a median household wealth of $24,100 — vs. $188,200 for white households (Federal Reserve, 2022)</p>
-            </div>
-          </div>
-          <a href="threads.html" class="btn btn--thread" style="width:100%; justify-content:center;">
-            Explore all threads
-            <span class="btn__arrow" aria-hidden="true">→</span>
-          </a>
-        </aside>
-      </div>
-
     </div>
   </section>
 
@@ -1809,7 +1811,7 @@
       <div class="editorial-grid reveal">
 
         <!-- Featured article -->
-        <article class="editorial-card editorial-card--featured" aria-labelledby="editorial-1-heading">
+        <a href="thread-plessy.html" class="editorial-card editorial-card--featured" aria-labelledby="editorial-1-heading">
           <div class="editorial-card__image">
             <picture>
               <source type="image/webp" srcset="images/plessy-segregated-fountains.webp" />
@@ -1828,10 +1830,10 @@
               <span>14 sources</span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- Article 2 -->
-        <article class="editorial-card" aria-labelledby="editorial-2-heading">
+        <a href="person-bayard-rustin.html" class="editorial-card" aria-labelledby="editorial-2-heading">
           <div class="editorial-card__image" style="height: 150px;">
             <picture>
               <source type="image/webp" srcset="images/march-on-washington-1963.webp" />
@@ -1848,10 +1850,10 @@
               <span>5 min read</span>
             </div>
           </div>
-        </article>
+        </a>
 
         <!-- Article 3 -->
-        <article class="editorial-card" aria-labelledby="editorial-3-heading">
+        <a href="thread-displacement.html" class="editorial-card" aria-labelledby="editorial-3-heading">
           <div class="editorial-card__image" style="height: 150px;">
             <picture>
               <source type="image/webp" srcset="images/holc-redlining-philadelphia.webp" />
@@ -1868,7 +1870,7 @@
               <span>6 min read</span>
             </div>
           </div>
-        </article>
+        </a>
 
       </div>
     </div>
