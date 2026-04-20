@@ -27,6 +27,7 @@
     // ERA 3 — Slavery & Resistance
     ['thread-stolen-labor.html',          'Stolen Labor',                      'Slavery & Resistance', 3],
     ['thread-abolitionism.html',          'Abolitionism',                      'Slavery & Resistance', 3],
+    ['thread-slave-revolts.html',         'Slave Revolts & Uprisings',         'Slavery & Resistance', 3],
     ['thread-mexico-freedom.html',        'Freedom via Mexico',                'Slavery & Resistance', 3],
     ['thread-seneca-village.html',        'Seneca Village',                    'Slavery & Resistance', 3],
     ['thread-weeksville.html',            'Weeksville, Brooklyn',              'Slavery & Resistance', 3],
@@ -35,6 +36,8 @@
 
     // ERA 4 — Emancipation & Betrayal
     ['thread-end-of-slavery.html',        'How Slavery Really Ended',          'Emancipation & Betrayal', 4],
+    ['thread-thirteenth-amendment.html',  'The 13th Amendment Loophole',       'Emancipation & Betrayal', 4],
+    ['thread-freedmens-bureau.html',      "The Freedmen's Bureau",             'Emancipation & Betrayal', 4],
     ['thread-juneteenth.html',            'Juneteenth',                        'Emancipation & Betrayal', 4],
     ['thread-lynching.html',              'Lynching in America',               'Emancipation & Betrayal', 4],
     ['thread-fear-of-black-assembly.html','Fear of Black Assembly',            'Emancipation & Betrayal', 4],
@@ -42,6 +45,7 @@
     // ERA 5 — Jim Crow & Building Community
     ['thread-great-migration.html',       'The Great Migration',               'Jim Crow Era',      5],
     ['thread-tulsa.html',                 'Black Wall Street, Tulsa',          'Jim Crow Era',      5],
+    ['thread-greenwood-pattern.html',     'The Greenwood Pattern',             'Jim Crow Era',      5],
     ['thread-negro-leagues.html',         'The Negro Leagues',                 'Jim Crow Era',      5],
     ['thread-hbcus.html',                 'The HBCUs',                         'Jim Crow Era',      5],
     ['thread-black-women.html',           'Black Women Who Changed History',   'Jim Crow Era',      5],
@@ -65,6 +69,7 @@
     ['thread-hbcu-football.html',         'HBCU Football',                     'Civil Rights',      7],
     ['thread-black-panthers.html',        'The Black Panthers',                'Civil Rights',      7],
     ['thread-statue-of-liberty.html',     'The Statue of Liberty',             'Civil Rights',      7],
+    ['thread-cointelpro.html',            'COINTELPRO',                        'Civil Rights',      7],
 
     // ERA 8 — Backlash & Dismantling
     ['thread-war-on-drugs.html',          'The War on Drugs',                  'Backlash Era',      8],
