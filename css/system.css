@@ -335,6 +335,19 @@ input, textarea, select { font-family: inherit; }
   font-weight: var(--weight-semibold);
 }
 
+.utility-bar__msg-link {
+  color: var(--ink-300);
+  text-decoration: underline;
+  text-decoration-color: rgba(251,191,116,.35);
+  text-underline-offset: 2px;
+  transition: color var(--duration-fast);
+}
+
+.utility-bar__msg-link:hover {
+  color: var(--amber-300);
+  text-decoration-color: var(--amber-300);
+}
+
 .utility-bar__links {
   display: flex;
   align-items: center;
