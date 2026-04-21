@@ -29,6 +29,7 @@
     // ERA 2 — The Rupture
     ['thread-transatlantic-slave-trade.html', 'The Transatlantic Slave Trade', 'The Rupture',       2],
     ['thread-slave-ship-resistance.html', 'Resistance on the Middle Passage',  'The Rupture',       2],
+    ['thread-middle-passage.html',           'The Middle Passage',                'The Rupture',       2],
     ['thread-code-noir.html',             'The Code Noir',                     'The Rupture',       2],
     ['thread-invention-of-race.html',     'The Invention of Race',             'The Rupture',       2],
     ['thread-blumenbach.html',            'The Man Who Invented Race',         'The Rupture',       2],
@@ -44,6 +45,9 @@
     ['thread-black-church.html',          'The Black Church',                  'Slavery & Resistance', 3],
     ['thread-black-press.html',           'The Black Press',                   'Slavery & Resistance', 3],
     ['thread-domestic-slave-trade.html',  'The Domestic Slave Trade',          'Slavery & Resistance', 3],
+    ['thread-frederick-douglass.html',       'Frederick Douglass',                'Slavery & Resistance', 3],
+    ['thread-harriet-tubman.html',           'Harriet Tubman',                    'Slavery & Resistance', 3],
+    ['thread-cotton-economy.html',           'King Cotton: How Slavery Built American Capitalism', 'Slavery & Resistance', 3],
 
     // ERA 4 — Emancipation & Betrayal
     ['thread-end-of-slavery.html',        'How Slavery Really Ended',          'Emancipation & Betrayal', 4],
@@ -58,6 +62,10 @@
     ['thread-red-summer.html',            'Red Summer 1919',                   'Emancipation & Betrayal', 4],
     ['thread-emmett-till.html',           'Emmett Till',                       'Emancipation & Betrayal', 4],
     ['thread-buffalo-soldiers.html',      'Buffalo Soldiers',                  'Emancipation & Betrayal', 4],
+    ['thread-reconstruction-politicians.html','Black Reconstruction Politicians',  'Emancipation & Betrayal', 4],
+    ['thread-freedmens-bank.html',           "The Freedmen's Bank Collapse",      'Emancipation & Betrayal', 4],
+    ['thread-convict-leasing.html',          'Convict Leasing',                   'Emancipation & Betrayal', 4],
+    ['thread-exodusters.html',               'The Exodusters',                    'Emancipation & Betrayal', 4],
 
     // ERA 5 — Jim Crow & Building Community
     ['thread-sharecropping.html',         'Sharecropping',                     'Jim Crow Era',      5],
@@ -79,6 +87,8 @@
     ['thread-lake-marion.html',           'Lake Marion',                       'Jim Crow Era',      5],
     ['thread-ida-b-wells.html',           'Ida B. Wells',                      'Jim Crow Era',      5],
     ['thread-dubois.html',                'W.E.B. Du Bois',                    'Jim Crow Era',      5],
+    ['thread-booker-t-washington.html',      'Booker T. Washington',              'Jim Crow Era',      5],
+    ['thread-scottsboro.html',               'The Scottsboro Boys',               'Jim Crow Era',      5],
 
     // ERA 6 — WWII & Post-War Exclusion
     ['thread-golden-thirteen.html',       'The Golden Thirteen',               'WWII & Post-War',   6],
@@ -106,6 +116,11 @@
     ['thread-birmingham.html',            'The Birmingham Campaign',           'Civil Rights',      7],
     ['thread-black-lgbtq.html',           'Black LGBTQ+ History',              'Civil Rights',      7],
     ['thread-black-mayors.html',          'Black Political Power & Mayors',    'Civil Rights',      7],
+    ['thread-montgomery-bus-boycott.html',   'The Montgomery Bus Boycott',        'Civil Rights',      7],
+    ['thread-selma.html',                    'Selma and Bloody Sunday',           'Civil Rights',      7],
+    ['thread-fred-hampton.html',             'Fred Hampton',                      'Civil Rights',      7],
+    ['thread-shirley-chisholm.html',         'Shirley Chisholm',                  'Civil Rights',      7],
+    ['thread-black-feminism.html',           'Black Feminism',                    'Civil Rights',      7],
 
     // ERA 8 — Backlash & Dismantling
     ['thread-deindustrialization.html',   'Deindustrialization',               'Backlash Era',      8],
@@ -124,6 +139,7 @@
     ['thread-hiv-aids.html',              'HIV/AIDS & Black America',          'Backlash Era',      8],
     ['thread-attica.html',               'Attica',                             'Backlash Era',      8],
     ['thread-move-bombing.html',         'The MOVE Bombing',                   'Backlash Era',      8],
+    ['thread-crack-epidemic.html',           'The Crack Epidemic',                'Backlash Era',      8],
 
     // ERA 9 — Present Day
     ['thread-katrina.html',               'Hurricane Katrina',                 'Present Day',       9],
@@ -144,6 +160,9 @@
     ['thread-black-maternal-mortality.html','Black Maternal Mortality',         'Present Day',       9],
     ['thread-stand-your-ground.html',     'Stand Your Ground Laws',            'Present Day',       9],
     ['thread-wealth-gap.html',            'The Racial Wealth Gap',             'Present Day',       9],
+    ['thread-george-floyd.html',             'George Floyd & the 2020 Uprisings', 'Present Day',       9],
+    ['thread-gentrification.html',           'Gentrification',                    'Present Day',       9],
+    ['thread-black-mental-health.html',      'Black Mental Health',               'Present Day',       9],
   ];
 
   var ERA_COLORS = {

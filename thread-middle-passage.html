@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>The Middle Passage:What the Crossing Cost — Chain</title>
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:64px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    :root{--acc:#1a6b3a;--acc-lt:#4ab87a}
+    [data-theme="dark"]{--acc:#1a6b3a;--acc-lt:#4ab87a}
+    .thread-hero{background:#040e07;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(26,107,58,.45) 0%,transparent 60%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:2}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(26,107,58,.12);border:1px solid rgba(26,107,58,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc)}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:var(--acc-lt);font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .argument-bar{background:rgba(26,107,58,.06);border-top:1px solid rgba(26,107,58,.18);border-bottom:1px solid rgba(26,107,58,.18);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(26,107,58,.18);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);background:rgba(26,107,58,.10);border:1px solid rgba(26,107,58,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(26,107,58,.10);border:1px solid rgba(26,107,58,.22);color:var(--acc-lt)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(26,107,58,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-300);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:var(--acc);color:#fff}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.2)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">The Rupture</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>The Rupture · Slavery & Resistance · 1500 – 1808</div>
+      <h1 class="thread-hero__title">The Middle Passage:<br /><em>What the Crossing Cost</em></h1>
+      <p class="thread-hero__subtitle">12.5 million people were loaded onto ships. 1.8 million died before landfall. The survivors were not the lucky ones — they were the ones forced to build a country that would not recognize their humanity for 400 years.</p>
+      <div class="thread-hero__meta"><div class="thread-meta-item"><div class="thread-meta-item__label">Era</div><div class="thread-meta-item__value">The Rupture → Slavery</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">Dates</div><div class="thread-meta-item__value">1500 – 1808</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">Scale</div><div class="thread-meta-item__value">12.5 million embarked; 10.7 million survived</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">Duration</div><div class="thread-meta-item__value">Typically 6–12 weeks at sea</div></div></div>
+    </div>
+  </div>
+</section>
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">The Middle Passage was not a byproduct of the slave trade. It was a deliberate system of terror engineered to break human beings before they arrived — to sever every connection to language, community, family, and self so completely that organized resistance would become nearly impossible. Understanding the crossing is prerequisite to understanding everything that came after.</p></div>
+    </div>
+  </div>
+</div>
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main"><div class="entry-list">
+<div class="entry-item" id="e1">
+  <div class="entry-item__header"><div class="entry-item__num">1</div>
+  <div><div class="entry-item__dates">1500 – 1650</div>
+  <h2 class="entry-item__name">The System Is Designed: Fortresses, Ships, and the Logic of the Trade</h2>
+  <div class="entry-item__location">West African coast — Cape Verde to Angola</div></div></div>
+  <div class="entry-item__body">
+    <p>The transatlantic slave trade is not improvised. It is engineered. <strong>Portuguese, Dutch, British, French, and Danish traders</strong> build a chain of fortresses along the West African coast — <strong>Elmina</strong> (1482), <strong>Cape Coast Castle</strong> (1653), <strong>Gorée Island</strong> — designed specifically to hold captive Africans between their seizure inland and their loading onto ships. These are not temporary holding pens. They are permanent infrastructure, stone buildings with dungeons designed to hold hundreds of people, equipped with whipping posts, isolation chambers, and what slavers called the <em>Door of No Return</em> — the portal through which captives walked directly onto the ships.</p>
+    <p>The ships are also engineered for the purpose. The <strong>Brooks</strong> — a Liverpool slave ship whose deck plan was published in 1788 as abolitionist evidence — shows 454 people packed into a space where each person was allotted less than a coffin's worth of room: 6 feet by 1 foot 4 inches. The actual loading on most ships exceeded even these appalling specifications. Captives were chained in pairs, right wrist to left wrist, right ankle to left ankle, and arranged in rows so tight they could not sit upright.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">12.5M</div><div class="entry-stat__label">People embarked, 1500–1900</div></div>
+      <div><div class="entry-stat__num">1.8M</div><div class="entry-stat__label">Died during the crossing</div></div>
+      <div><div class="entry-stat__num">40,000+</div><div class="entry-stat__label">Slaving voyages documented</div></div>
+    </div>
+    <p>The Trans-Atlantic Slave Trade Database — a scholarly project cataloguing every documented voyage — records <strong>more than 40,000 slaving voyages</strong> between 1514 and 1866. The database is incomplete; scholars estimate it captures roughly 80% of the actual trade. The full number of voyages likely exceeded 50,000. This is not a series of crimes. It is an industry, operating at industrial scale, for three and a half centuries.</p>
+  </div>
+</div>
+<div class="entry-item" id="e2">
+  <div class="entry-item__header"><div class="entry-item__num">2</div>
+  <div><div class="entry-item__dates">1650 – 1808</div>
+  <h2 class="entry-item__name">The Crossing: 6–12 Weeks in the Hold</h2>
+  <div class="entry-item__location">Atlantic Ocean</div></div></div>
+  <div class="entry-item__body">
+    <p>The crossing from West Africa to the Americas took between six and twelve weeks depending on the destination and the winds. Captives spent most of this time in the ship's hold — a space so low that adults could not stand upright, so packed that movement was impossible, so dark that day and night became indistinguishable. The hold was not ventilated. In hot weather it reached temperatures that caused heat stroke. Captives were brought on deck periodically — not for their welfare but to be hosed down, inspected, and sometimes forced to dance for "exercise."</p>
+    <p><strong>Dysentery</strong> — called "the bloody flux" in slaver records — was the leading cause of death, killing captives and crew alike. The flux spread rapidly in the unventilated hold. Captives chained to dying and dead neighbors could not move away. They lay in waste for days. <strong>Smallpox, measles, and ophthalmia</strong> (an eye infection causing blindness) compounded the dysentery death toll. Ships that left West Africa with 400 captives sometimes arrived in the Caribbean with 250.</p>
+    <div class="pullquote"><p>"I was soon put down under the decks, and there I received such a salutation in my nostrils as I had never experienced in my life; so that with the loathsomeness of the stench and crying together, I became so sick and low that I was not able to eat."</p><cite>— Olaudah Equiano, <em>The Interesting Narrative</em>, 1789</cite></div>
+    <p>The 14.4% mortality rate during crossing — <strong>1 in 7 people died before landfall</strong> — is an average that conceals enormous variation. Some ships lost 5%. Others lost 50%. The worst voyages were the longest ones, the ones that hit storms, the ones where disease broke out early and swept through the hold before the ship could reach port. Slavers called it "tight packing" versus "loose packing" — more bodies risked more death but yielded more profit even accounting for losses. Human beings were optimized for transport like cargo.</p>
+  </div>
+</div>
+<div class="entry-item" id="e3">
+  <div class="entry-item__header"><div class="entry-item__num">3</div>
+  <div><div class="entry-item__dates">1700 – 1808</div>
+  <h2 class="entry-item__name">Resistance at Sea: Uprisings, Hunger Strikes, and the Zong Massacre</h2>
+  <div class="entry-item__location">Atlantic Ocean</div></div></div>
+  <div class="entry-item__body">
+    <p>Captives did not accept their situation passively. The Trans-Atlantic Slave Trade Database documents <strong>at least 493 shipboard uprisings</strong> — and scholars believe this is a severe undercount, since slavers had strong incentives not to record their failures. Uprisings typically occurred near the African coast, before the ship had traveled far enough that a successful rebellion would leave survivors stranded in mid-ocean. Women captives, who were often kept on deck unchained, sometimes played critical roles — passing weapons, providing intelligence on crew movements, or creating diversions.</p>
+    <p>The most documented act of resistance was the <strong>hunger strike</strong>. Captives who refused to eat — choosing death over arrival — were force-fed with a device called the <em>speculum oris</em>, a metal mouth-opener designed to force food down the throat. Slavers understood that death by starvation was preferable to some captives and engineered around it.</p>
+    <p>The <strong>Zong massacre of 1781</strong> is the most infamous incident of the crossing. The British slave ship <em>Zong</em>, overcrowded and running low on water, threw <strong>133 sick and dying enslaved people overboard alive</strong> so the owners could claim insurance on them — British insurance law covering cargo lost at sea, but not cargo that died of disease. The owners filed the claim. The underwriters disputed it. The case went to court — not as a murder trial but as an insurance dispute over whether the massacre counted as <em>necessary</em> jettisoning of cargo. The murderers were never prosecuted. The case galvanized the British abolitionist movement.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">493+</div><div class="entry-stat__label">Documented shipboard uprisings</div></div>
+      <div><div class="entry-stat__num">133</div><div class="entry-stat__label">People thrown overboard alive from the Zong</div></div>
+      <div><div class="entry-stat__num">0</div><div class="entry-stat__label">Prosecutions for the Zong massacre</div></div>
+    </div>
+  </div>
+</div>
+<div class="entry-item" id="e4">
+  <div class="entry-item__header"><div class="entry-item__num">4</div>
+  <div><div class="entry-item__dates">1500 – Present</div>
+  <h2 class="entry-item__name">The Psychological Architecture of the Crossing</h2>
+  <div class="entry-item__location">Atlantic Ocean → American hemisphere</div></div></div>
+  <div class="entry-item__body">
+    <p>Scholars of the slave trade have argued that the Middle Passage was not merely transportation — it was <strong>deliberate psychological destruction</strong>. Captives from the same community were separated. People who shared a language were split across different ships or different holds. Names were stripped and replaced with numbers or European names. The crossing was designed to produce maximum disorientation: severed from every social connection, unable to communicate with most fellow captives, in a space of total physical suffering, with no knowledge of where they were going or what awaited them.</p>
+    <p>The African scholar <strong>Marimba Ani</strong> and others have called this the <em>Maafa</em> — a Swahili word meaning "great disaster" or "terrible occurrence" — arguing that the Middle Passage constitutes a deliberate cultural genocide as well as a physical atrocity. The intent, whether fully articulated by slavers or not, was to produce human beings who arrived in the Americas with no remaining basis for collective identity, cultural memory, or coordinated resistance.</p>
+    <div class="pullquote"><p>"They had destroyed everything — language, family, name, religion, community. What they didn't count on was that you can destroy everything a person has without destroying the person."</p><cite>— Toni Morrison, interview, 1993</cite></div>
+    <p>That the cultural destruction was incomplete — that African languages survived encoded in creoles, that spiritual systems survived inside Christianity, that family and community structures reconstituted themselves within a generation of arrival — is not a testament to the slave system's mercy. It is a testament to the resilience of the people it tried to destroy.</p>
+  </div>
+</div>
+<div class="entry-item" id="e5">
+  <div class="entry-item__header"><div class="entry-item__num">5</div>
+  <div><div class="entry-item__dates">Present</div>
+  <h2 class="entry-item__name">The Archive: What We Know and What Was Never Recorded</h2>
+  <div class="entry-item__location">United States, United Kingdom, Portugal</div></div></div>
+  <div class="entry-item__body">
+    <p>The Trans-Atlantic Slave Trade Database (slavevoyages.org) is one of the most important digital humanities projects in history — a painstaking reconstruction of the trade from shipping records, customs documents, insurance filings, and merchant account books across archives in a dozen countries. It documents approximately 36,000 voyages carrying roughly 10 million people, and estimates the full trade at 12.5 million embarked.</p>
+    <p>But the database records <strong>ships, not people</strong>. It knows approximately where captives embarked (the African coast region) and disembarked (the American port). It does not know their names. It does not know their languages, their families, their communities, their skills, their beliefs. The individual human beings who endured the crossing are, with extraordinarily rare exceptions, <strong>completely anonymous</strong> in the historical record. We have their numbers. We do not have their names.</p>
+    <p>The few testimonies that survive — Olaudah Equiano, Venture Smith, Omar ibn Said — are precious precisely because they are so rare. The overwhelming majority of people who crossed the Atlantic in chains left no written record, because enslaved people were legally prohibited from learning to read and write, and because no one who mattered to the record-keepers thought their story was worth preserving. The Middle Passage is a vast, specific, documented atrocity whose individual victims are almost entirely unknown. That anonymity is itself a form of the violence.</p>
+  </div>
+</div>
+</div></main>
+      <aside class="thread-sidebar"><div class="sidebar-card"><div class="sidebar-card__title">The Scale</div><div class="sidebar-card__body"><strong>12.5 million</strong> people embarked<br/><br/><strong>1.8 million</strong> died at sea (14.4%)<br/><br/><strong>10.7 million</strong> arrived in the Americas<br/><br/><strong>40,000+</strong> documented voyages<br/><br/><strong>1514–1866</strong> — 352 years of continuous operation</div></div>
+<div class="sidebar-card"><div class="sidebar-card__title">Major Origins</div><div class="sidebar-card__body"><strong>West Central Africa</strong> (modern Congo/Angola) — 45%<br/><br/><strong>Senegambia & Sierra Leone</strong> — 14%<br/><br/><strong>Gold Coast</strong> (modern Ghana) — 11%<br/><br/><strong>Bight of Benin</strong> — 11%<br/><br/><strong>Bight of Biafra</strong> — 14%</div></div>
+<div class="sidebar-card"><div class="sidebar-card__title">Primary Source</div><div class="sidebar-card__body"><em>The Interesting Narrative of Olaudah Equiano</em> (1789) — first published autobiography by an enslaved African; describes the crossing firsthand.<br/><br/>slavevoyages.org — Trans-Atlantic Slave Trade Database, the definitive scholarly archive.</div></div></aside>
+    </div>
+  </div>
+</section>
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">The Crossing Was the Beginning</div>
+      <h2 class="thread-bottom-cta__title">1.8 million people never made it. The 10.7 million who did built a country that denied them everything.</h2>
+      <p class="thread-bottom-cta__sub">The Middle Passage was designed to destroy. It failed. The people who survived it built churches, families, communities, and a 400-year fight for freedom.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-slave-revolts.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Slave Revolts → &rarr;</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="index.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+  </div>
+</footer>
+<script>const t=document.getElementById('themeToggle');if(t)t.addEventListener('click',()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('chain-theme',n)});</script>
+<script src="js/thread-journey.js" defer></script>
+</body></html>
