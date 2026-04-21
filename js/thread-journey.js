@@ -15,6 +15,12 @@
     ['thread-moors.html',                 'The Moors of Europe',               'African Origins',   1],
     ['thread-songhai.html',               'The Songhai Empire',                'African Origins',   1],
     ['thread-arab-slave-trade.html',      'The Arab Slave Trade',              'African Origins',   1],
+    ['thread-mansa-musa.html',             'Mansa Musa & the Mali Empire',      'African Origins',   1],
+    ['thread-nubia-kush.html',             'Nubia & the Kingdom of Kush',       'African Origins',   1],
+    ['thread-great-zimbabwe.html',         'Great Zimbabwe',                    'African Origins',   1],
+    ['thread-swahili-coast.html',          'The Swahili Coast',                 'African Origins',   1],
+    ['thread-african-spiritual-systems.html','African Spiritual Systems',       'African Origins',   1],
+    ['thread-precolonial-governance.html', 'Pre-Colonial African Governance',   'African Origins',   1],
 
     // ERA 2 — The Rupture
     ['thread-transatlantic-slave-trade.html', 'The Transatlantic Slave Trade', 'The Rupture',       2],
