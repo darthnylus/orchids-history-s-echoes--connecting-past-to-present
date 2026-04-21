@@ -10,6 +10,10 @@
   var JOURNEY = [
 
     // ERA 1 — African Origins
+    ['thread-african-origins-humanity.html', 'The African Origins of Humanity',   'African Origins',   1],
+    ['thread-san-people.html',               'The San People of Southern Africa', 'African Origins',   1],
+    ['thread-green-sahara.html',             'The Green Sahara',                  'African Origins',   1],
+    ['thread-predynastic-egypt.html',        'Pre-Dynastic Egypt',                'African Origins',   1],
     ['thread-pharaohs.html',              'Black Pharaohs of Egypt',           'African Origins',   1],
     ['thread-african-empires.html',       'African Empires & Civilizations',   'African Origins',   1],
     ['thread-moors.html',                 'The Moors of Europe',               'African Origins',   1],
