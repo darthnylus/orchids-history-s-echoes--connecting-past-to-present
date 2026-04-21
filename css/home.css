@@ -62,7 +62,7 @@
 /* Image thumbnail strip */
 .civ-card__thumb {
   width: 100%;
-  height: 160px;
+  height: 200px;
   overflow: hidden;
   flex-shrink: 0;
   position: relative;
@@ -112,9 +112,9 @@
 }
 
 .civ-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-  border-color: var(--amber-200);
+  box-shadow: 0 8px 40px rgba(0,0,0,.22), 0 2px 8px rgba(0,0,0,.14);
+  transform: translateY(-4px);
+  border-color: var(--amber-300);
 }
 
 .civ-card:hover::before {
@@ -171,19 +171,26 @@
   font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  padding: 2px var(--space-2);
-  background: var(--color-accent-light);
-  color: var(--color-accent-dark);
+  padding: 3px var(--space-3);
+  background: rgba(196, 146, 0, 0.12);
+  color: var(--amber-600, #b45309);
+  border: 1px solid rgba(196, 146, 0, 0.25);
   border-radius: var(--radius-pill);
+}
+
+[data-theme="dark"] .civ-card__region-badge {
+  background: rgba(196, 146, 0, 0.15);
+  color: var(--amber-300);
+  border-color: rgba(196, 146, 0, 0.3);
 }
 
 .civ-card__name {
   font-family: var(--font-editorial);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
   margin-bottom: var(--space-3);
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .civ-card__summary {
@@ -263,7 +270,7 @@
 
 .origins-bridge__body {
   font-size: var(--type-md);
-  color: var(--ink-400);
+  color: var(--ink-300);
   line-height: var(--leading-loose);
   margin-bottom: var(--space-5);
 }
@@ -327,15 +334,15 @@
 }
 
 .origins-bridge__blockquote {
-  border-left: 3px solid var(--sienna-600);
+  border-left: 3px solid var(--sienna-500);
   padding-left: var(--space-6);
 }
 
 .origins-bridge__blockquote p {
   font-family: var(--font-editorial);
-  font-size: 1.0625rem;
-  color: var(--ink-300);
-  line-height: 1.7;
+  font-size: 1.125rem;
+  color: var(--ink-200);
+  line-height: 1.75;
   font-style: italic;
   margin-bottom: var(--space-4);
 }
