@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Red Summer:<br/>26 Cities, One Summer, 1919 — Chain</title>
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:64px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    :root{--acc:#7a3e3e;--acc-lt:#c97b7b}
+    [data-theme="dark"]{--acc:#7a3e3e;--acc-lt:#c97b7b}
+    .thread-hero{background:#120808;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(122,62,62,.45) 0%,transparent 60%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:2}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(122,62,62,.12);border:1px solid rgba(122,62,62,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc)}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:var(--acc-lt);font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .argument-bar{background:rgba(122,62,62,.06);border-top:1px solid rgba(122,62,62,.18);border-bottom:1px solid rgba(122,62,62,.18);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(122,62,62,.18);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);background:rgba(122,62,62,.10);border:1px solid rgba(122,62,62,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(122,62,62,.10);border:1px solid rgba(122,62,62,.22);color:var(--acc-lt)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(122,62,62,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-300);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:var(--acc);color:#fff}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.2)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="index.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">Era 4 · Emancipation &amp; Betrayal</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Emancipation & Betrayal · Summer 1919</div>
+      <h1 class="thread-hero__title">Red Summer:<br/><em>26 Cities, One Summer, 1919</em></h1>
+      <p class="thread-hero__subtitle">In the summer of 1919, white mobs attacked Black communities in at least 26 American cities in a coordinated wave of racial violence. In Chicago, a Black teenager drowned after being stoned while swimming near a white beach — and the subsequent riot killed 38 people and destroyed 1,000 homes. In Elaine, Arkansas, white mobs and federal troops killed up to 200 Black sharecroppers. In Washington D.C., white servicemen fresh from World War I attacked Black neighborhoods blocks from the White House. The NAACP named it Red Summer. The federal government did nothing.</p>
+      <div class="thread-hero__meta"><div class="thread-meta-item"><div class="thread-meta-item__label">Cities attacked</div><div class="thread-meta-item__value">26 — from Chicago to Washington D.C. to Elaine, AR</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">Period</div><div class="thread-meta-item__value">May–October 1919</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">Federal response</div><div class="thread-meta-item__value">None — Wilson administration silent</div></div></div>
+    </div>
+  </div>
+</section>
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text"><strong>Red Summer was not a series of spontaneous riots — it was a coordinated campaign to destroy the economic and political gains Black Americans had made during WWI.</strong> Black men had fought in France for a democracy that denied them basic rights at home. Returning veterans wore their uniforms as a statement of citizenship. White Americans, particularly returning white veterans, met that assertion with mass violence. The pattern across 26 cities was identical: a triggering incident, white mobs attacking Black neighborhoods, Black self-defense, and law enforcement either standing aside or joining the white mobs. No white rioters were prosecuted at the federal level.</p></div>
+    </div>
+  </div>
+</div>
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main"><div class="entry-list"><div class="era-divider"><span class="era-divider__badge">The Cities · May–October 1919</span><div class="era-divider__line"></div></div>
+<article class="entry-item" id="e1"><div class="entry-item__header"><div class="entry-item__num">01</div><div><div class="entry-item__dates">July 27–August 3, 1919</div><h2 class="entry-item__name">Chicago: The Beach, the Stone, the Riot</h2><div class="entry-item__location">Chicago, Illinois</div></div></div>
+<div class="entry-stats"><div class="entry-stat"><div class="entry-stat__num">38</div><div class="entry-stat__label">Killed — 23 Black, 15 white</div></div><div class="entry-stat"><div class="entry-stat__num">1,000</div><div class="entry-stat__label">Black homes destroyed</div></div><div class="entry-stat"><div class="entry-stat__num">13 days</div><div class="entry-stat__label">Duration before National Guard restored order</div></div></div>
+<div class="entry-item__body"><p>On July 27, 1919, seventeen-year-old Eugene Williams was swimming in Lake Michigan near 29th Street Beach — on the "Black side" of an unofficial segregation line. He drifted toward the white section. A white man named George Stauber began throwing rocks at him. One struck Williams; he went under and drowned. When Black witnesses pointed out Stauber to police, the officer refused to arrest him and instead arrested a Black man. Within hours, fighting had spread across the South Side. For 13 days, white mobs — many organized by neighborhood athletic clubs with connections to Democratic ward bosses — attacked Black neighborhoods on the South Side. Black veterans fought back. Thirty-eight people were killed, 537 injured, and more than 1,000 Black families lost their homes to arson.</p></div></article>
+
+<article class="entry-item" id="e2"><div class="entry-item__header"><div class="entry-item__num">02</div><div><div class="entry-item__dates">September–November 1919</div><h2 class="entry-item__name">Elaine, Arkansas: The Massacre of Organizing Sharecroppers</h2><div class="entry-item__location">Elaine, Phillips County, Arkansas</div></div></div>
+<div class="entry-stats"><div class="entry-stat"><div class="entry-stat__num">~200</div><div class="entry-stat__label">Black sharecroppers killed — exact count suppressed</div></div><div class="entry-stat"><div class="entry-stat__num">12</div><div class="entry-stat__label">Black men sentenced to death (later overturned)</div></div></div>
+<div class="entry-item__body"><p>The Elaine Massacre was explicitly economic. Black sharecroppers in Phillips County had organized the Progressive Farmers and Household Union of America to collectively negotiate cotton prices with white planters. On September 30, white men shot into a union meeting at a church in Hoop Spur. Return fire killed one white man. White mobs, later joined by 500 federal troops dispatched by Arkansas Governor Charles Brough, spent three days hunting and killing Black sharecroppers across the county. Estimates of the dead range from 100 to 200; the county suppressed the count. Twelve Black men were sentenced to death, 67 more to prison. No white participants were charged. The Supreme Court eventually overturned the death sentences in Moore v. Dempsey (1923) — ruling that mob-dominated trials violated due process — in a landmark ruling that NAACP lawyers used as a foundation for later civil rights litigation.</p></div></article>
+
+<article class="entry-item" id="e3"><div class="entry-item__header"><div class="entry-item__num">03</div><div><div class="entry-item__dates">Summer 1919</div><h2 class="entry-item__name">The Pattern: 26 Cities, One Purpose</h2><div class="entry-item__location">Washington D.C. · Knoxville · Omaha · Charleston · Longview TX</div></div></div>
+<div class="entry-item__body"><p>The attacks followed a consistent pattern across all 26 cities: a triggering incident involving a Black person accused of transgressing a racial boundary; white mobs — often including off-duty police and returning veterans — attacking Black neighborhoods; Black residents defending themselves; local authorities either standing aside or participating in the violence; and zero federal intervention. In Washington D.C., white sailors and Marines attacked Black neighborhoods four blocks from the White House for three nights. President Woodrow Wilson, who had re-segregated the federal government and screened Birth of a Nation at the White House, said nothing.</p>
+<div class="pullquote"><p>"We return fighting. We return fighting! Make way for Democracy! We saved it in France, and by the Great Jehovah, we will save it in the United States of America, or know the reason why."</p><cite>— W.E.B. Du Bois, "Returning Soldiers," The Crisis, May 1919</cite></div>
+<p>The New Negro movement that emerged from Red Summer was the direct predecessor of the Harlem Renaissance: Black Americans who had fought abroad, survived the massacres, and refused to return to pre-war deference. The self-defense of 1919 is the direct antecedent of the Deacons for Defense and the Black Panthers. Red Summer proved that the federal government would not protect Black citizens. Black Americans drew the appropriate conclusions.</p></div></article></div></main>
+      <aside class="thread-sidebar"><div class="sidebar-card"><div class="sidebar-card__title">The 26 Cities</div><div class="sidebar-card__body"><p>Chicago · Washington D.C. · Elaine AR · Knoxville TN · Omaha NE · Longview TX · Charleston SC · Bisbee AZ · Norfolk VA · Millen GA · Corning AR · Syracuse NY · Baltimore MD · Philadelphia PA · and more</p><p style="margin-top:var(--space-3)">The NAACP sent investigator Walter White (who could pass as white) into multiple massacre sites. His reports documented the federal government's deliberate non-response.</p></div></div>
+<div class="sidebar-card"><div class="sidebar-card__title">Related Threads</div><div class="sidebar-card__body"><p><a href="thread-tulsa.html" style="color:var(--acc-lt)">Black Wall Street, Tulsa</a></p><p style="margin-top:var(--space-2)"><a href="thread-greenwood-pattern.html" style="color:var(--acc-lt)">The Greenwood Pattern</a></p><p style="margin-top:var(--space-2)"><a href="thread-kkk.html" style="color:var(--acc-lt)">The KKK</a></p><p style="margin-top:var(--space-2)"><a href="thread-harlem-renaissance.html" style="color:var(--acc-lt)">The Harlem Renaissance</a></p></div></div></aside>
+    </div>
+  </div>
+</section>
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">What Followed</div>
+      <h2 class="thread-bottom-cta__title">Red Summer proved the government wouldn't protect Black Americans. The Harlem Renaissance was partly the response.</h2>
+      <p class="thread-bottom-cta__sub">The Black intellectuals of the 1920s — Du Bois, Hughes, Hurston — were writing in the aftermath of 1919. The New Negro was partly defined by what happened that summer.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-harlem-renaissance.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">The Harlem Renaissance → &rarr;</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="index.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+  </div>
+</footer>
+<script>const t=document.getElementById('themeToggle');if(t)t.addEventListener('click',()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('chain-theme',n)});</script>
+<script src="js/thread-journey.js" defer></script>
+</body></html>
