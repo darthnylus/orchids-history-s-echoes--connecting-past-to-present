@@ -33,6 +33,7 @@
     ['thread-weeksville.html',            'Weeksville, Brooklyn',              'Slavery & Resistance', 3],
     ['thread-black-church.html',          'The Black Church',                  'Slavery & Resistance', 3],
     ['thread-black-press.html',           'The Black Press',                   'Slavery & Resistance', 3],
+    ['thread-domestic-slave-trade.html',  'The Domestic Slave Trade',          'Slavery & Resistance', 3],
 
     // ERA 4 — Emancipation & Betrayal
     ['thread-end-of-slavery.html',        'How Slavery Really Ended',          'Emancipation & Betrayal', 4],
@@ -44,6 +45,9 @@
     ['thread-kkk.html',                   'The Ku Klux Klan',                  'Emancipation & Betrayal', 4],
     ['thread-lynching.html',              'Lynching in America',               'Emancipation & Betrayal', 4],
     ['thread-fear-of-black-assembly.html','Fear of Black Assembly',            'Emancipation & Betrayal', 4],
+    ['thread-red-summer.html',            'Red Summer 1919',                   'Emancipation & Betrayal', 4],
+    ['thread-emmett-till.html',           'Emmett Till',                       'Emancipation & Betrayal', 4],
+    ['thread-buffalo-soldiers.html',      'Buffalo Soldiers',                  'Emancipation & Betrayal', 4],
 
     // ERA 5 — Jim Crow & Building Community
     ['thread-sharecropping.html',         'Sharecropping',                     'Jim Crow Era',      5],
@@ -63,6 +67,8 @@
     ['thread-oscarville.html',            'Oscarville, Georgia',               'Jim Crow Era',      5],
     ['thread-lake-lanier.html',           'Lake Lanier',                       'Jim Crow Era',      5],
     ['thread-lake-marion.html',           'Lake Marion',                       'Jim Crow Era',      5],
+    ['thread-ida-b-wells.html',           'Ida B. Wells',                      'Jim Crow Era',      5],
+    ['thread-dubois.html',                'W.E.B. Du Bois',                    'Jim Crow Era',      5],
 
     // ERA 6 — WWII & Post-War Exclusion
     ['thread-golden-thirteen.html',       'The Golden Thirteen',               'WWII & Post-War',   6],
@@ -72,6 +78,8 @@
     ['thread-tuskegee.html',              'The Tuskegee Study',                'WWII & Post-War',   6],
     ['thread-brown-v-board.html',         'Brown v. Board of Education',       'WWII & Post-War',   6],
     ['thread-urban-renewal.html',         'Urban Renewal & Displacement',      'WWII & Post-War',   6],
+    ['thread-tuskegee-airmen.html',       'The Tuskegee Airmen',               'WWII & Post-War',   6],
+    ['thread-redlining.html',             'Redlining',                         'WWII & Post-War',   6],
 
     // ERA 7 — Civil Rights
     ['thread-civil-rights.html',          'The Civil Rights Movement',         'Civil Rights',      7],
@@ -82,6 +90,12 @@
     ['thread-black-panthers.html',        'The Black Panthers',                'Civil Rights',      7],
     ['thread-statue-of-liberty.html',     'The Statue of Liberty',             'Civil Rights',      7],
     ['thread-cointelpro.html',            'COINTELPRO',                        'Civil Rights',      7],
+    ['thread-mlk.html',                  'Martin Luther King Jr.',             'Civil Rights',      7],
+    ['thread-malcolm-x.html',             'Malcolm X',                         'Civil Rights',      7],
+    ['thread-freedom-riders.html',        'The Freedom Riders',                'Civil Rights',      7],
+    ['thread-birmingham.html',            'The Birmingham Campaign',           'Civil Rights',      7],
+    ['thread-black-lgbtq.html',           'Black LGBTQ+ History',              'Civil Rights',      7],
+    ['thread-black-mayors.html',          'Black Political Power & Mayors',    'Civil Rights',      7],
 
     // ERA 8 — Backlash & Dismantling
     ['thread-deindustrialization.html',   'Deindustrialization',               'Backlash Era',      8],
@@ -95,6 +109,11 @@
     ['thread-white-terror-la.html',       'White Terror in L.A.',              'Backlash Era',      8],
     ['thread-subprime.html',              'The Subprime Crash',                'Backlash Era',      8],
     ['thread-racial-capitalism.html',     'Racial Capitalism',                 'Backlash Era',      8],
+    ['thread-la-uprising.html',          'The LA Uprising 1992',              'Backlash Era',      8],
+    ['thread-welfare-reform.html',        'Welfare Reform 1996',               'Backlash Era',      8],
+    ['thread-hiv-aids.html',              'HIV/AIDS & Black America',          'Backlash Era',      8],
+    ['thread-attica.html',               'Attica',                             'Backlash Era',      8],
+    ['thread-move-bombing.html',         'The MOVE Bombing',                   'Backlash Era',      8],
 
     // ERA 9 — Present Day
     ['thread-katrina.html',               'Hurricane Katrina',                 'Present Day',       9],
@@ -109,6 +128,12 @@
     ['thread-dei.html',                   'DEI & Rollback',                    'Present Day',       9],
     ['thread-reparations.html',           'The Reparations Debate',            'Present Day',       9],
     ['thread-diaspora.html',              'The African Diaspora',              'Present Day',       9],
+    ['thread-blm.html',                  'Black Lives Matter',                'Present Day',       9],
+    ['thread-school-to-prison.html',      'The School-to-Prison Pipeline',     'Present Day',       9],
+    ['thread-affirmative-action.html',    'Affirmative Action',                'Present Day',       9],
+    ['thread-black-maternal-mortality.html','Black Maternal Mortality',         'Present Day',       9],
+    ['thread-stand-your-ground.html',     'Stand Your Ground Laws',            'Present Day',       9],
+    ['thread-wealth-gap.html',            'The Racial Wealth Gap',             'Present Day',       9],
   ];
 
   var ERA_COLORS = {
