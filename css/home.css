@@ -939,3 +939,84 @@
   animation: ribbon-pulse 2s ease-in-out infinite;
   vertical-align: middle;
 }
+
+/* ============================================================
+   AUDIT FIXES — Motion, Animation, Hover Consistency
+   ============================================================ */
+
+/* ---- Reduced-motion guards for transforms/animations ------- */
+@media (prefers-reduced-motion: reduce) {
+  /* Civilization card image zoom — disable scale on hover */
+  .civ-card__thumb img {
+    transition: none !important;
+    will-change: auto !important;
+  }
+  .civ-card:hover .civ-card__thumb img {
+    transform: none !important;
+  }
+
+  /* Civilization card hover lift */
+  .civ-card:hover {
+    transform: none !important;
+  }
+
+  /* Hero question pills — disable float */
+  .hero__q-pill:hover {
+    transform: none !important;
+  }
+
+  /* Hero journey button — disable slide */
+  .hero__journey-btn:hover {
+    transform: none !important;
+  }
+
+  /* Explore card background scale */
+  .explore-card:hover .explore-card__bg {
+    transform: none !important;
+  }
+
+  /* Object card image bg scale */
+  .object-card:hover .object-card__image-bg {
+    transform: none !important;
+  }
+
+  /* Hero scroll hint bounce */
+  .hero-scroll-hint {
+    animation: none !important;
+  }
+
+  /* Hero eyebrow dot pulse */
+  .hero__eyebrow-dot {
+    animation: none !important;
+  }
+
+  /* Context ribbon live dot */
+  .context-ribbon__live-dot {
+    animation: none !important;
+  }
+
+  /* Tab panel fade-up */
+  [role="tabpanel"] {
+    animation: none !important;
+  }
+
+  /* Thread panel counter pop */
+  .thread-panel__counter {
+    animation: none !important;
+  }
+}
+
+/* ---- Ensure will-change is released after hover ends ------- */
+.civ-card:not(:hover) .civ-card__thumb img {
+  will-change: auto;
+}
+
+/* ---- Consistent hover lift on editorial grid links --------- */
+.editorial-grid > a:hover .editorial-card {
+  transform: none; /* let the <a> wrapper handle the lift */
+}
+
+/* ---- Origins bridge dark mode: ensure text contrast -------- */
+[data-theme="dark"] .origins-bridge__body {
+  color: var(--ink-300);
+}

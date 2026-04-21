@@ -280,3 +280,85 @@
   opacity: 0.6;
 }
 .saved-thread-chip__remove:hover { opacity: 1; }
+
+/* ============================================================
+   AUDIT FIXES — Sidebar, Mobile, Motion, Layout
+   ============================================================ */
+
+/* ---- Flexible sidebar column (was fixed 300px) ------------ */
+@media (min-width: 960px) {
+  .thread-page-layout {
+    grid-template-columns: 1fr minmax(280px, 320px);
+  }
+}
+
+/* ---- Sidebar: scrollable when content overflows ----------- */
+.thread-page-sidebar {
+  max-height: calc(100vh - var(--nav-total) - var(--space-6));
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Custom scrollbar — thin, unobtrusive */
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-700) transparent;
+}
+.thread-page-sidebar::-webkit-scrollbar { width: 4px; }
+.thread-page-sidebar::-webkit-scrollbar-track { background: transparent; }
+.thread-page-sidebar::-webkit-scrollbar-thumb {
+  background: var(--ink-700);
+  border-radius: var(--radius-pill);
+}
+
+/* ---- Mobile: entry number sizing -------------------------  */
+@media (max-width: 599px) {
+  .entry-item__num {
+    font-size: 0.65rem;
+    min-width: 28px;
+    height: 28px;
+  }
+
+  /* Tighten up chapter body text on small screens */
+  .chapter__body {
+    font-size: 1rem;
+  }
+
+  /* Pull quote: reduce indent on mobile */
+  .pull-quote {
+    padding: var(--space-4) var(--space-5);
+    margin: var(--space-6) 0;
+  }
+}
+
+/* ---- Reduced motion: thread-page specific animations ------- */
+@media (prefers-reduced-motion: reduce) {
+  /* Chapter opacity transition */
+  .chapter {
+    transition: none !important;
+  }
+
+  /* Reading progress bar entrance */
+  .reading-progress {
+    animation: none !important;
+  }
+
+  /* Progress bar injected element */
+  #chain-progress-bar {
+    transition: none !important;
+  }
+}
+
+/* ---- Dark mode: better sidebar card borders ---------------- */
+[data-theme="dark"] .read-next__item:hover {
+  opacity: 0.85;
+}
+
+/* ---- Body text line-length cap (wider than 75ch base) ------ */
+.chapter__body {
+  max-width: 72ch;
+}
+
+/* ---- Causal chain: ensure left-line aligns on all screens -- */
+@media (min-width: 501px) {
+  .causal-chain::before {
+    left: 19px;
+  }
+}
