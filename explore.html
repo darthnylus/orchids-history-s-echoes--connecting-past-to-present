@@ -318,10 +318,10 @@
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: var(--space-6);
+      padding: 0;
       display: flex;
       flex-direction: column;
-      gap: var(--space-4);
+      gap: 0;
       text-decoration: none;
       transition: all var(--duration-normal) var(--ease-out);
       position: relative;
@@ -335,13 +335,42 @@
       background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
       opacity: 0;
       transition: opacity var(--duration-normal);
+      z-index: 2;
     }
     .thread-card:hover {
       box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-      border-color: var(--amber-200);
+      transform: translateY(-3px);
+      border-color: var(--amber-300);
     }
     .thread-card:hover::before { opacity: 1; }
+
+    /* Thread card image */
+    .thread-card__img {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--ink-800);
+    }
+    .thread-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+      filter: brightness(0.88) saturate(0.85);
+    }
+    .thread-card:hover .thread-card__img img {
+      transform: scale(1.05);
+    }
+    .thread-card__body {
+      padding: var(--space-5) var(--space-6) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      flex: 1;
+    }
 
     .thread-card__era {
       font-size: var(--type-xs);
@@ -425,17 +454,33 @@
       border-color: var(--amber-200);
     }
     .person-card__avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+      width: 100%;
+      height: 160px;
+      border-radius: var(--radius-md);
       background: linear-gradient(135deg, var(--amber-200), var(--sienna-200));
       display: grid;
       place-items: center;
       font-family: var(--font-editorial);
-      font-size: 1.125rem;
+      font-size: 2rem;
       font-weight: var(--weight-bold);
       color: var(--amber-700);
       flex-shrink: 0;
+      overflow: hidden;
+      margin: calc(-1 * var(--space-5)) calc(-1 * var(--space-5)) 0;
+      width: calc(100% + var(--space-5) * 2);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .person-card__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: brightness(0.9) saturate(0.9);
+      transition: transform 0.4s ease;
+    }
+    .person-card:hover .person-card__avatar img {
+      transform: scale(1.05);
     }
     .person-card__name {
       font-family: var(--font-editorial);
@@ -900,92 +945,107 @@
           <div class="threads-grid">
 
             <a href="thread.html" class="thread-card reveal">
-              <span class="thread-card__era">Housing · 1930s–Present</span>
-              <h3 class="thread-card__title">From Redlining to the Achievement Gap</h3>
-              <p class="thread-card__summary">How a 1930s federal mortgage policy continues to determine school quality, health outcomes, and generational wealth — neighborhood by neighborhood.</p>
-              <div class="thread-card__meta">
-                <div class="thread-card__nodes" aria-hidden="true">
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot"></div>
+              <div class="thread-card__img"><img src="images/explore-thread-redlining.jpg" alt="1930s HOLC redlining map" loading="lazy" /></div>
+              <div class="thread-card__body">
+                <span class="thread-card__era">Housing · 1930s–Present</span>
+                <h3 class="thread-card__title">From Redlining to the Achievement Gap</h3>
+                <p class="thread-card__summary">How a 1930s federal mortgage policy continues to determine school quality, health outcomes, and generational wealth — neighborhood by neighborhood.</p>
+                <div class="thread-card__meta">
+                  <div class="thread-card__nodes" aria-hidden="true">
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot"></div>
+                  </div>
+                  <span class="thread-card__node-label">6 chapters</span>
+                  <span class="thread-card__cta">Read thread <span aria-hidden="true">→</span></span>
                 </div>
-                <span class="thread-card__node-label">6 chapters</span>
-                <span class="thread-card__cta">Read thread <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
             <a href="thread-transatlantic-slave-trade.html" class="thread-card reveal">
-              <span class="thread-card__era">Origins · 1441–1808</span>
-              <h3 class="thread-card__title">The Transatlantic Slave Trade</h3>
-              <p class="thread-card__summary">From the first Portuguese raids on the West African coast to the largest forced migration in human history — how 12.5 million people were removed from the continent that built the modern world.</p>
-              <div class="thread-card__meta">
-                <div class="thread-card__nodes" aria-hidden="true">
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
+              <div class="thread-card__img"><img src="images/explore-thread-slave-trade.jpg" alt="Atlantic slave ship illustration" loading="lazy" /></div>
+              <div class="thread-card__body">
+                <span class="thread-card__era">Origins · 1441–1808</span>
+                <h3 class="thread-card__title">The Transatlantic Slave Trade</h3>
+                <p class="thread-card__summary">From the first Portuguese raids on the West African coast to the largest forced migration in human history — how 12.5 million people were removed from the continent that built the modern world.</p>
+                <div class="thread-card__meta">
+                  <div class="thread-card__nodes" aria-hidden="true">
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                  </div>
+                  <span class="thread-card__node-label">Coming soon</span>
+                  <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
                 </div>
-                <span class="thread-card__node-label">Coming soon</span>
-                <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
             <a href="thread-stolen-labor.html" class="thread-card reveal">
-              <span class="thread-card__era">Labor · 1619–1865</span>
-              <h3 class="thread-card__title">Stolen Labor &amp; the Architecture of American Wealth</h3>
-              <p class="thread-card__summary">246 years of unpaid labor built the cotton economy, financed Northern banks, and capitalized the Industrial Revolution. The chain from that extraction to today's racial wealth gap is unbroken.</p>
-              <div class="thread-card__meta">
-                <div class="thread-card__nodes" aria-hidden="true">
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
+              <div class="thread-card__img"><img src="images/explore-thread-stolen-labor.jpg" alt="Cotton fields, 19th century American South" loading="lazy" /></div>
+              <div class="thread-card__body">
+                <span class="thread-card__era">Labor · 1619–1865</span>
+                <h3 class="thread-card__title">Stolen Labor &amp; the Architecture of American Wealth</h3>
+                <p class="thread-card__summary">246 years of unpaid labor built the cotton economy, financed Northern banks, and capitalized the Industrial Revolution. The chain from that extraction to today's racial wealth gap is unbroken.</p>
+                <div class="thread-card__meta">
+                  <div class="thread-card__nodes" aria-hidden="true">
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                  </div>
+                  <span class="thread-card__node-label">Coming soon</span>
+                  <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
                 </div>
-                <span class="thread-card__node-label">Coming soon</span>
-                <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
             <a href="thread-mass-incarceration.html" class="thread-card reveal">
-              <span class="thread-card__era">Criminal Justice · 1865–Present</span>
-              <h3 class="thread-card__title">From Black Codes to Mass Incarceration</h3>
-              <p class="thread-card__summary">The laws changed. The mechanism didn't. A thread tracing how post-emancipation Black Codes evolved into the drug war, mandatory minimums, and a system that incarcerates Black Americans at five times the rate of white Americans.</p>
-              <div class="thread-card__meta">
-                <div class="thread-card__nodes" aria-hidden="true">
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
+              <div class="thread-card__img"><img src="images/explore-thread-incarceration.jpg" alt="Prison bars, documentary photography" loading="lazy" /></div>
+              <div class="thread-card__body">
+                <span class="thread-card__era">Criminal Justice · 1865–Present</span>
+                <h3 class="thread-card__title">From Black Codes to Mass Incarceration</h3>
+                <p class="thread-card__summary">The laws changed. The mechanism didn't. A thread tracing how post-emancipation Black Codes evolved into the drug war, mandatory minimums, and a system that incarcerates Black Americans at five times the rate of white Americans.</p>
+                <div class="thread-card__meta">
+                  <div class="thread-card__nodes" aria-hidden="true">
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                  </div>
+                  <span class="thread-card__node-label">Coming soon</span>
+                  <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
                 </div>
-                <span class="thread-card__node-label">Coming soon</span>
-                <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
             <a href="thread-health-disparities.html" class="thread-card reveal">
-              <span class="thread-card__era">Health · 1865–Present</span>
-              <h3 class="thread-card__title">The Racial Health Gap</h3>
-              <p class="thread-card__summary">Why do Black Americans die younger, suffer higher rates of chronic disease, and receive less pain management? A thread tracing the medical racism embedded in American healthcare from Reconstruction to today's maternal mortality crisis.</p>
-              <div class="thread-card__meta">
-                <div class="thread-card__nodes" aria-hidden="true">
-                  <div class="thread-card__node-dot is-filled"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
-                  <div class="thread-card__node-dot"></div>
+              <div class="thread-card__img"><img src="images/explore-thread-health.jpg" alt="Segregated hospital ward, 1940s" loading="lazy" /></div>
+              <div class="thread-card__body">
+                <span class="thread-card__era">Health · 1865–Present</span>
+                <h3 class="thread-card__title">The Racial Health Gap</h3>
+                <p class="thread-card__summary">Why do Black Americans die younger, suffer higher rates of chronic disease, and receive less pain management? A thread tracing the medical racism embedded in American healthcare from Reconstruction to today's maternal mortality crisis.</p>
+                <div class="thread-card__meta">
+                  <div class="thread-card__nodes" aria-hidden="true">
+                    <div class="thread-card__node-dot is-filled"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                    <div class="thread-card__node-dot"></div>
+                  </div>
+                  <span class="thread-card__node-label">Coming soon</span>
+                  <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
                 </div>
-                <span class="thread-card__node-label">Coming soon</span>
-                <span class="thread-card__cta">Preview <span aria-hidden="true">→</span></span>
               </div>
             </a>
 
@@ -1005,25 +1065,25 @@
           </div>
           <div class="people-grid">
             <a href="person-mansa-musa.html" class="person-card reveal">
-              <div class="person-card__avatar" aria-hidden="true">M</div>
+              <div class="person-card__avatar"><img src="images/explore-person-mansa-musa.jpg" alt="Mansa Musa I, Emperor of Mali" loading="lazy" /></div>
               <div class="person-card__name">Mansa Musa I</div>
               <div class="person-card__role">Emperor of the Mali Empire. Controlled more than half of the world's gold supply.</div>
               <span class="person-card__era-tag">c. 1280–1337</span>
             </a>
             <a href="person-askia-mohammed.html" class="person-card reveal">
-              <div class="person-card__avatar" aria-hidden="true">A</div>
+              <div class="person-card__avatar"><img src="images/explore-person-askia.jpg" alt="Askia Mohammed I, Songhai Emperor" loading="lazy" /></div>
               <div class="person-card__name">Askia Mohammed I</div>
               <div class="person-card__role">Ruler of the Songhai Empire. Built one of history's largest libraries at Timbuktu's Sankore University.</div>
               <span class="person-card__era-tag">c. 1443–1538</span>
             </a>
             <a href="person-queen-nzinga.html" class="person-card reveal">
-              <div class="person-card__avatar" aria-hidden="true">N</div>
+              <div class="person-card__avatar"><img src="images/explore-person-queen-nzinga.jpg" alt="Queen Nzinga of Angola" loading="lazy" /></div>
               <div class="person-card__name">Queen Nzinga</div>
               <div class="person-card__role">Queen of Ndongo and Matamba. Resisted Portuguese colonization and the slave trade for three decades.</div>
               <span class="person-card__era-tag">c. 1583–1663</span>
             </a>
             <a href="thread-african-empires.html#mali" class="person-card reveal">
-              <div class="person-card__avatar" aria-hidden="true">S</div>
+              <div class="person-card__avatar"><img src="images/explore-person-sundiata.jpg" alt="Sundiata Keita, founder of Mali Empire" loading="lazy" /></div>
               <div class="person-card__name">Sundiata Keita</div>
               <div class="person-card__role">Founder of the Mali Empire. His constitution, the Manden Charter, is one of the world's earliest human rights declarations.</div>
               <span class="person-card__era-tag">c. 1217–1255</span>
@@ -1036,7 +1096,7 @@
           </div>
           <div class="people-grid">
             <a href="thread-blumenbach.html" class="person-card reveal">
-              <div class="person-card__avatar" aria-hidden="true">B</div>
+              <div class="person-card__avatar"><img src="images/explore-person-blumenbach.jpg" alt="Johann Friedrich Blumenbach" loading="lazy" /></div>
               <div class="person-card__name">Johann Friedrich Blumenbach</div>
               <div class="person-card__role">German physician who invented the word "Caucasian" in 1795 and divided humanity into five ranked races. His taxonomy became the intellectual foundation for slavery, colonialism, eugenics, and the Holocaust.</div>
               <span class="person-card__era-tag">1752–1840</span>
@@ -1049,19 +1109,19 @@
           </div>
           <div class="people-grid">
             <a href="person-john-brown.html" class="person-card reveal">
-              <div class="person-card__avatar" aria-hidden="true">J</div>
+              <div class="person-card__avatar"><img src="images/explore-person-john-brown.jpg" alt="John Brown, abolitionist" loading="lazy" /></div>
               <div class="person-card__name">John Brown</div>
               <div class="person-card__role">White abolitionist who concluded that slavery would not end through moral persuasion. Seized the federal armory at Harpers Ferry in 1859 to arm enslaved people. Hanged for treason. Eighteen months later, the Civil War began.</div>
               <span class="person-card__era-tag">1800–1859</span>
             </a>
             <a href="person-sojourner-truth.html" class="person-card reveal">
-              <div class="person-card__avatar" aria-hidden="true">S</div>
+              <div class="person-card__avatar"><img src="images/explore-person-sojourner-truth.jpg" alt="Sojourner Truth, abolitionist" loading="lazy" /></div>
               <div class="person-card__name">Sojourner Truth</div>
               <div class="person-card__role">Escaped slavery in New York and spent 40 years demanding that the nation reckon with racial bondage and the subjugation of women simultaneously.</div>
               <span class="person-card__era-tag">c. 1797–1883</span>
             </a>
             <a href="person-frederick-douglass.html" class="person-card reveal">
-              <div class="person-card__avatar" aria-hidden="true">F</div>
+              <div class="person-card__avatar"><img src="images/explore-person-douglass.jpg" alt="Frederick Douglass, abolitionist" loading="lazy" /></div>
               <div class="person-card__name">Frederick Douglass</div>
               <div class="person-card__role">Escaped from slavery to become the 19th century's most powerful abolitionist voice, editor of <em>The North Star</em>, and the most photographed American of his era.</div>
               <span class="person-card__era-tag">c. 1818–1895</span>
