@@ -220,21 +220,19 @@
       <span class="intro__wordmark-tag">/ Black history &amp; present-day America</span>
     </a>
     <p class="intro__tagline">Understand the chain, not just the event</p>
-    <a href="/" class="intro__cta">
+    <a href="index.html" class="intro__cta" onclick="sessionStorage.setItem('chain-intro-seen','1')">
       Enter Chain
       <span class="intro__cta-arrow" aria-hidden="true">→</span>
     </a>
-    <a href="/" class="intro__skip">Skip intro</a>
+    <a href="index.html" class="intro__skip" onclick="sessionStorage.setItem('chain-intro-seen','1')">Skip intro</a>
   </div>
 
 </main>
 
 <script>
-  // If user has visited before, skip this page and go straight to homepage
+  // If already seen this session, go straight to homepage
   if (sessionStorage.getItem('chain-intro-seen')) {
-    window.location.replace('/');
-  } else {
-    sessionStorage.setItem('chain-intro-seen', '1');
+    window.location.replace('index.html');
   }
 </script>
 
