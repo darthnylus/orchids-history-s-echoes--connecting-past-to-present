@@ -770,22 +770,73 @@ input, textarea, select { font-family: inherit; }
   align-items: center;
 }
 
+/* ---- Hero background image -------------------------------- */
+.hero__bg-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% 18%;
+  display: block;
+}
+
+@media (max-width: 959px) {
+  .hero__bg-image img {
+    object-position: 60% 15%;
+  }
+  /* On mobile, darken more uniformly since layout is stacked */
+  .hero__bg-image::after {
+    background:
+      linear-gradient(to bottom,
+        rgba(6, 4, 2, 0.88) 0%,
+        rgba(6, 4, 2, 0.70) 40%,
+        rgba(6, 4, 2, 0.82) 100%
+      );
+  }
+}
+
+/* Gradient overlay: left side heavy dark for legibility, right side opens up to reveal the statue */
+.hero__bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,
+      rgba(6, 4, 2, 0.95) 0%,
+      rgba(6, 4, 2, 0.85) 35%,
+      rgba(6, 4, 2, 0.55) 55%,
+      rgba(6, 4, 2, 0.20) 100%
+    ),
+    linear-gradient(to bottom,
+      rgba(6, 4, 2, 0.50) 0%,
+      transparent 20%,
+      transparent 72%,
+      rgba(6, 4, 2, 0.75) 100%
+    );
+}
+
 .hero__texture {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background-image:
-    radial-gradient(ellipse 80% 70% at 65% 35%, rgba(196, 146, 0, .16) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 60% at 15% 75%, rgba(120, 60, 30, .18) 0%, transparent 55%),
-    radial-gradient(ellipse 30% 40% at 85% 80%, rgba(50, 30, 80, .12) 0%, transparent 50%);
+    radial-gradient(ellipse 50% 50% at 25% 55%, rgba(196, 146, 0, .07) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 55% at 10% 80%, rgba(120, 60, 30, .10) 0%, transparent 55%);
   pointer-events: none;
 }
 
 .hero__grid-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
   background-size: 80px 80px;
   pointer-events: none;
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
@@ -793,6 +844,7 @@ input, textarea, select { font-family: inherit; }
 
 .hero__inner {
   position: relative;
+  z-index: 2;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
