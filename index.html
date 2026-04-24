@@ -140,6 +140,34 @@
       pointer-events: none;
     }
 
+    /* ── Wake up overlay ───────────────────────────────── */
+    .intro__wakeup {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .intro__wakeup-text {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      animation: wakeup-fade 3.5s ease forwards;
+    }
+
+    @keyframes wakeup-fade {
+      0%   { opacity: 0; transform: scale(0.95); }
+      25%  { opacity: 1; transform: scale(1); }
+      65%  { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.04); }
+    }
+
     /* ── Enter animation ───────────────────────────────── */
     @keyframes fade-in-up {
       from { opacity: 0; transform: translateY(14px); }
@@ -149,14 +177,14 @@
     .intro__bar > * {
       opacity: 0;
       animation: fade-in-up 0.7s ease forwards;
+      animation-delay: 3.2s;
     }
 
-    .intro__wordmark { animation-delay: 0.3s; }
-    .intro__tagline  { animation-delay: 0.55s; }
-    .intro__cta      { animation-delay: 0.8s; }
-    .intro__skip     { animation-delay: 1.0s; }
-
     @media (prefers-reduced-motion: reduce) {
+      .intro__wakeup-text {
+        animation: none !important;
+        opacity: 0 !important;
+      }
       .intro__bar > *, .intro__img {
         animation: none !important;
         opacity: 1 !important;
@@ -185,6 +213,10 @@
     fetchpriority="high"
   />
 
+
+  <div class="intro__wakeup" aria-hidden="true">
+    <span class="intro__wakeup-text">Wake up</span>
+  </div>
 
   <div class="intro__bar">
     <a href="home.html" class="intro__cta">
