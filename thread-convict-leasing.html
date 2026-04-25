@@ -97,6 +97,8 @@
   <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
   <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">The Civil War ended slavery. The 13th Amendment abolished it — with one exception.<button class="cite-ref" data-cite="13th-amendment">*</button> <strong>"Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States."</strong> Southern states read that exception as an instruction manual. They immediately passed Black Codes criminalizing Black existence — vagrancy, unemployment, "impudence" — then arrested, convicted, and leased the resulting prison population to private industry. <strong>Slavery continued. It just required a court proceeding first.</strong> The transition from convict leasing to the modern prison-industrial complex is not an analogy. It is a direct institutional lineage.</p></div>
 </div></div></div></div>
+<div id="tl-band-mount" aria-label="Thread timeline overview"></div>
+
 <section class="thread-body"><div class="container"><div class="thread-layout">
   <main class="thread-main"><div class="entry-list">
 
@@ -279,6 +281,26 @@
 <footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="footer-wordmark">Chain</div><p class="footer-mission">A nonprofit digital history platform documenting how the past continues to shape the present.</p><div class="footer-actions"><a href="donate.html" class="footer-btn footer-btn--primary">Donate</a><a href="newsletter.html" class="footer-btn footer-btn--outline">Newsletter</a></div></div><nav class="footer-nav-group"><h2 class="footer-nav-heading">Explore</h2><ul class="footer-nav-links"><li><a href="threads.html" class="footer-nav-link">All Threads</a></li><li><a href="explore.html" class="footer-nav-link">Encyclopedia</a></li><li><a href="maps.html" class="footer-nav-link">Maps &amp; Timelines</a></li><li><a href="today.html" class="footer-nav-link">Today in History</a></li></ul></nav><nav class="footer-nav-group"><h2 class="footer-nav-heading">About</h2><ul class="footer-nav-links"><li><a href="about.html" class="footer-nav-link">About Chain</a></li><li><a href="about.html#methodology" class="footer-nav-link">Methodology</a></li><li><a href="contact.html" class="footer-nav-link">Contact</a></li></ul></nav></div><div class="footer-bottom"><p class="footer-legal">© 2026 Chain. Content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="text-decoration:underline;color:inherit">CC BY 4.0</a>.</p></div></div></footer>
 <script src="js/main.js" defer></script>
 <script>
+window.THREAD_TIMELINE_BAND = {
+  range: "1865 – Present",
+  nodes: [
+    { year:"Dec 1865", label:"13th Amendment", note:"Slavery banned — except as punishment for crime", entry:"e1", icon:"⚖", highlight:true },
+    { year:"1865–66", label:"Black Codes passed", note:"Vagrancy laws criminalize Black existence", entry:"e1", icon:"📜" },
+    { year:"1867", label:"Reconstruction Acts", note:"Congress suspends the Black Codes", entry:"e1" },
+    { year:"1877", label:"Reconstruction ends", note:"Federal troops withdrawn; Black Codes revived", entry:"e2", highlight:true },
+    { year:"1877+", label:"Convict leasing expands", note:"Alabama, Georgia, Mississippi coal & rails", entry:"e2" },
+    { year:"1880s–90s", label:"30–40% death rates", note:"Alabama coal mines using leased labor", entry:"e2", icon:"⚰" },
+    { year:"1896", label:"Plessy v. Ferguson", note:"\"Separate but equal\" — Jim Crow enshrined" },
+    { year:"1908", label:"Green Cottenham", note:"Arrested for vagrancy; leased to U.S. Steel; dies at 22", entry:"e3", highlight:true, icon:"⛏" },
+    { year:"1928", label:"Alabama ends leasing", note:"Replaced by chain gangs — same function" },
+    { year:"1942", label:"Federal pressure ends it", note:"WWII made racial forced labor an embarrassment", entry:"e3", icon:"✦" },
+    { year:"1971", label:"War on Drugs begins", note:"Nixon administration — mass criminalization", entry:"e4" },
+    { year:"1994", label:"Crime Bill passed", note:"Mandatory minimums; prison population explodes", entry:"e4" },
+    { year:"2010", label:"The New Jim Crow", note:"Alexander names the unbroken institutional lineage", entry:"e4", icon:"📖", highlight:true },
+    { year:"Present", label:"2.3M incarcerated", note:"38% Black; prison labor still legal under 13th", entry:"e4" }
+  ]
+};
+
 window.THREAD_TIMELINES = {
   "tl-legal-chain": [
     { year:"Dec 1865", event:"13th Amendment ratified", note:"Slavery exception for crime", icon:"⚖", highlight:true },

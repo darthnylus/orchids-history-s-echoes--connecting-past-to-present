@@ -334,6 +334,8 @@
   </div>
 </div>
 
+<div id="tl-band-mount" aria-label="Thread timeline overview"></div>
+
 <main id="main-content">
   <div class="thread-body">
     <div class="container">
@@ -850,6 +852,26 @@
     else if (state==='playing') { listenIcon.innerHTML=PAUSE_ICON; listenLabel.textContent='Pause'; progressBar.classList.add('is-visible'); }
     else if (state==='paused') { listenIcon.innerHTML=PLAY_ICON; listenLabel.textContent='Resume'; }
   }
+  /* ── THREAD TIMELINE BAND DATA ── */
+  window.THREAD_TIMELINE_BAND = {
+    range: "1829 – 1865",
+    nodes: [
+      { year:"1829", label:"David Walker's Appeal", note:"First direct call to resistance", entry:"entry-walker", icon:"📜", highlight:true },
+      { year:"1831", label:"The Liberator founded", note:"Garrison's 35-year press network", entry:"entry-garrison", icon:"📰" },
+      { year:"1843", label:"Garnet's Address", note:"\"Rather die freemen than live as slaves\"", entry:"entry-garnet", icon:"🎙" },
+      { year:"1845", label:"Douglass's Narrative", note:"30,000 copies; slaveholders furious", entry:"entry-douglass", icon:"📖", highlight:true },
+      { year:"1849", label:"Tubman escapes", note:"Then returns — 13 times", entry:"entry-tubman", icon:"🌙" },
+      { year:"1851", label:"\"Ain't I a Woman?\"", note:"Sojourner Truth, Akron convention", entry:"entry-truth" },
+      { year:"1852", label:"\"What to the Slave…\"", note:"Douglass's 4th of July speech", entry:"entry-douglass" },
+      { year:"1857", label:"Dred Scott decision", note:"Supreme Court: Black people not citizens", entry:"entry-dredscott", highlight:true },
+      { year:"Oct 1859", label:"Harpers Ferry raid", note:"Brown captured; executed in 45 days", entry:"entry-brownharpery", icon:"⚔" },
+      { year:"Nov 1860", label:"Lincoln elected", note:"South secedes within months" },
+      { year:"Apr 1861", label:"Civil War begins", note:"620,000 will die" },
+      { year:"Jun 1863", label:"Combahee River Raid", note:"Tubman leads; 700 freed in one night", entry:"entry-tubman", icon:"⚓" },
+      { year:"Dec 1865", label:"13th Amendment", note:"Slavery abolished — 36 years after Walker", icon:"✦", highlight:true }
+    ]
+  };
+
   /* ── THREAD TIMELINES DATA ── */
   window.THREAD_TIMELINES = {
     "timeline-walker": [

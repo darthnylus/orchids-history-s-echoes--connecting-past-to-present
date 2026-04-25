@@ -286,6 +286,260 @@
 }
 
 /* ============================================================
+   THREAD TIMELINE BAND
+   Full-width horizontal scrollable overview timeline.
+   Sits between the argument bar and the main entry list.
+   Data source: window.THREAD_TIMELINE_BAND = { range, nodes[] }
+   ============================================================ */
+
+.tl-band {
+  background: var(--ink-900);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  position: relative;
+}
+[data-theme="light"] .tl-band {
+  background: #141414;
+}
+
+.tl-band__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6) 0;
+  max-width: 1280px;
+  margin: 0 auto;
+  gap: var(--space-4);
+}
+.tl-band__title {
+  font-size: 0.65rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--ink-500);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.tl-band__title-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--acc, #fbbf24);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.tl-band__range {
+  font-size: 0.65rem;
+  font-weight: var(--weight-semibold);
+  color: var(--ink-600);
+  letter-spacing: 0.04em;
+}
+
+.tl-band__scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  cursor: grab;
+}
+.tl-band__scroll:active { cursor: grabbing; }
+.tl-band__scroll::-webkit-scrollbar { display: none; }
+
+.tl-band__track {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  position: relative;
+  min-width: max-content;
+  padding-bottom: 32px;
+}
+.tl-band__track::after {
+  content: '';
+  position: absolute;
+  bottom: 14px;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(255,255,255,.08) 4%,
+    rgba(255,255,255,.12) 50%,
+    rgba(255,255,255,.08) 96%,
+    transparent 100%
+  );
+  z-index: 0;
+}
+
+.tl-band__progress-line {
+  position: absolute;
+  bottom: 14px;
+  left: 24px;
+  height: 2px;
+  background: linear-gradient(to right, var(--acc, #fbbf24), rgba(251,191,36,.3));
+  width: 0%;
+  z-index: 1;
+  transition: width 0.4s ease;
+  border-radius: 1px;
+}
+
+.tl-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  padding-bottom: 32px;
+}
+.tl-node:first-child { padding-left: 24px; }
+.tl-node:last-child  { padding-right: 24px; }
+
+.tl-node__card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 8px;
+  padding: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-3);
+  width: 116px;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  position: relative;
+}
+.tl-node:hover .tl-node__card,
+.tl-node.is-active .tl-node__card {
+  background: rgba(var(--acc-rgb, 251,191,36), 0.1);
+  border-color: rgba(var(--acc-rgb, 251,191,36), 0.25);
+  transform: translateY(-2px);
+}
+.tl-node__card-label {
+  font-size: 0.68rem;
+  font-weight: var(--weight-semibold);
+  color: var(--ink-300);
+  line-height: 1.35;
+  transition: color 0.15s;
+}
+.tl-node:hover .tl-node__card-label,
+.tl-node.is-active .tl-node__card-label {
+  color: #fff;
+}
+.tl-node__card-note {
+  font-size: 0.6rem;
+  color: var(--ink-500);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.tl-node.is-active .tl-node__card-note {
+  color: rgba(var(--acc-rgb, 251,191,36), 0.7);
+}
+
+.tl-node__stem {
+  width: 1px;
+  height: 12px;
+  background: rgba(255,255,255,.12);
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.tl-node.is-active .tl-node__stem {
+  background: rgba(var(--acc-rgb, 251,191,36), 0.5);
+}
+
+.tl-node__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.2);
+  background: var(--ink-900);
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: border-color 0.15s, background 0.15s, width 0.15s, height 0.15s, bottom 0.15s;
+}
+[data-theme="light"] .tl-node__dot { background: #141414; }
+.tl-node:hover .tl-node__dot {
+  border-color: rgba(var(--acc-rgb, 251,191,36), 0.5);
+  width: 14px; height: 14px; bottom: 8px;
+}
+.tl-node.is-active .tl-node__dot {
+  border-color: var(--acc, #fbbf24);
+  background: var(--acc, #fbbf24);
+  width: 16px; height: 16px; bottom: 7px;
+  box-shadow: 0 0 0 4px rgba(var(--acc-rgb, 251,191,36), 0.2);
+}
+
+.tl-node__year {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.58rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.04em;
+  color: var(--ink-600);
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+.tl-node:hover .tl-node__year,
+.tl-node.is-active .tl-node__year {
+  color: rgba(var(--acc-rgb, 251,191,36), 0.8);
+}
+
+.tl-node__icon {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  font-size: 0.72rem;
+  line-height: 1;
+  background: rgba(var(--acc-rgb, 251,191,36), 0.15);
+  border: 1px solid rgba(var(--acc-rgb, 251,191,36), 0.2);
+  border-radius: 4px;
+  padding: 1px 3px;
+}
+
+.tl-band__fade-left,
+.tl-band__fade-right {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 48px;
+  pointer-events: none;
+  z-index: 4;
+}
+.tl-band__fade-left  { left: 0;  background: linear-gradient(to right, var(--ink-900), transparent); }
+.tl-band__fade-right { right: 0; background: linear-gradient(to left,  var(--ink-900), transparent); }
+[data-theme="light"] .tl-band__fade-left  { background: linear-gradient(to right, #141414, transparent); }
+[data-theme="light"] .tl-band__fade-right { background: linear-gradient(to left,  #141414, transparent); }
+
+.tl-band__hint {
+  position: absolute;
+  right: var(--space-5);
+  bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.6rem;
+  color: var(--ink-600);
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.tl-band__hint svg { opacity: 0.6; }
+.tl-band__hint.is-hidden { opacity: 0; }
+
+.tl-node:focus-visible .tl-node__card {
+  outline: 2px solid var(--acc, #fbbf24);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .tl-node { width: 110px; }
+  .tl-node__card { width: 88px; }
+  .tl-band__header { padding: var(--space-3) var(--space-4) 0; }
+  .tl-band__scroll { padding: var(--space-4) var(--space-4) var(--space-5); }
+}
+
+/* ============================================================
    ENTRY TIMELINE EMBED
    Horizontal scrollable milestone timeline inside a thread entry.
    Usage: <div class="entry-timeline" data-timeline-id="KEY"></div>

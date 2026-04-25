@@ -685,6 +685,131 @@ function initTimelines() {
 initTimelines();
 
 /* =========================================================
+   THREAD TIMELINE BAND
+   Full-width overview timeline between the argument bar and
+   main content. Renders from window.THREAD_TIMELINE_BAND.
+   HTML: <div id="tl-band-mount"></div>
+   Data: { range: "1829–1865", nodes: [{ year, label, note?,
+           entry?, icon?, highlight? }] }
+   ========================================================= */
+function initThreadTimelineBand() {
+  const mount = document.getElementById('tl-band-mount');
+  const data  = window.THREAD_TIMELINE_BAND;
+  if (!mount || !data || !data.nodes || !data.nodes.length) return;
+
+  mount.className = 'tl-band';
+  mount.innerHTML = `
+    <div class="tl-band__header">
+      <span class="tl-band__title">
+        <span class="tl-band__title-dot" aria-hidden="true"></span>
+        Thread timeline
+      </span>
+      <span class="tl-band__range">${data.range || ''}</span>
+    </div>
+    <div class="tl-band__scroll" id="tlBandScroll" role="region" aria-label="Thread overview timeline">
+      <div class="tl-band__track" id="tlBandTrack">
+        <div class="tl-band__progress-line" id="tlProgressLine"></div>
+      </div>
+    </div>
+    <div class="tl-band__fade-left"  aria-hidden="true"></div>
+    <div class="tl-band__fade-right" aria-hidden="true"></div>
+    <div class="tl-band__hint" id="tlScrollHint" aria-hidden="true">
+      Scroll
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </div>`;
+
+  const track    = document.getElementById('tlBandTrack');
+  const scrollEl = document.getElementById('tlBandScroll');
+  const progLine = document.getElementById('tlProgressLine');
+  const hint     = document.getElementById('tlScrollHint');
+  const nodeEls  = [];
+
+  data.nodes.forEach((n, i) => {
+    const el = document.createElement('div');
+    el.className = 'tl-node';
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', `${n.year}: ${n.label}${n.entry ? ' — click to jump to entry' : ''}`);
+    if (n.entry) el.dataset.entry = n.entry;
+
+    el.innerHTML = `
+      <div class="tl-node__card">
+        ${n.icon ? `<span class="tl-node__icon" aria-hidden="true">${n.icon}</span>` : ''}
+        <div class="tl-node__card-label">${n.label}</div>
+        ${n.note ? `<div class="tl-node__card-note">${n.note}</div>` : ''}
+      </div>
+      <div class="tl-node__stem" aria-hidden="true"></div>
+      <div class="tl-node__dot"  aria-hidden="true"></div>
+      <div class="tl-node__year">${n.year}</div>`;
+
+    el.addEventListener('click', () => {
+      setActive(i);
+      if (n.entry) {
+        const target = document.getElementById(n.entry);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+    });
+
+    track.appendChild(el);
+    nodeEls.push(el);
+  });
+
+  function setActive(idx) {
+    nodeEls.forEach((el, i) => el.classList.toggle('is-active', i === idx));
+    // Advance progress line to active node center
+    const el = nodeEls[idx];
+    if (el) {
+      const nodeCenter = el.offsetLeft + el.offsetWidth / 2;
+      const pct = (nodeCenter / track.scrollWidth) * 100;
+      progLine.style.width = Math.max(0, Math.min(100, pct)) + '%';
+      // Auto-scroll timeline to keep active visible
+      const visLeft  = scrollEl.scrollLeft;
+      const visRight = visLeft + scrollEl.offsetWidth;
+      if (el.offsetLeft < visLeft + 60 || el.offsetLeft + el.offsetWidth > visRight - 60) {
+        scrollEl.scrollTo({ left: el.offsetLeft - scrollEl.offsetWidth / 2 + el.offsetWidth / 2, behavior: 'smooth' });
+      }
+    }
+  }
+
+  // Bidirectional link: reading entries activates timeline nodes
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const idx = data.nodes.findIndex(n => n.entry === entry.target.id);
+        if (idx !== -1) setActive(idx);
+      });
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+    data.nodes.forEach(n => {
+      if (n.entry) { const el = document.getElementById(n.entry); if (el) obs.observe(el); }
+    });
+  }
+
+  setActive(0);
+
+  // Hide scroll hint after first user scroll
+  scrollEl.addEventListener('scroll', () => hint.classList.add('is-hidden'), { once: true });
+
+  // Drag-to-scroll (desktop)
+  let drag = false, dragX = 0, dragLeft = 0;
+  scrollEl.addEventListener('mousedown', e => { drag = true; dragX = e.pageX - scrollEl.offsetLeft; dragLeft = scrollEl.scrollLeft; scrollEl.style.cursor = 'grabbing'; });
+  document.addEventListener('mouseup', () => { drag = false; scrollEl.style.cursor = 'grab'; });
+  scrollEl.addEventListener('mousemove', e => {
+    if (!drag) return;
+    e.preventDefault();
+    scrollEl.scrollLeft = dragLeft - (e.pageX - scrollEl.offsetLeft - dragX) * 1.2;
+  });
+}
+
+initThreadTimelineBand();
+
+/* =========================================================
    CONSOLE EASTER EGG
    ========================================================= */
 console.log(
