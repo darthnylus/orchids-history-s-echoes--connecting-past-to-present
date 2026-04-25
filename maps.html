@@ -649,6 +649,238 @@
     /* Override Leaflet popup for dark theme */
     .leaflet-popup-content-wrapper { border-radius: 8px !important; }
     .leaflet-container { font-family: inherit !important; background: #1a1f2e !important; }
+
+    /* ══ STORYMAP COMPONENT ══════════════════════════════════ */
+    .storymap-panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: var(--space-8);
+    }
+    .storymap-panel__header {
+      padding: var(--space-6) var(--space-7);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .storymap-panel__kicker {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-500);
+      margin-bottom: var(--space-2);
+    }
+    .storymap-panel__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-1);
+    }
+    .storymap-panel__subtitle {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      max-width: 640px;
+    }
+    .storymap-panel__era {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      background: var(--color-accent-light);
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-pill);
+      align-self: flex-start;
+      flex-shrink: 0;
+    }
+
+    /* Two-column storymap body */
+    .storymap-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 480px;
+    }
+    @media (min-width: 900px) {
+      .storymap-body { grid-template-columns: 380px 1fr; }
+    }
+
+    /* Left: scroll column */
+    .storymap-scroll {
+      overflow-y: auto;
+      max-height: 520px;
+      border-right: 1px solid var(--color-border);
+      scroll-behavior: smooth;
+    }
+    @media (max-width: 899px) {
+      .storymap-scroll { max-height: 280px; border-right: none; border-bottom: 1px solid var(--color-border); }
+    }
+    .storymap-chapter {
+      padding: var(--space-6) var(--space-7);
+      border-bottom: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .storymap-chapter:last-child { border-bottom: none; }
+    .storymap-chapter:hover { background: var(--color-surface-alt); }
+    .storymap-chapter.is-active {
+      background: var(--color-surface-alt);
+    }
+    .storymap-chapter.is-active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--amber-500);
+      border-radius: 0 2px 2px 0;
+    }
+    .storymap-chapter__num {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-1);
+    }
+    .storymap-chapter.is-active .storymap-chapter__num {
+      color: var(--amber-500);
+    }
+    .storymap-chapter__city {
+      font-family: var(--font-editorial);
+      font-size: 1.1rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.25;
+      margin-bottom: var(--space-1);
+    }
+    .storymap-chapter__year {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      color: var(--amber-500);
+      margin-bottom: var(--space-3);
+    }
+    .storymap-chapter__body {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+    .storymap-chapter__stat {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-bg);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--amber-400);
+    }
+    .storymap-chapter__stat-num {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--amber-500);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .storymap-chapter__stat-label {
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.4;
+    }
+    .storymap-chapter__thread {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-accent-dark);
+      margin-top: var(--space-3);
+      text-decoration: none;
+    }
+    .storymap-chapter__thread:hover { text-decoration: underline; }
+
+    /* Right: sticky map panel */
+    .storymap-map {
+      position: sticky;
+      top: 0;
+      height: 520px;
+      background: #0f1a2e;
+      overflow: hidden;
+    }
+    @media (max-width: 899px) {
+      .storymap-map { position: relative; height: 320px; }
+    }
+    .storymap-map__svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Animated migration path on SVG */
+    .migration-path {
+      fill: none;
+      stroke: var(--amber-400);
+      stroke-width: 2.5;
+      stroke-dasharray: 8 4;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .migration-path.is-active {
+      opacity: 1;
+      stroke-width: 3;
+    }
+    .migration-path.is-dim { opacity: 0.15; }
+
+    .storymap-city-dot {
+      transition: r 0.25s, opacity 0.25s;
+    }
+    .storymap-city-dot.is-active {
+      filter: drop-shadow(0 0 8px rgba(245,158,11,.8));
+    }
+
+    .storymap-callout {
+      transition: opacity 0.25s;
+    }
+    .storymap-callout.is-hidden { opacity: 0; pointer-events: none; }
+
+    /* Progress dots */
+    .storymap-progress {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-7);
+      border-top: 1px solid var(--color-border);
+    }
+    .storymap-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .storymap-dot.is-active {
+      background: var(--amber-500);
+      transform: scale(1.3);
+    }
+    .storymap-dot:hover { background: var(--amber-300); }
+
+    /* Dark mode */
+    [data-theme="dark"] .storymap-panel { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .storymap-scroll { border-color: var(--ink-700); }
+    [data-theme="dark"] .storymap-chapter:hover,
+    [data-theme="dark"] .storymap-chapter.is-active { background: var(--ink-700); }
+    [data-theme="dark"] .storymap-chapter__stat { background: var(--ink-900); }
+    [data-theme="dark"] .storymap-panel__header,
+    [data-theme="dark"] .storymap-progress { border-color: var(--ink-700); }
+    [data-theme="dark"] .storymap-dot { background: var(--ink-600); }
+    [data-theme="dark"] .storymap-body { border-color: var(--ink-700); }
   </style>
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -2181,6 +2413,247 @@
 
         </div>
       </div>
+      <!-- ══ STORYMAP: THE GREAT MIGRATION ════════════════════ -->
+      <div class="storymap-panel reveal" id="storymap-migration" data-era="jim-crow">
+        <div class="storymap-panel__header">
+          <div>
+            <p class="storymap-panel__kicker">Story Map · Interactive</p>
+            <h2 class="storymap-panel__title">The Great Migration — 6 Million People, 6 Cities</h2>
+            <p class="storymap-panel__subtitle">Between 1910 and 1970, six million Black Americans left the South. They didn't flee randomly — they followed specific routes to specific cities, driven by specific recruiters, newspapers, and networks. Scroll through each destination to follow the chain.</p>
+          </div>
+          <span class="storymap-panel__era">1910–1970</span>
+        </div>
+
+        <div class="storymap-body">
+          <!-- LEFT: scroll chapters -->
+          <div class="storymap-scroll" id="storymapScroll" role="list">
+
+            <!-- Chapter 0: The Cause -->
+            <div class="storymap-chapter is-active" data-chapter="0" role="listitem" tabindex="0" aria-label="Chapter 1: The Cause">
+              <div class="storymap-chapter__num">Chapter 01</div>
+              <h3 class="storymap-chapter__city">The South — Why They Left</h3>
+              <div class="storymap-chapter__year">1877–1915</div>
+              <p class="storymap-chapter__body">After Reconstruction ended in 1877, Southern states systematically destroyed Black political power. By 1900 the infrastructure was complete: Black Codes replaced by vagrancy laws, convict leasing replacing slavery, lynching replacing formal enforcement. <strong>Between 1877 and 1950, 4,084 lynchings were documented in the South.</strong> The boll weevil destroyed cotton crops starting in 1915. World War I created labor shortages in Northern industry. The Defender and the NAACP began recruitment. The conditions for the largest domestic migration in American history were set.</p>
+              <div class="storymap-chapter__stat">
+                <span class="storymap-chapter__stat-num">4,084</span>
+                <span class="storymap-chapter__stat-label">documented lynchings in the South, 1877–1950 — the primary terror that made leaving feel necessary</span>
+              </div>
+              <a href="thread-great-migration.html" class="storymap-chapter__thread">Read the Great Migration thread →</a>
+            </div>
+
+            <!-- Chapter 1: Chicago -->
+            <div class="storymap-chapter" data-chapter="1" role="listitem" tabindex="0" aria-label="Chapter 2: Chicago">
+              <div class="storymap-chapter__num">Chapter 02</div>
+              <h3 class="storymap-chapter__city">Chicago, Illinois</h3>
+              <div class="storymap-chapter__year">1910–1940 · First Wave</div>
+              <p class="storymap-chapter__body">The Illinois Central Railroad ran direct from Mississippi and Louisiana to Chicago. The <em>Chicago Defender</em> — the most widely read Black newspaper in America — was passed hand-to-hand across the South and explicitly encouraged migration. Robert Abbott's paper printed train schedules alongside stories of Chicago wages. <strong>Chicago's Black population grew from 44,000 (1910) to 278,000 (1940).</strong> The South Side's Black Belt became Bronzeville — a city within a city, generating the Chicago Blues, the policy wheel, and the Democratic machine bloc that would reshape national politics.</p>
+              <div class="storymap-chapter__stat">
+                <span class="storymap-chapter__stat-num">534%</span>
+                <span class="storymap-chapter__stat-label">growth in Chicago's Black population, 1910–1940 — largely driven by Mississippi and Louisiana migrants</span>
+              </div>
+            </div>
+
+            <!-- Chapter 2: Detroit -->
+            <div class="storymap-chapter" data-chapter="2" role="listitem" tabindex="0" aria-label="Chapter 3: Detroit">
+              <div class="storymap-chapter__num">Chapter 03</div>
+              <h3 class="storymap-chapter__city">Detroit, Michigan</h3>
+              <div class="storymap-chapter__year">1915–1945 · Ford's $5 Day</div>
+              <p class="storymap-chapter__body">Henry Ford's $5-a-day wage in 1914 was double the national average and explicitly available to Black workers — a radical policy for its era, driven partly by the labor shortage of WWI. Ford had a specific labor pipeline: recruiters working through Black churches in Alabama and Georgia. <strong>Detroit's Black population grew from 5,700 (1910) to 300,000 (1950).</strong> What Ford gave with one hand, the city took with the other: restrictive covenants confined Black residents to Paradise Valley and the near east side, creating the conditions for the 1943 race riot and ultimately the 1967 uprising.</p>
+              <div class="storymap-chapter__stat">
+                <span class="storymap-chapter__stat-num">5,163%</span>
+                <span class="storymap-chapter__stat-label">growth in Detroit's Black population, 1910–1950 — the highest rate of any major northern city</span>
+              </div>
+            </div>
+
+            <!-- Chapter 3: New York / Harlem -->
+            <div class="storymap-chapter" data-chapter="3" role="listitem" tabindex="0" aria-label="Chapter 4: New York">
+              <div class="storymap-chapter__num">Chapter 04</div>
+              <h3 class="storymap-chapter__city">New York City — Harlem</h3>
+              <div class="storymap-chapter__year">1905–1930 · The Renaissance</div>
+              <p class="storymap-chapter__body">Harlem's transformation into a Black neighborhood began before the Great Migration — real estate speculators overbuilt, prices collapsed, and Black realtor Philip Payton convinced white landlords to rent to Black tenants who would pay premium rents. By the time the Migration accelerated, Harlem was ready. <strong>New York's Black population grew from 91,000 (1910) to 458,000 (1940).</strong> The concentration of talent, capital, and institutions produced the Harlem Renaissance — Langston Hughes, Zora Neale Hurston, Duke Ellington, Marcus Garvey's UNIA. The intellectual and cultural infrastructure that would sustain the civil rights movement for fifty years was built in Harlem between 1920 and 1935.</p>
+              <div class="storymap-chapter__stat">
+                <span class="storymap-chapter__stat-num">403%</span>
+                <span class="storymap-chapter__stat-label">growth in New York's Black population, 1910–1940 — Harlem became the capital of the African diaspora</span>
+              </div>
+            </div>
+
+            <!-- Chapter 4: Los Angeles -->
+            <div class="storymap-chapter" data-chapter="4" role="listitem" tabindex="0" aria-label="Chapter 5: Los Angeles">
+              <div class="storymap-chapter__num">Chapter 05</div>
+              <h3 class="storymap-chapter__city">Los Angeles, California</h3>
+              <div class="storymap-chapter__year">1940–1965 · Second Wave</div>
+              <p class="storymap-chapter__body">The Second Wave (1940–1970) was driven by WWII defense industry jobs. Los Angeles' Black population grew explosively — but the city used restrictive covenants, redlining, and highway construction to confine Black residents to South Central. <strong>LA's Black population grew from 63,000 (1940) to 464,000 (1970).</strong> The Watts neighborhood — which had been majority white in 1940 — was majority Black by 1960 after white residents used racially restrictive covenants to exclude Black buyers everywhere else in the city. Watts burned in 1965. The McCone Commission that investigated the uprising described "the dull, devastating spiral of failure" — and recommended nothing that changed the structural conditions.</p>
+              <div class="storymap-chapter__stat">
+                <span class="storymap-chapter__stat-num">636%</span>
+                <span class="storymap-chapter__stat-label">growth in LA's Black population, 1940–1970 — driven by defense industry jobs that white workers later reclaimed</span>
+              </div>
+            </div>
+
+            <!-- Chapter 5: Philadelphia -->
+            <div class="storymap-chapter" data-chapter="5" role="listitem" tabindex="0" aria-label="Chapter 6: Philadelphia">
+              <div class="storymap-chapter__num">Chapter 06</div>
+              <h3 class="storymap-chapter__city">Philadelphia, Pennsylvania</h3>
+              <div class="storymap-chapter__year">1916–1960 · The Fourth Ward</div>
+              <p class="storymap-chapter__body">Philadelphia already had a significant free Black community before the Migration — it was the headquarters of the AME Church, W.E.B. Du Bois' research site for <em>The Philadelphia Negro</em> (1899), and home to the oldest Black newspaper, <em>Freedom's Journal</em>. The Migration transformed it. <strong>Philadelphia's Black population grew from 84,000 (1910) to 529,000 (1970).</strong> The concentrated poverty in North Philadelphia — created by redlining, deindustrialization, and targeted policing — produced both the MOVE organization and the city government that dropped a bomb on it in 1985. The 1985 MOVE bombing is the only instance of a U.S. government dropping an incendiary device on a civilian neighborhood in peacetime.</p>
+              <div class="storymap-chapter__stat">
+                <span class="storymap-chapter__stat-num">530%</span>
+                <span class="storymap-chapter__stat-label">growth in Philadelphia's Black population, 1910–1970 — one of the highest concentrations of poverty created through redlining</span>
+              </div>
+            </div>
+
+            <!-- Chapter 6: The Present -->
+            <div class="storymap-chapter" data-chapter="6" role="listitem" tabindex="0" aria-label="Chapter 7: The Present">
+              <div class="storymap-chapter__num">Chapter 07</div>
+              <h3 class="storymap-chapter__city">The Return — The New South Migration</h3>
+              <div class="storymap-chapter__year">2000–Present</div>
+              <p class="storymap-chapter__body">Since 2000, demographers have documented a reversal: Black Americans are leaving Northern cities and returning to the South — Atlanta, Houston, Charlotte, Raleigh. The drivers are the same as in 1915, inverted: Southern cities now offer cheaper housing, growing economies, and Black political infrastructure built by the original Great Migration generation. <strong>Between 2000 and 2010, the Black population of Atlanta grew by 40%; Chicago's fell.</strong> The neighborhoods that the Great Migration built — Bronzeville, Harlem, South Central, North Philadelphia — are now undergoing gentrification that is displacing the descendants of the migrants who built them. The chain continues.</p>
+              <div class="storymap-chapter__stat">
+                <span class="storymap-chapter__stat-num">+40%</span>
+                <span class="storymap-chapter__stat-label">Black population growth in Atlanta metro, 2000–2010 — while Chicago's Black population declined for the first time since 1910</span>
+              </div>
+              <a href="thread-great-migration.html" class="storymap-chapter__thread">Read the Great Migration thread →</a>
+            </div>
+
+          </div><!-- /storymap-scroll -->
+
+          <!-- RIGHT: sticky SVG map -->
+          <div class="storymap-map" aria-hidden="true">
+            <svg class="storymap-map__svg" id="storymapSVG" viewBox="0 0 560 520" preserveAspectRatio="xMidYMid meet">
+              <!-- Ocean background -->
+              <rect width="560" height="520" fill="#0d1520"/>
+              <!-- Grid -->
+              <line x1="0" y1="260" x2="560" y2="260" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+              <line x1="280" y1="0" x2="280" y2="520" stroke="rgba(255,255,255,.03)" stroke-width="1"/>
+
+              <!-- CONUS outline (simplified) -->
+              <path id="sm-conus" fill="rgba(255,255,255,.09)" stroke="rgba(255,255,255,.22)" stroke-width="1.5"
+                d="M58,68 L168,62 L198,76 L225,70 L255,78 L278,73 L288,85 L284,118 L270,148 L252,170 L234,188 L210,200 L185,210 L158,215 L128,212 L105,200 L82,183 L65,160 L52,135 L50,105 Z"/>
+              <!-- Florida peninsula -->
+              <path fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)" stroke-width="1"
+                d="M185,210 L195,218 L198,235 L192,252 L182,255 L174,242 L173,222 Z"/>
+              <!-- West Coast / California -->
+              <path fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.15)" stroke-width="1"
+                d="M46,70 L58,68 L52,105 L50,135 L52,150 L45,168 L38,170 L32,155 L35,120 L40,85 Z"/>
+
+              <!-- SOUTH region highlight (initial active) -->
+              <ellipse id="sm-south-glow" cx="200" cy="185" rx="65" ry="42"
+                fill="rgba(239,68,68,.18)" stroke="rgba(239,68,68,.35)" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="200" y="190" text-anchor="middle" font-size="8" fill="rgba(239,68,68,.7)" font-family="Inter,sans-serif" letter-spacing="0.12em">THE SOUTH</text>
+              <text x="200" y="201" text-anchor="middle" font-size="7" fill="rgba(239,68,68,.5)" font-family="Inter,sans-serif">1877–1915</text>
+
+              <!-- MIGRATION ROUTES (dashed arrows north) -->
+              <!-- Mississippi → Chicago (Illinois Central Railroad) -->
+              <path id="route-chicago" class="migration-path is-active"
+                d="M195,185 C200,165 205,145 215,125 C222,110 230,95 240,82 C248,72 258,66 270,64"/>
+
+              <!-- Alabama/Georgia → Detroit -->
+              <path id="route-detroit" class="migration-path is-dim"
+                d="M205,185 C212,168 220,148 232,130 C244,112 258,96 270,84 C278,76 284,72 288,68"/>
+
+              <!-- Carolinas/Virginia → New York -->
+              <path id="route-nyc" class="migration-path is-dim"
+                d="M228,172 C238,155 250,138 262,122 C272,108 282,96 294,84 C302,74 308,66 316,62"/>
+
+              <!-- Texas/Oklahoma → Los Angeles -->
+              <path id="route-la" class="migration-path is-dim"
+                d="M155,195 C148,185 140,170 130,155 C120,140 108,128 95,115 C83,104 70,95 58,88"/>
+
+              <!-- Carolinas → Philadelphia -->
+              <path id="route-philly" class="migration-path is-dim"
+                d="M225,175 C232,160 242,145 255,130 C265,118 278,108 292,98 C302,90 308,80 315,72"/>
+
+              <!-- DESTINATION CITY DOTS -->
+              <!-- Chicago -->
+              <g id="dot-chicago" class="storymap-city-dot" opacity="0.5">
+                <circle cx="270" cy="64" r="9" fill="rgba(245,158,11,.2)" stroke="rgba(245,158,11,.5)" stroke-width="1.5"/>
+                <circle cx="270" cy="64" r="5" fill="#f59e0b"/>
+                <text x="270" y="50" text-anchor="middle" font-size="8" fill="rgba(245,158,11,.8)" font-family="Inter,sans-serif" font-weight="700">CHICAGO</text>
+              </g>
+
+              <!-- Detroit -->
+              <g id="dot-detroit" class="storymap-city-dot" opacity="0.5">
+                <circle cx="290" cy="68" r="9" fill="rgba(245,158,11,.2)" stroke="rgba(245,158,11,.5)" stroke-width="1.5"/>
+                <circle cx="290" cy="68" r="5" fill="#f59e0b"/>
+                <text x="290" y="54" text-anchor="middle" font-size="8" fill="rgba(245,158,11,.8)" font-family="Inter,sans-serif" font-weight="700">DETROIT</text>
+              </g>
+
+              <!-- New York City -->
+              <g id="dot-nyc" class="storymap-city-dot" opacity="0.5">
+                <circle cx="320" cy="62" r="9" fill="rgba(245,158,11,.2)" stroke="rgba(245,158,11,.5)" stroke-width="1.5"/>
+                <circle cx="320" cy="62" r="5" fill="#f59e0b"/>
+                <text x="336" y="58" text-anchor="start" font-size="8" fill="rgba(245,158,11,.8)" font-family="Inter,sans-serif" font-weight="700">NEW YORK</text>
+              </g>
+
+              <!-- Los Angeles -->
+              <g id="dot-la" class="storymap-city-dot" opacity="0.5">
+                <circle cx="57" cy="88" r="9" fill="rgba(245,158,11,.2)" stroke="rgba(245,158,11,.5)" stroke-width="1.5"/>
+                <circle cx="57" cy="88" r="5" fill="#f59e0b"/>
+                <text x="43" y="78" text-anchor="middle" font-size="8" fill="rgba(245,158,11,.8)" font-family="Inter,sans-serif" font-weight="700">LOS ANGELES</text>
+              </g>
+
+              <!-- Philadelphia -->
+              <g id="dot-philly" class="storymap-city-dot" opacity="0.5">
+                <circle cx="315" cy="72" r="9" fill="rgba(245,158,11,.2)" stroke="rgba(245,158,11,.5)" stroke-width="1.5"/>
+                <circle cx="315" cy="72" r="5" fill="#f59e0b"/>
+                <text x="330" y="68" text-anchor="start" font-size="8" fill="rgba(245,158,11,.8)" font-family="Inter,sans-serif" font-weight="700">PHILADELPHIA</text>
+              </g>
+
+              <!-- Atlanta (return migration) -->
+              <g id="dot-atlanta" class="storymap-city-dot" opacity="0.35">
+                <circle cx="228" cy="168" r="9" fill="rgba(96,165,250,.15)" stroke="rgba(96,165,250,.4)" stroke-width="1.5"/>
+                <circle cx="228" cy="168" r="5" fill="#60a5fa"/>
+                <text x="240" y="164" text-anchor="start" font-size="8" fill="rgba(96,165,250,.8)" font-family="Inter,sans-serif" font-weight="700">ATLANTA</text>
+              </g>
+
+              <!-- SOUTH DEPARTURE points -->
+              <circle cx="200" cy="182" r="5" fill="#ef4444" opacity="0.85"/>
+              <text x="200" y="170" text-anchor="middle" font-size="7" fill="rgba(239,68,68,.7)" font-family="Inter,sans-serif">Mississippi</text>
+              <circle cx="215" cy="178" r="4" fill="#ef4444" opacity="0.7"/>
+              <text x="215" y="166" text-anchor="middle" font-size="7" fill="rgba(239,68,68,.6)" font-family="Inter,sans-serif">Alabama</text>
+              <circle cx="228" cy="175" r="4" fill="#ef4444" opacity="0.7"/>
+              <circle cx="175" cy="190" r="4" fill="#ef4444" opacity="0.65"/>
+              <text x="165" y="180" text-anchor="middle" font-size="7" fill="rgba(239,68,68,.6)" font-family="Inter,sans-serif">Louisiana</text>
+              <circle cx="155" cy="193" r="4" fill="#ef4444" opacity="0.6"/>
+
+              <!-- LEGEND -->
+              <rect x="10" y="240" width="200" height="95" rx="5" fill="rgba(0,0,0,.75)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+              <text x="20" y="258" font-size="8" fill="rgba(255,255,255,.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.1em">GREAT MIGRATION · 1910–1970</text>
+              <circle cx="25" cy="272" r="4" fill="#f59e0b"/>
+              <text x="35" y="275" font-size="8" fill="rgba(255,255,255,.65)" font-family="Inter,sans-serif">Northern destination cities</text>
+              <circle cx="25" cy="288" r="4" fill="#ef4444"/>
+              <text x="35" y="291" font-size="8" fill="rgba(255,255,255,.65)" font-family="Inter,sans-serif">Southern departure areas</text>
+              <line x1="18" y1="302" x2="32" y2="302" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,2"/>
+              <text x="35" y="305" font-size="8" fill="rgba(255,255,255,.65)" font-family="Inter,sans-serif">Migration route</text>
+              <circle cx="25" cy="318" r="4" fill="#60a5fa"/>
+              <text x="35" y="321" font-size="8" fill="rgba(255,255,255,.65)" font-family="Inter,sans-serif">Return migration (2000+)</text>
+
+              <!-- STAT CALLOUT (updates per chapter via JS) -->
+              <rect id="sm-stat-box" x="10" y="345" width="200" height="62" rx="5" fill="rgba(245,158,11,.12)" stroke="rgba(245,158,11,.3)" stroke-width="1"/>
+              <text id="sm-stat-num" x="20" y="368" font-size="18" fill="#f59e0b" font-family="Georgia,serif" font-weight="bold">6 Million</text>
+              <text id="sm-stat-label" x="20" y="384" font-size="8.5" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">people moved North &amp; West,</text>
+              <text id="sm-stat-label2" x="20" y="397" font-size="8.5" fill="rgba(255,255,255,.7)" font-family="Inter,sans-serif">1910–1970 · the largest U.S. domestic migration</text>
+
+              <!-- TITLE (top-right corner) -->
+              <rect x="320" y="8" width="232" height="42" rx="5" fill="rgba(0,0,0,.7)" stroke="rgba(245,158,11,.2)" stroke-width="1"/>
+              <text x="332" y="24" font-size="9" fill="#f59e0b" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.06em">THE GREAT MIGRATION</text>
+              <text x="332" y="39" font-size="8" fill="rgba(255,255,255,.5)" font-family="Inter,sans-serif">Scroll the left panel to follow the chain</text>
+            </svg>
+          </div><!-- /storymap-map -->
+        </div><!-- /storymap-body -->
+
+        <!-- Progress dots -->
+        <div class="storymap-progress" id="storymapProgress" role="group" aria-label="Migration story chapters">
+          <button class="storymap-dot is-active" data-chapter="0" aria-label="Chapter 1: The South — Why They Left"></button>
+          <button class="storymap-dot" data-chapter="1" aria-label="Chapter 2: Chicago"></button>
+          <button class="storymap-dot" data-chapter="2" aria-label="Chapter 3: Detroit"></button>
+          <button class="storymap-dot" data-chapter="3" aria-label="Chapter 4: New York City"></button>
+          <button class="storymap-dot" data-chapter="4" aria-label="Chapter 5: Los Angeles"></button>
+          <button class="storymap-dot" data-chapter="5" aria-label="Chapter 6: Philadelphia"></button>
+          <button class="storymap-dot" data-chapter="6" aria-label="Chapter 7: The Return"></button>
+        </div>
+
+      </div><!-- /storymap-panel -->
+
     </div><!-- /view-maps -->
 
     <!-- ══ TIMELINE VIEW ══════════════════════════════════════ -->
@@ -2820,6 +3293,199 @@ if (document.readyState === 'loading') {
   // Small delay to ensure Leaflet CSS is applied
   setTimeout(initRedlineMap, 100);
 }
+</script>
+
+<script>
+/* ══ STORYMAP — GREAT MIGRATION ══════════════════════════════════
+   Drives the split-panel StoryMap:
+   - Clicking / scrolling chapters highlights the corresponding
+     migration route and destination city on the SVG map.
+   - Progress dot nav and keyboard support included.
+   ============================================================== */
+(function () {
+  const chapters     = document.querySelectorAll('.storymap-chapter');
+  const dots         = document.querySelectorAll('#storymapProgress .storymap-dot');
+
+  // Route and dot element IDs per chapter index
+  const CHAPTER_CONFIG = [
+    // 0: The South / overview — show all routes dimly
+    {
+      routes: ['route-chicago','route-detroit','route-nyc','route-la','route-philly'],
+      activeDots: [],
+      statNum:   '6 Million',
+      statLabel: 'people left the South,',
+      statLabel2: '1910–1970 · largest U.S. domestic migration',
+      southGlow: true
+    },
+    // 1: Chicago
+    {
+      routes: ['route-chicago'],
+      activeDots: ['dot-chicago'],
+      statNum:   '534%',
+      statLabel: 'population growth, Chicago,',
+      statLabel2: '1910–1940 · Illinois Central Railroad',
+      southGlow: false
+    },
+    // 2: Detroit
+    {
+      routes: ['route-detroit'],
+      activeDots: ['dot-detroit'],
+      statNum:   '5,163%',
+      statLabel: 'population growth, Detroit,',
+      statLabel2: '1910–1950 · Ford\'s $5 day & church pipelines',
+      southGlow: false
+    },
+    // 3: New York
+    {
+      routes: ['route-nyc'],
+      activeDots: ['dot-nyc'],
+      statNum:   '403%',
+      statLabel: 'population growth, New York,',
+      statLabel2: '1910–1940 · Harlem Renaissance born here',
+      southGlow: false
+    },
+    // 4: Los Angeles
+    {
+      routes: ['route-la'],
+      activeDots: ['dot-la'],
+      statNum:   '636%',
+      statLabel: 'population growth, Los Angeles,',
+      statLabel2: '1940–1970 · WWII defense jobs → Watts 1965',
+      southGlow: false
+    },
+    // 5: Philadelphia
+    {
+      routes: ['route-philly'],
+      activeDots: ['dot-philly'],
+      statNum:   '530%',
+      statLabel: 'population growth, Philadelphia,',
+      statLabel2: '1910–1970 · redlining → MOVE 1985',
+      southGlow: false
+    },
+    // 6: The Return
+    {
+      routes: ['route-chicago','route-detroit','route-nyc','route-la','route-philly'],
+      activeDots: ['dot-atlanta'],
+      statNum:   '+40%',
+      statLabel: 'Black pop. growth, Atlanta, 2000–2010',
+      statLabel2: 'while Chicago\'s Black pop. declined',
+      southGlow: false
+    }
+  ];
+
+  const allRouteIds  = ['route-chicago','route-detroit','route-nyc','route-la','route-philly'];
+  const allDotIds    = ['dot-chicago','dot-detroit','dot-nyc','dot-la','dot-philly','dot-atlanta'];
+  const southGlow    = document.getElementById('sm-south-glow');
+  const smStatNum    = document.getElementById('sm-stat-num');
+  const smStatLabel  = document.getElementById('sm-stat-label');
+  const smStatLabel2 = document.getElementById('sm-stat-label2');
+
+  function activateChapter(idx) {
+    const cfg = CHAPTER_CONFIG[idx];
+    if (!cfg) return;
+
+    // Update chapters
+    chapters.forEach((ch, i) => {
+      ch.classList.toggle('is-active', i === idx);
+    });
+
+    // Update progress dots
+    dots.forEach((d, i) => {
+      d.classList.toggle('is-active', i === idx);
+    });
+
+    // Reset all routes
+    allRouteIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('is-active', 'is-dim');
+      el.classList.add('is-dim');
+    });
+
+    // Activate relevant routes
+    cfg.routes.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('is-dim');
+      el.classList.add('is-active');
+    });
+
+    // Reset city dots
+    allDotIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('is-active');
+      el.setAttribute('opacity', '0.35');
+    });
+
+    // Activate relevant city dots
+    cfg.activeDots.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.add('is-active');
+      el.setAttribute('opacity', '1');
+    });
+
+    // South glow
+    if (southGlow) {
+      southGlow.style.opacity = cfg.southGlow ? '1' : '0.2';
+    }
+
+    // Stat callout
+    if (smStatNum)    smStatNum.textContent    = cfg.statNum;
+    if (smStatLabel)  smStatLabel.textContent  = cfg.statLabel;
+    if (smStatLabel2) smStatLabel2.textContent = cfg.statLabel2;
+
+    // For chapter 0 (overview) dim all dots slightly
+    if (idx === 0) {
+      allDotIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute('opacity', '0.5');
+      });
+    }
+  }
+
+  // Click on chapter panels
+  chapters.forEach((ch, i) => {
+    ch.addEventListener('click', () => activateChapter(i));
+    ch.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateChapter(i); }
+    });
+  });
+
+  // Progress dot clicks
+  dots.forEach((d, i) => {
+    d.addEventListener('click', () => {
+      activateChapter(i);
+      // Scroll scroll panel to that chapter
+      const targetCh = chapters[i];
+      if (targetCh) {
+        const scroll = document.getElementById('storymapScroll');
+        if (scroll) scroll.scrollTo({ top: targetCh.offsetTop, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Intersection Observer on each chapter to auto-activate on scroll
+  const scrollEl = document.getElementById('storymapScroll');
+  if (scrollEl && 'IntersectionObserver' in window) {
+    const ioChapter = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = parseInt(entry.target.dataset.chapter, 10);
+          if (!isNaN(idx)) activateChapter(idx);
+        }
+      });
+    }, {
+      root: scrollEl,
+      threshold: 0.5
+    });
+    chapters.forEach(ch => ioChapter.observe(ch));
+  }
+
+  // Init
+  activateChapter(0);
+})();
 </script>
 </body>
 </html>
