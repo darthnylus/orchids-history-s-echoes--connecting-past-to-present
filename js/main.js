@@ -456,6 +456,152 @@ function updateTodayDate() {
 updateTodayDate();
 
 /* =========================================================
+   INLINE CITATION SYSTEM
+   Handles .cite-ref superscript buttons and .cite-tooltip
+   popovers. Data lives in a window.THREAD_SOURCES map on
+   each thread page. Entry-level sources accordion is also
+   wired here.
+   ========================================================= */
+function initCitations() {
+  const refs = $$('.cite-ref');
+  if (!refs.length) return;
+
+  // One shared tooltip element, repositioned per trigger
+  let tooltip = document.getElementById('cite-tooltip-global');
+  if (!tooltip) {
+    tooltip = document.createElement('div');
+    tooltip.id = 'cite-tooltip-global';
+    tooltip.className = 'cite-tooltip';
+    tooltip.setAttribute('role', 'tooltip');
+    tooltip.setAttribute('aria-live', 'polite');
+    tooltip.innerHTML = '<div class="cite-tooltip__arrow"></div><div class="cite-tooltip__type"></div><div class="cite-tooltip__title"></div><div class="cite-tooltip__detail"></div>';
+    document.body.appendChild(tooltip);
+  }
+
+  const ttType   = tooltip.querySelector('.cite-tooltip__type');
+  const ttTitle  = tooltip.querySelector('.cite-tooltip__title');
+  const ttDetail = tooltip.querySelector('.cite-tooltip__detail');
+  const ttArrow  = tooltip.querySelector('.cite-tooltip__arrow');
+
+  let activeRef = null;
+
+  function showTooltip(ref) {
+    const key = ref.dataset.cite;
+    const sources = window.THREAD_SOURCES || {};
+    const src = sources[key];
+    if (!src) return;
+
+    ttType.textContent   = src.type   || 'Source';
+    ttTitle.textContent  = src.title  || '';
+    ttDetail.innerHTML   = src.detail || '';
+
+    tooltip.classList.add('is-visible');
+    ref.classList.add('is-open');
+    ref.setAttribute('aria-expanded', 'true');
+    activeRef = ref;
+
+    positionTooltip(ref);
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('is-visible');
+    if (activeRef) {
+      activeRef.classList.remove('is-open');
+      activeRef.setAttribute('aria-expanded', 'false');
+      activeRef = null;
+    }
+  }
+
+  function positionTooltip(ref) {
+    const refRect = ref.getBoundingClientRect();
+    const scrollY = window.scrollY;
+    const scrollX = window.scrollX;
+    const ttW = 320;
+    const margin = 10;
+
+    // Default: below the ref, left-aligned
+    let top  = refRect.bottom + scrollY + 8;
+    let left = refRect.left + scrollX - 10;
+
+    // Don't overflow right edge
+    if (left + ttW > window.innerWidth - margin) {
+      left = window.innerWidth - ttW - margin;
+    }
+    if (left < margin) left = margin;
+
+    tooltip.style.top  = top + 'px';
+    tooltip.style.left = left + 'px';
+    tooltip.style.width = ttW + 'px';
+
+    // Arrow horizontal position relative to tooltip
+    const arrowLeft = Math.max(10, refRect.left + scrollX - left + 2);
+    ttArrow.style.left = Math.min(arrowLeft, ttW - 20) + 'px';
+  }
+
+  refs.forEach(ref => {
+    ref.setAttribute('role', 'button');
+    ref.setAttribute('tabindex', '0');
+    ref.setAttribute('aria-expanded', 'false');
+    const key = ref.dataset.cite;
+    if (key) ref.setAttribute('aria-label', 'Show source ' + ref.textContent.trim());
+
+    ref.addEventListener('mouseenter', () => {
+      if (activeRef !== ref) showTooltip(ref);
+    });
+    ref.addEventListener('mouseleave', (e) => {
+      // Don't hide if moving into the tooltip
+      if (e.relatedTarget && tooltip.contains(e.relatedTarget)) return;
+      hideTooltip();
+    });
+    ref.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (activeRef === ref) { hideTooltip(); return; }
+      showTooltip(ref);
+    });
+    ref.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (activeRef === ref) { hideTooltip(); return; }
+        showTooltip(ref);
+      }
+      if (e.key === 'Escape') hideTooltip();
+    });
+  });
+
+  tooltip.addEventListener('mouseleave', (e) => {
+    if (e.relatedTarget && e.relatedTarget.classList && e.relatedTarget.classList.contains('cite-ref')) return;
+    hideTooltip();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!tooltip.contains(e.target) && !e.target.classList.contains('cite-ref')) {
+      hideTooltip();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && activeRef) hideTooltip();
+  });
+
+  window.addEventListener('scroll', () => {
+    if (activeRef) positionTooltip(activeRef);
+  }, { passive: true });
+
+  // Entry sources accordion toggles
+  $$('.entry-sources__toggle').forEach(toggle => {
+    const list = toggle.nextElementSibling;
+    if (!list) return;
+    list.classList.add('is-hidden');
+    toggle.addEventListener('click', () => {
+      const open = toggle.classList.toggle('is-open');
+      list.classList.toggle('is-hidden', !open);
+    });
+  });
+}
+
+initCitations();
+
+/* =========================================================
    CONSOLE EASTER EGG
    ========================================================= */
 console.log(

@@ -99,7 +99,188 @@
 }
 .reading-progress { animation: progress-in 0.5s 1s both; }
 
-/* Source cite tooltip */
+/* ============================================================
+   INLINE CITATION SYSTEM
+   Usage: wrap a claim in <cite-ref data-cite="key"> or use
+   the .cite-ref superscript button pattern.
+   ============================================================ */
+
+/* Superscript number that triggers the tooltip */
+.cite-ref {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: var(--weight-bold);
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 1;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: rgba(var(--cite-rgb, 180,115,51), 0.15);
+  border: 1px solid rgba(var(--cite-rgb, 180,115,51), 0.35);
+  color: var(--acc-lt, #b87333);
+  cursor: pointer;
+  vertical-align: super;
+  position: relative;
+  top: -0.1em;
+  margin: 0 1px;
+  text-decoration: none;
+  transition: background 0.12s, border-color 0.12s;
+  /* Remove default button styles */
+  -webkit-appearance: none;
+  appearance: none;
+  border-style: solid;
+}
+.cite-ref:hover,
+.cite-ref:focus-visible,
+.cite-ref.is-open {
+  background: rgba(var(--cite-rgb, 180,115,51), 0.28);
+  border-color: var(--acc-lt, #b87333);
+  outline: none;
+}
+
+/* Tooltip popover */
+.cite-tooltip {
+  position: absolute;
+  z-index: 500;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08);
+  padding: var(--space-4) var(--space-5);
+  /* Hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.cite-tooltip.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+[data-theme="dark"] .cite-tooltip {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.cite-tooltip__type {
+  font-size: 0.6rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--acc-lt, #b87333);
+  margin-bottom: var(--space-1);
+}
+.cite-tooltip__title {
+  font-size: var(--type-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+.cite-tooltip__detail {
+  font-size: var(--type-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+.cite-tooltip__arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  border: inherit;
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(45deg);
+  top: -6px;
+  left: 18px;
+}
+
+/* Entry sources accordion */
+.entry-sources {
+  margin-top: var(--space-7);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
+}
+.entry-sources__toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--type-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  transition: color 0.12s;
+}
+.entry-sources__toggle:hover {
+  color: var(--acc-lt, #b87333);
+}
+.entry-sources__toggle svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.entry-sources__toggle.is-open svg {
+  transform: rotate(180deg);
+}
+.entry-sources__toggle.is-open {
+  color: var(--acc-lt, #b87333);
+}
+.entry-sources__list {
+  display: none;
+  margin-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.entry-sources__list.is-hidden {
+  display: none;
+}
+.entry-sources__item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+.entry-sources__num {
+  font-size: var(--type-xs);
+  font-weight: var(--weight-bold);
+  color: var(--acc-lt, #b87333);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+.entry-sources__text {
+  font-size: var(--type-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+.entry-sources__text em {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  font-weight: normal;
+}
+.entry-sources__text a {
+  color: var(--acc-lt, #b87333);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.entry-sources__text a:hover {
+  opacity: 0.8;
+}
+
+/* Source cite tooltip (legacy stub) */
 .source-cite {
   position: relative;
 }
