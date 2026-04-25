@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Convict Leasing:Slavery by Another Name — Chain</title>
+  <title>Convict Leasing: The Bridge Between Slavery and Mass Incarceration — Chain</title>
+  <meta name="description" content="The 13th Amendment abolished slavery except as punishment for crime. Within months of emancipation, Southern states used that exception to rebuild forced Black labor. Convict leasing lasted 80 years, killed tens of thousands, and built the infrastructure — legal and physical — that led directly to mass incarceration." />
   <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
   <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -11,54 +12,51 @@
   <link rel="stylesheet" href="css/system.css"/>
   <link rel="stylesheet" href="css/thread-page.css"/>
   <style>
-    :root{--acc:#7a3e3e;--acc-lt:#c97b7b}
-    [data-theme="dark"]{--acc:#7a3e3e;--acc-lt:#c97b7b}
-    .thread-hero{background:#120808;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
-    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(122,62,62,.45) 0%,transparent 60%)}
+    :root{--acc:#2a1a00;--acc-lt:#b87333}
+    [data-theme="dark"]{--acc:#2a1a00;--acc-lt:#b87333}
+    .thread-hero{background:#030200;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 90% 70% at 12% 55%,rgba(42,26,0,.75) 0%,transparent 56%)}
     .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
     .thread-hero__inner{position:relative;max-width:760px;z-index:2}
-    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(122,62,62,.12);border:1px solid rgba(122,62,62,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
-    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc)}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(42,26,0,.15);border:1px solid rgba(184,115,51,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt)}
     .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
     .thread-hero__title em{color:var(--acc-lt);font-style:normal}
     .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
     .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
     .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
     .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
-    .argument-bar{background:rgba(122,62,62,.06);border-top:1px solid rgba(122,62,62,.18);border-bottom:1px solid rgba(122,62,62,.18);padding:var(--space-5) 0}
+    .argument-bar{background:rgba(42,26,0,.07);border-top:1px solid rgba(184,115,51,.20);border-bottom:1px solid rgba(184,115,51,.20);padding:var(--space-5) 0}
     .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
-    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(122,62,62,.18);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(42,26,0,.18);border-radius:50%;display:grid;place-items:center;margin-top:2px}
     .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
     .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
     .argument-bar__text strong{color:#fff}
     .thread-body{padding:var(--space-14) 0}
     .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
     @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
-    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
-    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
-    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);background:rgba(122,62,62,.10);border:1px solid rgba(122,62,62,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
     .entry-list{display:flex;flex-direction:column;gap:0}
     .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
     .entry-item:last-of-type{border-bottom:none}
     .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
-    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(122,62,62,.10);border:1px solid rgba(122,62,62,.22);color:var(--acc-lt)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(42,26,0,.10);border:1px solid rgba(184,115,51,.22);color:var(--acc-lt)}
     .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
     .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
     .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
     .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
-    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc);line-height:1;margin-bottom:2px}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
     .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
     .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
     .entry-item__body p{margin:0 0 var(--space-5)}
     .entry-item__body p:last-child{margin-bottom:0}
     .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
     .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
-    .pullquote{border-left:3px solid var(--acc);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(122,62,62,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(42,26,0,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
     .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
     .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
     .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
     .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
-    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-4)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
     .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
     .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
     .thread-bottom-cta__inner{max-width:640px}
@@ -67,127 +65,170 @@
     .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-300);line-height:1.7;margin-bottom:var(--space-8)}
     .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
     .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
-    .thread-bottom-cta__btn--primary{background:var(--acc);color:#fff}
-    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.2)}
+    .thread-bottom-cta__btn--primary{background:var(--acc-lt);color:#fff}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.12)}
     .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
     .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
   </style>
 </head>
 <body>
-<header class="site-nav">
-  <div class="site-nav__inner">
-    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
-    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
-    <div class="site-nav__actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-      <a href="donate.html" class="site-nav__donate">Support Chain</a>
-    </div>
+<header class="site-nav"><div class="site-nav__inner">
+  <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+  <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+  <div class="site-nav__actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode"><svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></button>
+    <a href="donate.html" class="site-nav__donate">Support Chain</a>
   </div>
-</header>
-<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
-  <div class="context-ribbon__inner">
-    <div class="context-ribbon__stats" id="ribbonStats">
-      <span class="context-ribbon__stat"><strong>Chain</strong></span>
-      <span class="context-ribbon__divider">·</span>
-      <span class="context-ribbon__stat">Emancipation & Betrayal</span>
+</div></header>
+<div class="context-ribbon context-ribbon--thread"><div class="context-ribbon__inner"><div class="context-ribbon__stats"><span class="context-ribbon__stat"><strong>Chain</strong></span><span class="context-ribbon__divider">·</span><span class="context-ribbon__stat">Slavery's Continuation</span></div><nav class="context-ribbon__nav"><a href="threads.html" class="context-ribbon__link">All Threads</a><a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a><a href="search.html" class="context-ribbon__link">Search</a></nav></div></div>
+<section class="thread-hero"><div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container"><div class="thread-hero__inner">
+    <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Criminal Justice · 1865 – 1942 · The Bridge</div>
+    <h1 class="thread-hero__title">Convict Leasing:<br /><em>The Bridge Between Slavery and Mass Incarceration</em></h1>
+    <p class="thread-hero__subtitle">The 13th Amendment abolished slavery — except as punishment for crime. Southern states immediately exploited that exception. Within a year of emancipation, Black men were being arrested for "vagrancy," sentenced to hard labor, and leased to mines, lumber camps, and plantations. The conditions were worse than slavery. The death rates proved it. Convict leasing lasted 80 years and built the legal and psychological infrastructure that mass incarceration inherited.</p>
+    <div class="thread-hero__meta">
+      <div class="thread-meta-item"><div class="thread-meta-item__label">Era</div><div class="thread-meta-item__value">1865 – 1942</div></div>
+      <div class="thread-meta-item"><div class="thread-meta-item__label">Domain</div><div class="thread-meta-item__value">Criminal Justice, Labor, Race</div></div>
+      <div class="thread-meta-item"><div class="thread-meta-item__label">Key Source</div><div class="thread-meta-item__value">Douglas Blackmon, <em>Slavery by Another Name</em> (2008, Pulitzer Prize)</div></div>
     </div>
-    <nav class="context-ribbon__nav">
-      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
-      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
-      <a href="search.html" class="context-ribbon__link">Search</a>
-    </nav>
-  </div>
-</div>
-<section class="thread-hero">
-  <div class="thread-hero__bg" aria-hidden="true"></div>
-  <div class="container">
-    <div class="thread-hero__inner">
-      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Emancipation & Betrayal · 1865 – 1942</div>
-      <h1 class="thread-hero__title">Convict Leasing:<br /><em>Slavery by Another Name</em></h1>
-      <p class="thread-hero__subtitle">The 13th Amendment abolished slavery "except as a punishment for crime." Within months of emancipation, Southern states were arresting Black men for vagrancy and leasing them to coal mines, railroad companies, and plantations. The mortality rate exceeded that of chattel slavery. It ran for 80 years.</p>
-      <div class="thread-hero__meta"><div class="thread-meta-item"><div class="thread-meta-item__label">Era</div><div class="thread-meta-item__value">Emancipation & Betrayal → Jim Crow</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">Dates</div><div class="thread-meta-item__value">1865 – 1942</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">Scale</div><div class="thread-meta-item__value">Tens of thousands of Black men enslaved through the criminal system</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">End</div><div class="thread-meta-item__value">Alabama — last state to formally abolish it, 1928; federal lands, 1941</div></div></div>
-    </div>
-  </div>
+  </div></div>
 </section>
-<div class="argument-bar">
-  <div class="container">
-    <div class="argument-bar__inner">
-      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">Convict leasing was not an abuse of the criminal justice system. It was the criminal justice system operating as designed — using the 13th Amendment's exception clause to re-enslave Black people within months of emancipation, with state governments as the administrative infrastructure and private corporations as the customers. The mortality rate of leased convicts in some years exceeded that of the Middle Passage.</p></div>
-    </div>
-  </div>
-</div>
-<section class="thread-body">
-  <div class="container">
-    <div class="thread-layout">
-      <main class="thread-main"><div class="entry-list">
+<div class="argument-bar"><div class="container"><div class="argument-bar__inner">
+  <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+  <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">The Civil War ended slavery. The 13th Amendment abolished it — with one exception. <strong>"Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States."</strong> Southern states read that exception as an instruction manual. They immediately passed Black Codes criminalizing Black existence — vagrancy, unemployment, "impudence" — then arrested, convicted, and leased the resulting prison population to private industry. <strong>Slavery continued. It just required a court proceeding first.</strong> The transition from convict leasing to the modern prison-industrial complex is not an analogy. It is a direct institutional lineage.</p></div>
+</div></div></div></div>
+<section class="thread-body"><div class="container"><div class="thread-layout">
+  <main class="thread-main"><div class="entry-list">
+
 <div class="entry-item" id="e1">
-  <div class="entry-item__header"><div class="entry-item__num">1</div>
-  <div><div class="entry-item__dates">1865 – 1866</div>
-  <h2 class="entry-item__name">The Loophole: The 13th Amendment Makes Re-Enslavement Legal</h2>
-  <div class="entry-item__location">Southern states</div></div></div>
+  <div class="entry-item__header"><div class="entry-item__num">1</div><div>
+    <div class="entry-item__dates">1865 – 1866</div>
+    <h2 class="entry-item__name">The Black Codes: Criminalizing Emancipation</h2>
+    <div class="entry-item__location">Mississippi · South Carolina · Alabama · The South</div>
+  </div></div>
   <div class="entry-item__body">
-    <p>The 13th Amendment, ratified December 6, 1865, reads: <em>"Neither slavery nor involuntary servitude, <strong>except as a punishment for crime</strong> whereof the party shall have been duly convicted, shall exist within the United States."</em> Southern legislators immediately understand the exception clause as an opportunity. Within months of emancipation, they pass the <strong>Black Codes</strong> — laws criminalizing unemployment, loitering, and "vagrancy" in terms so broad that virtually any Black person without a labor contract could be arrested. Conviction was followed immediately by lease to a private employer.</p>
-    <p>The system is elegant in its legal construction: it does not violate the 13th Amendment because it operates through the criminal justice system. The formerly enslaved person is not a slave — they are a convict, legally stripped of rights, legally subjected to forced labor. The <strong>state profits</strong> from leasing fees. The <strong>employer profits</strong> from free labor. The <strong>Black prisoner</strong> receives nothing, has no recourse, and can be whipped, chained, and worked to death with no legal accountability.</p>
+    <p>Within months of emancipation, Southern state legislatures passed the <strong>Black Codes</strong> — laws designed to criminalize Black freedom. Mississippi's Black Codes (1865) required all Black people to have written proof of employment in January of each year. Anyone without it could be arrested for vagrancy and hired out to whoever paid their fine. Black Codes also prohibited Black people from renting land in cities, made it illegal to leave a job before a contract expired, and restricted migration between counties.</p>
+    <p>The intent was explicit and documented. Mississippi Governor Benjamin Humphreys told the legislature: <em>"The Negro is free, whether we like it or not; but to be free does not make him a citizen, or entitle him to political or social equality with the white man."</em> The Black Codes were the legal architecture that allowed the South to reconstruct forced labor without slavery's name.</p>
     <div class="entry-stats">
-      <div><div class="entry-stat__num">1865</div><div class="entry-stat__label">System begins — same year as emancipation</div></div>
-      <div><div class="entry-stat__num">30–40%</div><div class="entry-stat__label">Annual mortality rate in some Alabama coal mines</div></div>
-      <div><div class="entry-stat__num">1942</div><div class="entry-stat__label">Federal government ends it on federal lands</div></div>
+      <div><div class="entry-stat__num">1865</div><div class="entry-stat__label">Mississippi's Black Codes passed — within months of the 13th Amendment's ratification</div></div>
+      <div><div class="entry-stat__num">Vagrancy</div><div class="entry-stat__label">Primary charge used to arrest and lease Black workers — defined so broadly it criminalized unemployment</div></div>
+      <div><div class="entry-stat__num">All Southern states</div><div class="entry-stat__label">Had passed some form of Black Codes by 1866 — until Congress suspended them during Reconstruction</div></div>
     </div>
+    <p>Congress suspended the Black Codes during Reconstruction (1867–1877). When Reconstruction ended in 1877, Southern states revived and expanded the logic of criminalization. By the 1880s, convict leasing was a major revenue source for Southern state governments and a major labor source for Southern industry.</p>
   </div>
 </div>
+
 <div class="entry-item" id="e2">
-  <div class="entry-item__header"><div class="entry-item__num">2</div>
-  <div><div class="entry-item__dates">1870 – 1900</div>
-  <h2 class="entry-item__name">The Coal Mines and the Railroads: What Forced Labor Built</h2>
-  <div class="entry-item__location">Alabama, Georgia, Mississippi, Florida</div></div></div>
+  <div class="entry-item__header"><div class="entry-item__num">2</div><div>
+    <div class="entry-item__dates">1877 – 1900</div>
+    <h2 class="entry-item__name">The System: How Convict Leasing Worked</h2>
+    <div class="entry-item__location">Alabama · Georgia · Mississippi · The Deep South</div>
+  </div></div>
   <div class="entry-item__body">
-    <p><strong>Alabama's coal mines</strong> were among the most brutal sites of convict labor in the country. The <strong>Pratt Mines</strong> outside Birmingham leased convicts from the state and worked them in underground shafts with no safety equipment, no ventilation standards, and no medical care. When convicts died — and they died frequently, from accidents, from disease, from beatings — the state simply arrested more Black men to replace them. The <strong>annual mortality rate</strong> in some Alabama convict mines exceeded 30% — higher than the death rate on most slave ships.</p>
-    <p>The railroads of the New South were built in significant part by convict labor. The turpentine camps of Florida and Georgia — where convicts were forced to work extracting pine resin — were described by federal investigators in 1907 as conditions of "absolute slavery." Men were chained, beaten, kept in locked stockades, and prevented from leaving under penalty of death. The journalist <strong>Douglas Blackmon</strong> spent years reconstructing individual cases — tracking specific Black men arrested on false charges, sold to specific corporations, worked to death — in his Pulitzer Prize-winning book <em>Slavery by Another Name</em> (2008).</p>
-    <div class="pullquote"><p>"The slavery that followed the Civil War was in many ways more cruel than the slavery that preceded it, because the new enslaver had no financial incentive to keep his workers alive."</p><cite>— Douglas Blackmon, <em>Slavery by Another Name</em>, 2008</cite></div>
-  </div>
-</div>
-<div class="entry-item" id="e3">
-  <div class="entry-item__header"><div class="entry-item__num">3</div>
-  <div><div class="entry-item__dates">1900 – 1942</div>
-  <h2 class="entry-item__name">The Slow End: Reform, World War, and the System That Wouldn't Die</h2>
-  <div class="entry-item__location">Alabama, Georgia, Florida</div></div></div>
-  <div class="entry-item__body">
-    <p>Northern journalists and Progressive Era reformers documented convict leasing extensively in the early 1900s. Several states — Georgia (1908), North Carolina (1933) — formally abolished the practice under this pressure. Alabama, the last major holdout, officially ended private convict leasing in <strong>1928</strong>. But the state-operated version — using convict labor on public works, chain gangs building roads and clearing land — continued. <strong>Federal prohibition on federal lands didn't come until 1941</strong>, under pressure from a wartime labor shortage and international embarrassment about American labor practices.</p>
-    <p>The end of convict leasing did not end the system. It transformed into the <strong>chain gang</strong>, the <strong>prison plantation</strong>, and eventually the modern prison labor system — in which incarcerated people in the United States earn between $0.00 and $1.15 per hour for labor that generates an estimated $11 billion annually for state and private interests. The 13th Amendment exception clause that enabled convict leasing in 1865 remains in effect. It has never been removed. Several states have recently passed ballot measures adding language to their own constitutions prohibiting prison slavery — an implicit acknowledgment that the federal Constitution still permits it.</p>
-  </div>
-</div>
-</div></main>
-      <aside class="thread-sidebar"><div class="sidebar-card"><div class="sidebar-card__title">The Timeline</div><div class="sidebar-card__body"><strong>1865</strong> — 13th Amendment ratified with exception clause<br/><br/><strong>1865–66</strong> — Black Codes passed; convict leasing begins<br/><br/><strong>1870s–1900s</strong> — System expands across all former Confederate states<br/><br/><strong>1908</strong> — Georgia abolishes convict leasing<br/><br/><strong>1928</strong> — Alabama (last major holdout) officially ends it<br/><br/><strong>1942</strong> — Federal lands prohibition<br/><br/><strong>Present</strong> — Prison labor continues under 13th Amendment exception</div></div>
-<div class="sidebar-card"><div class="sidebar-card__title">Key Reading</div><div class="sidebar-card__body"><em>Slavery by Another Name</em> — Douglas Blackmon (2008, Pulitzer Prize)<br/><br/>Documents individual Black men arrested on false charges, sold to corporations, and worked to death between 1865 and 1942. Includes corporate records from U.S. Steel, railway companies, and turpentine operations.</div></div></aside>
+    <p>Convict leasing worked through a simple loop: <strong>arrest → conviction → lease → profit</strong>. A Black man would be arrested on a minor or fabricated charge — vagrancy, "selling cotton after sunset" (illegal in some states), or simply being in the wrong place. A judge — often working in coordination with local employers — would sentence him to hard labor and fine him more than he could pay. The county or state would then lease him to a private employer — a coal mine, a turpentine camp, a railroad, a plantation — in exchange for a fee. The lessee paid for the prisoner's "keep" and labor. The state kept the fee and had one fewer prisoner to house.</p>
+    <p>For the leased man, conditions were often worse than slavery had been. <strong>Under slavery, an enslaved person represented a capital investment — there was financial incentive to keep them alive.</strong> Under convict leasing, the lessee paid a flat fee and could lease another prisoner if one died. The incentive structure eliminated even the minimal protection that economic self-interest had provided.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">30–40%</div><div class="entry-stat__label">Annual death rates recorded in some Alabama coal mines using convict labor in the 1880s–1890s</div></div>
+      <div><div class="entry-stat__num">U.S. Steel</div><div class="entry-stat__label">Among major corporations that used convict labor — Alabama's coal and iron industry was built on it</div></div>
+      <div><div class="entry-stat__num">~$1.10/day</div><div class="entry-stat__label">Typical lease rate paid to states per prisoner — the state kept it; the prisoner received nothing</div></div>
+    </div>
+    <div class="pullquote">
+      <p>"The lease system is a relic of barbarism... more inhuman in many respects than African slavery."</p>
+      <cite>— Julia Tutwiler, Alabama prison reformer, 1880s</cite>
     </div>
   </div>
-</section>
-<section class="thread-bottom-cta">
-  <div class="container">
-    <div class="thread-bottom-cta__inner">
-      <div class="thread-bottom-cta__eyebrow">Emancipation Was Not Freedom</div>
-      <h2 class="thread-bottom-cta__title">The 13th Amendment abolished slavery except as punishment for crime. They used that exception immediately.</h2>
-      <p class="thread-bottom-cta__sub">Convict leasing ran for 80 years after emancipation. It was slavery — enforced by the state, administered through courts, and profitable for corporations. The exception clause that made it legal has never been removed from the Constitution.</p>
-      <div class="thread-bottom-cta__btns">
-        <a href="thread-mass-incarceration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Mass Incarceration → &rarr;</a>
-        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+</div>
+
+<div class="entry-item" id="e3">
+  <div class="entry-item__header"><div class="entry-item__num">3</div><div>
+    <div class="entry-item__dates">1900 – 1942</div>
+    <h2 class="entry-item__name"><em>Slavery by Another Name</em>: The Documented Record</h2>
+    <div class="entry-item__location">Alabama · Georgia · The Broader South</div>
+  </div></div>
+  <div class="entry-item__body">
+    <p>Douglas Blackmon's <em>Slavery by Another Name</em> (2008), which won the Pulitzer Prize, documented the convict leasing system through company records, court documents, and personal accounts. His central finding: <strong>the forced labor of Black Americans under criminal sentencing continued not until 1865, but until at least 1942</strong> — when the federal government finally pressured Southern states to end the practice as an embarrassment during World War II, when America was fighting fascism abroad while maintaining a system of racial forced labor at home.</p>
+    <p>Blackmon documents specific men: <strong>Green Cottenham</strong>, arrested in 1908 in Alabama on a charge of "vagrancy" — he had been unemployed for three days — convicted without a lawyer, and leased to U.S. Steel's Slope No. 12 mine. He died there four months later. He was 22. His story was not exceptional. It was the system.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">1942</div><div class="entry-stat__label">Convict leasing formally ended — 77 years after the 13th Amendment abolished slavery</div></div>
+      <div><div class="entry-stat__num">Green Cottenham</div><div class="entry-stat__label">Arrested for "vagrancy" 1908; leased to U.S. Steel; died at Slope No. 12 coal mine, age 22</div></div>
+      <div><div class="entry-stat__num">WWII</div><div class="entry-stat__label">Federal pressure ended the practice — America couldn't fight fascism while maintaining racial forced labor at home</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="entry-item" id="e4">
+  <div class="entry-item__header"><div class="entry-item__num">4</div><div>
+    <div class="entry-item__dates">1865 – Present</div>
+    <h2 class="entry-item__name">The Chain: From Convict Leasing to Mass Incarceration</h2>
+    <div class="entry-item__location">The United States</div>
+  </div></div>
+  <div class="entry-item__body">
+    <p>Convict leasing ended in 1942. It was replaced by state prison farms and chain gangs — legally distinct but functionally similar. Then came the War on Drugs (1971–present), mandatory minimum sentencing (1980s), and the explosion of mass incarceration. The United States today incarcerates more people per capita than any country on earth. Black Americans constitute approximately <strong>13% of the U.S. population and 38% of its prison population</strong>.</p>
+    <p>The line from the 1865 Black Codes to 2024 is not metaphorical. It runs through specific legal mechanisms: the vagrancy laws → "broken windows" policing; the convict lease → prison labor (the 13th Amendment exception still permits forced labor for convicted criminals); the county jail as labor supply → the private prison industry. <strong>Michelle Alexander's <em>The New Jim Crow</em> (2010) makes this chain explicit</strong>: mass incarceration is not a response to crime. It is a system of racial control that uses the criminal justice apparatus the way Jim Crow used law and convict leasing used courts.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">38%</div><div class="entry-stat__label">Of U.S. prison population is Black — vs. 13% of total population</div></div>
+      <div><div class="entry-stat__num">13th Amendment</div><div class="entry-stat__label">Still permits slavery as punishment for crime — the exception convict leasing was built on remains law</div></div>
+      <div><div class="entry-stat__num">$0–$0.63/hr</div><div class="entry-stat__label">Typical prison labor wages in the U.S. — legal under the 13th Amendment's "punishment for crime" exception</div></div>
+    </div>
+    <div class="pullquote">
+      <p>"We have not ended racial caste in America; we have merely redesigned it."</p>
+      <cite>— Michelle Alexander, <em>The New Jim Crow</em> (2010)</cite>
+    </div>
+  </div>
+</div>
+
+  </div></main>
+  <aside class="thread-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card__title">The Legal Mechanism</div>
+      <div class="sidebar-card__body">
+        <strong>13th Amendment (1865)</strong>: "Neither slavery nor involuntary servitude, <em>except as a punishment for crime</em>..."<br/><br/>
+        That exception is the hinge on which everything turns.<br/><br/>
+        <strong>Black Codes (1865–66)</strong> → criminalize Black existence<br/>
+        ↓<br/>
+        <strong>Convict leasing (1877–1942)</strong> → sell labor to industry<br/>
+        ↓<br/>
+        <strong>Chain gangs &amp; prison farms (1940s–70s)</strong><br/>
+        ↓<br/>
+        <strong>War on Drugs (1971–)</strong> → mass criminalization<br/>
+        ↓<br/>
+        <strong>Mass incarceration (1980s–present)</strong><br/>
+        ↓<br/>
+        <strong>Prison labor ($0–$0.63/hr, still legal)</strong>
       </div>
     </div>
-  </div>
-</section>
-<footer class="site-footer">
-  <div class="container">
-    <div class="site-footer__inner">
-      <div class="site-footer__brand"><a href="home.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
-      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    <div class="sidebar-card">
+      <div class="sidebar-card__title">Key Source</div>
+      <div class="sidebar-card__body">
+        <strong>Douglas Blackmon</strong><br/><em>Slavery by Another Name: The Re-Enslavement of Black Americans from the Civil War to World War II</em><br/>Doubleday, 2008 — Pulitzer Prize for General Nonfiction<br/><br/>
+        Also essential:<br/>
+        <strong>Michelle Alexander</strong>, <em>The New Jim Crow</em> (2010)<br/>
+        <strong>Ava DuVernay</strong>, <em>13th</em> (documentary, 2016)
+      </div>
     </div>
-    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+    <div class="sidebar-card">
+      <div class="sidebar-card__title">Connected Threads</div>
+      <div class="sidebar-card__body">
+        <a href="thread-mass-incarceration.html" style="color:var(--acc-lt);text-decoration:underline">Mass Incarceration</a><br/><br/>
+        <a href="thread-war-on-drugs.html" style="color:var(--acc-lt);text-decoration:underline">The War on Drugs</a><br/><br/>
+        <a href="thread-end-of-slavery.html" style="color:var(--acc-lt);text-decoration:underline">The Black Codes</a><br/><br/>
+        <a href="thread-reparations.html" style="color:var(--acc-lt);text-decoration:underline">Reparations</a> — the stolen labor that never stopped<br/><br/>
+        <a href="thread-police.html" style="color:var(--acc-lt);text-decoration:underline">The Roots of American Policing</a>
+      </div>
+    </div>
+  </aside>
+</div></div></section>
+<section class="thread-bottom-cta"><div class="container"><div class="thread-bottom-cta__inner">
+  <p class="thread-bottom-cta__eyebrow">Continue the Chain</p>
+  <h2 class="thread-bottom-cta__title">Slavery ended. The 13th Amendment's exception kept it alive for 80 more years. The prison system inherited the structure.</h2>
+  <p class="thread-bottom-cta__sub">From Black Codes to convict leasing to the War on Drugs to mass incarceration — the mechanism changes; the function doesn't.</p>
+  <div class="thread-bottom-cta__btns">
+    <a href="thread-mass-incarceration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Mass Incarceration →</a>
+    <a href="thread-war-on-drugs.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">The War on Drugs →</a>
+    <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads →</a>
   </div>
-</footer>
-<script>const t=document.getElementById('themeToggle');if(t)t.addEventListener('click',()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('chain-theme',n)});</script>
-<script src="js/thread-journey.js" defer></script>
-</body></html>
+</div></div></section>
+<footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="footer-wordmark">Chain</div><p class="footer-mission">A nonprofit digital history platform documenting how the past continues to shape the present.</p><div class="footer-actions"><a href="donate.html" class="footer-btn footer-btn--primary">Donate</a><a href="newsletter.html" class="footer-btn footer-btn--outline">Newsletter</a></div></div><nav class="footer-nav-group"><h2 class="footer-nav-heading">Explore</h2><ul class="footer-nav-links"><li><a href="threads.html" class="footer-nav-link">All Threads</a></li><li><a href="explore.html" class="footer-nav-link">Encyclopedia</a></li><li><a href="maps.html" class="footer-nav-link">Maps &amp; Timelines</a></li><li><a href="today.html" class="footer-nav-link">Today in History</a></li></ul></nav><nav class="footer-nav-group"><h2 class="footer-nav-heading">About</h2><ul class="footer-nav-links"><li><a href="about.html" class="footer-nav-link">About Chain</a></li><li><a href="about.html#methodology" class="footer-nav-link">Methodology</a></li><li><a href="contact.html" class="footer-nav-link">Contact</a></li></ul></nav></div><div class="footer-bottom"><p class="footer-legal">© 2026 Chain. Content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="text-decoration:underline;color:inherit">CC BY 4.0</a>.</p></div></div></footer>
+<script src="js/main.js" defer></script>
+</body>
+</html>
