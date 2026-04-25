@@ -602,6 +602,89 @@ function initCitations() {
 initCitations();
 
 /* =========================================================
+   ENTRY TIMELINE EMBEDS
+   Renders horizontal milestone timelines inside thread entries.
+   Data source: window.THREAD_TIMELINES[id] — array of objects:
+     { year, event, note?, icon?, highlight? }
+   ========================================================= */
+function initTimelines() {
+  const containers = $$('.entry-timeline[data-timeline-id]');
+  if (!containers.length) return;
+
+  const data = window.THREAD_TIMELINES || {};
+
+  containers.forEach(container => {
+    const id = container.dataset.timelineId;
+    const nodes = data[id];
+    if (!nodes || !nodes.length) return;
+
+    // Build header
+    const header = document.createElement('div');
+    header.className = 'entry-timeline__header';
+    header.setAttribute('role', 'button');
+    header.setAttribute('tabindex', '0');
+    header.setAttribute('aria-expanded', 'false');
+    header.innerHTML = `
+      <span class="entry-timeline__label">
+        <svg class="entry-timeline__label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Timeline</span>
+      </span>
+      <svg class="entry-timeline__toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>`;
+
+    // Build body + track
+    const body = document.createElement('div');
+    body.className = 'entry-timeline__body';
+    const track = document.createElement('div');
+    track.className = 'entry-timeline__track';
+
+    nodes.forEach(n => {
+      const node = document.createElement('div');
+      node.className = 'etl-node' + (n.highlight ? ' is-highlighted' : '');
+      node.innerHTML = `
+        <div class="etl-node__dot">
+          ${n.icon
+            ? `<span class="etl-node__icon" aria-hidden="true">${n.icon}</span>`
+            : '<div class="etl-node__dot-inner"></div>'}
+        </div>
+        <div class="etl-node__year">${n.year}</div>
+        <div class="etl-node__event">${n.event}</div>
+        ${n.note ? `<div class="etl-node__note">${n.note}</div>` : ''}`;
+      track.appendChild(node);
+    });
+
+    body.appendChild(track);
+    container.appendChild(header);
+    container.appendChild(body);
+
+    // Toggle open/close
+    function toggleTimeline() {
+      const open = container.classList.toggle('is-open');
+      header.setAttribute('aria-expanded', String(open));
+    }
+    header.addEventListener('click', toggleTimeline);
+    header.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleTimeline(); }
+    });
+
+    // Auto-open when scrolled into view (once)
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        container.classList.add('is-open');
+        header.setAttribute('aria-expanded', 'true');
+        obs.disconnect();
+      }
+    }, { threshold: 0.4 });
+    obs.observe(container);
+  });
+}
+
+initTimelines();
+
+/* =========================================================
    CONSOLE EASTER EGG
    ========================================================= */
 console.log(

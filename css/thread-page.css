@@ -286,6 +286,205 @@
 }
 
 /* ============================================================
+   ENTRY TIMELINE EMBED
+   Horizontal scrollable milestone timeline inside a thread entry.
+   Usage: <div class="entry-timeline" data-timeline-id="KEY"></div>
+   ============================================================ */
+
+.entry-timeline {
+  margin-top: var(--space-7);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+[data-theme="dark"] .entry-timeline {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+}
+
+/* Header bar with toggle */
+.entry-timeline__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  user-select: none;
+  gap: var(--space-3);
+}
+[data-theme="dark"] .entry-timeline__header {
+  border-color: var(--ink-700);
+}
+.entry-timeline__header:hover {
+  background: rgba(0,0,0,.025);
+}
+[data-theme="dark"] .entry-timeline__header:hover {
+  background: rgba(255,255,255,.03);
+}
+.entry-timeline__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--type-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+.entry-timeline__label-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+.entry-timeline__toggle-icon {
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+  transition: transform 0.22s ease;
+}
+.entry-timeline.is-open .entry-timeline__toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Scrollable track */
+.entry-timeline__body {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  display: none;
+}
+.entry-timeline__body::-webkit-scrollbar { height: 4px; }
+.entry-timeline__body::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+.entry-timeline.is-open .entry-timeline__body {
+  display: block;
+}
+
+/* The horizontal rail */
+.entry-timeline__track {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+  min-width: max-content;
+}
+
+/* Connecting line between nodes */
+.entry-timeline__track::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+[data-theme="dark"] .entry-timeline__track::before {
+  background: var(--ink-600);
+}
+
+/* Individual milestone node */
+.etl-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  cursor: default;
+}
+.etl-node:hover .etl-node__dot {
+  transform: scale(1.2);
+}
+
+/* The dot */
+.etl-node__dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--acc, #fbbf24);
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.15s ease, background 0.15s ease;
+  margin-bottom: var(--space-2);
+}
+[data-theme="dark"] .etl-node__dot {
+  background: var(--ink-800);
+}
+.etl-node:hover .etl-node__dot,
+.etl-node.is-highlighted .etl-node__dot {
+  background: rgba(var(--acc-rgb, 251,191,36), 0.18);
+}
+.etl-node.is-highlighted .etl-node__dot {
+  border-width: 3px;
+  box-shadow: 0 0 0 4px rgba(var(--acc-rgb, 251,191,36), 0.15);
+}
+.etl-node__dot-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--acc, #fbbf24);
+  transition: transform 0.15s ease;
+}
+.etl-node:hover .etl-node__dot-inner {
+  transform: scale(1.3);
+}
+
+/* Year label */
+.etl-node__year {
+  font-size: 0.65rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.04em;
+  color: var(--acc-lt, #b87333);
+  margin-bottom: 3px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Event label */
+.etl-node__event {
+  font-size: 0.68rem;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: 1.35;
+  text-align: center;
+  padding: 0 4px;
+}
+
+/* Note (optional sub-text) */
+.etl-node__note {
+  font-size: 0.62rem;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 2px;
+  padding: 0 4px;
+}
+
+/* Type icon inside dot  */
+.etl-node__icon {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+/* Responsive: allow normal scroll on mobile */
+@media (max-width: 640px) {
+  .etl-node { width: 100px; }
+  .entry-timeline__label span { display: none; }
+}
+
+/* ============================================================
    PRINT STYLESHEET
    Optimised for printing thread pages and long-form articles.
    ============================================================ */

@@ -369,6 +369,7 @@
               <div class="consequence-box__label">Immediate Response</div>
               <p class="consequence-box__text">At least four Southern states passed laws criminalizing the distribution of abolitionist literature within months of the <em>Appeal</em>'s publication. Georgia, North Carolina, Louisiana, and Virginia all enacted legislation — some carrying the death penalty. <strong>A pamphlet provoked more legislative response in twelve months than decades of earlier protest.</strong> The slaveholders understood what the pamphlet said better than many historians have credited.</p>
             </div>
+            <div class="entry-timeline" data-timeline-id="timeline-walker" aria-label="David Walker timeline"></div>
           </article>
 
           <!-- 2: WILLIAM LLOYD GARRISON -->
@@ -395,6 +396,7 @@
               <div class="consequence-box__label">The Tension at the Heart of Abolition</div>
               <p class="consequence-box__text">Garrison believed in moral persuasion — change the hearts of slaveholders through argument. Walker, Garnet, Tubman, and eventually Douglass believed this was insufficient and that direct action, including violence, was justified. This split did not weaken the movement; it pressured it forward. <strong>Every step Garrison took toward radicalism was preceded by a Black abolitionist who had already arrived there.</strong></p>
             </div>
+            <div class="entry-timeline" data-timeline-id="timeline-garrison" aria-label="The Liberator timeline"></div>
           </article>
 
           <!-- 3: HENRY HIGHLAND GARNET -->
@@ -469,6 +471,7 @@
                 <div class="entry-feature__desc">"What to the Slave Is the Fourth of July?" — 1852. Still the most incisive critique of American exceptionalism ever delivered on American soil.</div>
               </div>
             </div>
+            <div class="entry-timeline" data-timeline-id="timeline-douglass" aria-label="Frederick Douglass timeline"></div>
           </article>
 
           <!-- 5: HARRIET TUBMAN -->
@@ -513,6 +516,7 @@
                 <div class="entry-feature__desc">June 2, 1863 — 700 people freed in one night. First woman to lead an armed U.S. military operation.</div>
               </div>
             </div>
+            <div class="entry-timeline" data-timeline-id="timeline-tubman" aria-label="Harriet Tubman timeline"></div>
           </article>
 
           <!-- 6: SOJOURNER TRUTH -->
@@ -595,6 +599,7 @@
               <div class="consequence-box__label">The Debate Brown Closed</div>
               <p class="consequence-box__text">For thirty years, the abolitionist movement had debated: moral suasion (Garrison) vs. direct action (Walker, Garnet). Brown acted on Garnet's position. The action failed militarily. The consequences — political terror in the South, radicalization of the North, Lincoln's election, secession, war — proved that Garnet had been right about the underlying dynamic. <strong>Slavery would not end through argument alone. It ended with 620,000 dead.</strong></p>
             </div>
+            <div class="entry-timeline" data-timeline-id="timeline-brown" aria-label="John Brown timeline"></div>
           </article>
 
           <!-- CAUSAL CHAIN -->
@@ -845,6 +850,64 @@
     else if (state==='playing') { listenIcon.innerHTML=PAUSE_ICON; listenLabel.textContent='Pause'; progressBar.classList.add('is-visible'); }
     else if (state==='paused') { listenIcon.innerHTML=PLAY_ICON; listenLabel.textContent='Resume'; }
   }
+  /* ── THREAD TIMELINES DATA ── */
+  window.THREAD_TIMELINES = {
+    "timeline-walker": [
+      { year:"1796", event:"Born free, Wilmington NC", note:"Father enslaved, mother free" },
+      { year:"1820s", event:"Moves to Boston", note:"Opens clothing shop near docks" },
+      { year:"Sep 1829", event:"Appeal published", note:"1st edition, 76 pages", highlight:true, icon:"📜" },
+      { year:"Oct 1829", event:"Georgia offers $10K bounty", note:"Dead; $1K alive" },
+      { year:"Dec 1829", event:"3rd edition printed", note:"Sewn into coat linings" },
+      { year:"1830", event:"4 states criminalize it", note:"Death penalty in some" },
+      { year:"Jun 1830", event:"Walker dies, age 34", note:"Cause disputed", icon:"✦" },
+      { year:"1831", event:"Garrison founds The Liberator", note:"Cites Walker's influence" }
+    ],
+    "timeline-garrison": [
+      { year:"Jan 1, 1831", event:"The Liberator founded", note:"\"I will be heard\"", highlight:true, icon:"📰" },
+      { year:"1833", event:"Anti-Slavery Society formed", note:"62 founders, majority Black" },
+      { year:"1838", event:"Non-Resistance Society", note:"Pacifist wing forms" },
+      { year:"1843", event:"Split with Garnet", note:"Violence vs. moral suasion" },
+      { year:"1847", event:"Break with Douglass", note:"Douglass founds North Star" },
+      { year:"1854", event:"Burns the Constitution", note:"\"Covenant with death\"" },
+      { year:"Dec 1865", event:"Final issue published", note:"35 years continuous", icon:"✦" }
+    ],
+    "timeline-douglass": [
+      { year:"Feb 1818", event:"Born enslaved, Talbot Co MD", note:"Father likely enslaver" },
+      { year:"1838", event:"Escapes to New York", note:"Age ~20, by train" },
+      { year:"1841", event:"First public speech", note:"Nantucket, MA", icon:"🎙" },
+      { year:"1845", event:"Narrative published", note:"Bestseller; flees to Britain", highlight:true },
+      { year:"1847", event:"North Star founded", note:"Rochester, NY" },
+      { year:"Jul 5, 1852", event:"\"4th of July\" speech", note:"\"What to the Slave…\"", highlight:true, icon:"🎙" },
+      { year:"1855", event:"My Bondage & My Freedom", note:"2nd autobiography" },
+      { year:"1863", event:"Recruits for 54th MA", note:"Union Army" },
+      { year:"1881", event:"Life & Times published", note:"3rd autobiography" },
+      { year:"Feb 1895", event:"Dies, Washington DC", note:"Age ~77", icon:"✦" }
+    ],
+    "timeline-tubman": [
+      { year:"c.1822", event:"Born enslaved, Dorchester Co MD" },
+      { year:"1844", event:"Married John Tubman", note:"He threatened to report her" },
+      { year:"Sep 1849", event:"1st escape", note:"Alone, 90 miles north", highlight:true, icon:"🌙" },
+      { year:"Dec 1850", event:"1st return mission", note:"Rescued niece & children" },
+      { year:"1851–1854", event:"5 more missions", note:"Including brothers" },
+      { year:"1856", event:"$40,000 bounty posted", note:"Dead or alive" },
+      { year:"1858", event:"Meets John Brown", note:"He calls her \"General\"" },
+      { year:"Jun 1863", event:"Combahee River Raid", note:"Led US raid, 700+ freed", highlight:true, icon:"⚔" },
+      { year:"1913", event:"Dies, Auburn NY", note:"Age ~91", icon:"✦" }
+    ],
+    "timeline-brown": [
+      { year:"1800", event:"Born, Torrington CT" },
+      { year:"1837", event:"Pledges life to abolition", note:"After Lovejoy murder" },
+      { year:"1847", event:"Meets Douglass", note:"Plans guerrilla war" },
+      { year:"1855", event:"Kansas territory", note:"Bleeding Kansas violence" },
+      { year:"May 1856", event:"Pottawatomie massacre", note:"5 pro-slavery men killed" },
+      { year:"Oct 16, 1859", event:"Harpers Ferry raid", note:"21 raiders, 36 hrs", highlight:true, icon:"⚔" },
+      { year:"Oct 18, 1859", event:"Captured by R.E. Lee" },
+      { year:"Nov 2, 1859", event:"Convicted of treason" },
+      { year:"Dec 2, 1859", event:"Hanged, Charles Town VA", note:"\"Blood will purge it\"", icon:"✦" },
+      { year:"Apr 1861", event:"Civil War begins", note:"15 months later" }
+    ]
+  };
+
   listenBtn.addEventListener('click', () => {
     if (!('speechSynthesis' in window)) { listenLabel.textContent='Not supported'; listenBtn.disabled=true; return; }
     const state = listenBtn.dataset.state;

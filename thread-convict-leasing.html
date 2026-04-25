@@ -126,6 +126,7 @@
         <li class="entry-sources__item"><span class="entry-sources__num">3</span><span class="entry-sources__text">Eric Foner, <em>Reconstruction: America's Unfinished Revolution, 1863–1877</em> (Harper &amp; Row, 1988), pp. 550–563.</span></li>
       </ol>
     </div>
+    <div class="entry-timeline" data-timeline-id="tl-black-codes" aria-label="Black Codes legal context timeline"></div>
   </div>
 </div>
 
@@ -220,6 +221,7 @@
         <li class="entry-sources__item"><span class="entry-sources__num">14</span><span class="entry-sources__text">Alexander, <em>The New Jim Crow</em>, p. 2 (introduction).</span></li>
       </ol>
     </div>
+    <div class="entry-timeline" data-timeline-id="tl-legal-chain" aria-label="Full legal chain 1865–present timeline"></div>
   </div>
 </div>
 
@@ -277,6 +279,33 @@
 <footer class="site-footer" role="contentinfo"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="footer-wordmark">Chain</div><p class="footer-mission">A nonprofit digital history platform documenting how the past continues to shape the present.</p><div class="footer-actions"><a href="donate.html" class="footer-btn footer-btn--primary">Donate</a><a href="newsletter.html" class="footer-btn footer-btn--outline">Newsletter</a></div></div><nav class="footer-nav-group"><h2 class="footer-nav-heading">Explore</h2><ul class="footer-nav-links"><li><a href="threads.html" class="footer-nav-link">All Threads</a></li><li><a href="explore.html" class="footer-nav-link">Encyclopedia</a></li><li><a href="maps.html" class="footer-nav-link">Maps &amp; Timelines</a></li><li><a href="today.html" class="footer-nav-link">Today in History</a></li></ul></nav><nav class="footer-nav-group"><h2 class="footer-nav-heading">About</h2><ul class="footer-nav-links"><li><a href="about.html" class="footer-nav-link">About Chain</a></li><li><a href="about.html#methodology" class="footer-nav-link">Methodology</a></li><li><a href="contact.html" class="footer-nav-link">Contact</a></li></ul></nav></div><div class="footer-bottom"><p class="footer-legal">© 2026 Chain. Content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="text-decoration:underline;color:inherit">CC BY 4.0</a>.</p></div></div></footer>
 <script src="js/main.js" defer></script>
 <script>
+window.THREAD_TIMELINES = {
+  "tl-legal-chain": [
+    { year:"Dec 1865", event:"13th Amendment ratified", note:"Slavery exception for crime", icon:"⚖", highlight:true },
+    { year:"1865–66", event:"Black Codes passed", note:"All Southern states" },
+    { year:"1867", event:"Reconstruction Acts", note:"Congress suspends Black Codes" },
+    { year:"1877", event:"Reconstruction ends", note:"Federal troops withdrawn" },
+    { year:"1877+", event:"Convict leasing expands", note:"Alabama, Georgia, Mississippi", highlight:true },
+    { year:"1896", event:"Plessy v. Ferguson", note:"\"Separate but equal\" upheld" },
+    { year:"1900s–20s", event:"30–40% death rates", note:"Alabama coal mines" },
+    { year:"1928", event:"Alabama ends leasing", note:"Replaced by chain gangs" },
+    { year:"1942", event:"Federal pressure ends it", note:"WWII contradiction too stark", icon:"✦" },
+    { year:"1971", event:"War on Drugs begins", note:"Nixon administration" },
+    { year:"1994", event:"Crime Bill passed", note:"Mandatory minimums expand" },
+    { year:"2010", event:"The New Jim Crow", note:"Alexander names the system" },
+    { year:"Present", event:"2.3M incarcerated", note:"38% Black; $0–$0.63/hr labor", highlight:true }
+  ],
+  "tl-black-codes": [
+    { year:"Dec 6, 1865", event:"13th Amendment", note:"Slavery exception for crime", highlight:true },
+    { year:"Nov 1865", event:"MS Black Codes", note:"Vagrancy = arrest", icon:"⚖" },
+    { year:"1865–66", event:"All Southern states", note:"Similar codes passed" },
+    { year:"1867", event:"Reconstruction Acts", note:"Congress suspends codes" },
+    { year:"1877", event:"Compromised restored", note:"Codes revived & expanded" },
+    { year:"1883", event:"Civil Rights Act struck", note:"Supreme Court strikes 1875 Act" },
+    { year:"1896", event:"Plessy v. Ferguson", note:"Segregation enshrined" }
+  ]
+};
+
 window.THREAD_SOURCES = {
   "13th-amendment": {
     type: "Primary source",

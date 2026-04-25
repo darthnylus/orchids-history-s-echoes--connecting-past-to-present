@@ -151,6 +151,7 @@
         <li class="entry-sources__item"><span class="entry-sources__num">3</span><span class="entry-sources__text">Leeming, <em>James Baldwin</em>, ch. 4. Baldwin's departure for Paris in November 1948 is documented in his correspondence and in interviews collected in <em>The Cross of Redemption: Uncollected Writings</em> (Pantheon, 2010).</span></li>
       </ol>
     </div>
+    <div class="entry-timeline" data-timeline-id="tl-baldwin-life" aria-label="James Baldwin full life timeline"></div>
   </div>
 </div>
 
@@ -215,6 +216,7 @@
         <li class="entry-sources__item"><span class="entry-sources__num">8</span><span class="entry-sources__text"><em>Time</em> magazine, May 17, 1963. Cover headline: "The Negro's Push for Equality." The issue coincided with the Birmingham Children's Crusade and Connor's use of fire hoses on demonstrators.</span></li>
       </ol>
     </div>
+    <div class="entry-timeline" data-timeline-id="tl-fire-next-time" aria-label="The Fire Next Time context timeline"></div>
   </div>
 </div>
 
@@ -375,6 +377,36 @@
 
 <script src="js/main.js" defer></script>
 <script>
+window.THREAD_TIMELINES = {
+  "tl-baldwin-life": [
+    { year:"1924", event:"Born, Harlem Hospital", note:"Eldest of 9 children" },
+    { year:"1937", event:"Boy preacher, age 13", note:"Fireside Pentecostal Church" },
+    { year:"1941", event:"Leaves the church, age 17", note:"\"Truth over comfort\"" },
+    { year:"1943", event:"Harlem riot, age 19", note:"White cop shoots Black soldier", highlight:true },
+    { year:"1948", event:"Moves to Paris", note:"$40 and a one-way ticket", icon:"✈" },
+    { year:"1953", event:"Go Tell It on the Mountain", note:"First novel", icon:"📖" },
+    { year:"1955", event:"Notes of a Native Son", note:"Defining essay collection", highlight:true, icon:"📝" },
+    { year:"Jan 1963", event:"The Fire Next Time", note:"41 weeks on bestseller list", highlight:true, icon:"🔥" },
+    { year:"May 1963", event:"Kennedy meeting", note:"\"I can't believe what you say\"" },
+    { year:"Feb 1965", event:"Malcolm X assassinated", note:"Baldwin: \"most truthful man\"" },
+    { year:"Apr 1968", event:"MLK assassinated", note:"Baldwin returns to France" },
+    { year:"1972", event:"No Name in the Street", note:"His angriest book" },
+    { year:"1974", event:"If Beale Street Could Talk", note:"Film by Barry Jenkins, 2018" },
+    { year:"Dec 1, 1987", event:"Dies, St. Paul de Vence", note:"Age 63, still writing", icon:"✦" },
+    { year:"2016", event:"I Am Not Your Negro", note:"Oscar nominee; new generation" }
+  ],
+  "tl-fire-next-time": [
+    { year:"Nov 1962", event:"\"Letter\" in New Yorker", note:"Original publication" },
+    { year:"Jan 1963", event:"Book published", note:"Dial Press", highlight:true, icon:"🔥" },
+    { year:"May 1963", event:"Time magazine cover", note:"\"Negro's Push for Equality\"" },
+    { year:"Summer 1963", event:"Birmingham bombing", note:"4 girls killed in church" },
+    { year:"Nov 1963", event:"JFK assassinated" },
+    { year:"1964", event:"Civil Rights Act signed", note:"Baldwin: \"Only a beginning\"" },
+    { year:"1987", event:"Baldwin dies", note:"Argument still unresolved" },
+    { year:"2014+", event:"Ferguson & BLM", note:"Argument required no updates", highlight:true }
+  ]
+};
+
 window.THREAD_SOURCES = {
   "baldwin-birth": {
     type: "Biographical record",
