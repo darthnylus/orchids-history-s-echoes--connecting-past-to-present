@@ -744,20 +744,401 @@
       color: var(--ink-900);
     }
 
-    /* ── Journey view ───────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       THREADS TOOLBAR
+       ══════════════════════════════════════════════════════════ */
+    .threads-toolbar {
+      padding: var(--space-5) 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+
+    /* ── Top row: search + view toggle + sort ─────────────── */
+    .threads-toolbar__top {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    /* Inline search */
+    .tbar-search {
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .tbar-search__icon {
+      position: absolute;
+      left: var(--space-4);
+      width: 16px; height: 16px;
+      stroke: var(--color-text-tertiary);
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+    .tbar-search__input {
+      width: 100%;
+      padding: var(--space-3) var(--space-10) var(--space-3) calc(var(--space-4)*2 + 16px);
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      font-size: var(--type-sm);
+      color: var(--color-text-primary);
+      font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      -webkit-appearance: none;
+    }
+    .tbar-search__input::placeholder { color: var(--color-text-tertiary); }
+    .tbar-search__input:focus {
+      outline: none;
+      border-color: var(--color-accent-dark);
+      box-shadow: 0 0 0 3px rgba(224,122,0,.14);
+    }
+    [data-theme="dark"] .tbar-search__input {
+      background: var(--ink-800);
+      border-color: var(--ink-700);
+      color: var(--ink-100);
+    }
+    .tbar-search__clear {
+      position: absolute;
+      right: var(--space-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--color-text-tertiary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background .15s;
+    }
+    .tbar-search__clear:hover { background: var(--color-text-secondary); }
+    .tbar-search__clear svg { width: 12px; height: 12px; stroke-width: 3; }
+
+    /* Auto-suggestions */
+    .search-suggestions {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0; right: 0;
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      z-index: 120;
+      overflow: hidden;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    [data-theme="dark"] .search-suggestions { background: var(--ink-800); border-color: var(--ink-700); }
+    .sugg-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--color-text-primary);
+      border-bottom: 1px solid var(--color-border-subtle);
+      transition: background .1s;
+    }
+    .sugg-item:last-child { border-bottom: none; }
+    .sugg-item:hover, .sugg-item[aria-selected="true"] { background: var(--color-surface-alt); }
+    [data-theme="dark"] .sugg-item:hover,
+    [data-theme="dark"] .sugg-item[aria-selected="true"] { background: var(--ink-700); }
+    .sugg-item__icon {
+      width: 28px; height: 28px;
+      border-radius: var(--radius-sm);
+      background: var(--color-accent-light);
+      color: var(--color-accent-dark);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .sugg-item__body { flex: 1; min-width: 0; }
+    .sugg-item__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sugg-item__title mark {
+      background: transparent;
+      color: var(--color-accent-dark);
+      font-weight: 700;
+    }
+    .sugg-item__meta {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+    }
+    .sugg-item__arrow {
+      color: var(--color-text-tertiary);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .sugg-header {
+      padding: var(--space-2) var(--space-4);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      background: var(--color-surface-alt);
+    }
+    [data-theme="dark"] .sugg-header { background: var(--ink-900); }
+
+    /* Sort select */
+    .tbar-sort {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-shrink: 0;
+    }
+    .tbar-sort__label {
+      font-size: var(--type-xs);
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      white-space: nowrap;
+    }
+    .tbar-sort__select {
+      padding: var(--space-2) var(--space-8) var(--space-2) var(--space-3);
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--type-sm);
+      color: var(--color-text-primary);
+      font-family: inherit;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23909090' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      transition: border-color .15s;
+    }
+    .tbar-sort__select:focus { outline: none; border-color: var(--color-accent-dark); }
+    [data-theme="dark"] .tbar-sort__select { background-color: var(--ink-800); border-color: var(--ink-700); color: var(--ink-200); }
+
+    /* ── Filter row ────────────────────────────────────────── */
+    .threads-toolbar__filters {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .tbar-filter-chips {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .tbar-right {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+
+    /* Advanced filter toggle button */
+    .tbar-adv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-secondary);
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: all .15s;
+      white-space: nowrap;
+      position: relative;
+    }
+    .tbar-adv-btn:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .tbar-adv-btn[aria-expanded="true"] {
+      background: var(--ink-900);
+      border-color: var(--ink-900);
+      color: #fff;
+    }
+    [data-theme="dark"] .tbar-adv-btn { background: var(--ink-800); border-color: var(--ink-700); color: var(--ink-300); }
+    [data-theme="dark"] .tbar-adv-btn[aria-expanded="true"] { background: var(--amber-500); border-color: var(--amber-500); color: var(--ink-900); }
+    .tbar-adv-btn__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: var(--radius-pill);
+      background: var(--amber-400);
+      color: var(--ink-900);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    /* ── Advanced filter panel ─────────────────────────────── */
+    .adv-filter-panel {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-7);
+    }
+    [data-theme="dark"] .adv-filter-panel { background: var(--ink-800); border-color: var(--ink-700); }
+    .adv-filter-panel__inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+    .adv-filter-group {}
+    .adv-filter-group__label {
+      font-size: var(--type-xs);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-3);
+    }
+    .adv-filter-group__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .adv-chip {
+      padding: var(--space-1) var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .adv-chip:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .adv-chip[aria-pressed="true"] {
+      background: var(--ink-900); border-color: var(--ink-900); color: #fff;
+    }
+    [data-theme="dark"] .adv-chip { background: var(--ink-700); border-color: var(--ink-600); color: var(--ink-300); }
+    [data-theme="dark"] .adv-chip[aria-pressed="true"] { background: var(--amber-500); border-color: var(--amber-500); color: var(--ink-900); }
+    .adv-keyword-input {
+      width: 100%;
+      max-width: 380px;
+      padding: var(--space-2) var(--space-4);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--type-sm);
+      color: var(--color-text-primary);
+      background: var(--color-surface);
+      font-family: inherit;
+      transition: border-color .15s;
+    }
+    .adv-keyword-input:focus { outline: none; border-color: var(--color-accent-dark); }
+    [data-theme="dark"] .adv-keyword-input { background: var(--ink-700); border-color: var(--ink-600); color: var(--ink-100); }
+    .adv-filter-panel__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-subtle);
+    }
+    .adv-clear-btn {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-tertiary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color .15s;
+    }
+    .adv-clear-btn:hover { color: var(--color-accent-dark); }
+    .adv-filter-panel__count {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      margin-left: auto;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       JOURNEY VIEW — Interactive Visual Timeline
+       ══════════════════════════════════════════════════════════ */
     #journey-view { display: none; }
     #journey-view.is-active { display: block; }
     #topic-view.is-hidden { display: none; }
 
-    .journey-era-section { margin-bottom: var(--space-12); }
+    /* Era spine — vertical line + era marker nodes on left */
+    #journey-view {
+      position: relative;
+    }
+    .journey-spine {
+      display: none; /* rendered but used as bg reference */
+    }
+
+    .journey-era-section {
+      position: relative;
+      margin-bottom: 0;
+      padding-bottom: var(--space-2);
+    }
+
+    /* Left border = the timeline spine */
+    .journey-era-section::before {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 36px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--era-c, #888) 0%, rgba(128,128,128,.1) 100%);
+    }
+    .journey-era-section:last-child::before {
+      display: none;
+    }
+
     .journey-era-header {
       display: flex;
       align-items: center;
       gap: var(--space-4);
-      margin-bottom: var(--space-5);
-      padding-bottom: var(--space-4);
-      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--space-4);
+      padding: var(--space-4) var(--space-5) var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--era-c, #888);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      position: relative;
+      margin-left: var(--space-9);
+      cursor: pointer;
+      user-select: none;
+      transition: box-shadow .15s, border-color .15s;
     }
+    .journey-era-header:hover {
+      box-shadow: var(--shadow-sm);
+    }
+    [data-theme="dark"] .journey-era-header { background: var(--ink-800); border-color: var(--ink-700); border-left-color: var(--era-c, #888); }
+    .journey-era-header::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-9) - 1px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: var(--space-9);
+      height: 2px;
+      background: var(--era-c, #888);
+      opacity: .4;
+    }
+
     .journey-era-num {
       width: 36px; height: 36px;
       border-radius: 50%;
@@ -767,43 +1148,87 @@
       font-weight: 900;
       color: #fff;
       flex-shrink: 0;
+      position: absolute;
+      left: calc(-1 * var(--space-9) - 18px);
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 0 0 4px var(--color-bg);
     }
+    [data-theme="dark"] .journey-era-num { box-shadow: 0 0 0 4px var(--ink-950, #080808); }
+
     .journey-era-label {
       font-family: var(--font-editorial);
-      font-size: 1.125rem;
+      font-size: 1.0625rem;
       font-weight: var(--weight-bold);
       color: var(--color-text-primary);
+      flex: 1;
     }
     .journey-era-years {
       font-size: var(--type-xs);
       color: var(--color-text-tertiary);
-      margin-left: auto;
       white-space: nowrap;
     }
+    .journey-era-toggle {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      transition: transform .25s;
+      flex-shrink: 0;
+    }
+    .journey-era-section.is-collapsed .journey-era-toggle {
+      transform: rotate(-90deg);
+    }
+
     .journey-thread-list {
       display: flex;
       flex-direction: column;
-      gap: var(--space-2);
+      gap: var(--space-1);
+      margin-left: var(--space-9);
+      overflow: hidden;
+      max-height: 2000px;
+      transition: max-height .35s var(--ease-out), opacity .3s;
+      opacity: 1;
     }
+    .journey-era-section.is-collapsed .journey-thread-list {
+      max-height: 0;
+      opacity: 0;
+    }
+
     .journey-thread-row {
       display: flex;
       align-items: center;
       gap: var(--space-4);
-      padding: var(--space-4) var(--space-5);
+      padding: var(--space-3) var(--space-5);
       background: var(--color-surface);
       border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
+      border-left: 2px solid transparent;
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
       text-decoration: none;
       color: var(--color-text-primary);
-      transition: all .15s;
+      transition: border-color .15s, background .15s, transform .15s;
+      position: relative;
+    }
+    .journey-thread-row::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-5) - 2px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: var(--space-5);
+      height: 1px;
+      background: var(--color-border);
     }
     [data-theme="dark"] .journey-thread-row { background: var(--ink-800); border-color: var(--ink-700); }
-    .journey-thread-row:hover { border-color: var(--amber-300); transform: translateX(4px); }
+    .journey-thread-row:hover {
+      border-left-color: var(--era-c, var(--amber-400));
+      background: var(--color-surface-alt);
+      transform: translateX(3px);
+    }
+    [data-theme="dark"] .journey-thread-row:hover { background: var(--ink-700); }
     .journey-thread-row__num {
-      font-size: var(--type-xs);
-      font-weight: var(--weight-bold);
+      font-size: 11px;
+      font-weight: 700;
       color: var(--color-text-tertiary);
-      min-width: 32px;
+      min-width: 28px;
       font-variant-numeric: tabular-nums;
     }
     .journey-thread-row__title {
@@ -815,26 +1240,45 @@
       font-size: var(--type-xs);
       color: var(--color-text-tertiary);
       white-space: nowrap;
-      margin-left: auto;
       padding-left: var(--space-3);
     }
     .journey-thread-row__arrow {
       color: var(--color-text-tertiary);
-      font-size: .85rem;
-      transition: color .15s;
+      font-size: .8rem;
+      transition: color .15s, transform .15s;
     }
-    .journey-thread-row:hover .journey-thread-row__arrow { color: var(--amber-400); }
+    .journey-thread-row:hover .journey-thread-row__arrow {
+      color: var(--era-c, var(--amber-400));
+      transform: translateX(2px);
+    }
 
-    /* Medium screens — hide year range, keep row readable */
+    /* Collapsed state thread count badge */
+    .journey-era-count-badge {
+      display: none;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--color-accent-light);
+      color: var(--color-accent-dark);
+      border-radius: var(--radius-pill);
+      padding: 2px 8px;
+      margin-left: var(--space-2);
+    }
+    .journey-era-section.is-collapsed .journey-era-count-badge { display: inline-flex; }
+    .journey-era-section.is-collapsed .journey-era-years { display: none; }
+
+    /* Mobile */
     @media (max-width: 860px) {
       .journey-thread-row .journey-thread-row__years { display: none; }
-      .journey-thread-row { gap: var(--space-3); padding: var(--space-3) var(--space-4); }
     }
     @media (max-width: 540px) {
       .journey-thread-row__num { display: none; }
-      .journey-thread-row { padding: var(--space-3); }
-      .journey-era-header { gap: var(--space-3); }
-      .journey-era-years { display: none; }
+      .journey-era-section::before { left: 14px; }
+      .journey-era-num { left: calc(-1 * var(--space-8) - 14px); }
+      .journey-era-header,
+      .journey-thread-list,
+      .journey-thread-row { margin-left: var(--space-8); }
+      .journey-era-header::before { width: var(--space-8); left: calc(-1 * var(--space-8) - 1px); }
+      .journey-thread-row::before { left: calc(-1 * var(--space-4) - 2px); width: var(--space-4); }
     }
 
     /* Reveal */
@@ -1241,34 +1685,133 @@
 
   <div class="container threads-section">
 
-    <!-- VIEW TOGGLE + FILTER ROW -->
-    <div style="display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;padding:var(--space-6) 0 var(--space-2)">
-      <div class="view-toggle" role="group" aria-label="View mode">
-        <button class="view-toggle__btn is-active" id="btnTopicView" aria-pressed="true">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          Cards
-        </button>
-        <button class="view-toggle__btn" id="btnTableView" aria-pressed="false">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
-          Table
-        </button>
-        <button class="view-toggle__btn" id="btnJourneyView" aria-pressed="false">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><polyline points="18 8 12 2 6 8"/></svg>
-          Journey
-        </button>
+    <!-- ═══════════════════════════════════════════════════════
+         SEARCH + FILTER TOOLBAR
+         ═══════════════════════════════════════════════════════ -->
+    <div class="threads-toolbar" id="threadsToolbar">
+
+      <!-- Row 1: search + view toggles + sort -->
+      <div class="threads-toolbar__top">
+
+        <!-- Inline search -->
+        <div class="tbar-search" role="search" aria-label="Search threads">
+          <svg class="tbar-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input
+            type="search"
+            id="threadSearch"
+            class="tbar-search__input"
+            placeholder="Search by title, person, year, policy…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search threads"
+            aria-autocomplete="list"
+            aria-controls="searchSuggestions"
+            aria-expanded="false"
+          />
+          <button class="tbar-search__clear" id="searchClear" aria-label="Clear search" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <!-- Auto-suggestions dropdown -->
+          <div class="search-suggestions" id="searchSuggestions" role="listbox" aria-label="Search suggestions" hidden></div>
+        </div>
+
+        <!-- View toggle -->
+        <div class="view-toggle" role="group" aria-label="View mode">
+          <button class="view-toggle__btn is-active" id="btnTopicView" aria-pressed="true" title="Card grid">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            Cards
+          </button>
+          <button class="view-toggle__btn" id="btnJourneyView" aria-pressed="false" title="Interactive timeline">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="6" y1="6" x2="6" y2="18"/><line x1="18" y1="6" x2="18" y2="18"/></svg>
+            Timeline
+          </button>
+          <button class="view-toggle__btn" id="btnTableView" aria-pressed="false" title="Sortable table">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
+            Table
+          </button>
+        </div>
+
+        <!-- Sort -->
+        <div class="tbar-sort" id="topic-filters">
+          <label for="threadSort" class="tbar-sort__label">Sort</label>
+          <select id="threadSort" class="tbar-sort__select" aria-label="Sort threads">
+            <option value="default">Default</option>
+            <option value="chron">Chronological</option>
+            <option value="chron-desc">Newest first</option>
+            <option value="alpha">A → Z</option>
+          </select>
+        </div>
+
       </div>
-      <div class="threads-filter" id="topic-filters" role="group" aria-label="Filter threads by domain" style="padding:0;flex:1">
-        <span class="threads-filter__label">Domain</span>
-        <button class="filter-chip is-active" data-filter="all"       aria-pressed="true">All</button>
-        <button class="filter-chip"           data-filter="housing"   aria-pressed="false">Housing</button>
-        <button class="filter-chip"           data-filter="labor-wealth"      aria-pressed="false">Labor &amp; Wealth</button>
-        <button class="filter-chip"           data-filter="criminal-justice"  aria-pressed="false">Criminal Justice</button>
-        <button class="filter-chip"           data-filter="health"            aria-pressed="false">Health</button>
-        <button class="filter-chip"           data-filter="education"         aria-pressed="false">Education</button>
-        <button class="filter-chip"           data-filter="history-culture"   aria-pressed="false">History &amp; Culture</button>
-        <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true"></span>
+
+      <!-- Row 2: domain filters + advanced toggle + result count -->
+      <div class="threads-toolbar__filters" id="filtersRow">
+        <div class="tbar-filter-chips" role="group" aria-label="Filter by domain">
+          <button class="filter-chip is-active" data-filter="all"              aria-pressed="true">All</button>
+          <button class="filter-chip"           data-filter="history-culture"  aria-pressed="false">History &amp; Culture</button>
+          <button class="filter-chip"           data-filter="labor-wealth"     aria-pressed="false">Labor &amp; Wealth</button>
+          <button class="filter-chip"           data-filter="housing"          aria-pressed="false">Housing</button>
+          <button class="filter-chip"           data-filter="criminal-justice" aria-pressed="false">Criminal Justice</button>
+          <button class="filter-chip"           data-filter="education"        aria-pressed="false">Education</button>
+          <button class="filter-chip"           data-filter="health"           aria-pressed="false">Health</button>
+        </div>
+
+        <div class="tbar-right">
+          <!-- Advanced filter toggle -->
+          <button class="tbar-adv-btn" id="advFilterToggle" aria-expanded="false" aria-controls="advFilterPanel">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+            Filters
+            <span class="tbar-adv-btn__badge" id="advBadge" hidden>0</span>
+          </button>
+          <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true"></span>
+        </div>
       </div>
-    </div>
+
+      <!-- Row 3: advanced filter panel (collapsed by default) -->
+      <div class="adv-filter-panel" id="advFilterPanel" hidden>
+        <div class="adv-filter-panel__inner">
+
+          <div class="adv-filter-group">
+            <p class="adv-filter-group__label">Time period</p>
+            <div class="adv-filter-group__chips" role="group" aria-label="Filter by time period">
+              <button class="adv-chip" data-adv="era" data-era="1" aria-pressed="false">Origins (pre-1400)</button>
+              <button class="adv-chip" data-adv="era" data-era="2" aria-pressed="false">The Rupture (1400s–1619)</button>
+              <button class="adv-chip" data-adv="era" data-era="3" aria-pressed="false">Slavery (1619–1865)</button>
+              <button class="adv-chip" data-adv="era" data-era="4" aria-pressed="false">Emancipation (1865–1900)</button>
+              <button class="adv-chip" data-adv="era" data-era="5" aria-pressed="false">Jim Crow (1900–1940)</button>
+              <button class="adv-chip" data-adv="era" data-era="6" aria-pressed="false">Post-War (1940–1964)</button>
+              <button class="adv-chip" data-adv="era" data-era="7" aria-pressed="false">Civil Rights (1954–1968)</button>
+              <button class="adv-chip" data-adv="era" data-era="8" aria-pressed="false">Backlash (1968–2000)</button>
+              <button class="adv-chip" data-adv="era" data-era="9" aria-pressed="false">Present (2000–)</button>
+            </div>
+          </div>
+
+          <div class="adv-filter-group">
+            <p class="adv-filter-group__label">Evidence type</p>
+            <div class="adv-filter-group__chips" role="group" aria-label="Filter by evidence type">
+              <button class="adv-chip" data-adv="evidence" data-evidence="law"        aria-pressed="false">Laws &amp; Policy</button>
+              <button class="adv-chip" data-adv="evidence" data-evidence="economics"  aria-pressed="false">Economic Data</button>
+              <button class="adv-chip" data-adv="evidence" data-evidence="biography"  aria-pressed="false">Biography</button>
+              <button class="adv-chip" data-adv="evidence" data-evidence="geography"  aria-pressed="false">Geography &amp; Place</button>
+              <button class="adv-chip" data-adv="evidence" data-evidence="court"      aria-pressed="false">Court Decisions</button>
+              <button class="adv-chip" data-adv="evidence" data-evidence="culture"    aria-pressed="false">Culture &amp; Ideas</button>
+            </div>
+          </div>
+
+          <div class="adv-filter-group adv-filter-group--keyword">
+            <p class="adv-filter-group__label">Keyword tag</p>
+            <input type="text" id="keywordFilter" class="adv-keyword-input" placeholder="e.g. redlining, Reconstruction, reparations…" aria-label="Filter by keyword" />
+          </div>
+
+          <div class="adv-filter-panel__actions">
+            <button class="adv-clear-btn" id="advClearAll">Clear all filters</button>
+            <span class="adv-filter-panel__count" id="advFilterCount"></span>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /.threads-toolbar -->
 
     <!-- ERA JUMP BAR — skip to any era without scrolling (visible in Journey view only) -->
     <div class="era-jump-bar" id="eraJumpBar" role="group" aria-label="Jump to era" style="display:none">
@@ -1304,8 +1847,12 @@
       </div>
     </div>
 
-    <!-- JOURNEY VIEW — chronological, 1–66 -->
-    <div id="journey-view" aria-label="All threads in chronological order" role="region"></div>
+    <!-- JOURNEY VIEW — interactive visual timeline -->
+    <div id="journey-view" aria-label="All threads in chronological order" role="region">
+      <!-- Era spine timeline (injected by JS) -->
+      <div class="journey-spine" id="journeySpine" aria-hidden="true"></div>
+      <!-- Thread list (injected by JS) -->
+    </div>
 
     <!-- TOPIC VIEW wrapper -->
     <div id="topic-view">
@@ -2468,10 +3015,329 @@
   mobileClose.addEventListener('click', closeMobileNav);
   mobileBackdrop.addEventListener('click', closeMobileNav);
 
-  // ── DOMAIN FILTER ─────────────────────────────────────────
-  const filterChips  = document.querySelectorAll('.filter-chip');
-  const allCards     = document.querySelectorAll('[data-domain]');
-  const filterCount  = document.getElementById('filterCount');
+  // ══════════════════════════════════════════════════════════════
+  //  THREADS PAGE — Search · Filter · Sort · Journey Timeline
+  // ══════════════════════════════════════════════════════════════
+
+  // ── State ──────────────────────────────────────────────────
+  var state = {
+    query:      '',
+    domain:     'all',
+    era:        null,    // null = any
+    evidence:   null,
+    keyword:    '',
+    sort:       'default'
+  };
+
+  // Flat list of all thread data (from JOURNEY_DATA)
+  var ALL_THREADS = (function() {
+    var list = [];
+    JOURNEY_DATA.forEach(function(era) {
+      era.threads.forEach(function(t) {
+        list.push({
+          href: t.href,
+          title: t.title,
+          domain: t.domain,
+          years: t.years,
+          era: era.era,
+          eraLabel: era.label,
+          eraColor: era.color
+        });
+      });
+    });
+    return list;
+  })();
+
+  // Start year extracted for sorting
+  function startYear(t) {
+    var m = t.years.match(/(\d{4})/);
+    return m ? parseInt(m[1]) : 0;
+  }
+
+  // ── Cards visible on the page (topic view) ─────────────────
+  const allCards    = document.querySelectorAll('[data-domain]');
+  const filterCount = document.getElementById('filterCount');
+
+  // ── Master visibility function ─────────────────────────────
+  function applyAll() {
+    var q   = state.query.toLowerCase().trim();
+    var dom = state.domain;
+    var kw  = state.keyword.toLowerCase().trim();
+
+    var visible = 0;
+
+    allCards.forEach(function(card) {
+      var domains   = (card.dataset.domain || '').split(/\s+/);
+      var titleEl   = card.querySelector('.thread-card__title, .thread-featured__title');
+      var summaryEl = card.querySelector('.thread-card__summary, .thread-featured__summary');
+      var title     = titleEl   ? titleEl.textContent.toLowerCase()   : '';
+      var summary   = summaryEl ? summaryEl.textContent.toLowerCase() : '';
+      var spanEl    = card.querySelector('.thread-card__span');
+      var spanTxt   = spanEl    ? spanEl.textContent.toLowerCase()    : '';
+
+      var domOk  = dom === 'all' || domains.includes(dom);
+      var qOk    = !q  || title.includes(q) || summary.includes(q) || spanTxt.includes(q);
+      var kwOk   = !kw || title.includes(kw) || summary.includes(kw);
+      var eraOk  = !state.era; // era filter applies to journey view only
+
+      if (domOk && qOk && kwOk && eraOk) {
+        card.classList.remove('thread-hidden');
+        card.classList.add('is-visible');
+        visible++;
+      } else {
+        card.classList.add('thread-hidden');
+        card.classList.remove('is-visible');
+      }
+    });
+
+    // Update count
+    if (filterCount) {
+      var active = dom !== 'all' || q || kw;
+      filterCount.textContent = active ? visible + ' thread' + (visible !== 1 ? 's' : '') : '';
+    }
+
+    // Apply sort to card grid
+    applySort();
+
+    // Update adv badge
+    updateAdvBadge();
+
+    // If journey view visible, re-render with filter
+    if (journeyView.classList.contains('is-active')) {
+      renderJourneyView(true);
+    }
+
+    // Empty state
+    var emptyEl = document.querySelector('.filter-empty');
+    if (emptyEl) emptyEl.classList.toggle('is-visible', visible === 0 && topicView && !topicView.classList.contains('is-hidden'));
+  }
+
+  // ── Sort ───────────────────────────────────────────────────
+  function applySort() {
+    var grid = document.querySelector('.threads-grid');
+    if (!grid || state.sort === 'default') return;
+
+    var cards = Array.from(grid.querySelectorAll('.thread-card'));
+    cards.sort(function(a, b) {
+      var aTitle = (a.querySelector('.thread-card__title') || {}).textContent || '';
+      var bTitle = (b.querySelector('.thread-card__title') || {}).textContent || '';
+      var aSpan  = a.querySelector('.thread-card__span');
+      var bSpan  = b.querySelector('.thread-card__span');
+      var aYear  = aSpan ? parseInt((aSpan.textContent.match(/\d{4}/) || [0])[0]) : 0;
+      var bYear  = bSpan ? parseInt((bSpan.textContent.match(/\d{4}/) || [0])[0]) : 0;
+
+      if (state.sort === 'alpha')       return aTitle.localeCompare(bTitle);
+      if (state.sort === 'chron')       return aYear - bYear;
+      if (state.sort === 'chron-desc')  return bYear - aYear;
+      return 0;
+    });
+    cards.forEach(function(c) { grid.appendChild(c); });
+  }
+
+  // ── Domain filter chips ────────────────────────────────────
+  const filterChips = document.querySelectorAll('.filter-chip');
+  filterChips.forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      filterChips.forEach(function(c) { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
+      chip.classList.add('is-active'); chip.setAttribute('aria-pressed','true');
+      state.domain = chip.dataset.filter || 'all';
+      applyAll();
+    });
+  });
+
+  // ── Sort select ─────────────────────────────────────────────
+  var sortSelect = document.getElementById('threadSort');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function() {
+      state.sort = this.value;
+      applyAll();
+    });
+  }
+
+  // ── Advanced filter panel ───────────────────────────────────
+  var advToggle    = document.getElementById('advFilterToggle');
+  var advPanel     = document.getElementById('advFilterPanel');
+  var advBadge     = document.getElementById('advBadge');
+  var advCount     = document.getElementById('advFilterCount');
+  var keywordInput = document.getElementById('keywordFilter');
+  var advClearAll  = document.getElementById('advClearAll');
+
+  if (advToggle && advPanel) {
+    advToggle.addEventListener('click', function() {
+      var open = advPanel.hidden;
+      advPanel.hidden = !open;
+      advToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Era chips (adv panel)
+  document.querySelectorAll('.adv-chip[data-adv="era"]').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      var already = chip.getAttribute('aria-pressed') === 'true';
+      document.querySelectorAll('.adv-chip[data-adv="era"]').forEach(function(c) {
+        c.setAttribute('aria-pressed','false');
+      });
+      if (!already) {
+        chip.setAttribute('aria-pressed','true');
+        state.era = chip.dataset.era;
+      } else {
+        state.era = null;
+      }
+      applyAll();
+    });
+  });
+
+  // Evidence chips (adv panel — tag-based, no data on cards yet; wire for future)
+  document.querySelectorAll('.adv-chip[data-adv="evidence"]').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      var already = chip.getAttribute('aria-pressed') === 'true';
+      document.querySelectorAll('.adv-chip[data-adv="evidence"]').forEach(function(c) {
+        c.setAttribute('aria-pressed','false');
+      });
+      if (!already) {
+        chip.setAttribute('aria-pressed','true');
+        state.evidence = chip.dataset.evidence;
+      } else {
+        state.evidence = null;
+      }
+      applyAll();
+    });
+  });
+
+  // Keyword input
+  if (keywordInput) {
+    keywordInput.addEventListener('input', function() {
+      state.keyword = this.value;
+      applyAll();
+    });
+  }
+
+  // Clear all advanced
+  if (advClearAll) {
+    advClearAll.addEventListener('click', function() {
+      state.era = null; state.evidence = null; state.keyword = '';
+      if (keywordInput) keywordInput.value = '';
+      document.querySelectorAll('.adv-chip').forEach(function(c) { c.setAttribute('aria-pressed','false'); });
+      applyAll();
+    });
+  }
+
+  function updateAdvBadge() {
+    var count = (state.era ? 1 : 0) + (state.evidence ? 1 : 0) + (state.keyword ? 1 : 0);
+    if (advBadge) {
+      advBadge.hidden = count === 0;
+      advBadge.textContent = count;
+    }
+    if (advCount) {
+      var total = 0;
+      allCards.forEach(function(c) { if (!c.classList.contains('thread-hidden')) total++; });
+      advCount.textContent = total + ' thread' + (total !== 1 ? 's' : '') + ' shown';
+    }
+  }
+
+  // ══════════════════════════════════════════════════════════════
+  //  INLINE SEARCH + AUTO-SUGGESTIONS
+  // ══════════════════════════════════════════════════════════════
+  var threadSearchInput  = document.getElementById('threadSearch');
+  var searchSuggestions  = document.getElementById('searchSuggestions');
+  var searchClearBtn     = document.getElementById('searchClear');
+  var suggSelectedIdx    = -1;
+
+  function hexToRgbaEarly(hex, a) {
+    var r=parseInt(hex.slice(1,3),16)||0, g=parseInt(hex.slice(3,5),16)||0, b=parseInt(hex.slice(5,7),16)||0;
+    return 'rgba('+r+','+g+','+b+','+a+')';
+  }
+
+  function buildSuggestions(q) {
+    if (!q || q.length < 2) {
+      hideSuggestions();
+      return;
+    }
+    var lq = q.toLowerCase();
+    var matches = ALL_THREADS.filter(function(t) {
+      return t.title.toLowerCase().includes(lq) || t.years.includes(lq) || t.eraLabel.toLowerCase().includes(lq);
+    }).slice(0, 8);
+
+    if (!matches.length) { hideSuggestions(); return; }
+
+    var html = '<div class="sugg-header">Threads</div>';
+    matches.forEach(function(t, i) {
+      var hilite = t.title.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark>$1</mark>');
+      html += '<a href="' + t.href + '" class="sugg-item" role="option" aria-selected="false" data-idx="' + i + '">'
+        + '<span class="sugg-item__icon" style="background:' + hexToRgbaEarly(t.eraColor, .15) + ';color:' + t.eraColor + '">' + t.era + '</span>'
+        + '<span class="sugg-item__body"><span class="sugg-item__title">' + hilite + '</span>'
+        + '<span class="sugg-item__meta">' + t.eraLabel + ' · ' + t.years + '</span></span>'
+        + '<span class="sugg-item__arrow" aria-hidden="true">→</span>'
+        + '</a>';
+    });
+
+    searchSuggestions.innerHTML = html;
+    searchSuggestions.hidden = false;
+    threadSearchInput.setAttribute('aria-expanded','true');
+    suggSelectedIdx = -1;
+  }
+
+  function hideSuggestions() {
+    if (searchSuggestions) { searchSuggestions.hidden = true; searchSuggestions.innerHTML = ''; }
+    if (threadSearchInput) threadSearchInput.setAttribute('aria-expanded','false');
+    suggSelectedIdx = -1;
+  }
+
+  function moveSuggestion(dir) {
+    var items = searchSuggestions.querySelectorAll('.sugg-item');
+    if (!items.length) return;
+    items.forEach(function(it) { it.setAttribute('aria-selected','false'); });
+    suggSelectedIdx = (suggSelectedIdx + dir + items.length + 1) % (items.length + 1) - 1;
+    if (suggSelectedIdx >= 0 && suggSelectedIdx < items.length) {
+      items[suggSelectedIdx].setAttribute('aria-selected','true');
+      items[suggSelectedIdx].scrollIntoView({block:'nearest'});
+    }
+  }
+
+  if (threadSearchInput) {
+    threadSearchInput.addEventListener('input', function() {
+      var v = this.value;
+      state.query = v;
+      searchClearBtn.hidden = !v;
+      buildSuggestions(v);
+      applyAll();
+    });
+
+    threadSearchInput.addEventListener('keydown', function(e) {
+      if (searchSuggestions.hidden) return;
+      if (e.key === 'ArrowDown')  { e.preventDefault(); moveSuggestion(1); }
+      if (e.key === 'ArrowUp')    { e.preventDefault(); moveSuggestion(-1); }
+      if (e.key === 'Escape')     { hideSuggestions(); }
+      if (e.key === 'Enter' && suggSelectedIdx >= 0) {
+        e.preventDefault();
+        var sel = searchSuggestions.querySelectorAll('.sugg-item')[suggSelectedIdx];
+        if (sel) window.location = sel.href;
+      }
+    });
+
+    threadSearchInput.addEventListener('blur', function() {
+      setTimeout(hideSuggestions, 180);
+    });
+    threadSearchInput.addEventListener('focus', function() {
+      if (this.value.length >= 2) buildSuggestions(this.value);
+    });
+  }
+
+  if (searchClearBtn) {
+    searchClearBtn.addEventListener('click', function() {
+      threadSearchInput.value = '';
+      state.query = '';
+      searchClearBtn.hidden = true;
+      hideSuggestions();
+      applyAll();
+      threadSearchInput.focus();
+    });
+  }
+
+  // Close suggestions on outside click
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.tbar-search')) hideSuggestions();
+  });
 
   function applyFilter(f) {
     filterChips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-pressed','false'); });
@@ -2688,32 +3554,82 @@
   ];
 
   // Render journey view
-  function renderJourneyView() {
-    if (journeyView.dataset.rendered) return;
+  function renderJourneyView(force) {
+    if (journeyView.dataset.rendered && !force) return;
     journeyView.dataset.rendered = '1';
-    let threadNum = 0;
-    let html = '';
-    JOURNEY_DATA.forEach(era => {
-      const totalInEra = era.threads.length;
-      html += `<div class="journey-era-section" id="era-section-${era.era}">
-        <div class="journey-era-header">
-          <div class="journey-era-num" style="background:${era.color}">${era.era}</div>
-          <div class="journey-era-label">${era.label}</div>
-          <div class="journey-era-years">${totalInEra} thread${totalInEra !== 1 ? 's' : ''}</div>
-        </div>
-        <div class="journey-thread-list">`;
-      era.threads.forEach(t => {
-        threadNum++;
-        html += `<a href="${t.href}" class="journey-thread-row" data-domain="${t.domain}">
-          <span class="journey-thread-row__num">${String(threadNum).padStart(2,'0')}</span>
-          <span class="journey-thread-row__title">${t.title}</span>
-          <span class="journey-thread-row__years">${t.years}</span>
-          <span class="journey-thread-row__arrow">→</span>
-        </a>`;
+
+    // Active filters
+    var lq  = state.query.toLowerCase().trim();
+    var dom = state.domain;
+    var kw  = state.keyword.toLowerCase().trim();
+    var era = state.era;
+
+    var threadNum = 0;
+    var html = '';
+
+    JOURNEY_DATA.forEach(function(eraObj) {
+      // Filter threads in this era
+      var threads = eraObj.threads.filter(function(t) {
+        if (era && String(eraObj.era) !== String(era)) return false;
+        var domains = (t.domain || '').split(/\s+/);
+        var domOk = dom === 'all' || domains.includes(dom);
+        var qOk   = !lq || t.title.toLowerCase().includes(lq) || t.years.toLowerCase().includes(lq);
+        var kwOk  = !kw || t.title.toLowerCase().includes(kw);
+        return domOk && qOk && kwOk;
       });
-      html += `</div></div>`;
+
+      // Count global thread number before filtering for display
+      var numBefore = threadNum;
+      eraObj.threads.forEach(function() { threadNum++; });
+      var localNum = numBefore;
+
+      if (!threads.length) return; // skip entire era if no matches
+
+      var totalInEra = threads.length;
+      html += '<div class="journey-era-section" id="era-section-' + eraObj.era + '" style="--era-c:' + eraObj.color + '">'
+        + '<div class="journey-era-header" role="button" tabindex="0" aria-expanded="true" aria-controls="era-list-' + eraObj.era + '">'
+        + '<div class="journey-era-num" style="background:' + eraObj.color + '">' + eraObj.era + '</div>'
+        + '<div class="journey-era-label">' + eraObj.label + '</div>'
+        + '<div class="journey-era-years">' + totalInEra + ' thread' + (totalInEra !== 1 ? 's' : '') + '</div>'
+        + '<span class="journey-era-count-badge">' + totalInEra + '</span>'
+        + '<span class="journey-era-toggle" aria-hidden="true">▾</span>'
+        + '</div>'
+        + '<div class="journey-thread-list" id="era-list-' + eraObj.era + '">';
+
+      threads.forEach(function(t, i) {
+        localNum++;
+        var hiliteTitle = t.title;
+        if (lq) {
+          hiliteTitle = t.title.replace(new RegExp('(' + lq.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark style="background:rgba(224,122,0,.2);color:inherit;font-weight:700">$1</mark>');
+        }
+        html += '<a href="' + t.href + '" class="journey-thread-row" data-domain="' + t.domain + '">'
+          + '<span class="journey-thread-row__num">' + String(localNum).padStart(2,'0') + '</span>'
+          + '<span class="journey-thread-row__title">' + hiliteTitle + '</span>'
+          + '<span class="journey-thread-row__years">' + t.years + '</span>'
+          + '<span class="journey-thread-row__arrow">→</span>'
+          + '</a>';
+      });
+
+      html += '</div></div>';
     });
+
+    if (!html) {
+      html = '<p style="padding:var(--space-12) 0;color:var(--color-text-tertiary);text-align:center">No threads match your filters.</p>';
+    }
+
     journeyView.innerHTML = html;
+
+    // Bind collapse toggles
+    journeyView.querySelectorAll('.journey-era-header').forEach(function(hdr) {
+      hdr.addEventListener('click', function() {
+        var section = hdr.closest('.journey-era-section');
+        var collapsed = section.classList.toggle('is-collapsed');
+        hdr.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      });
+      hdr.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hdr.click(); }
+      });
+    });
   }
 
   // ── Table view rendering ────────────────────────────────────────────────────
@@ -2806,37 +3722,41 @@
 
   var eraJumpBar = document.getElementById('eraJumpBar');
 
+  function setViewBtn(active) {
+    [btnTopic, btnJourney, btnTable].forEach(function(b) {
+      if (!b) return;
+      b.classList.toggle('is-active', b === active);
+      b.setAttribute('aria-pressed', b === active ? 'true' : 'false');
+    });
+  }
+
   function showTopicView() {
     topicView.classList.remove('is-hidden');
     journeyView.classList.remove('is-active');
-    tableView.style.display = 'none';
+    if (tableView) tableView.style.display = 'none';
     if (eraJumpBar) eraJumpBar.style.display = 'none';
-    btnTopic.classList.add('is-active'); btnTopic.setAttribute('aria-pressed','true');
-    btnJourney.classList.remove('is-active'); btnJourney.setAttribute('aria-pressed','false');
-    if (btnTable) { btnTable.classList.remove('is-active'); btnTable.setAttribute('aria-pressed','false'); }
-    if (topicFilters) topicFilters.style.display = '';
+    setViewBtn(btnTopic);
+    // Show filter row
+    var filtersRow = document.getElementById('filtersRow');
+    if (filtersRow) filtersRow.style.display = '';
   }
+
   function showJourneyView() {
     renderJourneyView();
     topicView.classList.add('is-hidden');
     journeyView.classList.add('is-active');
-    tableView.style.display = 'none';
-    if (eraJumpBar) eraJumpBar.style.display = '';
-    btnJourney.classList.add('is-active'); btnJourney.setAttribute('aria-pressed','true');
-    btnTopic.classList.remove('is-active'); btnTopic.setAttribute('aria-pressed','false');
-    if (btnTable) { btnTable.classList.remove('is-active'); btnTable.setAttribute('aria-pressed','false'); }
-    if (topicFilters) topicFilters.style.display = 'none';
+    if (tableView) tableView.style.display = 'none';
+    if (eraJumpBar) eraJumpBar.style.display = 'none';
+    setViewBtn(btnJourney);
   }
+
   function showTableView() {
     if (!tableRendered) { renderTable(); initTableSort(); tableRendered = true; }
     topicView.classList.add('is-hidden');
     journeyView.classList.remove('is-active');
-    tableView.style.display = 'block';
+    if (tableView) tableView.style.display = 'block';
     if (eraJumpBar) eraJumpBar.style.display = 'none';
-    btnTable.classList.add('is-active'); btnTable.setAttribute('aria-pressed','true');
-    btnTopic.classList.remove('is-active'); btnTopic.setAttribute('aria-pressed','false');
-    btnJourney.classList.remove('is-active'); btnJourney.setAttribute('aria-pressed','false');
-    if (topicFilters) topicFilters.style.display = 'none';
+    setViewBtn(btnTable);
   }
 
   btnTopic.addEventListener('click', showTopicView);
