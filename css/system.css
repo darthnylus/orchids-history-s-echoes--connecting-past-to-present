@@ -438,7 +438,7 @@ input, textarea, select { font-family: inherit; }
 }
 
 .site-nav__link {
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
   font-size: var(--type-sm);
   font-weight: var(--weight-medium);
   color: var(--ink-300);
@@ -446,6 +446,23 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--radius-md);
   transition: color var(--duration-fast), background var(--duration-fast);
   white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .site-nav__link { padding: var(--space-2) var(--space-4); }
+}
+
+/* "Submit a Thread" link — styled as a soft CTA button */
+.site-nav__link--cta {
+  color: var(--amber-300) !important;
+  border: 1px solid rgba(251,191,36,.3);
+  padding: var(--space-2) var(--space-4) !important;
+  font-weight: var(--weight-semibold) !important;
+}
+.site-nav__link--cta:hover {
+  background: rgba(251,191,36,.12) !important;
+  border-color: rgba(251,191,36,.55);
+  color: var(--amber-200) !important;
 }
 
 .site-nav__link:hover {

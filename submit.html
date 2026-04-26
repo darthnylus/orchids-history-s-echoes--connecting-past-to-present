@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit a Thread — Chain</title>
+  <link rel="canonical" href="https://chain.education/submit.html" />
+  <meta name="description" content="Propose a new causal thread for Chain. We're looking for stories that trace how a historical decision created present-day conditions — with primary sources to back them up." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .submit-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .submit-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 70% at 85% 15%, rgba(196,106,0,.2) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 10% 85%, rgba(60,120,60,.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .submit-hero__inner { position: relative; max-width: 680px; }
+    .submit-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-5);
+    }
+    .submit-hero__headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-5);
+    }
+    .submit-hero__headline em { color: var(--amber-300); font-style: normal; }
+    .submit-hero__lead {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      line-height: var(--leading-loose);
+      max-width: 560px;
+    }
+
+    /* ── Body layout ─────────────────────────────────────────── */
+    .submit-body { padding: var(--space-14) 0 var(--space-20); }
+    .submit-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .submit-layout { grid-template-columns: 1fr 320px; gap: var(--space-14); }
+    }
+
+    /* ── What makes a good thread ────────────────────────────── */
+    .criteria-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      position: sticky;
+      top: calc(var(--nav-total) + var(--space-6));
+    }
+    [data-theme="dark"] .criteria-card { background: var(--ink-800); border-color: var(--ink-700); }
+    .criteria-card__heading {
+      font-family: var(--font-editorial);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-5);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .criteria-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+    .criteria-item {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+    .criteria-item__icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--color-accent-light);
+      color: var(--color-accent-dark);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .criteria-item__body {}
+    .criteria-item__title {
+      font-size: var(--type-sm);
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 3px;
+    }
+    .criteria-item__desc {
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+    .criteria-card__note {
+      margin-top: var(--space-6);
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--color-border);
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      line-height: 1.6;
+    }
+
+    /* ── Form ────────────────────────────────────────────────── */
+    .submit-form-section__heading {
+      font-family: var(--font-editorial);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .submit-form-section__lead {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      margin-bottom: var(--space-8);
+      max-width: 540px;
+    }
+
+    .form-fieldset {
+      border: none;
+      padding: 0;
+      margin: 0 0 var(--space-8);
+    }
+    .form-fieldset__legend {
+      font-size: var(--type-xs);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-5);
+      display: block;
+      width: 100%;
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    @media (min-width: 600px) {
+      .form-row--2col { grid-template-columns: 1fr 1fr; }
+    }
+    .form-field { display: flex; flex-direction: column; gap: var(--space-2); }
+    .form-label {
+      font-size: var(--type-sm);
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .form-label__optional {
+      font-weight: 400;
+      color: var(--color-text-tertiary);
+      font-size: var(--type-xs);
+      margin-left: var(--space-2);
+    }
+    .form-hint {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+    }
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--type-sm);
+      color: var(--color-text-primary);
+      font-family: inherit;
+      transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+      -webkit-appearance: none;
+    }
+    [data-theme="dark"] .form-input,
+    [data-theme="dark"] .form-textarea,
+    [data-theme="dark"] .form-select {
+      background: var(--ink-800);
+      border-color: var(--ink-700);
+      color: var(--ink-100);
+    }
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--color-accent-dark);
+      box-shadow: 0 0 0 3px rgba(224,122,0,.15);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .form-textarea--tall { min-height: 180px; }
+
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-top: var(--space-8);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border);
+    }
+    .form-submit-note {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      line-height: 1.55;
+      flex: 1;
+      min-width: 180px;
+    }
+
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>Contribute:</strong> Chain is built on scholarship. If you know a story that belongs here, we want to hear it.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta" aria-current="page">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Try searching</p>
+      <a href="search.html?q=redlining" class="search-hint-chip">Redlining</a>
+      <a href="search.html?q=Reconstruction" class="search-hint-chip">Reconstruction</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="submit-hero" aria-labelledby="submit-heading">
+    <div class="container submit-hero__inner">
+      <p class="submit-hero__eyebrow">Community Contribution</p>
+      <h1 id="submit-heading" class="submit-hero__headline">
+        Know a story that<br />
+        <em>belongs in the chain?</em>
+      </h1>
+      <p class="submit-hero__lead">
+        Chain is built on the principle that history is causal — that present conditions have specific, traceable origins. If you know a thread of history that's been overlooked, misrepresented, or left unconnected to the present, tell us about it.
+      </p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="submit-body">
+    <div class="container">
+      <div class="submit-layout">
+
+        <!-- FORM (left) -->
+        <div>
+          <h2 class="submit-form-section__heading">Submit your thread idea</h2>
+          <p class="submit-form-section__lead">
+            Tell us the core causal claim, the historical starting point, and how it connects to a present-day condition. We review every submission and respond within two weeks.
+          </p>
+
+          <form action="#" method="post" novalidate>
+
+            <!-- About you -->
+            <fieldset class="form-fieldset">
+              <legend class="form-fieldset__legend">About you</legend>
+              <div class="form-row form-row--2col">
+                <div class="form-field">
+                  <label for="sub-name" class="form-label">Your name</label>
+                  <input type="text" id="sub-name" name="name" class="form-input" placeholder="First and last name" autocomplete="name" />
+                </div>
+                <div class="form-field">
+                  <label for="sub-email" class="form-label">Email address</label>
+                  <input type="email" id="sub-email" name="email" class="form-input" placeholder="you@example.com" autocomplete="email" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="sub-role" class="form-label">Your background <span class="form-label__optional">(optional)</span></label>
+                  <input type="text" id="sub-role" name="role" class="form-input" placeholder="e.g. historian, educator, journalist, independent researcher…" />
+                  <p class="form-hint">We welcome submissions from everyone — no credentials required.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- The thread idea -->
+            <fieldset class="form-fieldset">
+              <legend class="form-fieldset__legend">The thread</legend>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="sub-title" class="form-label">Proposed title</label>
+                  <input type="text" id="sub-title" name="title" class="form-input" placeholder="e.g. The Convict Leasing System and Modern Incarceration" />
+                  <p class="form-hint">A working title is fine — we'll refine it during editorial review.</p>
+                </div>
+              </div>
+
+              <div class="form-row form-row--2col">
+                <div class="form-field">
+                  <label for="sub-start" class="form-label">Starting point (year or era)</label>
+                  <input type="text" id="sub-start" name="start_year" class="form-input" placeholder="e.g. 1865, Ancient Egypt, c. 1500 CE" />
+                </div>
+                <div class="form-field">
+                  <label for="sub-end" class="form-label">Endpoint</label>
+                  <input type="text" id="sub-end" name="end_year" class="form-input" placeholder="e.g. Present, 2008, 1968" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="sub-claim" class="form-label">The causal claim</label>
+                  <textarea id="sub-claim" name="causal_claim" class="form-textarea form-textarea--tall" placeholder="In 1–3 sentences: what historical event or decision created what present-day condition? e.g. 'The 1944 GI Bill's implementation excluded Black veterans from home loans and college subsidies, directly producing the racial wealth gap that persists today.'"></textarea>
+                  <p class="form-hint">This is the core of a Chain thread — the causal link between a past decision and a present reality.</p>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="sub-summary" class="form-label">Full summary <span class="form-label__optional">(optional)</span></label>
+                  <textarea id="sub-summary" name="summary" class="form-textarea" placeholder="Tell us more — the key figures, turning points, and why this story is overlooked or misunderstood."></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Sources -->
+            <fieldset class="form-fieldset">
+              <legend class="form-fieldset__legend">Sources</legend>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="sub-sources" class="form-label">Key sources</label>
+                  <textarea id="sub-sources" name="sources" class="form-textarea" placeholder="List the books, academic papers, primary sources, or documentaries that ground this thread. Links welcome."></textarea>
+                  <p class="form-hint">Chain is a sourced platform. We can't consider submissions without at least two verifiable sources.</p>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="sub-domain" class="form-label">Domain <span class="form-label__optional">(optional)</span></label>
+                  <select id="sub-domain" name="domain" class="form-select">
+                    <option value="">Select a domain…</option>
+                    <option value="history-culture">History &amp; Culture</option>
+                    <option value="labor-wealth">Labor &amp; Wealth</option>
+                    <option value="housing">Housing &amp; Land</option>
+                    <option value="criminal-justice">Criminal Justice</option>
+                    <option value="politics">Politics &amp; Voting</option>
+                    <option value="education">Education</option>
+                    <option value="health">Health &amp; Environment</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-submit-row">
+              <p class="form-submit-note">We review every submission personally. You'll receive a response within two weeks. We may reach out for more information before making a decision.</p>
+              <button type="submit" class="btn btn--primary" style="flex-shrink:0">Submit Thread →</button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- CRITERIA (right) -->
+        <aside>
+          <div class="criteria-card">
+            <h3 class="criteria-card__heading">What makes a good Chain thread?</h3>
+            <ul class="criteria-list">
+              <li class="criteria-item">
+                <div class="criteria-item__icon" aria-hidden="true">⛓</div>
+                <div class="criteria-item__body">
+                  <p class="criteria-item__title">Causal, not just chronological</p>
+                  <p class="criteria-item__desc">A thread shows how A directly caused B caused C. Not just "things that happened" in sequence.</p>
+                </div>
+              </li>
+              <li class="criteria-item">
+                <div class="criteria-item__icon" aria-hidden="true">📍</div>
+                <div class="criteria-item__body">
+                  <p class="criteria-item__title">Connects to the present</p>
+                  <p class="criteria-item__desc">Every Chain thread ends in a present-day condition — a wealth gap, a policy, a pattern that still exists.</p>
+                </div>
+              </li>
+              <li class="criteria-item">
+                <div class="criteria-item__icon" aria-hidden="true">📚</div>
+                <div class="criteria-item__body">
+                  <p class="criteria-item__title">Grounded in primary sources</p>
+                  <p class="criteria-item__desc">We don't publish threads that can't be sourced. Books, academic papers, and primary documents are all valid.</p>
+                </div>
+              </li>
+              <li class="criteria-item">
+                <div class="criteria-item__icon" aria-hidden="true">🔍</div>
+                <div class="criteria-item__body">
+                  <p class="criteria-item__title">Overlooked or misrepresented</p>
+                  <p class="criteria-item__desc">Chain focuses on stories that mainstream history education obscures — we're not building a general encyclopedia.</p>
+                </div>
+              </li>
+            </ul>
+            <p class="criteria-card__note">Not sure if your idea fits? Send it anyway — or <a href="contact.html" style="color:var(--color-accent-dark)">contact us</a> first to discuss. We'd rather hear too many ideas than miss a good one.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark" aria-label="Chain — Home">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-nav__col">
+          <p class="footer-nav__heading">Explore</p>
+          <a href="threads.html" class="footer-nav__link">All Threads</a>
+          <a href="search.html" class="footer-nav__link">Search</a>
+          <a href="today.html" class="footer-nav__link">Today in History</a>
+        </div>
+        <div class="footer-nav__col">
+          <p class="footer-nav__heading">Learn</p>
+          <a href="about.html" class="footer-nav__link">About Chain</a>
+          <a href="resources.html" class="footer-nav__link">Resources</a>
+          <a href="teaching.html" class="footer-nav__link">For Educators</a>
+        </div>
+        <div class="footer-nav__col">
+          <p class="footer-nav__heading">Connect</p>
+          <a href="submit.html" class="footer-nav__link">Submit a Thread</a>
+          <a href="contact.html" class="footer-nav__link">Contact</a>
+          <a href="newsletter.html" class="footer-nav__link">Newsletter</a>
+          <a href="donate.html" class="footer-nav__link">Donate</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — Chain</title>
+  <link rel="canonical" href="https://chain.education/resources.html" />
+  <meta name="description" content="Books, documentaries, academic sources, and further reading recommended by the Chain editorial team. Every resource is tied to a specific causal thread." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .res-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .res-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 70% at 90% 10%, rgba(196,106,0,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 0% 90%, rgba(100,60,160,.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .res-hero__inner { position: relative; max-width: 720px; }
+    .res-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-5);
+    }
+    .res-hero__headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-5);
+    }
+    .res-hero__headline em { color: var(--amber-300); font-style: normal; }
+    .res-hero__lead {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      line-height: var(--leading-loose);
+      max-width: 580px;
+    }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    .res-body { padding: var(--space-14) 0 var(--space-20); }
+
+    /* ── Category tabs ───────────────────────────────────────── */
+    .res-tabs {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-10);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .res-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+    .res-tab:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .res-tab.is-active {
+      background: var(--ink-900);
+      border-color: var(--ink-900);
+      color: #fff;
+    }
+    [data-theme="dark"] .res-tab.is-active { background: var(--amber-500); border-color: var(--amber-500); color: var(--ink-900); }
+    .res-tab__count {
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(255,255,255,.12);
+      border-radius: var(--radius-pill);
+      padding: 1px 6px;
+      color: inherit;
+    }
+    .res-tab.is-active .res-tab__count { background: rgba(255,255,255,.2); }
+
+    /* ── Section header ──────────────────────────────────────── */
+    .res-section { margin-bottom: var(--space-14); }
+    .res-section__header {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    .res-section__icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .res-section__title {
+      font-family: var(--font-editorial);
+      font-size: 1.375rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+    }
+    .res-section__count {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-left: auto;
+    }
+
+    /* ── Resource grid ───────────────────────────────────────── */
+    .res-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) { .res-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .res-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .res-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: box-shadow var(--duration-normal), transform var(--duration-normal), border-color var(--duration-normal);
+      position: relative;
+      overflow: hidden;
+    }
+    .res-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--duration-normal);
+    }
+    .res-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--amber-200); }
+    .res-card:hover::after { transform: scaleX(1); }
+    [data-theme="dark"] .res-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .res-card:hover { border-color: var(--amber-400); }
+
+    .res-card__type {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+    }
+    .res-card__type-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent-dark);
+      flex-shrink: 0;
+    }
+    .res-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.35;
+    }
+    .res-card__author {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+    }
+    .res-card__desc {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .res-card__thread-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-top: auto;
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--color-border-subtle);
+    }
+
+    /* ── Reading list CTA ─────────────────────────────────────── */
+    .res-cta-bar {
+      background: var(--ink-900);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10) var(--space-10);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      margin-top: var(--space-16);
+    }
+    [data-theme="dark"] .res-cta-bar { background: var(--ink-800); }
+    .res-cta-bar__body { flex: 1; min-width: 240px; }
+    .res-cta-bar__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: var(--space-2);
+    }
+    .res-cta-bar__text {
+      font-size: var(--type-sm);
+      color: var(--ink-400);
+      line-height: 1.6;
+    }
+    .res-cta-bar__actions {
+      display: flex;
+      gap: var(--space-3);
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New:</strong> <a href="thread-african-empires.html" class="utility-bar__msg-link">Before the Chain — 7 African Empires</a> · <a href="thread-freedmens-bureau.html" class="utility-bar__msg-link">The Freedmen's Bureau</a>
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link" aria-current="page">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=redlining+housing" class="search-hint-chip">Redlining &amp; housing inequality</a>
+      <a href="search.html?q=Reconstruction+voting+rights" class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="res-hero" aria-labelledby="res-heading">
+    <div class="container res-hero__inner">
+      <p class="res-hero__eyebrow">Further Reading</p>
+      <h1 id="res-heading" class="res-hero__headline">
+        The books, films, and sources<br />
+        <em>behind the threads</em>
+      </h1>
+      <p class="res-hero__lead">
+        Every thread on Chain is grounded in scholarship. This page collects the books, documentaries, academic papers, and primary sources our editorial team recommends — organized by thread and category.
+      </p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="res-body">
+    <div class="container">
+
+      <!-- Category filter tabs -->
+      <div class="res-tabs" role="group" aria-label="Filter resources by category">
+        <button class="res-tab is-active" data-res-filter="all">All <span class="res-tab__count">48</span></button>
+        <button class="res-tab" data-res-filter="books">Books <span class="res-tab__count">24</span></button>
+        <button class="res-tab" data-res-filter="documentary">Documentaries <span class="res-tab__count">10</span></button>
+        <button class="res-tab" data-res-filter="academic">Academic <span class="res-tab__count">8</span></button>
+        <button class="res-tab" data-res-filter="primary">Primary Sources <span class="res-tab__count">6</span></button>
+      </div>
+
+      <!-- ── BOOKS ─────────────────────────────────────────── -->
+      <section class="res-section" data-res-category="books" aria-labelledby="res-books-heading">
+        <div class="res-section__header">
+          <span class="res-section__icon" aria-hidden="true">📚</span>
+          <h2 id="res-books-heading" class="res-section__title">Essential Books</h2>
+          <span class="res-section__count">24 titles</span>
+        </div>
+        <div class="res-grid">
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Book</span>
+            <h3 class="res-card__title">The Half Has Never Been Told</h3>
+            <p class="res-card__author">Edward Baptist, 2014</p>
+            <p class="res-card__desc">The definitive economic history of American slavery — how the forced labor of enslaved people was the engine of 19th-century U.S. capitalism. Essential for the Convict Leasing and Stolen Labor threads.</p>
+            <span class="res-card__thread-tag">→ Stolen Labor · Cotton Economy</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Book</span>
+            <h3 class="res-card__title">The Color of Law</h3>
+            <p class="res-card__author">Richard Rothstein, 2017</p>
+            <p class="res-card__desc">Exhaustive documentation of how federal, state, and local governments explicitly enforced residential segregation across the 20th century. The single best companion to the Redlining and Displacement threads.</p>
+            <span class="res-card__thread-tag">→ Redlining · Displacement · Wealth Gap</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Book</span>
+            <h3 class="res-card__title">Stamped from the Beginning</h3>
+            <p class="res-card__author">Ibram X. Kendi, 2016</p>
+            <p class="res-card__desc">A comprehensive intellectual history of racist ideas in America — from 15th-century Portuguese slave traders to the 21st century — tracing how racist policy has always preceded racist ideology.</p>
+            <span class="res-card__thread-tag">→ Race Science · Blumenbach Thread</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Book</span>
+            <h3 class="res-card__title">The New Jim Crow</h3>
+            <p class="res-card__author">Michelle Alexander, 2010</p>
+            <p class="res-card__desc">The foundational text arguing that mass incarceration is a system of racialized social control that functions as a contemporary caste system — directly continuing the logic of Jim Crow.</p>
+            <span class="res-card__thread-tag">→ Convict Leasing · Mass Incarceration</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Book</span>
+            <h3 class="res-card__title">The Warmth of Other Suns</h3>
+            <p class="res-card__author">Isabel Wilkerson, 2010</p>
+            <p class="res-card__desc">A sweeping narrative history of the Great Migration — six million Black Americans who fled the South from 1915 to 1970. Told through three individuals, it reveals the internal architecture of American apartheid.</p>
+            <span class="res-card__thread-tag">→ Great Migration · Deindustrialization</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Book</span>
+            <h3 class="res-card__title">Between the World and Me</h3>
+            <p class="res-card__author">Ta-Nehisi Coates, 2015</p>
+            <p class="res-card__desc">Written as a letter to his son, Coates traces the physical vulnerability of the Black body in America from slavery to the present. Pairs with the Baldwin and Reparations threads.</p>
+            <span class="res-card__thread-tag">→ Baldwin Thread · Reparations</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Book</span>
+            <h3 class="res-card__title">Reconstruction: America's Unfinished Revolution</h3>
+            <p class="res-card__author">Eric Foner, 1988</p>
+            <p class="res-card__desc">The definitive scholarly account of Reconstruction (1863–1877) — the period when Black Americans briefly exercised political power before a systematic counter-revolution dismantled it.</p>
+            <span class="res-card__thread-tag">→ Reconstruction · Freedmen's Bureau</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Book</span>
+            <h3 class="res-card__title">Sundown Towns</h3>
+            <p class="res-card__author">James Loewen, 2005</p>
+            <p class="res-card__desc">Loewen documents how thousands of American towns deliberately excluded Black residents through violence, ordinances, and informal terror — revealing a geography of apartheid far beyond the South.</p>
+            <span class="res-card__thread-tag">→ Redlining · Greenwood Pattern</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── DOCUMENTARIES ─────────────────────────────────── -->
+      <section class="res-section" data-res-category="documentary" aria-labelledby="res-docs-heading">
+        <div class="res-section__header">
+          <span class="res-section__icon" aria-hidden="true">🎬</span>
+          <h2 id="res-docs-heading" class="res-section__title">Documentaries &amp; Film</h2>
+          <span class="res-section__count">10 titles</span>
+        </div>
+        <div class="res-grid">
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Documentary</span>
+            <h3 class="res-card__title">13th</h3>
+            <p class="res-card__author">Ava DuVernay, 2016 · Netflix</p>
+            <p class="res-card__desc">Traces the 13th Amendment's slavery exception — "except as a punishment for crime" — from Reconstruction through the convict leasing era, the War on Drugs, and mass incarceration. The visual companion to Chain's Convict Leasing thread.</p>
+            <span class="res-card__thread-tag">→ Convict Leasing · Mass Incarceration</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Documentary</span>
+            <h3 class="res-card__title">Eyes on the Prize</h3>
+            <p class="res-card__author">Henry Hampton, 1987 · PBS</p>
+            <p class="res-card__desc">The landmark 14-part documentary on the American Civil Rights Movement, from Montgomery to the Jesse Jackson campaign. Unprecedented archival footage. Still the definitive primary visual record.</p>
+            <span class="res-card__thread-tag">→ Civil Rights · Birmingham · Emmett Till</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Documentary</span>
+            <h3 class="res-card__title">I Am Not Your Negro</h3>
+            <p class="res-card__author">Raoul Peck, 2016</p>
+            <p class="res-card__desc">Built from James Baldwin's unfinished manuscript about Medgar Evers, Malcolm X, and Martin Luther King Jr. A profound meditation on race, history, and the American imagination. Essential companion to the Baldwin thread.</p>
+            <span class="res-card__thread-tag">→ Baldwin Thread</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Documentary</span>
+            <h3 class="res-card__title">The Black Panthers: Vanguard of the Revolution</h3>
+            <p class="res-card__author">Stanley Nelson, 2015</p>
+            <p class="res-card__desc">The most thorough documentary account of the Black Panther Party's rise and fall — from Oakland 1966 through COINTELPRO's systematic destruction of its leadership.</p>
+            <span class="res-card__thread-tag">→ Black Panthers · COINTELPRO</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── ACADEMIC ───────────────────────────────────────── -->
+      <section class="res-section" data-res-category="academic" aria-labelledby="res-academic-heading">
+        <div class="res-section__header">
+          <span class="res-section__icon" aria-hidden="true">🎓</span>
+          <h2 id="res-academic-heading" class="res-section__title">Academic &amp; Primary Sources</h2>
+          <span class="res-section__count">14 sources</span>
+        </div>
+        <div class="res-grid">
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Academic Paper</span>
+            <h3 class="res-card__title">The Case for Reparations</h3>
+            <p class="res-card__author">Ta-Nehisi Coates — The Atlantic, 2014</p>
+            <p class="res-card__desc">The essay that reignited the modern reparations debate — centering not on slavery but on 20th-century redlining as the primary mechanism of wealth extraction. Grounded in the story of Clyde Ross.</p>
+            <span class="res-card__thread-tag">→ Reparations · Redlining</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Primary Source</span>
+            <h3 class="res-card__title">Special Field Order No. 15</h3>
+            <p class="res-card__author">Gen. William Sherman, January 1865</p>
+            <p class="res-card__desc">The original order setting aside 400,000 acres of South Carolina and Georgia coastline for the exclusive use of formerly enslaved people — the origin of "40 acres and a mule." Reversed by Andrew Johnson six months later.</p>
+            <span class="res-card__thread-tag">→ 40 Acres · Freedmen's Bureau</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Report</span>
+            <h3 class="res-card__title">Locked Out: Zoning, Race, and Housing Opportunity</h3>
+            <p class="res-card__author">Brookings Institution, 2019</p>
+            <p class="res-card__desc">Documents how exclusionary zoning — single-family requirements, minimum lot sizes, parking minimums — operates as a legal mechanism for residential segregation, continuing redlining's effects without explicit racial language.</p>
+            <span class="res-card__thread-tag">→ Displacement · Housing Inequality</span>
+          </div>
+
+          <div class="res-card">
+            <span class="res-card__type"><span class="res-card__type-dot" aria-hidden="true"></span>Primary Source</span>
+            <h3 class="res-card__title">David Walker's Appeal (1829)</h3>
+            <p class="res-card__author">David Walker, 1829</p>
+            <p class="res-card__desc">The incendiary anti-slavery pamphlet that terrified Southern slaveholders and launched a new era of radical abolitionism — written 32 years before the Civil War. Full text available via the Library of Congress.</p>
+            <span class="res-card__thread-tag">→ Abolitionism Thread</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── CTA ────────────────────────────────────────────── -->
+      <div class="res-cta-bar">
+        <div class="res-cta-bar__body">
+          <h2 class="res-cta-bar__title">Know a resource we missed?</h2>
+          <p class="res-cta-bar__text">Chain is a living archive. If you know of a book, documentary, or primary source that should be here, we want to hear about it.</p>
+        </div>
+        <div class="res-cta-bar__actions">
+          <a href="submit.html" class="btn btn--primary">Suggest a Resource</a>
+          <a href="threads.html" class="btn btn--ghost">Browse All Threads</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark" aria-label="Chain — Home">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-nav__col">
+          <p class="footer-nav__heading">Explore</p>
+          <a href="threads.html" class="footer-nav__link">All Threads</a>
+          <a href="search.html" class="footer-nav__link">Search</a>
+          <a href="today.html" class="footer-nav__link">Today in History</a>
+        </div>
+        <div class="footer-nav__col">
+          <p class="footer-nav__heading">Learn</p>
+          <a href="about.html" class="footer-nav__link">About Chain</a>
+          <a href="resources.html" class="footer-nav__link">Resources</a>
+          <a href="teaching.html" class="footer-nav__link">For Educators</a>
+        </div>
+        <div class="footer-nav__col">
+          <p class="footer-nav__heading">Connect</p>
+          <a href="submit.html" class="footer-nav__link">Submit a Thread</a>
+          <a href="contact.html" class="footer-nav__link">Contact</a>
+          <a href="newsletter.html" class="footer-nav__link">Newsletter</a>
+          <a href="donate.html" class="footer-nav__link">Donate</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
