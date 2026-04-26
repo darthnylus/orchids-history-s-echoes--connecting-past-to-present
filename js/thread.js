@@ -345,3 +345,236 @@ document.querySelectorAll('.source-cite').forEach(cite => {
     sidebar.appendChild(card);
   }
 })();
+
+/* =========================================================
+   BREADCRUMB + RELATED THREADS — injected from THREAD_INDEX
+   ========================================================= */
+(function(){
+  // Only run on thread pages
+  if (!document.querySelector('.thread-hero')) return;
+
+  var DOMAIN_LABELS = {
+    'history-culture':  'History & Culture',
+    'labor-wealth':     'Labor & Wealth',
+    'housing':          'Housing',
+    'criminal-justice': 'Criminal Justice',
+    'education':        'Education',
+    'health':           'Health'
+  };
+
+  // THREAD_INDEX is defined in main.js — but main.js isn't loaded on thread pages.
+  // Define it inline here for thread pages.
+  if (typeof THREAD_INDEX === 'undefined') {
+    var THREAD_INDEX = [
+      {h:'thread-african-origins-humanity.html',t:'Africa Is the Birthplace of Every Human Being on Earth',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'300,000 BCE – Present'},
+      {h:'thread-san-people.html',t:'The San People: The Oldest Continuous Culture on Earth',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'~100,000 BCE – Present'},
+      {h:'thread-green-sahara.html',t:'The Green Sahara: When the Desert Was a Fertile Lake District',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'11,000 – 3,000 BCE'},
+      {h:'thread-african-empires.html',t:'Before the Chain: 7 African Empires',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'1070 BCE – 1897 CE'},
+      {h:'thread-moors.html',t:'Al-Andalus: The Moorish Civilization',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'711 CE – Present'},
+      {h:'thread-songhai.html',t:'The Songhai Empire',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'c. 800 CE – 1591'},
+      {h:'thread-arab-slave-trade.html',t:'The Arab Slave Trade: 1,300 Years Before the Ships',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'650 CE – 1900s'},
+      {h:'thread-mansa-musa.html',t:'Mansa Musa: The Richest Person Who Ever Lived',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'c. 1280 – 1337'},
+      {h:'thread-nubia-kush.html',t:'Nubia & the Kingdom of Kush: The Civilization That Ruled Egypt',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'3500 BCE – 350 CE'},
+      {h:'thread-african-spiritual-systems.html',t:'African Spiritual Systems: What Was Destroyed and What Survived',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'Ancient – Present'},
+      {h:'thread-precolonial-governance.html',t:'Pre-Colonial African Governance: Democracy Before Europe Invented the Word',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'Ancient – 1884'},
+      {h:'thread-transatlantic-slave-trade.html',t:'The Transatlantic Slave Trade, 1441–1808',d:'history-culture labor-wealth',e:2,el:'The Rupture',c:'#c0392b',y:'1441 – 1808'},
+      {h:'thread-slave-ship-resistance.html',t:'Resistance on the Middle Passage',d:'history-culture',e:2,el:'The Rupture',c:'#c0392b',y:'1441 – 1808'},
+      {h:'thread-middle-passage.html',t:'The Middle Passage: What the Crossing Cost',d:'history-culture',e:2,el:'The Rupture',c:'#c0392b',y:'1500 – 1808'},
+      {h:'thread-code-noir.html',t:'The Code Noir: France Wrote the Rules of Slavery',d:'history-culture',e:2,el:'The Rupture',c:'#c0392b',y:'1685 – Present'},
+      {h:'thread-invention-of-race.html',t:'The Invention of Race: Why Racism Was Created',d:'history-culture',e:2,el:'The Rupture',c:'#c0392b',y:'1676 – Present'},
+      {h:'thread-blumenbach.html',t:'The Man Who Invented Race: Blumenbach',d:'history-culture',e:2,el:'The Rupture',c:'#c0392b',y:'1775 – Present'},
+      {h:'thread-haiti.html',t:'Haiti: The $21 Billion Punishment for Revolution',d:'history-culture labor-wealth',e:2,el:'The Rupture',c:'#c0392b',y:'1791 – Present'},
+      {h:'thread-haitian-revolution.html',t:'The Haitian Revolution: The Only Successful Slave Revolt in History',d:'history-culture',e:2,el:'The Rupture',c:'#c0392b',y:'1791 – Present'},
+      {h:'thread-stolen-labor.html',t:'Stolen Labor: The Architecture of the Racial Wealth Gap',d:'labor-wealth',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1619 – Present'},
+      {h:'thread-before-mayflower.html',t:'Before the Mayflower: Black America Before the Founding',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1513 – 1861'},
+      {h:'thread-abolitionism.html',t:'The Fire Next Time: Black Abolitionists, 1829–1865',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1829 – 1865'},
+      {h:'thread-slave-revolts.html',t:'The Fire from Below: Slave Revolts & Uprisings',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1739 – 1831'},
+      {h:'thread-mexico-freedom.html',t:'South to Freedom: Mexico Offered Liberty',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1829 – 1865'},
+      {h:'thread-seneca-village.html',t:'Seneca Village: Destroyed to Build Central Park',d:'history-culture housing',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1825 – 1857'},
+      {h:'thread-weeksville.html',t:'Weeksville: The Free Black City Built Inside Brooklyn',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1838 – Present'},
+      {h:'thread-black-church.html',t:'The Bombed Church: The Black Church in America',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1773 – Present'},
+      {h:'thread-black-press.html',t:'The Black Press: Ida B. Wells & the Counter-Record',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1827 – Present'},
+      {h:'thread-domestic-slave-trade.html',t:'The Domestic Slave Trade: One Million Sold South',d:'labor-wealth history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1790 – 1860'},
+      {h:'thread-frederick-douglass.html',t:'Frederick Douglass: The Man They Could Not Silence',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1818 – 1895'},
+      {h:'thread-harriet-tubman.html',t:'Harriet Tubman: She Never Lost a Passenger',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'c. 1822 – 1913'},
+      {h:'thread-cotton-economy.html',t:'King Cotton: How Slavery Built American Capitalism',d:'labor-wealth',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1793 – 1865'},
+      {h:'thread-end-of-slavery.html',t:'How Slavery Really Ended',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1861 – Present'},
+      {h:'thread-thirteenth-amendment.html',t:'The Exception That Swallowed the Rule: The 13th Amendment Loophole',d:'criminal-justice history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – Present'},
+      {h:'thread-juneteenth.html',t:'Two and a Half Years Late: Juneteenth',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – Present'},
+      {h:'thread-black-codes.html',t:'Black Codes: The Law That Re-Enslaved Black America',d:'criminal-justice history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – Present'},
+      {h:'thread-reconstruction.html',t:'Reconstruction: What Was Built and How It Was Destroyed',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – 1877'},
+      {h:'thread-lynching.html',t:'Spectacle and Terror: Lynching as American Policy',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1877 – 2022'},
+      {h:'thread-fear-of-black-assembly.html',t:'What They Were Afraid Of: Fear of Black Assembly',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1739 – Present'},
+      {h:'thread-red-summer.html',t:'Red Summer: 26 Cities, One Summer, 1919',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1919'},
+      {h:'thread-emmett-till.html',t:'Emmett Till: The Murder That Started a Movement',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1955 – Present'},
+      {h:'thread-reconstruction-politicians.html',t:'Black Reconstruction: The 2,000 Politicians They Erased',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1868 – 1901'},
+      {h:'thread-convict-leasing.html',t:'Convict Leasing: Slavery by Another Name',d:'labor-wealth',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – 1942'},
+      {h:'thread-exodusters.html',t:'The Exodusters: 40,000 Black People Flee to Kansas',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1879 – 1880'},
+      {h:'thread-sharecropping.html',t:'Sharecropping: The Slavery That Followed Slavery',d:'labor-wealth history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1865 – 1970'},
+      {h:'thread-plessy.html',t:'Plessy v. Ferguson: The Supreme Court Legalizes Apartheid',d:'history-culture criminal-justice',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1896 – Present'},
+      {h:'thread-voter-suppression-mechanics.html',t:'Voter Suppression Mechanics: The Toolkit That Never Went Away',d:'history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1877 – Present'},
+      {h:'thread-garvey.html',t:'Marcus Garvey and the Politics of Black Nationhood',d:'history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1914 – Present'},
+      {h:'thread-harlem-renaissance.html',t:'The Harlem Renaissance: Black Intellectual Power, 1920–1935',d:'history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1920 – 1935'},
+      {h:'thread-jazz-blues.html',t:'Jazz, Blues & Cultural Theft: Whose Music Is This?',d:'history-culture labor-wealth',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1890s – Present'},
+      {h:'thread-great-migration.html',t:'Six Million People: The Great Migration, 1910–1970',d:'history-culture housing',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1910 – Present'},
+      {h:'thread-tulsa.html',t:'Black Wall Street: The Tulsa Massacre of 1921',d:'labor-wealth history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1905 – 2023'},
+      {h:'thread-greenwood-pattern.html',t:'The Greenwood Pattern: They Burned It Every Time',d:'labor-wealth history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1898 – 1923'},
+      {h:'thread-negro-leagues.html',t:'The Negro Leagues',d:'history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1867 – Present'},
+      {h:'thread-hbcus.html',t:'HBCUs: Founded Under Exclusion, $12B Underfunded Today',d:'education',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1837 – Present'},
+      {h:'thread-hbcu.html',t:'HBCUs: Founded Under Exclusion, Underfunded for a Century',d:'education',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1837 – Present'},
+      {h:'thread-black-culture.html',t:'Black Culture Is American Culture: The Creation That Was Stolen',d:'history-culture labor-wealth',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1619 – Present'},
+      {h:'thread-inventors.html',t:'Built by Black Hands: The Inventors America Erased',d:'history-culture labor-wealth',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1821 – Present'},
+      {h:'thread-oscarville.html',t:'Oscarville, Georgia: The Erasure of Forsyth County',d:'history-culture housing',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1912 – Present'},
+      {h:'thread-lake-marion.html',t:'Lake Marion: The Economy Built Over Ferguson',d:'housing labor-wealth',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1942 – Present'},
+      {h:'thread-ida-b-wells.html',t:'Ida B. Wells: The Woman Who Documented American Terror',d:'history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1862 – 1931'},
+      {h:'thread-dubois.html',t:'W.E.B. Du Bois: The Architect of Black Consciousness',d:'history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1868 – 1963'},
+      {h:'thread-booker-t-washington.html',t:'Booker T. Washington: The Accommodation and Its Cost',d:'history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1856 – 1915'},
+      {h:'thread-scottsboro.html',t:'The Scottsboro Boys: Nine Teenagers and the Trial That Exposed American Justice',d:'history-culture',e:5,el:'Jim Crow Era',c:'#5c4a1e',y:'1931 – 1950'},
+      {h:'thread-golden-thirteen.html',t:'The Golden Thirteen: First Black Naval Officers',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1775 – 1987'},
+      {h:'thread-gi-bill.html',t:'The GI Bill That Built the White Middle Class',d:'housing labor-wealth',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1944 – Present'},
+      {h:'thread-lily-white.html',t:'The Lily White Movement: Party of Lincoln',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1877 – 1968'},
+      {h:'thread-displacement.html',t:'The Flooded City: Five Ways Black Communities Were Taken',d:'housing labor-wealth',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1898 – Present'},
+      {h:'thread-urban-renewal.html',t:'Urban Renewal: The Highway That Ran Through Black America',d:'housing history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1949 – Present'},
+      {h:'thread-tuskegee-airmen.html',t:'The Tuskegee Airmen: 332 Fighters, Zero Bombers Lost',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1941 – Present'},
+      {h:'thread-redlining.html',t:'Redlining: The Map That Built the Wealth Gap',d:'housing labor-wealth',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1934 – Present'},
+      {h:'thread-civil-rights.html',t:'The Movement That Was Not Spontaneous',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1954 – Present'},
+      {h:'thread-voting-rights.html',t:'The Right They Keep Taking: Black Voting Rights',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1870 – Present'},
+      {h:'thread-self-defense.html',t:'The Right to Defend: Black Organized Self-Defense',d:'history-culture criminal-justice',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1892 – 1982'},
+      {h:'thread-black-athletes.html',t:'Shut Up and Play: Ali, Kaepernick, and Athletic Protest',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1908 – Present'},
+      {h:'thread-hbcu-football.html',t:'Gridiron Separate and Unequal: HBCU Football',d:'history-culture education',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1892 – Present'},
+      {h:'thread-black-panthers.html',t:'What the Panthers Actually Were',d:'history-culture health',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1966 – Present'},
+      {h:'thread-statue-of-liberty.html',t:'The Black Statue of Liberty',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1865 – Present'},
+      {h:'thread-malcolm-x.html',t:'Malcolm X: By Any Means Necessary',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1925 – 1965'},
+      {h:'thread-freedom-riders.html',t:'The Freedom Riders: The Government Knew and Did Nothing',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1961'},
+      {h:'thread-birmingham.html',t:'Birmingham: The Four Girls and the Dogs',d:'history-culture criminal-justice',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1963'},
+      {h:'thread-black-lgbtq.html',t:'Black LGBTQ+ History: The Revolution Marsha Started',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1969 – Present'},
+      {h:'thread-black-mayors.html',t:'Black Political Power: Elected Into a System Built to Constrain Them',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1967 – Present'},
+      {h:'thread-montgomery-bus-boycott.html',t:'The Montgomery Bus Boycott: 381 Days That Changed the Country',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1955 – 1956'},
+      {h:'thread-selma.html',t:'Selma and Bloody Sunday: The Bridge That Produced the Voting Rights Act',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1965'},
+      {h:'thread-fred-hampton.html',t:'Fred Hampton: The Chairman They Killed at 21',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1948 – 1969'},
+      {h:'thread-shirley-chisholm.html',t:'Shirley Chisholm: Unbought and Unbossed',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1968 – 1983'},
+      {h:'thread-black-feminism.html',t:'Black Feminism: The Movement That Was There First',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1851 – Present'},
+      {h:'thread-baldwin.html',t:'The Fire Next Time: Baldwin and the White Identity Crisis',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1924 – Present'},
+      {h:'thread-deindustrialization.html',t:'Deindustrialization: When the Jobs Left Black America',d:'labor-wealth history-culture',e:8,el:'Backlash Era',c:'#4a2060',y:'1970 – Present'},
+      {h:'thread-mass-incarceration.html',t:'The 13th: Mass Incarceration & the Second Slavery',d:'criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1865 – Present'},
+      {h:'thread-capital-punishment.html',t:'Capital Punishment: Race, Death, and the American Justice System',d:'criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1972 – Present'},
+      {h:'thread-police.html',t:'Patrol and Punish: The Invention of American Policing',d:'criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1704 – Present'},
+      {h:'thread-media.html',t:'How America Images Blackness',d:'history-culture criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1915 – Present'},
+      {h:'thread-rap-pipeline.html',t:'The Pipeline: How Rap Was Captured',d:'criminal-justice history-culture',e:8,el:'Backlash Era',c:'#4a2060',y:'1973 – Present'},
+      {h:'thread-gangs.html',t:'After the Panthers: Origins of the Crips and Bloods',d:'criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1965 – Present'},
+      {h:'thread-white-terror-la.html',t:'Before the Crips: White Terror Gangs in L.A.',d:'history-culture criminal-justice housing',e:8,el:'Backlash Era',c:'#4a2060',y:'1940s – 1969'},
+      {h:'thread-subprime.html',t:'The Subprime Trap: 2008 Crisis Built on Black Neighborhoods',d:'housing labor-wealth',e:8,el:'Backlash Era',c:'#4a2060',y:'1990s – Present'},
+      {h:'thread-racial-capitalism.html',t:'Same Ledger, New Name: Old Slavery to New Capitalism',d:'labor-wealth',e:8,el:'Backlash Era',c:'#4a2060',y:'1619 – Present'},
+      {h:'thread-la-uprising.html',t:'The LA Uprising 1992: Six Days After the Verdict',d:'history-culture criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1992'},
+      {h:'thread-welfare-reform.html',t:'Welfare Reform: Ending Welfare As We Know It',d:'labor-wealth history-culture',e:8,el:'Backlash Era',c:'#4a2060',y:'1996 – Present'},
+      {h:'thread-hiv-aids.html',t:'HIV/AIDS and Black America: The Epidemic the Government Ignored',d:'health',e:8,el:'Backlash Era',c:'#4a2060',y:'1981 – Present'},
+      {h:'thread-attica.html',t:'Attica: The Massacre the Governor Ordered',d:'history-culture criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1971'},
+      {h:'thread-move-bombing.html',t:'The MOVE Bombing: Philadelphia Dropped a Bomb on Its Own Residents',d:'history-culture criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1985'},
+      {h:'thread-crack-epidemic.html',t:'The Crack Epidemic: The Drug That Was Treated as a Crime',d:'history-culture',e:8,el:'Backlash Era',c:'#4a2060',y:'1984 – 1994'},
+      {h:'thread-katrina.html',t:'Katrina: What the Flood Revealed',d:'housing health',e:9,el:'Present Day',c:'#2a4a6b',y:'2005 – Present'},
+      {h:'thread-bail-system.html',t:'The Bail System: Wealth Determines Freedom',d:'criminal-justice',e:9,el:'Present Day',c:'#2a4a6b',y:'Present'},
+      {h:'thread-shelby-county.html',t:'Shelby County v. Holder: The Supreme Court Guts the Voting Rights Act',d:'history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'2013 – Present'},
+      {h:'thread-health-disparities.html',t:'The Body as Evidence: Black Health Disparities',d:'health',e:9,el:'Present Day',c:'#2a4a6b',y:'1619 – Present'},
+      {h:'thread-healthcare.html',t:'By Design: Why America Has No Universal Healthcare',d:'health',e:9,el:'Present Day',c:'#2a4a6b',y:'1917 – Present'},
+      {h:'thread-environmental-racism.html',t:'Environmental Racism: Toxic by Design',d:'health housing',e:9,el:'Present Day',c:'#2a4a6b',y:'1987 – Present'},
+      {h:'thread-education.html',t:'Separate Was Never Equal: Black Education in America',d:'education',e:9,el:'Present Day',c:'#2a4a6b',y:'1835 – Present'},
+      {h:'thread-black-farmers.html',t:'14 Million Acres: Black Farmers and the USDA',d:'labor-wealth',e:9,el:'Present Day',c:'#2a4a6b',y:'1865 – Present'},
+      {h:'thread-ferguson.html',t:'Ferguson, South Carolina: Drowned by the New Deal',d:'housing history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'1939 – Present'},
+      {h:'thread-dei.html',t:'Built to Be Dismantled: The DEI Backlash',d:'labor-wealth history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'1964 – 2025'},
+      {h:'thread-reparations.html',t:'What Is Owed: The Reparations Question',d:'labor-wealth history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'1865 – Present'},
+      {h:'thread-diaspora.html',t:'Before, During, and After: Who Black People Are',d:'history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'Ancient Africa – Present'},
+      {h:'thread-blm.html',t:'Black Lives Matter: The Largest Protest Movement in American History',d:'history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'2013 – Present'},
+      {h:'thread-school-to-prison.html',t:'The School-to-Prison Pipeline: Suspended at Six, Incarcerated at Twenty',d:'criminal-justice education',e:9,el:'Present Day',c:'#2a4a6b',y:'1994 – Present'},
+      {h:'thread-affirmative-action.html',t:'Affirmative Action: 45 Years of Policy, Dismantled in One Ruling',d:'education labor-wealth',e:9,el:'Present Day',c:'#2a4a6b',y:'1961 – 2023'},
+      {h:'thread-black-maternal-mortality.html',t:'Black Maternal Mortality: Dying to Give Birth in America',d:'health',e:9,el:'Present Day',c:'#2a4a6b',y:'Present'},
+      {h:'thread-stand-your-ground.html',t:'Stand Your Ground: The Law That Made Killing Black People Defensible',d:'criminal-justice',e:9,el:'Present Day',c:'#2a4a6b',y:'2005 – Present'},
+      {h:'thread-wealth-gap.html',t:'The Racial Wealth Gap: $171,000 vs. $17,150',d:'labor-wealth',e:9,el:'Present Day',c:'#2a4a6b',y:'1865 – Present'},
+      {h:'thread-george-floyd.html',t:'George Floyd and the 2020 Uprisings',d:'history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'2020 – Present'},
+      {h:'thread-gentrification.html',t:'Gentrification: The Polite Word for Displacement',d:'housing labor-wealth',e:9,el:'Present Day',c:'#2a4a6b',y:'1970s – Present'},
+      {h:'thread-black-mental-health.html',t:'Black Mental Health: The Weight of 400 Years',d:'history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'Ongoing'}
+    ];
+  }
+
+  var filename = window.location.pathname.split('/').pop() || 'index.html';
+  var current = THREAD_INDEX.find(function(x){ return x.h === filename; });
+  if (!current) return;
+
+  // ---- BREADCRUMB ----
+  var hero = document.querySelector('.thread-hero');
+  if (hero) {
+    var primaryDomain = current.d.split(' ')[0];
+    var domainLabel = DOMAIN_LABELS[primaryDomain] || primaryDomain;
+
+    var nav = document.createElement('nav');
+    nav.className = 'thread-breadcrumb';
+    nav.setAttribute('aria-label', 'Breadcrumb');
+    nav.innerHTML =
+      '<div class="container">' +
+        '<ol class="thread-breadcrumb__list">' +
+          '<li class="thread-breadcrumb__item">' +
+            '<a href="home.html" class="thread-breadcrumb__link">Home</a>' +
+            '<span class="thread-breadcrumb__sep" aria-hidden="true">›</span>' +
+          '</li>' +
+          '<li class="thread-breadcrumb__item">' +
+            '<a href="threads.html" class="thread-breadcrumb__link">Threads</a>' +
+            '<span class="thread-breadcrumb__sep" aria-hidden="true">›</span>' +
+          '</li>' +
+          '<li class="thread-breadcrumb__item">' +
+            '<a href="threads.html?domain=' + encodeURIComponent(primaryDomain) + '" class="thread-breadcrumb__link">' + domainLabel + '</a>' +
+            '<span class="thread-breadcrumb__sep" aria-hidden="true">›</span>' +
+          '</li>' +
+          '<li class="thread-breadcrumb__item thread-breadcrumb__item--current" aria-current="page">' +
+            '<span class="thread-breadcrumb__era-dot" style="background:' + current.c + '" aria-hidden="true"></span>' +
+            '<span class="thread-breadcrumb__era-label">' + current.el + '</span>' +
+          '</li>' +
+        '</ol>' +
+      '</div>';
+
+    hero.parentNode.insertBefore(nav, hero);
+  }
+
+  // ---- RELATED THREADS GRID ----
+  var cta = document.querySelector('.thread-bottom-cta');
+  if (cta) {
+    var currentDomains = current.d.split(' ');
+
+    var scored = THREAD_INDEX
+      .filter(function(x){ return x.h !== filename; })
+      .map(function(x){
+        var xDomains = x.d.split(' ');
+        var domainOverlap = currentDomains.filter(function(d){ return xDomains.indexOf(d) >= 0; }).length;
+        var eraDiff = Math.abs(x.e - current.e);
+        var eraScore = eraDiff === 0 ? 2 : eraDiff === 1 ? 1 : 0;
+        return { thread: x, score: domainOverlap * 3 + eraScore };
+      })
+      .sort(function(a, b){ return b.score - a.score; })
+      .slice(0, 4);
+
+    if (scored.length) {
+      var cardsHtml = scored.map(function(item){
+        var t = item.thread;
+        var m = t.c.replace('#','').match(/.{2}/g);
+        var rgb = m ? m.map(function(v){ return parseInt(v,16); }).join(',') : '251,191,36';
+        return '<a href="' + t.h + '" class="rel-thread-card" style="--rel-acc:' + t.c + ';--rel-acc-rgb:' + rgb + '">' +
+          '<div class="rel-thread-card__era" style="color:' + t.c + '">' + t.el + ' · ' + t.y + '</div>' +
+          '<div class="rel-thread-card__title">' + t.t + '</div>' +
+          '<div class="rel-thread-card__arrow" aria-hidden="true">→</div>' +
+        '</a>';
+      }).join('');
+
+      var section = document.createElement('section');
+      section.className = 'related-threads-section';
+      section.setAttribute('aria-labelledby', 'relThreadsTitle');
+      section.innerHTML =
+        '<div class="container">' +
+          '<div class="related-threads__header">' +
+            '<h2 class="related-threads__title" id="relThreadsTitle">Continue the Chain</h2>' +
+            '<a href="threads.html" class="related-threads__all-link">All threads →</a>' +
+          '</div>' +
+          '<div class="related-threads__grid">' + cardsHtml + '</div>' +
+        '</div>';
+
+      cta.parentNode.insertBefore(section, cta);
+    }
+  }
+})();

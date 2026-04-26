@@ -996,3 +996,187 @@
     left: 19px;
   }
 }
+
+/* =========================================================
+   THREAD BREADCRUMB
+   ========================================================= */
+.thread-breadcrumb {
+  background: var(--ink-900);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  padding: var(--space-2) 0;
+}
+
+.thread-breadcrumb__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.thread-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.thread-breadcrumb__link {
+  font-size: 0.75rem;
+  color: var(--ink-500);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+  transition: color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.thread-breadcrumb__link:hover {
+  color: var(--ink-200);
+}
+
+.thread-breadcrumb__sep {
+  font-size: 0.7rem;
+  color: var(--ink-700);
+  margin: 0 var(--space-1);
+  user-select: none;
+}
+
+.thread-breadcrumb__item--current {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.thread-breadcrumb__era-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.thread-breadcrumb__era-label {
+  font-size: 0.75rem;
+  font-weight: var(--weight-semibold);
+  color: var(--ink-200);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   RELATED THREADS SECTION
+   ========================================================= */
+.related-threads-section {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-12) 0;
+}
+
+[data-theme="dark"] .related-threads-section {
+  background: var(--ink-900);
+  border-top-color: var(--ink-800);
+}
+
+.related-threads__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+  flex-wrap: wrap;
+}
+
+.related-threads__title {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 900;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.related-threads__all-link {
+  font-size: var(--type-sm);
+  font-weight: var(--weight-semibold);
+  color: #fbbf24;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity var(--duration-fast);
+}
+
+.related-threads__all-link:hover {
+  opacity: 0.8;
+}
+
+.related-threads__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .related-threads__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .related-threads__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Individual related thread card */
+.rel-thread-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--rel-acc, #fbbf24);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  text-decoration: none;
+  transition: transform var(--duration-fast), box-shadow var(--duration-fast), border-top-color var(--duration-fast);
+  position: relative;
+}
+
+[data-theme="dark"] .rel-thread-card {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+}
+
+.rel-thread-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(var(--rel-acc-rgb, 251,191,36), .15);
+}
+
+.rel-thread-card__era {
+  font-size: 0.68rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.rel-thread-card__title {
+  font-size: var(--type-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.rel-thread-card:hover .rel-thread-card__title {
+  color: var(--rel-acc, #fbbf24);
+}
+
+.rel-thread-card__arrow {
+  font-size: var(--type-sm);
+  color: var(--color-text-tertiary);
+  margin-top: auto;
+  transition: transform var(--duration-fast), color var(--duration-fast);
+}
+
+.rel-thread-card:hover .rel-thread-card__arrow {
+  transform: translateX(4px);
+  color: var(--rel-acc, #fbbf24);
+}
