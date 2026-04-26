@@ -3,6 +3,200 @@
    ============================================================ */
 
 /* ============================================================
+   EXPLORE GOALS — "How do you want to explore?" section
+   ============================================================ */
+
+.explore-goals {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-14) 0;
+}
+
+[data-theme="dark"] .explore-goals {
+  background: var(--ink-950, #080808);
+}
+
+.explore-goals__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.explore-goals__eyebrow {
+  font-size: var(--type-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  margin-bottom: var(--space-3);
+}
+
+.explore-goals__heading {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* 2-col on tablet, 4-col on desktop */
+.explore-goals__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .explore-goals__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1100px) {
+  .explore-goals__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ── Goal card ───────────────────────────────────────────── */
+.goal-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition:
+    box-shadow var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+
+/* Accent top line — grows from left on hover */
+.goal-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.goal-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--color-accent-dark);
+}
+
+.goal-card:hover::before { transform: scaleX(1); }
+.goal-card:active { transform: translateY(0) scale(0.99); }
+
+[data-theme="dark"] .goal-card {
+  background: var(--ink-800);
+  border-color: var(--ink-700);
+}
+
+[data-theme="dark"] .goal-card:hover {
+  border-color: var(--amber-400);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+}
+
+/* "Just browsing" card — slightly elevated treatment */
+.goal-card--browse {
+  background: var(--ink-900);
+  border-color: rgba(255,255,255,.1);
+}
+
+.goal-card--browse .goal-card__label { color: var(--amber-300); }
+.goal-card--browse .goal-card__title { color: #fff; }
+.goal-card--browse .goal-card__desc  { color: rgba(255,255,255,.55); }
+.goal-card--browse .goal-card__link  { color: var(--amber-300); }
+.goal-card--browse .goal-card__link--muted { color: rgba(255,255,255,.3); }
+.goal-card--browse:hover { border-color: var(--amber-400); }
+
+/* Icon */
+.goal-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  background: var(--color-accent-light);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.goal-card__icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--color-accent-dark);
+}
+
+.goal-card--browse .goal-card__icon {
+  background: rgba(251,191,36,.12);
+}
+
+.goal-card--browse .goal-card__icon svg {
+  stroke: var(--amber-300);
+}
+
+/* Body text */
+.goal-card__body { flex: 1; display: flex; flex-direction: column; gap: var(--space-2); }
+
+.goal-card__label {
+  font-size: var(--type-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+.goal-card__title {
+  font-family: var(--font-editorial);
+  font-size: 1.0625rem;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.goal-card__desc {
+  font-size: var(--type-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-top: var(--space-1);
+}
+
+/* Footer links */
+.goal-card__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-subtle);
+  margin-top: auto;
+}
+
+.goal-card__link {
+  font-size: var(--type-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent-dark);
+  transition: gap 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.goal-card:hover .goal-card__link:first-child { gap: 8px; }
+
+.goal-card__link--muted {
+  font-weight: var(--weight-medium);
+  color: var(--color-text-tertiary);
+  font-size: var(--type-xs);
+}
+
+/* ============================================================
    ORIGINS SECTION — Before the Chain
    ============================================================ */
 
