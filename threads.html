@@ -471,6 +471,89 @@
     .thread-card:hover::after { transform: scaleX(1); }
     .thread-card:active { transform: translateY(0) scale(0.99); box-shadow: var(--shadow-xs); }
 
+    /* ── Hover peek panel ───────────────────────────────────── */
+    .thread-card__peek {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(12,8,2,.97) 0%, rgba(12,8,2,.93) 70%, transparent 100%);
+      padding: var(--space-8) var(--space-7) var(--space-6);
+      transform: translateY(100%);
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+      z-index: 4;
+    }
+    .thread-card:hover .thread-card__peek {
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .thread-card__peek-domain {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--amber-300, #fcd34d);
+      margin-bottom: var(--space-2);
+    }
+    .thread-card__peek-title {
+      font-family: var(--font-editorial);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: var(--space-3);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .thread-card__peek-excerpt {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.65);
+      line-height: 1.55;
+      margin-bottom: var(--space-4);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .thread-card__peek-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .thread-card__peek-span {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,.45);
+      letter-spacing: 0.04em;
+    }
+    .thread-card__peek-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--amber-300, #fcd34d);
+      transition: gap 0.15s;
+    }
+    .thread-card:hover .thread-card__peek-cta { gap: 8px; }
+    /* Light mode: keep peek dark regardless of theme */
+    [data-theme="light"] .thread-card__peek {
+      background: linear-gradient(to top, rgba(8,5,0,.97) 0%, rgba(8,5,0,.93) 65%, transparent 100%);
+    }
+    /* Image card: extend peek height since thumb offset */
+    .thread-card--has-img .thread-card__peek {
+      padding-top: var(--space-10);
+    }
+    /* Reduced motion: instant show/hide, no slide */
+    @media (prefers-reduced-motion: reduce) {
+      .thread-card__peek { transition: opacity 0.15s; transform: translateY(0); opacity: 0; }
+      .thread-card:hover .thread-card__peek { opacity: 1; }
+    }
+
     .thread-card__domain {
       font-size: var(--type-xs);
       font-weight: var(--weight-bold);
@@ -2781,6 +2864,44 @@
       }, 120);
     }
   }
+
+  // ── Hover peek panels — inject into every .thread-card ──────
+  (function() {
+    document.querySelectorAll('.thread-card').forEach(function(card) {
+      // Gather data from existing child elements
+      var domainEl  = card.querySelector('.thread-card__domain');
+      var titleEl   = card.querySelector('.thread-card__title');
+      var summaryEl = card.querySelector('.thread-card__summary');
+      var spanEl    = card.querySelector('.thread-card__span');
+
+      var domain  = domainEl  ? domainEl.textContent.trim()  : '';
+      var title   = titleEl   ? titleEl.textContent.trim()   : '';
+      var summary = summaryEl ? summaryEl.textContent.trim() : '';
+
+      // Build date span string from first and last plain <span> in .thread-card__span
+      var dateStr = '';
+      if (spanEl) {
+        var dateParts = Array.from(spanEl.querySelectorAll('span:not(.thread-status-badge):not(.thread-status-badge__dot)'))
+          .map(function(s){ return s.textContent.trim(); })
+          .filter(Boolean);
+        dateStr = dateParts.length >= 2 ? dateParts[0] + ' – ' + dateParts[dateParts.length - 1] : dateParts[0] || '';
+      }
+
+      var peek = document.createElement('div');
+      peek.className = 'thread-card__peek';
+      peek.setAttribute('aria-hidden', 'true');
+      peek.innerHTML =
+        (domain  ? '<div class="thread-card__peek-domain">' + domain + '</div>' : '') +
+        (title   ? '<div class="thread-card__peek-title">'  + title  + '</div>' : '') +
+        (summary ? '<div class="thread-card__peek-excerpt">' + summary + '</div>' : '') +
+        '<div class="thread-card__peek-footer">' +
+          '<span class="thread-card__peek-span">' + (dateStr || '') + '</span>' +
+          '<span class="thread-card__peek-cta">Read thread <span aria-hidden="true">→</span></span>' +
+        '</div>';
+
+      card.appendChild(peek);
+    });
+  })();
 
   // ?filter=housing — pre-select domain filter chip
   var filterParam = urlParams.get('filter');

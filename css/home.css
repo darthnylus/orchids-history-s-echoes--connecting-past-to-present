@@ -354,6 +354,119 @@
   letter-spacing: var(--tracking-wide);
 }
 
+/* ── Civ-card hover peek overlay ─────────────────────────── */
+.civ-card__peek {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8,4,0,.98) 0%,
+    rgba(8,4,0,.95) 55%,
+    rgba(8,4,0,.85) 80%,
+    rgba(8,4,0,.6) 100%
+  );
+  padding: var(--space-6) var(--space-6) var(--space-7);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.28s cubic-bezier(0.22,1,0.36,1), transform 0.28s cubic-bezier(0.22,1,0.36,1);
+  pointer-events: none;
+  z-index: 5;
+}
+.civ-card:hover .civ-card__peek {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.civ-peek__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+.civ-peek__region {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber-300, #fcd34d);
+  background: rgba(196,146,0,.18);
+  border: 1px solid rgba(196,146,0,.3);
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
+}
+.civ-peek__period {
+  font-size: 10px;
+  color: rgba(255,255,255,.45);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.civ-peek__name {
+  font-family: var(--font-editorial);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+.civ-peek__summary {
+  font-size: 0.775rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.civ-peek__facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: rgba(255,255,255,.06);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.civ-peek__fact {
+  display: flex;
+  gap: var(--space-2);
+  font-size: 0.72rem;
+  align-items: baseline;
+}
+.civ-peek__fact-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,.35);
+  flex-shrink: 0;
+  font-size: 0.65rem;
+}
+.civ-peek__fact-value {
+  color: rgba(255,255,255,.7);
+}
+.civ-peek__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--amber-300, #fcd34d);
+  text-decoration: none;
+  margin-top: var(--space-1);
+  transition: gap 0.15s;
+}
+.civ-card:hover .civ-peek__cta { gap: 9px; }
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .civ-card__peek { transition: opacity 0.15s; transform: none; }
+}
+
 /* Dark mode refinements */
 [data-theme="dark"] .civ-card {
   background: var(--ink-800);

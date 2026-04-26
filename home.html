@@ -1965,5 +1965,55 @@
      JAVASCRIPT
      ========================================================= -->
 <script src="js/main.js" defer></script>
+
+<script>
+// ── Civ-card hover peek panels ─────────────────────────────
+(function() {
+  document.querySelectorAll('.civ-card').forEach(function(card) {
+    var nameEl    = card.querySelector('.civ-card__name');
+    var summaryEl = card.querySelector('.civ-card__summary');
+    var periodEl  = card.querySelector('.civ-card__period');
+    var regionEl  = card.querySelector('.civ-card__region-badge');
+    var linkEl    = card.querySelector('.civ-card__link');
+    var factsEls  = card.querySelectorAll('.civ-card__fact');
+
+    var name    = nameEl    ? nameEl.textContent.trim()   : '';
+    var summary = summaryEl ? summaryEl.textContent.trim(): '';
+    var period  = periodEl  ? periodEl.textContent.trim() : '';
+    var region  = regionEl  ? regionEl.textContent.trim() : '';
+    var linkHref = linkEl   ? linkEl.getAttribute('href') : null;
+
+    // Pull first 2 facts into peek
+    var factsHTML = '';
+    factsEls.forEach(function(f, i) {
+      if (i > 1) return;
+      var lbl = f.querySelector('.civ-card__fact-label');
+      var val = f.querySelector('.civ-card__fact-value');
+      if (lbl && val) {
+        factsHTML += '<div class="civ-peek__fact"><span class="civ-peek__fact-label">' +
+          lbl.textContent.trim() + '</span><span class="civ-peek__fact-value">' +
+          val.textContent.trim() + '</span></div>';
+      }
+    });
+
+    var peek = document.createElement('div');
+    peek.className = 'civ-card__peek';
+    peek.setAttribute('aria-hidden', 'true');
+    peek.innerHTML =
+      '<div class="civ-peek__top">' +
+        (region ? '<span class="civ-peek__region">' + region + '</span>' : '') +
+        (period ? '<span class="civ-peek__period">' + period + '</span>' : '') +
+      '</div>' +
+      (name    ? '<div class="civ-peek__name">'    + name    + '</div>' : '') +
+      (summary ? '<div class="civ-peek__summary">' + summary + '</div>' : '') +
+      (factsHTML ? '<div class="civ-peek__facts">' + factsHTML + '</div>' : '') +
+      (linkHref
+        ? '<a href="' + linkHref + '" class="civ-peek__cta">Explore thread <span aria-hidden="true">→</span></a>'
+        : '<div class="civ-peek__cta civ-peek__cta--text">View thread <span aria-hidden="true">→</span></div>');
+
+    card.appendChild(peek);
+  });
+})();
+</script>
 </body>
 </html>
