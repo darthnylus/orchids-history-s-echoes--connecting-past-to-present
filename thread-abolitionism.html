@@ -30,11 +30,17 @@
     }
     .thread-hero__bg {
       position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 80% at 12% 50%, rgba(251,191,36,.14) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 60% at 88% 22%, rgba(129,140,248,.10) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 70% at 50% 100%, rgba(239,68,68,.06) 0%, transparent 50%);
+      background-image: url('images/black-abolitionists.webp');
+      background-size: cover;
+      background-position: center 20%;
       pointer-events: none;
+    }
+    .thread-hero__bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, rgba(5,2,0,.92) 0%, rgba(5,2,0,.70) 55%, rgba(5,2,0,.48) 100%),
+        linear-gradient(to top, rgba(5,2,0,.60) 0%, transparent 40%);
     }
     .thread-hero__inner { position: relative; max-width: 760px; }
     .thread-hero__kicker {
