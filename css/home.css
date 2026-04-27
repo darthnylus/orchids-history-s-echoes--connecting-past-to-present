@@ -67,10 +67,10 @@
   border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 32px 24px 26px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;      /* center everything horizontally */
-  text-align: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
   gap: 0;
   text-decoration: none;
   color: inherit;
@@ -194,6 +194,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  text-align: center;
 }
 
 .goal-card__label {
@@ -203,6 +204,7 @@
   text-transform: uppercase;
   color: var(--color-accent-dark);
   margin-bottom: 6px;
+  text-align: center;
 }
 
 .goal-card__title {
@@ -212,13 +214,15 @@
   color: var(--color-text-primary);
   line-height: 1.3;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .goal-card__desc {
   font-size: 13px;
   color: var(--color-text-secondary);
   line-height: 1.6;
-  flex: 1; /* pushes the footer to the bottom */
+  flex: 1;
+  text-align: center;
 }
 
 /* ── Footer — pinned to bottom across all cards ──────────── */
@@ -231,6 +235,7 @@
   margin-top: 20px;
   width: 100%;
   border-top: 1px solid var(--color-border);
+  text-align: center;
 }
 
 .goal-card__link {
@@ -239,6 +244,7 @@
   color: var(--color-accent-dark);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   transition: gap 0.16s var(--ease-out);
 }
@@ -249,6 +255,7 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--color-text-tertiary);
+  text-align: center;
 }
 
 /* ============================================================
