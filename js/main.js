@@ -377,9 +377,12 @@ initThreadSteps();
    SCROLL REVEAL
    ========================================================= */
 function initScrollReveal() {
-  if (!('IntersectionObserver' in window)) {
-    // Fallback: show all
-    $$('.reveal').forEach(el => el.classList.add('is-visible'));
+  const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // If reduced motion, instantly show everything and bail
+  if (!('IntersectionObserver' in window) || noMotion) {
+    const all = $$('.reveal, .chain-reveal, .chain-reveal--left, .chain-reveal--pop, .entry-item, .chapter, .causal-node, .stat-callout');
+    all.forEach(el => el.classList.add('is-visible'));
     return;
   }
 
@@ -391,16 +394,110 @@ function initScrollReveal() {
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -60px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px -50px 0px'
   });
 
+  // Legacy .reveal elements
   $$('.reveal').forEach(el => ioReveal.observe(el));
-  // Disconnect once all items are revealed (self-cleaning)
+
+  // New chain-reveal elements
+  $$('.chain-reveal, .chain-reveal--left, .chain-reveal--pop').forEach(el => ioReveal.observe(el));
+
+  // Stat callouts
+  $$('.stat-callout').forEach(el => ioReveal.observe(el));
+
+  // Causal chain nodes — stagger by index
+  $$('.causal-node').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.06) + 's';
+    ioReveal.observe(el);
+  });
+
   window.addEventListener('pagehide', () => ioReveal.disconnect(), { once: true });
 }
 
+/* =========================================================
+   CHAPTER + ENTRY REVEAL (thread pages)
+   Separate observer — lower threshold to catch mid-page load
+   ========================================================= */
+function initThreadReveal() {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    $$('.chapter, .entry-item').forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const ioThread = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        ioThread.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  $$('.chapter').forEach((el, i) => {
+    el.style.transitionDelay = Math.min(i * 0.04, 0.2) + 's';
+    ioThread.observe(el);
+  });
+
+  $$('.entry-item').forEach((el, i) => {
+    el.style.transitionDelay = Math.min(i * 0.05, 0.25) + 's';
+    ioThread.observe(el);
+  });
+
+  window.addEventListener('pagehide', () => ioThread.disconnect(), { once: true });
+}
+
+/* =========================================================
+   HERO CHAIN-LINK SVG — inject into .hero if present
+   ========================================================= */
+function initHeroChainSVG() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  // Don't double-inject
+  if (hero.querySelector('.hero-chain-svg')) return;
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'hero-chain-svg');
+  svg.setAttribute('viewBox', '0 0 120 480');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('aria-hidden', 'true');
+
+  // Six chain links — alternating horizontal/vertical ovals
+  const links = [
+    'M 30 20 Q 60 20 60 50 Q 60 80 30 80 Q 0 80 0 50 Q 0 20 30 20 Z',
+    'M 60 80 L 60 100',
+    'M 90 100 Q 120 100 120 130 Q 120 160 90 160 Q 60 160 60 130 Q 60 100 90 100 Z',
+    'M 60 160 L 60 180',
+    'M 30 180 Q 60 180 60 210 Q 60 240 30 240 Q 0 240 0 210 Q 0 180 30 180 Z',
+    'M 60 240 L 60 260',
+    'M 90 260 Q 120 260 120 290 Q 120 320 90 320 Q 60 320 60 290 Q 60 260 90 260 Z',
+    'M 60 320 L 60 340',
+    'M 30 340 Q 60 340 60 370 Q 60 400 30 400 Q 0 400 0 370 Q 0 340 30 340 Z',
+    'M 60 400 L 60 420',
+    'M 90 420 Q 120 420 120 450 Q 120 480 90 480 Q 60 480 60 450 Q 60 420 90 420 Z'
+  ];
+
+  links.forEach(d => {
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('class', 'chain-link-path');
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', '#c49200');
+    path.setAttribute('stroke-width', '3');
+    path.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(path);
+  });
+
+  hero.appendChild(svg);
+}
+
 initScrollReveal();
+initThreadReveal();
+initHeroChainSVG();
 
 /* =========================================================
    STICKY NAV SHADOW

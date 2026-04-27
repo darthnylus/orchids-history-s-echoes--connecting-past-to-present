@@ -28,6 +28,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="preload" href="css/system.css" as="style" />
   <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
   <style>
 
     /* ── Hero ───────────────────────────────────────────────── */
@@ -1632,31 +1633,33 @@
 <main id="main-content">
 
   <!-- HERO -->
-  <section class="threads-hero" aria-labelledby="threads-heading">
-    <div class="container threads-hero__inner">
-      <p class="threads-hero__eyebrow">The archive</p>
-      <h1 id="threads-heading" class="threads-hero__headline">
-        Every consequence<br />has an <em>origin.</em>
-      </h1>
-      <p class="threads-hero__subhead">
+  <header class="page-header" aria-labelledby="threads-heading">
+    <div class="container page-header__inner">
+      <p class="page-header__eyebrow">The Archive</p>
+      <h1 id="threads-heading" class="page-header__title">Every consequence<br>has an <em style="font-style:italic;color:var(--amber-300)">origin.</em></h1>
+      <p class="page-header__desc">
         A thread traces the full causal chain from a historical act to its present-day consequence — showing the decisions, policies, and people that link them. Not just what happened. Why it still matters.
       </p>
-      <div class="threads-hero__meta">
-        <div>
-          <span class="threads-hero__stat-num">137</span>
-          <span class="threads-hero__stat-label">Active threads</span>
+      <div class="page-header__stat-row">
+        <div class="page-header__stat-item">
+          <span class="page-header__stat-num">137</span>
+          <span class="page-header__stat-label">Active threads</span>
         </div>
-        <div>
-          <span class="threads-hero__stat-num">0</span>
-          <span class="threads-hero__stat-label">In development</span>
+        <div class="page-header__stat-item">
+          <span class="page-header__stat-num">9</span>
+          <span class="page-header__stat-label">Historical eras</span>
         </div>
-        <div>
-          <span class="threads-hero__stat-num">2,000+</span>
-          <span class="threads-hero__stat-label">Years of history</span>
+        <div class="page-header__stat-item">
+          <span class="page-header__stat-num">2,000+</span>
+          <span class="page-header__stat-label">Years of history</span>
+        </div>
+        <div class="page-header__stat-item">
+          <span class="page-header__stat-num">6</span>
+          <span class="page-header__stat-label">Domains</span>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- WHAT IS A THREAD -->
   <div class="explainer-bar">
