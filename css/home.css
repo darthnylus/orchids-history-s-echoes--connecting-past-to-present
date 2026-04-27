@@ -136,42 +136,61 @@
 .goal-card--browse .goal-card__links       { border-top-color: rgba(255,255,255,.09); }
 .goal-card--browse .goal-card__link        { color: #e8b84b; }
 .goal-card--browse .goal-card__link--muted { color: rgba(255,255,255,.3); }
-.goal-card--browse .goal-card__icon-wrap   { background: rgba(232,184,75,.08); }
-.goal-card--browse .goal-card__icon-wrap svg { stroke: rgba(232,184,75,.6); }
-.goal-card--browse:hover .goal-card__icon-wrap svg { stroke: #e8b84b; }
 
-/* ── Icon wrapper — fixed 44×44 rounded container ───────── */
+/* ── Icon wrapper — strict 44×44, cream-amber bg ────────── */
 .goal-card__icon-wrap {
   width: 44px;
   height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   flex-shrink: 0;
   border-radius: 10px;
-  background: rgba(180,110,20,.08);
-  display: grid;
-  place-items: center;
-  margin-bottom: 20px;
+  background: #fdf0dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
   transition: background 0.2s;
 }
 
 .goal-card:hover .goal-card__icon-wrap {
-  background: rgba(180,110,20,.14);
+  background: #fce8c8;
 }
 
 .goal-card__icon-wrap svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
   display: block;
-  stroke: rgba(160,95,15,.65);
+  stroke: #a05c0f;
+  fill: none;
   transition: stroke 0.2s;
 }
 
 .goal-card:hover .goal-card__icon-wrap svg {
-  stroke: rgba(160,95,15,.9);
+  stroke: #7c4410;
+}
+
+/* dark card icon overrides */
+.goal-card--browse .goal-card__icon-wrap {
+  background: rgba(232,184,75,.1);
+}
+.goal-card--browse:hover .goal-card__icon-wrap {
+  background: rgba(232,184,75,.17);
+}
+.goal-card--browse .goal-card__icon-wrap svg {
+  stroke: #c99a35;
+}
+.goal-card--browse:hover .goal-card__icon-wrap svg {
+  stroke: #e8b84b;
 }
 
 /* ── Body ───────────────────────────────────────────────── */
 .goal-card__body {
-  flex: 1;                  /* absorbs height differences */
+  flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -183,7 +202,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent-dark);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .goal-card__title {
@@ -199,9 +218,10 @@
   font-size: 13px;
   color: var(--color-text-secondary);
   line-height: 1.6;
+  flex: 1; /* pushes the footer to the bottom */
 }
 
-/* ── Footer links — always pinned to bottom ─────────────── */
+/* ── Footer — pinned to bottom across all cards ──────────── */
 .goal-card__links {
   display: flex;
   flex-direction: column;
