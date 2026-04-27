@@ -407,30 +407,156 @@
     }
     @media (min-width: 640px) { .threads-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    /* Thread card image strip */
-    .thread-card--has-img {
-      padding: 0;
-      gap: 0;
+    /* thread-card--has-img: handled entirely by new card CSS below */
+
+    /* ═══════════════════════════════════════════════════════
+       EDITORIAL THREAD CARD — 8px grid, polished hierarchy
+       ═══════════════════════════════════════════════════════ */
+    .thread-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 0;                    /* image cards use 0, text-only also 0 now */
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.05);
+      transition:
+        box-shadow 0.22s cubic-bezier(0.22,1,0.36,1),
+        transform  0.22s cubic-bezier(0.22,1,0.36,1),
+        border-color 0.18s ease;
     }
-    /* Re-add spacing to inner text elements */
-    .thread-card--has-img .thread-card__domain {
-      padding: var(--space-5) var(--space-7) 0;
+    .thread-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, #d97706, #b45309);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
     }
-    .thread-card--has-img .thread-card__title {
-      padding: 0 var(--space-7);
+    .thread-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.1), 0 12px 40px rgba(0,0,0,.08);
+      transform: translateY(-3px);
+      border-color: #d97706;
     }
-    .thread-card--has-img .thread-card__summary {
-      padding: 0 var(--space-7);
-      margin-top: var(--space-2);
+    .thread-card:hover::after { transform: scaleX(1); }
+    .thread-card:active { transform: translateY(0) scale(0.99); box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+
+    /* ── Card body wrapper (padding lives here, not on the <a>) */
+    .thread-card__body {
+      padding: 24px 24px 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
-    .thread-card--has-img .thread-card__span {
-      padding: var(--space-4) var(--space-7) var(--space-6);
-      margin-top: auto;
+
+    /* ── LIVE badge — top-right corner ── */
+    .thread-card__live-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 3px 8px 3px 6px;
+      border-radius: 100px;
+      background: rgba(220,252,231,.85);
+      color: #166534;
+      border: 1px solid rgba(34,197,94,.3);
+      backdrop-filter: blur(4px);
+      z-index: 5;
     }
+    .thread-card__live-badge-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #16a34a;
+      animation: live-dot-pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes live-dot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* ── Eyebrow tags ── */
+    .thread-card__domain {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #9a3412;           /* sophisticated rust-orange */
+      margin-bottom: 8px;
+      line-height: 1.4;
+      padding-right: 64px;      /* clear the LIVE badge */
+    }
+
+    /* ── Headline ── */
+    .thread-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.35;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    /* ── Body text — 3-line clamp ── */
+    .thread-card__summary {
+      font-size: 0.8125rem;
+      color: #4b5563;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    /* ── Footer: Era + Read time ── */
+    .thread-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 12px 24px 16px;
+      border-top: 1px solid #f3f4f6;
+    }
+    .thread-card__era {
+      font-size: 11px;
+      color: #6b7280;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .thread-card__era strong {
+      color: #374151;
+      font-weight: 600;
+    }
+    .thread-card__read-time {
+      font-size: 11px;
+      color: #9ca3af;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Image strip (for has-img cards) ── */
     .thread-card__img {
       height: 150px;
       overflow: hidden;
-      border-radius: calc(var(--radius-xl) - 1px) calc(var(--radius-xl) - 1px) 0 0;
+      border-radius: 11px 11px 0 0;
       flex-shrink: 0;
     }
     .thread-card__img img {
@@ -438,159 +564,45 @@
       object-fit: cover;
       object-position: center center;
       display: block;
-      transition: transform 0.4s var(--ease-out);
-      filter: brightness(0.8) saturate(0.8);
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+      filter: brightness(0.82) saturate(0.85);
       will-change: transform;
     }
     .thread-card:hover .thread-card__img img { transform: scale(1.06); }
+    .thread-card:not(:hover) .thread-card__img img { will-change: auto; }
 
-    .thread-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      padding: var(--space-7);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-      text-decoration: none;
-      cursor: pointer;
-      transition: box-shadow var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out);
-      position: relative;
-      overflow: hidden;
+    /* ── Dark mode ── */
+    [data-theme="dark"] .thread-card {
+      background: var(--ink-800);
+      border-color: var(--ink-700);
+      box-shadow: 0 2px 8px rgba(0,0,0,.25), 0 8px 32px rgba(0,0,0,.2);
     }
-    .thread-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--duration-normal) var(--ease-out);
+    [data-theme="dark"] .thread-card:hover { border-color: var(--amber-400); }
+    [data-theme="dark"] .thread-card__title { color: #f9fafb; }
+    [data-theme="dark"] .thread-card__summary { color: var(--ink-300); }
+    [data-theme="dark"] .thread-card__domain { color: var(--amber-400); }
+    [data-theme="dark"] .thread-card__footer {
+      border-top-color: var(--ink-700);
     }
-    .thread-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--amber-200); }
-    .thread-card:hover::after { transform: scaleX(1); }
-    .thread-card:active { transform: translateY(0) scale(0.99); box-shadow: var(--shadow-xs); }
+    [data-theme="dark"] .thread-card__era { color: var(--ink-400); }
+    [data-theme="dark"] .thread-card__era strong { color: var(--ink-200); }
+    [data-theme="dark"] .thread-card__read-time { color: var(--ink-500); }
+    [data-theme="dark"] .thread-card__live-badge {
+      background: rgba(20,83,45,.7);
+      color: #86efac;
+      border-color: rgba(34,197,94,.2);
+    }
 
-    /* ── Hover peek panel ───────────────────────────────────── */
-    .thread-card__peek {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(12,8,2,.97) 0%, rgba(12,8,2,.93) 70%, transparent 100%);
-      padding: var(--space-8) var(--space-7) var(--space-6);
-      transform: translateY(100%);
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-      pointer-events: none;
-      z-index: 4;
-    }
-    .thread-card:hover .thread-card__peek {
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    .thread-card__peek-domain {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--amber-300, #fcd34d);
-      margin-bottom: var(--space-2);
-    }
-    .thread-card__peek-title {
-      font-family: var(--font-editorial);
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.35;
-      margin-bottom: var(--space-3);
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .thread-card__peek-excerpt {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,.65);
-      line-height: 1.55;
-      margin-bottom: var(--space-4);
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .thread-card__peek-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-3);
-    }
-    .thread-card__peek-span {
-      font-size: 11px;
-      font-weight: 600;
-      color: rgba(255,255,255,.45);
-      letter-spacing: 0.04em;
-    }
-    .thread-card__peek-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--amber-300, #fcd34d);
-      transition: gap 0.15s;
-    }
-    .thread-card:hover .thread-card__peek-cta { gap: 8px; }
-    /* Light mode: keep peek dark regardless of theme */
-    [data-theme="light"] .thread-card__peek {
-      background: linear-gradient(to top, rgba(8,5,0,.97) 0%, rgba(8,5,0,.93) 65%, transparent 100%);
-    }
-    /* Image card: extend peek height since thumb offset */
-    .thread-card--has-img .thread-card__peek {
-      padding-top: var(--space-10);
-    }
-    /* Reduced motion: instant show/hide, no slide */
+    /* ── Reduced motion ── */
     @media (prefers-reduced-motion: reduce) {
-      .thread-card__peek { transition: opacity 0.15s; transform: translateY(0); opacity: 0; }
-      .thread-card:hover .thread-card__peek { opacity: 1; }
+      .thread-card__live-badge-dot { animation: none; }
+      .thread-card:hover { transform: none; }
+      .thread-card__img img { transition: none; }
     }
 
-    .thread-card__domain {
-      font-size: var(--type-xs);
-      font-weight: var(--weight-bold);
-      letter-spacing: var(--tracking-wider);
-      text-transform: uppercase;
-      color: var(--color-accent-dark);
-    }
-    .thread-card__title {
-      font-family: var(--font-editorial);
-      font-size: 1.125rem;
-      font-weight: var(--weight-bold);
-      color: var(--color-text-primary);
-      line-height: 1.35;
-    }
-    .thread-card__summary {
-      font-size: var(--type-sm);
-      color: var(--color-text-secondary);
-      line-height: 1.65;
-      flex: 1;
-    }
-    .thread-card__span {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--type-xs);
-      color: var(--color-text-tertiary);
-      margin-top: auto;
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--color-border-subtle);
-    }
-    .thread-card__span-line {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--amber-200), var(--slate-200));
-      border-radius: 1px;
-    }
+    /* ── Legacy span classes — keep so existing markup doesn't break ── */
+    .thread-card__span { display: none; }
+    .thread-card__span-line { display: none; }
 
     /* ── Coming soon section ────────────────────────────────── */
     .coming-soon-section {
@@ -1945,973 +1957,1100 @@
     <div class="threads-grid" id="threads-grid">
 
       <a href="thread-displacement.html" class="thread-card thread-card--has-img reveal" data-domain="housing labor-wealth">
-        <div class="thread-card__img" aria-hidden="true">
+      <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/holc-redlining-philadelphia-800.webp 800w, images/holc-redlining-philadelphia.webp 1600w" sizes="(max-width:640px) 100vw, 1600px" />
             <img src="images/holc-redlining-philadelphia.jpg" alt="1930s HOLC redlining map of Philadelphia showing color-coded neighborhood grades" width="1600" height="2046" loading="lazy" />
           </picture>
         </div>
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Housing &amp; Wealth</span>
         <h2 class="thread-card__title">From Redlining to the Racial Wealth Gap</h2>
         <p class="thread-card__summary">How a 1930s federal mortgage policy — drawn on maps, color-coded by race — continues to determine school quality, health outcomes, and generational wealth. The HOLC maps are gone. Their consequence isn't.</p>
-        <div class="thread-card__span">
-          <span>1933</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1933 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-pharaohs.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Ancient Africa · Egypt · Erasure</span>
         <h2 class="thread-card__title">The Black Pharaohs: Egypt's African Kings</h2>
         <p class="thread-card__summary">Ancient Egypt was an African civilization — built, ruled, and perpetuated by African people. This thread traces 10 of the most consequential pharaohs in Egyptian history, from Narmer's unification to Taharqa's appearance in the Hebrew Bible, and examines the 19th-century scholarly project that deliberately erased their African identity to justify slavery and colonialism.</p>
-        <div class="thread-card__span">
-          <span>c. 3100 BCE</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>332 BCE</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> c. 3100 – 332 BCE</span>
+        <span class="thread-card__read-time">7 min read</span>
+      </div>
+    </a>
 
       <a href="thread-inventors.html" class="thread-card reveal" data-domain="history-culture labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Innovation &amp; Erasure</span>
         <h2 class="thread-card__title">Built by Black Hands: The Inventors America Erased</h2>
         <p class="thread-card__summary">The traffic light. The light bulb filament. The blood bank. The gas mask. The microphone in your phone. The video game cartridge. 20 Black inventors, 200 years of patents — and the systematic extraction of their wealth and erasure of their names from the record.</p>
-        <div class="thread-card__span">
-          <span>1821</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1821 – Present</span>
+        <span class="thread-card__read-time">7 min read</span>
+      </div>
+    </a>
 
       <a href="thread-mexico-freedom.html" class="thread-card reveal" data-domain="history-culture abolitionism">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Slavery · Abolition · Borderlands · Texas</span>
         <h2 class="thread-card__title">South to Freedom: Mexico Offered Liberty While America Kept the Chains</h2>
         <p class="thread-card__summary">Mexico abolished slavery in 1829 — 36 years before the United States. Thousands of enslaved people escaped not north to Canada but south across the Rio Grande, where the U.S. had no legal authority to reclaim them. Texas slaveholders launched a revolution partly to stop it. The Southern Underground Railroad is the half of the story America forgot.</p>
-        <div class="thread-card__span">
-          <span>1829</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1865</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1829 – 1865</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-abolitionism.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Abolition &amp; Resistance</span>
         <h2 class="thread-card__title">The Fire Next Time: Black Abolitionists, 1829–1865</h2>
         <p class="thread-card__summary">David Walker. Frederick Douglass. Harriet Tubman. Henry Highland Garnet. Sojourner Truth. Before the Civil War was a military conflict, it was a moral argument — and Black Americans made it first. Walker wrote the Appeal in 1829. The war came 32 years later.</p>
-        <div class="thread-card__span">
-          <span>1829</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1865</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1829 – 1865</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-slave-revolts.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Resistance · Uprising · Architecture of Control</span>
         <h2 class="thread-card__title">The Fire from Below: Slave Revolts in America</h2>
         <p class="thread-card__summary">250+ documented revolts in the American South. Stono, 1739. Denmark Vesey, 1822. Nat Turner, 1831. Every major uprising was followed by new laws — not just punishing rebels, but stripping rights from all enslaved and free Black people. The revolts shaped American law. Their suppression built the slave patrol, the precursor to American policing.</p>
-        <div class="thread-card__span">
-          <span>1739</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1831</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1739 – 1831</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-songhai.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">West Africa · Empire · Timbuktu · Erasure</span>
         <h2 class="thread-card__title">The Songhai Empire: The Largest in African History — and How It Was Erased</h2>
         <p class="thread-card__summary">At its peak under Askia Muhammad I, Songhai stretched 1.4 million square kilometers across West Africa with a professional bureaucracy, a standing army, a river navy, and a university at Timbuktu that enrolled 25,000 students. In 1591, a Moroccan army of 4,000 with European arquebuses ended it in one battle. Then three centuries of historians declared Africa had no history — and 700,000 Timbuktu manuscripts were quietly saved from an Islamist raid in 2013.</p>
-        <div class="thread-card__span">
-          <span>c. 800 CE</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1591</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> c. 800 – 1591 CE</span>
+        <span class="thread-card__read-time">7 min read</span>
+      </div>
+    </a>
 
       <a href="thread-arab-slave-trade.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">African Origins · 1,300 Years · Indian Ocean</span>
         <h2 class="thread-card__title">The Arab Slave Trade: 1,300 Years Before the Ships</h2>
         <p class="thread-card__summary">The transatlantic slave trade lasted 400 years and enslaved 12.5 million Africans. The Arab slave trade lasted 1,300 years — from 650 CE to the early 20th century — and enslaved an estimated 17 million. It predated European slavery, overlapped with it, and in many regions outlasted it. Saudi Arabia abolished slavery in 1962. Mauritania criminalized it in 2007. Understanding this history doesn't diminish the transatlantic trade — it expands the frame.</p>
-        <div class="thread-card__span">
-          <span>650 CE</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1900s</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 650 CE – 1900s</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-moors.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture">
-        <div class="thread-card__img" aria-hidden="true">
+      <div class="thread-card__img" aria-hidden="true">
           <img src="images/moors-riders.png" alt="" role="presentation" style="width:100%;height:100%;object-fit:cover;object-position:center 28%" loading="lazy" />
         </div>
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Civilization · Erasure · Origins of Race</span>
         <h2 class="thread-card__title">Al-Andalus: The Moorish Civilization Europe Erased From Its Own History</h2>
         <p class="thread-card__summary">For 781 years, Muslim Africans governed the most advanced civilization in medieval Europe. Córdoba had 500,000 people, 70 libraries, and 900 public baths when London had 15,000 people and no sewers. Then the Reconquista expelled them, burned a million books, invented the first racial purity laws in European history — and Columbus sailed. All in the same year. The erasure was not incidental. It was the precondition for everything that followed.</p>
-        <div class="thread-card__span">
-          <span>711 CE</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 711 CE – Present</span>
+        <span class="thread-card__read-time">7 min read</span>
+      </div>
+    </a>
 
       <a href="thread-transatlantic-slave-trade.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture labor-wealth">
-        <div class="thread-card__img" aria-hidden="true">
+      <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/slave-ship-brookes-800.webp 800w, images/slave-ship-brookes.webp 1400w" sizes="(max-width:640px) 100vw, 1400px" />
             <img src="images/slave-ship-brookes.jpg" alt="Diagram of the slave ship Brookes showing the layout of enslaved people, published by abolitionists in 1788" width="1400" height="1774" loading="lazy" />
           </picture>
         </div>
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Origins &amp; Labor</span>
         <h2 class="thread-card__title">The Rupture: The Transatlantic Slave Trade, 1441–1808</h2>
         <p class="thread-card__summary">12.5 million people. 400 years. The largest forced migration in human history — and the economic foundation of the modern world. Portuguese raids in 1441, Elmina Castle, the Middle Passage, 1619 in Virginia. Every thread on this site flows from this one.</p>
-        <div class="thread-card__span">
-          <span>1441</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1808</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1441 – 1808</span>
+        <span class="thread-card__read-time">8 min read</span>
+      </div>
+    </a>
 
       <a href="thread-slave-ship-resistance.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">The Rupture · Resistance · Middle Passage</span>
         <h2 class="thread-card__title">Resistance on the Middle Passage: They Fought Back</h2>
         <p class="thread-card__summary">At least 485 documented shipboard revolts occurred during the transatlantic slave trade. Enslaved Africans refused food, organized uprisings, communicated across language barriers, jumped overboard rather than be delivered into bondage — and in 1839, 53 Africans on La Amistad seized the ship and won their freedom at the U.S. Supreme Court. The standard narrative buries this. The historical record does not.</p>
-        <div class="thread-card__span">
-          <span>1441</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1808</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1441 – 1808</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-code-noir.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">The Rupture · Law · Colonial Slavery</span>
         <h2 class="thread-card__title">The Code Noir: France Wrote the Rules of Slavery</h2>
         <p class="thread-card__summary">In 1685, Louis XIV issued the Code Noir — 60 articles that defined enslaved people as property, authorized ear removal for a first escape attempt, hamstringing for a second, and death for a third, and made killing an enslaved person non-prosecutable without "special circumstances." Its Louisiana version, issued in 1724, was imported directly into American law. The legal DNA of Jim Crow runs through Paris.</p>
-        <div class="thread-card__span">
-          <span>1685</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1685 – Present</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-stolen-labor.html" class="thread-card reveal" data-domain="labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Labor &amp; Wealth</span>
         <h2 class="thread-card__title">Stolen Labor: The Architecture of the Racial Wealth Gap</h2>
         <p class="thread-card__summary">250 years of unpaid labor. Sharecropping. Tulsa burned. Redlining. GI Bill exclusion. The $171,000 median wealth gap between white and Black families is not a mystery — it is arithmetic. This thread shows the math.</p>
-        <div class="thread-card__span">
-          <span>1619</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1619 – Present</span>
+        <span class="thread-card__read-time">7 min read</span>
+      </div>
+    </a>
 
       <a href="thread-mass-incarceration.html" class="thread-card reveal" data-domain="criminal-justice">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Criminal Justice</span>
         <h2 class="thread-card__title">The 13th: Mass Incarceration &amp; the Second Slavery</h2>
         <p class="thread-card__summary">Black Codes in 1865. Convict leasing. Nixon's War on Drugs — his aide later confessed the real purpose. The crack/powder disparity. 2.3 million incarcerated today. The 13th Amendment banned slavery except as punishment for crime. That exception became a system.</p>
-        <div class="thread-card__span">
-          <span>1865</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1865 – Present</span>
+        <span class="thread-card__read-time">7 min read</span>
+      </div>
+    </a>
 
       <a href="thread-rap-pipeline.html" class="thread-card reveal" data-domain="criminal-justice history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Music · Power · Incarceration</span>
         <h2 class="thread-card__title">The Pipeline: How Rap Was Captured and Communities Were Criminalized</h2>
         <p class="thread-card__summary">Rap music was invented in the South Bronx as a community technology. Within twenty years it was owned by four conglomerates, distributed through radio controlled by one company, and rewarded for content that made mass incarceration easier to justify. The same institutional investors held the prison stocks and the media stocks. Nobody had to hold a meeting. The incentives aligned automatically.</p>
-        <div class="thread-card__span">
-          <span>1973</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1973 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-health-disparities.html" class="thread-card reveal" data-domain="health">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Health &amp; Medicine</span>
         <h2 class="thread-card__title">The Body as Evidence: Black Health Disparities</h2>
         <p class="thread-card__summary">J. Marion Sims. Tuskegee. Henrietta Lacks. Environmental racism. A 3.5x maternal mortality rate. COVID deaths. The health disparities are not biology — they are the record of specific decisions made by institutions over 400 years. The body holds the history.</p>
-        <div class="thread-card__span">
-          <span>1619</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1865 – Present</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-juneteenth.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Freedom &amp; Emancipation</span>
         <h2 class="thread-card__title">Two and a Half Years Late: Juneteenth and the Promise That Wasn't</h2>
         <p class="thread-card__summary">January 1, 1863: the Emancipation Proclamation. June 19, 1865: freedom finally arrives in Texas — 929 days later. The celebration that followed became Juneteenth. The broken promises that followed became everything else in this archive.</p>
-        <div class="thread-card__span">
-          <span>1865</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1863 – Present</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-racial-capitalism.html" class="thread-card reveal" data-domain="labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Economics &amp; Extraction</span>
         <h2 class="thread-card__title">Same Ledger, New Name: Old Slavery to New Capitalism</h2>
         <p class="thread-card__summary">Slavery and capitalism aren't sequential — they're the same system at different stages. Enslaved people were America's largest capital asset in 1860. When slavery ended, the extraction restructured: sharecropping, convict leasing, union exclusion, redlining, subprime, prison labor. Eight legal forms. One unbroken ledger.</p>
-        <div class="thread-card__span">
-          <span>1619</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1619 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-end-of-slavery.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Emancipation &amp; Betrayal</span>
         <h2 class="thread-card__title">How Slavery Really Ended</h2>
         <p class="thread-card__summary">The standard story: Lincoln freed the slaves. The actual record: the enslaved freed themselves first. The Proclamation freed no one Lincoln controlled. The 13th Amendment built in an exception clause. 40 acres were promised and taken back in eight months. What followed was slavery under other legal names.</p>
-        <div class="thread-card__span">
-          <span>1861</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1861 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-thirteenth-amendment.html" class="thread-card reveal" data-domain="criminal-justice history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Law · Loophole · Mass Incarceration</span>
         <h2 class="thread-card__title">The Exception That Swallowed the Rule: The 13th Amendment Loophole</h2>
         <p class="thread-card__summary">"Neither slavery nor involuntary servitude, except as punishment for crime…" The exception clause is still in the Constitution. Within a year of ratification, Southern states had written Black Codes to criminalize Black existence and trigger it. Convict leasing followed. Then Jim Crow. Then the War on Drugs. The loophole is the chain between 1865 and mass incarceration today.</p>
-        <div class="thread-card__span">
-          <span>1865</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1865 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-freedmens-bureau.html" class="thread-card reveal" data-domain="labor-wealth history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Reparative Justice · Land · Broken Promise</span>
         <h2 class="thread-card__title">America's Broken Promise: The Freedmen's Bureau</h2>
         <p class="thread-card__summary">The Bureau of Refugees, Freedmen, and Abandoned Lands (1865–1872) was the federal government's one serious attempt at reparative justice: land redistribution, legal courts, schools, hospitals. President Andrew Johnson vetoed its renewal twice. The 40 acres were rescinded by presidential order. The Bureau's schools survive as HBCUs. The land promises do not.</p>
-        <div class="thread-card__span">
-          <span>1865</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1872</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1865 – 1872</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-healthcare.html" class="thread-card reveal" data-domain="health">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Policy &amp; Power</span>
         <h2 class="thread-card__title">By Design: Why America Has No Universal Healthcare</h2>
         <p class="thread-card__summary">Every other wealthy nation has universal healthcare. The US has spent over a century choosing not to — through AMA lobbying campaigns, deliberate racial exclusions, industry-funded ad wars, and $700 million in annual lobbying. This is the documented sequence.</p>
-        <div class="thread-card__span">
-          <span>1917</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1917 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-self-defense.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Resistance &amp; Civil Rights</span>
         <h2 class="thread-card__title">The Right to Defend: Black Organized Self-Defense</h2>
         <p class="thread-card__summary">From Ida B. Wells's 1892 call to arms to the Black Panthers' Oakland patrols — a continuous, documented tradition of organized self-defense. And the thread that runs through it: every time a Black community armed itself legally and effectively, the gun laws changed.</p>
-        <div class="thread-card__span">
-          <span>1892</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1982</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1892 – 1982</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-displacement.html" class="thread-card reveal" data-domain="housing">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Housing &amp; Urban Policy</span>
         <h2 class="thread-card__title">The Flooded City: Five Ways Black Communities Were Taken</h2>
         <p class="thread-card__summary">Mob destruction. Federal bulldozers. Interstate highways. Literal flooding. Gentrification. Five mechanisms across 125 years — but the same neighborhoods, taken again and again. Tulsa, Tremé, Harlem, Bronzeville, Oakland. The through-line is documented policy, not bad luck.</p>
-        <div class="thread-card__span">
-          <span>1898</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1933 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-health-disparities.html" class="thread-card reveal" data-domain="health">
+      
+      <div class="thread-card__body">
         <span class="thread-card__domain">Health</span>
         <h2 class="thread-card__title">The Racial Health Gap</h2>
         <p class="thread-card__summary">Why do Black Americans die younger, suffer higher rates of chronic disease, and receive less pain management? A thread tracing medical racism from Reconstruction-era experimentation to today's maternal mortality crisis — where Black women die in childbirth at three times the rate of white women.</p>
-        <div class="thread-card__span">
-          <span>1865</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--soon" style="margin-left:auto">In development</span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1865 – Present</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-diaspora.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Identity &amp; Diaspora</span>
         <h2 class="thread-card__title">Before, During, and After: Who Black People Are</h2>
         <p class="thread-card__summary">Black people are not defined by slavery. They are Yoruba, Akan, Igbo, Wolof, BaKongo — descendants of empires of gold, universities of manuscript, mathematicians and architects. This thread covers what was, what was taken, what survived the Middle Passage, and who Black people built themselves into on the other side.</p>
-        <div class="thread-card__span">
-          <span>Ancient Africa</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Ancient Africa – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-blumenbach.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Ideology &amp; Power</span>
         <h2 class="thread-card__title">The Man Who Invented Race: Johann Friedrich Blumenbach</h2>
         <p class="thread-card__summary">In 1775, a German physician divided humanity into five races using a collection of skulls and named his own the most beautiful: "Caucasian." He called it science. It became the intellectual foundation for 250 years of slavery, colonialism, eugenics, and the Holocaust — a taxonomy invented to justify what was already policy.</p>
-        <div class="thread-card__span">
-          <span>1775</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1775 – Present</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-invention-of-race.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Ideology &amp; Power</span>
         <h2 class="thread-card__title">The Invention of Race: Why Racism Was Created</h2>
         <p class="thread-card__summary">Race is not biology — it is policy. In 1676, Black and white servants burned Jamestown together. Within a decade, Virginia had invented "whiteness" as a legal category to prevent that coalition from forming again. This thread documents who built racism, why, and how it has been maintained through law, science, religion, and media ever since.</p>
-        <div class="thread-card__span">
-          <span>1676</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1676 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-police.html" class="thread-card reveal" data-domain="criminal-justice">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Criminal Justice &amp; Control</span>
         <h2 class="thread-card__title">Patrol and Punish: The Invention of American Policing</h2>
         <p class="thread-card__summary">The first organized police forces in America were slave patrols. South Carolina formalized them in 1704. Their purpose was to catch runaways, suppress uprisings, and enforce racial order. This thread traces the unbroken line from those patrols through strike-breaking, Red Summer, Nixon's War on Crime, and the Pentagon's 1033 military equipment program — to the present.</p>
-        <div class="thread-card__span">
-          <span>1704</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1704 – Present</span>
+        <span class="thread-card__read-time">7 min read</span>
+      </div>
+    </a>
 
       <a href="thread-fear-of-black-assembly.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Power &amp; Resistance</span>
         <h2 class="thread-card__title">What They Were Afraid Of: The Fear of Black Assembly</h2>
         <p class="thread-card__summary">The fear of Black people gathering has a very specific logic. In the slaveholding South, Black people outnumbered white people in dozens of counties. The fear was always this: that if Black people were allowed to organize, they would demand what was taken from them. From the 1739 Stono Rebellion to COINTELPRO to banning Black history in schools — this thread documents the response that has never changed.</p>
-        <div class="thread-card__span">
-          <span>1739</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1739 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-voting-rights.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Democracy &amp; Power</span>
         <h2 class="thread-card__title">The Right They Keep Taking: Black Voting Rights in America</h2>
         <p class="thread-card__summary">The 15th Amendment guaranteed the right to vote in 1870. By 1900, it had been effectively nullified across the South through poll taxes, literacy tests, grandfather clauses, and organized terror. Shelby County v. Holder gutted what remained. The suppression toolkit is documented.</p>
-        <div class="thread-card__span">
-          <span>1870</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1870 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-lily-white.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Politics · Betrayal · Party History</span>
         <h2 class="thread-card__title">The Lily White Movement: How the Party of Lincoln Became a White-Only Institution</h2>
         <p class="thread-card__summary">Black men held 22 seats in Congress during Reconstruction — all Republican. By 1901 there were none, and there would be none for 28 years. The Republican Party did not drift away from Black voters. It expelled them, one county committee at a time, in a coordinated campaign called the Lily White Movement that ran from 1888 through Hoover's presidency. The Southern Strategy did not build a white Republican Party in the South. It inherited one.</p>
-        <div class="thread-card__span">
-          <span>1877</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1968</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1877 – 1968</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-civil-rights.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Movement &amp; Strategy</span>
         <h2 class="thread-card__title">The Movement That Was Not Spontaneous: The Civil Rights Era</h2>
         <p class="thread-card__summary">Rosa Parks was not tired. She was trained. The Montgomery bus boycott was planned for a year. The sit-ins were rehearsed. The Civil Rights Movement was built by people whose names textbooks don't teach — and achieved through strategy, not moral suasion alone. The history has been sanitized almost beyond recognition.</p>
-        <div class="thread-card__span">
-          <span>1954</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1954 – Present</span>
+        <span class="thread-card__read-time">7 min read</span>
+      </div>
+    </a>
 
       <a href="thread-great-migration.html" class="thread-card reveal" data-domain="history-culture housing">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Migration &amp; Culture</span>
         <h2 class="thread-card__title">Six Million People: The Great Migration, 1910–1970</h2>
         <p class="thread-card__summary">Between 1910 and 1970, six million Black Americans left the South. They were escaping lynching, sharecropping, and Jim Crow. They brought blues, jazz, and gospel with them. They found redlining, sundown suburbs, and urban renewal — which James Baldwin called "Negro removal." A continent-scale act of collective survival.</p>
-        <div class="thread-card__span">
-          <span>1910</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1910 – 1970</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-lynching.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Terror &amp; Political Control</span>
         <h2 class="thread-card__title">Spectacle and Terror: Lynching as American Policy, 1877–1950</h2>
         <p class="thread-card__summary">Over 4,000 Black people were lynched between 1877 and 1950. Lynchings were often announced in advance, photographed, and sold as postcards. Congress introduced more than 200 anti-lynching bills. None passed for 122 years. This was not a failure of the system. It was the system.</p>
-        <div class="thread-card__span">
-          <span>1877</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>2022</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1877 – 2022</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-black-women.html" class="thread-card reveal" data-domain="labor-wealth health">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Labor · Body · Resistance</span>
         <h2 class="thread-card__title">Twice Invisible: Black Women's Labor, Bodies, and Resistance</h2>
         <p class="thread-card__summary">Black women built this country twice over — as enslaved labor and as the caregivers and organizers who kept everything running after emancipation. Their bodies were used to develop American medicine without consent. Every major New Deal labor law excluded the occupations they held. Their median net worth today: $200.</p>
-        <div class="thread-card__span">
-          <span>1619</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1619 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-education.html" class="thread-card reveal" data-domain="education">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Education &amp; Opportunity</span>
         <h2 class="thread-card__title">Separate Was Never Equal: Black Education in America</h2>
         <p class="thread-card__summary">By 1835, every Southern state had criminalized teaching an enslaved person to read. When that ended, Black schools received a fraction of white school funding. When integration came, 38,000 Black teachers were fired. Today, school funding tied to property taxes guarantees that redlined neighborhoods get the least-funded schools.</p>
-        <div class="thread-card__span">
-          <span>1835</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1835 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-black-church.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Faith · Community · Terror</span>
         <h2 class="thread-card__title">The Bombed Church: The Black Church in America</h2>
         <p class="thread-card__summary">The Black church was the only institution Black Americans could own and control — simultaneously the school, the mutual aid society, the political organizing center, and the sanctuary of an entire people. Which is exactly why it kept being bombed. From 1822 to Mother Emanuel in 2015. You bomb what you fear.</p>
-        <div class="thread-card__span">
-          <span>1773</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1773 – Present</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-white-terror-la.html" class="thread-card reveal" data-domain="history-culture criminal-justice housing">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">White Terror · Residential Segregation · Los Angeles</span>
         <h2 class="thread-card__title">Before the Crips: White Terror Gangs and the Color Line in L.A.</h2>
         <p class="thread-card__summary">The Spook Hunters wore jackets depicting a Black man being chased. The KKK controlled Anaheim's city government. "Homeowners' associations" firebombed 40+ Black-owned homes. The LAPD looked away — or helped. Before the Crips existed, organized white violence enforced the color line in Los Angeles by fire and ambush. This is the origin story that came before the origin story.</p>
-        <div class="thread-card__span">
-          <span>1940s</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1969</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1940s – 1969</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-gangs.html" class="thread-card reveal" data-domain="criminal-justice">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">COINTELPRO · Gangs · Crack</span>
         <h2 class="thread-card__title">After the Panthers: The Origins of the Crips and Bloods</h2>
         <p class="thread-card__summary">The Crips were founded in 1969 — the same year COINTELPRO finished destroying the Black Panther Party in Los Angeles. The FBI engineered lethal conflict between Black organizations, destroyed the community infrastructure, and left a vacuum. What filled it is documented. What the government then did with crack cocaine and mandatory minimums is documented. The story of gangs is a story of policy.</p>
-        <div class="thread-card__span">
-          <span>1965</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1965 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-dei.html" class="thread-card reveal" data-domain="labor-wealth history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Policy · Backlash · Power</span>
         <h2 class="thread-card__title">Built to Be Dismantled: The DEI Backlash</h2>
         <p class="thread-card__summary">DEI began as a legal mandate — the Civil Rights Act of 1964 and Executive Order 11246. It was diluted into voluntary programs, performed as corporate theater after George Floyd's murder, then systematically dismantled via the Supreme Court and executive orders. The $50 billion in 2020 pledges. The 2025 rollbacks. The 150-year pattern.</p>
-        <div class="thread-card__span">
-          <span>1964</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>2025</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1964 – 2025</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-reparations.html" class="thread-card reveal" data-domain="labor-wealth history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Repair · Debt · Policy</span>
         <h2 class="thread-card__title">What Is Owed: The Reparations Question</h2>
         <p class="thread-card__summary">Forty acres were promised in 1865 and taken back within months. Congress has introduced H.R. 40 — a bill to study reparations — every year since 1989. It has never received a full floor vote. Economists have calculated the debt. Germany paid. Japan paid. Florida paid for Rosewood. The U.S. paid slave owners at emancipation. The record is clear.</p>
-        <div class="thread-card__span">
-          <span>1865</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1865 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-haiti.html" class="thread-card reveal" data-domain="history-culture labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Empire · Debt · Occupation</span>
         <h2 class="thread-card__title">Haiti: The $21 Billion Punishment for Revolution</h2>
         <p class="thread-card__summary">Haiti declared independence in 1804 after defeating Napoleon's army — the only successful slave revolution in history. France responded by demanding $21 billion in reparations for the "loss" of enslaved people. Haiti paid it, over 122 years, in debt that crippled the nation. The U.S. then occupied it for 19 years. None of Haiti's poverty is natural.</p>
-        <div class="thread-card__span">
-          <span>1791</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1791 – Present</span>
+        <span class="thread-card__read-time">6 min read</span>
+      </div>
+    </a>
 
       <a href="thread-oscarville.html" class="thread-card reveal" data-domain="history-culture housing">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Racial Cleansing · Land Theft · Erasure</span>
         <h2 class="thread-card__title">Oscarville, Georgia: The Erasure of Forsyth County</h2>
         <p class="thread-card__summary">In six weeks in 1912, every Black resident of Forsyth County, Georgia — 1,098 people — was driven out by armed night riders who burned churches, schools, and homes. Their land was seized. The county remained 99% white for 75 years. In 1987, Klan members attacked civil rights marchers on national television. No one has ever been prosecuted. The land is now some of the most valuable real estate in the Atlanta metro area.</p>
-        <div class="thread-card__span">
-          <span>1912</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-lake-lanier.html" class="thread-card reveal" data-domain="housing history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Federal Infrastructure · Submersion · Resort Economy</span>
         <h2 class="thread-card__title">Lake Lanier: Atlanta's Playground Was Built on a Racial Crime Scene</h2>
         <p class="thread-card__summary">In 1956, the Army Corps of Engineers flooded 38,000 acres of north Georgia — including Oscarville, the Black community expelled at gunpoint in 1912. The physical site of the racial cleansing went 60 feet underwater. White landowners received federal condemnation payments. The families originally dispossessed in 1912 received nothing. Today Lake Lanier generates $11 billion a year. The submerged roads, foundations, and church sites are still down there.</p>
-        <div class="thread-card__span">
-          <span>1912</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-ferguson.html" class="thread-card reveal" data-domain="housing history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">New Deal · Jim Crow Condemnation · Submersion</span>
         <h2 class="thread-card__title">Ferguson, South Carolina: Drowned by the New Deal</h2>
         <p class="thread-card__summary">Ferguson was a Black community in South Carolina's lowcountry. In 1941–42, the Santee Cooper hydroelectric project flooded it — along with hundreds of Black-owned farms, churches, and cemeteries — to create Lake Marion. In Jim Crow South Carolina, Black landowners had no meaningful recourse against state condemnation. The electricity generated went primarily to white homes and white industry. The lake is still there. Ferguson is not.</p>
-        <div class="thread-card__span">
-          <span>1939</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-lake-marion.html" class="thread-card reveal" data-domain="housing labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Recreation Economy · Compounding Dispossession · 83 Years</span>
         <h2 class="thread-card__title">Lake Marion: The Economy Built Over Ferguson</h2>
         <p class="thread-card__summary">Lake Marion is South Carolina's largest lake and a premier fishing destination. Santee Cooper, the state utility that created it, generates $1.5 billion a year. The land the lake covers — farmed by Black families including Ferguson's — has appreciated for 83 years. The displaced families received inadequate condemnation payments in 1941 and nothing since. This thread measures what compounded in their absence.</p>
-        <div class="thread-card__span">
-          <span>1942</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-bruces-beach.html" class="thread-card reveal" data-domain="history-culture housing labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Property · Eminent Domain · California · Reparative Justice</span>
         <h2 class="thread-card__title">Bruce's Beach: The Black Resort Manhattan Beach Stole — and a Century Later Returned</h2>
         <p class="thread-card__summary">In 1912, Willa and Charles Bruce built the only beach resort for Black Angelenos on California's Pacific Coast. Twelve years of arson, KKK intimidation, and bureaucratic sabotage couldn't stop them. In 1924, the city condemned the land through eminent domain "for a park." The park was never built. In 2022 — 98 years later — Los Angeles County gave the land back to the Bruce family's descendants. It is one of the only documented acts of reparative land justice in American history.</p>
-        <div class="thread-card__span">
-          <span>1912</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>2022</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-weeksville.html" class="thread-card reveal" data-domain="history-culture abolitionism">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Self-Determination · Brooklyn · Abolition · Survival</span>
         <h2 class="thread-card__title">Weeksville: The Free Black City Built Inside a City That Didn't Want It</h2>
         <p class="thread-card__summary">Founded in 1838 by a Black longshoreman named James Weeks, Weeksville in Brooklyn built its own church, school, newspaper, and home for the elderly — a complete parallel society when Black New Yorkers were legally excluded from the city's institutions. During the 1863 Draft Riots, hundreds of Black New Yorkers fled there for safety. The community was absorbed by Brooklyn's expanding street grid — then, in 1968, a historian flying over Brooklyn spotted four wooden houses at the wrong angle and realized he'd found it.</p>
-        <div class="thread-card__span">
-          <span>1838</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1838 – Present</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-seneca-village.html" class="thread-card reveal" data-domain="history-culture housing">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Property · Erasure · Urban History · New York</span>
         <h2 class="thread-card__title">Seneca Village: The Black Community Destroyed to Build Central Park</h2>
         <p class="thread-card__summary">From 1825 to 1857, Seneca Village was a thriving, predominantly Black community of landowners on Manhattan's Upper West Side — three churches, a school, and residents who could vote because they owned property. Then New York City seized the land under eminent domain to build Central Park. The press called them squatters. They were property owners. Their story was buried for 130 years.</p>
-        <div class="thread-card__span">
-          <span>1825</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1857</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1825 – 1857</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-tulsa.html" class="thread-card reveal" data-domain="labor-wealth history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Massacre · Erasure · Black Wealth</span>
         <h2 class="thread-card__title">Black Wall Street: The Tulsa Massacre of 1921</h2>
         <p class="thread-card__summary">Greenwood, Tulsa was the wealthiest Black community in America — 600+ businesses, a hospital, a library, a Black-owned airline. On June 1, 1921, a white mob and deputized civilians burned it to the ground in 18 hours, with aircraft overhead. 10,000 Black residents were left homeless. No one was charged. No insurance paid. The city buried the record for 75 years.</p>
-        <div class="thread-card__span">
-          <span>1905</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>2023</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-greenwood-pattern.html" class="thread-card reveal" data-domain="labor-wealth history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Massacre · Wealth Destruction · Pattern</span>
         <h2 class="thread-card__title">The Greenwood Pattern: They Burned It Every Time</h2>
         <p class="thread-card__summary">Ocoee 1920. Tulsa 1921. Rosewood 1923. Three events in three years, the same script: thriving Black community, white mob, police complicity, land seizure, no prosecutions. This was not a series of isolated incidents — it was a systematic pattern of destroying Black economic infrastructure whenever it became successful enough to challenge white economic dominance.</p>
-        <div class="thread-card__span">
-          <span>1898</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1923</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-gi-bill.html" class="thread-card reveal" data-domain="housing labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Exclusion · Wealth · Inheritance</span>
         <h2 class="thread-card__title">The GI Bill That Built the White Middle Class</h2>
         <p class="thread-card__summary">The GI Bill of 1944 built the American middle class — for white veterans. Southern Democrats ensured benefits were administered through local institutions that denied Black applicants. In Mississippi, only 2 of 3,229 VA home loans in 1947 went to Black veterans. Three generations of compounding equity later, that decision is the racial wealth gap.</p>
-        <div class="thread-card__span">
-          <span>1944</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-golden-thirteen.html" class="thread-card reveal" data-domain="military civil-rights">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Military · Integration · Erasure</span>
         <h2 class="thread-card__title">The Golden Thirteen: First Black Naval Officers in U.S. History</h2>
         <p class="thread-card__summary">On March 17, 1944 — after the U.S. Navy had existed for 168 years without a single Black commissioned officer — thirteen Black men were handed gold ensign bars at Naval Station Great Lakes. Selected from 100,000 Black sailors, trained harder than white candidates, then assigned to shore duty and kept off combat ships. Their names were suppressed for four decades.</p>
-        <div class="thread-card__span">
-          <span>1775</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1987</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-black-panthers.html" class="thread-card reveal" data-domain="history-culture health">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Community · Repression · Legacy</span>
         <h2 class="thread-card__title">What the Panthers Actually Were</h2>
         <p class="thread-card__summary">The Black Panther Party fed 20,000 children a day before the federal school breakfast program existed. They ran 13 free health clinics and pioneered mass sickle cell screening. J. Edgar Hoover called them the greatest threat to America and ordered the FBI to destroy them — including their breakfast program. The government then adopted the breakfast program nationally.</p>
-        <div class="thread-card__span">
-          <span>1966</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-cointelpro.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">FBI · Surveillance · Assassination</span>
         <h2 class="thread-card__title">COINTELPRO: The FBI's War on Black Liberation</h2>
         <p class="thread-card__summary">From 1956 to 1971, the FBI ran a covert program to "disrupt, expose, and neutralize" Black civil rights and liberation organizations. Forged letters to destroy marriages. Planted evidence. Infiltration and informants. And on December 4, 1969, Chicago police shot Fred Hampton twice in the head while he slept — with an FBI informant having provided the floor plan. 99 of the 100 shots fired came from law enforcement.</p>
-        <div class="thread-card__span">
-          <span>1956</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>1971</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-katrina.html" class="thread-card reveal" data-domain="housing health">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Disaster · Abandonment · Displacement</span>
         <h2 class="thread-card__title">Katrina: What the Flood Revealed</h2>
         <p class="thread-card__summary">Hurricane Katrina killed 1,800 people, 80% of them Black. The levees that failed had been identified as deficient for decades. The evacuation plan assumed car ownership in a city where 27% of households had none. The federal response took five days. Then the city used the disaster to demolish public housing and permanently displace 100,000 Black residents. None of this was natural.</p>
-        <div class="thread-card__span">
-          <span>2005</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-war-on-drugs.html" class="thread-card reveal" data-domain="criminal-justice health">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Policy · Incarceration · Design</span>
         <h2 class="thread-card__title">The War on Drugs: Nixon's Confession</h2>
         <p class="thread-card__summary">Nixon's aide John Ehrlichman later admitted it: the War on Drugs was designed to target Black people and the anti-war left. The 100:1 crack/powder sentencing disparity. $1 trillion spent. 2.3 million incarcerated. Permanent collateral consequences that outlast the sentence. The drug war did not fail its stated public health goals — incarceration was the goal.</p>
-        <div class="thread-card__span">
-          <span>1971</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-statue-of-liberty.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Origins · Erasure · National Symbol</span>
         <h2 class="thread-card__title">The Black Statue of Liberty</h2>
         <p class="thread-card__summary">The Statue of Liberty was conceived by a French abolitionist in 1865 to celebrate the end of slavery. Bartholdi's early sketches show a freed Black woman with broken chains. The broken chains are still at her feet — visible but almost never photographed. The immigration story came 40 years later. The South refused to fund an emancipation monument, so the story changed.</p>
-        <div class="thread-card__span">
-          <span>1865</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-black-farmers.html" class="thread-card reveal" data-domain="labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Land · USDA Discrimination · Pigford</span>
         <h2 class="thread-card__title">14 Million Acres: Black Farmers and the USDA</h2>
         <p class="thread-card__summary">Black Americans owned 14 million acres of farmland in 1910. By 1997, they owned 2 million. The USDA's own investigations documented that county-level loan officers denied Black farmers access to credit, disaster relief, and price supports extended to white neighbors. The Pigford settlement was called the largest civil rights settlement in US history. It barely touched the documented losses.</p>
-        <div class="thread-card__span">
-          <span>1865</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-subprime.html" class="thread-card reveal" data-domain="housing labor-wealth">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Predatory Lending · 2008 Crisis · Wealth Destruction</span>
         <h2 class="thread-card__title">The Subprime Trap: How the 2008 Crisis Was Built on Black Neighborhoods</h2>
         <p class="thread-card__summary">Wells Fargo's own loan officers — in sworn testimony — called subprime mortgages "ghetto loans" and confirmed steering Black customers into them even when they qualified for prime rates. The crisis wiped out an estimated $40,000 in median Black household wealth. It was not a random market failure. It was the latest chapter in a century of using Black homeownership as an extraction mechanism.</p>
-        <div class="thread-card__span">
-          <span>1990s</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-media.html" class="thread-card reveal" data-domain="history-culture criminal-justice">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Media · Image · Policy Pipeline</span>
         <h2 class="thread-card__title">How America Images Blackness: From Birth of a Nation to Superpredator</h2>
         <p class="thread-card__summary">Birth of a Nation (1915) directly inspired a Klan revival that reached 6 million members. The "superpredator" myth (1995) drove the Crime Bill's mandatory minimums. The "welfare queen" narrative dismantled federal assistance programs. Media images of Black criminality are not neutral entertainment — they have documented, traceable policy consequences.</p>
-        <div class="thread-card__span">
-          <span>1915</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-black-athletes.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture">
-        <div class="thread-card__img" aria-hidden="true">
+      <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/smith-carlos-1968-olympics.webp" />
             <img src="images/smith-carlos-1968-olympics.jpg" alt="Tommie Smith and John Carlos raise black-gloved fists on the 1968 Mexico City Olympic podium" width="685" height="1024" loading="lazy" />
           </picture>
         </div>
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Athletics · Protest · Punishment</span>
         <h2 class="thread-card__title">Shut Up and Play: Ali, Kaepernick, and the Politics of Black Athletic Protest</h2>
         <p class="thread-card__summary">Jack Johnson was imprisoned for marrying a white woman. Muhammad Ali was stripped of his title for refusing the Vietnam draft. Colin Kaepernick kneeled silently and was effectively banned from the NFL. The pattern across a century: celebrate Black athletic performance, punish Black political voice. The demand for silence is enforced through private discretion, not public law.</p>
-        <div class="thread-card__span">
-          <span>1908</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-hbcu-football.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture education">
-        <div class="thread-card__img" aria-hidden="true">
+      <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/hbcu-football-1920.webp" />
             <img src="images/hbcu-football-1920.jpg" alt="New Orleans University HBCU football team, 1920" width="507" height="390" loading="lazy" />
           </picture>
         </div>
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Sports · Segregation · Resilience</span>
         <h2 class="thread-card__title">Gridiron Separate and Unequal: The NFL's Color Ban and the HBCU Football Culture They Couldn't Stop</h2>
         <p class="thread-card__summary">From 1920 to 1933, Black players were in the NFL. Then they were systematically removed for 12 years. While white America's league was all-white, Black America built its own gridiron culture — the CIAA, the SWAC, Eddie Robinson's 408 wins at Grambling, the Bayou Classic, and the pipeline that would eventually fill NFL rosters for generations.</p>
-        <div class="thread-card__span">
-          <span>1892</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-negro-leagues.html" class="thread-card thread-card--has-img reveal" data-domain="history-culture">
-        <div class="thread-card__img" aria-hidden="true">
+      <div class="thread-card__img" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="images/negro-league-allstar-1936-800.webp 800w, images/negro-league-allstar-1936.webp 1599w" sizes="(max-width:640px) 100vw, 1599px" />
             <img src="images/negro-league-allstar-1936.jpg" alt="1936 Negro League East-West All-Star Game at Comiskey Park, Chicago" width="1599" height="900" loading="lazy" />
           </picture>
         </div>
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Baseball · Segregation · Erasure</span>
         <h2 class="thread-card__title">The Negro Leagues: The Greatest Baseball Never Seen by White America</h2>
         <p class="thread-card__summary">For 40 years, MLB excluded Black players entirely. Josh Gibson may have been the greatest hitter who ever lived. Satchel Paige was the most dominant pitcher of his era. None of them could play in the major leagues because of their race. In 2020 — 73 years after Jackie Robinson — MLB finally recognized the Negro Leagues as major leagues. Gibson's .466 batting average in 1943 is now the official MLB single-season record.</p>
-        <div class="thread-card__span">
-          <span>1867</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-black-press.html" class="thread-card reveal" data-domain="history-culture">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Press · Counter-Record · Survival</span>
         <h2 class="thread-card__title">The Black Press: Ida B. Wells, the Chicago Defender, and the Counter-Record</h2>
         <p class="thread-card__summary">When the white press ignored or celebrated lynching, the Black press documented it. When the Great Migration needed organizing, the Chicago Defender ran train schedules out of Southern cities. Ida B. Wells was run out of Memphis at gunpoint for her journalism. The Black press created the archive that survived when no one else was keeping it — and built the information network that made civil rights organizing possible.</p>
-        <div class="thread-card__span">
-          <span>1827</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> 1827 – Present</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
       <a href="thread-hbcus.html" class="thread-card reveal" data-domain="education">
+      
+        <span class="thread-card__live-badge" aria-label="Live thread">
+          <span class="thread-card__live-badge-dot" aria-hidden="true"></span>Live
+        </span>
+      <div class="thread-card__body">
         <span class="thread-card__domain">Education · Excellence · Underfunding</span>
         <h2 class="thread-card__title">HBCUs: Founded Under Exclusion, $12 Billion Underfunded Today</h2>
         <p class="thread-card__summary">HBCUs were founded because every white institution refused Black students. They produced the lawyers who argued Brown v. Board, the scientists who calculated orbital mechanics for NASA's early space program, and three-quarters of all Black doctors and dentists for a century. Their reward: documented underfunding of $12 billion below comparable white land-grant institutions since 1987.</p>
-        <div class="thread-card__span">
-          <span>1837</span>
-          <div class="thread-card__span-line" aria-hidden="true"></div>
-          <span>Present</span>
-          <span class="thread-status-badge thread-status-badge--live" style="margin-left:auto">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
-          </span>
-        </div>
-      </a>
+      </div>
+      <div class="thread-card__footer">
+        <span class="thread-card__era"><strong>Era:</strong> Historical</span>
+        <span class="thread-card__read-time">5 min read</span>
+      </div>
+    </a>
 
     </div>
 
