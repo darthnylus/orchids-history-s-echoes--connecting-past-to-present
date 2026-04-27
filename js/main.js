@@ -1031,6 +1031,7 @@ var THREAD_INDEX = [
   {h:'thread-juneteenth.html',t:'Two and a Half Years Late: Juneteenth',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – Present'},
   {h:'thread-black-codes.html',t:'Black Codes: The Law That Re-Enslaved Black America',d:'criminal-justice history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – Present'},
   {h:'thread-reconstruction.html',t:'Reconstruction: What Was Built and How It Was Destroyed',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – 1877'},
+  {h:'thread-hamburg-massacre.html',t:'The Hamburg Massacre: How Reconstruction Died at Gunpoint',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1876 – 1877'},
   {h:'thread-lynching.html',t:'Spectacle and Terror: Lynching as American Policy',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1877 – 2022'},
   {h:'thread-fear-of-black-assembly.html',t:'What They Were Afraid Of: Fear of Black Assembly',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1739 – Present'},
   {h:'thread-red-summer.html',t:'Red Summer: 26 Cities, One Summer, 1919',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1919'},
