@@ -391,6 +391,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-dahomey.html',t:'The Kingdom of Dahomey: The Agojie, the Slave Trade, and the State That Defied Europe',d:'history-culture',e:2,el:'The Rupture',c:'#c0392b',y:'1600 – 1894'},
       {h:'thread-haiti.html',t:'Haiti: The $21 Billion Punishment for Revolution',d:'history-culture labor-wealth',e:2,el:'The Rupture',c:'#c0392b',y:'1791 – Present'},
       {h:'thread-haitian-revolution.html',t:'The Haitian Revolution: The Only Successful Slave Revolt in History',d:'history-culture',e:2,el:'The Rupture',c:'#c0392b',y:'1791 – Present'},
+      {h:'thread-france-neocolonialism.html',t:"France's Colonial Tax: 14 Nations Still Pay for Their Own Colonization",d:'history-culture labor-wealth',e:2,el:'The Rupture',c:'#c0392b',y:'1885 – Present'},
       {h:'thread-stolen-labor.html',t:'Stolen Labor: The Architecture of the Racial Wealth Gap',d:'labor-wealth',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1619 – Present'},
       {h:'thread-before-mayflower.html',t:'Before the Mayflower: Black America Before the Founding',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1513 – 1861'},
       {h:'thread-abolitionism.html',t:'The Fire Next Time: Black Abolitionists, 1829–1865',d:'history-culture',e:3,el:'Slavery & Resistance',c:'#1a6b3a',y:'1829 – 1865'},
