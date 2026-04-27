@@ -20,7 +20,8 @@
     :root{--acc:#1a6b3a;--acc-lt:#4ade80}
     [data-theme="dark"]{--acc:#16a34a;--acc-lt:#86efac}
     .thread-hero{background:#010d04;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
-    .thread-hero__bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 15% 50%,rgba(26,107,58,.16) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 85% 20%,rgba(15,70,35,.09) 0%,transparent 55%);pointer-events:none;z-index:0}
+    .thread-hero__bg{position:absolute;inset:0;background-image:url('images/slave-revolts.webp');background-size:cover;background-position:center 25%;pointer-events:none;z-index:0}
+    .thread-hero__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(1,8,2,.93) 0%,rgba(1,8,2,.72) 55%,rgba(1,8,2,.50) 100%),linear-gradient(to top,rgba(1,8,2,.65) 0%,transparent 40%)}
     .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
     .thread-hero__inner{position:relative;max-width:760px;z-index:2}
     .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(26,107,58,.12);border:1px solid rgba(26,107,58,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
