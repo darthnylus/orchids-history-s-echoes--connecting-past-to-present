@@ -350,9 +350,12 @@
 /* Card inner row (era-marker + body) */
 .civ-card__inner {
   display: flex;
-  gap: var(--space-5);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
   padding: var(--space-6);
   flex: 1;
+  text-align: center;
 }
 
 .civ-card::before {
@@ -378,12 +381,7 @@
 }
 
 .civ-card__era-marker {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  width: 12px;
-  padding-top: 4px;
+  display: none;
 }
 
 .civ-card__era-dot {
@@ -405,12 +403,13 @@
 
 .civ-card__body {
   flex: 1;
+  text-align: center;
 }
 
 .civ-card__header {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--space-3);
   flex-wrap: wrap;
   margin-bottom: var(--space-2);
@@ -420,6 +419,7 @@
   font-size: var(--type-xs);
   color: var(--color-text-tertiary);
   letter-spacing: var(--tracking-wide);
+  text-align: center;
 }
 
 .civ-card__region-badge {
@@ -447,6 +447,7 @@
   color: var(--color-text-primary);
   margin-bottom: var(--space-3);
   line-height: 1.25;
+  text-align: center;
 }
 
 .civ-card__summary {
@@ -454,6 +455,7 @@
   color: var(--color-text-secondary);
   line-height: 1.65;
   margin-bottom: var(--space-4);
+  text-align: center;
 }
 
 .civ-card__facts {
@@ -464,6 +466,7 @@
   padding: var(--space-3);
   background: var(--color-surface-alt);
   border-radius: var(--radius-md);
+  text-align: left;  /* facts table stays left-aligned for readability */
 }
 
 .civ-card__fact {
@@ -488,11 +491,13 @@
 .civ-card__link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-1);
   font-size: var(--type-xs);
   font-weight: var(--weight-semibold);
   color: var(--color-accent-dark);
   transition: gap var(--duration-fast);
+  width: 100%;
 }
 
 .civ-card__link:hover { gap: var(--space-2); }
