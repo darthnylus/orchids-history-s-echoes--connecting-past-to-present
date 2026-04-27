@@ -1093,6 +1093,7 @@ var THREAD_INDEX = [
   {h:'thread-shirley-chisholm.html',t:'Shirley Chisholm: Unbought and Unbossed',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1968 – 1983'},
   {h:'thread-black-feminism.html',t:'Black Feminism: The Movement That Was There First',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1851 – Present'},
   {h:'thread-baldwin.html',t:'The Fire Next Time: Baldwin and the White Identity Crisis',d:'history-culture',e:7,el:'Civil Rights',c:'#1a5c3a',y:'1924 – Present'},
+  {h:'thread-greensboro-massacre.html',t:'The Greensboro Massacre: They Filmed It and Still Walked Free',d:'history-culture criminal-justice labor-wealth',e:8,el:'Backlash Era',c:'#4a2060',y:'1979'},
   {h:'thread-deindustrialization.html',t:'Deindustrialization: When the Jobs Left Black America',d:'labor-wealth history-culture',e:8,el:'Backlash Era',c:'#4a2060',y:'1970 – Present'},
   {h:'thread-mass-incarceration.html',t:'The 13th: Mass Incarceration & the Second Slavery',d:'criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1865 – Present'},
   {h:'thread-capital-punishment.html',t:'Capital Punishment: Race, Death, and the American Justice System',d:'criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1972 – Present'},
