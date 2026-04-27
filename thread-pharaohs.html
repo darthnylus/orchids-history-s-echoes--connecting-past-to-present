@@ -34,26 +34,18 @@
     .thread-hero__bg {
       position: absolute;
       inset: 0;
-      pointer-events: none;
-    }
-    .thread-hero__bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('images/meroe-pyramids-2.jpg');
+      background-image: url('images/black-pharaohs.webp');
       background-size: cover;
-      background-position: center 30%;
-      opacity: 0.16;
-      filter: sepia(0.7) saturate(0.4);
+      background-position: center 25%;
+      pointer-events: none;
     }
     .thread-hero__bg::after {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 80% at 15% 50%, rgba(180,120,0,.25) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 60% at 90% 20%, rgba(100,50,10,.18) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 70% at 50% 100%, rgba(60,20,5,.18) 0%, transparent 50%);
+        linear-gradient(to right, rgba(6,3,0,.90) 0%, rgba(6,3,0,.68) 50%, rgba(6,3,0,.45) 100%),
+        linear-gradient(to top, rgba(6,3,0,.55) 0%, transparent 40%);
     }
     .thread-hero__inner { position: relative; max-width: 760px; }
     .thread-hero__kicker {
