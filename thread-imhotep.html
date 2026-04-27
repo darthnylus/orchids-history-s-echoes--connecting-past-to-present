@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Imhotep: The World's First Doctor — and How Hippocrates Got the Credit — Chain</title>
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    :root{--acc:#b8972a;--acc-lt:#fde68a}
+    [data-theme="dark"]{--acc:#b8972a;--acc-lt:#fde68a}
+    .thread-hero{background:#0a0800;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(184,151,42,.38) 0%,transparent 60%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:2}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(184,151,42,.12);border:1px solid rgba(184,151,42,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc)}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:var(--acc-lt);font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--ink-300);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
+    .thread-meta-item__label{font-size:var(--type-xs);color:var(--ink-500);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--ink-200)}
+    .argument-bar{background:rgba(184,151,42,.06);border-top:1px solid rgba(184,151,42,.18);border-bottom:1px solid rgba(184,151,42,.18);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(184,151,42,.18);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--ink-200);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:#fff}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);background:rgba(184,151,42,.10);border:1px solid rgba(184,151,42,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(184,151,42,.10);border:1px solid rgba(184,151,42,.22);color:var(--acc-lt)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(184,151,42,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-300);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:var(--acc);color:#fff}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.2)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">African Origins</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>African Origins · Ancient Egypt · c. 2650 BCE</div>
+      <h1 class="thread-hero__title">Imhotep:<br /><em>The World's First Doctor</em></h1>
+      <p class="thread-hero__subtitle">Imhotep was a physician, architect, engineer, and sage who lived in Egypt around 2650 BCE — two thousand years before Hippocrates was born. He is the first named physician in recorded history. He built the first large stone structure on earth. He was deified in his own lifetime. You probably learned about Hippocrates instead.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Era</div><div class="thread-meta-item__value">African Origins</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Dates</div><div class="thread-meta-item__value">c. 2650 BCE</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Location</div><div class="thread-meta-item__value">Memphis, Egypt</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Significance</div><div class="thread-meta-item__value">First named physician; first named architect; deified as a god of medicine</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">The "Father of Medicine" is not Hippocrates. That title belongs to <strong>Imhotep of Egypt</strong>, who practiced and recorded rational medicine 2,000 years earlier. The reason Hippocrates gets the credit and Imhotep gets a footnote is the same reason African civilizations are systematically erased from the history of human achievement: <strong>the scholarship was written by people who needed Africa to be a place without history.</strong> Imhotep was not a myth — he was cited by name in ancient Greek and Roman texts as the original healer-god. He was then quietly omitted from the curriculum.</p></div>
+    </div>
+  </div>
+</div>
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main"><div class="entry-list">
+
+<div class="entry-item" id="e1">
+  <div class="entry-item__header">
+    <div class="entry-item__num">1</div>
+    <div>
+      <div class="entry-item__dates">c. 2650 BCE</div>
+      <h2 class="entry-item__name">Who Imhotep Was: The Most Accomplished Person in the Ancient World</h2>
+      <div class="entry-item__location">Memphis, Third Dynasty Egypt</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p><strong>Imhotep</strong> was born a commoner — not a king, not a prince. He rose to become the Grand Vizier (prime minister) of Pharaoh Djoser of the Third Dynasty, serving as the highest-ranking official in Egypt around 2650 BCE. His recorded titles are staggering in their breadth: <em>Chancellor of the King of Lower Egypt, First After the King of Upper Egypt, Administrator of the Great Palace, Hereditary Nobleman, High Priest of Heliopolis, Builder, Chief Carpenter, Chief Sculptor, Maker of Vases in Chief.</em></p>
+    <p>These titles are not honorary. They reflect actual accomplishments. Imhotep designed and supervised the construction of the <strong>Step Pyramid of Saqqara</strong> — the first large stone structure ever built in human history. Before this, Egyptian monumental architecture used mud brick. Imhotep was the person who figured out how to build in stone. He invented architectural techniques that would define Egyptian civilization for 2,700 years.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">2,650 BCE</div><div class="entry-stat__label">When Imhotep lived — 2,150 years before Hippocrates</div></div>
+      <div><div class="entry-stat__num">62 m</div><div class="entry-stat__label">Height of the Step Pyramid — first large stone structure on Earth</div></div>
+      <div><div class="entry-stat__num">6</div><div class="entry-stat__label">Recorded titles held simultaneously</div></div>
+    </div>
+    <p>He was not a legend invented later. His name appears in inscriptions from his own lifetime, carved into the base of statues of Pharaoh Djoser at Saqqara — a uniquely high honor for a non-royal official. No other commoner in Egyptian history before him was given this distinction. He was recognized as extraordinary while he was alive.</p>
+  </div>
+</div>
+
+<div class="entry-item" id="e2">
+  <div class="entry-item__header">
+    <div class="entry-item__num">2</div>
+    <div>
+      <div class="entry-item__dates">c. 2650 BCE</div>
+      <h2 class="entry-item__name">The Edwin Smith Papyrus: Rational Medicine Before Hippocrates</h2>
+      <div class="entry-item__location">Ancient Egypt</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>What made Imhotep revolutionary in medicine was not magic or prayer — it was <strong>rational, empirical observation</strong>. The <em>Edwin Smith Papyrus</em>, an ancient Egyptian medical text dating to approximately 1600 BCE but widely believed by scholars to derive from writings attributed to Imhotep more than a thousand years earlier, is the oldest known surgical text in the world. It documents 48 cases of injury — wounds, fractures, dislocations, tumors — described with clinical precision.</p>
+    <p>For each case, the text records the presenting symptoms, a diagnosis, a prognosis (using one of three verdicts: <em>an ailment I will treat, an ailment I will contend with, an ailment not to be treated</em>), and the treatment. The language is systematic and observational — not supernatural. There are no incantations in the surgical sections. This is medicine as a rational discipline, developed in Africa, 1,000 years before Hippocrates was born.</p>
+    <div class="pullquote">
+      <p>"The Edwin Smith Papyrus is, in the history of science, one of the most remarkable documents ever written. It is the earliest known scientific document. It is African. It predates Greek medicine by a thousand years."</p>
+      <cite>— James Henry Breasted, <em>The Edwin Smith Surgical Papyrus</em>, 1930</cite>
+    </div>
+    <p>The papyrus describes the anatomy of the brain, the meninges, the cerebrospinal fluid, and recognizes that brain injuries could cause paralysis on the opposite side of the body — a concept (<em>contralateral control</em>) that would not be rediscovered in Western medicine until the 19th century. <strong>Egyptian physicians understood how the brain controlled the body 3,600 years before European medicine caught up.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e3">
+  <div class="entry-item__header">
+    <div class="entry-item__num">3</div>
+    <div>
+      <div class="entry-item__dates">c. 525 BCE – 400 CE</div>
+      <h2 class="entry-item__name">Deification: The Greeks and Romans Worshipped Imhotep as a God</h2>
+      <div class="entry-item__location">Egypt, Greece, Rome</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>After his death, Imhotep was elevated in stages over centuries. By the Middle Kingdom (c. 2000 BCE), he was venerated as a sage. By the Late Period (c. 525 BCE), he had been fully deified — worshipped as a <strong>god of medicine and healing</strong>. Temples were built in his name. Pilgrims sought cures at his shrines. Physicians in Egypt left votive offerings at his sanctuaries.</p>
+    <p>When the Greeks came to Egypt — and they came often, including Pythagoras, Plato, and Solon, who all traveled to study in Egypt — they encountered Imhotep. They equated him with their own god of medicine, <strong>Asclepius</strong>. Roman physicians worshipped him. The Emperor Augustus made offerings at his temple. Imhotep was, for centuries of Mediterranean antiquity, the recognized founding figure of the healing arts.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">2,000 yrs</div><div class="entry-stat__label">After his death, Imhotep was deified — no other commoner in Egyptian history received this</div></div>
+      <div><div class="entry-stat__num">Asclepius</div><div class="entry-stat__label">Greek deity the Greeks equated with Imhotep</div></div>
+      <div><div class="entry-stat__num">460 BCE</div><div class="entry-stat__label">When Hippocrates was born — 2,190 years after Imhotep</div></div>
+    </div>
+    <p>Greek historian <strong>Manetho</strong> wrote of Imhotep: <em>"Imuthes, because of his medical skill, holds a place among the gods."</em> The Egyptologist <strong>Sir William Osler</strong> — one of the founders of modern Western medicine — called Imhotep <em>"the first figure of a physician to stand out clearly from the mists of antiquity."</em> The record is there. The choice to center Hippocrates instead is a choice, not a discovery.</p>
+  </div>
+</div>
+
+<div class="entry-item" id="e4">
+  <div class="entry-item__header">
+    <div class="entry-item__num">4</div>
+    <div>
+      <div class="entry-item__dates">19th century – present</div>
+      <h2 class="entry-item__name">The Erasure: How Hippocrates Became "The Father of Medicine"</h2>
+      <div class="entry-item__location">Western Europe and America</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Hippocrates (c. 460–370 BCE) was a real physician and an important one. He contributed to the systematization of Greek medical practice and is associated with the <em>Hippocratic Corpus</em> — a collection of texts that may or may not have been written by him personally. He is credited with separating medicine from supernatural superstition in the Greek context — a genuine contribution.</p>
+    <p>But he did not invent rational medicine. He inherited it — from Egyptian physicians whose tradition he explicitly acknowledged. Ancient Greek writers were relatively candid about Egypt's influence on Greek learning. <strong>What changed was 19th-century European scholarship</strong>, which needed to construct a narrative of Western civilization as an autonomous achievement, independent of African or Eastern origins. "The Father of Medicine" designation was formalized in this era — an era when European anthropology was simultaneously arguing that Black Africans were incapable of civilization.</p>
+    <div class="pullquote">
+      <p>"The Greeks themselves acknowledged that their medicine, their philosophy, and their mathematics came from Egypt. It is modern European scholarship that erased the African source and called the European branch the origin."</p>
+      <cite>— Cheikh Anta Diop, <em>Civilization or Barbarism</em>, 1981</cite>
+    </div>
+    <p>The pattern is consistent across disciplines: <strong>African and Egyptian roots of Greek mathematics, philosophy, astronomy, and medicine were acknowledged in antiquity and erased in modernity</strong>. Imhotep is not a marginal figure waiting to be "discovered." He was known. He was worshipped. He was then quietly deprioritized when the construction of "Western civilization" required the ancient world to begin in Greece.</p>
+  </div>
+</div>
+
+<div class="entry-item" id="e5">
+  <div class="entry-item__header">
+    <div class="entry-item__num">5</div>
+    <div>
+      <div class="entry-item__dates">Present</div>
+      <h2 class="entry-item__name">What Imhotep's Story Means for How We Teach History</h2>
+      <div class="entry-item__location">Global</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Imhotep is not a niche correction to a minor footnote. He represents the operating principle behind the erasure of African intellectual history: <strong>the contributions exist, the evidence exists, and the choice to omit is deliberate</strong>. His case is useful precisely because it is so clean. The evidence for his primacy in medicine is not contested — it is simply not taught.</p>
+    <p>The Step Pyramid of Saqqara still stands at Saqqara, 4,600 years later. The Edwin Smith Papyrus is in the New York Academy of Medicine. Imhotep's name is in hieroglyphic inscriptions from his own lifetime. The Greeks called him a god. None of this is disputed. What is missing is its inclusion in how we teach the origins of science, architecture, and medicine.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">4,600</div><div class="entry-stat__label">Years the Step Pyramid has stood</div></div>
+      <div><div class="entry-stat__num">1930</div><div class="entry-stat__label">Year the Edwin Smith Papyrus was first fully translated</div></div>
+      <div><div class="entry-stat__num">0</div><div class="entry-stat__label">Times most American students are taught Imhotep's name in K–12</div></div>
+    </div>
+    <p>When students are taught that science began in Greece, that rational medicine began with Hippocrates, that architecture began with Rome, they are being taught a mythology — not history. The correction is not about replacing one hero with another. It is about understanding that <strong>human knowledge is African in its oldest layers</strong>, and that every other civilization built on a foundation that was already there.</p>
+  </div>
+</div>
+
+</div></main>
+      <aside class="thread-sidebar">
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Imhotep's Titles (c. 2650 BCE)</div>
+  <div class="sidebar-card__body">
+    <strong>Chancellor of the King of Lower Egypt</strong><br/>
+    <strong>First After the King of Upper Egypt</strong><br/>
+    <strong>Administrator of the Great Palace</strong><br/>
+    <strong>High Priest of Heliopolis</strong><br/>
+    <strong>Chief Carpenter &amp; Chief Sculptor</strong><br/>
+    <strong>Maker of Vases in Chief</strong><br/><br/>
+    He is the only commoner in Egyptian history to have his name carved into the base of a pharaoh's statue in his own lifetime.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Edwin Smith Papyrus</div>
+  <div class="sidebar-card__body">
+    Written c. 1600 BCE, based on texts attributed to Imhotep (~2650 BCE). Oldest known surgical document in the world. Documents 48 trauma cases with:<br/><br/>
+    — Clinical diagnosis<br/>
+    — Prognosis (treat / contend with / do not treat)<br/>
+    — Rational treatment plans<br/>
+    — No supernatural elements in the surgical sections<br/><br/>
+    Describes contralateral brain-body control — not rediscovered by Western medicine until the 1800s.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Timeline of Erasure</div>
+  <div class="sidebar-card__body">
+    <strong>c. 2650 BCE</strong> — Imhotep practices medicine, designs Step Pyramid<br/><br/>
+    <strong>c. 2000 BCE</strong> — Egyptians venerate him as a sage<br/><br/>
+    <strong>c. 525 BCE</strong> — Greeks deify him as equivalent to Asclepius<br/><br/>
+    <strong>c. 460 BCE</strong> — Hippocrates is born<br/><br/>
+    <strong>19th century</strong> — European scholars brand Hippocrates "Father of Medicine"<br/><br/>
+    <strong>Present</strong> — Imhotep absent from most Western curricula
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Connected Threads</div>
+  <div class="sidebar-card__body">
+    <a href="thread-predynastic-egypt.html" style="color:var(--acc-lt)">Pre-Dynastic Egypt →</a><br/><br/>
+    <a href="thread-black-pharaohs.html" style="color:var(--acc-lt)">The Black Pharaohs →</a><br/><br/>
+    <a href="thread-african-mathematics.html" style="color:var(--acc-lt)">Africa Invented Mathematics →</a>
+  </div>
+</div>
+</aside>
+    </div>
+  </div>
+</section>
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">The Original Was African</div>
+      <h2 class="thread-bottom-cta__title">Medicine. Architecture. Mathematics. The oldest versions of all of them are African.</h2>
+      <p class="thread-bottom-cta__sub">Imhotep is not an exception — he is the rule. African knowledge built the foundations that Greek, Roman, and eventually European civilization borrowed, translated, and renamed. The next thread documents how Africa also invented the mathematics that underpins the modern world.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-african-mathematics.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Africa Invented Mathematics &rarr;</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="home.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+  </div>
+</footer>
+<script>const t=document.getElementById('themeToggle');if(t)t.addEventListener('click',()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('chain-theme',n)});</script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>
