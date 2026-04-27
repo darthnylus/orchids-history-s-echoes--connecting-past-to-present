@@ -907,6 +907,87 @@ function initThreadTimelineBand() {
 initThreadTimelineBand();
 
 /* =========================================================
+   HOMEPAGE POLISH — Staggered question cards + stat reveals
+   ========================================================= */
+function initHomepagePolish() {
+  if (!('IntersectionObserver' in window)) return;
+  var noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Stagger question cards ────────────────────────────────
+  var qCards = document.querySelectorAll('.question-grid .question-card');
+  if (qCards.length && !noMotion) {
+    var qObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var idx = Array.prototype.indexOf.call(qCards, entry.target);
+          entry.target.style.transitionDelay = Math.min(idx * 0.04, 0.4) + 's';
+          entry.target.classList.add('is-visible');
+          qObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    qCards.forEach(function(c) {
+      c.classList.add('chain-reveal');
+      qObserver.observe(c);
+    });
+  }
+
+  // ── Stagger PPP object cards ──────────────────────────────
+  var oCards = document.querySelectorAll('.ppp-grid .object-card');
+  if (oCards.length && !noMotion) {
+    var oObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var idx = Array.prototype.indexOf.call(oCards, entry.target);
+          entry.target.style.transitionDelay = Math.min(idx * 0.07, 0.35) + 's';
+          entry.target.classList.add('is-visible');
+          oObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    oCards.forEach(function(c) {
+      c.classList.add('chain-reveal');
+      oObserver.observe(c);
+    });
+  }
+
+  // ── Stagger source cards ──────────────────────────────────
+  var sCards = document.querySelectorAll('.sources-shelf .source-card');
+  if (sCards.length && !noMotion) {
+    var sObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var idx = Array.prototype.indexOf.call(sCards, entry.target);
+          entry.target.style.transitionDelay = Math.min(idx * 0.08, 0.5) + 's';
+          entry.target.classList.add('is-visible');
+          sObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    sCards.forEach(function(c) {
+      c.classList.add('chain-reveal');
+      sObserver.observe(c);
+    });
+  }
+
+  // ── Origins bridge stats: trigger flash when in view ─────
+  var bridgeStats = document.querySelectorAll('.origins-bridge__stat');
+  if (bridgeStats.length) {
+    var bridgeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          bridgeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    bridgeStats.forEach(function(s) { bridgeObserver.observe(s); });
+  }
+}
+
+initHomepagePolish();
+
+/* =========================================================
    THREAD INDEX — all 126 threads, used for breadcrumbs
    and related-threads injection on individual thread pages.
    Fields: h=href, t=title, d=domain(s), e=era number,

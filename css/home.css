@@ -1334,3 +1334,320 @@
 [data-theme="dark"] .origins-bridge__body {
   color: var(--ink-300);
 }
+
+/* ============================================================
+   POLISH — Homepage visual refinements
+   ============================================================ */
+
+/* ── Artifact bar chart: animate on load ─────────────────── */
+@keyframes bar-grow {
+  from { width: 0; }
+  to   { width: var(--pct); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .artifact__bar {
+    animation: bar-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  /* Stagger each bar */
+  .artifact__row:nth-child(1) .artifact__bar { animation-delay: 0.30s; }
+  .artifact__row:nth-child(2) .artifact__bar { animation-delay: 0.38s; }
+  .artifact__row:nth-child(3) .artifact__bar { animation-delay: 0.46s; }
+  .artifact__row:nth-child(4) .artifact__bar { animation-delay: 0.54s; }
+  .artifact__row:nth-child(5) .artifact__bar { animation-delay: 0.62s; }
+  .artifact__row:nth-child(6) .artifact__bar { animation-delay: 0.70s; }
+  .artifact__row:nth-child(7) .artifact__bar { animation-delay: 0.78s; }
+  .artifact__row:nth-child(8) .artifact__bar { animation-delay: 0.86s; }
+  .artifact__row:nth-child(9) .artifact__bar { animation-delay: 0.94s; }
+}
+
+/* ── Artifact row: glow the count on hover ───────────────── */
+.artifact__row:hover .artifact__count {
+  color: var(--amber-300);
+}
+.artifact__row:hover .artifact__era-name {
+  color: rgba(255,255,255,0.95);
+}
+
+/* ── Hero content: staggered entrance ───────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-up {
+    opacity: 0;
+    animation: fade-in-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .animate-delay-100 { animation-delay: 0.10s; }
+  .animate-delay-200 { animation-delay: 0.20s; }
+  .animate-delay-250 { animation-delay: 0.25s; }
+  .animate-delay-300 { animation-delay: 0.30s; }
+  .animate-delay-400 { animation-delay: 0.40s; }
+}
+
+/* ── Hero search: focus glow ─────────────────────────────── */
+.hero__search-input:focus {
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25), 0 4px 24px rgba(0,0,0,0.3);
+}
+
+/* ── Hero journey button: magnetic hover ─────────────────── */
+.hero__journey-btn {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.15s ease;
+}
+.hero__journey-btn:hover {
+  transform: translateY(-2px) scale(1.012);
+  box-shadow: 0 8px 32px rgba(196, 120, 0, 0.35);
+}
+
+/* ── Hero Q-pill: float on hover ─────────────────────────── */
+.hero__q-pill {
+  transition: transform 0.18s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.hero__q-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 158, 11, 0.5);
+  background: rgba(245, 158, 11, 0.12);
+}
+
+/* ── Thread step: step number ring pulse ─────────────────── */
+@keyframes step-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 120, 0, 0); }
+  50%       { box-shadow: 0 0 0 5px rgba(196, 120, 0, 0.18); }
+}
+
+.thread-step.is-active .thread-step__number {
+  animation: step-pulse 2.5s ease-in-out infinite;
+}
+
+/* ── Thread step: smooth expand/collapse ─────────────────── */
+.thread-step__text,
+.thread-step__links {
+  transition: opacity 0.3s ease;
+}
+.thread-step:not(.is-active) .thread-step__text,
+.thread-step:not(.is-active) .thread-step__links {
+  opacity: 0.65;
+}
+.thread-step.is-active .thread-step__text,
+.thread-step.is-active .thread-step__links {
+  opacity: 1;
+}
+
+/* ── Question grid card: refined hover ───────────────────── */
+.question-card {
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.18s ease;
+}
+.question-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-color: var(--color-accent-dark);
+}
+.question-card:hover .question-card__q {
+  color: var(--color-text-primary);
+}
+[data-theme="dark"] .question-card:hover {
+  border-color: var(--amber-500);
+  background: rgba(245, 158, 11, 0.06);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+/* Question card icon pulse on hover */
+.question-card__icon {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-block;
+}
+.question-card:hover .question-card__icon {
+  transform: scale(1.2);
+}
+
+/* ── Explore cards: elevated hover with glow ─────────────── */
+.explore-card {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.explore-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+.explore-card__bg {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.explore-card:hover .explore-card__bg {
+  transform: scale(1.06);
+}
+
+/* ── Object cards: image zoom + lift ─────────────────────── */
+.object-card {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease,
+    border-color 0.18s ease;
+}
+.object-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+  border-color: var(--color-accent-dark);
+}
+.object-card__image-bg {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.object-card:hover .object-card__image-bg {
+  transform: scale(1.05);
+}
+[data-theme="dark"] .object-card:hover {
+  border-color: var(--amber-500);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+/* ── Source cards: gentle lift ───────────────────────────── */
+.source-card {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    border-color 0.18s ease;
+}
+.source-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  border-color: var(--color-accent-dark);
+}
+[data-theme="dark"] .source-card:hover {
+  border-color: var(--amber-500);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+
+/* ── Audience cards: left border accent on hover ─────────── */
+.audience-card {
+  position: relative;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.audience-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--amber-400), var(--sienna-400));
+  border-radius: 2px 0 0 2px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.audience-card:hover::before {
+  transform: scaleY(1);
+}
+.audience-card:hover .audience-card__number {
+  color: var(--amber-300);
+}
+
+/* ── Editorial card: image overlay on hover ──────────────── */
+.editorial-card--featured .editorial-card__image {
+  overflow: hidden;
+}
+.editorial-card--featured .editorial-card__image > div {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.editorial-grid > a:hover .editorial-card--featured .editorial-card__image > div {
+  transform: scale(1.02);
+}
+
+/* ── Thread tag chips: subtle hover ──────────────────────── */
+.thread-tag,
+.thread-step__tag {
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.thread-step__tag:hover {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--amber-300);
+}
+
+/* ── Origins bridge stats: count-up flash ────────────────── */
+@keyframes stat-flash {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.origins-bridge__stat.is-visible .origins-bridge__stat-number {
+  animation: stat-flash 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Section eyebrow: shimmer line ───────────────────────── */
+.section-eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.6;
+  flex-shrink: 0;
+  border-radius: 1px;
+}
+
+/* ── Then/Now section: chain connector dot glow ──────────── */
+@keyframes connector-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 120, 0, 0); transform: translate(-50%, -50%); }
+  50%       { box-shadow: 0 0 0 8px rgba(196, 120, 0, 0.12); transform: translate(-50%, -50%); }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .then-now-split::after {
+    animation: connector-pulse 3s ease-in-out infinite;
+  }
+}
+
+/* ── PPP tabs: underline slide ───────────────────────────── */
+.ppp-tabs {
+  position: relative;
+}
+.ppp-tab {
+  position: relative;
+  transition: color 0.18s ease;
+}
+.ppp-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ppp-tab.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ── Reduced motion: kill all above animations ───────────── */
+@media (prefers-reduced-motion: reduce) {
+  .artifact__bar { animation: none !important; }
+  .animate-fade-up { opacity: 1 !important; animation: none !important; }
+  .thread-step.is-active .thread-step__number { animation: none !important; }
+  .hero__journey-btn:hover { transform: none !important; }
+  .hero__q-pill:hover { transform: none !important; }
+  .question-card:hover { transform: none !important; }
+  .explore-card:hover { transform: none !important; }
+  .explore-card__bg { transition: none !important; }
+  .object-card:hover { transform: none !important; }
+  .object-card__image-bg { transition: none !important; }
+  .source-card:hover { transform: none !important; }
+  .audience-card::before { transition: none !important; }
+  .editorial-card--featured .editorial-card__image > div { transition: none !important; }
+  .ppp-tab::after { transition: none !important; }
+  .then-now-split::after { animation: none !important; }
+}
