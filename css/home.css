@@ -73,7 +73,6 @@
   text-decoration: none;
   color: inherit;
   position: relative;
-  overflow: hidden;
   transition:
     box-shadow 0.22s var(--ease-out),
     transform 0.22s var(--ease-out),
@@ -138,33 +137,32 @@
 .goal-card--browse .goal-card__link--muted { color: rgba(255,255,255,.28); }
 
 /* ── Icon ───────────────────────────────────────────────── */
-/* Bare icon — no box. Just the SVG with a muted amber tone */
 .goal-card__icon {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
   margin-bottom: 18px;
+  overflow: visible;
 }
 
 .goal-card__icon svg {
-  width: 26px;
-  height: 26px;
-  stroke: rgba(180,110,20,.55);
+  width: 28px;
+  height: 28px;
+  display: block;
+  stroke: rgba(180,110,20,.5);
   transition: stroke 0.2s;
 }
 
 .goal-card:hover .goal-card__icon svg {
-  stroke: rgba(180,110,20,.85);
+  stroke: rgba(180,110,20,.8);
 }
 
 .goal-card--browse .goal-card__icon svg {
-  stroke: rgba(232,184,75,.5);
+  stroke: rgba(232,184,75,.45);
 }
 
 .goal-card--browse:hover .goal-card__icon svg {
-  stroke: rgba(232,184,75,.85);
+  stroke: rgba(232,184,75,.8);
 }
 
 /* ── Body ───────────────────────────────────────────────── */
