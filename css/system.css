@@ -191,6 +191,7 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden; /* prevent any element from causing horizontal scroll */
 }
 
 body {
@@ -199,6 +200,7 @@ body {
   line-height: var(--leading-normal);
   color: var(--color-text-primary);
   background-color: var(--color-bg);
+  overflow-x: hidden; /* belt + suspenders — kills horizontal bleed site-wide */
   transition: background-color var(--duration-slow) var(--ease-out),
               color var(--duration-slow) var(--ease-out);
   -webkit-font-smoothing: antialiased;
@@ -790,7 +792,7 @@ input, textarea, select { font-family: inherit; }
 /* ---- Hero background image -------------------------------- */
 .hero__bg-image {
   position: absolute;
-  inset: -5% -2%;   /* slightly oversize so the subtle scale feels full-bleed */
+  inset: -5% 0;     /* vertical bleed only — no horizontal overflow */
   z-index: 0;
 }
 
