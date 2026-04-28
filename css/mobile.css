@@ -352,11 +352,20 @@ h3, h4  { letter-spacing: -0.015em; }
     padding-bottom: var(--space-10);
     display: flex;
     align-items: center;
+    overflow: visible;                           /* Allow content to scroll — system.css sets overflow:hidden which traps content on mobile */
   }
 
   .hero__inner {
     gap: 0;                                      /* Remove gap — single column */
     padding-inline: var(--space-5);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero__content {
+    width: 100%;
+    min-width: 0;                                /* Prevent flex children from overflowing */
+    box-sizing: border-box;
   }
 
   /* Headline: tight, dramatic, fits phone width */
