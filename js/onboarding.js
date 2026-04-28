@@ -301,10 +301,17 @@
 
   var currentStep = 0;
 
+  function startTour() {
+    document.body.classList.add('tour-active');
+    document.body.appendChild(spotlight);
+    document.body.appendChild(card);
+    showStep(0);
+  }
+
   function endTour() {
     localStorage.setItem(TOUR_KEY, '1');
-    card.remove();
-    spotlight.remove();
+    if (card.parentNode)      card.parentNode.removeChild(card);
+    if (spotlight.parentNode) spotlight.parentNode.removeChild(spotlight);
     document.body.classList.remove('tour-active');
   }
 
@@ -391,9 +398,38 @@
     document.getElementById('tourSkip').onclick = endTour;
   }
 
-  /* Start tour after a short delay */
-  document.body.classList.add('tour-active');
-  setTimeout(function () { showStep(0); }, 900);
+  /* ── Persistent "?" help button ──────────────────────────── */
+  var helpBtnStyle = document.createElement('style');
+  helpBtnStyle.textContent =
+    '.tour-help-btn{' +
+      'position:fixed;bottom:24px;right:24px;z-index:9998;' +
+      'width:40px;height:40px;border-radius:50%;' +
+      'background:#0d0d0d;border:1px solid rgba(255,255,255,.18);' +
+      'color:rgba(255,255,255,.75);font-size:17px;font-weight:700;' +
+      'cursor:pointer;display:grid;place-items:center;' +
+      'box-shadow:0 4px 16px rgba(0,0,0,.4);' +
+      'transition:background .15s,transform .15s;' +
+    '}' +
+    '.tour-help-btn:hover{background:#1a1a1a;transform:scale(1.08);}' +
+    '@media(max-width:600px){.tour-help-btn{bottom:16px;right:16px;}}';
+  document.head.appendChild(helpBtnStyle);
+
+  var helpBtn = document.createElement('button');
+  helpBtn.className = 'tour-help-btn';
+  helpBtn.setAttribute('aria-label', 'Show site tour');
+  helpBtn.setAttribute('title', 'Show site tour');
+  helpBtn.textContent = '?';
+  document.body.appendChild(helpBtn);
+
+  helpBtn.addEventListener('click', function () {
+    localStorage.removeItem(TOUR_KEY);
+    startTour();
+  });
+
+  /* Auto-start on first visit */
+  if (!localStorage.getItem(TOUR_KEY)) {
+    setTimeout(startTour, 900);
+  }
 
   /* Dismiss on Escape */
   document.addEventListener('keydown', function (e) {
