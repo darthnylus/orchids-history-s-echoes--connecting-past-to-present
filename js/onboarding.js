@@ -137,8 +137,8 @@
     '.nav-tip-wrap:last-child:hover .nav-tip,',
     '.nav-tip-wrap:last-child:focus-within .nav-tip{transform:translateX(0) translateY(0);}',
 
-    /* Don't show on small screens */
-    '@media(max-width:767px){.nav-tip{display:none!important;}}'
+    /* Don't show tooltips on small screens; don't break nav wrapping */
+    '@media(max-width:767px){.nav-tip{display:none!important;}.nav-tip-wrap{display:contents;}}'
   ].join('');
   document.head.appendChild(style);
 
@@ -212,26 +212,23 @@
   /* Build tour overlay */
   var tourStyle = document.createElement('style');
   tourStyle.textContent = [
-    /* Backdrop */
-    '.tour-backdrop{',
-      'position:fixed;inset:0;z-index:10000;',
-      'pointer-events:none;',
-      'transition:opacity .3s;',
-    '}',
 
-    /* Spotlight hole via box-shadow */
+    /* Dim backdrop (covers everything behind spotlight) */
     '.tour-spotlight{',
       'position:fixed;z-index:10001;',
-      'border-radius:8px;',
-      'box-shadow:0 0 0 9999px rgba(0,0,0,.72);',
-      'transition:all .35s cubic-bezier(.4,0,.2,1);',
+      'border-radius:10px;',
+      'box-shadow:0 0 0 9999px rgba(0,0,0,.68);',
+      'transition:top .35s cubic-bezier(.4,0,.2,1),',
+                 'left .35s cubic-bezier(.4,0,.2,1),',
+                 'width .35s cubic-bezier(.4,0,.2,1),',
+                 'height .35s cubic-bezier(.4,0,.2,1);',
       'pointer-events:none;',
     '}',
 
-    /* Step card */
+    /* ── Desktop card ── */
     '.tour-card{',
       'position:fixed;z-index:10002;',
-      'width:min(340px,90vw);',
+      'width:340px;',
       'max-height:calc(100vh - 48px);',
       'overflow-y:auto;',
       'background:#0d0d0d;',
@@ -241,14 +238,46 @@
       'box-shadow:0 24px 64px rgba(0,0,0,.7);',
       'transition:top .3s cubic-bezier(.4,0,.2,1),left .3s cubic-bezier(.4,0,.2,1);',
     '}',
+
+    /* ── Mobile bottom-sheet ── */
+    '@media(max-width:767px){',
+      '.tour-card{',
+        'width:100vw!important;',
+        'max-width:100vw!important;',
+        'left:0!important;',
+        'right:0!important;',
+        'bottom:0!important;',
+        'top:auto!important;',
+        'transform:none!important;',
+        'border-radius:20px 20px 0 0;',
+        'padding:8px 20px 32px;',
+        'max-height:58vh;',
+        'overflow-y:auto;',
+        'box-shadow:0 -8px 40px rgba(0,0,0,.6);',
+      '}',
+      /* drag handle pill */
+      '.tour-card::before{',
+        'content:"";display:block;',
+        'width:36px;height:4px;border-radius:2px;',
+        'background:rgba(255,255,255,.2);',
+        'margin:0 auto 16px;',
+      '}',
+      /* On mobile, spotlight covers just the top strip so card doesn't overlap target */
+      '.tour-spotlight{border-radius:0;box-shadow:0 0 0 9999px rgba(0,0,0,.55);}',
+      '.tour-btn-next{flex:1;padding:14px 20px;font-size:15px;border-radius:12px;}',
+      '.tour-btn-skip{padding:14px 8px;font-size:13px;}',
+      '.tour-card__footer{gap:10px;}',
+    '}',
+
+    /* Shared text styles */
     '.tour-card__step{',
       'font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;',
-      'color:rgba(245,158,11,.8);margin-bottom:8px;',
+      'color:rgba(245,158,11,.85);margin-bottom:8px;',
     '}',
     '.tour-card__title{',
       'font-family:var(--font-editorial,"Playfair Display",serif);',
       'font-size:1.2rem;font-weight:800;color:#fff;',
-      'line-height:1.2;margin-bottom:10px;',
+      'line-height:1.25;margin-bottom:10px;',
     '}',
     '.tour-card__body{',
       'font-size:13.5px;color:rgba(255,255,255,.68);',
@@ -256,35 +285,30 @@
     '}',
     '.tour-card__body strong{color:#fff;}',
     '.tour-card__footer{display:flex;align-items:center;justify-content:space-between;gap:12px;}',
-    '.tour-card__dots{display:flex;gap:6px;align-items:center;}',
+    '.tour-card__dots{display:flex;gap:6px;align-items:center;flex-shrink:0;}',
     '.tour-dot{',
       'width:7px;height:7px;border-radius:50%;',
       'background:rgba(255,255,255,.2);',
-      'transition:background .2s;',
+      'transition:background .2s,width .2s;',
     '}',
     '.tour-dot.is-active{background:rgba(245,158,11,.9);width:18px;border-radius:4px;}',
     '.tour-card__btns{display:flex;gap:8px;align-items:center;}',
     '.tour-btn-next{',
       'background:rgba(245,158,11,1);color:#0d0d0d;',
       'border:none;border-radius:999px;',
-      'padding:8px 20px;font-size:13px;font-weight:700;',
+      'padding:9px 22px;font-size:13px;font-weight:700;',
       'cursor:pointer;transition:filter .15s;white-space:nowrap;',
     '}',
     '.tour-btn-next:hover{filter:brightness(1.08);}',
     '.tour-btn-skip{',
       'font-size:12px;color:rgba(255,255,255,.3);',
-      'background:none;border:none;cursor:pointer;padding:4px;',
+      'background:none;border:none;cursor:pointer;padding:6px;white-space:nowrap;',
     '}',
-    '.tour-btn-skip:hover{color:rgba(255,255,255,.55);}',
+    '.tour-btn-skip:hover{color:rgba(255,255,255,.6);}',
 
     /* Prevent body scroll while tour runs */
-    'body.tour-active{overflow:hidden;}',
+    'body.tour-active{overflow:hidden;}'
 
-    /* Mobile: stack card at bottom */
-    '@media(max-width:600px){',
-      '.tour-card{bottom:20px!important;top:auto!important;left:50%!important;',
-        'transform:translateX(-50%)!important;width:calc(100vw - 32px);max-width:none;}',
-    '}'
   ].join('');
   document.head.appendChild(tourStyle);
 
@@ -315,7 +339,12 @@
     document.body.classList.remove('tour-active');
   }
 
+  function isMobile() { return window.innerWidth <= 767; }
+
   function positionCard(targetRect, position) {
+    /* On mobile the bottom-sheet CSS handles everything */
+    if (isMobile()) return;
+
     var margin  = 16;
     var cw      = Math.min(340, window.innerWidth - margin * 2);
     var ch      = card.offsetHeight || 220;
@@ -327,16 +356,12 @@
     var preferAbove = (position === 'above') || (position === 'top');
 
     if (preferAbove && spaceAbove >= ch + margin) {
-      // Enough room above — place above
       top = targetRect.top - ch - margin;
     } else if (spaceBelow >= ch + margin) {
-      // Enough room below
       top = targetRect.bottom + margin;
     } else if (spaceAbove >= spaceBelow) {
-      // More room above — place above and let it clip upward (clamped)
       top = targetRect.top - ch - margin;
     } else {
-      // Fall back: place below
       top = targetRect.bottom + margin;
     }
 
@@ -411,7 +436,11 @@
       'transition:background .15s,transform .15s;' +
     '}' +
     '.tour-help-btn:hover{background:#1a1a1a;transform:scale(1.08);}' +
-    '@media(max-width:600px){.tour-help-btn{bottom:16px;right:16px;}}';
+    /* Hide help btn while tour is running on mobile (sheet covers it) */
+    '@media(max-width:767px){' +
+      'body.tour-active .tour-help-btn{display:none;}' +
+      '.tour-help-btn{bottom:20px;right:16px;width:36px;height:36px;font-size:15px;}' +
+    '}';
   document.head.appendChild(helpBtnStyle);
 
   var helpBtn = document.createElement('button');
