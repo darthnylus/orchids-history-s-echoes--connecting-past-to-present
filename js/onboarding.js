@@ -307,24 +307,25 @@
   }
 
   function positionCard(targetRect, position) {
-    var cw = Math.min(340, window.innerWidth * 0.9);
+    var cw     = Math.min(340, window.innerWidth * 0.9);
     var margin = 16;
+    var ch     = card.offsetHeight || 220; // real card height after render
     var top, left;
 
-    var ch = 200; // estimated card height
-
     if (position === 'bottom') {
-      top  = targetRect.bottom + margin + window.scrollY;
-      left = targetRect.left + (targetRect.width / 2) - (cw / 2);
+      top = targetRect.bottom + margin;
     } else {
-      top  = targetRect.top - ch - margin + window.scrollY;
-      left = targetRect.left + (targetRect.width / 2) - (cw / 2);
+      top = targetRect.top - ch - margin;
     }
 
-    /* Clamp horizontally */
-    left = Math.max(margin, Math.min(left, window.innerWidth - cw - margin));
-    /* Clamp vertically (don't go above viewport) */
-    top  = Math.max(window.scrollY + margin, top);
+    left = targetRect.left + (targetRect.width / 2) - (cw / 2);
+
+    /* If top position would go off-screen, flip to bottom */
+    if (top < margin) top = targetRect.bottom + margin;
+
+    /* Clamp: keep fully within viewport */
+    left = Math.max(margin, Math.min(left, window.innerWidth  - cw - margin));
+    top  = Math.max(margin, Math.min(top,  window.innerHeight - ch - margin));
 
     card.style.top    = top + 'px';
     card.style.left   = left + 'px';
@@ -340,8 +341,8 @@
     var rect = el.getBoundingClientRect();
     var pad  = 8;
 
-    /* Spotlight */
-    spotlight.style.top    = (rect.top    + window.scrollY - pad) + 'px';
+    /* Spotlight — position:fixed uses pure viewport coords */
+    spotlight.style.top    = (rect.top    - pad) + 'px';
     spotlight.style.left   = (rect.left   - pad) + 'px';
     spotlight.style.width  = (rect.width  + pad * 2) + 'px';
     spotlight.style.height = (rect.height + pad * 2) + 'px';
@@ -353,6 +354,8 @@
 
     var isLast = idx === STEPS.length - 1;
 
+    /* Render card off-screen first so offsetHeight is accurate */
+    card.style.top = '-9999px';
     card.innerHTML =
       '<div class="tour-card__step">Step ' + (idx + 1) + ' of ' + STEPS.length + '</div>' +
       '<div class="tour-card__title">' + step.title + '</div>' +
@@ -365,15 +368,15 @@
         '</div>' +
       '</div>';
 
-    positionCard(rect, step.position);
+    /* Position after browser has laid out the card */
+    requestAnimationFrame(function () {
+      positionCard(rect, step.position);
+    });
 
     document.getElementById('tourNext').onclick = function () {
       if (isLast) { endTour(); } else { showStep(idx + 1); }
     };
     document.getElementById('tourSkip').onclick = endTour;
-
-    /* Scroll target into view */
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   /* Start tour after a short delay */
