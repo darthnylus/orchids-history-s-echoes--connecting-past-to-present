@@ -505,6 +505,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-attica.html',t:'Attica: The Massacre the Governor Ordered',d:'history-culture criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1971'},
       {h:'thread-move-bombing.html',t:'The MOVE Bombing: Philadelphia Dropped a Bomb on Its Own Residents',d:'history-culture criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1985'},
       {h:'thread-crack-epidemic.html',t:'The Crack Epidemic: The Drug That Was Treated as a Crime',d:'history-culture',e:8,el:'Backlash Era',c:'#4a2060',y:'1984 – 1994'},
+      {h:'thread-what-racism-is.html',t:"What Racism Actually Is: Why \"I Don't See Color\" Doesn't End It",d:'history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'1676 – Present'},
       {h:'thread-katrina.html',t:'Katrina: What the Flood Revealed',d:'housing health',e:9,el:'Present Day',c:'#2a4a6b',y:'2005 – Present'},
       {h:'thread-bail-system.html',t:'The Bail System: Wealth Determines Freedom',d:'criminal-justice',e:9,el:'Present Day',c:'#2a4a6b',y:'Present'},
       {h:'thread-shelby-county.html',t:'Shelby County v. Holder: The Supreme Court Guts the Voting Rights Act',d:'history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'2013 – Present'},
