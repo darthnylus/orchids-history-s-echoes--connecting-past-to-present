@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Soul, Funk & the Disco Purge — Chain</title>
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    :root{--acc:#5a1a6b;--acc-lt:#d4a5f5}
+    [data-theme="dark"]{--acc:#5a1a6b;--acc-lt:#d4a5f5}
+    .thread-hero{background:#060008;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(90,26,107,.50) 0%,transparent 60%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:2}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(90,26,107,.15);border:1px solid rgba(212,165,245,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt)}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:var(--acc-lt);font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.78);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
+    .thread-meta-item__label{font-size:var(--type-xs);color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.90)}
+    .argument-bar{background:rgba(90,26,107,.07);border-top:1px solid rgba(212,165,245,.18);border-bottom:1px solid rgba(212,165,245,.18);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(90,26,107,.20);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(90,26,107,.12);border:1px solid rgba(212,165,245,.22);color:var(--acc-lt)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(90,26,107,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:var(--acc-lt);color:#0d0d0d}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.1)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="threads.html" class="site-nav__link">Threads</a><a href="search.html" class="site-nav__link">Search</a><a href="about.html" class="site-nav__link">About</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">Music &amp; Culture</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Music &amp; Culture · Civil Rights → Backlash Era · 1960s – 1980s</div>
+      <h1 class="thread-hero__title">Soul, Funk &amp;<br /><em>the Disco Purge</em></h1>
+      <p class="thread-hero__subtitle">Soul music was the sound of the Civil Rights movement. Funk was Black cultural assertion turned up to maximum volume. Disco was born in Black and Latino gay clubs and briefly conquered the mainstream — before a white rock DJ organized a stadium demolition event in 1979 that ended the genre overnight. "Disco Sucks" was not about music. It was a culture war in four words.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Era</div><div class="thread-meta-item__value">1960s – 1980s</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Key Event</div><div class="thread-meta-item__value">Disco Demolition Night — Comiskey Park, Chicago, July 12, 1979</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Domain</div><div class="thread-meta-item__value">Music · Race · LGBTQ+ History · Culture Wars</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">Each time Black music became too politically assertive or too culturally powerful, the mainstream found a way to contain or destroy it. Soul was co-opted. Funk was too Black for pop radio. <strong>Disco — made by Black and queer artists, loved by Black and queer audiences — was subjected to a coordinated cultural demolition. "Disco Sucks" was anti-Black, anti-gay backlash wearing a music preference as a mask.</strong> The same mechanism shows up in the moral panic over rap in the 1990s.</p></div>
+    </div>
+  </div>
+</div>
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main"><div class="entry-list">
+
+<div class="entry-item" id="e1">
+  <div class="entry-item__header">
+    <div class="entry-item__num">1</div>
+    <div>
+      <div class="entry-item__dates">1950s – 1960s</div>
+      <h2 class="entry-item__name">Soul Music: The Sound of the Movement</h2>
+      <div class="entry-item__location">Detroit · Memphis · New York · Chicago</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Soul music emerged in the late 1950s at the intersection of gospel — the sacred music of the Black church — and rhythm and blues — the secular music of the streets. The collision produced something that carried the emotional and spiritual intensity of gospel into explicitly worldly subjects: love, loss, longing, and increasingly, liberation. <strong>Sam Cooke</strong> was the transition figure: a gospel star who crossed to secular music and, by the early 1960s, was writing explicitly political songs. "A Change Is Gonna Come" (1964), recorded days after the March on Washington, is widely considered the greatest soul song ever made — a song that sounds like prayer and reads like a political document.</p>
+    <p><strong>Aretha Franklin</strong> — raised in the church, daughter of the Reverend C.L. Franklin — delivered "Respect" in 1967 and made it into a declaration of Black and female self-determination that transcended the R&amp;B charts. <strong>James Brown</strong> was making the transition from soul to something harder and more percussive — stripping the music down to rhythm and syncopation, making the groove the message. His 1968 recording "Say It Loud — I'm Black and I'm Proud" was a cultural statement so direct that some radio stations refused to play it.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">1964</div><div class="entry-stat__label">Sam Cooke records "A Change Is Gonna Come" — the anthem of the Civil Rights movement; he was killed two months after its release</div></div>
+      <div><div class="entry-stat__num">1967</div><div class="entry-stat__label">Aretha Franklin's "Respect" — #1 pop and R&amp;B; became an anthem for both Black liberation and women's rights</div></div>
+      <div><div class="entry-stat__num">1968</div><div class="entry-stat__label">James Brown — "Say It Loud, I'm Black and I'm Proud" — some radio stations refused to play it</div></div>
+    </div>
+    <p>Motown, meanwhile, pursued a deliberate crossover strategy. Berry Gordy built a label that groomed Black artists to meet the mainstream pop market: choreography, etiquette classes, polished presentation. The Supremes dressed in gowns. The Temptations were precise. The goal was crossover appeal — and it worked commercially. It also meant Black artists performing a version of themselves calibrated to white comfort. <strong>It was a negotiation with a racist market structure that Gordy understood better than anyone — and that still required Black artists to diminish themselves to access what should have been available to them unconditionally.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e2">
+  <div class="entry-item__header">
+    <div class="entry-item__num">2</div>
+    <div>
+      <div class="entry-item__dates">Late 1960s – 1970s</div>
+      <h2 class="entry-item__name">Funk: Black Cultural Assertion at Maximum Volume</h2>
+      <div class="entry-item__location">Macon, Georgia · Dayton, Ohio · Los Angeles</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>James Brown did not invent funk alone — but his late-1960s recordings are its clearest origin point. He stripped away melody and harmony and put everything into the beat — the "one," the downbeat, the groove. "Cold Sweat" (1967), "I Got You (I Feel Good)," "Super Bad" — these were not pop crossover records. They were rhythmic statements so concentrated that they resisted white appropriation in a way that the blues had not, because they had no 12-bar chord structure for white guitarists to copy. The groove was the thing, and the groove was Black.</p>
+    <p><strong>Sly and the Family Stone</strong> pushed funk toward psychedelic integration — a multiracial, mixed-gender band making music that was simultaneously funky, rocky, and explicitly political: "Don't Call Me Nigger, Whitey," "Thank You (Falettinme Be Mice Elf Agin)," "Everyday People." <strong>Parliament-Funkadelic</strong> — George Clinton's twin-band empire — turned funk into Afrofuturist mythology, building an entire cosmology around the "Mothership Connection" as a metaphor for Black liberation. <em>"Free your mind, and your ass will follow"</em> was not just a lyric. It was a philosophy.</p>
+    <div class="pullquote">
+      <p>"Funk is not a sound. It is a posture. It is what happens when you decide you are not going to perform yourself for someone else's comfort."</p>
+      <cite>— Greg Tate, <em>Flyboy in the Buttermilk</em>, 1992</cite>
+    </div>
+    <p>Pop radio largely could not absorb funk at its most intense. The music was too rhythmically complex, too sexually explicit, too openly Black in its politics and aesthetics. Funk's commercial success was real but relatively contained — it dominated the Black radio universe and influenced everything around it, but it did not achieve the mainstream crossover that Motown had engineered. <strong>That containment was partly structural — funk deliberately resisted the accessibility that white-dominated pop radio demanded.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e3">
+  <div class="entry-item__header">
+    <div class="entry-item__num">3</div>
+    <div>
+      <div class="entry-item__dates">Early 1970s – 1979</div>
+      <h2 class="entry-item__name">Disco: Born in Black and Queer Spaces</h2>
+      <div class="entry-item__location">The Loft, New York City · Paradise Garage · The Warehouse, Chicago</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Disco did not begin at Studio 54. It began in the underground clubs of New York City in the early 1970s — spaces like <strong>The Loft</strong>, run by David Mancuso, and later <strong>The Warehouse</strong> in Chicago, run by DJ Frankie Knuckles. The audiences were overwhelmingly Black, Latino, and gay. The music was a fusion of funk, soul, Philly soul, and electronic rhythm — built for bodies in motion, for communities that could not be themselves anywhere else. The DJ was the curator; the dancefloor was the church.</p>
+    <p>By the mid-1970s, the mainstream had discovered disco. Gloria Gaynor, Donna Summer, the Village People, ABBA, the Bee Gees — disco became the dominant pop genre, the sound of the era. <strong>But the origin story was systematically erased.</strong> The cultural narrative settled on Studio 54 — the celebrity-packed Manhattan club that was the glamorized, whitened, and heterosexualized face of a movement born in Black and queer spaces. The Bee Gees — four white Australians — became the public face of disco. Frankie Knuckles — the Black gay DJ who invented the form — was not mentioned in most mainstream accounts until decades later.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">The Loft</div><div class="entry-stat__label">New York City, early 1970s — one of the first disco spaces; audience was Black, Latino, and gay</div></div>
+      <div><div class="entry-stat__num">Frankie Knuckles</div><div class="entry-stat__label">Black gay DJ at The Warehouse, Chicago — his sets were the origin of house music; rarely credited in mainstream disco history</div></div>
+      <div><div class="entry-stat__num">$4 billion</div><div class="entry-stat__label">Estimated annual disco industry revenue at its 1978 peak — the music's creators were largely cut out of this wealth</div></div>
+    </div>
+    <p>By 1978, disco had become so commercially dominant that rock radio was being displaced. Classic rock stations were losing market share. Record labels were shifting resources to disco. The rock establishment — predominantly white, predominantly male, predominantly straight — felt existentially threatened by a genre that was Black, queer, and feminine in its aesthetics. <strong>What came next was not just a change in musical taste. It was a cultural purge.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e4">
+  <div class="entry-item__header">
+    <div class="entry-item__num">4</div>
+    <div>
+      <div class="entry-item__dates">July 12, 1979</div>
+      <h2 class="entry-item__name">Disco Demolition Night: "Disco Sucks" as Anti-Black, Anti-Gay Backlash</h2>
+      <div class="entry-item__location">Comiskey Park, Chicago — between doubleheader games of the Chicago White Sox</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>On the night of July 12, 1979, Chicago radio DJ <strong>Steve Dahl</strong> — who had been fired from a station that switched to disco — organized an event between games of a White Sox doubleheader at Comiskey Park. Fans who brought disco records received 98-cent admission. More than 50,000 people attended; an estimated 5,000 broke into the field. Dahl detonated a crate of disco records in centerfield. The explosion left a crater in the turf. Fans rioted. The second game of the doubleheader was forfeited.</p>
+    <p>The event was presented as a rock fans' protest against a genre they disliked. But the disco records fans brought were overwhelmingly by Black and gay artists. The crowd was overwhelmingly white. The chants — "Disco Sucks," shouted by 50,000 people burning and exploding the work of Black and gay musicians — were not a neutral aesthetic statement. <strong>Historian Alice Echols, in her book <em>Hot Stuff: Disco and the Remaking of American Culture</em>, documented the anti-Black and homophobic dimensions of the "Disco Sucks" movement explicitly.</strong> "Disco Sucks" meant: "Black and gay culture should not dominate mainstream American music."</p>
+    <div class="pullquote">
+      <p>"Disco Demolition Night wasn't just a publicity stunt gone wrong. It was a moment when a lot of mostly white, mostly male rock fans said very clearly that they did not want Black and gay people to have a place in mainstream American culture."</p>
+      <cite>— Alice Echols, <em>Hot Stuff: Disco and the Remaking of American Culture</em>, 2010</cite>
+    </div>
+    <p>Within months of Disco Demolition Night, radio stations across the country dropped disco. Record labels cancelled disco contracts. MTV launched in 1981 and for its first two years refused to play music videos by Black artists — claiming the channel was "rock-oriented." (Michael Jackson's label had to threaten to pull all Epic Records artists before MTV relented and added "Billie Jean" to rotation in 1983.) <strong>The purge of disco from mainstream radio and culture happened with breathtaking speed — the same speed at which the genre had conquered it.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e5">
+  <div class="entry-item__header">
+    <div class="entry-item__num">5</div>
+    <div>
+      <div class="entry-item__dates">The Aftermath</div>
+      <h2 class="entry-item__name">What Survived: House, Techno, and the Underground That Wouldn't Die</h2>
+      <div class="entry-item__location">Chicago · Detroit · New York</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Disco did not disappear. It went underground and mutated. In Chicago, Frankie Knuckles and Ron Hardy kept playing at The Warehouse and The Music Box for Black and gay audiences who had nowhere else to go. The music evolved — stripped down, made harder and more electronic — into what became <strong>house music</strong>. In Detroit, Black DJs Juan Atkins, Derrick May, and Kevin Saunderson combined funk, Kraftwerk, and the electrified debris of post-industrial Detroit into <strong>techno</strong>. Both genres are now global phenomena with hundreds of billions in cultural and commercial value.</p>
+    <p>The mainstream eventually rediscovered both — as it always does — and when it did, the same erasure pattern reasserted itself. European DJs, predominantly white, became the public faces of "electronic dance music" that was built by Black Americans in Chicago and Detroit. <strong>The Warehouse — where house music was born — was demolished in 2000. A historical marker was placed at the site in 2021, 42 years after the music it created had changed the world.</strong></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">House Music</div><div class="entry-stat__label">Born at The Warehouse, Chicago, late 1970s–early 1980s — Frankie Knuckles, Larry Heard; now a multi-billion-dollar global genre</div></div>
+      <div><div class="entry-stat__num">Techno</div><div class="entry-stat__label">Born in Detroit, early 1980s — Juan Atkins, Derrick May, Kevin Saunderson; the foundation of electronic music worldwide</div></div>
+      <div><div class="entry-stat__num">2000</div><div class="entry-stat__label">The Warehouse — birthplace of house music — was demolished; a historical marker was not placed until 2021</div></div>
+    </div>
+    <p>The lesson of soul, funk, and disco is the same lesson of the blues and jazz before them: Black Americans create the form, the form becomes commercially significant, the mainstream absorbs it while erasing its origins, the creators are left behind, and the form is declared to be "American music" without acknowledgment of the specific people who made it. <strong>This is not a series of coincidences. It is a structure — economic, racial, and cultural — that has reproduced itself across a century of American music history.</strong></p>
+  </div>
+</div>
+
+</div></main>
+      <aside class="thread-sidebar">
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Disco Demolition Night</div>
+  <div class="sidebar-card__body">
+    <strong>Date:</strong> July 12, 1979<br/>
+    <strong>Location:</strong> Comiskey Park, Chicago<br/>
+    <strong>Organizer:</strong> Steve Dahl, rock radio DJ<br/>
+    <strong>What happened:</strong> 50,000+ fans; disco records detonated; riot; field forfeited<br/><br/>
+    The records burned were overwhelmingly by Black and gay artists. The crowd was overwhelmingly white.<br/><br/>
+    Within months, disco was gone from mainstream radio.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">What Disco Became</div>
+  <div class="sidebar-card__body">
+    <strong>House Music</strong> — Chicago, early 1980s<br/>Frankie Knuckles, Ron Hardy, Larry Heard<br/><br/>
+    <strong>Techno</strong> — Detroit, early 1980s<br/>Juan Atkins, Derrick May, Kevin Saunderson<br/><br/>
+    <strong>Dance-pop</strong> — Madonna, Michael Jackson absorbed disco's production techniques into 1980s pop<br/><br/>
+    Both house and techno are now global industries. Both were created by Black Americans. Both are usually discussed without mentioning that.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">MTV and the Color Line</div>
+  <div class="sidebar-card__body">
+    MTV launched August 1, 1981. For its first two years, the channel played almost exclusively white artists, claiming a "rock format" policy.<br/><br/>
+    Michael Jackson's label (Epic/CBS) had to threaten to pull all their artists before MTV added "Billie Jean" in 1983.<br/><br/>
+    MTV's color line broke only under direct commercial threat — not moral persuasion.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Connected Threads</div>
+  <div class="sidebar-card__body">
+    <a href="thread-rb-rock-theft.html" style="color:var(--acc-lt)">Why R&amp;B Exists: Race Records →</a><br/><br/>
+    <a href="thread-hiphop-origins.html" style="color:var(--acc-lt)">Hip-Hop: Born from Ruins →</a><br/><br/>
+    <a href="thread-punk-grunge.html" style="color:var(--acc-lt)">Punk, Grunge &amp; the Black Blueprint →</a>
+  </div>
+</div>
+</aside>
+    </div>
+  </div>
+</section>
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">Continue the Chain</div>
+      <h2 class="thread-bottom-cta__title">Punk called itself a revolution. Nobody mentioned the Black band that invented it.</h2>
+      <p class="thread-bottom-cta__sub">Bad Brains were the greatest punk band of their era. Kurt Cobain's acknowledged teacher was Lead Belly. The "white" genres of punk and grunge have a hidden Black blueprint.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-punk-grunge.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Next: Punk, Grunge &amp; the Black Blueprint →</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>

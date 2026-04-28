@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Hip-Hop: Born from Ruins — Chain</title>
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    :root{--acc:#1a4a1a;--acc-lt:#6ee7b7}
+    [data-theme="dark"]{--acc:#1a4a1a;--acc-lt:#6ee7b7}
+    .thread-hero{background:#010a04;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(26,74,26,.50) 0%,transparent 60%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:2}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(26,74,26,.15);border:1px solid rgba(110,231,183,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt)}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:var(--acc-lt);font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.78);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
+    .thread-meta-item__label{font-size:var(--type-xs);color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.90)}
+    .argument-bar{background:rgba(26,74,26,.07);border-top:1px solid rgba(110,231,183,.18);border-bottom:1px solid rgba(110,231,183,.18);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(26,74,26,.20);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(26,74,26,.12);border:1px solid rgba(110,231,183,.22);color:var(--acc-lt)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(26,74,26,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:var(--acc-lt);color:#0d0d0d}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.1)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="threads.html" class="site-nav__link">Threads</a><a href="search.html" class="site-nav__link">Search</a><a href="about.html" class="site-nav__link">About</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">Music &amp; Culture</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Music &amp; Culture · Backlash Era · 1973 – Present</div>
+      <h1 class="thread-hero__title">Hip-Hop:<br /><em>Born from Ruins</em></h1>
+      <p class="thread-hero__subtitle">The South Bronx did not accidentally fall apart. It was destroyed — by Robert Moses's Cross Bronx Expressway, by arson-for-insurance as landlords abandoned buildings, by municipal disinvestment as New York City teetered toward bankruptcy. Out of that deliberate destruction, in a recreation room at 1520 Sedgwick Avenue on August 11, 1973, DJ Kool Herc held his sister's back-to-school party — and invented hip-hop. The greatest cultural export in American history was created in a neighborhood the city had given up on.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Origin</div><div class="thread-meta-item__value">1520 Sedgwick Avenue, The Bronx, New York — August 11, 1973</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Founder</div><div class="thread-meta-item__value">DJ Kool Herc (Clive Campbell)</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Domain</div><div class="thread-meta-item__value">Music · Urban Policy · Race · Culture</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">Hip-hop is not the product of individual genius emerging from nothing. It is the product of specific political decisions — urban renewal, highway construction, municipal abandonment, the crack epidemic — that destroyed a community, and that community's response to those decisions. <strong>To understand hip-hop, you must understand the Bronx. To understand the Bronx, you must understand the policies that made it. The music and the policy are the same chain.</strong></p></div>
+    </div>
+  </div>
+</div>
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main"><div class="entry-list">
+
+<div class="entry-item" id="e1">
+  <div class="entry-item__header">
+    <div class="entry-item__num">1</div>
+    <div>
+      <div class="entry-item__dates">1948 – 1973</div>
+      <h2 class="entry-item__name">The Bronx Burns: How Urban Policy Created the Conditions for Hip-Hop</h2>
+      <div class="entry-item__location">The South Bronx, New York City</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>In the late 1940s, New York City's master builder <strong>Robert Moses</strong> drove the Cross Bronx Expressway through the heart of the South Bronx — demolishing 60,000 homes and displacing 60,000 residents, most of them working-class Jewish and Italian families who had built stable communities over decades. As those families left and were replaced by Black and Puerto Rican families arriving in the Great Migration, the city's investment followed the departing white residents. Banks implemented redlining. Insurance companies redlined. The city cut services.</p>
+    <p>By the early 1970s, the South Bronx was in freefall. Landlords, unable to sell their buildings for what they had paid, began burning them for insurance money. Arson became an industry. At its peak in the early 1970s, the South Bronx was losing approximately 30 buildings per day to fire. Entire blocks were reduced to rubble. President Jimmy Carter toured Charlotte Street in 1977 and compared it to the aftermath of a natural disaster. <strong>It was not a natural disaster. It was the predictable result of specific policy decisions — transportation, housing, banking, insurance — that were all made with racial hierarchy as an organizing principle.</strong></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">60,000</div><div class="entry-stat__label">Homes demolished by the Cross Bronx Expressway — Robert Moses's highway through the heart of the South Bronx</div></div>
+      <div><div class="entry-stat__num">~30/day</div><div class="entry-stat__label">Buildings lost to arson in the South Bronx at the peak of the landlord arson epidemic, early 1970s</div></div>
+      <div><div class="entry-stat__num">1977</div><div class="entry-stat__label">President Carter tours Charlotte Street, South Bronx — compares it to a bombed city; declares it a disaster zone</div></div>
+    </div>
+    <p>The young people who grew up in that rubble — Black and Puerto Rican teenagers in a neighborhood without parks, without functioning schools, without employment — had nothing but each other and whatever music they could make. Gang culture had peaked and was fading. Youth workers were trying to channel the energy of the gangs into something else. Into this context arrived a Jamaican immigrant with two turntables and a deep understanding of sound system culture — and the idea that the break, the rhythmic peak of a funk record, could be extended indefinitely.</p>
+  </div>
+</div>
+
+<div class="entry-item" id="e2">
+  <div class="entry-item__header">
+    <div class="entry-item__num">2</div>
+    <div>
+      <div class="entry-item__dates">August 11, 1973</div>
+      <h2 class="entry-item__name">1520 Sedgwick Avenue: The Night Hip-Hop Was Born</h2>
+      <div class="entry-item__location">1520 Sedgwick Avenue, The Bronx, New York City</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p><strong>Clive Campbell</strong> — known as DJ Kool Herc — was born in Kingston, Jamaica and moved to the South Bronx in 1967. He had grown up around Jamaican sound system culture: massive speaker rigs, DJs toasting over records, the DJ as performer and selector and crowd commander. In the Bronx, he applied that framework to American funk records. On August 11, 1973, his sister Cindy organized a back-to-school party in the recreation room of their building at 1520 Sedgwick Avenue. Admission was 25 cents for girls, 50 cents for boys.</p>
+    <p>That night, Herc debuted a technique he had been developing: using two copies of the same record on two turntables, he isolated and extended the percussion break — the moment in a James Brown or Incredible Bongo Band record when the melody dropped out and the drummer took over. He called these extended breaks the <strong>"Merry-Go-Round"</strong> — what became known as the "breakbeat." The young people who danced during the break — dropping to the floor, spinning on their heads, freezing in poses — were called B-boys and B-girls. <strong>This was the birth of hip-hop: one technique, one party, one address, one night.</strong></p>
+    <div class="pullquote">
+      <p>"You could call it the Big Bang of hip-hop. Everything that followed — the music, the dance, the art, the philosophy — traces back to that recreation room on Sedgwick Avenue."</p>
+      <cite>— Jeff Chang, <em>Can't Stop Won't Stop: A History of the Hip-Hop Generation</em>, 2005</cite>
+    </div>
+    <p>Herc was 18 years old. He had no contract, no label, no manager. He had two turntables, a mixer, and speakers he had built himself. The Bronx had burned around him and he had made something out of the ashes. <strong>1520 Sedgwick Avenue was designated a historic landmark by New York City in 2007 — 34 years after the party that made it the birthplace of the most globally influential musical genre of the late 20th century.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e3">
+  <div class="entry-item__header">
+    <div class="entry-item__num">3</div>
+    <div>
+      <div class="entry-item__dates">1973 – 1979</div>
+      <h2 class="entry-item__name">The Four Elements: Reclaiming Space with Nothing</h2>
+      <div class="entry-item__location">The Bronx · Harlem · Brooklyn</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Hip-hop emerged from the start as a four-part cultural practice, not just a music. <strong>DJing</strong> — Kool Herc's breakbeat technique, extended by Grandmaster Flash (who added scratch mixing and precision turntablism) and DJ Afrika Bambaataa (who added electronic music and a unifying philosophy). <strong>MCing</strong> — the verbal art of the MC, or master of ceremonies, who spoke over the DJ's beats: first to hype the crowd, then to tell stories, then to deliver political commentary. <strong>Breakdancing</strong> (B-boying/B-girling) — the acrobatic dance form that developed around Herc's breakbeats, a competitive physical art form that required no equipment and could be performed anywhere. <strong>Graffiti writing</strong> — the visual art of the movement, reclaiming the city's surfaces with elaborate lettering and pictorial murals.</p>
+    <p>Each of the four elements was a form of claiming space in a city that had abandoned the people who lived there. Graffiti covered the city's surfaces — trains, walls, highway underpasses — with the names and identities of young people the city had made invisible. Breakdancing turned the sidewalk and the community center into a stage. MCing gave voice to experiences that mainstream media did not document. DJing turned other people's records into new compositions without instruments or studios. <strong>All four elements worked with what was available in a community that had been stripped of resources — and turned limitation into an aesthetic principle.</strong></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">Afrika Bambaataa</div><div class="entry-stat__label">Founded the Universal Zulu Nation in 1973 — turned gang members into b-boys and used hip-hop as a peace-making tool</div></div>
+      <div><div class="entry-stat__num">Grandmaster Flash</div><div class="entry-stat__label">Invented scratch mixing, punch phrasing, and clock theory — transformed DJing from selection into performance</div></div>
+      <div><div class="entry-stat__num">4 Elements</div><div class="entry-stat__label">DJing · MCing · B-boying/B-girling · Graffiti — each a form of reclaiming space with no resources</div></div>
+    </div>
+    <p><strong>Afrika Bambaataa</strong> added a unifying philosophy: the Universal Zulu Nation, founded in 1973, explicitly transformed former gang members into artists and competitors. The logic was that the same energy that went into gang violence — territorial assertion, competitive pride, communal identity — could go into music and dance. Bambaataa had been a gang warlord in the Black Spades. He became hip-hop's philosopher-king. <strong>Hip-hop was not just art. It was conflict resolution.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e4">
+  <div class="entry-item__header">
+    <div class="entry-item__num">4</div>
+    <div>
+      <div class="entry-item__dates">1979 – 1992</div>
+      <h2 class="entry-item__name">From the Bronx to the World: The Message and the Machine</h2>
+      <div class="entry-item__location">Sugar Hill Records · Def Jam Records · Compton, California</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>In 1979, the <strong>Sugarhill Gang</strong> released "Rapper's Delight" — the first commercially successful hip-hop record, recorded by a New Jersey label run by Sylvia Robinson. It was not made by the originators of hip-hop. Kool Herc was not on it. Grandmaster Flash was not on it. The DJs and MCs who had built the culture over six years in the Bronx watched a manufactured group record over their breakbeats and reach #4 on the R&amp;B chart. It was the first instance of hip-hop's original creators being displaced by commercial exploitation — it would not be the last.</p>
+    <p>In 1982, <strong>Grandmaster Flash and the Furious Five</strong> released "The Message" — the first major hip-hop record to directly document the conditions of urban Black life: "broken glass everywhere / people pissing on the stairs, you know they just don't care." It went gold. It proved that hip-hop could carry political content to a mass audience. <strong>Run-DMC</strong> in 1984 crossed hip-hop into rock territory; <strong>LL Cool J</strong> in 1985 brought it to mainstream pop radio; <strong>Public Enemy</strong> in 1987 made it explicitly political; <strong>N.W.A.</strong> in 1988 made it explicitly local, specific, and enraged.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">1979</div><div class="entry-stat__label">"Rapper's Delight" — first commercially successful hip-hop record; not made by hip-hop's originators</div></div>
+      <div><div class="entry-stat__num">1982</div><div class="entry-stat__label">"The Message" — Grandmaster Flash documents urban poverty; proves hip-hop can carry political content to mass audiences</div></div>
+      <div><div class="entry-stat__num">1988</div><div class="entry-stat__label">N.W.A's "Straight Outta Compton" — hip-hop goes West Coast, goes gangsta, goes global</div></div>
+    </div>
+    <p>By the late 1980s, hip-hop had left the Bronx and gone national — and then global. <strong>Def Jam Records</strong>, founded by Rick Rubin and Russell Simmons in a dorm room at NYU, became the major label infrastructure for hip-hop's expansion. Major labels — Columbia, Warner, Universal — signed hip-hop artists and got rich. The form that Kool Herc had invented in a recreation room for a quarter admission was generating hundreds of millions of dollars annually. <strong>The Bronx itself, where it was born, remained one of the poorest urban counties in the United States.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e5">
+  <div class="entry-item__header">
+    <div class="entry-item__num">5</div>
+    <div>
+      <div class="entry-item__dates">1990s – Present</div>
+      <h2 class="entry-item__name">Corporate Co-option and the Conscious Rap That Was Never Promoted</h2>
+      <div class="entry-item__location">New York · Los Angeles · The World</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>By the mid-1990s, the major labels had discovered that hip-hop was the most commercially lucrative genre in popular music. They also discovered, or decided, that a specific kind of hip-hop was more commercially predictable: music that centered materialism, violence, misogyny, and drug culture — what had come to be called gangsta rap. The labels invested in that. <strong>KRS-One, Public Enemy, De La Soul, A Tribe Called Quest, The Roots, Mos Def, Talib Kweli</strong> — the lineage of politically conscious and artistically experimental hip-hop — received far less promotion, far fewer resources, and far less mainstream radio play than their commercially manufactured counterparts.</p>
+    <p>This was not because the conscious artists were less talented. Public Enemy's <em>It Takes a Nation of Millions to Hold Us Back</em> (1988) is widely considered one of the greatest albums ever recorded in any genre. The Roots have released fifteen studio albums of extraordinary quality. The choices about what to promote were commercial and ideological: music that challenged the status quo was a harder sell to advertisers and corporate radio than music that confirmed existing stereotypes about Black men. <strong>The industry found that gangsta rap was profitable partly because it confirmed what white audiences already believed about Black communities — and confirmation is always easier to sell than challenge.</strong></p>
+    <div class="pullquote">
+      <p>"They don't want you to know the history because then you'd know what to do about the present."</p>
+      <cite>— KRS-One, <em>The Teacha</em>, multiple interviews</cite>
+    </div>
+    <p>Today, hip-hop is the most consumed genre of music in the United States and globally. The Bronx — where it was born — has the highest poverty rate of any urban county in the country. The South Bronx — where the specific block where Kool Herc held his first party stands — remains one of the most economically distressed neighborhoods in New York City. <strong>The music escaped. The conditions that produced it did not. That is not ironic. That is the chain.</strong></p>
+  </div>
+</div>
+
+</div></main>
+      <aside class="thread-sidebar">
+<div class="sidebar-card">
+  <div class="sidebar-card__title">August 11, 1973</div>
+  <div class="sidebar-card__body">
+    <strong>Location:</strong> Recreation room, 1520 Sedgwick Avenue, The Bronx<br/>
+    <strong>Host:</strong> Cindy Campbell (Kool Herc's sister)<br/>
+    <strong>DJ:</strong> Kool Herc (Clive Campbell, age 18)<br/>
+    <strong>Admission:</strong> 25¢ girls / 50¢ boys<br/>
+    <strong>Innovation:</strong> The breakbeat — extending the percussion break using two copies of the same record<br/><br/>
+    The building was designated a NYC landmark in 2007.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Founding Fathers</div>
+  <div class="sidebar-card__body">
+    <strong>DJ Kool Herc</strong> — invented the breakbeat; the Big Bang<br/><br/>
+    <strong>Grandmaster Flash</strong> — invented scratch mixing, punch phrasing, clock theory<br/><br/>
+    <strong>Afrika Bambaataa</strong> — added Kraftwerk and electronic music; founded Universal Zulu Nation; turned gang culture into hip-hop culture<br/><br/>
+    These three are the founding triumvirate. None of them received significant financial benefit from the industry that their invention created.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Bronx, Before and After</div>
+  <div class="sidebar-card__body">
+    <strong>1948:</strong> Cross Bronx Expressway displaces 60,000<br/>
+    <strong>1960s–70s:</strong> Redlining, disinvestment, arson epidemic<br/>
+    <strong>1977:</strong> Carter tours the ruins; calls it a disaster area<br/>
+    <strong>1973:</strong> Hip-hop is born in the ruins<br/>
+    <strong>Today:</strong> The Bronx has the highest poverty rate of any urban county in the United States<br/><br/>
+    The music escaped. The conditions that produced it did not.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Connected Threads</div>
+  <div class="sidebar-card__body">
+    <a href="thread-gangsta-rap.html" style="color:var(--acc-lt)">Gangsta Rap: Resistance to Self-Destruction →</a><br/><br/>
+    <a href="thread-displacement.html" style="color:var(--acc-lt)">Redlining &amp; Urban Displacement →</a><br/><br/>
+    <a href="thread-crack-epidemic.html" style="color:var(--acc-lt)">The Crack Epidemic →</a>
+  </div>
+</div>
+</aside>
+    </div>
+  </div>
+</section>
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">Continue the Chain</div>
+      <h2 class="thread-bottom-cta__title">Gangsta rap was not a genre. It was a response to a war.</h2>
+      <p class="thread-bottom-cta__sub">N.W.A's "Fuck tha Police" was not provocation — it was testimony. What happened when the industry discovered gangsta rap was profitable is one of the darkest chapters in music history.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-gangsta-rap.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Next: Gangsta Rap →</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>
