@@ -309,12 +309,3 @@
   }
 
 })();
-
-
-// Load onboarding (nav tooltips) on all thread pages
-(function() {
-  var s = document.createElement('script');
-  s.src = 'js/onboarding.js';
-  s.defer = true;
-  document.head.appendChild(s);
-})();
