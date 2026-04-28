@@ -203,6 +203,145 @@
 <main id="main-content">
 
   <!-- =======================================================
+       SECTION 1: HERO — Data-Forward Research Tool
+       ======================================================= -->
+  <section class="hero" aria-labelledby="hero-headline">
+    <div class="hero__texture" aria-hidden="true"></div>
+    <div class="hero__grid-overlay" aria-hidden="true"></div>
+    <div class="container hero__inner">
+
+      <!-- Left: Functional value prop + command search -->
+      <div class="hero__content">
+        <p class="hero__eyebrow animate-fade-up">
+          <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+          137 threads · 9 eras · 500 BCE – present
+        </p>
+        <h1 id="hero-headline" class="hero__headline animate-fade-up animate-delay-100">
+          The causal chain of<br />
+          <em>Black history, mapped.</em>
+        </h1>
+        <p class="hero__subhead animate-fade-up animate-delay-200">
+          Each thread traces how a policy, law, or decision created conditions that persist today. Start anywhere in the chain — from African civilizations to present-day America.
+        </p>
+
+        <!-- Command-K style search — primary interaction -->
+        <div class="hero__search-entry animate-fade-up animate-delay-250">
+          <form class="hero__search-form hero__search-form--cmd" action="search.html" method="get" role="search" aria-label="Search Chain">
+            <label for="heroSearchMain" class="sr-only">Search by person, year, policy, or event</label>
+            <div class="hero__search-row">
+              <span class="hero__search-kbd" aria-hidden="true">⌘K</span>
+              <input
+                id="heroSearchMain"
+                name="q"
+                type="search"
+                class="hero__search-input"
+                placeholder="Search by person, year, policy, or event…"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button type="submit" class="hero__search-submit" aria-label="Search">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </form>
+
+          <!-- Quick-jump chips — domain shortcuts -->
+          <div class="hero__q-pills" role="group" aria-label="Jump to domain">
+            <a href="threads.html?filter=housing"          class="hero__q-pill">Housing</a>
+            <a href="threads.html?filter=criminal-justice" class="hero__q-pill">Criminal Justice</a>
+            <a href="threads.html?filter=labor-wealth"     class="hero__q-pill">Wealth Gap</a>
+            <a href="threads.html?filter=education"        class="hero__q-pill hero__q-pill--more">Education</a>
+            <a href="threads.html?filter=health"           class="hero__q-pill hero__q-pill--more">Health</a>
+          </div>
+        </div>
+
+        <!-- Primary CTA -->
+        <div class="hero__journey-cta animate-fade-up animate-delay-300">
+          <a href="thread-pharaohs.html" class="hero__journey-btn" aria-label="Start the Journey — Thread 1 of 137">
+            <span class="hero__journey-btn-icon" aria-hidden="true">→</span>
+            Start the Journey
+            <span class="hero__journey-btn-sub">Thread 1 of 137 · African Origins</span>
+          </a>
+          <a href="threads.html" class="hero__journey-browse">Browse all 137 threads <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <!-- Right: Era distribution chart — the data artifact -->
+      <aside class="hero__artifact animate-fade-up animate-delay-400" aria-label="Thread distribution across 9 historical eras">
+        <div class="artifact__header">
+          <span class="artifact__label">Thread Distribution</span>
+          <span class="artifact__meta">137 threads · 9 eras · ~2,500 years</span>
+        </div>
+
+        <div class="artifact__chart" role="list" aria-label="Threads per era">
+          <a href="threads.html?era=1" class="artifact__row" role="listitem" style="--era-color:#b8972a">
+            <span class="artifact__era-num">Era 1</span>
+            <span class="artifact__era-name">African Origins</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:45%"></span></span>
+            <span class="artifact__count">5</span>
+          </a>
+          <a href="threads.html?era=2" class="artifact__row" role="listitem" style="--era-color:#c0392b">
+            <span class="artifact__era-num">Era 2</span>
+            <span class="artifact__era-name">The Rupture</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:55%"></span></span>
+            <span class="artifact__count">6</span>
+          </a>
+          <a href="threads.html?era=3" class="artifact__row" role="listitem" style="--era-color:#1a6b3a">
+            <span class="artifact__era-num">Era 3</span>
+            <span class="artifact__era-name">Slavery &amp; Resistance</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:73%"></span></span>
+            <span class="artifact__count">8</span>
+          </a>
+          <a href="threads.html?era=4" class="artifact__row" role="listitem" style="--era-color:#7a3e3e">
+            <span class="artifact__era-num">Era 4</span>
+            <span class="artifact__era-name">Emancipation &amp; Betrayal</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:55%"></span></span>
+            <span class="artifact__count">6</span>
+          </a>
+          <a href="threads.html?era=5" class="artifact__row artifact__row--largest" role="listitem" style="--era-color:#5c4a1e">
+            <span class="artifact__era-num">Era 5</span>
+            <span class="artifact__era-name">Jim Crow Era</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:100%"></span></span>
+            <span class="artifact__count">11</span>
+          </a>
+          <a href="threads.html?era=6" class="artifact__row" role="listitem" style="--era-color:#1a4a6b">
+            <span class="artifact__era-num">Era 6</span>
+            <span class="artifact__era-name">WWII &amp; Post-War</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:36%"></span></span>
+            <span class="artifact__count">4</span>
+          </a>
+          <a href="threads.html?era=7" class="artifact__row" role="listitem" style="--era-color:#1a5c3a">
+            <span class="artifact__era-num">Era 7</span>
+            <span class="artifact__era-name">Civil Rights</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:73%"></span></span>
+            <span class="artifact__count">8</span>
+          </a>
+          <a href="threads.html?era=8" class="artifact__row" role="listitem" style="--era-color:#4a2060">
+            <span class="artifact__era-num">Era 8</span>
+            <span class="artifact__era-name">Backlash Era</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:82%"></span></span>
+            <span class="artifact__count">9</span>
+          </a>
+          <a href="threads.html?era=9" class="artifact__row" role="listitem" style="--era-color:#2a4a6b">
+            <span class="artifact__era-num">Era 9</span>
+            <span class="artifact__era-name">Present Day</span>
+            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:82%"></span></span>
+            <span class="artifact__count">9</span>
+          </a>
+        </div>
+
+        <div class="artifact__footer">
+          <div class="artifact__stat"><span class="artifact__stat-n">500 BCE</span><span class="artifact__stat-l">Earliest thread</span></div>
+          <div class="artifact__stat"><span class="artifact__stat-n">2026</span><span class="artifact__stat-l">Most recent</span></div>
+          <div class="artifact__stat"><span class="artifact__stat-n">9</span><span class="artifact__stat-l">Domains</span></div>
+        </div>
+        <a href="threads.html?view=journey" class="artifact__cta">View full chronological sequence <span aria-hidden="true">→</span></a>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- =======================================================
        SECTION 1.5: HOW DO YOU WANT TO EXPLORE?
        Audience / goal-based entry points
        ======================================================= -->

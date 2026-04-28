@@ -12,10 +12,6 @@
   padding: var(--space-14) 0;
 }
 
-/* When explore-goals is the first section (hero removed), give extra top padding */
-main > .explore-goals:first-child {
-  padding-top: var(--space-20);
-}
 
 [data-theme="dark"] .explore-goals {
   background: var(--ink-950, #080808);

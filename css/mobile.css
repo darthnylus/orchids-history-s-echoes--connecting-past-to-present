@@ -352,7 +352,7 @@ h3, h4  { letter-spacing: -0.015em; }
     padding-bottom: var(--space-10);
     display: flex;
     align-items: center;
-    overflow: visible;                           /* Allow content to scroll — system.css sets overflow:hidden which traps content on mobile */
+    overflow: hidden;                            /* Clip decorative texture/overlay elements */
   }
 
   .hero__inner {
