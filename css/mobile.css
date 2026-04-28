@@ -425,6 +425,12 @@ h3, h4  { letter-spacing: -0.015em; }
     color: rgba(255,255,255,0.45);
   }
 
+  /* ── HERO ARTIFACT (era chart sidebar) — hide on phones ──── */
+  /* The era distribution chart is a desktop data visualization.
+     On mobile the hero is already dense; hiding keeps the CTA
+     above the fold without losing critical content. */
+  .hero__artifact { display: none !important; }
+
   /* ── EXPLORE GOALS section ───────────────────────────────── */
   .explore-goals { padding: var(--space-10) 0; }
 
