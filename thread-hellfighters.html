@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>The 369th Hellfighters: Black Soldiers in WWI — Chain</title>
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    :root{--acc:#7a3e3e;--acc-lt:#fca5a5}
+    [data-theme="dark"]{--acc:#7a3e3e;--acc-lt:#fca5a5}
+    .thread-hero{background:#0a0404;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(122,62,62,.45) 0%,transparent 60%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:2}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(122,62,62,.15);border:1px solid rgba(252,165,165,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt)}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:var(--acc-lt);font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.78);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
+    .thread-meta-item__label{font-size:var(--type-xs);color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.90);text-shadow:0 1px 4px rgba(0,0,0,.6)}
+    .argument-bar{background:rgba(122,62,62,.07);border-top:1px solid rgba(252,165,165,.18);border-bottom:1px solid rgba(252,165,165,.18);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(122,62,62,.20);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(122,62,62,.12);border:1px solid rgba(252,165,165,.22);color:var(--acc-lt)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(122,62,62,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:var(--acc-lt);color:#0d0d0d}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.1)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">Emancipation &amp; Betrayal</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Emancipation &amp; Betrayal · WWI · 1917 – 1919</div>
+      <h1 class="thread-hero__title">The 369th Hellfighters:<br /><em>Black Soldiers in WWI</em></h1>
+      <p class="thread-hero__subtitle">The 369th Infantry Regiment — the "Harlem Hellfighters" — spent 191 days in combat in World War I, longer than any other American unit. They never lost a man to capture, never surrendered an inch of ground. France awarded them the Croix de Guerre — their highest military honor — en masse. The United States Army kept them segregated, refused to let them march in the Allied victory parade, and sent them home to a country that lynched Black veterans in their uniforms.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Era</div><div class="thread-meta-item__value">Emancipation &amp; Betrayal</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Dates</div><div class="thread-meta-item__value">1917 – 1919</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Unit</div><div class="thread-meta-item__value">369th Infantry Regiment, U.S. Army / French Army</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Honors</div><div class="thread-meta-item__value">Croix de Guerre (entire regiment); 171 individual decorations</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">The Hellfighters went to war for a country that treated them as less than citizens, fought under a foreign flag because their own army would not fight beside them, were decorated by France while being segregated by America, and came home to the Red Summer of 1919 — a wave of anti-Black mob violence across the United States. <strong>Their story is the definitive case against the claim that Black Americans needed to "prove" themselves worthy of equal rights.</strong> If 191 days in the trenches was not enough, nothing was — because the barrier was never about proof. It was about power.</p></div>
+    </div>
+  </div>
+</div>
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main"><div class="entry-list">
+
+<div class="entry-item" id="e1">
+  <div class="entry-item__header">
+    <div class="entry-item__num">1</div>
+    <div>
+      <div class="entry-item__dates">1917</div>
+      <h2 class="entry-item__name">The Army That Wouldn't Fight Beside Them</h2>
+      <div class="entry-item__location">United States — Camp Whitman, New York; France</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>When the United States entered World War I in April 1917, Black Americans faced a choice familiar from every American war: serve a country that denied them citizenship rights, in hopes that military service would prove their worthiness for those rights. The NAACP, under W.E.B. Du Bois, issued a call to "close ranks" — to set aside civil rights demands and support the war effort as a demonstration of loyalty and capability.</p>
+    <p>The Army's response was to accept Black soldiers and immediately segregate them. The 15th New York National Guard — which would become the 369th Infantry Regiment — trained at Camp Whitman in New York, then sailed to France in late 1917. On arrival, the U.S. Army refused to integrate them into American combat operations. The Army did not want to fight alongside Black soldiers. Instead, they transferred the entire regiment to the <strong>French Army</strong>, which was running short of troops and had no such objection. The Hellfighters spent the war fighting under French command, wearing American uniforms, carrying French weapons.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">191</div><div class="entry-stat__label">Days in continuous front-line combat — longer than any other American unit in WWI</div></div>
+      <div><div class="entry-stat__num">French Army</div><div class="entry-stat__label">The army the U.S. assigned them to — because the U.S. Army would not fight beside Black soldiers</div></div>
+      <div><div class="entry-stat__num">0</div><div class="entry-stat__label">Men captured; 0 inches of ground lost in 191 days of combat</div></div>
+    </div>
+    <p>Before the regiment's transfer to French command, the U.S. Army circulated a memo to French military officials: <em>"Secret Information Concerning Black American Troops."</em> The memo warned French officers not to eat with Black soldiers, not to shake their hands, not to praise them in front of white Americans, and not to allow them to associate with French women. It requested that the French maintain American-style racial hierarchy in France. <strong>The French largely ignored it.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e2">
+  <div class="entry-item__header">
+    <div class="entry-item__num">2</div>
+    <div>
+      <div class="entry-item__dates">1917 – 1918</div>
+      <h2 class="entry-item__name">In the Trenches: 191 Days Without Retreat</h2>
+      <div class="entry-item__location">The Western Front — Argonne, Champagne, Meuse</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>The 369th was assigned to some of the most brutal sectors of the Western Front — the Argonne forest, the Champagne region, the Meuse-Argonne offensive. They spent 191 consecutive days in front-line combat positions. They never lost a prisoner to German capture. They never abandoned a position under fire. In the entire history of the unit's WWI service, <strong>not a single soldier was taken prisoner and not a single foot of ground they held was surrendered to the enemy.</strong></p>
+    <p>Among the regiment's most celebrated soldiers were <strong>Henry Johnson</strong> and <strong>Needham Roberts</strong> — two privates who, on the night of May 15, 1918, held off a German raiding party of more than 20 men while alone at their sentry post. Johnson was wounded 21 times. Out of ammunition, he fought with a bolo knife, killing four Germans and rescuing Roberts from capture. The French awarded Johnson the Croix de Guerre with gold palm — the highest individual military honor France awarded. <strong>The United States did not award Johnson so much as a Purple Heart for 87 years.</strong> He received the Medal of Honor posthumously in 2015.</p>
+    <div class="pullquote">
+      <p>"They were one of the most decorated American units of the entire war. And they came home to be told they were not good enough to march in the parade."</p>
+      <cite>— Chad Williams, <em>Torchbearers of Democracy: African American Soldiers in the World War I Era</em>, 2010</cite>
+    </div>
+    <p>The regiment's band, led by <strong>James Reese Europe</strong>, was equally legendary. Europe had been one of the most celebrated bandleaders in New York before the war. In France, the regiment's jazz performances introduced the music form to French audiences — soldiers and civilians — with enormous impact. The French credited the 369th's band with introducing jazz to Europe. Reese Europe's orchestra became famous across France. He was killed in 1919 by a fellow musician, three days after leading a triumphal march up Fifth Avenue with the returning regiment.</p>
+  </div>
+</div>
+
+<div class="entry-item" id="e3">
+  <div class="entry-item__header">
+    <div class="entry-item__num">3</div>
+    <div>
+      <div class="entry-item__dates">1919</div>
+      <h2 class="entry-item__name">The Victory Parade They Were Excluded From — and Then Given Their Own</h2>
+      <div class="entry-item__location">Paris · New York City</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>When the Allied victory parade was organized in Paris in July 1919, the U.S. Army excluded Black regiments from the official American contingent. The 369th was not permitted to march with American forces. The French, by contrast, invited them to march with French troops — which they did, to enormous crowds and acclaim.</p>
+    <p>When the regiment returned to New York, the city gave them their own parade up Fifth Avenue — February 17, 1919. An estimated 250,000 people lined the streets in Harlem to welcome them home. They marched from downtown Manhattan through the arch at 110th Street and into Harlem, where the crowds were the thickest. It was a moment of enormous collective pride. <strong>It was also, for most of the men in the regiment, a return to a country that would spend the next several months attacking them.</strong></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">171</div><div class="entry-stat__label">Individual decorations received by regiment members — Croix de Guerre, Légion d'Honneur</div></div>
+      <div><div class="entry-stat__num">250,000</div><div class="entry-stat__label">People lining Fifth Avenue to welcome the 369th home to New York City</div></div>
+      <div><div class="entry-stat__num">Excluded</div><div class="entry-stat__label">From the official Allied victory parade in Paris — marched with French troops instead</div></div>
+    </div>
+    <p>The French awarded the entire 369th Infantry Regiment the Croix de Guerre — France's highest unit commendation — for bravery under fire. This was one of only a handful of times in WWI that a foreign unit received the honor collectively. 171 individual officers and soldiers received individual French military decorations. The American Army gave the regiment no unit citation. <strong>The country they fought for did not formally honor their service at the unit level during their lifetimes.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e4">
+  <div class="entry-item__header">
+    <div class="entry-item__num">4</div>
+    <div>
+      <div class="entry-item__dates">1919</div>
+      <h2 class="entry-item__name">The Red Summer: What Awaited Them at Home</h2>
+      <div class="entry-item__location">United States — Chicago, Tulsa, Washington D.C., and 25 other cities</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>In the spring and summer of 1919 — while the Hellfighters were marching up Fifth Avenue — white mobs attacked Black communities in more than 25 American cities. The wave of violence, which historian James Weldon Johnson named the <em>"Red Summer,"</em> killed hundreds of Black Americans and displaced tens of thousands. In Elaine, Arkansas, a labor organizing meeting in a Black church was attacked; the subsequent violence killed over 200 Black people and 5 white people. In Chicago, a Black teenager named Eugene Williams was stoned to death in Lake Michigan for swimming on the white side of an invisible racial boundary; 38 people died in the riots that followed.</p>
+    <p>Black veterans in uniform were specific targets. In the South, several Black veterans were lynched while still wearing their military uniforms. The message was explicit and deliberate: <strong>military service had not earned them equality and anyone who thought otherwise would be corrected with violence.</strong> W.E.B. Du Bois, writing in The Crisis, published his famous essay <em>"Returning Soldiers"</em> in May 1919: <em>"We return fighting. Make way for Democracy! We saved it in France, and by the Great Jehovah, we will save it in the United States of America, or know the reason why."</em></p>
+    <div class="pullquote">
+      <p>"We return from the slavery of uniform which the world's madness demanded us to don to the freedom of civil garb. We stand again to look America squarely in the face and call a spade a spade."</p>
+      <cite>— W.E.B. Du Bois, "Returning Soldiers," <em>The Crisis</em>, May 1919</cite>
+    </div>
+    <p>Sergeant Henry Johnson, who had fought off 20 Germans with a bolo knife in France, returned to the United States and received no official recognition, no back pay that had been incorrectly withheld, no disability compensation for his 21 wounds. He died in poverty in 1929 at approximately 32 years old. The United States did not award him the Medal of Honor he earned until 86 years after his death. <strong>The country he bled for forgot him before his body was cold.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e5">
+  <div class="entry-item__header">
+    <div class="entry-item__num">5</div>
+    <div>
+      <div class="entry-item__dates">The Pattern</div>
+      <h2 class="entry-item__name">Double Victory — and Double Betrayal</h2>
+      <div class="entry-item__location">United States — WWI, WWII, Korea, Vietnam</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>The 369th Hellfighters are the clearest expression of a pattern that recurred in every American war: Black soldiers volunteer or are conscripted to serve a country that denies them rights, perform with extraordinary distinction, are promised that their service will change their status, and return home to find nothing has changed — or has gotten worse. The "Double V" campaign of WWII — victory abroad and victory at home — was the explicit articulation of this pattern: Black soldiers understood that their service was also a political argument, and fought on both fronts simultaneously.</p>
+    <p>The pattern persisted because the barrier to Black equality was never about demonstrated capability. It was about political power and economic interest. No amount of military heroism could address that — because the people with the power to change things were the same people who had an interest in maintaining the status quo. The Hellfighters proved everything they could prove and came home to the Red Summer. The Tuskegee Airmen — two decades later — came home to GI Bill benefits that were systematically denied. The lesson of each instance was the same: <strong>the country did not need to be persuaded that Black Americans were capable. It needed to be compelled to treat them as equal. Persuasion had already been tried.</strong></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">2015</div><div class="entry-stat__label">Year Henry Johnson received the Medal of Honor — 96 years after his death in poverty</div></div>
+      <div><div class="entry-stat__num">25+</div><div class="entry-stat__label">American cities attacked by white mobs in the Red Summer of 1919</div></div>
+      <div><div class="entry-stat__num">191</div><div class="entry-stat__label">Days of combat. Not enough. Nothing was ever enough — because capability was never the question.</div></div>
+    </div>
+  </div>
+</div>
+
+</div></main>
+      <aside class="thread-sidebar">
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Key Figures</div>
+  <div class="sidebar-card__body">
+    <strong>Henry Johnson</strong> — fought off 20 Germans single-handedly, wounded 21 times; received no U.S. recognition until Medal of Honor in 2015 (96 years posthumous)<br/><br/>
+    <strong>Needham Roberts</strong> — Johnson's partner in the May 1918 battle; also received Croix de Guerre<br/><br/>
+    <strong>James Reese Europe</strong> — bandleader who introduced jazz to France; celebrated on return; killed 1919<br/><br/>
+    <strong>Colonel William Hayward</strong> — white commanding officer who fought persistently for the regiment's rights and recognition
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The U.S. Army's Memo to France</div>
+  <div class="sidebar-card__body">
+    Before the 369th was transferred to French command, U.S. Army officers circulated <em>"Secret Information Concerning Black American Troops"</em> to French military officials.<br/><br/>
+    It instructed French officers:<br/>
+    — Do not eat with Black soldiers<br/>
+    — Do not shake their hands<br/>
+    — Do not praise them in front of white Americans<br/>
+    — Do not allow them to associate with French women<br/><br/>
+    The French largely ignored it.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Red Summer, 1919</div>
+  <div class="sidebar-card__body">
+    More than 25 cities saw anti-Black mob violence in the spring and summer of 1919:<br/><br/>
+    <strong>Chicago</strong> — 38 killed, 537 injured<br/><br/>
+    <strong>Elaine, Arkansas</strong> — 200+ Black people killed in labor dispute massacre<br/><br/>
+    <strong>Washington, D.C.</strong> — mobs attacked Black neighborhoods; Black residents fought back<br/><br/>
+    Black veterans in uniform were specifically targeted in Southern states.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Connected Threads</div>
+  <div class="sidebar-card__body">
+    <a href="thread-tulsa.html" style="color:var(--acc-lt)">The Tulsa Race Massacre →</a><br/><br/>
+    <a href="thread-tuskegee-airmen.html" style="color:var(--acc-lt)">The Tuskegee Airmen →</a><br/><br/>
+    <a href="thread-great-migration.html" style="color:var(--acc-lt)">The Great Migration →</a>
+  </div>
+</div>
+</aside>
+    </div>
+  </div>
+</section>
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">They Proved Everything. It Didn't Matter.</div>
+      <h2 class="thread-bottom-cta__title">191 days in the trenches. France's highest honor. A welcome-home lynching.</h2>
+      <p class="thread-bottom-cta__sub">The Hellfighters' story destroys the argument that Black Americans needed to prove their worthiness for equal rights. They proved it. The country met them with the Red Summer. The barrier was never about proof. It was about power.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-tulsa.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">The Tulsa Race Massacre &rarr;</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="home.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+  </div>
+</footer>
+<script>const t=document.getElementById('themeToggle');if(t)t.addEventListener('click',()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('chain-theme',n)});</script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>
