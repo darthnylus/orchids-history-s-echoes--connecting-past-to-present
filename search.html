@@ -296,6 +296,185 @@
     [data-theme="dark"] .trending-chip { background: var(--ink-800); border-color: var(--ink-700); color: var(--ink-300); }
 
     .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+    /* ── First-visit welcome tooltip ──────────────────────────── */
+    .ftv-tooltip {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      width: min(480px, 92vw);
+      background: var(--ink-950, #0d0d0d);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 20px 22px 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .ftv-tooltip.is-visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+    /* arrow */
+    .ftv-tooltip::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 11px;
+      height: 11px;
+      background: var(--ink-950, #0d0d0d);
+      border-top: 1px solid rgba(255,255,255,.12);
+      border-left: 1px solid rgba(255,255,255,.12);
+    }
+    .ftv-tooltip__eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amber-500, #f59e0b);
+      margin-bottom: 8px;
+    }
+    .ftv-tooltip__title {
+      font-family: var(--font-editorial);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .ftv-tooltip__tips {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 18px;
+    }
+    .ftv-tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.5;
+    }
+    .ftv-tip__icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.08);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 12px;
+    }
+    .ftv-tip strong { color: #fff; font-weight: 600; }
+    .ftv-tooltip__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .ftv-tooltip__dismiss {
+      background: var(--amber-500, #f59e0b);
+      color: #0d0d0d;
+      border: none;
+      border-radius: 999px;
+      padding: 7px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter .15s;
+    }
+    .ftv-tooltip__dismiss:hover { filter: brightness(1.08); }
+    .ftv-tooltip__skip {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .ftv-tooltip__skip:hover { color: rgba(255,255,255,.6); }
+
+    /* ── Hover preview card ────────────────────────────────────── */
+    .hover-preview {
+      position: fixed;
+      width: 320px;
+      background: var(--color-surface, #fff);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.18), 0 4px 12px rgba(0,0,0,.08);
+      z-index: 300;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px) scale(.98);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .hover-preview.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    [data-theme="dark"] .hover-preview {
+      background: var(--ink-800, #1a1a1a);
+      border-color: var(--ink-700, #2a2a2a);
+      box-shadow: 0 16px 48px rgba(0,0,0,.55);
+    }
+    .hover-preview__badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: var(--amber-100, #fef3c7);
+      color: var(--amber-800, #92400e);
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-bottom: 10px;
+    }
+    [data-theme="dark"] .hover-preview__badge {
+      background: rgba(245,158,11,.15);
+      color: var(--amber-400, #fbbf24);
+    }
+    .hover-preview__title {
+      font-family: var(--font-editorial);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .hover-preview__meta {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .hover-preview__excerpt {
+      font-size: 12.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .hover-preview__cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-accent-dark, #b45309);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    [data-theme="dark"] .hover-preview__cta { color: var(--amber-400, #fbbf24); }
   </style>
 </head>
 <body>
@@ -412,7 +591,30 @@
   <section class="search-header" aria-label="Search">
     <div class="container search-header__inner">
       <p class="search-header__label">Search Chain</p>
-      <form role="search" id="pageSearchForm" action="search.html" method="get">
+      <form role="search" id="pageSearchForm" action="search.html" method="get" style="position:relative">
+        <!-- First-visit welcome tooltip -->
+        <div class="ftv-tooltip" id="ftvTooltip" role="tooltip" aria-live="polite">
+          <div class="ftv-tooltip__eyebrow">New here?</div>
+          <div class="ftv-tooltip__title">Search 160+ threads, people, events &amp; policies</div>
+          <div class="ftv-tooltip__tips">
+            <div class="ftv-tip">
+              <div class="ftv-tip__icon">💬</div>
+              <div><strong>Ask a full question</strong> — "Why does the racial wealth gap persist?" works just as well as a keyword.</div>
+            </div>
+            <div class="ftv-tip">
+              <div class="ftv-tip__icon">🗂</div>
+              <div><strong>Filter by type</strong> — use the chips below the bar to narrow to Threads, People, Policies, or Events.</div>
+            </div>
+            <div class="ftv-tip">
+              <div class="ftv-tip__icon">🖱</div>
+              <div><strong>Hover any result</strong> for a quick preview before clicking through.</div>
+            </div>
+          </div>
+          <div class="ftv-tooltip__footer">
+            <button class="ftv-tooltip__dismiss" id="ftvDismiss" type="button">Got it</button>
+            <button class="ftv-tooltip__skip" id="ftvSkip" type="button">Don't show again</button>
+          </div>
+        </div>
         <div class="search-bar-wrap">
           <svg class="search-bar-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           <label for="pageSearchInput" class="sr-only">Search threads, people, policies, events, and places</label>
@@ -586,6 +788,15 @@
     </div>
   </div>
 </footer>
+
+<!-- Hover preview card (positioned by JS) -->
+<div class="hover-preview" id="hoverPreview" aria-hidden="true">
+  <div class="hover-preview__badge" id="hpBadge"></div>
+  <div class="hover-preview__title" id="hpTitle"></div>
+  <div class="hover-preview__meta" id="hpMeta"></div>
+  <div class="hover-preview__excerpt" id="hpExcerpt"></div>
+  <div class="hover-preview__cta">Read thread <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+</div>
 
 <script>
   // ── SEARCH DATA ───────────────────────────────────────────
@@ -1489,6 +1700,91 @@
     pageInput.value = urlQ;
     runSearch(urlQ);
   }
+
+  // ── FIRST-VISIT TOOLTIP ───────────────────────────────────
+  const ftvTooltip  = document.getElementById('ftvTooltip');
+  const ftvDismiss  = document.getElementById('ftvDismiss');
+  const ftvSkip     = document.getElementById('ftvSkip');
+  const FTV_KEY     = 'chain-ftv-dismissed';
+
+  function dismissFtv() {
+    ftvTooltip.classList.remove('is-visible');
+    localStorage.setItem(FTV_KEY, '1');
+  }
+
+  if (!localStorage.getItem(FTV_KEY) && !urlQ) {
+    setTimeout(() => ftvTooltip.classList.add('is-visible'), 700);
+  }
+
+  ftvDismiss.addEventListener('click', dismissFtv);
+  ftvSkip.addEventListener('click', dismissFtv);
+
+  // Hide when user starts typing
+  pageInput.addEventListener('input', () => {
+    if (pageInput.value) ftvTooltip.classList.remove('is-visible');
+  }, { once: true });
+
+  // ── HOVER PREVIEW CARD ────────────────────────────────────
+  const hoverPreview = document.getElementById('hoverPreview');
+  const hpBadge      = document.getElementById('hpBadge');
+  const hpTitle      = document.getElementById('hpTitle');
+  const hpMeta       = document.getElementById('hpMeta');
+  const hpExcerpt    = document.getElementById('hpExcerpt');
+
+  let hoverTimer = null;
+
+  function showPreview(card, item) {
+    hpBadge.textContent   = item.type;
+    hpTitle.textContent   = item.title;
+    hpMeta.textContent    = item.meta;
+    hpExcerpt.textContent = item.excerpt;
+
+    const rect   = card.getBoundingClientRect();
+    const pw     = 320;
+    const margin = 12;
+    let left = rect.right + margin;
+    // Flip left if not enough room on right
+    if (left + pw > window.innerWidth - 8) {
+      left = rect.left - pw - margin;
+    }
+    // Clamp to viewport
+    left = Math.max(8, left);
+    const top = Math.min(
+      rect.top + window.scrollY,
+      window.scrollY + window.innerHeight - hoverPreview.offsetHeight - 12
+    );
+
+    hoverPreview.style.left = left + 'px';
+    hoverPreview.style.top  = top + 'px';
+    hoverPreview.classList.add('is-visible');
+    hoverPreview.setAttribute('aria-hidden', 'false');
+  }
+
+  function hidePreview() {
+    hoverPreview.classList.remove('is-visible');
+    hoverPreview.setAttribute('aria-hidden', 'true');
+  }
+
+  resultList.addEventListener('mouseover', e => {
+    const card = e.target.closest('.result-card');
+    if (!card) return;
+    const href = card.getAttribute('href');
+    const item = CORPUS.find(x => x.href === href);
+    if (!item) return;
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => showPreview(card, item), 180);
+  });
+
+  resultList.addEventListener('mouseout', e => {
+    const card = e.target.closest('.result-card');
+    if (!card) return;
+    clearTimeout(hoverTimer);
+    hidePreview();
+  });
+
+  // Hide on scroll/resize to avoid stale positioning
+  window.addEventListener('scroll', hidePreview, { passive: true });
+  window.addEventListener('resize', hidePreview, { passive: true });
 </script>
 </body>
 </html>
