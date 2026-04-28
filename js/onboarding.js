@@ -193,7 +193,7 @@
       target: '.hero__journey-btn',
       title: 'The Chronological Journey',
       body: 'Start at Thread 1 and read forward through 160+ threads, from African Origins to Present Day. Every thread ends by linking to the next.',
-      position: 'top'
+      position: 'above'
     },
     {
       target: '.hero__search-form',
@@ -232,12 +232,14 @@
     '.tour-card{',
       'position:fixed;z-index:10002;',
       'width:min(340px,90vw);',
+      'max-height:calc(100vh - 48px);',
+      'overflow-y:auto;',
       'background:#0d0d0d;',
       'border:1px solid rgba(255,255,255,.13);',
       'border-radius:16px;',
       'padding:22px 24px 20px;',
       'box-shadow:0 24px 64px rgba(0,0,0,.7);',
-      'transition:all .3s cubic-bezier(.4,0,.2,1);',
+      'transition:top .3s cubic-bezier(.4,0,.2,1),left .3s cubic-bezier(.4,0,.2,1);',
     '}',
     '.tour-card__step{',
       'font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;',
@@ -307,25 +309,35 @@
   }
 
   function positionCard(targetRect, position) {
-    var cw     = Math.min(340, window.innerWidth * 0.9);
-    var margin = 16;
-    var ch     = card.offsetHeight || 220; // real card height after render
+    var margin  = 16;
+    var cw      = Math.min(340, window.innerWidth - margin * 2);
+    var ch      = card.offsetHeight || 220;
+    var vh      = window.innerHeight;
     var top, left;
 
-    if (position === 'bottom') {
-      top = targetRect.bottom + margin;
-    } else {
+    var spaceAbove  = targetRect.top - margin;
+    var spaceBelow  = vh - targetRect.bottom - margin;
+    var preferAbove = (position === 'above') || (position === 'top');
+
+    if (preferAbove && spaceAbove >= ch + margin) {
+      // Enough room above — place above
       top = targetRect.top - ch - margin;
+    } else if (spaceBelow >= ch + margin) {
+      // Enough room below
+      top = targetRect.bottom + margin;
+    } else if (spaceAbove >= spaceBelow) {
+      // More room above — place above and let it clip upward (clamped)
+      top = targetRect.top - ch - margin;
+    } else {
+      // Fall back: place below
+      top = targetRect.bottom + margin;
     }
 
     left = targetRect.left + (targetRect.width / 2) - (cw / 2);
 
-    /* If top position would go off-screen, flip to bottom */
-    if (top < margin) top = targetRect.bottom + margin;
-
-    /* Clamp: keep fully within viewport */
-    left = Math.max(margin, Math.min(left, window.innerWidth  - cw - margin));
-    top  = Math.max(margin, Math.min(top,  window.innerHeight - ch - margin));
+    /* Hard clamp within viewport */
+    left = Math.max(margin, Math.min(left, window.innerWidth - cw - margin));
+    top  = Math.max(margin, Math.min(top,  vh - ch - margin));
 
     card.style.top    = top + 'px';
     card.style.left   = left + 'px';
