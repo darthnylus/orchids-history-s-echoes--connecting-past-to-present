@@ -26,14 +26,13 @@
       justify-content: center;
     }
 
-    .intro__img {
+    .intro__bg {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 15%;
-      display: block;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(180,110,0,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(120,40,10,.20) 0%, transparent 55%),
+        #060402;
     }
 
 
@@ -186,30 +185,20 @@
         animation: none !important;
         opacity: 0 !important;
       }
-      .intro__bar > *, .intro__img {
+      .intro__bar > * {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
       }
     }
 
-    /* ── Mobile: keep statue's face visible ────────────── */
-    @media (max-width: 640px) {
-      .intro__img {
-        object-position: 52% 10%;
-      }
-    }
   </style>
 </head>
 <body>
 
 <main class="intro" role="main">
 
-  <img
-    class="intro__img"
-    src="images/hero-freedom-new.png"
-    alt="A Black woman in the form of the Statue of Liberty holds a glowing lantern aloft in one hand and a broken chain in the other, standing before an open sky."
-  />
+  <div class="intro__bg" aria-hidden="true"></div>
 
 
   <div class="intro__wakeup" aria-hidden="true">
