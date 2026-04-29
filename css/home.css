@@ -1215,9 +1215,9 @@
 }
 
 .artifact__bar-track {
-  height: 6px;
-  background: rgba(255,255,255,0.07);
-  border-radius: 3px;
+  height: 12px;
+  background: rgba(255,255,255,0.09);
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
 }
@@ -1226,14 +1226,18 @@
   display: block;
   height: 100%;
   width: var(--pct);
-  min-width: 4px;
+  min-width: 6px;
   background: var(--era-color, var(--amber-500));
-  border-radius: 3px;
-  opacity: 0.75;
-  transition: opacity 0.2s;
+  border-radius: 6px;
+  opacity: 1;
+  filter: saturate(1.4) brightness(1.15);
+  transition: filter 0.2s;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--era-color) 60%, transparent);
 }
 
-.artifact__row:hover .artifact__bar { opacity: 1; }
+.artifact__row:hover .artifact__bar {
+  filter: saturate(1.6) brightness(1.3);
+}
 
 .artifact__count {
   font-size: 10px;
