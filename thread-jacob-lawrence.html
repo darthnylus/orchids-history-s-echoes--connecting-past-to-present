@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Jacob Lawrence: The Migration Series — Chain</title>
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    :root{--acc:#1a3a5c;--acc-lt:#60a8f0}
+    [data-theme="dark"]{--acc:#1a3a5c;--acc-lt:#60a8f0}
+    .thread-hero{background:#010610;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(26,58,92,.60) 0%,transparent 60%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:2}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(26,58,92,.15);border:1px solid rgba(96,168,240,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt)}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:var(--acc-lt);font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.78);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
+    .thread-meta-item__label{font-size:var(--type-xs);color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.90)}
+    .argument-bar{background:rgba(26,58,92,.07);border-top:1px solid rgba(96,168,240,.18);border-bottom:1px solid rgba(96,168,240,.18);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(26,58,92,.20);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(26,58,92,.12);border:1px solid rgba(96,168,240,.22);color:var(--acc-lt)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(26,58,92,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:var(--acc-lt);color:#0d0d0d}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.1)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="threads.html" class="site-nav__link">Threads</a><a href="search.html" class="site-nav__link">Search</a><a href="about.html" class="site-nav__link">About</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">Art &amp; Culture</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Art &amp; Culture · New Deal Era → Civil Rights · 1917 – 2000</div>
+      <h1 class="thread-hero__title">Jacob Lawrence:<br /><em>Migration as Masterpiece</em></h1>
+      <p class="thread-hero__subtitle">Jacob Lawrence grew up in Harlem during the Renaissance, was taught by Charles Alston in a community art center, and at age 24 painted the Migration Series — 60 panels documenting the Great Migration in flat geometric color. The Museum of Modern Art and the Phillips Collection split the purchase. It was one of the first times MoMA had acquired work by a Black artist. Lawrence spent the next six decades painting Black history — the Toussaint L'Ouverture series, the Frederick Douglass series, the Harriet Tubman series — insisting that Black history was American history and deserved the full weight of serious art.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Born</div><div class="thread-meta-item__value">1917, Atlantic City, New Jersey</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Key Work</div><div class="thread-meta-item__value">Migration Series (1940–41) · 60 panels · tempera on hardboard</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Domain</div><div class="thread-meta-item__value">Visual Art · Black History · Migration</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg></div>
+      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text">Jacob Lawrence made visual art that functioned as historical testimony — and he did it at a moment when the mainstream art world was not prepared to treat Black history as a serious subject. <strong>The Migration Series is simultaneously one of the most formally sophisticated works in 20th century American art and one of the most complete accounts of the Great Migration's causes and consequences. Lawrence spent sixty years refusing the choice between political content and artistic rigor. He proved the choice was false.</strong></p></div>
+    </div>
+  </div>
+</div>
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main"><div class="entry-list">
+
+<div class="entry-item" id="e1">
+  <div class="entry-item__header">
+    <div class="entry-item__num">1</div>
+    <div>
+      <div class="entry-item__dates">1917 – 1930s</div>
+      <h2 class="entry-item__name">Growing Up in Harlem: The Renaissance as Classroom</h2>
+      <div class="entry-item__location">Atlantic City · Harlem, New York City</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Jacob Lawrence was born in Atlantic City in 1917. His family moved to Harlem when he was 13 — arriving at the tail end of the Renaissance, into a neighborhood that was still dense with artists, intellectuals, and cultural institutions. His mother enrolled him in an after-school arts program at the Utopia Children's House, where he came under the influence of <strong>Charles Alston</strong> — a Harlem Renaissance painter and teacher who was running community art classes out of his apartment at 306 West 141st Street, known as "306," the informal gathering place of the Harlem Renaissance's visual artists.</p>
+    <p>Alston introduced Lawrence to the work of Aaron Douglas, to African art, to the idea that geometric abstraction and social content were not opposites. He introduced him to the scholars and artists who gathered at 306: sculptor Augusta Savage, poet Langston Hughes, photographer James Van Der Zee. <strong>Lawrence grew up inside a tradition — not as a student borrowing from it but as a young artist who understood himself to be part of a living cultural project.</strong> When he began the Migration Series, he was not making something new. He was continuing something old.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">306</div><div class="entry-stat__label">West 141st Street — Charles Alston's studio and gathering place for Harlem Renaissance artists; Lawrence's informal university</div></div>
+      <div><div class="entry-stat__num">Augusta Savage</div><div class="entry-stat__label">Sculptor and teacher who helped Lawrence get his first stipend — $23/week from the Federal Art Project, 1938</div></div>
+      <div><div class="entry-stat__num">WPA</div><div class="entry-stat__label">Works Progress Administration Federal Art Project — employed Lawrence 1938–1939; gave him materials and time to research the Migration</div></div>
+    </div>
+    <p>Augusta Savage helped Lawrence obtain a position with the Federal Art Project of the Works Progress Administration in 1938 — a New Deal program that employed artists during the Depression. The $23 weekly stipend gave him materials and time. He spent a year in the Schomburg Center for Research in Black Culture on 135th Street — the greatest archive of Black history in America — reading the historical record of the Great Migration. <strong>The Migration Series was the product of that research. It was not impression. It was history, filtered through a visual intelligence that had been in formation for a decade.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e2">
+  <div class="entry-item__header">
+    <div class="entry-item__num">2</div>
+    <div>
+      <div class="entry-item__dates">1940 – 1941</div>
+      <h2 class="entry-item__name">The Migration Series: 60 Panels, One Story</h2>
+      <div class="entry-item__location">Harlem, New York City</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Lawrence painted all 60 panels of the Migration Series simultaneously — applying each color across all 60 panels before moving to the next color, ensuring perfect visual consistency across the series. The medium was casein tempera on hardboard. The palette was deliberately limited: deep blue, burnt sienna, yellow ochre, black, white. The forms were flat and geometric — figures without perspective, figures in silhouette, figures carrying suitcases and pushing through crowds. The captions were direct historical statements: <em>"The migration of the Negro northward, 1916–1919."</em></p>
+    <p>Panel 1: <em>"During World War I there was a great migration north by southern Negroes."</em> Panel 22: <em>"Another cause was lynching. It was found that where there had been riots, the colored people, in great numbers, left."</em> Panel 49: <em>"They found discrimination in the north. It was a different kind."</em> <strong>The series did not celebrate the migration. It documented it — including the violence that drove it, the conditions of travel, the discrimination found in the north, the slow process of building community in new cities.</strong> It was, in 60 panels, what Zora Neale Hurston had tried to do in prose: a complete account of Black experience that did not simplify, did not apologize, and did not perform for white comfort.</p>
+    <div class="pullquote">
+      <p>"I didn't think of myself as creating anything. I thought of myself as documenting something I was born into. I was always trying to tell the story of my people."</p>
+      <cite>— Jacob Lawrence, in multiple interviews</cite>
+    </div>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">60 panels</div><div class="entry-stat__label">Casein tempera on hardboard — painted simultaneously, one color at a time across all panels for visual consistency</div></div>
+      <div><div class="entry-stat__num">1941</div><div class="entry-stat__label">Fortune magazine reproduces 26 panels — Lawrence's first national exposure; the first time many Americans saw serious Black visual art</div></div>
+      <div><div class="entry-stat__num">Split purchase</div><div class="entry-stat__label">MoMA acquires odd-numbered panels; Phillips Collection acquires even-numbered — the series was reunited in full for the first time in 1993</div></div>
+    </div>
+    <p>The dealer Edith Halpert, who represented Lawrence, placed the series with <em>Fortune</em> magazine in 1941 — 26 panels reproduced in a special issue. It was Lawrence's first national exposure. The Museum of Modern Art and the Phillips Collection in Washington jointly purchased the series — MoMA taking the odd-numbered panels, Phillips the even. <strong>The two halves were not exhibited together in their entirety until 1993 — 52 years after they were painted, at a time when the Great Migration had already ended and the communities it created were being abandoned by urban policy again.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e3">
+  <div class="entry-item__header">
+    <div class="entry-item__num">3</div>
+    <div>
+      <div class="entry-item__dates">1941 – 1950s</div>
+      <h2 class="entry-item__name">Toussaint, Douglass, Tubman: History as Series</h2>
+      <div class="entry-item__location">Harlem · New York · The World</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>The Migration Series was not Lawrence's first historical series. Between 1937 and 1941, he had already completed series on <strong>Toussaint L'Ouverture</strong> (41 panels, 1937–38) — the leader of the Haitian Revolution — and on <strong>Frederick Douglass</strong> (32 panels, 1938–39) and <strong>Harriet Tubman</strong> (31 panels, 1939–40). Each series used the same formal language as the Migration: flat geometric forms, limited palette, direct caption text. Each insisted that these figures deserved the same sustained visual attention that European history painters gave to their subjects.</p>
+    <p>The choice of Toussaint L'Ouverture was significant. L'Ouverture led the only successful slave revolt in history — the Haitian Revolution of 1791–1804, which established Haiti as the first Black republic in the Western Hemisphere. American art history had not told this story. European art history had not told this story. <strong>Lawrence told it in paint at the age of 21.</strong> The implication was clear: if Black history had not been painted, it was not because it was not worth painting. It was because the painters who controlled the institutions had not chosen to paint it. Lawrence was making the opposite choice, one series at a time.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">41 panels</div><div class="entry-stat__label">Toussaint L'Ouverture series (1937–38) — painted at age 21; the Haitian Revolution told in flat geometric form</div></div>
+      <div><div class="entry-stat__num">32 panels</div><div class="entry-stat__label">Frederick Douglass series (1938–39) — from slavery to abolitionist leader to statesman</div></div>
+      <div><div class="entry-stat__num">31 panels</div><div class="entry-stat__label">Harriet Tubman series (1939–40) — the Underground Railroad as visual narrative</div></div>
+    </div>
+    <p>These series were not acquired by major museums when Lawrence painted them. They circulated through Black colleges and community organizations — the Harlem YMCA, Howard University, Dillard University. <strong>The institutional art world was not ready for Black history as serious art. The Black institutional world was, and it held the work until the mainstream caught up.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e4">
+  <div class="entry-item__header">
+    <div class="entry-item__num">4</div>
+    <div>
+      <div class="entry-item__dates">1950s – 1970s</div>
+      <h2 class="entry-item__name">The Hospital, the Struggle, and the Return</h2>
+      <div class="entry-item__location">New York · Hillside Hospital · Seattle</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>In 1949, Lawrence voluntarily checked himself into Hillside Hospital in Queens, New York — suffering from what he described as severe depression. He was 32 years old and had been under continuous creative and financial pressure since his teens. He spent nine months in the hospital. During that time, he painted a series of 11 works about his experience of psychiatric care — canvases that documented, without sentimentality, the daily life of patients, nurses, and doctors. When he left, he gave the series to the hospital. <strong>Even in breakdown, his instinct was to document.</strong></p>
+    <p>He returned to work, continued painting, and in the late 1960s began engaging explicitly with the Civil Rights Movement. His 1967 series <em>Builders</em> used the image of construction workers — men and women building something together — as a sustained metaphor for community and collective effort. His involvement in the protest movements of the era was direct: he signed statements, supported student organizing, used his art as explicit advocacy. <strong>The integration of political commitment and artistic practice that had characterized the Harlem Renaissance was, for Lawrence, not a historical position. It was a living one.</strong></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">1949</div><div class="entry-stat__label">Lawrence voluntarily enters Hillside Hospital for depression; paints 11-work series about psychiatric care during his stay</div></div>
+      <div><div class="entry-stat__num">1971</div><div class="entry-stat__label">Lawrence joins the faculty of the University of Washington, Seattle — spends the rest of his career teaching and making work</div></div>
+      <div><div class="entry-stat__num">Builders</div><div class="entry-stat__label">1967 series — construction workers as metaphor for community; his explicit response to the Civil Rights era</div></div>
+    </div>
+    <p>In 1971, Lawrence joined the faculty of the University of Washington in Seattle, where he taught until 1983. He continued to paint throughout. His final major series, <em>Builders</em>, occupied him across three decades — returning repeatedly to the image of people constructing something together. <strong>For a man who had grown up in Harlem while it was being built, who had documented the migration of the people who built American cities, who had spent sixty years insisting that Black history was worth building into permanent art, the metaphor was not a choice. It was an autobiography.</strong></p>
+  </div>
+</div>
+
+<div class="entry-item" id="e5">
+  <div class="entry-item__header">
+    <div class="entry-item__num">5</div>
+    <div>
+      <div class="entry-item__dates">Legacy</div>
+      <h2 class="entry-item__name">What Lawrence Proved</h2>
+      <div class="entry-item__location">American Art History</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Lawrence died in 2000 in Seattle, at the age of 82. By then, the Migration Series had been fully reunited and toured nationally; he had received the National Medal of Arts from President Clinton; the University of Washington had named a building after him. The institutional art world — which had taken decades to acquire the Toussaint and Tubman series — had settled into treating him as a major figure. The retrospective assessments were accurate: he was one of the most significant American painters of the 20th century.</p>
+    <p>What Lawrence proved, over six decades of work, was something that should not have needed proving: that Black history was serious enough to be the subject of serious art; that geometric abstraction and social content were not in conflict; that an artist could make politically committed work without sacrificing formal rigor; that the institutions that had not collected his early work were wrong, and the Black colleges and community organizations that had held it were right. <strong>He did not prove this by arguing. He proved it by painting.</strong></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">60+ years</div><div class="entry-stat__label">Active career — from the Toussaint series at age 21 to his final Builders work in his 80s</div></div>
+      <div><div class="entry-stat__num">1993</div><div class="entry-stat__label">The Migration Series is exhibited complete for the first time — both halves together — 52 years after it was painted</div></div>
+      <div><div class="entry-stat__num">2000</div><div class="entry-stat__label">Lawrence dies in Seattle. The panels he painted at 24 are in MoMA and the Phillips Collection — two of the most important museums in the world.</div></div>
+    </div>
+    <p>The Migration Series hangs in MoMA and the Phillips Collection — two of the most important art institutions in America. Panel 22, about lynching, is in MoMA. Panel 49, about northern discrimination, is in the Phillips. <strong>The full account — the violence that drove the migration and the discrimination that awaited migrants when they arrived — is split between two museums in two cities, reunited only on special occasions. That, too, is part of the story.</strong></p>
+  </div>
+</div>
+
+</div></main>
+      <aside class="thread-sidebar">
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Migration Series</div>
+  <div class="sidebar-card__body">
+    60 panels · casein tempera on hardboard · 1940–41<br/><br/>
+    Painted simultaneously — one color applied across all 60 panels before moving to the next.<br/><br/>
+    Odd-numbered panels: Museum of Modern Art, New York<br/>
+    Even-numbered panels: Phillips Collection, Washington D.C.<br/><br/>
+    Exhibited complete for the first time in 1993, 52 years after painting.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Historical Series</div>
+  <div class="sidebar-card__body">
+    <strong>Toussaint L'Ouverture</strong> — 41 panels (1937–38)<br/><br/>
+    <strong>Frederick Douglass</strong> — 32 panels (1938–39)<br/><br/>
+    <strong>Harriet Tubman</strong> — 31 panels (1939–40)<br/><br/>
+    <strong>Migration</strong> — 60 panels (1940–41)<br/><br/>
+    All painted before Lawrence turned 25.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Schomburg Connection</div>
+  <div class="sidebar-card__body">
+    Lawrence spent a year at the Schomburg Center for Research in Black Culture on 135th Street in Harlem — reading primary sources, collecting oral histories, building the historical record he would paint.<br/><br/>
+    The Schomburg (now part of the New York Public Library) was founded in 1925 by Arturo Schomburg, a Puerto Rican of African descent.<br/><br/>
+    It remains the greatest archive of Black history in the world.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Connected Threads</div>
+  <div class="sidebar-card__body">
+    <a href="thread-harlem-renaissance.html" style="color:var(--acc-lt)">The Harlem Renaissance →</a><br/><br/>
+    <a href="thread-gordon-parks.html" style="color:var(--acc-lt)">Gordon Parks: Camera as Weapon →</a><br/><br/>
+    <a href="thread-great-migration.html" style="color:var(--acc-lt)">The Great Migration →</a>
+  </div>
+</div>
+</aside>
+    </div>
+  </div>
+</section>
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">Continue the Art Chain</div>
+      <h2 class="thread-bottom-cta__title">Gordon Parks used a camera where others used rifles.</h2>
+      <p class="thread-bottom-cta__sub">The first Black photographer at Life magazine, Parks documented poverty, segregation, and Black dignity for decades — and then made the films that changed Hollywood.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-gordon-parks.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Next: Gordon Parks →</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>
