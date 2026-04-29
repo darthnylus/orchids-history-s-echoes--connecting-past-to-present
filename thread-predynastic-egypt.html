@@ -15,6 +15,8 @@
     [data-theme="dark"]{--acc:#b8972a;--acc-lt:#f0c84a}
     .thread-hero{background:#100e04;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
     .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(184,151,42,.45) 0%,transparent 60%)}
+    .thread-hero__img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:0.35;pointer-events:none}
+    .thread-hero__overlay{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(to right,rgba(16,14,4,.90) 0%,rgba(16,14,4,.60) 50%,rgba(16,14,4,.30) 100%),linear-gradient(to top,rgba(16,14,4,.85) 0%,transparent 45%)}
     .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
     .thread-hero__inner{position:relative;max-width:760px;z-index:2}
     .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(184,151,42,.12);border:1px solid rgba(184,151,42,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
@@ -103,6 +105,8 @@
 </div>
 <section class="thread-hero">
   <div class="thread-hero__bg" aria-hidden="true"></div>
+  <img class="thread-hero__img" src="images/hero-predynastic-egypt.png" alt="" aria-hidden="true">
+  <div class="thread-hero__overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="thread-hero__inner">
       <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>African Origins · Nile Valley · 5,000 – 3,100 BCE</div>
