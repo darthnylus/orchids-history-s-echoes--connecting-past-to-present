@@ -39,10 +39,11 @@
       z-index: 1;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      opacity: 0.55;
+      object-fit: contain;
+      object-position: center center;
+      opacity: 0.80;
       pointer-events: none;
+      transform: scale(0.82);
     }
 
     .intro__overlay {
@@ -51,8 +52,8 @@
       z-index: 2;
       pointer-events: none;
       background:
-        linear-gradient(to right, rgba(6,4,2,.85) 0%, rgba(6,4,2,.50) 45%, rgba(6,4,2,.10) 100%),
-        linear-gradient(to top, rgba(6,4,2,.80) 0%, transparent 40%);
+        linear-gradient(to right, rgba(6,4,2,.70) 0%, rgba(6,4,2,.30) 45%, rgba(6,4,2,.05) 100%),
+        linear-gradient(to top, rgba(6,4,2,.60) 0%, transparent 35%);
     }
 
 
