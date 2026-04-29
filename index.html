@@ -138,35 +138,6 @@
       pointer-events: none;
     }
 
-    /* ── Wake up overlay ───────────────────────────────── */
-    .intro__wakeup {
-      position: absolute;
-      inset: 0;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    .intro__wakeup-text {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(6rem, 28vw, 22rem);
-      text-align: center;
-      width: 100%;
-      font-weight: 700;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      animation: wakeup-fade 2s ease forwards;
-    }
-
-    @keyframes wakeup-fade {
-      0%   { opacity: 0; transform: scale(0.95); }
-      30%  { opacity: 1; transform: scale(1); }
-      70%  { opacity: 1; transform: scale(1); }
-      100% { opacity: 0; transform: scale(1.04); }
-    }
 
     /* ── Enter animation ───────────────────────────────── */
     @keyframes fade-in-up {
@@ -201,9 +172,6 @@
   <div class="intro__bg" aria-hidden="true"></div>
 
 
-  <div class="intro__wakeup" aria-hidden="true">
-    <span class="intro__wakeup-text">Wake up</span>
-  </div>
 
   <div class="intro__bar">
     <a href="home.html" class="intro__cta">
