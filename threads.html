@@ -381,69 +381,99 @@
     }
 
     /* Empire strip — bottom section */
+    /* ── Empire timeline strip ─────────────────────────────────── */
     .thread-featured__aside {
-      border-top: 1px solid rgba(224,122,0,.14);
-      background: rgba(0,0,0,.22);
-      padding: var(--space-5) var(--space-8);
+      border-top: 1px solid rgba(224,122,0,.13);
+      background: rgba(0,0,0,.18);
+      padding: var(--space-5) var(--space-8) var(--space-6);
       position: relative;
-      overflow: hidden;
     }
     .thread-featured__aside::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 200% at 50% 100%, rgba(224,122,0,.06) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 180% at 50% 120%, rgba(224,122,0,.05) 0%, transparent 65%);
       pointer-events: none;
     }
     .thread-featured__aside-label {
       font-size: 9px;
       font-weight: var(--weight-bold);
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(224,122,0,.45);
+      color: rgba(224,122,0,.4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
       margin-bottom: var(--space-4);
-      display: block;
     }
+    .thread-featured__aside-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(224,122,0,.18), transparent);
+    }
+
+    /* Scrollable timeline row */
     .causal-preview {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-1) var(--space-4);
+      gap: var(--space-3);
       width: 100%;
     }
-    @media (min-width: 640px) {
-      .causal-preview { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .causal-preview { grid-template-columns: repeat(5, 1fr); }
-    }
+    @media (min-width: 600px)  { .causal-preview { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 900px)  { .causal-preview { grid-template-columns: repeat(5, 1fr); } }
+
     .causal-preview__item {
       display: flex;
       flex-direction: column;
-      padding: var(--space-3) var(--space-4);
-      background: rgba(255,255,255,.03);
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-4) var(--space-3);
+      background: rgba(255,255,255,.025);
       border: 1px solid rgba(224,122,0,.1);
-      border-radius: var(--radius-md);
+      border-top: 2px solid rgba(224,122,0,.25);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
       transition: background var(--duration-fast), border-color var(--duration-fast);
       min-width: 0;
+      position: relative;
+    }
+    .causal-preview__item--consequence {
+      border-top-color: rgba(239,68,68,.4);
+      background: rgba(239,68,68,.04);
     }
     .thread-featured:hover .causal-preview__item {
-      background: rgba(255,255,255,.05);
-      border-color: rgba(224,122,0,.18);
+      background: rgba(255,255,255,.045);
+      border-color: rgba(224,122,0,.22);
+      border-top-color: rgba(224,122,0,.45);
+    }
+    .thread-featured:hover .causal-preview__item--consequence {
+      border-top-color: rgba(239,68,68,.65);
+      border-color: rgba(239,68,68,.2);
     }
     .causal-preview__connector { display: none; }
-    .causal-preview__text { min-width: 0; }
+    .causal-preview__text { min-width: 0; display: contents; }
+
     .causal-preview__year {
       font-size: 9px;
       font-weight: var(--weight-bold);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--amber-400);
-      margin-bottom: var(--space-1);
+      line-height: 1;
+    }
+    .causal-preview__item--consequence .causal-preview__year { color: rgba(252,165,165,.85); }
+
+    .causal-preview__name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      margin-top: 1px;
     }
     .causal-preview__label {
       font-size: 11px;
-      color: rgba(255,255,255,.65);
-      line-height: 1.45;
+      color: rgba(255,255,255,.52);
+      line-height: 1.5;
+      margin-top: var(--space-1);
     }
     .thread-featured__aside-cta { display: none; }
 
@@ -1959,60 +1989,34 @@
         </div>
       </div>
       <div class="thread-featured__aside" aria-hidden="true">
-        <span class="thread-featured__aside-label">What existed before</span>
+        <span class="thread-featured__aside-label">What existed before the chain</span>
         <div class="causal-preview">
           <div class="causal-preview__item">
-            <div class="causal-preview__connector">
-              <div class="causal-preview__dot"></div>
-              <div class="causal-preview__line"></div>
-            </div>
-            <div class="causal-preview__text">
-              <div class="causal-preview__year">1070 BCE – 350 CE</div>
-              <div class="causal-preview__label">Kingdom of Kush — 255 pyramids, iron production, Nubian pharaohs of Egypt</div>
-            </div>
+            <div class="causal-preview__year">1070 BCE – 350 CE</div>
+            <div class="causal-preview__name">Kingdom of Kush</div>
+            <div class="causal-preview__label">255 pyramids, iron production, Nubian pharaohs who ruled Egypt</div>
           </div>
           <div class="causal-preview__item">
-            <div class="causal-preview__connector">
-              <div class="causal-preview__dot"></div>
-              <div class="causal-preview__line"></div>
-            </div>
-            <div class="causal-preview__text">
-              <div class="causal-preview__year">1235 – 1600 CE</div>
-              <div class="causal-preview__label">Mali Empire — 50% of world's gold, Timbuktu universities, 25,000 students</div>
-            </div>
+            <div class="causal-preview__year">1235 – 1600 CE</div>
+            <div class="causal-preview__name">Mali Empire</div>
+            <div class="causal-preview__label">50% of the world's gold, Timbuktu universities, 25,000 students</div>
           </div>
           <div class="causal-preview__item">
-            <div class="causal-preview__connector">
-              <div class="causal-preview__dot"></div>
-              <div class="causal-preview__line"></div>
-            </div>
-            <div class="causal-preview__text">
-              <div class="causal-preview__year">1464 – 1591 CE</div>
-              <div class="causal-preview__label">Songhai — largest empire in African history, destroyed by European gunpowder</div>
-            </div>
+            <div class="causal-preview__year">1464 – 1591 CE</div>
+            <div class="causal-preview__name">Songhai Empire</div>
+            <div class="causal-preview__label">Largest empire in African history — ended by Moroccan arquebuses in a single battle</div>
           </div>
           <div class="causal-preview__item">
-            <div class="causal-preview__connector">
-              <div class="causal-preview__dot"></div>
-              <div class="causal-preview__line"></div>
-            </div>
-            <div class="causal-preview__text">
-              <div class="causal-preview__year">1440 – 1897 CE</div>
-              <div class="causal-preview__label">Benin Empire — bronze masterworks, legal codes, a kingdom older than Britain's parliament</div>
-            </div>
+            <div class="causal-preview__year">1440 – 1897 CE</div>
+            <div class="causal-preview__name">Kingdom of Benin</div>
+            <div class="causal-preview__label">Bronze masterworks, legal codes, older than Britain's parliament</div>
           </div>
-          <div class="causal-preview__item">
-            <div class="causal-preview__connector">
-              <div class="causal-preview__dot"></div>
-              <div class="causal-preview__line"></div>
-            </div>
-            <div class="causal-preview__text">
-              <div class="causal-preview__year">1591 onward</div>
-              <div class="causal-preview__label">Political vacuum enables the slave trade — first link in the chain to present-day America</div>
-            </div>
+          <div class="causal-preview__item causal-preview__item--consequence">
+            <div class="causal-preview__year">1591 → Present</div>
+            <div class="causal-preview__name">The Chain Begins</div>
+            <div class="causal-preview__label">Political vacuum enables the slave trade — first link to present-day America</div>
           </div>
         </div>
-        <a href="thread-african-empires.html" class="thread-featured__aside-cta">Start reading <span aria-hidden="true">→</span></a>
       </div>
     </a>
 
