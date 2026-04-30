@@ -1232,6 +1232,253 @@
       </div><!-- /.thread-layout -->
     </div><!-- /.container -->
   </div><!-- /.thread-body -->
+
+  <!-- ── WIKIDATA DIRECTORY ─────────────────────────────────── -->
+  <div class="inventor-dir" id="inventor-directory">
+    <div class="container">
+      <div class="inventor-dir__header">
+        <div>
+          <h2 class="inventor-dir__title">Extended Directory: Black Inventors &amp; Engineers</h2>
+          <p class="inventor-dir__subtitle">Sourced live from Wikidata — African American inventors, engineers, and patent holders documented in the public record.</p>
+        </div>
+        <div class="inventor-dir__controls">
+          <input type="search" id="inventor-search" class="inventor-dir__search" placeholder="Search by name or field…" aria-label="Search inventors">
+          <span class="inventor-dir__count" id="inventor-count">Loading…</span>
+        </div>
+      </div>
+      <div class="inventor-dir__grid" id="inventor-grid">
+        <div class="inventor-dir__loading">
+          <span class="inventor-dir__spinner"></span>
+          Fetching from Wikidata…
+        </div>
+      </div>
+      <p class="inventor-dir__source">Data sourced from <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a> via SPARQL. Last fetched on page load.</p>
+    </div>
+  </div>
+
+  <style>
+    .inventor-dir {
+      padding: var(--space-12) 0 var(--space-16);
+      background: rgba(0,0,0,.25);
+      border-top: 1px solid rgba(224,122,0,.1);
+    }
+    .inventor-dir__header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-5);
+      margin-bottom: var(--space-8);
+    }
+    .inventor-dir__title {
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 800;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .inventor-dir__subtitle {
+      font-size: var(--type-sm);
+      color: var(--color-text-tertiary);
+      max-width: 520px;
+    }
+    .inventor-dir__controls {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-shrink: 0;
+    }
+    .inventor-dir__search {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-md);
+      color: var(--color-text-primary);
+      font-size: var(--type-sm);
+      padding: var(--space-2) var(--space-4);
+      width: 220px;
+      outline: none;
+      transition: border-color var(--duration-fast);
+    }
+    .inventor-dir__search:focus { border-color: rgba(224,122,0,.5); }
+    .inventor-dir__search::placeholder { color: rgba(255,255,255,.3); }
+    .inventor-dir__count {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      white-space: nowrap;
+    }
+    .inventor-dir__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-4);
+    }
+    .inventor-dir__loading {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      color: var(--color-text-tertiary);
+      font-size: var(--type-sm);
+      padding: var(--space-8) 0;
+    }
+    .inventor-dir__spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(224,122,0,.2);
+      border-top-color: var(--amber-400);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      display: inline-block;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .inventor-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-top: 2px solid rgba(224,122,0,.25);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      padding: var(--space-4) var(--space-5) var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      transition: background var(--duration-fast), border-color var(--duration-fast);
+    }
+    .inventor-card:hover {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
+      border-top-color: rgba(224,122,0,.5);
+    }
+    .inventor-card__name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+    }
+    .inventor-card__years {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--amber-400);
+    }
+    .inventor-card__occupation {
+      font-size: 11px;
+      color: rgba(255,255,255,.45);
+      line-height: 1.4;
+    }
+    .inventor-card__works {
+      font-size: 11px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.5;
+      margin-top: var(--space-1);
+      font-style: italic;
+    }
+    .inventor-card__link {
+      margin-top: auto;
+      padding-top: var(--space-3);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(224,122,0,.55);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .inventor-card__link:hover { color: var(--amber-400); }
+    .inventor-dir__empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: var(--space-8);
+      color: var(--color-text-tertiary);
+      font-size: var(--type-sm);
+    }
+    .inventor-dir__source {
+      margin-top: var(--space-6);
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+    }
+    .inventor-dir__source a { color: rgba(224,122,0,.6); }
+  </style>
+
+  <script>
+  (function() {
+    const SPARQL = `
+SELECT DISTINCT ?person ?personLabel ?birthLabel ?deathLabel ?occupationLabel ?notableWorkLabel WHERE {
+  ?person wdt:P31 wd:Q5;
+          wdt:P172 wd:Q49085.
+  { ?person wdt:P106 wd:Q205375. } UNION
+  { ?person wdt:P106 wd:Q81096. } UNION
+  { ?person wdt:P106 wd:Q11900058. }
+  OPTIONAL { ?person wdt:P569 ?birth. }
+  OPTIONAL { ?person wdt:P570 ?death. }
+  OPTIONAL { ?person wdt:P106 ?occupation. }
+  OPTIONAL { ?person wdt:P800 ?notableWork. }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+ORDER BY ?personLabel
+LIMIT 250`;
+
+    const endpoint = 'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(SPARQL);
+    const grid = document.getElementById('inventor-grid');
+    const countEl = document.getElementById('inventor-count');
+    const searchEl = document.getElementById('inventor-search');
+    let allPeople = [];
+
+    fetch(endpoint, { headers: { 'Accept': 'application/sparql-results+json', 'User-Agent': 'AfricanAmericanHistoryTimeline/1.0' } })
+      .then(r => r.json())
+      .then(data => {
+        const map = {};
+        data.results.bindings.forEach(r => {
+          const name = r.personLabel?.value || '';
+          if (!name || name.startsWith('Q')) return;
+          const id = r.person.value.split('/').pop();
+          if (!map[id]) map[id] = { id, name,
+            birth: (r.birthLabel?.value || '').slice(0,4),
+            death: (r.deathLabel?.value || '').slice(0,4),
+            occupations: new Set(), works: new Set() };
+          if (r.occupationLabel?.value) map[id].occupations.add(r.occupationLabel.value);
+          if (r.notableWorkLabel?.value) map[id].works.add(r.notableWorkLabel.value);
+        });
+        allPeople = Object.values(map).map(p => ({
+          ...p,
+          occupations: [...p.occupations].filter(o => !o.startsWith('Q')).slice(0,3),
+          works: [...p.works].filter(w => !w.startsWith('Q')).slice(0,3)
+        })).sort((a,b) => a.name.localeCompare(b.name));
+        render(allPeople);
+      })
+      .catch(() => {
+        grid.innerHTML = '<div class="inventor-dir__empty">Could not load data from Wikidata. Please try refreshing.</div>';
+        countEl.textContent = '';
+      });
+
+    function render(people) {
+      countEl.textContent = people.length + ' inventors';
+      if (!people.length) {
+        grid.innerHTML = '<div class="inventor-dir__empty">No results found.</div>';
+        return;
+      }
+      grid.innerHTML = people.map(p => {
+        const years = p.birth ? (p.birth + '–' + (p.death || 'present')) : '';
+        const occ = p.occupations.join(', ');
+        const works = p.works.length ? '<div class="inventor-card__works">' + p.works.join('; ') + '</div>' : '';
+        return `<div class="inventor-card">
+          <div class="inventor-card__name">${p.name}</div>
+          ${years ? '<div class="inventor-card__years">' + years + '</div>' : ''}
+          ${occ ? '<div class="inventor-card__occupation">' + occ + '</div>' : ''}
+          ${works}
+          <a class="inventor-card__link" href="https://www.wikidata.org/wiki/${p.id}" target="_blank" rel="noopener">Wikidata ↗</a>
+        </div>`;
+      }).join('');
+    }
+
+    searchEl.addEventListener('input', () => {
+      const q = searchEl.value.toLowerCase().trim();
+      if (!q) { render(allPeople); return; }
+      render(allPeople.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.occupations.some(o => o.toLowerCase().includes(q)) ||
+        p.works.some(w => w.toLowerCase().includes(q))
+      ));
+    });
+  })();
+  </script>
 </main>
 
 <!-- BOTTOM CTA -->
