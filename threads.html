@@ -199,39 +199,54 @@
     }
 
     /* Featured (first) thread — full-width, visually elevated */
+    /* ── Featured thread card ── */
     .thread-featured {
       background: var(--ink-900);
-      border: 1px solid rgba(224,122,0,.25);
+      border: 1px solid rgba(224,122,0,.22);
       border-radius: var(--radius-xl);
       overflow: hidden;
       margin-bottom: var(--space-6);
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       transition: box-shadow var(--duration-normal), border-color var(--duration-normal);
       text-decoration: none;
-      box-shadow: 0 4px 24px rgba(0,0,0,.18);
+      box-shadow: 0 4px 32px rgba(0,0,0,.22);
       position: relative;
     }
     .thread-featured::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
+      height: 2px;
+      background: linear-gradient(to right, var(--amber-400), var(--sienna-400), transparent);
     }
-    @media (min-width: 768px) {
-      .thread-featured { grid-template-columns: 1fr 380px; }
-    }
-    @media (min-width: 1100px) {
-      .thread-featured { grid-template-columns: 1fr 440px; }
-    }
-    .thread-featured:hover { box-shadow: 0 8px 40px rgba(0,0,0,.28); border-color: rgba(224,122,0,.45); }
-    .thread-featured:active { transform: scale(0.995); }
+    .thread-featured:hover { box-shadow: 0 8px 48px rgba(0,0,0,.30); border-color: rgba(224,122,0,.42); }
+    .thread-featured:active { transform: scale(0.998); }
     [data-theme="light"] .thread-featured { background: var(--ink-900); }
+
+    /* Body — top section */
     .thread-featured__body {
-      padding: var(--space-8) var(--space-8) var(--space-7);
+      padding: var(--space-8) var(--space-8) var(--space-6);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    @media (min-width: 860px) {
+      .thread-featured__body {
+        grid-template-columns: 1fr 1fr;
+        gap: 0 var(--space-10);
+        align-items: start;
+      }
+    }
+    .thread-featured__body-left { display: flex; flex-direction: column; }
+    .thread-featured__body-right {
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
+      padding-top: var(--space-2);
+    }
+    @media (max-width: 859px) {
+      .thread-featured__body-right { margin-top: var(--space-4); }
     }
     .thread-featured__label {
       display: inline-flex;
@@ -242,53 +257,32 @@
       letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
       color: var(--amber-300);
-      margin-bottom: var(--space-5);
+      margin-bottom: var(--space-4);
     }
     .thread-featured__label-dot {
-      width: 6px; height: 6px;
+      width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--amber-400);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .4; }
     }
     .thread-featured__title {
       font-family: var(--font-editorial);
-      font-size: clamp(1.375rem, 3vw, 1.875rem);
-      font-weight: var(--weight-bold);
+      font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+      font-weight: 900;
       color: #ffffff;
-      line-height: var(--leading-snug);
-      letter-spacing: var(--tracking-tight);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
       margin-bottom: var(--space-4);
     }
     .thread-featured__summary {
       font-size: var(--type-md);
-      color: rgba(255,255,255,.7);
-      line-height: var(--leading-loose);
-      margin-bottom: var(--space-6);
-      flex: 1;
-    }
-    .thread-featured__chain {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      flex-wrap: wrap;
-      margin-bottom: var(--space-6);
-      padding: var(--space-4);
-      background: var(--color-surface-alt);
-      border-radius: var(--radius-md);
-    }
-    .thread-chain-node {
-      font-size: var(--type-xs);
-      font-weight: var(--weight-semibold);
-      color: rgba(255,255,255,.8);
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      padding: 3px var(--space-3);
-      border-radius: var(--radius-pill);
-      white-space: nowrap;
-    }
-    .thread-chain-arrow {
-      color: var(--amber-400);
-      font-size: 12px;
-      flex-shrink: 0;
+      color: rgba(255,255,255,.65);
+      line-height: 1.75;
+      margin-bottom: var(--space-5);
     }
     .thread-featured__footer {
       display: flex;
@@ -300,7 +294,7 @@
       display: inline-flex;
       align-items: center;
       gap: var(--space-2);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: var(--weight-bold);
       letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
@@ -308,43 +302,97 @@
       border-radius: var(--radius-pill);
     }
     .thread-status-badge--live {
-      background: rgba(34,197,94,.1);
-      color: #15803d;
-      border: 1px solid rgba(34,197,94,.25);
+      background: rgba(34,197,94,.12);
+      color: #4ade80;
+      border: 1px solid rgba(74,222,128,.25);
     }
     .thread-status-badge--soon {
-      background: var(--color-surface-alt);
-      color: var(--color-text-tertiary);
-      border: 1px solid var(--color-border);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.4);
+      border: 1px solid rgba(255,255,255,.1);
     }
     .thread-status-badge__dot {
       width: 5px; height: 5px;
       border-radius: 50%;
       background: currentColor;
+      animation: pulse-dot 2s ease-in-out infinite;
     }
     .thread-meta-tag {
       font-size: var(--type-xs);
-      color: var(--color-text-tertiary);
+      color: rgba(255,255,255,.38);
     }
 
-    /* Right panel: causal preview */
-    .thread-featured__aside {
-      background: rgba(0,0,0,.28);
-      border-left: 1px solid rgba(224,122,0,.18);
-      padding: var(--space-7) var(--space-8) var(--space-6);
+    /* Causal chain — right column of body */
+    .thread-featured__chain {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: var(--space-4);
+      gap: 0;
+      background: rgba(0,0,0,.3);
+      border: 1px solid rgba(224,122,0,.15);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4) var(--space-5);
+      margin-bottom: var(--space-5);
+    }
+    .thread-chain-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    .thread-chain-node {
+      font-size: 11px;
+      font-weight: var(--weight-semibold);
+      color: rgba(255,255,255,.72);
+      white-space: nowrap;
+    }
+    .thread-chain-arrow {
+      color: rgba(224,122,0,.5);
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .thread-chain-label {
+      font-size: 9px;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(224,122,0,.5);
+      margin-bottom: var(--space-2);
+    }
+
+    /* Read CTA in right column */
+    .thread-featured__read-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--amber-300);
+      background: rgba(224,122,0,.1);
+      border: 1px solid rgba(224,122,0,.22);
+      border-radius: var(--radius-pill);
+      padding: var(--space-2) var(--space-5);
+      transition: all var(--duration-fast);
+      align-self: flex-start;
+    }
+    .thread-featured:hover .thread-featured__read-cta {
+      background: rgba(224,122,0,.18);
+      border-color: rgba(224,122,0,.4);
+      gap: var(--space-3);
+    }
+
+    /* Empire strip — bottom section */
+    .thread-featured__aside {
+      border-top: 1px solid rgba(224,122,0,.14);
+      background: rgba(0,0,0,.22);
+      padding: var(--space-5) var(--space-8);
       position: relative;
       overflow: hidden;
-      min-width: 0;
     }
     .thread-featured__aside::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse 90% 90% at 100% 50%, rgba(224,122,0,.07) 0%, transparent 60%);
+      inset: 0;
+      background: radial-gradient(ellipse 60% 200% at 50% 100%, rgba(224,122,0,.06) 0%, transparent 70%);
       pointer-events: none;
     }
     .thread-featured__aside-label {
@@ -352,80 +400,52 @@
       font-weight: var(--weight-bold);
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(224,122,0,.55);
-      border-bottom: 1px solid rgba(224,122,0,.14);
-      padding-bottom: var(--space-3);
-      width: 100%;
+      color: rgba(224,122,0,.45);
+      margin-bottom: var(--space-4);
+      display: block;
     }
     .causal-preview {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 var(--space-6);
-      flex: 1;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-1) var(--space-4);
       width: 100%;
     }
-    @media (min-width: 768px) {
-      .causal-preview { grid-template-columns: 1fr; }
+    @media (min-width: 640px) {
+      .causal-preview { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .causal-preview { grid-template-columns: repeat(5, 1fr); }
     }
     .causal-preview__item {
       display: flex;
-      gap: var(--space-3);
-      align-items: flex-start;
-      width: 100%;
-      min-width: 0;
-    }
-    .causal-preview__connector {
-      display: flex;
       flex-direction: column;
-      align-items: center;
-      flex-shrink: 0;
-      padding-top: 3px;
-    }
-    .causal-preview__dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--amber-400);
-      border: 2px solid rgba(224,122,0,.4);
-      flex-shrink: 0;
-    }
-    .causal-preview__line {
-      width: 1px;
-      flex: 1;
-      min-height: 16px;
-      background: linear-gradient(to bottom, rgba(224,122,0,.35), rgba(224,122,0,.06));
-      margin-top: 3px;
-    }
-    .causal-preview__item:last-child .causal-preview__line { display: none; }
-    .causal-preview__text {
-      padding-bottom: var(--space-4);
+      padding: var(--space-3) var(--space-4);
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(224,122,0,.1);
+      border-radius: var(--radius-md);
+      transition: background var(--duration-fast), border-color var(--duration-fast);
       min-width: 0;
     }
+    .thread-featured:hover .causal-preview__item {
+      background: rgba(255,255,255,.05);
+      border-color: rgba(224,122,0,.18);
+    }
+    .causal-preview__connector { display: none; }
+    .causal-preview__text { min-width: 0; }
     .causal-preview__year {
       font-size: 9px;
       font-weight: var(--weight-bold);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--amber-400);
-      margin-bottom: 3px;
+      margin-bottom: var(--space-1);
     }
     .causal-preview__label {
-      font-size: 12px;
-      color: rgba(255,255,255,.72);
-      line-height: 1.5;
+      font-size: 11px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.45;
     }
-    .thread-featured__aside-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--type-sm);
-      font-weight: var(--weight-semibold);
-      color: var(--amber-300);
-      padding-top: var(--space-3);
-      border-top: 1px solid rgba(224,122,0,.14);
-      width: 100%;
-      transition: gap var(--duration-fast);
-    }
-    .thread-featured__aside-cta:hover { gap: var(--space-3); }
+    .thread-featured__aside-cta { display: none; }
 
     /* ── Standard thread grid ───────────────────────────────── */
     .threads-grid {
@@ -1904,34 +1924,38 @@
     <!-- FEATURED THREAD — Thread 1 -->
     <a href="thread-african-empires.html" class="thread-featured reveal" data-domain="history-culture" aria-labelledby="featured-title">
       <div class="thread-featured__body">
-        <span class="thread-featured__label">
-          <span class="thread-featured__label-dot" aria-hidden="true"></span>
-          Thread 1 · Foundation · New
-        </span>
-        <h2 id="featured-title" class="thread-featured__title">
-          Before the Chain: 7 African Empires
-        </h2>
-        <p class="thread-featured__summary">
-          The narrative that Black history begins with slavery is historically false — and politically useful. Before the slave trade, Africa was home to some of the world's most sophisticated civilizations. Kush, Axum, Mali, Songhai, Benin, Great Zimbabwe, Oyo. Understanding what was destroyed is the first link in the chain.
-        </p>
-        <div class="thread-featured__chain" aria-label="Causal chain summary">
-          <span class="thread-chain-node">Sovereign empires</span>
-          <span class="thread-chain-arrow" aria-hidden="true">→</span>
-          <span class="thread-chain-node">European guns, 1591</span>
-          <span class="thread-chain-arrow" aria-hidden="true">→</span>
-          <span class="thread-chain-node">Political vacuum</span>
-          <span class="thread-chain-arrow" aria-hidden="true">→</span>
-          <span class="thread-chain-node">12.5M enslaved</span>
-          <span class="thread-chain-arrow" aria-hidden="true">→</span>
-          <span class="thread-chain-node">Present-day wealth gap</span>
-        </div>
-        <div class="thread-featured__footer">
-          <span class="thread-status-badge thread-status-badge--live">
-            <span class="thread-status-badge__dot" aria-hidden="true"></span>
-            Live
+        <div class="thread-featured__body-left">
+          <span class="thread-featured__label">
+            <span class="thread-featured__label-dot" aria-hidden="true"></span>
+            Thread 1 · Foundation
           </span>
-          <span class="thread-meta-tag">7 empires · 1070 BCE – 1897 CE</span>
-          <span class="thread-meta-tag" style="margin-left:auto; color:var(--color-accent-dark); font-weight:600;">Read thread <span aria-hidden="true">→</span></span>
+          <h2 id="featured-title" class="thread-featured__title">Before the Chain:<br>7 African Empires</h2>
+          <p class="thread-featured__summary">The narrative that Black history begins with slavery is historically false — and politically useful. Africa was home to some of the world's most sophisticated civilizations before the slave trade. Understanding what was deliberately destroyed is the first link in the chain.</p>
+          <div class="thread-featured__footer">
+            <span class="thread-status-badge thread-status-badge--live">
+              <span class="thread-status-badge__dot" aria-hidden="true"></span>Live
+            </span>
+            <span class="thread-meta-tag">7 empires · 1070 BCE – 1897 CE</span>
+          </div>
+        </div>
+        <div class="thread-featured__body-right">
+          <div class="thread-chain-label">The causal chain</div>
+          <div class="thread-featured__chain" aria-label="Causal chain summary">
+            <div class="thread-chain-row">
+              <span class="thread-chain-node">Sovereign empires</span>
+              <span class="thread-chain-arrow" aria-hidden="true">→</span>
+              <span class="thread-chain-node">European guns, 1591</span>
+              <span class="thread-chain-arrow" aria-hidden="true">→</span>
+              <span class="thread-chain-node">Political vacuum</span>
+            </div>
+            <div class="thread-chain-row" style="margin-top:6px">
+              <span class="thread-chain-arrow" aria-hidden="true">→</span>
+              <span class="thread-chain-node">12.5M enslaved</span>
+              <span class="thread-chain-arrow" aria-hidden="true">→</span>
+              <span class="thread-chain-node">Present-day wealth gap</span>
+            </div>
+          </div>
+          <span class="thread-featured__read-cta">Read thread <span aria-hidden="true">→</span></span>
         </div>
       </div>
       <div class="thread-featured__aside" aria-hidden="true">
