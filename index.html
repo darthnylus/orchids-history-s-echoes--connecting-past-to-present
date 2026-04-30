@@ -37,10 +37,17 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background-image: url('assets/images/hero-statue.jpg');
+      background-image: url('assets/images/hero-statue-desktop.jpg');
       background-size: cover;
       background-position: center 15%;
       background-repeat: no-repeat;
+    }
+
+    @media (max-width: 768px) {
+      .intro__bg-img {
+        background-image: url('assets/images/hero-statue-mobile.jpg');
+        background-position: center 10%;
+      }
     }
 
     .intro__bg-overlay {
@@ -56,11 +63,8 @@
       );
     }
 
-    /* Mobile: keep figure visible on narrow portrait viewports */
+    /* Mobile: center CTA button */
     @media (max-width: 480px) {
-      .intro__bg-img {
-        background-position: center 10%;
-      }
       .intro__bar {
         bottom: 2rem;
         right: 1.25rem;
