@@ -515,6 +515,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-cointelpro.html',t:"COINTELPRO: The FBI's War on Black America",d:'history-culture criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1956 – 1971'},
       {h:'thread-banjo-blues.html',t:'The Banjo & the Blues: African Origins of American Music',d:'history-culture music-art',e:3,el:'Slavery & Resistance',c:'#8a5c1a',y:'1600s – Present'},
       {h:'thread-rb-rock-theft.html',t:"Why R&B Exists: Race Records, Rock & Roll, and the Theft of Black Music",d:'history-culture music-art',e:5,el:'Jim Crow Era',c:'#7a2020',y:'1920s – Present'},
+      {h:'thread-michael-jackson.html',t:'Michael Jackson: The Cost of Crossing Over',d:'history-culture music-art labor-wealth',e:8,el:'Backlash Era',c:'#2a1a00',y:'1958 – 2009'},
       {h:'thread-soul-disco.html',t:'Soul, Funk & the Disco Purge',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#5a1a6b',y:'1960s – 1980s'},
       {h:'thread-punk-grunge.html',t:'Punk, Grunge & the Hidden Black Blueprint',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#2a2a2a',y:'1970s – 1990s'},
       {h:'thread-hiphop-origins.html',t:'Hip-Hop: Born from Ruins',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#1a4a1a',y:'1973 – Present'},
