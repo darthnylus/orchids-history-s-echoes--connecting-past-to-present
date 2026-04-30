@@ -326,66 +326,81 @@
 
     /* Right panel: causal preview */
     .thread-featured__aside {
-      background: var(--ink-900);
-      padding: var(--space-8);
+      background: rgba(0,0,0,.25);
+      border-left: 1px solid rgba(224,122,0,.15);
+      padding: var(--space-7) var(--space-7) var(--space-6);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: var(--space-5);
+      justify-content: space-between;
+      gap: var(--space-4);
+      position: relative;
+      overflow: hidden;
+    }
+    .thread-featured__aside::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse 120% 80% at 110% 50%, rgba(224,122,0,.08) 0%, transparent 65%);
+      pointer-events: none;
     }
     .thread-featured__aside-label {
-      font-size: var(--type-xs);
+      font-size: 9px;
       font-weight: var(--weight-bold);
-      letter-spacing: var(--tracking-wider);
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink-500);
+      color: rgba(224,122,0,.5);
+      border-bottom: 1px solid rgba(224,122,0,.15);
+      padding-bottom: var(--space-3);
+      margin-bottom: var(--space-1);
     }
     .causal-preview {
       display: flex;
       flex-direction: column;
       gap: 0;
+      flex: 1;
     }
     .causal-preview__item {
-      display: flex;
-      gap: var(--space-4);
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: var(--space-3);
       align-items: flex-start;
     }
     .causal-preview__connector {
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex-shrink: 0;
-      width: 16px;
+      padding-top: 3px;
     }
     .causal-preview__dot {
-      width: 10px; height: 10px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--amber-400);
-      border: 2px solid var(--amber-700);
+      border: 2px solid rgba(224,122,0,.4);
       flex-shrink: 0;
     }
     .causal-preview__line {
       width: 1px;
-      height: 28px;
-      background: linear-gradient(to bottom, var(--amber-700), transparent);
+      flex: 1;
+      min-height: 18px;
+      background: linear-gradient(to bottom, rgba(224,122,0,.4), rgba(224,122,0,.08));
+      margin-top: 3px;
     }
     .causal-preview__item:last-child .causal-preview__line { display: none; }
     .causal-preview__text {
-      padding-top: 1px;
-      padding-bottom: var(--space-5);
+      padding-bottom: var(--space-4);
     }
     .causal-preview__year {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: var(--weight-bold);
-      letter-spacing: var(--tracking-wider);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--amber-400);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .causal-preview__label {
-      font-size: var(--type-sm);
-      color: var(--ink-300);
-      line-height: 1.45;
+      font-size: 12px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.5;
     }
     .thread-featured__aside-cta {
       display: inline-flex;
@@ -394,7 +409,8 @@
       font-size: var(--type-sm);
       font-weight: var(--weight-semibold);
       color: var(--amber-300);
-      margin-top: var(--space-2);
+      padding-top: var(--space-3);
+      border-top: 1px solid rgba(224,122,0,.15);
       transition: gap var(--duration-fast);
     }
     .thread-featured__aside-cta:hover { gap: var(--space-3); }
@@ -1945,8 +1961,18 @@
               <div class="causal-preview__line"></div>
             </div>
             <div class="causal-preview__text">
+              <div class="causal-preview__year">1440 – 1897 CE</div>
+              <div class="causal-preview__label">Benin Empire — bronze masterworks, legal codes, a kingdom older than Britain's parliament</div>
+            </div>
+          </div>
+          <div class="causal-preview__item">
+            <div class="causal-preview__connector">
+              <div class="causal-preview__dot"></div>
+              <div class="causal-preview__line"></div>
+            </div>
+            <div class="causal-preview__text">
               <div class="causal-preview__year">1591 onward</div>
-              <div class="causal-preview__label">Political vacuum enables slave trade — the first link in the chain to present-day America</div>
+              <div class="causal-preview__label">Political vacuum enables the slave trade — first link in the chain to present-day America</div>
             </div>
           </div>
         </div>
