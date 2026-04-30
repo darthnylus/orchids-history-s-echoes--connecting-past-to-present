@@ -525,6 +525,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-black-arts-movement.html',t:'The Black Arts Movement: Art as Revolution',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#4a0a0a',y:'1965 – 1975'},
       {h:'thread-black-film.html',t:'Black Film: From Exclusion to Excellence',d:'history-culture music-art',e:5,el:'Jim Crow Era',c:'#0a0a2a',y:'1915 – Present'},
       {h:'thread-graffiti-resistance.html',t:'Graffiti: Writing on the Wall',d:'history-culture music-art',e:9,el:'Present Day',c:'#1a1a3a',y:'1970s – Present'},
+      {h:'thread-sky-full-of-elephants.html',t:'A Sky Full of Elephants: What Black Speculative Fiction Sees That History Books Don't',d:'history-culture',e:9,el:'Present Day',c:'#2d1a6b',y:'2024'},
       {h:'thread-what-racism-is.html',t:"What Racism Actually Is: Why \"I Don't See Color\" Doesn't End It",d:'history-culture',e:9,el:'Present Day',c:'#2a4a6b',y:'1676 – Present'},
       {h:'thread-beverly-tatum.html',t:'Dr. Beverly Tatum: The Smog, the Silence, and Racial Identity',d:'history-culture education',e:9,el:'Present Day',c:'#1a3a2a',y:'1997 – Present'},
       {h:'thread-war-on-black-history.html',t:'The War on Black History: CRT, Book Bans, and the 1619 Project',d:'history-culture education',e:9,el:'Present Day',c:'#2a4a6b',y:'2019 – Present'},
