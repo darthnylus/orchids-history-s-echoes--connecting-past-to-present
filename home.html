@@ -2115,5 +2115,84 @@
 })();
 </script>
 
+<style>
+/* ── home.html — targeted mobile fixes ───────────────────────── */
+
+/* Context ribbon: prevent horizontal overflow on small phones */
+@media (max-width: 479px) {
+  .context-ribbon__inner {
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    padding-block: var(--space-2);
+  }
+  .context-ribbon__stats {
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
+  }
+  .context-ribbon__nav {
+    gap: var(--space-3);
+  }
+}
+
+/* Hero search: hide ⌘K badge so input has full width */
+@media (max-width: 479px) {
+  .hero__search-kbd { display: none !important; }
+  .hero__search-row { padding-left: var(--space-3) !important; }
+  .hero__search-input { padding-left: var(--space-3) !important; }
+}
+
+/* Origins section header: stack text and link on phones */
+@media (max-width: 599px) {
+  .origins-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  .origins-header__link {
+    align-self: flex-start;
+  }
+  .section-subtitle {
+    font-size: var(--type-sm);
+  }
+}
+
+/* Civilisation card images: cap height so image doesn't
+   dominate on narrow phones */
+@media (max-width: 599px) {
+  .civ-card__thumb {
+    max-height: 200px;
+    overflow: hidden;
+  }
+  .civ-card__thumb img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+/* Featured threads strip (if present): full-width cards on phones */
+@media (max-width: 599px) {
+  .featured-threads__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Footer: ensure donate/newsletter CTAs are tappable */
+@media (max-width: 767px) {
+  .site-footer__cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  .site-footer__cta-btn {
+    text-align: center;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+</style>
+
 </body>
 </html>

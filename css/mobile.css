@@ -700,3 +700,258 @@ h3, h4  { letter-spacing: -0.015em; }
   scrollbar-width: none;
 }
 .h-scroll::-webkit-scrollbar { display: none; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   COMPREHENSIVE MOBILE AUDIT — ROUND 2
+   Covers: entry-stats, inventor-dir, about page, context
+   ribbon, hero search, footer, misc touch-target fixes.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Entry stats block inside thread pages ───────────────
+   Default is flex-row; on narrow phones it overflows.
+   Switch to a 2-column grid so numbers stay readable.   */
+@media (max-width: 599px) {
+  .entry-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4) !important;
+  }
+  .entry-stats > div {
+    text-align: center;
+    padding: var(--space-2) 0;
+  }
+  /* Very wide stat numbers — allow wrapping */
+  .entry-stat__num {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+/* ── About page ──────────────────────────────────────────
+   team-grid: already 2-col at ≥640px.
+   Below 640px ensure it's strictly 1-col.             */
+@media (max-width: 639px) {
+  .team-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* values-grid: desktop is 2-col inside a bordered box.
+     On mobile stack into a single column, remove
+     split border so each row fills full width.        */
+  .values-grid {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .value-card {
+    border-right: none !important;
+    grid-template-columns: 56px 1fr !important;
+  }
+  /* last item loses bottom border on desktop but on
+     mobile the last stacked item should keep it off  */
+  .value-card:last-child { border-bottom: none !important; }
+
+  /* About hero: reduce vertical padding on phones */
+  .about-hero {
+    padding: var(--space-10) 0 var(--space-8) !important;
+  }
+  .about-hero__headline {
+    font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+  }
+
+  /* About body sections: tighter gap */
+  .about-body__inner {
+    gap: var(--space-8) !important;
+  }
+}
+
+/* ── Context ribbon ──────────────────────────────────────
+   On very small phones (≤374px) the ribbon can overflow.
+   Trim it aggressively.                               */
+@media (max-width: 374px) {
+  .context-ribbon__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding-block: var(--space-2);
+  }
+  .context-ribbon__nav {
+    gap: var(--space-3);
+  }
+}
+
+/* ── Hero search row ─────────────────────────────────────
+   The ⌘K badge and search input can clip on narrow
+   phones. Hide badge, ensure input is full-width.    */
+@media (max-width: 479px) {
+  .hero__search-kbd { display: none; }
+  .hero__search-row {
+    padding-left: var(--space-3) !important;
+  }
+  .hero__search-input {
+    font-size: 1rem; /* prevent iOS zoom */
+    padding-left: var(--space-3) !important;
+  }
+}
+
+/* ── Inventor directory ──────────────────────────────────
+   The live-fetched Wikidata grid needs to be
+   single-column on phones.                           */
+@media (max-width: 599px) {
+  .inventor-dir__grid {
+    grid-template-columns: 1fr !important;
+  }
+  .inventor-dir__controls {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-3) !important;
+  }
+  .inventor-dir__search {
+    width: 100% !important;
+    font-size: 1rem; /* prevent iOS zoom */
+  }
+  .inventor-dir {
+    padding: var(--space-6) var(--space-4) !important;
+  }
+}
+
+/* ── What-existed-before strip (thread pages) ────────────
+   Horizontal scroll strip — ensure snap and touch scroll
+   work correctly; add a subtle scroll hint gradient.  */
+@media (max-width: 767px) {
+  .what-before__strip,
+  .before-strip,
+  [class*="before-strip"],
+  [class*="what-before__strip"] {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .before-card,
+  [class*="before-card"] {
+    scroll-snap-align: start;
+    flex: 0 0 min(78vw, 280px) !important;
+  }
+}
+
+/* ── Page container padding — global ─────────────────────
+   On very small phones the 16px system container
+   padding can feel tight. Ensure at least 16px.      */
+@media (max-width: 374px) {
+  .container {
+    padding-inline: var(--space-4) !important;
+  }
+}
+
+/* ── Site footer ─────────────────────────────────────────
+   Footer nav columns: ensure correct stacking and
+   comfortable touch targets for all footer links.    */
+@media (max-width: 767px) {
+  .site-footer {
+    padding: var(--space-10) 0 var(--space-6);
+  }
+  .site-footer__nav-col h4 {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+  .site-footer__link {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}
+
+/* ── Donate / Newsletter / Contact pages ─────────────────
+   Form inputs: ensure 16px so iOS doesn't zoom.      */
+@media (max-width: 767px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    font-size: 1rem !important;  /* prevents iOS auto-zoom */
+    min-height: 44px;            /* WCAG 2.5.5 touch target */
+  }
+  textarea { min-height: 120px; }
+
+  /* Submit buttons: full-width on phones */
+  .form-submit,
+  button[type="submit"] {
+    width: 100%;
+    min-height: 52px;
+    justify-content: center;
+  }
+}
+
+/* ── Thread page hero ─────────────────────────────────────
+   "What existed before" section title can overflow
+   on narrow screens.                                 */
+@media (max-width: 599px) {
+  .thread-page-hero .container,
+  .thread-hero .container {
+    padding-inline: var(--space-4);
+  }
+
+  /* Argument bar headline wrap fix */
+  .argument-bar__headline {
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Entry item header: tighten on very small phones */
+  .entry-item__header {
+    gap: var(--space-3);
+  }
+  .entry-item__name {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+  }
+}
+
+/* ── Tap highlight & smooth scroll ───────────────────────
+   System-level mobile polish.                        */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ── Image overflow guard ────────────────────────────────
+   Any img or picture that could bleed past its container */
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Causal chain: tighten left gutter on phones ─────────
+   Prevents the chain from eating too much horizontal
+   space on narrow screens.                           */
+@media (max-width: 479px) {
+  .causal-chain {
+    padding-left: var(--space-7) !important;
+  }
+  .causal-node__dot {
+    left: calc(var(--space-7) * -1 + 8px);
+  }
+}
+
+/* ── Thread page — stat callout ──────────────────────────
+   Two-column stat callout → single column on phones  */
+@media (max-width: 599px) {
+  .stat-callout__grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-4) !important;
+  }
+  .stat-callout {
+    padding: var(--space-5) var(--space-4) !important;
+  }
+}
