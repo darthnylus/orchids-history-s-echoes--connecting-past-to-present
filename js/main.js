@@ -1094,6 +1094,7 @@ var THREAD_INDEX = [
       {h:'thread-eo8802.html',t:'Executive Order 8802: How A. Philip Randolph Forced FDR's Hand',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a3a6b',y:'1941'},
       {h:'thread-detroit-1943.html',t:'The Detroit Race Riot of 1943: When the War Came Home',d:'history-culture',e:6,el:'WWII & Post-War',c:'#7a2a00',y:'1943'},
       {h:'thread-core.html',t:'CORE and the First Sit-Ins: How Civil Disobedience Was Invented Before Anyone Had a Name for It',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a2a',y:'1942 – 1961'},
+{h:'thread-negro-market.html',t:'The Negro Market: When Corporate America Discovered Black Consumers',d:'history-culture',e:6,el:'WWII & Post-War',c:'#5a1a1a',y:'1940 – 1970s'},
       {h:'thread-tuskegee-airmen.html',t:'The Tuskegee Airmen: 332 Fighters, Zero Bombers Lost',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1941 – Present'},
   {h:'thread-redlining.html',t:'Redlining: The Map That Built the Wealth Gap',d:'housing labor-wealth',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1934 – Present'},
   {h:'thread-paul-robeson.html',t:'Paul Robeson: The Man America Tried to Erase',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1898 – 1976'},
