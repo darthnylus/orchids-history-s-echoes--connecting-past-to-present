@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>One Continent: The African Origins of the Entire Human World — Chain</title>
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    :root{--acc:#0a1f0a;--acc-lt:#86efac}
+    [data-theme="dark"]{--acc:#0a1f0a;--acc-lt:#86efac}
+
+    /* HERO */
+    .thread-hero{background:#020d02;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 120% 100% at 50% 60%,rgba(10,31,10,.70) 0%,transparent 65%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:2}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:3}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(134,239,172,.10);border:1px solid rgba(134,239,172,.28);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt)}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:var(--acc-lt);font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.78);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
+    .thread-meta-item__label{font-size:var(--type-xs);color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.90)}
+
+    /* PANGAEA MAP FEATURE */
+    .pangaea-section{background:var(--ink-950);padding:var(--space-16) 0;overflow:hidden}
+    .pangaea-section__inner{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:center}
+    @media(min-width:900px){.pangaea-section__inner{grid-template-columns:1fr 1fr;gap:var(--space-14)}}
+    .pangaea-section__text{}
+    .pangaea-section__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .pangaea-section__heading{font-family:var(--font-editorial);font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-6)}
+    .pangaea-section__heading em{color:var(--acc-lt);font-style:normal}
+    .pangaea-section__body{font-size:var(--type-md);color:rgba(255,255,255,.72);line-height:1.8}
+    .pangaea-section__body p{margin:0 0 var(--space-5)}
+    .pangaea-section__body p:last-child{margin:0}
+    .pangaea-section__body strong{color:#fff}
+    .pangaea-section__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pangaea-map-wrap{position:relative}
+    .pangaea-map-wrap__img{width:100%;max-width:520px;display:block;margin:0 auto;border-radius:50%;box-shadow:0 0 80px rgba(134,239,172,.15),0 0 0 1px rgba(134,239,172,.12)}
+    .pangaea-map-wrap__caption{margin-top:var(--space-4);text-align:center;font-size:var(--type-xs);color:rgba(255,255,255,.45);line-height:1.5}
+
+    /* ARGUMENT BAR */
+    .argument-bar{background:rgba(134,239,172,.05);border-top:1px solid rgba(134,239,172,.15);border-bottom:1px solid rgba(134,239,172,.15);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(134,239,172,.12);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+
+    /* ENTRIES */
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(134,239,172,.10);border:1px solid rgba(134,239,172,.22);color:var(--acc-lt)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(134,239,172,.04);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+
+    /* SIDEBAR */
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+
+    /* DIASPORA DESTINATIONS */
+    .diaspora-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin:var(--space-6) 0}
+    @media(max-width:599px){.diaspora-grid{grid-template-columns:1fr}}
+    .diaspora-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4) var(--space-5)}
+    .diaspora-card__region{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .diaspora-card__num{font-family:var(--font-editorial);font-size:1.5rem;font-weight:900;color:var(--color-text-primary);line-height:1;margin-bottom:var(--space-1)}
+    .diaspora-card__desc{font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.5}
+
+    /* CTA */
+    .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:var(--acc-lt);color:#020d02}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.1)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">&middot;</span>
+      <span class="context-ribbon__stat">Origins &amp; Diaspora</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Origins &middot; African Diaspora &middot; 300 Million Years Ago &ndash; Present</div>
+      <h1 class="thread-hero__title">One Continent:<br/><em>The African Origins of the Entire Human World</em></h1>
+      <p class="thread-hero__subtitle">The map below shows today&rsquo;s national borders as they would appear on Pangaea &mdash; before the continents separated. What looks like a political map of a single landmass is actually a picture of why the African diaspora spans every continent on Earth. Africa was the center. Everything else drifted away. Then, 335 million years later, the slave trade forcibly scattered millions of Africans back across the same geography their ancestors&rsquo; land had once touched. The descendants of enslaved Africans live, today, in every country that was once part of the same rock.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Pangaea</div><div class="thread-meta-item__value">~335 million years ago &mdash; one supercontinent</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Homo sapiens origin</div><div class="thread-meta-item__value">Africa, ~300,000 years ago</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Transatlantic slave trade</div><div class="thread-meta-item__value">12.5 million people forcibly displaced, 1500&ndash;1900</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">African diaspora today</div><div class="thread-meta-item__value">200&ndash;300 million people across every inhabited continent</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PANGAEA MAP FEATURE SECTION -->
+<section class="pangaea-section">
+  <div class="container">
+    <div class="pangaea-section__inner">
+      <div class="pangaea-map-wrap">
+        <img
+          src="assets/images/pangaea-modern-borders.jpg"
+          alt="Pangaea supercontinent with modern national borders overlaid, showing Africa at the center surrounded by the Americas, Europe, Asia, India, and Antarctica as one connected landmass"
+          class="pangaea-map-wrap__img"
+          width="520"
+          height="520"
+          loading="eager"
+        />
+        <p class="pangaea-map-wrap__caption">Modern national borders as they would appear on Pangaea, the supercontinent that existed ~335 million years ago before plate tectonics separated the continents into their current positions. Africa occupies the center.</p>
+      </div>
+      <div class="pangaea-section__text">
+        <div class="pangaea-section__eyebrow">Read the Map</div>
+        <h2 class="pangaea-section__heading">Africa Was <em>Always</em> the Center</h2>
+        <div class="pangaea-section__body">
+          <p>Look at what is touching what. <strong>West Africa &mdash; the origin point of the transatlantic slave trade &mdash; is directly adjacent to Brazil and the eastern coast of South America.</strong> The Atlantic Ocean that slave ships crossed for 400 years is the geological gap that opened when Africa and South America began separating roughly 130 million years ago. Before that separation, they were the same rock.</p>
+          <p>Africa&rsquo;s eastern coast touches India, which touches Southeast Asia, which connects to Australia. The Arabian Peninsula, where some of the earliest human migrations out of Africa traveled, is right there in the center. Antarctica sits at the bottom, a reminder that even the &ldquo;empty&rdquo; continent was once part of this whole.</p>
+          <p><strong>The slave trade did not scatter Africans randomly. It sent them, with horrifying precision, to the exact landmasses that were once connected to Africa &mdash; because those were the landmasses European colonizers had already reached.</strong> The colonizers followed the geography. The enslaved followed the colonizers. The diaspora map and the Pangaea map are, in a geological sense, the same map.</p>
+          <p><em>This is where the human story begins. Everything else is migration &mdash; voluntary or forced.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARGUMENT BAR -->
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The Central Argument</div>
+        <p class="argument-bar__text">The African diaspora is the largest forced displacement of human beings in recorded history &mdash; and it happened on top of a voluntary diaspora that had already been underway for 200,000 years. <strong>Every human being on Earth is part of the African diaspora.</strong> <em>Homo sapiens</em> evolved in Africa. Every non-African population descends from people who left. The transatlantic slave trade added a second, violent layer: millions of Africans were taken back to the same continents their ancestors&rsquo; land had once touched, to build the economies of people whose ancestors had freely chosen to leave. The descendants of enslaved Africans built the wealth of the modern world. They did it without compensation. They did it without consent. And the geological record shows they never truly left home &mdash; the world came to them.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN BODY -->
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main"><div class="entry-list">
+
+<div class="entry-item" id="e1">
+  <div class="entry-item__header">
+    <div class="entry-item__num">1</div>
+    <div>
+      <div class="entry-item__dates">~300,000 years ago &ndash; 70,000 BCE</div>
+      <h2 class="entry-item__name">Out of Africa: The Original Diaspora and the Human Family Tree</h2>
+      <div class="entry-item__location">Eastern Africa &middot; Global</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>The oldest fossils of <em>Homo sapiens</em> come from Africa &mdash; the Jebel Irhoud site in Morocco (dated to ~300,000 years ago) and Omo Kibish in Ethiopia (~195,000 years ago). Every genetic study of human diversity reaches the same conclusion: <strong>all living humans descend from African ancestors.</strong> Africa contains more genetic diversity within its population than the rest of the world combined &mdash; because modern humans have lived there longest. Every other population is a subset of African genetic variation.</p>
+    <p>The first major migration out of Africa occurred roughly 60,000&ndash;70,000 years ago, when a small group of <em>Homo sapiens</em> crossed into what is now the Arabian Peninsula and began the peopling of Asia, Europe, Australia, and the Americas. <em>All non-African humans today descend from that founding population.</em> The population that stayed in Africa diversified further. The population that left carried a genetic snapshot of one moment in African history.</p>
+    <p><strong>This means there is no such thing as a human being who is not, in origin, African.</strong> The question of the African diaspora is not &ldquo;how did African people end up elsewhere?&rdquo; The question is &ldquo;how did everyone end up elsewhere, and what were the conditions of each departure?&rdquo; The first diaspora was free. The second was not.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">300,000</div><div class="entry-stat__label">Years since Homo sapiens first appear in the African fossil record</div></div>
+      <div><div class="entry-stat__num">60,000</div><div class="entry-stat__label">Years ago: first confirmed migration of modern humans out of Africa</div></div>
+      <div><div class="entry-stat__num">100%</div><div class="entry-stat__label">Of all living humans who descend from African ancestors</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="entry-item" id="e2">
+  <div class="entry-item__header">
+    <div class="entry-item__num">2</div>
+    <div>
+      <div class="entry-item__dates">1500 &ndash; 1900</div>
+      <h2 class="entry-item__name">The Transatlantic Slave Trade: 12.5 Million People, 400 Years, the Forced Diaspora</h2>
+      <div class="entry-item__location">West Africa &middot; The Americas &middot; The Caribbean &middot; Europe</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Between approximately 1500 and 1900, an estimated 12.5 million African people were forcibly transported across the Atlantic Ocean to the Americas. This is the documented figure from the Trans-Atlantic Slave Trade Database (slavevoyages.org) &mdash; the most comprehensive scholarly accounting of the trade. The actual number is likely higher; the database documents approximately 36,000 individual voyages, and records for many voyages do not survive.</p>
+    <p>Of the 12.5 million who embarked, approximately 10.7 million survived the Middle Passage. <strong>Roughly 1.8 million people &mdash; nearly 15% &mdash; died at sea.</strong> The survivors were distributed across the plantation economies of Brazil (the largest single recipient: ~4.9 million people), the Caribbean (~4 million), Spanish South America (~1.3 million), and British North America (~390,000 &mdash; the ancestors of the majority of African Americans today).</p>
+    <p>The trade was not only transatlantic. The Indian Ocean slave trade, the trans-Saharan slave trade, and the East African slave trade dispersed additional millions of Africans into the Middle East, South Asia, and the Indian Ocean world over the same centuries. <em>The total forced displacement of Africans across all slave trades from the 15th through the 19th centuries is estimated at 15&ndash;20 million people.</em></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">12.5M</div><div class="entry-stat__label">Documented people forcibly taken in the transatlantic slave trade</div></div>
+      <div><div class="entry-stat__num">1.8M</div><div class="entry-stat__label">Died on the Middle Passage &mdash; roughly 15% of all who embarked</div></div>
+      <div><div class="entry-stat__num">4.9M</div><div class="entry-stat__label">Transported to Brazil &mdash; the single largest receiving country</div></div>
+    </div>
+    <div class="diaspora-grid" aria-label="Distribution of enslaved Africans by destination">
+      <div class="diaspora-card">
+        <div class="diaspora-card__region">Brazil</div>
+        <div class="diaspora-card__num">~4.9M</div>
+        <div class="diaspora-card__desc">Largest recipient; sugar, coffee, and gold economies; slavery abolished 1888</div>
+      </div>
+      <div class="diaspora-card">
+        <div class="diaspora-card__region">Caribbean</div>
+        <div class="diaspora-card__num">~4.0M</div>
+        <div class="diaspora-card__desc">British, French, Dutch, Spanish colonies; sugar plantation economy</div>
+      </div>
+      <div class="diaspora-card">
+        <div class="diaspora-card__region">Spanish Americas</div>
+        <div class="diaspora-card__num">~1.3M</div>
+        <div class="diaspora-card__desc">Colombia, Venezuela, Peru, Cuba, Mexico; mining and agriculture</div>
+      </div>
+      <div class="diaspora-card">
+        <div class="diaspora-card__region">North America</div>
+        <div class="diaspora-card__num">~390K</div>
+        <div class="diaspora-card__desc">British colonies / United States; ancestors of ~40M African Americans today through natural increase</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="entry-item" id="e3">
+  <div class="entry-item__header">
+    <div class="entry-item__num">3</div>
+    <div>
+      <div class="entry-item__dates">1865 &ndash; Present</div>
+      <h2 class="entry-item__name">The African American Great Migration: The Diaspora Within the Diaspora</h2>
+      <div class="entry-item__location">Southern United States &middot; Chicago &middot; Detroit &middot; New York &middot; Los Angeles</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>After emancipation in 1865, the 4 million formerly enslaved people in the American South were technically free but materially trapped &mdash; by sharecropping debt, by Black Codes and then Jim Crow law, by the convict leasing system, and by the systematic terror of the Ku Klux Klan and vigilante lynching. The freedom granted by the 13th Amendment did not include the freedom to leave the land, to accumulate wealth, to vote, or to move without risk of death.</p>
+    <p>Between approximately 1910 and 1970, <strong>six million Black Americans left the South in what historians call the Great Migration &mdash; one of the largest internal relocations in American history.</strong> They moved to Northern cities (Chicago, Detroit, Philadelphia, New York), to Midwestern industrial centers, and to West Coast cities (Los Angeles, Oakland, Seattle). They moved to escape racial terror, to find industrial employment, and to build lives outside the caste system of the Jim Crow South.</p>
+    <p>The Great Migration remade American culture. <em>Jazz and blues traveled north with the migrants and became the foundation of American popular music.</em> Chicago&rsquo;s South Side, Harlem in New York, and Detroit&rsquo;s Black Bottom became centers of Black cultural and political life. The Black voter base that shifted to the Democratic Party in the 1930s was the Great Migration&rsquo;s political legacy. The neighborhood segregation, school segregation, and wealth gaps that persist in Northern cities today are the Great Migration&rsquo;s unresolved inheritance &mdash; because the cities migrants moved to practiced their own forms of exclusion through redlining, restrictive covenants, and urban renewal.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">6M</div><div class="entry-stat__label">Black Americans who left the South during the Great Migration (1910&ndash;1970)</div></div>
+      <div><div class="entry-stat__num">1910</div><div class="entry-stat__label">90% of Black Americans lived in the South; by 1970 that figure had fallen to 53%</div></div>
+      <div><div class="entry-stat__num">Today</div><div class="entry-stat__label">A reverse migration is underway: Black Americans moving back to Southern cities at growing rates since 2000</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="entry-item" id="e4">
+  <div class="entry-item__header">
+    <div class="entry-item__num">4</div>
+    <div>
+      <div class="entry-item__dates">Present</div>
+      <h2 class="entry-item__name">The African Diaspora Today: 200&ndash;300 Million People Across Every Inhabited Continent</h2>
+      <div class="entry-item__location">Global</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>The African diaspora today encompasses an estimated 200 to 300 million people living outside the African continent &mdash; descendants of the slave trade, of colonial-era labor displacement, of post-independence voluntary migration, and of every other mechanism by which African people and their descendants have been distributed across the globe. <strong>Brazil has the largest population of African descent outside Africa, with approximately 56% of its population &mdash; roughly 120 million people &mdash; identifying as Black or mixed-race.</strong> The United States has approximately 40 million Black Americans. The Caribbean nations are majority African-descended. Significant African-descended populations exist in Colombia, Venezuela, Peru, the Dominican Republic, Cuba, and throughout Central America.</p>
+    <p>Beyond the Atlantic world: African-descended communities exist in India (the Siddis, descendants of East African migrants and enslaved people who arrived via the Indian Ocean trade), in the Arabian Peninsula (the Afro-Arab communities of Oman, Yemen, and Kuwait), in Southeast Asia, and &mdash; through very recent migration &mdash; in China, Australia, and every other inhabited part of the world. <em>No inhabited continent is without African-descended people.</em></p>
+    <p>The pan-African philosophical tradition &mdash; from Marcus Garvey&rsquo;s Universal Negro Improvement Association to the African Union&rsquo;s recognition of the &ldquo;Sixth Region&rdquo; of the diaspora as a full member constituency &mdash; has long argued that this geographic dispersal does not represent fragmentation. <strong>It represents the reach of a civilization that was always central to human history, and whose descendants carry that centrality with them wherever they are.</strong></p>
+    <div class="pullquote">
+      <p>&ldquo;Africa is not just where we came from. Africa is what we carry. The diaspora does not end at the shoreline &mdash; it extends as far as any of us have traveled.&rdquo;</p>
+      <cite>&mdash; Paraphrasing the core argument of pan-African thought, from W.E.B. Du Bois through the African Union&rsquo;s Sixth Region designation (2005)</cite>
+    </div>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">200&ndash;300M</div><div class="entry-stat__label">People of African descent living outside Africa today</div></div>
+      <div><div class="entry-stat__num">120M</div><div class="entry-stat__label">Black and mixed-race Brazilians &mdash; largest African-descended population outside Africa</div></div>
+      <div><div class="entry-stat__num">2005</div><div class="entry-stat__label">African Union officially designates the diaspora as the &ldquo;Sixth Region&rdquo; of Africa</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="entry-item" id="e5">
+  <div class="entry-item__header">
+    <div class="entry-item__num">5</div>
+    <div>
+      <div class="entry-item__dates">The Long View</div>
+      <h2 class="entry-item__name">What Pangaea Tells Us: The Geography of Belonging</h2>
+      <div class="entry-item__location">Everywhere</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>The Pangaea map is not a curiosity. It is an argument. When you look at today&rsquo;s national borders overlaid on a single continent, you see something that political geography normally obscures: <strong>the artificial nature of every border that claims to divide &ldquo;us&rdquo; from &ldquo;them.&rdquo;</strong> Every line drawn on today&rsquo;s maps was drawn by human beings, usually by men with weapons, in the last few hundred years. The land was there for hundreds of millions of years before any of those lines existed.</p>
+    <p>Africa drifted to where it is now. So did Europe. So did the Americas. The Atlantic Ocean &mdash; which became the central artery of the slave trade &mdash; is a wound in the earth, the scar of a continental separation that took 130 million years to fully open. The slave ships crossed a gap that was once solid rock. The people they carried were returning, in a grotesque parody of migration, to lands their ancestors had once walked to without crossing any water at all.</p>
+    <p><em>The diaspora did not scatter African people into foreign lands. It scattered them into the geological neighborhood.</em> Brazil and Nigeria were once the same land. The people enslaved in one place and taken to the other were traveling across the inside of a world that their deep ancestors had never left. The Pangaea map does not make the history of the slave trade any less monstrous. It makes the monstrousness more precise: <strong>people were taken from the center of the human world and forced to build the edges of it, for free.</strong></p>
+    <p>Understanding the diaspora through this lens does not diminish the specific cultures, languages, religions, and identities that African-descended people have built in every corner of the globe. It deepens them. The Afro-Brazilian traditions, the Caribbean religions, the African American vernacular culture, the Afro-Colombian musical traditions, the Afro-Mexican communities &mdash; these are not pale copies of something left behind in Africa. <em>They are new forms of a civilization that has always been capable of reinventing itself wherever it lands, because it invented itself the first time on the continent that became the center of the Pangaea map.</em></p>
+  </div>
+</div>
+
+</div></main>
+
+      <aside class="thread-sidebar">
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Pangaea Map</div>
+  <div class="sidebar-card__body">
+    Pangaea was the supercontinent that existed ~335&ndash;175 million years ago, before plate tectonics separated the land into today&rsquo;s continents.<br/><br/>
+    The map on this page overlays <strong>modern national borders</strong> on Pangaea &mdash; showing how today&rsquo;s countries would appear if they were still joined.<br/><br/>
+    Key observation: <strong>West Africa and Brazil are directly adjacent.</strong> The Atlantic Ocean that slave ships crossed is the gap that opened when Africa and South America began separating ~130 million years ago.<br/><br/>
+    Africa occupies the center of Pangaea. It always has.
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Numbers</div>
+  <div class="sidebar-card__body">
+    <strong>300,000 years ago</strong> &mdash; Homo sapiens evolves in Africa<br/>
+    <strong>60,000 BCE</strong> &mdash; First out-of-Africa migration<br/>
+    <strong>12.5 million</strong> &mdash; Transatlantic slave trade, 1500&ndash;1900<br/>
+    <strong>1.8 million</strong> &mdash; Died on the Middle Passage<br/>
+    <strong>6 million</strong> &mdash; Great Migration, 1910&ndash;1970<br/>
+    <strong>200&ndash;300 million</strong> &mdash; Diaspora population today<br/>
+    <strong>2005</strong> &mdash; AU designates diaspora as Sixth Region
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Connected Threads</div>
+  <div class="sidebar-card__body">
+    <a href="thread-slavery-economics.html" style="color:var(--acc-lt)">Slavery and the Making of American Capitalism &rarr;</a><br/><br/>
+    <a href="thread-redlining.html" style="color:var(--acc-lt)">Redlining: How the Government Chose the Ghetto &rarr;</a><br/><br/>
+    <a href="thread-reparations.html" style="color:var(--acc-lt)">Reparations: The Case, the Math, the Resistance &rarr;</a><br/><br/>
+    <a href="thread-parliament-funkadelic.html" style="color:var(--acc-lt)">P-Funk: Afrofuturism and the Mothership &rarr;</a><br/><br/>
+    <a href="thread-nichelle-nichols.html" style="color:var(--acc-lt)">Nichelle Nichols: Black Woman in Space &rarr;</a>
+  </div>
+</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">The Center of the World</div>
+      <h2 class="thread-bottom-cta__title">People were taken from the center of the human world and forced to build the edges of it, for free. The Pangaea map makes that precise.</h2>
+      <p class="thread-bottom-cta__sub">The diaspora did not scatter African people into foreign lands. It scattered them into the geological neighborhood. West Africa and Brazil were once the same rock. The Atlantic Ocean is the scar of a continental separation that took 130 million years to open.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-slavery-economics.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Slavery and American Capitalism &rarr;</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="home.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+  </div>
+</footer>
+<script>const t=document.getElementById('themeToggle');if(t)t.addEventListener('click',()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('chain-theme',n)});</script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>
