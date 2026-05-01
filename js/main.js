@@ -1148,6 +1148,7 @@ var THREAD_INDEX = [
       {h:'thread-mtv-color-line.html',t:'MTV and the Color Line: How a Cable Channel Tried to Erase Black Music',d:'history-culture music-art media',e:8,el:'Backlash Era',c:'#1a0a3a',y:'1981 – 1988'},
       {h:'thread-prince.html',t:'Prince Rogers Nelson: The Artist, the Masters, and the War for Ownership',d:'history-culture music-art labor-wealth',e:8,el:'Backlash Era',c:'#2d0050',y:'1958 – 2016'},
       {h:'thread-parliament-funkadelic.html',t:'Parliament-Funkadelic: The Mothership, the Groove, and the Architecture of Black Joy',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#0f0a2a',y:'1956 – Present'},
+      {h:'thread-nichelle-nichols.html',t:'Nichelle Nichols: Lt. Uhura, MLK, and the Black Woman in Space',d:'history-culture music-art',e:8,el:'Civil Rights Era',c:'#0a1a2a',y:'1932 – 2022'},
       {h:'thread-soul-disco.html',t:'Soul, Funk & the Disco Purge',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#5a1a6b',y:'1960s – 1980s'},
   {h:'thread-punk-grunge.html',t:'Punk, Grunge & the Hidden Black Blueprint',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#2a2a2a',y:'1970s – 1990s'},
   {h:'thread-hiphop-origins.html',t:'Hip-Hop: Born from Ruins',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#1a4a1a',y:'1973 – Present'},
