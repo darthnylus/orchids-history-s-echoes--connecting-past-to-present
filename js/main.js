@@ -1145,6 +1145,7 @@ var THREAD_INDEX = [
   {h:'thread-rb-rock-theft.html',t:"Why R&B Exists: Race Records, Rock & Roll, and the Theft of Black Music",d:'history-culture music-art',e:5,el:'Jim Crow Era',c:'#7a2020',y:'1920s – Present'},
   {h:'thread-michael-jackson.html',t:'Michael Jackson: The Cost of Crossing Over',d:'history-culture music-art labor-wealth',e:8,el:'Backlash Era',c:'#2a1a00',y:'1958 – 2009'},
       {h:'thread-blaxploitation.html',t:'Blaxploitation: Representation, Exploitation, and the Black Hero Hollywood Did Not Expect',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#3a1400',y:'1971 – 1998'},
+      {h:'thread-mtv-color-line.html',t:'MTV and the Color Line: How a Cable Channel Tried to Erase Black Music',d:'history-culture music-art media',e:8,el:'Backlash Era',c:'#1a0a3a',y:'1981 – 1988'},
       {h:'thread-soul-disco.html',t:'Soul, Funk & the Disco Purge',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#5a1a6b',y:'1960s – 1980s'},
   {h:'thread-punk-grunge.html',t:'Punk, Grunge & the Hidden Black Blueprint',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#2a2a2a',y:'1970s – 1990s'},
   {h:'thread-hiphop-origins.html',t:'Hip-Hop: Born from Ruins',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#1a4a1a',y:'1973 – Present'},
