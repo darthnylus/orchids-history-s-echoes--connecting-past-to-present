@@ -522,6 +522,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-parliament-funkadelic.html',t:'Parliament-Funkadelic: The Mothership, the Groove, and the Architecture of Black Joy',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#0f0a2a',y:'1956 – Present'},
       {h:'thread-nichelle-nichols.html',t:'Nichelle Nichols: Lt. Uhura, MLK, and the Black Woman in Space',d:'history-culture music-art',e:8,el:'Civil Rights Era',c:'#0a1a2a',y:'1932 – 2022'},
       {h:'thread-foia.html',t:'The Freedom of Information Act: Who Owns the Truth About What the Government Did',d:'history-culture criminal-justice',e:8,el:'Accountability Era',c:'#0e2a1a',y:'1966 – Present'},
+      {h:'thread-school-to-prison.html',t:'The School-to-Prison Pipeline: How the Education System Feeds the Carceral System',d:'history-culture criminal-justice education',e:8,el:'Carceral Era',c:'#1a0e00',y:'1994 – Present'},
       {h:'thread-soul-disco.html',t:'Soul, Funk & the Disco Purge',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#5a1a6b',y:'1960s – 1980s'},
       {h:'thread-punk-grunge.html',t:'Punk, Grunge & the Hidden Black Blueprint',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#2a2a2a',y:'1970s – 1990s'},
       {h:'thread-hiphop-origins.html',t:'Hip-Hop: Born from Ruins',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#1a4a1a',y:'1973 – Present'},

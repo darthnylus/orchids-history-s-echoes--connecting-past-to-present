@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>The School-to-Prison Pipeline:<br/>Suspended at Six, Incarcerated at Twenty — Chain</title>
+  <title>The School-to-Prison Pipeline: How the Education System Feeds the Carceral System — Chain</title>
   <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
   <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -11,66 +11,68 @@
   <link rel="stylesheet" href="css/system.css"/>
   <link rel="stylesheet" href="css/thread-page.css"/>
   <style>
-    :root{--acc:#2a4a6b;--acc-lt:#6ab0e0}
-    [data-theme="dark"]{--acc:#2a4a6b;--acc-lt:#6ab0e0}
-    .thread-hero{background:#040a14;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
-    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(42,74,107,.45) 0%,transparent 60%)}
+    :root{--acc:#1a0e00;--acc-lt:#fbbf24}
+    [data-theme="dark"]{--acc:#1a0e00;--acc-lt:#fbbf24}
+    .thread-hero{background:#0c0700;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(26,14,0,.80) 0%,transparent 60%)}
     .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
     .thread-hero__inner{position:relative;max-width:760px;z-index:2}
-    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(42,74,107,.12);border:1px solid rgba(42,74,107,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
-    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc)}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(251,191,36,.10);border:1px solid rgba(251,191,36,.28);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt)}
     .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
     .thread-hero__title em{color:var(--acc-lt);font-style:normal}
     .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.78);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
     .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap}
     .thread-meta-item__label{font-size:var(--type-xs);color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
     .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.90);text-shadow:0 1px 4px rgba(0,0,0,.6)}
-    .argument-bar{background:rgba(42,74,107,.06);border-top:1px solid rgba(42,74,107,.18);border-bottom:1px solid rgba(42,74,107,.18);padding:var(--space-5) 0}
+    .argument-bar{background:rgba(251,191,36,.05);border-top:1px solid rgba(251,191,36,.15);border-bottom:1px solid rgba(251,191,36,.15);padding:var(--space-5) 0}
     .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
-    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(42,74,107,.18);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(251,191,36,.12);border-radius:50%;display:grid;place-items:center;margin-top:2px}
     .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
     .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.65;max-width:820px}
     .argument-bar__text strong{color:var(--color-text-primary)}
     .thread-body{padding:var(--space-14) 0}
     .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
     @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
-    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
-    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
-    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);background:rgba(42,74,107,.10);border:1px solid rgba(42,74,107,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
     .entry-list{display:flex;flex-direction:column;gap:0}
     .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
     .entry-item:last-of-type{border-bottom:none}
     .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
-    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(42,74,107,.10);border:1px solid rgba(42,74,107,.22);color:var(--acc-lt)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(251,191,36,.10);border:1px solid rgba(251,191,36,.22);color:var(--acc-lt)}
     .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
     .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
     .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
     .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
-    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc);line-height:1;margin-bottom:2px}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
     .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
     .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
     .entry-item__body p{margin:0 0 var(--space-5)}
     .entry-item__body p:last-child{margin-bottom:0}
     .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
     .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
-    .pullquote{border-left:3px solid var(--acc);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(42,74,107,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(251,191,36,.04);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
     .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
     .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
     .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
     .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
-    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-4)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
     .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
     .thread-bottom-cta{background:var(--ink-950);border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
     .thread-bottom-cta__inner{max-width:640px}
     .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-3)}
     .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
-    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-300);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:var(--space-8)}
     .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
     .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
-    .thread-bottom-cta__btn--primary{background:var(--acc);color:#fff}
-    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.2)}
-    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--primary{background:var(--acc-lt);color:#0c0700}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.1)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.15)}
     .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+    .disparity-table{width:100%;border-collapse:collapse;font-size:var(--type-sm);margin:var(--space-6) 0}
+    .disparity-table th{text-align:left;padding:var(--space-2) var(--space-3);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);border-bottom:2px solid rgba(251,191,36,.25)}
+    .disparity-table td{padding:var(--space-3) var(--space-3);border-bottom:1px solid var(--color-border);color:var(--color-text-secondary);vertical-align:top}
+    .disparity-table tr:last-child td{border-bottom:none}
+    .disparity-table td:first-child{font-weight:var(--weight-semibold);color:var(--color-text-primary)}
   </style>
 </head>
 <body>
@@ -92,7 +94,7 @@
     <div class="context-ribbon__stats" id="ribbonStats">
       <span class="context-ribbon__stat"><strong>Chain</strong></span>
       <span class="context-ribbon__divider">·</span>
-      <span class="context-ribbon__stat">Era 9 · Present Day</span>
+      <span class="context-ribbon__stat">Carceral Era</span>
     </div>
     <nav class="context-ribbon__nav">
       <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
@@ -101,56 +103,247 @@
     </nav>
   </div>
 </div>
+
 <section class="thread-hero">
   <div class="thread-hero__bg" aria-hidden="true"></div>
   <div class="container">
     <div class="thread-hero__inner">
-      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Present Day · 1994–Present</div>
-      <h1 class="thread-hero__title">The School-to-Prison Pipeline:<br/><em>Suspended at Six, Incarcerated at Twenty</em></h1>
-      <p class="thread-hero__subtitle">Black students are suspended at 3 times the rate of white students for the same behaviors. They are more likely to be arrested at school, more likely to be referred to law enforcement for minor infractions, and more likely to be expelled. Each suspension increases the probability of dropping out. Each dropout increases the probability of incarceration. The 'school-to-prison pipeline' is not a metaphor — it is a documented causal pathway from racial disparity in school discipline to racial disparity in prison populations, built by the same zero-tolerance policies that followed the 1994 Gun-Free Schools Act and the proliferation of School Resource Officers after Columbine.</p>
-      <div class="thread-hero__meta"><div class="thread-meta-item"><div class="thread-meta-item__label">Zero tolerance enacted</div><div class="thread-meta-item__value">Gun-Free Schools Act, 1994</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">SRO expansion</div><div class="thread-meta-item__value">Post-Columbine, 1999 — police in schools tripled</div></div><div class="thread-meta-item"><div class="thread-meta-item__label">Disparity</div><div class="thread-meta-item__value">Black students: 3× suspension rate for same behaviors</div></div></div>
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Carceral Era &middot; Education &amp; Criminal Justice &middot; 1994 &ndash; Present</div>
+      <h1 class="thread-hero__title">The School-to-Prison Pipeline:<br/><em>How the Education System Feeds the Carceral System</em></h1>
+      <p class="thread-hero__subtitle">A Black student is three times more likely to be suspended than a white student for the same behavior. A Black girl is six times more likely to be suspended than a white girl. Students who are suspended are three times more likely to have contact with the juvenile justice system that same year. The pipeline is not a metaphor. It is a documented, measurable, policy-constructed pathway from a school desk to a cell &mdash; and it was built in stages, beginning with a federal law signed in 1994.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Origin policy</div><div class="thread-meta-item__value">Gun-Free Schools Act, 1994</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Black suspension rate</div><div class="thread-meta-item__value">3&times; white rate for identical infractions</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Black girls specifically</div><div class="thread-meta-item__value">6&times; white girls&#39; suspension rate</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Downstream outcome</div><div class="thread-meta-item__value">Suspended students 3&times; more likely in juvenile justice same year</div></div>
+      </div>
     </div>
   </div>
 </section>
+
 <div class="argument-bar">
   <div class="container">
     <div class="argument-bar__inner">
-      <div class="argument-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <div><div class="argument-bar__label">The Central Argument</div><p class="argument-bar__text"><strong>The school-to-prison pipeline is not produced by Black students misbehaving more — it is produced by Black students' behavior being criminalized more.</strong> Studies using matched pairs — comparing Black and white students caught doing the same thing — consistently find that Black students receive harsher punishments. The presence of police in schools (School Resource Officers) dramatically increases the probability that minor infractions become criminal matters rather than disciplinary ones. A student who would have received detention in 1985 may now receive an arrest record. That arrest record follows them into college applications, job applications, and the next encounter with police.</p></div>
+      <div class="argument-bar__icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The Central Argument</div>
+        <p class="argument-bar__text">The school-to-prison pipeline is not a failure of the education system. <strong>It is a design feature of the carceral system.</strong> Zero-tolerance policies, school resource officers with arrest authority, and the subjective &#8220;willful defiance&#8221; suspension category were each adopted by choice, lobbied for by specific interests, and applied with documented racial disparity. The Children&#8217;s Defense Fund found that a Black boy born in 2001 had a 1-in-3 chance of going to prison in his lifetime. That number was produced by a sequence of policy decisions, each of which was known, at the time it was made, to disproportionately affect Black children.</p>
+      </div>
     </div>
   </div>
 </div>
+
 <section class="thread-body">
   <div class="container">
     <div class="thread-layout">
-      <main class="thread-main"><div class="entry-list"><div class="era-divider"><span class="era-divider__badge">Zero Tolerance · 1994–Present</span><div class="era-divider__line"></div></div>
-<article class="entry-item" id="e1"><div class="entry-item__header"><div class="entry-item__num">01</div><div><div class="entry-item__dates">1994–1999</div><h2 class="entry-item__name">Zero Tolerance: The Policy That Built the Pipeline</h2><div class="entry-item__location">United States</div></div></div>
-<div class="entry-stats"><div class="entry-stat"><div class="entry-stat__num">3.3M</div><div class="entry-stat__label">Students suspended at least once per year</div></div><div class="entry-stat"><div class="entry-stat__num">3×</div><div class="entry-stat__label">Black suspension rate vs. white for same behaviors</div></div></div>
-<div class="entry-item__body"><p>The Gun-Free Schools Act of 1994 required schools to expel students who brought weapons to school. It also allowed schools to expel students for drug offenses — and created a political environment in which "zero tolerance" became the dominant disciplinary philosophy. Zero tolerance policies removed administrative discretion: infractions that previously earned detention or a call home now earned suspension or expulsion. The policies spread rapidly and were applied in racially disparate ways from the beginning. Studies published throughout the 1990s and 2000s consistently found that Black students, especially Black boys, were disciplined more frequently and more severely than white students engaged in identical behavior.</p>
-<p>After the Columbine shooting in 1999, Congress funded the proliferation of School Resource Officers — police stationed full-time in schools. By 2016, 43% of public schools had an armed police officer on campus. The SRO presence transformed what had been administrative disciplinary matters into potential criminal matters: a fight that would have been handled by a principal became a disorderly conduct arrest. A student who brought marijuana to school faced possession charges rather than suspension. Each criminal record reduced future options — college admission, employment, housing — and increased the probability of future criminal justice contact.</p></div></article>
+      <main class="thread-main"><div class="entry-list">
 
-<article class="entry-item" id="e2"><div class="entry-item__header"><div class="entry-item__num">02</div><div><div class="entry-item__dates">Present</div><h2 class="entry-item__name">The Data: Same Behavior, Different Consequences</h2><div class="entry-item__location">United States</div></div></div>
-<div class="entry-item__body"><p>The disparity in school discipline is not explained by behavior differences. A 2019 study in Psychological Science found that Black boys as young as 10 were perceived by teachers as older and less innocent than white boys of the same age — the same perception that led to George Zimmerman seeing Trayvon Martin, a 17-year-old, as a threat. Black girls are disciplined at 5.5 times the rate of white girls — the highest disparity of any racial or gender group — for behaviors described as "defiance" or "attitude," categories with no objective standard. Research finds that the single strongest predictor of a student's likelihood of suspension is the racial composition of their school, not their own behavior.</p>
-<p>The pipeline's terminus is documented in the incarceration data: 68% of men in state and federal prison do not have a high school diploma. Students who have been suspended are 3 times more likely to be in contact with the juvenile justice system in the following year. Contact with the juvenile justice system is the strongest predictor of adult incarceration. The pathway from racially disparate suspension to racially disparate incarceration is not correlation — it is causation, documented in longitudinal studies across multiple states.</p>
-<div class="pullquote"><p>"If we suspend a child in third grade, we are setting a child up to be a candidate for the prison system."</p><cite>— Judge Steve Teske, Clayton County, Georgia — whose juvenile diversion program cut incarceration by 67%</cite></div></div></article></div></main>
-      <aside class="thread-sidebar"><div class="sidebar-card"><div class="sidebar-card__title">The Alternative Works</div><div class="sidebar-card__body"><p>Clayton County, Georgia replaced zero tolerance with a juvenile diversion program in 2004. School-based arrests fell 83%. Graduation rates rose. Juvenile incarceration fell 67%.</p><p style="margin-top:var(--space-3)">Restorative justice programs produce similar results in Oakland, Denver, and Baltimore. The pipeline is a policy choice, not an inevitability.</p></div></div>
-<div class="sidebar-card"><div class="sidebar-card__title">Related Threads</div><div class="sidebar-card__body"><p><a href="thread-mass-incarceration.html" style="color:var(--acc-lt)">Mass Incarceration</a></p><p style="margin-top:var(--space-2)"><a href="thread-education.html" style="color:var(--acc-lt)">Education &amp; Inequality</a></p><p style="margin-top:var(--space-2)"><a href="thread-war-on-drugs.html" style="color:var(--acc-lt)">The War on Drugs</a></p></div></div></aside>
+<div class="entry-item" id="e1">
+  <div class="entry-item__header">
+    <div class="entry-item__num">1</div>
+    <div>
+      <div class="entry-item__dates">1994</div>
+      <h2 class="entry-item__name">Zero Tolerance: The Gun-Free Schools Act and How One Federal Law Criminalized School Discipline</h2>
+      <div class="entry-item__location">U.S. Congress &middot; Clinton Administration</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>Before 1994, school discipline was handled within schools &mdash; by teachers, principals, and counselors. Suspensions and expulsions existed, but the decision to involve law enforcement in a school disciplinary matter was rare, discretionary, and reserved for serious criminal conduct. The concept of arresting a child for a school rule violation had no meaningful policy infrastructure.</p>
+    <p>The Gun-Free Schools Act of 1994 &mdash; signed by President Clinton as part of the broader &#8220;tough on crime&#8221; legislative architecture of that era &mdash; mandated that any school receiving federal funding must expel for one year any student found with a weapon on school grounds. This was the founding statute of zero-tolerance policy. <strong>The logic was explicit: remove discretion from administrators, standardize punishment, make consequences automatic regardless of context, intent, or circumstances.</strong></p>
+    <p>Within two years, states and school districts had extended zero-tolerance policies far beyond weapons &mdash; to drugs, alcohol, fighting, and eventually to broad subjective categories like &#8220;threatening behavior,&#8221; &#8220;disruption,&#8221; and California&#8217;s &#8220;willful defiance.&#8221; Zero tolerance for a weapon became zero tolerance for a butter knife in a lunchbox. Zero tolerance for drugs became zero tolerance for an aspirin. The policy sold as a security measure became the mechanism for removing children from school at scale.</p>
+    <p><em>The racial data emerged immediately.</em> Black students, who were 17% of the student population, were 32% of students suspended and 30% of students expelled in the first decade of zero-tolerance enforcement &mdash; and the gap was not explained by higher rates of actual misconduct. Studies that controlled for the type of infraction found that <strong>Black students received harsher punishments than white students for identical behavior.</strong> The mechanism was not explicit racial animus. It was subjective judgment, applied in a racially unequal institutional environment, producing racially unequal outcomes.</p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">1994</div><div class="entry-stat__label">Gun-Free Schools Act mandates automatic expulsion &mdash; zero-tolerance era begins</div></div>
+      <div><div class="entry-stat__num">3&times;</div><div class="entry-stat__label">Rate at which Black students are suspended vs. white students for the same infraction</div></div>
+      <div><div class="entry-stat__num">32%</div><div class="entry-stat__label">Black share of students suspended nationally &mdash; vs. 17% of student population</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="entry-item" id="e2">
+  <div class="entry-item__header">
+    <div class="entry-item__num">2</div>
+    <div>
+      <div class="entry-item__dates">Late 1990s &ndash; 2010s</div>
+      <h2 class="entry-item__name">School Resource Officers: When the Police Moved Inside the Building</h2>
+      <div class="entry-item__location">Nationwide &mdash; Post-Columbine expansion</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>School Resource Officers &mdash; sworn police officers assigned to school buildings &mdash; existed in some districts before 1994, but the Columbine shooting in April 1999 produced a federal funding surge that placed officers in schools at scale for the first time. The 1999 COPS in Schools grant program provided $68 million to place officers in schools. By 2003, approximately 14,000 officers were stationed in American schools. By 2019, the number exceeded 50,000.</p>
+    <p>The presence of armed police officers inside school buildings had a specific and measurable effect: it converted school disciplinary matters into criminal matters. <strong>Before SROs, a student who threw something at a teacher received a detention or a trip to the principal&#8217;s office. After SROs, the same student could be handcuffed, arrested, and charged with assault &mdash; creating a juvenile criminal record at age twelve.</strong></p>
+    <p>The data on SROs and racial disparity is unambiguous. A 2019 study in <em>Educational Researcher</em> found that schools with SROs reported 6 times higher arrest rates and 2.5 times higher referral-to-law-enforcement rates &mdash; with no corresponding improvement in school safety. <em>The benefit the SRO program was designed to provide was not demonstrated. The harm it produced was.</em></p>
+    <div class="pullquote">
+      <p>&#8220;When you put a cop in a school, you&#8217;re not adding a safety officer. You&#8217;re adding a prosecutor. Every decision that teacher or principal used to make in their office, the cop is now making at the precinct.&#8221;</p>
+      <cite>&mdash; Bryan Stevenson, Equal Justice Initiative, 2016</cite>
+    </div>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">50,000+</div><div class="entry-stat__label">Police officers stationed in U.S. schools by 2019</div></div>
+      <div><div class="entry-stat__num">6&times;</div><div class="entry-stat__label">Higher arrest rate in schools with SROs vs. without (2019 study)</div></div>
+      <div><div class="entry-stat__num">31%</div><div class="entry-stat__label">Black share of students referred to law enforcement &mdash; vs. 15% of enrollment</div></div>
+    </div>
+    <p><strong>Black students represent 31% of students referred to law enforcement and 36% of students arrested at school</strong> in a population that is 15% Black. The most common charges are disorderly conduct, disturbing the peace, and simple assault &mdash; statutory language applied to behavior that was, in previous decades, handled with a phone call to a parent.</p>
+  </div>
+</div>
+
+<div class="entry-item" id="e3">
+  <div class="entry-item__header">
+    <div class="entry-item__num">3</div>
+    <div>
+      <div class="entry-item__dates">2007 &ndash; 2014</div>
+      <h2 class="entry-item__name">The Cradle-to-Prison Pipeline Report: Naming What Was Already Happening</h2>
+      <div class="entry-item__location">Children&#8217;s Defense Fund &middot; Obama Administration</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>In 2007, the Children&#8217;s Defense Fund published <em>America&#8217;s Cradle to Prison Pipeline</em>. The report documented a system of compounding disadvantages &mdash; poverty, inadequate healthcare, failing schools, zero-tolerance discipline, and mass incarceration &mdash; that funneled Black children from birth toward imprisonment. The key finding: <strong>a Black boy born in 2001 had a 1-in-3 lifetime probability of going to prison. For white boys the figure was 1 in 17.</strong></p>
+    <p>The report documented the pipeline&#8217;s mechanics. Each link increased the probability of the next. Children in poverty have worse health outcomes. Children with health challenges have higher rates of learning disabilities. Children with learning disabilities are more likely to be flagged as &#8220;disruptive.&#8221; Disruptive children are more likely to be suspended. Suspended children fall behind academically. Children who fall behind are more likely to be held back a grade. <em>Being held back one grade doubles the likelihood of dropping out. Dropping out multiplies the probability of incarceration.</em></p>
+    <p>The Obama administration&#8217;s response, in 2014, was the first federal policy acknowledgment that the pipeline existed. The Departments of Education and Justice issued a &#8220;Dear Colleague&#8221; letter to every school district in the country, warning that racially disparate discipline practices violated Title VI of the Civil Rights Act and making &mdash; for the first time &mdash; <em>federal funding contingent on racial equity in school discipline.</em></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">1 in 3</div><div class="entry-stat__label">Lifetime prison probability for a Black boy born in 2001 (CDF, 2007)</div></div>
+      <div><div class="entry-stat__num">1 in 17</div><div class="entry-stat__label">Same figure for a white boy</div></div>
+      <div><div class="entry-stat__num">2014</div><div class="entry-stat__label">Obama/DOJ &#8220;Dear Colleague&#8221; letter &mdash; first federal policy response to the pipeline</div></div>
+    </div>
+    <table class="disparity-table" aria-label="School discipline racial disparities by category">
+      <thead>
+        <tr>
+          <th>Measure</th>
+          <th>Black students</th>
+          <th>White students / baseline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Suspension rate (overall)</td><td>~15&ndash;16%</td><td>~5%</td></tr>
+        <tr><td>Referred to law enforcement</td><td>31% of total</td><td>Proportional to ~50% of enrollment</td></tr>
+        <tr><td>Arrested at school</td><td>36% of total</td><td>&mdash;</td></tr>
+        <tr><td>Black girls vs. white girls</td><td>6&times; suspension rate</td><td>Baseline</td></tr>
+        <tr><td>Schools with police, no counselor</td><td>Disproportionately affected</td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);margin-top:var(--space-2)">Sources: U.S. DOE Civil Rights Data Collection; Government Accountability Office 2018; NAACP Legal Defense Fund</p>
+  </div>
+</div>
+
+<div class="entry-item" id="e4">
+  <div class="entry-item__header">
+    <div class="entry-item__num">4</div>
+    <div>
+      <div class="entry-item__dates">2018 &ndash; Present</div>
+      <h2 class="entry-item__name">Betsy DeVos Rescinds the Guidance: Stripping the One Federal Check</h2>
+      <div class="entry-item__location">Department of Education &middot; Trump Administration</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>In December 2018, Secretary of Education Betsy DeVos rescinded the 2014 Obama-era &#8220;Dear Colleague&#8221; guidance on school discipline disparities. The stated rationale was that the guidance had created &#8220;undue pressure&#8221; on schools to reduce suspensions of Black students in ways that were not &#8220;in the best interests of students&#8221; &mdash; an argument that equity requirements had caused schools to under-discipline dangerous students in order to balance racial statistics.</p>
+    <p>This argument ignores the controlled studies showing that racial disparities persist after controlling for the type and severity of infraction. It assumes the disparity reflects differential behavior, not differential judgment. <strong>It takes the outcome of a biased system as evidence that the system is fair.</strong></p>
+    <p>The practical effects were immediate. The Office for Civil Rights at the Department of Education &mdash; which processes Title VI complaints against school districts &mdash; deprioritized and closed dozens of pending investigations into discriminatory discipline. <em>School districts that had reduced disciplinary disparities under federal scrutiny in some cases reversed course within two years of the rescission.</em></p>
+    <div class="pullquote">
+      <p>&#8220;Rescinding these protections sends a signal to every school administrator in the country: you no longer have to account for who you&#8217;re removing from the classroom.&#8221;</p>
+      <cite>&mdash; Janelle Hawes, NAACP Legal Defense Fund, 2019</cite>
+    </div>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">Dec 2018</div><div class="entry-stat__label">DeVos rescinds 2014 guidance; federal equity oversight stripped</div></div>
+      <div><div class="entry-stat__num">54</div><div class="entry-stat__label">Pending OCR school discipline investigations deprioritized or closed post-rescission</div></div>
+      <div><div class="entry-stat__num">2021</div><div class="entry-stat__label">Biden rulemaking begins; not completed as of 2024</div></div>
+    </div>
+    <p><strong>The window from 2018 to the present represents the longest period since 2000 without meaningful federal oversight of school discipline racial disparities</strong> &mdash; precisely the years in which COVID disruptions, remote learning loss, and return-to-school behavioral challenges produced documented spikes in suspension rates nationwide.</p>
+  </div>
+</div>
+
+<div class="entry-item" id="e5">
+  <div class="entry-item__header">
+    <div class="entry-item__num">5</div>
+    <div>
+      <div class="entry-item__dates">2010s &ndash; Present</div>
+      <h2 class="entry-item__name">Restorative Justice: What Interrupts the Pipeline and Why It Hasn&#8217;t Scaled</h2>
+      <div class="entry-item__location">Oakland &middot; Denver &middot; Minneapolis &middot; Los Angeles</div>
+    </div>
+  </div>
+  <div class="entry-item__body">
+    <p>The pipeline has a demonstrated interruption: <em>restorative justice.</em> Restorative practices replace punitive, exclusionary discipline with facilitated processes that bring together the person who caused harm, the person harmed, and the surrounding community &mdash; to name what happened, hear its impact, and determine what repair looks like. A student who disrupted a class doesn&#8217;t get suspended. They sit in a circle with their teacher and classmates, speak and listen, and the relationship gets repaired. The behavior is addressed. The student stays in school.</p>
+    <p>The evidence is consistent and robust. In Oakland Unified School District, which implemented restorative justice at scale between 2010 and 2014, suspensions dropped 87% over four years. In Denver Public Schools, a restorative practices pilot reduced suspensions 68% and out-of-school time 46% with no increase in school violence. <strong>In every district where restorative justice was implemented with fidelity and adequate resources, suspensions fell, racial gaps narrowed, and academic outcomes improved &mdash; including for students who had previously been suspended repeatedly.</strong></p>
+    <p>The resistance is not empirical &mdash; the data is not contested. It is political and institutional. School administrators cite training time. Some teachers&#8217; unions have objected to the emotional labor it requires. Police associations have lobbied against it because it typically involves reducing SRO presence. <em>In conservative-dominated state legislatures, restorative justice has been characterized as permissiveness toward dangerous students &mdash; a framing with no basis in the research record.</em></p>
+    <div class="entry-stats">
+      <div><div class="entry-stat__num">87%</div><div class="entry-stat__label">Drop in suspensions in Oakland Unified after restorative justice implementation (2010&ndash;2014)</div></div>
+      <div><div class="entry-stat__num">68%</div><div class="entry-stat__label">Suspension reduction in Denver&#8217;s restorative practices pilot</div></div>
+      <div><div class="entry-stat__num">$0</div><div class="entry-stat__label">Federal dedicated funding stream for restorative justice implementation, as of 2024</div></div>
+    </div>
+    <p>The pipeline has no single off-switch. It runs through federal law, state juvenile codes, district policy, and the individual judgment calls of teachers and administrators who have been trained &mdash; by institutional culture, not individual malice &mdash; to perceive Black children as more threatening than white children exhibiting identical behavior. <strong>Implicit bias studies show consistently that teachers rate identical disruptive behavior as more severe when the student is Black. This is the pipeline&#8217;s starting point.</strong></p>
+    <p>The question is not whether the pipeline exists. The question is whether the people with the power to dismantle it &mdash; in Congress, in statehouses, in school board elections &mdash; will choose to do so when doing so requires redistributing resources away from policing and toward counseling, toward restorative practice facilitators, toward the mental health infrastructure that underfunded Black schools have never had. <em>The evidence says what works. What is missing is the political will to fund it.</em></p>
+  </div>
+</div>
+
+</div></main>
+
+      <aside class="thread-sidebar">
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Pipeline: Step by Step</div>
+  <div class="sidebar-card__body">
+    <strong>1.</strong> Underfunded school &mdash; fewer counselors, more police<br/><br/>
+    <strong>2.</strong> Subjective &#8220;willful defiance&#8221; charge &mdash; applied 3&times; as often to Black students<br/><br/>
+    <strong>3.</strong> Out-of-school suspension &mdash; student falls behind academically<br/><br/>
+    <strong>4.</strong> School Resource Officer arrest &mdash; &#8220;disorderly conduct&#8221; for school behavior<br/><br/>
+    <strong>5.</strong> Juvenile court record &mdash; affects college admissions, employment, housing<br/><br/>
+    <strong>6.</strong> Academic gap compounds &mdash; increased dropout risk<br/><br/>
+    <strong>7.</strong> Adult criminal justice contact &mdash; juvenile record increases probability<br/><br/>
+    <em>Each step multiplies the probability of the next.</em>
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">The Numbers</div>
+  <div class="sidebar-card__body">
+    Black students = <strong>15%</strong> of K&ndash;12 enrollment<br/>
+    <strong>31%</strong> of students referred to law enforcement<br/>
+    <strong>36%</strong> of students arrested at school<br/><br/>
+    Black girls suspended at <strong>6&times;</strong> rate of white girls<br/><br/>
+    Suspended students <strong>3&times;</strong> more likely to have juvenile justice contact same year<br/><br/>
+    Black boy born in 2001: <strong>1 in 3</strong> lifetime prison probability<br/>
+    White boy born in 2001: <strong>1 in 17</strong><br/><br/>
+    <em>Source: DOE Civil Rights Data Collection; CDF 2007; GAO 2018</em>
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Policy Timeline</div>
+  <div class="sidebar-card__body">
+    <strong>1994</strong> &mdash; Gun-Free Schools Act: zero-tolerance begins<br/>
+    <strong>1999</strong> &mdash; Columbine; COPS in Schools: 50,000+ SROs<br/>
+    <strong>2007</strong> &mdash; CDF Cradle to Prison Pipeline report<br/>
+    <strong>2014</strong> &mdash; Obama/DOJ Dear Colleague letter<br/>
+    <strong>2018</strong> &mdash; DeVos rescinds guidance; oversight stripped<br/>
+    <strong>2021</strong> &mdash; Biden rulemaking begins; not completed<br/>
+    <strong>2024</strong> &mdash; Federal equity guidance still incomplete
+  </div>
+</div>
+<div class="sidebar-card">
+  <div class="sidebar-card__title">Connected Threads</div>
+  <div class="sidebar-card__body">
+    <a href="thread-mass-incarceration.html" style="color:var(--acc-lt)">Mass Incarceration: The 13th Amendment Loophole &rarr;</a><br/><br/>
+    <a href="thread-war-on-drugs.html" style="color:var(--acc-lt)">The War on Drugs: Nixon&#8217;s Admission &rarr;</a><br/><br/>
+    <a href="thread-redlining.html" style="color:var(--acc-lt)">Redlining: How the Government Chose the Ghetto &rarr;</a><br/><br/>
+    <a href="thread-foia.html" style="color:var(--acc-lt)">FOIA: Who Owns the Truth About What the Government Did &rarr;</a>
+  </div>
+</div>
+      </aside>
     </div>
   </div>
 </section>
+
 <section class="thread-bottom-cta">
   <div class="container">
     <div class="thread-bottom-cta__inner">
-      <div class="thread-bottom-cta__eyebrow">The Longer Chain</div>
-      <h2 class="thread-bottom-cta__title">Suspended at six. Arrested at school. Incarcerated at twenty. The pipeline is a policy, not a destiny.</h2>
-      <p class="thread-bottom-cta__sub">Every step of the school-to-prison pipeline is a policy choice that could be made differently. Clayton County proved it. The question is why most jurisdictions haven't.</p>
+      <div class="thread-bottom-cta__eyebrow">Not a Metaphor. A System.</div>
+      <h2 class="thread-bottom-cta__title">The pipeline was built by policy. It can be dismantled by policy. The evidence says what works. The political will to fund it has not materialized.</h2>
+      <p class="thread-bottom-cta__sub">Restorative justice works. The data is not contested. The pipeline persists not for lack of knowledge about what stops it &mdash; but because of active resistance from the institutional interests that benefit from maintaining it.</p>
       <div class="thread-bottom-cta__btns">
-        <a href="thread-mass-incarceration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Mass Incarceration → &rarr;</a>
+        <a href="thread-mass-incarceration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Mass Incarceration: The Full System &rarr;</a>
         <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
       </div>
     </div>
   </div>
 </section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="site-footer__inner">
@@ -162,4 +355,5 @@
 </footer>
 <script>const t=document.getElementById('themeToggle');if(t)t.addEventListener('click',()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('chain-theme',n)});</script>
 <script src="js/thread-journey.js" defer></script>
-</body></html>
+</body>
+</html>
