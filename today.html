@@ -1025,10 +1025,113 @@
   document.getElementById('lead-years-ago').textContent = `${now.getFullYear() - leadYear} years ago`;
 
   // Dates that "have events" for visual indicator
-  const EVENT_DAYS = {
-    '4-10': true, '4-4': true, '4-16': true, '4-19': true, '4-9': true,
-    '4-1': true,  '4-12': true,'4-22': true, '4-3': true,  '4-28': true,
+  // ── EVENT DATABASE ─────────────────────────────────────────
+  const EVENTS_BY_DATE = {
+    '1-1':  [{ year:1863, type:'Policy · Federal Law', cat:'policy', title:'Emancipation Proclamation takes effect', summary:"President Lincoln's executive order declaring enslaved people in Confederate states 'forever free' takes legal effect. It did not free enslaved people in border states that remained in the Union. It was a war measure — Lincoln said as much. But it transformed the meaning of the Civil War and authorized the enlistment of Black men into the Union Army.", chain:"The Proclamation's limits mattered as much as its words. The 13th Amendment (1865) was required to actually abolish slavery — and its exception clause ('except as punishment for a crime') created the legal architecture for convict leasing.", thread:'thread-end-of-slavery.html' }],
+    '1-15': [{ year:1929, type:'Person · Birth', cat:'person', title:'Martin Luther King Jr. born in Atlanta, Georgia', summary:"Born Michael King Jr. in Atlanta, the man who would become the most recognized face of the civil rights movement was 26 when the Montgomery Bus Boycott began, 34 when he delivered 'I Have a Dream,' and 39 when he was assassinated. The movement he helped lead was built on decades of organizing by women, lawyers, and community leaders who never became household names.", chain:"King's FBI file began in 1955 and ran to thousands of pages. COINTELPRO surveilled, infiltrated, and worked to destroy the organizations he led. The FBI sent him an anonymous letter encouraging him to commit suicide.", thread:'thread-mlk.html' }],
+    '2-1':  [{ year:1960, type:'Event · Protest', cat:'event', title:'Greensboro sit-ins begin — four Black students refuse to leave a whites-only lunch counter', summary:"On February 1, 1960, Ezell Blair Jr., David Richmond, Franklin McCain, and Joseph McNeil — freshmen at North Carolina A&T — sat at the Woolworth's lunch counter in Greensboro and refused to leave when denied service. Within two months, sit-ins had spread to 54 cities across nine states. Within six months, Woolworth's desegregated its lunch counters.", chain:"The sit-ins directly inspired the formation of SNCC, which became one of the most effective organizing bodies of the civil rights era and trained a generation of organizers including John Lewis and Diane Nash.", thread:'thread-freedom-riders.html' }],
+    '2-3':  [{ year:1870, type:'Policy · Amendment', cat:'policy', title:'15th Amendment ratified — Black men gain the right to vote', summary:"The 15th Amendment prohibited denial of voting rights based on race, color, or previous condition of servitude. It was immediately and systematically circumvented through poll taxes, literacy tests, grandfather clauses, white primaries, and terrorist violence. By 1900, Black voter registration in the South had collapsed from Reconstruction highs.", chain:"The gap between the 15th Amendment's passage (1870) and its enforcement (Voting Rights Act, 1965) spans 95 years — during which generations of Black Americans were excluded from the political system while being taxed, policed, and governed by it.", thread:'thread-reconstruction.html' }],
+    '2-21': [{ year:1965, type:'Person · Assassination', cat:'person', title:'Malcolm X assassinated at the Audubon Ballroom, New York City', summary:"Malcolm X was shot and killed while speaking in Harlem. He was 39. In the months before his death he had broken with the Nation of Islam and was developing a more internationalist framework for Black liberation. Three men were convicted; two were exonerated in 2021 — 56 years after the murder — after evidence revealed that the NYPD and FBI had identified the actual perpetrators and withheld it.", chain:"The pattern of law enforcement covering up or enabling the assassination of Black leaders is documented across the COINTELPRO archive from the 1950s through Fred Hampton's killing in 1969.", thread:'thread-cointelpro.html' }],
+    '3-7':  [{ year:1965, type:'Event · March', cat:'event', title:"Bloody Sunday — state troopers attack marchers on the Edmund Pettus Bridge", summary:"On March 7, 1965, 600 civil rights marchers led by John Lewis and Hosea Williams began walking from Selma to Montgomery to demand voting rights. At the bridge, Alabama state troopers attacked them with clubs and tear gas on live television. The footage created a national crisis and directly triggered the Voting Rights Act five months later.", chain:"The Edmund Pettus Bridge is named for a Confederate general who was also a Grand Dragon of the KKK. It still bears that name. The Voting Rights Act passed in 1965 was substantially gutted by Shelby County v. Holder in 2013.", thread:'thread-voting-rights.html' }],
+    '4-4':  [{ year:1968, type:'Person · Assassination', cat:'person', title:'Martin Luther King Jr. assassinated at the Lorraine Motel, Memphis', summary:"Dr. King was in Memphis supporting striking sanitation workers — Black men demanding equal pay and safe working conditions. He was shot on the balcony of the Lorraine Motel at 6:01 PM. He was 39. A 1999 civil trial found that a conspiracy involving Memphis police and federal agencies contributed to his death.", chain:"King's FBI file ran to hundreds of thousands of pages. COINTELPRO had sent him an anonymous letter in 1964 urging him to kill himself. The week of his assassination he was planning the Poor People's Campaign — a multiracial economic justice coalition the FBI considered more dangerous than his civil rights work.", thread:'thread-cointelpro.html' }],
+    '4-9':  [{ year:1865, type:'Event · Civil War', cat:'event', title:"Lee surrenders at Appomattox — the Civil War effectively ends", summary:"General Lee surrendered to General Grant at Appomattox Court House on April 9, 1865. The Civil War killed approximately 620,000 soldiers. Reconstruction — the attempt to rebuild the South on a basis of racial equality — was already being undermined before the war ended. It formally ended in 1877 with the withdrawal of federal troops.", chain:"The Confederacy lost the war but won the peace. The Lost Cause mythology that emerged after 1865 — portraying the war as noble, slavery as benign — shaped American history education, public monuments, and political culture for 150 years.", thread:'thread-reconstruction.html' }],
+    '4-10': [{ year:1864, type:'Event · Massacre', cat:'event', title:'Fort Pillow Massacre — Confederate forces kill 300 Black Union soldiers after they surrender', summary:"On April 10, 1864, Confederate General Nathan Bedford Forrest's troops attacked Fort Pillow, Tennessee — a garrison staffed largely by Black soldiers of the USCT. After the garrison surrendered, Confederate soldiers executed hundreds of Black soldiers rather than taking them prisoner. 'Remember Fort Pillow!' became a rallying cry for Black Union troops.", chain:"Forrest later founded the Ku Klux Klan. The federal government's failure to prosecute him for Fort Pillow set a precedent of non-accountability for racial terror that would repeat throughout Reconstruction and beyond.", thread:'thread-reconstruction.html' },
+             { year:1968, type:'Policy · Federal Law', cat:'policy', title:"Fair Housing Act signed — six days after MLK's assassination", summary:"President Johnson signed the Fair Housing Act prohibiting racial discrimination in housing sales, rentals, and financing. It had stalled in Congress for two years. King's assassination created the political pressure to finally pass it.", chain:"The Fair Housing Act prohibited new discrimination but could not undo 35 years of accumulated HOLC and FHA mortgage exclusion. The racial homeownership gap is wider today than it was in 1968.", thread:'thread-redlining.html' }],
+    '4-16': [{ year:1963, type:'Document · Letter', cat:'event', title:'MLK writes "Letter from Birmingham Jail"', summary:"Arrested for leading demonstrations without a permit, King wrote his landmark letter in the margins of a newspaper. Addressed to white Alabama clergymen who urged protesters to wait, King's argument — that the 'white moderate' who preferred order to justice was a greater obstacle than the outright segregationist — remains one of the most precise diagnoses of American liberalism ever written.", chain:"The letter's critique of those who prefer 'a negative peace which is the absence of tension to a positive peace which is the presence of justice' directly anticipates every subsequent debate about the proper pace of civil rights, protest tactics, and reform vs. transformation.", thread:'thread-mlk.html' }],
+    '4-19': [{ year:1960, type:'Event · Organizing', cat:'event', title:'SNCC founded at Shaw University, Raleigh', summary:"The Student Nonviolent Coordinating Committee was founded at a conference called by Ella Baker, who urged student protesters to maintain independence from established civil rights organizations. SNCC became the most radical and effective student organizing body of the civil rights era, pioneering voter registration in Mississippi and Alabama that older organizations were reluctant to attempt.", chain:"SNCC's voter registration work in Mississippi directly created the political pressure for the Voting Rights Act. Several SNCC leaders — John Lewis, Diane Nash, Bob Moses — shaped American politics for the following six decades.", thread:'thread-freedom-riders.html' }],
+    '5-4':  [{ year:1961, type:'Event · Protest', cat:'event', title:'Freedom Riders depart Washington DC', summary:"Thirteen riders — seven Black, six white — boarded two buses in DC to test the Supreme Court's ruling that segregated interstate bus terminals were unconstitutional. In Anniston, Alabama, one bus was firebombed. In Birmingham, riders were beaten with baseball bats while FBI informants stood by. CORE handed leadership to SNCC, who refused to stop.", chain:"The Freedom Riders' persistence forced the Kennedy administration to pressure the ICC to issue regulations actually enforcing desegregation. The federal government's initial response — managing optics rather than enforcing the law — established a pattern repeated throughout the civil rights era.", thread:'thread-freedom-riders.html' }],
+    '5-17': [{ year:1954, type:'Policy · Supreme Court', cat:'policy', title:'Brown v. Board of Education — Supreme Court rules school segregation unconstitutional', summary:"The Supreme Court's unanimous ruling overturned the 'separate but equal' doctrine of Plessy v. Ferguson (1896). The ruling was denounced by 101 Southern members of Congress. Desegregation was implemented with 'all deliberate speed' — which in many districts meant decades.", chain:"School desegregation peaked in the late 1980s and has since reversed. American schools are more racially segregated today than in the late 1960s. The mechanism is residential segregation — a product of federal housing policy — and the funding of schools through local property taxes.", thread:'thread-redlining.html' }],
+    '5-25': [{ year:2020, type:'Event · Police Violence', cat:'event', title:'George Floyd killed by Minneapolis police officer Derek Chauvin', summary:"George Floyd died when Officer Chauvin knelt on his neck for nine minutes and twenty-nine seconds. The murder was filmed by a 17-year-old bystander. It triggered the largest protest movement in American history — an estimated 26 million people participated across all 50 states and more than 60 countries. Chauvin was convicted of murder in 2021.", chain:"In the 12 months before Floyd's death, Minneapolis police had used force against Black residents at seven times the rate of white residents. The pattern is national — documented in consent decrees, DOJ investigations, and audits across hundreds of police departments.", thread:'thread-george-floyd.html' }],
+    '6-19': [{ year:1865, type:'Event · Emancipation', cat:'event', title:"Juneteenth — Union soldiers arrive in Texas announcing the end of slavery", summary:"On June 19, 1865 — two and a half years after the Emancipation Proclamation took effect, and two months after the Civil War ended — Union soldiers arrived in Galveston, Texas and announced that enslaved people were free. Enslavers had suppressed the information to extract one last harvest. Juneteenth was not recognized as a federal holiday until June 2021.", chain:"The 156 years between Juneteenth's first celebration and its federal recognition is itself a historical document — showing which histories are deemed worthy of national commemoration and when that determination changes.", thread:'thread-end-of-slavery.html' }],
+    '7-2':  [{ year:1964, type:'Policy · Federal Law', cat:'policy', title:'Civil Rights Act of 1964 signed into law', summary:"President Johnson signed the Civil Rights Act, prohibiting discrimination based on race, color, religion, sex, or national origin in employment, public accommodations, and federally funded programs. The bill had been filibustered for 60 days by Southern senators. It passed because of sustained mass protest and the political pressure created by demonstrators absorbing violence on national television.", chain:"The Civil Rights Act prohibited discrimination but did not address the accumulated wealth gap produced by 250 years of slavery and 90 years of Jim Crow. Prohibiting future discrimination without addressing past deprivation is not equality — it is the starting gun of a race where one side has already run half the course.", thread:'thread-mlk.html' }],
+    '7-26': [{ year:1948, type:'Policy · Executive Order', cat:'policy', title:"Truman desegregates the U.S. military — Executive Order 9981", summary:"President Truman's order declared 'equality of treatment and opportunity for all persons in the armed services without regard to race.' Black soldiers had fought in every American war under segregated conditions, dying for a democracy that denied them citizenship at home. Full desegregation was not complete until 1954.", chain:"The military desegregated in 1948. Schools in 1954. Public accommodations in 1964. Voting in 1965. Housing nominally in 1968. Each step came after sustained organized pressure — none was voluntary.", thread:'thread-gi-bill.html' }],
+    '8-6':  [{ year:1965, type:'Policy · Federal Law', cat:'policy', title:'Voting Rights Act signed — the 15th Amendment finally enforced', summary:"President Johnson signed the Voting Rights Act, which prohibited discriminatory voting practices and established federal oversight of elections in states with histories of discrimination. Within three years, Black voter registration in Mississippi rose from 6.7% to 59.8%.", chain:"The Act has been weakened by Supreme Court decisions in 2013 (Shelby County v. Holder) and 2021 (Brnovich v. DNC). Rights that require continuous political battle to maintain are not settled law — they are contested terrain.", thread:'thread-voting-rights.html' }],
+    '8-28': [{ year:1963, type:'Event · March', cat:'event', title:'March on Washington — 250,000 people gather at the Lincoln Memorial', summary:"The March on Washington for Jobs and Freedom drew 250,000 people. John Lewis's original speech was so militant that organizers pressured him to soften it. King's 'I Have a Dream' section was improvised. The march was organized largely by Bayard Rustin, a gay Black man whose sexuality was used to limit his public role.", chain:"The March on Washington was for JOBS and freedom — the economic component has been largely erased from historical memory. The march's demands included a federal jobs program and a $2 minimum wage. Most of those economic demands were never met.", thread:'thread-mlk.html' }],
+    '9-15': [{ year:1963, type:'Event · Bombing', cat:'event', title:'16th Street Baptist Church bombing — four girls killed in Birmingham', summary:"Members of the Ku Klux Klan planted a bomb at the 16th Street Baptist Church in Birmingham, killing four girls during Sunday school: Addie Mae Collins (14), Cynthia Wesley (14), Carole Robertson (14), and Carol Denise McNair (11). FBI Director J. Edgar Hoover blocked prosecution of the known perpetrators for over a decade.", chain:"The FBI identified the bombers within weeks. Hoover personally blocked prosecution. Robert Chambliss was not convicted until 1977. The last conviction came in 2002 — 39 years after the murders. The pattern of FBI covering up racial violence runs through COINTELPRO.", thread:'thread-cointelpro.html' }],
+    '12-1': [{ year:1955, type:'Event · Protest', cat:'event', title:"Rosa Parks refuses to give up her seat — Montgomery Bus Boycott begins", summary:"Rosa Parks was not simply tired. She was secretary of the Montgomery NAACP chapter and had been trained at the Highlander Folk School. Her arrest was the strategic trigger for a boycott planned in advance. The Montgomery Bus Boycott lasted 381 days, cost the bus company 65% of its revenue, and ended with a Supreme Court ruling against bus segregation. The 26-year-old minister chosen to lead it was Martin Luther King Jr.", chain:"The boycott required 381 days of Black Montgomery residents walking miles to work, carpooling, and enduring harassment — demonstrating both community discipline and the economic leverage that Black consumers could exercise when organized.", thread:'thread-we-refuse.html' }],
+    '12-4': [{ year:1969, type:'Person · Assassination', cat:'person', title:'Fred Hampton assassinated by Chicago police and FBI in pre-dawn raid', summary:"Fred Hampton, 21-year-old chairman of the Illinois Black Panther Party, was killed in a pre-dawn raid coordinated by the Cook County State's Attorney and the FBI. Hampton was shot twice in the head while unconscious, having been sedated by an FBI informant. 14 officers fired approximately 99 shots. A survivor fired one. The officers were not charged.", chain:"Hampton had been building the Rainbow Coalition — an alliance of Black Panthers, Young Patriots, and Young Lords. The FBI's COINTELPRO files show his coalition-building was specifically identified as a threat. He was killed eight months after his 21st birthday.", thread:'thread-cointelpro.html' }],
+    '12-6': [{ year:1865, type:'Policy · Amendment', cat:'policy', title:'13th Amendment ratified — slavery abolished, with one exception', summary:"The 13th Amendment abolished slavery 'except as a punishment for crime whereof the party shall have been duly convicted.' That exception clause was immediately weaponized. Black Codes criminalized vagrancy and unemployment. Convict leasing — renting prisoners to private companies — replicated the conditions of slavery within a year of the Amendment's passage.", chain:"The 13th Amendment's exception clause created a direct legal pathway from slavery to convict leasing to chain gangs to mass incarceration. The 2.3 million people currently incarcerated in the U.S. — disproportionately Black — exist within a constitutional framework that explicitly permits their forced labor.", thread:'thread-convict-leasing.html' }],
   };
+
+  // Build EVENT_DAYS lookup for calendar dot display
+  const EVENT_DAYS = {};
+  Object.keys(EVENTS_BY_DATE).forEach(k => { EVENT_DAYS[k] = true; });
+
+  // ── DYNAMIC DAY CONTENT RENDERER ──────────────────────────
+  function renderDayContent(month, day) {
+    const key = `${month}-${day}`;
+    const events = EVENTS_BY_DATE[key];
+    const leadEl    = document.querySelector('.today-lead');
+    const entriesEl = document.getElementById('entries-list');
+    const sidebarYearList = document.querySelector('.year-list');
+    const yearLabel = document.querySelector('.sidebar-card__title');
+
+    if (!events || events.length === 0) {
+      if (leadEl) leadEl.innerHTML = `
+        <div class="today-lead__band"></div>
+        <div class="today-lead__body">
+          <div class="today-lead__meta"><span class="today-lead__type-badge">On This Date</span></div>
+          <h2 class="today-lead__headline" id="lead-headline">No events recorded for ${MONTHS[month-1]} ${day}</h2>
+          <p class="today-lead__body-text">Our archive is growing. This date has not been documented yet — but every day in Black history connects to the chain. Browse the full thread archive to explore any era.</p>
+          <div class="today-lead__actions">
+            <a href="search.html" class="btn btn--primary">Search the archive &rarr;</a>
+            <a href="threads.html" class="btn btn--secondary">Browse all threads</a>
+          </div>
+        </div>`;
+      if (entriesEl) entriesEl.innerHTML = '';
+      if (sidebarYearList) sidebarYearList.innerHTML = '<p style="font-size:var(--type-sm);color:var(--color-text-tertiary);padding:var(--space-3) 0">No additional entries for this date.</p>';
+      if (yearLabel) yearLabel.textContent = `${MONTHS[month-1]} ${day} across history`;
+      return;
+    }
+
+    const lead = events[0];
+    const leadYearsDiff = new Date().getFullYear() - lead.year;
+
+    if (leadEl) leadEl.innerHTML = `
+      <div class="today-lead__band"></div>
+      <div class="today-lead__body">
+        <div class="today-lead__meta">
+          <span class="today-lead__type-badge">${lead.type.split('\u00b7')[0].trim()}</span>
+          <span class="today-lead__year">${lead.year}</span>
+          <span class="today-lead__years-ago">${leadYearsDiff} years ago</span>
+        </div>
+        <h2 id="lead-headline" class="today-lead__headline">${lead.title}</h2>
+        <p class="today-lead__body-text">${lead.summary}</p>
+        ${lead.chain ? `<div class="today-lead__chain"><p class="today-lead__chain-label">&rarr; The chain from here</p><p class="today-lead__chain-text">${lead.chain}</p></div>` : ''}
+        <div class="today-lead__actions">
+          ${lead.thread ? `<a href="${lead.thread}" class="btn btn--primary">Read the thread &rarr;</a>` : ''}
+          <a href="threads.html" class="btn btn--secondary">Browse all threads</a>
+        </div>
+      </div>`;
+
+    if (entriesEl) {
+      if (events.length > 1) {
+        entriesEl.innerHTML = events.slice(1).map(ev => `
+          <a href="${ev.thread || 'threads.html'}" class="today-entry reveal" data-cat="${ev.cat}">
+            <div class="today-entry__year-col">
+              <span class="today-entry__year">${ev.year}</span>
+              <div class="today-entry__connector" aria-hidden="true"></div>
+            </div>
+            <div class="today-entry__body">
+              <div class="today-entry__type">${ev.type}</div>
+              <div class="today-entry__title">${ev.title}</div>
+              <p class="today-entry__summary">${ev.summary}</p>
+            </div>
+          </a>`).join('');
+      } else {
+        entriesEl.innerHTML = '';
+      }
+    }
+
+    if (yearLabel) yearLabel.textContent = `${MONTHS[month-1]} ${day} across history`;
+    if (sidebarYearList) {
+      sidebarYearList.innerHTML = events.map(ev => `
+        <div class="year-item">
+          <span class="year-item__yr">${ev.year}</span>
+          <span class="year-item__text">${ev.title}</span>
+        </div>`).join('');
+    }
+  }
 
   function renderCalendar() {
     const label = document.getElementById('cal-month-label');
@@ -1084,6 +1187,8 @@
     viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; } renderCalendar();
   });
   renderCalendar();
+  // Render today's events on initial load
+  renderDayContent(now.getMonth() + 1, now.getDate());
 
   // ── MONTH NAV BUTTONS ─────────────────────────────────────
   document.querySelectorAll('.month-btn').forEach(btn => {
