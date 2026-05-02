@@ -1153,6 +1153,7 @@ var THREAD_INDEX = [
       {h:'thread-school-to-prison.html',t:'The School-to-Prison Pipeline: How the Education System Feeds the Carceral System',d:'history-culture criminal-justice education',e:8,el:'Carceral Era',c:'#1a0e00',y:'1994 – Present'},
       {h:'thread-medical-apartheid.html',t:'Medical Apartheid: The Dark History of Medical Experimentation on Black Americans',d:'history-culture health',e:8,el:'Colonial Era – Present',c:'#1a0808',y:'1600s – Present'},
       {h:'thread-african-diaspora.html',t:'One Continent: The African Origins of the Entire Human World',d:'history-culture',e:8,el:'Origins & Diaspora',c:'#0a1f0a',y:'300,000 BCE – Present'},
+      {h:'thread-we-refuse.html',t:'We Refuse: A Forceful History of Black Resistance',d:'history-culture criminal-justice',e:8,el:'Resistance Era',c:'#1a0505',y:'1619 – Present'},
       {h:'thread-soul-disco.html',t:'Soul, Funk & the Disco Purge',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#5a1a6b',y:'1960s – 1980s'},
   {h:'thread-punk-grunge.html',t:'Punk, Grunge & the Hidden Black Blueprint',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#2a2a2a',y:'1970s – 1990s'},
   {h:'thread-hiphop-origins.html',t:'Hip-Hop: Born from Ruins',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#1a4a1a',y:'1973 – Present'},
