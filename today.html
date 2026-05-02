@@ -1071,6 +1071,7 @@
         document.getElementById('today-month-name').textContent = MONTHS[viewMonth];
         document.getElementById('today-day-num').textContent    = selectedDay;
         document.getElementById('count-date-label').textContent = `${MONTHS[viewMonth]} ${selectedDay}`;
+        renderDayContent(viewMonth + 1, selectedDay);
         renderCalendar();
       });
     });
