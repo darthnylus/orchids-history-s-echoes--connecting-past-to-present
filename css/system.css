@@ -1049,34 +1049,45 @@ input, textarea, select { font-family: inherit; }
 .hero__journey-cta {
   display: flex;
   align-items: center;
-  gap: var(--space-5);
-  margin: var(--space-7) 0 var(--space-4);
+  gap: var(--space-4);
+  margin: var(--space-6) 0 var(--space-4);
   flex-wrap: wrap;
-  padding-top: var(--space-6);
-  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+/* "or" label between search and journey */
+.hero__journey-cta::before {
+  content: 'or start from the beginning';
+  display: block;
+  width: 100%;
+  font-size: var(--type-xs);
+  color: rgba(255,255,255,.35);
+  letter-spacing: .03em;
+  margin-bottom: -0.25rem;
 }
 
 .hero__journey-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  background: var(--amber-300);
-  color: #1a0e00;
+  background: transparent;
+  color: rgba(255,255,255,.80);
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: var(--radius-pill);
-  padding: var(--space-3) var(--space-7);
-  font-size: 1.05rem;
-  font-weight: var(--weight-bold);
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--type-sm);
+  font-weight: var(--weight-semibold);
   text-decoration: none;
   letter-spacing: -0.01em;
-  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 0 0 4px rgba(245,147,50,.18), 0 4px 24px rgba(245,147,50,.30);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
   white-space: nowrap;
 }
 
 .hero__journey-btn:hover {
-  background: var(--amber-200);
-  transform: translateX(4px);
-  box-shadow: 0 0 0 6px rgba(245,147,50,.22), 0 6px 32px rgba(245,147,50,.38);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.35);
+  color: #fff;
 }
 
 .hero__journey-btn-icon {
