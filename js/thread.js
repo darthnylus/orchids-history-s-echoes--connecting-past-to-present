@@ -520,6 +520,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-crack-epidemic.html',t:'The Crack Epidemic: The Drug That Was Treated as a Crime',d:'history-culture',e:8,el:'Backlash Era',c:'#4a2060',y:'1984 – 1994'},
       {h:'thread-cointelpro.html',t:"COINTELPRO: The FBI's War on Black America",d:'history-culture criminal-justice',e:8,el:'Backlash Era',c:'#4a2060',y:'1956 – 1971'},
       {h:'thread-banjo-blues.html',t:'The Banjo & the Blues: African Origins of American Music',d:'history-culture music-art',e:3,el:'Slavery & Resistance',c:'#8a5c1a',y:'1600s – Present'},
+      {h:'thread-minstrelsy.html',t:'Minstrelsy: How America Learned to See Black People',d:'history-culture music-art',e:3,el:'Slavery & Resistance',c:'#1a1008',y:'1830s – Present'},
       {h:'thread-rb-rock-theft.html',t:"Why R&B Exists: Race Records, Rock & Roll, and the Theft of Black Music",d:'history-culture music-art',e:5,el:'Jim Crow Era',c:'#7a2020',y:'1920s – Present'},
       {h:'thread-michael-jackson.html',t:'Michael Jackson: The Cost of Crossing Over',d:'history-culture music-art labor-wealth',e:8,el:'Backlash Era',c:'#2a1a00',y:'1958 – 2009'},
       {h:'thread-blaxploitation.html',t:'Blaxploitation: Representation, Exploitation, and the Black Hero Hollywood Did Not Expect',d:'history-culture music-art',e:8,el:'Backlash Era',c:'#3a1400',y:'1971 – 1998'},
