@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>We Refuse: A Forceful History of Black Resistance — Chain</title>
+  <meta name="description" content="Black Americans have tried every tool available: flight, petition, boycott, lawsuit, armed self-defense, prayer, music, and organized political power. This i..." />
+  <meta property="og:title" content="We Refuse: A Forceful History of Black Resistance" />
+  <meta property="og:description" content="Black Americans have tried every tool available: flight, petition, boycott, lawsuit, armed self-defense, prayer, music, and organized political power. This i..." />
+  <meta property="og:type" content="article" />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    /* Light mode: deep red-brown for legibility on white backgrounds */
+    :root{
+      --acc:#1a0505;
+      --acc-lt:#7f1d1d;   /* deep red — WCAG AA on white */
+      --acc-on-dark:#fca5a5; /* rose-300 — for use only on dark sections */
+    }
+    /* Dark mode: pale rose works on dark backgrounds */
+    [data-theme="dark"]{
+      --acc:#1a0505;
+      --acc-lt:#fca5a5;
+      --acc-on-dark:#fca5a5;
+    }
+
+    /* HERO — always dark background */
+    .thread-hero{background:#0d0202;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 140% 80% at 30% 40%,rgba(180,20,20,.08) 0%,transparent 60%),
+                 radial-gradient(ellipse 80% 60% at 80% 80%,rgba(100,0,0,.12) 0%,transparent 60%)}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:1}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(252,165,165,.12);border:1px solid rgba(252,165,165,.28);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#fca5a5;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#fca5a5}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.5rem,5.5vw,4.25rem);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.025em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#fca5a5;font-style:italic}
+    .thread-hero__subtitle{font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,.72);line-height:1.75;max-width:600px;margin-bottom:var(--space-10)}
+    .thread-hero__meta{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.10);padding-top:var(--space-6)}
+    .thread-meta-item{padding-right:var(--space-8);border-right:1px solid rgba(255,255,255,.10);margin-right:var(--space-8)}
+    .thread-meta-item:last-child{border-right:none;margin-right:0}
+    .thread-meta-item__label{font-size:10px;color:rgba(255,255,255,.40);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.92)}
+
+    /* RESISTANCE TACTICS FEATURE PANEL — always dark */
+    .tactics-section{background:#0d0202;padding:var(--space-16) 0 var(--space-14);overflow:hidden;border-top:1px solid rgba(252,165,165,.08)}
+    .tactics-section__inner{max-width:1000px;margin:0 auto}
+    .tactics-section__header{display:flex;flex-direction:column;align-items:flex-start;margin-bottom:var(--space-10);max-width:560px}
+    .tactics-section__eyebrow{font-size:10px;font-weight:var(--weight-bold);letter-spacing:.12em;text-transform:uppercase;color:rgba(252,165,165,.60);margin-bottom:var(--space-3)}
+    .tactics-section__heading{font-family:var(--font-editorial);font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:var(--space-4);letter-spacing:-0.02em}
+    .tactics-section__sub{font-size:var(--type-sm);color:rgba(255,255,255,.55);line-height:1.75;max-width:480px}
+    .tactics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden}
+    @media(min-width:720px){.tactics-grid{grid-template-columns:repeat(3,1fr)}}
+    .tactic-card{background:#0d0202;padding:var(--space-7) var(--space-6);display:flex;flex-direction:column;gap:var(--space-3);transition:background .15s}
+    .tactic-card:hover{background:#140303}
+    .tactic-card__icon-wrap{width:32px;height:32px;display:grid;place-items:center;color:#fca5a5;opacity:.85}
+    .tactic-card__name{font-size:var(--type-xs);font-weight:var(--weight-bold);color:#fca5a5;letter-spacing:.08em;text-transform:uppercase}
+    .tactic-card__desc{font-size:var(--type-xs);color:rgba(255,255,255,.50);line-height:1.65}
+
+    /* ARGUMENT BAR — light mode needs dark text */
+    .argument-bar{background:rgba(127,29,29,.05);border-top:1px solid rgba(127,29,29,.15);border-bottom:1px solid rgba(127,29,29,.15);padding:var(--space-6) 0}
+    [data-theme="dark"] .argument-bar{background:rgba(252,165,165,.04);border-color:rgba(252,165,165,.12)}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:34px;height:34px;flex-shrink:0;background:rgba(127,29,29,.10);border-radius:50%;display:grid;place-items:center;margin-top:3px;color:var(--acc-lt)}
+    [data-theme="dark"] .argument-bar__icon{background:rgba(252,165,165,.10);color:#fca5a5}
+    .argument-bar__label{font-size:10px;font-weight:var(--weight-bold);letter-spacing:.1em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-2)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.7;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+
+    /* ENTRIES */
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(127,29,29,.10);border:1px solid rgba(127,29,29,.25);color:var(--acc-lt)}
+    [data-theme="dark"] .entry-item__num{background:rgba(252,165,165,.10);border-color:rgba(252,165,165,.22)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(127,29,29,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    [data-theme="dark"] .pullquote{background:rgba(252,165,165,.04)}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+
+    /* TACTICS COMPARISON TABLE */
+    .tactic-table{width:100%;border-collapse:collapse;margin:var(--space-6) 0;font-size:var(--type-sm)}
+    .tactic-table th{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);padding:var(--space-3) var(--space-4);border-bottom:2px solid rgba(127,29,29,.25);text-align:left}
+    [data-theme="dark"] .tactic-table th{border-color:rgba(252,165,165,.20)}
+    .tactic-table td{padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--color-border);color:var(--color-text-secondary);vertical-align:top;line-height:1.55}
+    .tactic-table td:first-child{font-weight:var(--weight-semibold);color:var(--color-text-primary)}
+    .tactic-table tr:last-child td{border-bottom:none}
+
+    /* SIDEBAR */
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .sidebar-card__body a{color:var(--acc-lt);text-decoration:none;font-weight:var(--weight-semibold)}
+    .sidebar-card__body a:hover{text-decoration:underline}
+
+    /* CTA — always dark background */
+    .thread-bottom-cta{background:#0d0202;border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#fca5a5;margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-bold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:#fca5a5;color:#0d0202}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.1)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.70);border:1px solid rgba(255,255,255,.20)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.08);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">We Refuse: A Forceful History of Black Resistance</span>
+    </div>
+  </div>
+</nav>
+
+<section class="thread-hero">
+  <div class="thread-hero__bg"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot"></span>
+        Resistance History
+      </div>
+      <h1 class="thread-hero__title">We Refuse: <em>A Forceful History<br>of Black Resistance</em></h1>
+      <p class="thread-hero__subtitle">Black Americans have tried every tool available: flight, petition, boycott, lawsuit, armed self-defense, prayer, music, and organized political power. This is the full record of what resistance looks like when every path is blocked — and why it never stopped.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Era</div>
+          <div class="thread-meta-item__value">1619 &ndash; Present</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Anchor Text</div>
+          <div class="thread-meta-item__value">Kellie Carter Jackson, <em>We Refuse</em> (2024)</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Theme</div>
+          <div class="thread-meta-item__value">Tactics of Resistance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tactics-section">
+  <div class="container">
+    <div class="tactics-section__inner">
+      <div class="tactics-section__header">
+        <div class="tactics-section__eyebrow">The Full Spectrum</div>
+        <h2 class="tactics-section__heading">Resistance is not one thing.</h2>
+        <p class="tactics-section__sub">Kellie Carter Jackson&rsquo;s framework: Black Americans deployed every available mode of resistance across four centuries &mdash; each approach chosen deliberately, shaped by what the moment required.</p>
+      </div>
+      <div class="tactics-grid">
+        <div class="tactic-card">
+          <div class="tactic-card__icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="tactic-card__name">Flight</div>
+          <div class="tactic-card__desc">Escape and self-removal. The Underground Railroad. Harriet Tubman&rsquo;s 13 rescue missions. The Great Migration. Maroon communities.</div>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-card__icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </div>
+          <div class="tactic-card__name">Legal Petition</div>
+          <div class="tactic-card__desc">Suing in court, demanding legal recognition. Elizabeth Freeman, 1781. Dred Scott, 1846. Brown v. Board, 1954. The NAACP Legal Defense Fund.</div>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-card__icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="tactic-card__name">Economic Pressure</div>
+          <div class="tactic-card__desc">Boycotts and labor strikes. The Montgomery Bus Boycott. Brotherhood of Sleeping Car Porters. &ldquo;Don&rsquo;t Buy Where You Can&rsquo;t Work.&rdquo;</div>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-card__icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="tactic-card__name">Nonviolent Direct Action</div>
+          <div class="tactic-card__desc">Sit-ins, marches, Freedom Rides. SNCC, SCLC, CORE. Birmingham. Selma. Washington. A deliberate information war waged with disciplined bodies.</div>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-card__icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="tactic-card__name">Armed Self-Defense</div>
+          <div class="tactic-card__desc">Legal, documented, deliberate protection. Robert F. Williams. The Deacons for Defense. The Black Panthers. The Greenwood District before Tulsa.</div>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-card__icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <div class="tactic-card__name">Cultural Resistance</div>
+          <div class="tactic-card__desc">Spirituals, blues, jazz, hip-hop, literature. Counter-narratives as political acts. Paul Robeson. Nina Simone. James Baldwin. The Harlem Renaissance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="context-ribbon">
+  <div class="container">
+    <div class="argument-bar">
+      <div class="argument-bar__inner">
+        <div class="argument-bar__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="argument-bar__label">The Core Argument</div>
+          <div class="argument-bar__text">Black resistance is not exceptional or spontaneous &mdash; it is <strong>continuous, rational, and documented across 400 years</strong>. Carter Jackson&rsquo;s contribution is to name every mode of that resistance and show that Black Americans chose each one deliberately, based on what was available, what had failed before, and what the moment required. The history is not of a people waiting to be saved. It is of a people who <strong>never stopped fighting by every means necessary.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="entry-list">
+
+        <!-- ENTRY 1 -->
+        <article class="entry-item" id="e1">
+          <div class="entry-item__header">
+            <div class="entry-item__num">01</div>
+            <div>
+              <div class="entry-item__dates">1619 &ndash; 1865</div>
+              <h2 class="entry-item__name">The First Refusals: Resistance Under Slavery</h2>
+              <div class="entry-item__location">The Plantation South, the Atlantic Coast, the Dismal Swamp</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>The first documented resistance to American slavery began before the nation existed. <strong>Enslaved people fought back from the moment they were captured</strong> &mdash; on the African coast, on the Middle Passage, in the fields, in the kitchens, in the courts. The tools available were limited and the penalties for resistance were death, but the resistance never stopped.</p>
+            <p>Carter Jackson catalogs the full range: enslaved people <em>broke tools</em> to slow production. They <em>feigned illness</em> to reduce labor output. They <em>poisoned food</em> (a documented strategy, terrifying to slaveholders). They <em>set fires</em>. They <em>ran</em>. Harriet Tubman made 13 missions back into Maryland after her own escape. Gabriel Prosser organized an armed uprising in Virginia in 1800. Denmark Vesey planned one in Charleston in 1822. Nat Turner carried one out in Southampton County in 1831. <strong>In the 1840s, Creole enslaved people seized a ship transporting them and sailed it to the Bahamas, where they were free under British law.</strong></p>
+            <p>The legal resistance began early too. Elizabeth Freeman sued for her freedom in Massachusetts in 1781, citing the state&rsquo;s new constitution declaring all men created equal. She won. Dred Scott sued for his freedom in 1846. He lost in the Supreme Court in 1857, in a ruling so extreme &mdash; that Black people had &ldquo;no rights which the white man was bound to respect&rdquo; &mdash; that it accelerated the country toward Civil War. <em>Even that defeat was an act of resistance.</em></p>
+            <div class="pullquote">
+              <p>&ldquo;Enslaved people did not wait for abolitionists to notice them. They acted first &mdash; with their feet, their tools, their matches, their lawsuits, and their bodies &mdash; and forced the nation to respond.&rdquo;</p>
+              <cite>&mdash; Framework, Kellie Carter Jackson, <em>We Refuse</em> (2024)</cite>
+            </div>
+            <p>The cultural resistance was equally methodical. <strong>Spirituals encoded information</strong> about escape routes and timing. &ldquo;Follow the Drinking Gourd&rdquo; pointed north using the Big Dipper. &ldquo;Wade in the Water&rdquo; instructed freedom seekers to use rivers to throw dogs off their scent. The spirituals were not just comfort for the suffering. They were operational communications, embedded in a cultural form the oppressor couldn&rsquo;t read.</p>
+          </div>
+        </article>
+
+        <!-- ENTRY 2 -->
+        <article class="entry-item" id="e2">
+          <div class="entry-item__header">
+            <div class="entry-item__num">02</div>
+            <div>
+              <div class="entry-item__dates">1865 &ndash; 1920</div>
+              <h2 class="entry-item__name">Reconstruction and the Violent Backlash: Refusing to Be Unmade</h2>
+              <div class="entry-item__location">The Reconstruction South, Wilmington, Tulsa, the whole country</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div class="entry-stat">
+              <div class="entry-stat__num">4,084</div>
+              <div class="entry-stat__label">documented lynchings of Black people, 1877&ndash;1950</div>
+            </div>
+            <div class="entry-stat">
+              <div class="entry-stat__num">1898</div>
+              <div class="entry-stat__label">Wilmington massacre — only successful coup d'état in U.S. history</div>
+            </div>
+            <div class="entry-stat">
+              <div class="entry-stat__num">1921</div>
+              <div class="entry-stat__label">Tulsa Race Massacre — Greenwood District burned by White mobs</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>Reconstruction (1865&ndash;1877) was the only period in American history when Black political power existed at a meaningful scale. Black men were elected to Congress. Black communities built schools, churches, and civic institutions. <strong>Greenwood in Tulsa, &ldquo;Black Wall Street,&rdquo; was one of the most prosperous Black communities in the country.</strong> This prosperity was built on deliberate, organized community investment &mdash; itself a form of resistance to economic exclusion.</p>
+            <p>The backlash was organized and violent. The Ku Klux Klan was founded in 1865. The White League and Red Shirts used armed terror to suppress Black voting. The Supreme Court systematically dismantled Reconstruction-era civil rights protections. By 1877, federal troops withdrew from the South and Reconstruction ended. The following decades brought Jim Crow laws, debt peonage that replicated the conditions of slavery, and systematic disenfranchisement.</p>
+            <p>The resistance continued. Ida B. Wells launched her anti-lynching campaign in 1892 after three of her friends were lynched in Memphis. She documented every case she could find, published the data, toured the country and Britain, and refused to stop when her newspaper office was burned and she was threatened with death. <em>She named names. She published statistics. She forced the world to look at what was happening.</em> W.E.B. Du Bois co-founded the NAACP in 1909. <strong>Both understood that documentation was a form of resistance &mdash; that the refusal to let atrocities be forgotten was itself a political act.</strong></p>
+            <p>Carter Jackson notes the critical distinction: the same communities that practiced nonviolent petition and legal challenge also defended themselves by force when attacked. These were not competing philosophies. They were tactical choices, deployed simultaneously by people who understood that different threats required different responses.</p>
+          </div>
+        </article>
+
+        <!-- ENTRY 3 -->
+        <article class="entry-item" id="e3">
+          <div class="entry-item__header">
+            <div class="entry-item__num">03</div>
+            <div>
+              <div class="entry-item__dates">1955 &ndash; 1968</div>
+              <h2 class="entry-item__name">The Movement Decade: Nonviolence as Chosen Tactic, Not Passive Acceptance</h2>
+              <div class="entry-item__location">Montgomery, Greensboro, Birmingham, Selma, Washington</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>The Civil Rights Movement is often taught as though nonviolent direct action was the obvious, natural, or philosophically correct response to white supremacy. Carter Jackson reframes this. Nonviolence was a <em>tactical choice</em>, made by skilled strategists who understood how to use American media and American mythology against American racism. It was <strong>not a statement that Black people had no anger, no right to defend themselves, or no awareness of the violence being done to them.</strong> It was a chosen mode of combat, selected for its strategic effectiveness in a specific historical moment.</p>
+            <p>The strategic genius of the movement: the television camera. When police turned fire hoses on children in Birmingham in 1963, the images were broadcast worldwide. The movement understood that <strong>visible, documented, disciplined nonviolence in the face of savage state violence made the violence legible as oppression</strong> &mdash; and put the oppressor on the wrong side of history in front of every viewer. This was not passive. It was an information war, and the movement was winning it.</p>
+            <div class="pullquote">
+              <p>&ldquo;The willingness to absorb violence without retaliating was not submissiveness. It was the deliberate deployment of Black bodies as evidence &mdash; evidence of what America was, held up to America&rsquo;s stated values.&rdquo;</p>
+              <cite>&mdash; Framework, Kellie Carter Jackson, <em>We Refuse</em> (2024)</cite>
+            </div>
+            <p>But the movement was never exclusively nonviolent at the community level. <strong>Robert F. Williams, NAACP chapter president in Monroe, North Carolina, organized armed self-defense units in the 1950s</strong> to protect Black residents from Klan violence when police would not. The Deacons for Defense and Justice in Louisiana and Mississippi were armed groups that escorted civil rights workers, guarded meeting halls, and patrolled Black neighborhoods. <em>Martin Luther King Jr. had armed guards at his home in the early years of the Montgomery campaign.</em> The historical memory of nonviolence is partly a construction &mdash; a narrative that erased the armed component to make the movement more palatable to white audiences.</p>
+            <p>Carter Jackson&rsquo;s argument: the full picture is more powerful, not less. A movement that simultaneously deployed legal strategy, economic boycott, nonviolent direct action, cultural production, and armed community defense was not fragmented &mdash; it was comprehensive. It was using every tool in the toolbox, simultaneously, and it worked.</p>
+
+            <table class="tactic-table">
+              <thead>
+                <tr>
+                  <th>Tactic</th>
+                  <th>Example</th>
+                  <th>Strategic Logic</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nonviolent Direct Action</td>
+                  <td>Birmingham sit-ins, 1963</td>
+                  <td>Force state violence into the open; win the media war</td>
+                </tr>
+                <tr>
+                  <td>Economic Boycott</td>
+                  <td>Montgomery Bus Boycott, 1955</td>
+                  <td>Leverage economic power; make racism costly</td>
+                </tr>
+                <tr>
+                  <td>Legal Challenge</td>
+                  <td>Brown v. Board, 1954</td>
+                  <td>Use the law to delegitimize segregation on its own terms</td>
+                </tr>
+                <tr>
+                  <td>Armed Self-Defense</td>
+                  <td>Deacons for Defense, 1964</td>
+                  <td>Protect organizers; deter terrorist attacks</td>
+                </tr>
+                <tr>
+                  <td>Political Organizing</td>
+                  <td>Mississippi Freedom Democratic Party, 1964</td>
+                  <td>Demand inclusion; expose the corruption of existing parties</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- ENTRY 4 -->
+        <article class="entry-item" id="e4">
+          <div class="entry-item__header">
+            <div class="entry-item__num">04</div>
+            <div>
+              <div class="entry-item__dates">1968 &ndash; 2012</div>
+              <h2 class="entry-item__name">After the Movement: Resistance Without a Telegram</h2>
+              <div class="entry-item__location">The Aftermath &mdash; COINTELPRO, the Crack Era, Mass Incarceration, Obama</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div class="entry-stat">
+              <div class="entry-stat__num">1971</div>
+              <div class="entry-stat__label">COINTELPRO exposed by Media, Pennsylvania files</div>
+            </div>
+            <div class="entry-stat">
+              <div class="entry-stat__num">2.3M</div>
+              <div class="entry-stat__label">people incarcerated in U.S. by 2008 — world's highest rate</div>
+            </div>
+            <div class="entry-stat">
+              <div class="entry-stat__num">1994</div>
+              <div class="entry-stat__label">Crime Bill — signed into law, accelerating mass incarceration</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>The assassination of Dr. King in April 1968, followed by Robert F. Kennedy in June, and the collapse of the Poor People&rsquo;s Campaign, did not end Black resistance. <strong>It changed its forms.</strong> COINTELPRO &mdash; the FBI&rsquo;s domestic counterintelligence program, which spent the 1960s surveilling, infiltrating, and destroying Black organizations &mdash; had specifically targeted the most effective resistance structures. Fred Hampton was assassinated in his bed by Chicago police in December 1969. The Black Panther Party was systematically dismantled through false prosecutions, informants, and state violence.</p>
+            <p>Resistance went local and cultural. The 1970s saw an explosion of Black political representation at the city level: Black mayors in Newark, Gary, Atlanta, Detroit, Los Angeles. The Congressional Black Caucus was founded in 1971. Hip-hop emerged from the South Bronx in the mid-1970s as a direct response to urban disinvestment &mdash; <em>a cultural form that turned poverty into art and turned that art into a global language of resistance.</em> Grandmaster Flash and the Furious Five&rsquo;s &ldquo;The Message&rdquo; (1982) described the conditions of Black urban life with more precision than any congressional report. N.W.A&rsquo;s &ldquo;F*** tha Police&rdquo; (1988) was an indictment that preceded the Rodney King beating by three years.</p>
+            <p><strong>The crack cocaine epidemic of the 1980s was met with incarceration, not treatment.</strong> The 100:1 sentencing disparity between crack and powder cocaine (1986 Anti-Drug Abuse Act) sent the message clearly: this is not a public health crisis, it is a criminal justice one. Resistance to mass incarceration built slowly through organizations like the ACLU, NAACP Legal Defense Fund, the Innocence Project (1992), and a generation of public defenders working inside a system designed to produce convictions, not justice.</p>
+            <p>Carter Jackson&rsquo;s point: resistance during these decades was harder to see because it was fragmented, local, and often culturally coded rather than publicly legible. But it was present. <em>Every organizer, every lawyer, every parent who taught their children what to do when stopped by the police, every hip-hop artist who told the truth about their block &mdash; all of them were refusing.</em></p>
+          </div>
+        </article>
+
+        <!-- ENTRY 5 -->
+        <article class="entry-item" id="e5">
+          <div class="entry-item__header">
+            <div class="entry-item__num">05</div>
+            <div>
+              <div class="entry-item__dates">2013 &ndash; Present</div>
+              <h2 class="entry-item__name">Black Lives Matter: Resistance in the Social Media Era</h2>
+              <div class="entry-item__location">Ferguson, Minneapolis, the entire country, the entire world</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div class="entry-stat">
+              <div class="entry-stat__num">2013</div>
+              <div class="entry-stat__label">#BlackLivesMatter coined by Alicia Garza, Patrisse Cullors, Opal Tometi</div>
+            </div>
+            <div class="entry-stat">
+              <div class="entry-stat__num">26M+</div>
+              <div class="entry-stat__label">people participated in BLM protests, May–June 2020 (NYT est.)</div>
+            </div>
+            <div class="entry-stat">
+              <div class="entry-stat__num">60+</div>
+              <div class="entry-stat__label">countries saw George Floyd protests</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>The acquittal of George Zimmerman in the killing of Trayvon Martin in July 2013 prompted Alicia Garza to write a Facebook post she called &ldquo;a love letter to Black people.&rdquo; Patrisse Cullors added the hashtag. Opal Tometi built the digital infrastructure. <strong>Black Lives Matter was born as an act of cultural resistance &mdash; a refusal to let the state&rsquo;s verdict on Black life stand unchallenged.</strong></p>
+            <p>What followed over the next decade was a new demonstration of Carter Jackson&rsquo;s thesis: the tactics of Black resistance adapted to new conditions. The smartphone replaced the television camera as the tool that made police violence legible. <em>The video of Eric Garner saying &ldquo;I can&rsquo;t breathe&rdquo; eleven times. The video of Walter Scott shot in the back while running. The video of Philando Castile bleeding in his car. The video of George Floyd.</em> Each one spread across every platform simultaneously, creating a visual record that was harder to suppress than any previous evidence of police violence.</p>
+            <p>The 2020 uprisings following Floyd&rsquo;s murder were the largest protest movement in American history by participation. They were also, in Carter Jackson&rsquo;s framework, continuous with everything that came before. <strong>The same range of tactics appeared:</strong> peaceful marches, legal observers, mutual aid networks, bail funds, calls for police defunding and abolition, demands for legislative change, and, in some places, armed community protection. The debates about tactics within the movement &mdash; whether to march or disrupt, whether to engage with electoral politics or reject them, whether to seek reform or transformation &mdash; <em>were the same debates that had been happening since Reconstruction.</em></p>
+            <div class="pullquote">
+              <p>&ldquo;The question was never whether to resist. It was always which form of resistance this moment required &mdash; and who had the standing, the safety, and the resources to use it.&rdquo;</p>
+              <cite>&mdash; Framework, Kellie Carter Jackson, <em>We Refuse</em> (2024)</cite>
+            </div>
+            <p>Carter Jackson ends with what the full record shows: Black resistance has never been a reaction to a single injustice, or the project of a single generation, or limited to a single method. <strong>It is a 400-year practice of refusal</strong> &mdash; the ongoing assertion that Black lives have inherent worth, that oppression is not the natural order, and that every generation inherits both the obligation to resist and the accumulated knowledge of how. The title, <em>We Refuse</em>, is present tense. It is not a historical description. It is a statement of ongoing fact.</p>
+          </div>
+        </article>
+
+      </main>
+
+      <aside class="thread-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">The Book</div>
+          <div class="sidebar-card__body">
+            <strong>We Refuse: A Forceful History of Black Resistance</strong> by Kellie Carter Jackson (2024) is the anchor text for this thread.<br/><br/>
+            Carter Jackson is a historian at Wellesley College. Her previous book, <em>Force and Freedom</em> (2019), focused specifically on antebellum Black activism and the use of political violence.<br/><br/>
+            <em>We Refuse</em> expands that framework across the full sweep of American history, cataloging every mode of Black resistance and the conditions that shaped each choice.
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Figures</div>
+          <div class="sidebar-card__body">
+            <strong>Harriet Tubman</strong> &mdash; Flight &amp; rescue<br/>
+            <strong>Ida B. Wells</strong> &mdash; Documentation as resistance<br/>
+            <strong>W.E.B. Du Bois</strong> &mdash; Intellectual &amp; organizational<br/>
+            <strong>A. Philip Randolph</strong> &mdash; Economic pressure<br/>
+            <strong>Robert F. Williams</strong> &mdash; Armed self-defense<br/>
+            <strong>Fannie Lou Hamer</strong> &mdash; Political organizing<br/>
+            <strong>Fred Hampton</strong> &mdash; Coalition building<br/>
+            <strong>Alicia Garza</strong> &mdash; Digital resistance
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Connected Threads</div>
+          <div class="sidebar-card__body">
+            <a href="thread-cointelpro.html">COINTELPRO: How the FBI Destroyed the Civil Rights Movement &rarr;</a><br/><br/>
+            <a href="thread-black-panthers.html">The Black Panther Party: What They Actually Did &rarr;</a><br/><br/>
+            <a href="thread-mlk.html">MLK: The Full Radical Record &rarr;</a><br/><br/>
+            <a href="thread-foia.html">The Freedom of Information Act: Who Owns the Truth &rarr;</a><br/><br/>
+            <a href="thread-school-to-prison.html">The School-to-Prison Pipeline &rarr;</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">400 Years of Refusal</div>
+      <h2 class="thread-bottom-cta__title">The question was never whether to resist. It was always which form of resistance this moment required.</h2>
+      <p class="thread-bottom-cta__sub">Black Americans have deployed every available tool &mdash; flight, lawsuit, boycott, march, song, armed defense, social media &mdash; for four centuries. That record is not fragmented. It is comprehensive. It is the history of a people who never accepted the terms of their oppression.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-cointelpro.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">COINTELPRO: How They Fought Back &rarr;</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+.next-thread-strip{background:var(--color-surface);border-top:1px solid var(--color-border);padding:var(--space-8) 0}
+.next-thread-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+.next-thread-strip__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-2)}
+.next-thread-strip__title{font-family:var(--font-editorial);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:800;color:var(--color-text-primary);line-height:1.2;max-width:480px}
+.next-thread-strip__btn{flex-shrink:0;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);background:var(--color-accent-dark,#92400e);color:#fff;border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:filter .15s;white-space:nowrap}
+.next-thread-strip__btn:hover{filter:brightness(1.1)}
+</style>
+
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <div class="next-thread-strip__title">Soul, Funk &amp; the Disco Purge</div>
+      </div>
+      <a href="thread-soul-disco.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="home.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+  </div>
+</footer>
+<script>const t=document.getElementById('themeToggle');if(t)t.addEventListener('click',()=>{const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('chain-theme',n)});</script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shut Up and Play — Thread — Chain</title>
+  <meta property="og:title" content="Shut Up and Play — Thread" />
+  <meta property="og:description" content="Muhammad Ali was stripped of his title for refusing the Vietnam draft. Colin Kaepernick was banned from the NFL for kneeling. Jack Johnson was imprisoned for..." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://chain.education/thread-black-athletes.html" />
+  <meta name="description" content="Muhammad Ali was stripped of his title for refusing the Vietnam draft. Colin Kaepernick was banned from the NFL for kneeling. Jack Johnson was imprisoned for being with a white woman. The pattern: celebrate Black athletic performance, punish Black political voice." />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    :root{--acc:#064e3b;--acc-lt:#d1fae5}
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__photo{position:absolute;inset:0;background-image:url('images/smith-carlos-1968-olympics.jpg');background-size:cover;background-position:center 25%;opacity:0.40;filter:brightness(0.60) saturate(0.85) grayscale(0.3);pointer-events:none;z-index:0}
+    .thread-hero::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(8,8,8,1) 0%,rgba(8,8,8,1) 38%,rgba(8,8,8,.88) 55%,rgba(8,8,8,.55) 75%,rgba(8,8,8,.20) 100%),linear-gradient(to bottom,rgba(8,8,8,.65) 0%,transparent 30%);pointer-events:none}
+    .thread-hero__inner{position:relative;z-index:2}
+    .thread-hero__inner,.thread-body,.cc__inner,.argument-bar>div{max-width:1100px;margin:0 auto;padding:0 var(--space-6)}
+    .argument-bar{padding:var(--space-5) 0;background:rgba(6,78,59,.07);border-left:3px solid var(--acc);margin:var(--space-10) auto;max-width:1100px}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-5)}
+    .kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:#ffffff;line-height:1.1;max-width:780px;margin-bottom:var(--space-6)}
+    .thread-hero__title em{font-style:italic;color:var(--acc-lt)}
+    .thread-hero__deck{font-family:var(--font-ui);font-size:1.05rem;line-height:1.7;color:var(--ink-300);max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta-row{display:flex;flex-wrap:wrap;gap:var(--space-6);border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-6)}
+    .meta-item{display:flex;flex-direction:column;gap:2px}
+    .meta-label{font-family:var(--font-ui);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500)}
+    .meta-value{font-family:var(--font-ui);font-size:.9rem;font-weight:500;color:var(--ink-200)}
+    .argument-bar__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-2)}
+    .argument-bar__text{font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;color:var(--ink-800);line-height:1.6}
+    [data-theme=dark] .argument-bar__text{color:var(--ink-200)}
+    .thread-body{padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:1fr 280px;gap:var(--space-12);align-items:start}
+    @media(max-width:860px){.thread-body{grid-template-columns:1fr}}
+    .era-div{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-12) 0 var(--space-8)}
+    .era-div__badge{flex-shrink:0;font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--acc);padding:var(--space-1) var(--space-3);border-radius:2px}
+    .era-div__line{flex:1;height:1px;background:var(--ink-200)}
+    [data-theme=dark] .era-div__line{background:var(--ink-700)}
+    .era-div__label{font-family:var(--font-ui);font-size:.8rem;font-weight:600;color:var(--ink-400)}
+    .entry{margin-bottom:var(--space-12);padding-bottom:var(--space-12);border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .entry{border-bottom-color:var(--ink-800)}
+    .entry:last-child{border-bottom:none}
+    .entry__hd{display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)}
+    .entry__num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--acc);color:#fff;font-family:var(--font-ui);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .entry__meta{display:flex;flex-direction:column;gap:2px}
+    .entry__date{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+    .entry__title{font-family:var(--font-editorial);font-size:1.3rem;font-weight:700;color:var(--ink-900);line-height:1.2}
+    [data-theme=dark] .entry__title{color:var(--ink-50)}
+    .entry__body{font-family:var(--font-ui);font-size:.97rem;line-height:1.8;color:var(--ink-700);padding-left:52px}
+    [data-theme=dark] .entry__body{color:var(--ink-300)}
+    .entry__body p{margin-bottom:var(--space-4)}.entry__body p:last-child{margin-bottom:0}
+    .sh{font-family:var(--font-editorial);font-size:1.1em;font-weight:700;color:var(--acc)}
+    .pq{border-left:3px solid var(--acc);padding:var(--space-4) var(--space-6);margin:var(--space-6) 0;background:var(--ink-50)}
+    [data-theme=dark] .pq{background:var(--ink-800)}
+    .pq__t{font-family:var(--font-editorial);font-size:1.05rem;font-style:italic;line-height:1.6;color:var(--ink-800);margin-bottom:var(--space-2)}
+    [data-theme=dark] .pq__t{color:var(--ink-200)}
+    .pq__a{font-family:var(--font-ui);font-size:.78rem;font-weight:600;color:var(--ink-400)}
+    .athlete-timeline{background:var(--ink-900);border-radius:4px;overflow:hidden;margin:var(--space-6) 0}
+    .athlete-timeline__title{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-lt);padding:var(--space-4) var(--space-5);border-bottom:1px solid rgba(255,255,255,.08)}
+    .at-row{display:grid;grid-template-columns:40px 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.05);align-items:start}
+    .at-row:last-child{border-bottom:none}
+    .at-year{padding:var(--space-3) var(--space-3);font-family:var(--font-ui);font-size:.72rem;font-weight:700;color:var(--acc-lt);border-right:1px solid rgba(255,255,255,.05)}
+    .at-act{padding:var(--space-3) var(--space-4);font-family:var(--font-ui);font-size:.8rem;color:var(--ink-100);border-right:1px solid rgba(255,255,255,.05);line-height:1.4}
+    .at-consequence{padding:var(--space-3) var(--space-4);font-family:var(--font-ui);font-size:.8rem;color:#fca5a5;line-height:1.4}
+    .cbox{background:rgba(6,78,59,.07);border:1px solid rgba(6,78,59,.2);border-radius:4px;padding:var(--space-5);margin:var(--space-6) 0}
+    .cbox__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:var(--space-3)}
+    .cbox ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .cbox li{font-family:var(--font-ui);font-size:.88rem;color:var(--ink-700);padding-left:var(--space-4);position:relative;line-height:1.5}
+    [data-theme=dark] .cbox li{color:var(--ink-300)}
+    .cbox li::before{content:'→';position:absolute;left:0;color:var(--acc);font-weight:700}
+    .sidebar{position:sticky;top:var(--space-8)}
+    .sw{background:var(--ink-50);border:1px solid var(--ink-100);border-radius:4px;padding:var(--space-5);margin-bottom:var(--space-5)}
+    [data-theme=dark] .sw{background:var(--ink-800);border-color:var(--ink-700)}
+    .sw__title{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);margin-bottom:var(--space-4)}
+    .toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-1)}
+    .toc-item a{display:block;font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-1) var(--space-2);border-left:2px solid transparent;transition:all .15s}
+    .toc-item a:hover,.toc-item--active a{color:var(--acc);border-left-color:var(--acc);background:rgba(6,78,59,.05)}
+    .rel-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .rel-list a{font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-2);display:block;border-radius:3px;transition:background .15s}
+    .rel-list a:hover{background:var(--ink-100)}[data-theme=dark] .rel-list a:hover{background:var(--ink-700);color:var(--ink-100)}
+    .tts-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--space-2);background:none;border:1px solid var(--ink-200);border-radius:3px;padding:var(--space-3);font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-500);cursor:pointer;transition:all .15s}
+    [data-theme=dark] .tts-btn{border-color:var(--ink-600);color:var(--ink-400)}
+    .tts-btn:hover{border-color:var(--acc);color:var(--acc)}
+    .causal-chain{background:var(--ink-900);padding:var(--space-12) var(--space-6);margin:var(--space-16) 0 0}
+    .cc__title{font-family:var(--font-editorial);font-size:1.5rem;font-weight:700;color:var(--ink-0);margin-bottom:var(--space-8);text-align:center}
+    .cc__steps{display:flex;align-items:flex-start;justify-content:center;flex-wrap:wrap;gap:var(--space-2)}
+    .cc__step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-2);width:96px}
+    .cc__node{width:80px;height:80px;border-radius:50%;border:2px solid var(--acc);background:rgba(6,78,59,.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:.7rem;font-weight:700;color:var(--acc-lt);line-height:1.25;padding:8px;text-align:center;flex-shrink:0}
+    .cc__lbl{font-family:var(--font-ui);font-size:.68rem;color:var(--ink-400);max-width:90px;line-height:1.35}
+    .cc__arr{color:var(--acc);font-size:1.2rem;padding:0 2px;align-self:flex-start;margin-top:28px;flex-shrink:0}
+    .cta-sec{background:var(--ink-50);border-top:1px solid var(--ink-100);padding:var(--space-12) var(--space-6)}
+    [data-theme=dark] .cta-sec{background:var(--ink-900);border-top-color:var(--ink-800)}
+    .cta-sec__inner{max-width:640px;margin:0 auto;text-align:center}
+    .cta-sec__title{font-family:var(--font-editorial);font-size:1.6rem;font-weight:700;color:var(--ink-900);margin-bottom:var(--space-4)}
+    [data-theme=dark] .cta-sec__title{color:var(--ink-50)}
+    .cta-sec__body{font-family:var(--font-ui);font-size:.95rem;line-height:1.7;color:var(--ink-500);margin-bottom:var(--space-6)}
+    .cta-btn{display:inline-block;background:var(--acc);color:#fff;font-family:var(--font-ui);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:var(--space-3) var(--space-7);border-radius:2px;transition:opacity .15s}
+    .cta-btn:hover{opacity:.85}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    .site-nav{background:var(--ink-900);border-bottom:1px solid rgba(255,255,255,.07);padding:0 var(--space-6);display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100}
+    .site-nav__logo{font-family:var(--font-editorial);font-size:1.1rem;font-weight:700;color:#fff !important;text-decoration:none}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-6)}
+    .nav-link{font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:#b8b8b8;text-decoration:none;transition:color .15s}
+    .nav-link:hover{color:#fff}
+    .theme-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:var(--space-1) var(--space-3);font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);cursor:pointer}
+    .site-footer{background:var(--ink-900);border-top:1px solid rgba(255,255,255,.07);padding:var(--space-8) var(--space-6);text-align:center}
+    .site-footer p{font-family:var(--font-ui);font-size:.8rem;color:var(--ink-500)}
+    .site-footer a{color:var(--ink-400);text-decoration:none}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="home.html" class="site-nav__logo">Chain</a>
+  <div class="site-nav__links">
+    <a href="threads.html" class="nav-link">All threads</a>
+    <a href="teaching.html" class="nav-link">Teaching</a>
+    <button class="theme-btn" id="theme-toggle">Light</button>
+  </div>
+</nav>
+
+<header class="thread-hero">
+  <div class="thread-hero__photo" aria-hidden="true"></div>
+  <div class="thread-hero__inner">
+    <div class="thread-hero__kicker"><span class="kicker-dot"></span>Athletics · Protest · Punishment</div>
+    <h1 class="thread-hero__title">Shut Up and Play: <em>Ali, Kaepernick, and the Politics of Black Athletic Protest</em></h1>
+    <p class="thread-hero__deck">Jack Johnson was the first Black heavyweight champion of the world. The government prosecuted him under the Mann Act for traveling across state lines with his white wife. Muhammad Ali was stripped of his title at his peak for refusing the Vietnam draft and called a traitor. Colin Kaepernick kneeled silently during the national anthem and was effectively banned from the NFL. The pattern across a century: celebrate Black athletic performance, punish Black political voice.</p>
+    <div class="thread-hero__meta-row">
+      <div class="meta-item"><span class="meta-label">Period</span><span class="meta-value">1908 — Present</span></div>
+      <div class="meta-item"><span class="meta-label">Entries</span><span class="meta-value">7 documented events</span></div>
+      <div class="meta-item"><span class="meta-label">Domain</span><span class="meta-value">Sports · Protest · Power</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Live</span></div>
+    </div>
+  </div>
+</header>
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">Shut Up and Play — Thread</span>
+    </div>
+  </div>
+</nav>
+<!-- CONTEXT RIBBON — thread orientation tracker -->
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon" role="complementary" aria-label="Thread context">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <!-- populated by thread-journey.js -->
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>66</strong> Threads</span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>9</strong> Eras</span>
+    </div>
+    <nav class="context-ribbon__nav" aria-label="Quick access">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
+        <span class="context-ribbon__live-dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+
+<div class="argument-bar">
+  <div>
+    <div class="argument-bar__label">The argument</div>
+    <p class="argument-bar__text">American sports have always served a dual function: celebrating Black athletic excellence as evidence that the system is open to talent, while using the threat of career destruction to police Black athletes who name the conditions that make that excellence necessary. The celebration is real — Ali was genuinely great, Jordan is genuinely great, LeBron is genuinely great. But the celebration is conditional on silence about the structural context. The moment a Black athlete uses their platform to name racism, police brutality, or inequality, the response — from team owners, media, politicians, and often fans — is immediate and punitive. Understanding this pattern is essential to understanding what "shut up and play" actually demands: not just silence, but compliance with a version of America in which the conditions Black athletes are protesting do not exist.</p>
+  </div>
+</div>
+
+<div class="thread-body">
+  <main id="thread-main">
+    <div class="era-div reveal"><span class="era-div__badge">Era 1</span><div class="era-div__line"></div><span class="era-div__label">Jack Johnson to Jesse Owens, 1908–1936</span></div>
+
+    <article class="entry reveal" id="e1">
+      <div class="entry__hd"><div class="entry__num">1</div><div class="entry__meta"><span class="entry__date">1908–1913 — Jack Johnson</span><h2 class="entry__title">Jack Johnson Won the Heavyweight Championship. Congress Passed a Law to Stop His Fights From Being Shown. The Federal Government Prosecuted Him for Marrying a White Woman.</h2></div></div>
+      <div class="entry__body">
+        <p>Jack Johnson became the first Black heavyweight champion of the world in 1908 by defeating Tommy Burns in Australia. His victory triggered a national search for a "Great White Hope" — a white challenger who could reclaim the title and restore the racial order that Johnson's dominance disrupted. When Johnson defeated James Jeffries — the heavily promoted Great White Hope — in 1910, race riots erupted in cities across the United States, killing at least 23 Black Americans. Congress passed legislation banning the interstate transportation of fight films specifically to prevent Johnson's victories from being seen nationally.</p>
+        <p>In 1912, the federal government charged Johnson under the Mann Act — a law against transporting women across state lines for "immoral purposes" that was passed to combat prostitution. Johnson had traveled across state lines with his white wife, Lucille Cameron. He was convicted and sentenced to a year in prison. He fled to Europe, continued fighting internationally, eventually lost his title in 1915, and returned to the US to serve his sentence. He was posthumously pardoned by President Trump in 2018 — 105 years after his conviction. The pardon confirmed that the prosecution had been racially motivated.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e2">
+      <div class="entry__hd"><div class="entry__num">2</div><div class="entry__meta"><span class="entry__date">1936–1968 — Jesse Owens to Tommie Smith</span><h2 class="entry__title">Jesse Owens Won Four Gold Medals at Hitler's Olympics. FDR Never Congratulated Him. When Tommie Smith Raised His Fist at the 1968 Olympics, He Was Expelled Within Hours.</h2></div></div>
+      <div class="entry__body">
+        <p>Jesse Owens' four gold medals at the 1936 Berlin Olympics are remembered as a rebuke to Nazi racial theory. Less remembered: President Franklin D. Roosevelt never sent Owens a congratulatory telegram. When Owens returned to the United States, he was not invited to the White House. He and his teammates were not permitted to ride in the front of the buses taking them to a reception in their honor at the Waldorf-Astoria in New York. The reception was for their white coaches. Owens later said: "Hitler didn't snub me — it was FDR who snubbed me. The president didn't even send me a telegram." Owens' athletic achievement was celebrated by white America as a defeat for Nazi racism and simultaneously ignored as evidence of American racism.</p>
+        <p>Thirty-two years later, Tommie Smith won the 200-meter sprint at the 1968 Mexico City Olympics and raised a black-gloved fist on the medal stand in a silent protest for human rights. He was expelled from the Olympic Village within 48 hours by the United States Olympic Committee. He returned home to death threats. His athletic career effectively ended at age 24. His coach, Bud Winter, was fired. His teammate John Carlos, who raised the other fist, received the same treatment. The two men were unemployable in their sport for years afterward. In 2008, San Jose State University — their alma mater — installed a 22-foot statue of their protest. Forty years after the protest, it became a monument to courage. At the time, it was treated as a crime.</p>
+        <div class="athlete-timeline">
+          <div class="athlete-timeline__title">Black Athletic Protest — Action and Documented Consequence</div>
+          <div class="at-row">
+            <div class="at-year">1910</div>
+            <div class="at-act">Jack Johnson defeats James Jeffries — first Black heavyweight champion defeats "Great White Hope"</div>
+            <div class="at-consequence">Race riots in 25+ cities; Congress bans interstate fight films; federal prosecution under Mann Act</div>
+          </div>
+          <div class="at-row">
+            <div class="at-year">1968</div>
+            <div class="at-act">Tommie Smith and John Carlos raise Black Power salute at Mexico City Olympics</div>
+            <div class="at-consequence">Expelled from Olympic Village within 48 hours; career-ending consequences; death threats</div>
+          </div>
+          <div class="at-row">
+            <div class="at-year">1967</div>
+            <div class="at-act">Muhammad Ali refuses Vietnam draft induction: "I ain't got no quarrel with them Viet Cong"</div>
+            <div class="at-consequence">WBA strips title within two days; criminal conviction; 3.5 years out of boxing at peak; Supreme Court overturns 1971</div>
+          </div>
+          <div class="at-row">
+            <div class="at-year">1996</div>
+            <div class="at-act">Craig Hodges wears dashiki at White House visit and hands President Bush a letter about conditions in Black communities</div>
+            <div class="at-consequence">No NBA team ever signs him again despite being a proven three-point specialist in his prime</div>
+          </div>
+          <div class="at-row">
+            <div class="at-year">2016</div>
+            <div class="at-act">Colin Kaepernick takes a knee during national anthem to protest police killings of Black Americans</div>
+            <div class="at-consequence">No NFL team signs him after 2016 season; collusion settlement with NFL; career ends at 29 while less qualified QBs start</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="era-div reveal"><span class="era-div__badge">Era 2</span><div class="era-div__line"></div><span class="era-div__label">Muhammad Ali, 1964–1981</span></div>
+
+    <article class="entry reveal" id="e3">
+      <div class="entry__hd"><div class="entry__num">3</div><div class="entry__meta"><span class="entry__date">1967–1971 — Muhammad Ali</span><h2 class="entry__title">"I Ain't Got No Quarrel With Them Viet Cong." Ali Was Stripped of His Title in Two Days. The Supreme Court Overturned His Conviction 4 Years Later. He Never Got Those Years Back.</h2></div></div>
+      <div class="entry__body">
+        <p>On April 28, 1967, Muhammad Ali refused induction into the US Army at the Houston induction center, citing his religious beliefs as a Muslim minister and his moral objection to the Vietnam War. Within two days, the World Boxing Association stripped him of his heavyweight title. No state athletic commission would license him to fight. He was convicted of draft evasion and sentenced to five years in prison, though he remained free on appeal. He was 25 years old and at the peak of his athletic powers.</p>
+        <p>Ali spent three and a half years unable to fight — the period from April 1967 to October 1970. He gave lectures on college campuses, debated the war, and refused multiple offers of a non-combat military role that would have allowed him to keep fighting. In 1971, the Supreme Court overturned his conviction unanimously. He won back his title in 1974 by defeating George Foreman in the "Rumble in the Jungle" in Zaire. He is now regarded as the greatest heavyweight boxer in history and one of the most important athletes of the 20th century.</p>
+        <p>What is not recoverable: the three and a half years of prime athletic career that were taken from him by political punishment. Ali's physical decline in the late 1970s and the neurological damage that produced his Parkinson's syndrome were likely exacerbated by the extra years of punishment his body took after being forced to come back at 28 — older, slower, less able to protect himself — rather than having fought his hardest opponents at 25 and 26. The punishment for speaking was a physical one that lasted the rest of his life.</p>
+        <div class="pq">
+          <p class="pq__t">"Why should they ask me to put on a uniform and go ten thousand miles from home and drop bombs and bullets on brown people in Vietnam while so-called Negro people in Louisville are treated like dogs and denied simple human rights?"</p>
+          <span class="pq__a">— Muhammad Ali, 1966, on his refusal to serve in Vietnam</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e4">
+      <div class="entry__hd"><div class="entry__num">4</div><div class="entry__meta"><span class="entry__date">2016–Present — Colin Kaepernick</span><h2 class="entry__title">Kaepernick Began Kneeling to Protest Police Killings After Consulting a Military Veteran About a Respectful Form of Protest. No NFL Team Has Signed Him Since 2016. He Was 29.</h2></div></div>
+      <div class="entry__body">
+        <p>Colin Kaepernick began sitting during the national anthem before the San Francisco 49ers' 2016 preseason games to protest the killings of Black Americans by police. When asked about the protest, he said: "I am not going to stand up to show pride in a flag for a country that oppresses Black people and people of color." After consulting with former Green Beret and NFL long snapper Nate Boyer about a form of protest that would be respectful to military service members, he switched from sitting to kneeling — the posture soldiers take beside fallen comrades' graves.</p>
+        <p>The NFL's response was documented in the collusion grievance Kaepernick subsequently filed: no team in the league offered him a contract after the 2016 season, despite his being clearly more qualified than the backup and third-string quarterbacks starting games across the league. The NFL settled Kaepernick's collusion grievance in 2019 for a confidential sum reported to be in the tens of millions of dollars — an implicit acknowledgment that the blacklisting had occurred. In 2020, after George Floyd's murder, NFL Commissioner Roger Goodell said the league was wrong not to listen to Kaepernick and other protesting players. Kaepernick was not offered a job.</p>
+        <div class="cbox">
+          <div class="cbox__label">What "shut up and play" demanded in each case</div>
+          <ul>
+            <li>Jack Johnson: don't be with a white woman; don't be publicly undefeated; don't be Black and dominant</li>
+            <li>Jesse Owens: win gold for America; don't expect America to recognize it at home</li>
+            <li>Tommie Smith: run; don't say what it means to run for a country that won't call you human</li>
+            <li>Muhammad Ali: fight for a war you don't believe in; don't name why you won't</li>
+            <li>Colin Kaepernick: take the money; don't name what the money is for; don't say why some of us can't breathe</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e5">
+      <div class="entry__hd"><div class="entry__num">5</div><div class="entry__meta"><span class="entry__date">The Double Standard</span><h2 class="entry__title">White Athletes Who Voiced Political Opinions Were Celebrated. The Standard for Silence Applied Specifically to Black Athletes Who Named Racial Conditions.</h2></div></div>
+      <div class="entry__body">
+        <p>The demand that athletes "stay in their lane" and avoid political speech is not applied uniformly. White athletes who expressed political opinions — support for Republican candidates, opposition to COVID vaccine mandates, criticism of government policy — faced no comparable career consequences. Curt Schilling (baseball), Brett Favre (football), and a long list of white athletes made explicitly political statements without losing their broadcasting careers, endorsement deals, or opportunities. The Fox Sports hosts who told LeBron James to "shut up and dribble" in 2018 did not make the same demand of white athletes who expressed political opinions.</p>
+        <p>The specific application of "shut up and play" to Black athletes who name racism is not a general principle about keeping politics out of sports. It is a specific demand that Black athletes not use their public platform to say what the conditions of Black life in America actually are. LeBron James built schools in Akron. He got called political. Tom Brady endorsed Donald Trump. He didn't get called political. The asymmetry is the point. The demand for silence is not about keeping sports clean of politics. It is about keeping the politics that the silence maintains — the politics of not naming racism — in place.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e6">
+      <div class="entry__hd"><div class="entry__num">6</div><div class="entry__meta"><span class="entry__date">What Black Athletes Built Despite It</span><h2 class="entry__title">Ali Funded Civil Rights Organizing. LeBron Built a School. Black Athletes Have Used What They Were Allowed to Keep to Build What They Could.</h2></div></div>
+      <div class="entry__body">
+        <p>The history of Black athletic protest is also a history of Black athletes using what was available to them — money, visibility, platform — to build community institutions and fund political movements despite the constraints. Muhammad Ali donated time and resources to the Nation of Islam's community programs and to civil rights organizing throughout his career. Jim Brown retired from football at 29 to found the Black Economic Union, which provided capital to Black-owned businesses. Bill Russell organized with the NAACP during his career and, after retirement, became an outspoken critic of police brutality. Kareem Abdul-Jabbar has been one of the most consistent and articulate voices on racial justice in American public life for five decades.</p>
+        <p>LeBron James founded the I Promise School in Akron, Ohio in 2018 — a public school that provides students and their families with free tuition, uniforms, bicycles, food assistance, and guaranteed college tuition at the University of Akron for every graduating student. When Fox News host Laura Ingraham told James to "shut up and dribble," he responded: "I will not just shut up and dribble. I mean too much to society. I mean too much to the youth. I mean too much to so many kids that feel like they don't have a way out, and I can create one." The school now serves hundreds of students. The demand for silence was met with construction.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal" id="e7">
+      <div class="entry__hd"><div class="entry__num">7</div><div class="entry__meta"><span class="entry__date">The Present — The Pattern Continues</span><h2 class="entry__title">The NIL Era Has Given College Athletes Economic Power for the First Time. What Happens When Black College Athletes Use That Power to Name Conditions Is Still Being Determined.</h2></div></div>
+      <div class="entry__body">
+        <p>The Name, Image, and Likeness (NIL) policy changes that began in 2021 allow college athletes — predominantly Black in the revenue-generating sports of football and basketball — to profit from their own image for the first time. The economic change is significant: Black athletes who previously generated billions in revenue for predominantly white institutions while receiving only scholarships can now negotiate endorsement deals that reflect some of their market value.</p>
+        <p>Whether NIL economic power translates to political voice without career penalty is an open question. The structural conditions that enabled the Kaepernick blacklisting — team owner discretion in signing decisions, no union enforcement of anti-discrimination in hiring — persist in professional sports. The "shut up and play" demand is enforced not through formal rules but through the accumulated decisions of owners, coaches, media figures, and sponsors who have discretion over athletes' economic lives. The pattern has survived every formal rule change and civil rights law because it operates through private discretion, not public law. What changes it is not legislation but the willingness of athletes to absorb the cost of speaking — and the willingness of audiences to insist that the cost not be imposed.</p>
+      </div>
+    </article>
+  </main>
+  <aside class="sidebar">
+    <div class="sw">
+      <div class="sw__title">Contents</div>
+      <ol class="toc-list">
+        <li class="toc-item" id="toc-e1"><a href="#e1">Jack Johnson 1908–1913</a></li>
+        <li class="toc-item" id="toc-e2"><a href="#e2">Jesse Owens to Tommie Smith</a></li>
+        <li class="toc-item" id="toc-e3"><a href="#e3">Muhammad Ali 1967–1971</a></li>
+        <li class="toc-item" id="toc-e4"><a href="#e4">Colin Kaepernick 2016–Present</a></li>
+        <li class="toc-item" id="toc-e5"><a href="#e5">The Double Standard</a></li>
+        <li class="toc-item" id="toc-e6"><a href="#e6">What Black Athletes Built</a></li>
+        <li class="toc-item" id="toc-e7"><a href="#e7">The NIL Era</a></li>
+      </ol>
+    </div>
+    <div class="sw">
+      <button class="tts-btn" id="tts-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread</button>
+    </div>
+    <div class="sw">
+      <div class="sw__title">Related threads</div>
+      <ul class="rel-list">
+        <li><a href="thread-media.html">How America Images Blackness</a></li>
+        <li><a href="thread-fear-of-black-assembly.html">The Fear of Black Assembly</a></li>
+        <li><a href="thread-civil-rights.html">The Civil Rights Movement</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<section class="causal-chain">
+  <div class="cc__inner">
+    <h2 class="cc__title">Perform. Excel. Celebrate. Punish. Repeat.</h2>
+    <div class="cc__steps">
+      <div class="cc__step"><div class="cc__node">Black athlete dominates</div><div class="cc__lbl">Celebrated</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">Uses platform to name racism</div><div class="cc__lbl">Speaks</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">Career consequences</div><div class="cc__lbl">Punished</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">Named unpatriotic, divisive</div><div class="cc__lbl">Discredited</div></div>
+      <div class="cc__arr">→</div>
+      <div class="cc__step"><div class="cc__node">Vindicated decades later</div><div class="cc__lbl">Too late</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-sec__inner">
+    <h2 class="cta-sec__title">The fear of Black assembly is older than the athletes. It's the same fear.</h2>
+    <p class="cta-sec__body">Jack Johnson was punished for being publicly dominant. The Fear of Black Assembly thread documents why: organized Black excellence and political voice have been threats in American law since 1830.</p>
+    <a href="thread-fear-of-black-assembly.html" class="cta-btn">Read: The Fear of Black Assembly →</a>
+  </div>
+</section>
+
+
+
+<style>
+.next-thread-strip{background:var(--color-surface);border-top:1px solid var(--color-border);padding:var(--space-8) 0}
+.next-thread-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+.next-thread-strip__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-2)}
+.next-thread-strip__title{font-family:var(--font-editorial);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:800;color:var(--color-text-primary);line-height:1.2;max-width:480px}
+.next-thread-strip__btn{flex-shrink:0;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);background:var(--color-accent-dark,#92400e);color:#fff;border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:filter .15s;white-space:nowrap}
+.next-thread-strip__btn:hover{filter:brightness(1.1)}
+</style>
+
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <div class="next-thread-strip__title">Gridiron Separate and Unequal: HBCU Football</div>
+      </div>
+      <a href="thread-hbcu-football.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer"><p>Chain — a public archive. <a href="threads.html">All threads</a> · <a href="teaching.html">Teaching guides</a></p></footer>
+<script>
+  const tb=document.getElementById('theme-toggle');
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);tb.textContent=t==='dark'?'Light':'Dark';}
+  applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  tb.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+  const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');ro.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  const to=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.toc-item').forEach(t=>t.classList.remove('toc-item--active'));const tel=document.getElementById('toc-'+e.target.id);if(tel)tel.classList.add('toc-item--active');}});},{rootMargin:'-10% 0px -80% 0px'});
+  document.querySelectorAll('.entry').forEach(el=>to.observe(el));
+  const ttsBtn=document.getElementById('tts-btn');let speaking=false;
+  ttsBtn.addEventListener('click',()=>{if(speaking){window.speechSynthesis.cancel();speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}
+  const t=Array.from(document.querySelectorAll('.entry__body p')).map(n=>n.textContent).join(' ');const w=t.split(' ');const c=[];for(let i=0;i<w.length;i+=40)c.push(w.slice(i,i+40).join(' '));speaking=true;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Stop';let idx=0;
+  function sn(){if(idx>=c.length||!speaking){speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}const u=new SpeechSynthesisUtterance(c[idx++]);u.rate=0.95;u.onend=sn;window.speechSynthesis.speak(u);}sn();});
+</script>
+<script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>

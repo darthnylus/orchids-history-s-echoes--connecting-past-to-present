@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Chain — Black history &amp; present-day America</title>
+  <link rel="canonical" href="https://chain.education/about.html" />
+  <meta name="description" content="Chain is a free, independent digital history platform tracing African and Black history through causal threads — from sovereign African civilizations to present-day America." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .about-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 70% at 80% 10%, rgba(196,106,0,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 55% at 10% 90%, rgba(160,75,48,.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .about-hero__inner {
+      position: relative;
+      max-width: 720px;
+    }
+    .about-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-5);
+    }
+    .about-hero__headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-6);
+    }
+    .about-hero__headline em { color: var(--amber-300); font-style: normal; }
+    .about-hero__lead {
+      font-size: var(--type-lg);
+      color: var(--ink-300);
+      line-height: var(--leading-loose);
+      max-width: 600px;
+    }
+
+    /* ── Prose sections ─────────────────────────────────────── */
+    .about-body {
+      padding: var(--space-16) 0;
+    }
+    .about-body__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-14);
+    }
+    @media (min-width: 900px) {
+      .about-body__inner { grid-template-columns: 220px 1fr; gap: var(--space-12); }
+    }
+
+    .about-toc {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+    }
+    .about-toc__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-4);
+    }
+    .about-toc__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    .about-toc__link {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      display: block;
+      transition: all var(--duration-fast);
+      border-left: 2px solid transparent;
+    }
+    .about-toc__link:hover,
+    .about-toc__link.is-active {
+      color: var(--color-accent-dark);
+      background: var(--color-accent-light);
+      border-left-color: var(--color-accent-dark);
+    }
+
+    .about-prose { max-width: 680px; }
+
+    .about-section {
+      scroll-margin-top: 80px;
+    }
+    .about-section + .about-section { border-top: 1px solid var(--color-border); padding-top: var(--space-12); }
+
+    .about-section__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-3);
+    }
+    .about-section__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: var(--leading-snug);
+      margin-bottom: var(--space-6);
+    }
+    .about-section__body {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+    }
+    .about-section__body p { margin-bottom: var(--space-5); }
+    .about-section__body p:last-child { margin-bottom: 0; }
+    .about-section__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+    .about-section__body a { color: var(--color-accent-dark); font-weight: var(--weight-medium); }
+
+    /* Pull quote */
+    .about-pullquote {
+      border-left: 3px solid var(--amber-400);
+      padding: var(--space-5) var(--space-7);
+      background: var(--color-surface-alt);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      margin: var(--space-8) 0;
+    }
+    .about-pullquote__text {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--color-text-primary);
+      line-height: 1.55;
+      margin-bottom: var(--space-3);
+    }
+    .about-pullquote__attr {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+    }
+
+    /* Methodology steps */
+    .method-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      margin: var(--space-8) 0;
+    }
+    .method-step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: var(--space-5);
+      align-items: start;
+    }
+    .method-step__num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-accent-light);
+      border: 2px solid var(--color-accent-dark);
+      color: var(--color-accent-dark);
+      font-family: var(--font-editorial);
+      font-size: 1.125rem;
+      font-weight: var(--weight-bold);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .method-step__body {}
+    .method-step__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .method-step__desc {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── Team section ────────────────────────────────────────── */
+    .team-section {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-14) 0;
+    }
+    .team-section__header { margin-bottom: var(--space-10); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    /* ── Team cards ──────────────────────────────────────────── */
+    .team-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-top: 2px solid rgba(196,106,0,.35);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      padding: var(--space-6) var(--space-7) var(--space-7);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: border-top-color .2s, background .2s;
+    }
+    .team-card:hover { border-top-color: rgba(196,106,0,.75); background: var(--color-bg); }
+
+    .team-card__header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .team-card__icon {
+      width: 32px; height: 32px;
+      border-radius: var(--radius-sm);
+      background: rgba(196,106,0,.1);
+      display: grid; place-items: center;
+      flex-shrink: 0;
+    }
+    .team-card__name {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.2;
+    }
+    .team-card__role {
+      font-size: 9px;
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-dark);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: var(--space-3);
+    }
+    .team-card__bio {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── Values section ──────────────────────────────────────── */
+    .values-section {
+      padding: var(--space-14) 0;
+      background: var(--color-bg);
+    }
+    .values-grid {
+      display: flex;
+      flex-direction: column;
+      margin-top: var(--space-10);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .value-card {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      transition: background .18s;
+    }
+    .value-card:last-child { border-bottom: none; }
+    .value-card:hover { background: var(--color-bg); }
+    @media (min-width: 768px) {
+      .values-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: var(--radius-xl);
+      }
+      .value-card { border-right: 1px solid var(--color-border); }
+      .value-card:nth-child(2n) { border-right: none; }
+      .value-card:nth-last-child(-n+2) { border-bottom: none; }
+    }
+
+    .value-card__num-col {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: var(--space-6) 0 var(--space-6) var(--space-5);
+    }
+    .value-card__num {
+      font-family: var(--font-editorial);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--color-accent-dark);
+      line-height: 1;
+      opacity: .45;
+      letter-spacing: -.02em;
+    }
+    .value-card__body {
+      padding: var(--space-6) var(--space-7) var(--space-6) var(--space-4);
+      border-left: 1px solid var(--color-border);
+    }
+    .value-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+      line-height: 1.3;
+    }
+    .value-card__desc {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── Bottom CTA ──────────────────────────────────────────── */
+    .about-cta {
+      background: var(--ink-900);
+      padding: var(--space-14) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,106,0,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-cta__inner { position: relative; max-width: 560px; margin: 0 auto; }
+    .about-cta__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      margin-bottom: var(--space-5);
+    }
+    .about-cta__title em { color: var(--amber-300); font-style: normal; }
+    .about-cta__sub {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      margin-bottom: var(--space-8);
+      line-height: var(--leading-loose);
+    }
+    .about-cta__buttons {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .about-cta__btn {
+      padding: var(--space-3) var(--space-7);
+      border-radius: var(--radius-md);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      text-decoration: none;
+      transition: all var(--duration-fast);
+    }
+    .about-cta__btn--primary {
+      background: var(--amber-500);
+      color: var(--ink-900);
+    }
+    .about-cta__btn--primary:hover { background: var(--amber-400); }
+    .about-cta__btn--secondary {
+      background: transparent;
+      color: var(--ink-300);
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .about-cta__btn--secondary:hover { background: rgba(255,255,255,.07); color: #fff; }
+
+    /* Dark mode */
+    [data-theme="dark"] .team-card { background: rgba(255,255,255,.03); border-color: rgba(255,255,255,.08); }
+    [data-theme="dark"] .team-card:hover { background: rgba(255,255,255,.055); }
+    [data-theme="dark"] .value-card { background: rgba(255,255,255,.025); }
+    [data-theme="dark"] .value-card:hover { background: rgba(255,255,255,.045); }
+    [data-theme="dark"] .values-grid { border-color: rgba(255,255,255,.08); }
+    [data-theme="dark"] .value-card__body { border-left-color: rgba(255,255,255,.08); }
+    [data-theme="dark"] .value-card { border-bottom-color: rgba(255,255,255,.08); border-right-color: rgba(255,255,255,.08); }
+    [data-theme="dark"] .about-pullquote { background: var(--ink-900); }
+    [data-theme="dark"] .about-body { background: var(--ink-950, var(--ink-900)); }
+    [data-theme="dark"] .values-section { background: var(--ink-950, var(--ink-900)); }
+    [data-theme="dark"] .team-section { background: var(--ink-900); }
+    [data-theme="dark"] .method-step__num { background: rgba(224,122,0,.15); border-color: var(--amber-500); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+    /* ── MOBILE OVERRIDES ──────────────────────────────────── */
+    @media (max-width: 767px) {
+      .about-hero {
+        padding: var(--space-10) 0 var(--space-8);
+      }
+      .about-hero__headline {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+      }
+      .about-hero__lead {
+        font-size: var(--type-base);
+      }
+      .about-body {
+        padding: var(--space-10) 0;
+      }
+      .about-body__inner {
+        gap: var(--space-8);
+      }
+      /* Method steps: tighter on phones */
+      .method-steps {
+        gap: var(--space-5);
+      }
+      .method-step {
+        gap: var(--space-3);
+      }
+      /* Pull-quote: reduce horizontal padding */
+      .about-pullquote {
+        padding: var(--space-6) var(--space-5);
+        margin-inline: 0;
+      }
+      .about-pullquote__text {
+        font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+      }
+      /* Team + values sections */
+      .team-section,
+      .values-section {
+        padding: var(--space-10) 0;
+      }
+      .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4);
+      }
+      /* CTA buttons: stack on phones */
+      .about-cta__actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .about-cta__btn {
+        text-align: center;
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 639px) {
+      /* Values grid: single column with narrower number column */
+      .values-grid {
+        display: flex !important;
+        flex-direction: column;
+      }
+      .value-card {
+        grid-template-columns: 52px 1fr !important;
+        border-right: none !important;
+      }
+      .value-card:last-child { border-bottom: none !important; }
+      .value-card__num {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link" aria-current="page">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html" class="site-nav__link" aria-current="page">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist" class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=Reconstruction+voting+rights"        class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link" aria-current="page">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <header class="page-header" aria-labelledby="about-heading">
+    <div class="container page-header__inner">
+      <p class="page-header__eyebrow">About Chain</p>
+      <h1 id="about-heading" class="page-header__title">
+        Understand the chain,<br>not just <em style="font-style:italic;color:var(--amber-300)">the event.</em>
+      </h1>
+      <p class="page-header__desc">
+        Chain is a free, independent digital history platform. We trace African and Black history through causal threads — connecting sovereign African civilizations, the slave trade, Reconstruction, federal policy, and present-day America into a single, legible chain of cause and consequence.
+      </p>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <section class="about-body" aria-label="About sections">
+    <div class="container about-body__inner">
+
+      <!-- TOC (desktop sidebar) -->
+      <nav class="about-toc" aria-label="Page sections">
+        <p class="about-toc__label">On this page</p>
+        <ul class="about-toc__list">
+          <li><a href="#mission"      class="about-toc__link is-active">Mission</a></li>
+          <li><a href="#why-causal"   class="about-toc__link">Why causal history</a></li>
+          <li><a href="#methodology"  class="about-toc__link">Methodology</a></li>
+          <li><a href="#independence" class="about-toc__link">Independence</a></li>
+          <li><a href="#access"       class="about-toc__link">Access &amp; equity</a></li>
+        </ul>
+      </nav>
+
+      <!-- Prose -->
+      <div class="about-prose">
+
+        <!-- Mission -->
+        <div class="about-section" id="mission">
+          <p class="about-section__eyebrow">Our mission</p>
+          <h2 class="about-section__title">History as a chain, not a list of facts</h2>
+          <div class="about-section__body">
+            <p>Most history education presents the past as a sequence of disconnected events — dates, names, battles, laws. Chain was built on a different premise: that history is a chain of cause and consequence, and that you cannot understand where you are without tracing the links that got you here.</p>
+            <p>We focus specifically on African and Black history, because it is the history most systematically excluded from American civic education and most directly relevant to understanding present-day inequalities in housing, wealth, health, education, and the justice system. We believe that understanding the full chain — from Mansa Musa's Mali to the 2024 racial wealth gap — is not optional context. It is the only way to understand the country accurately.</p>
+
+            <div class="about-pullquote">
+              <p class="about-pullquote__text">"The thing about being Black in America is that the history isn't past. It's infrastructure."</p>
+              <p class="about-pullquote__attr">— Chain editorial principle</p>
+            </div>
+
+            <p>Chain is free. It has no paywall, no premium tier, and no advertising. We believe the people who most need access to this history — students in underfunded schools, community organizers, families trying to understand their own story — should never have to pay for it.</p>
+          </div>
+        </div>
+
+        <!-- Why causal -->
+        <div class="about-section" id="why-causal">
+          <p class="about-section__eyebrow">Why causal history</p>
+          <h2 class="about-section__title">Why "the chain" matters</h2>
+          <div class="about-section__body">
+            <p>Consider redlining. In 1933, the Home Owners' Loan Corporation graded American neighborhoods A through D. Black neighborhoods — regardless of their actual condition — were graded D. Banks used those maps to deny FHA-backed mortgages. The GI Bill of 1944 built the white middle class with home equity that Black veterans couldn't access. The Fair Housing Act of 1968 prohibited new discrimination but couldn't undo 35 years of accumulated wealth exclusion. Today, the racial homeownership gap is wider than it was in 1968.</p>
+            <p>None of those facts, stated in isolation, explain the present. The chain does. Chain's threads make that causality explicit at every step — not as interpretation, but as documented policy with documented consequences.</p>
+            <p><strong>Causality requires precision.</strong> We distinguish between correlation and documented causal mechanisms. We cite primary sources — the actual HOLC maps, the FHA underwriting manuals, the Census data — rather than asserting chains that haven't been established in the scholarship.</p>
+          </div>
+        </div>
+
+        <!-- Methodology -->
+        <div class="about-section" id="methodology">
+          <p class="about-section__eyebrow">How we work</p>
+          <h2 class="about-section__title">Methodology</h2>
+          <div class="about-section__body">
+            <p>Every claim on Chain meets the following standards:</p>
+          </div>
+
+          <div class="method-steps">
+            <div class="method-step reveal">
+              <div class="method-step__num">1</div>
+              <div class="method-step__body">
+                <div class="method-step__title">Primary source citation</div>
+                <div class="method-step__desc">Every factual claim links to a primary source or peer-reviewed scholarship. Government documents, Census records, court decisions, and academic publications — not secondary media coverage.</div>
+              </div>
+            </div>
+            <div class="method-step reveal">
+              <div class="method-step__num">2</div>
+              <div class="method-step__body">
+                <div class="method-step__title">Causal mechanism, not correlation</div>
+                <div class="method-step__desc">We only assert causal links that are established in the scholarship. We use phrases like "contributed to," "made possible," or "directly caused" with precision, not interchangeably.</div>
+              </div>
+            </div>
+            <div class="method-step reveal">
+              <div class="method-step__num">3</div>
+              <div class="method-step__body">
+                <div class="method-step__title">Historical scholarship review</div>
+                <div class="method-step__desc">Thread content is reviewed against major scholarly works in the field — Rothstein, Foner, Baptist, Alexander, Kendi, and others — and updated when the scholarship is revised or contested.</div>
+              </div>
+            </div>
+            <div class="method-step reveal">
+              <div class="method-step__num">4</div>
+              <div class="method-step__body">
+                <div class="method-step__title">Explicit corrections policy</div>
+                <div class="method-step__desc">When we get something wrong, we correct it visibly and explain what changed. Corrections are logged in the thread history. No silent edits.</div>
+              </div>
+            </div>
+            <div class="method-step reveal">
+              <div class="method-step__num">5</div>
+              <div class="method-step__body">
+                <div class="method-step__title">Present-day data sourced independently</div>
+                <div class="method-step__desc">All present-day statistics cite the underlying data source — Census Bureau, Federal Reserve Survey of Consumer Finances, CDC WONDER, NCRC — not media reporting on that data.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section__body" style="margin-top:var(--space-6)">
+            <p>Our full source list, organized by thread and encyclopedia entry, is available at <a href="sources.html">sources.html</a>. If you believe a claim is incorrect or a source is misrepresented, please <a href="contact.html">contact us</a> — we investigate every substantive challenge.</p>
+          </div>
+        </div>
+
+        <!-- Independence -->
+        <div class="about-section" id="independence">
+          <p class="about-section__eyebrow">Funding &amp; independence</p>
+          <h2 class="about-section__title">No institutional strings</h2>
+          <div class="about-section__body">
+            <p>Chain has no institutional funders, no corporate sponsors, and no advertisers. Our only revenue comes from voluntary reader donations — people who believe this history should be free and accurate and choose to support that.</p>
+            <p>This is a deliberate choice. Institutional funding — from foundations, universities, or government agencies — typically comes with implicit or explicit constraints on the claims that can be made, the people who can be named, or the policies that can be criticized. We believe honest causal history of racism in America is incompatible with those constraints.</p>
+            <p><strong>We are fiscally sponsored</strong> through a registered 501(c)(3) organization, which means donations are tax-deductible. No funder has ever had any influence over editorial content. If that ever changes, we will say so publicly and return the funding.</p>
+            <p>Our annual financial transparency report is published each January. It details every revenue source and every expenditure. If you have questions about our funding, <a href="contact.html">contact us</a>.</p>
+          </div>
+        </div>
+
+        <!-- Access -->
+        <div class="about-section" id="access">
+          <p class="about-section__eyebrow">Access &amp; equity</p>
+          <h2 class="about-section__title">Free. Permanently.</h2>
+          <div class="about-section__body">
+            <p>Chain will never put content behind a paywall. This is not a marketing position — it is a commitment embedded in how we are structured. The communities that most need this history are the ones with the least access to paid content: underfunded schools, public libraries, community organizations in historically redlined neighborhoods.</p>
+            <p>All Chain content is licensed under Creative Commons Attribution 4.0 — free to use, share, reproduce, and adapt with attribution. Educators can use any Chain content in their classrooms without permission or payment. Journalists can quote it freely. Community organizations can reproduce it in full.</p>
+            <p>We actively build <a href="teaching.html">teaching resources</a> — lesson plans, discussion guides, and primary source materials — specifically designed for use in under-resourced classrooms where this history is most likely to be absent from the standard curriculum.</p>
+
+            <div class="about-pullquote">
+              <p class="about-pullquote__text">"The paywall is a political choice. We made the opposite one."</p>
+              <p class="about-pullquote__attr">— Chain founding principle</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .about-prose -->
+    </div><!-- .about-body__inner -->
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section" id="team" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="team-section__header">
+        <p style="font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-accent-dark);margin-bottom:var(--space-3)">The people behind Chain</p>
+        <h2 id="team-heading" style="font-family:var(--font-editorial);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:var(--weight-bold);color:var(--color-text-primary);margin-bottom:var(--space-3)">Who we are</h2>
+        <p style="font-size:var(--type-md);color:var(--color-text-secondary);max-width:560px;line-height:var(--leading-loose)">Chain was built by writers, historians, educators, and designers who believe this history is too important to be locked behind paywalls or watered down by institutional interests.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-card__header">
+            <div class="team-card__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c46a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="team-card__name">Editorial Team</div>
+          </div>
+          <div class="team-card__role">Research &amp; Writing</div>
+          <p class="team-card__bio">Our editorial team includes historians specializing in African diaspora, American legal history, and post-Reconstruction policy. All thread content is researched and written by subject-matter specialists, not generalists.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-card__header">
+            <div class="team-card__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c46a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+            </div>
+            <div class="team-card__name">Educators &amp; Advisors</div>
+          </div>
+          <div class="team-card__role">Curriculum &amp; Pedagogy</div>
+          <p class="team-card__bio">A network of K–12 and university educators reviews teaching resources for accuracy, grade-appropriateness, and alignment with state standards. Our educator advisors include classroom teachers from Atlanta, Chicago, and Oakland.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-card__header">
+            <div class="team-card__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c46a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="team-card__name">Design &amp; Engineering</div>
+          </div>
+          <div class="team-card__role">Platform &amp; Accessibility</div>
+          <p class="team-card__bio">Chain is designed to be fast, readable, and accessible. We prioritize WCAG 2.1 AA compliance, keyboard navigation, and performance on low-bandwidth connections — because many of our readers are in schools with poor infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVISORY -->
+  <section id="advisory" style="padding:var(--space-14) 0;border-top:1px solid var(--color-border)">
+    <div class="container">
+      <p style="font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-accent-dark);margin-bottom:var(--space-3)">Advisory Board</p>
+      <h2 style="font-family:var(--font-editorial);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:var(--weight-bold);color:var(--color-text-primary);margin-bottom:var(--space-4)">Historians, educators, and practitioners</h2>
+      <p style="font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.7;max-width:620px">Chain&rsquo;s advisory board includes historians, educators, librarians, and community practitioners who review our methodology, flag errors, and ensure our causal frameworks reflect current scholarship. We are actively building this board and will publish members as they are confirmed.</p>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section" aria-labelledby="values-heading">
+    <div class="container">
+      <p style="font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-accent-dark);margin-bottom:var(--space-3)">What we believe</p>
+      <h2 id="values-heading" style="font-family:var(--font-editorial);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:var(--weight-bold);color:var(--color-text-primary);margin-bottom:var(--space-3)">Six principles we don't compromise on</h2>
+      <div class="values-grid reveal">
+        <div class="value-card">
+          <div class="value-card__num-col"><div class="value-card__num">01</div></div>
+          <div class="value-card__body">
+            <div class="value-card__title">History is causal, not decorative</div>
+            <p class="value-card__desc">The past doesn't just inform the present — it directly produces it. We treat causal chains as real, documented mechanisms, not metaphors.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-card__num-col"><div class="value-card__num">02</div></div>
+          <div class="value-card__body">
+            <div class="value-card__title">Free access is not optional</div>
+            <p class="value-card__desc">This history belongs to everyone. Restricting it to those who can pay is a political act. We chose the opposite.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-card__num-col"><div class="value-card__num">03</div></div>
+          <div class="value-card__body">
+            <div class="value-card__title">Sources beside every claim</div>
+            <p class="value-card__desc">Every assertion links to evidence. We do not ask readers to trust us — we ask them to check the source.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-card__num-col"><div class="value-card__num">04</div></div>
+          <div class="value-card__body">
+            <div class="value-card__title">No institutional editorial control</div>
+            <p class="value-card__desc">We accept no funding that comes with restrictions on what we can say, who we can name, or which policies we can criticize.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-card__num-col"><div class="value-card__num">05</div></div>
+          <div class="value-card__body">
+            <div class="value-card__title">Corrections are public and explicit</div>
+            <p class="value-card__desc">When we are wrong, we say so clearly, explain the correction, and log what changed. No silent edits.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-card__num-col"><div class="value-card__num">06</div></div>
+          <div class="value-card__body">
+            <div class="value-card__title">The audience includes the people in the history</div>
+            <p class="value-card__desc">We write for — not about — Black Americans. This isn't academic history written for scholars. It's made for students, families, and communities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="about-cta" aria-labelledby="about-cta-heading">
+    <div class="container about-cta__inner">
+      <h2 id="about-cta-heading" class="about-cta__title">
+        History this important<br />should be <em>free.</em>
+      </h2>
+      <p class="about-cta__sub">Chain is reader-funded and always will be. Support the work — or just start reading. Both are welcome.</p>
+      <div class="about-cta__buttons">
+        <a href="donate.html"     class="about-cta__btn about-cta__btn--primary">Support Chain →</a>
+        <a href="threads.html"    class="about-cta__btn about-cta__btn--secondary">Start a thread</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── TOC ACTIVE STATE ──────────────────────────────────────
+  const tocLinks = document.querySelectorAll('.about-toc__link');
+  const sections = document.querySelectorAll('.about-section');
+  const tocObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('is-active'));
+        const active = document.querySelector(`.about-toc__link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('is-active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => tocObs.observe(s));
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

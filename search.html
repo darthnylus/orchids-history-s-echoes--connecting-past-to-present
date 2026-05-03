@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search — Chain</title>
+  <link rel="canonical" href="https://chain.education/search.html" />
+  <meta name="description" content="Search Chain's threads, encyclopedia, maps, and timeline entries." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <style>
+
+    /* ── Search bar section ───────────────────────────────────── */
+    .search-header {
+      background: var(--ink-900);
+      padding: var(--space-10) 0 var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+    .search-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% -10%, rgba(196,106,0,.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .search-header__inner { position: relative; max-width: 720px; margin: 0 auto; }
+    .search-header__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-5);
+      text-align: center;
+    }
+
+    .search-bar-wrap {
+      position: relative;
+    }
+    .search-bar-icon {
+      position: absolute;
+      left: var(--space-5);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      stroke: var(--ink-400);
+      fill: none;
+      stroke-width: 2;
+      pointer-events: none;
+    }
+    .search-bar-input {
+      width: 100%;
+      padding: var(--space-4) var(--space-6) var(--space-4) 52px;
+      background: var(--ink-800);
+      border: 1px solid var(--ink-700);
+      border-radius: var(--radius-xl);
+      color: #fff;
+      font-size: 1.125rem;
+      font-family: inherit;
+      box-sizing: border-box;
+      transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+    }
+    .search-bar-input::placeholder { color: var(--ink-500); }
+    .search-bar-input:focus {
+      outline: none;
+      border-color: var(--amber-400);
+      box-shadow: 0 0 0 3px rgba(196,106,0,.2);
+    }
+    .search-bar-clear {
+      position: absolute;
+      right: var(--space-4);
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--ink-400);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: var(--space-2);
+      display: none;
+    }
+    .search-bar-clear.is-visible { display: block; }
+
+    /* type filters */
+    .search-type-bar {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-5);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .search-type-chip {
+      padding: var(--space-1) var(--space-4);
+      border-radius: 999px;
+      border: 1px solid var(--ink-700);
+      background: transparent;
+      color: var(--ink-400);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-medium);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+    .search-type-chip:hover { border-color: var(--ink-500); color: var(--ink-200); }
+    .search-type-chip.is-active { background: var(--amber-500); border-color: var(--amber-500); color: var(--ink-900); }
+
+    /* ── Results area ────────────────────────────────────────── */
+    .search-results-area {
+      padding: var(--space-10) 0 var(--space-16);
+      min-height: 60vh;
+    }
+    .search-results-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 960px) {
+      .search-results-layout { grid-template-columns: 1fr 280px; gap: var(--space-10); }
+    }
+
+    /* Status bar */
+    .search-status {
+      font-size: var(--type-sm);
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-6);
+      min-height: 1.5em;
+    }
+    .search-status strong { color: var(--color-text-primary); }
+
+    /* Result cards */
+    .result-list { display: flex; flex-direction: column; gap: var(--space-3); }
+    .result-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-5);
+      padding: var(--space-5) var(--space-6);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: var(--color-surface);
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--duration-fast);
+      align-items: start;
+    }
+    .result-card:hover {
+      border-color: var(--color-accent-dark);
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      transform: translateY(-1px);
+    }
+    .result-card__type-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      height: 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.65rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+    .result-card__type-badge--thread     { background: #fef3c7; color: #92400e; }
+    .result-card__type-badge--person     { background: #dbeafe; color: #1e40af; }
+    .result-card__type-badge--policy     { background: #f3e8ff; color: #6b21a8; }
+    .result-card__type-badge--event      { background: #dcfce7; color: #166534; }
+    .result-card__type-badge--place      { background: #fee2e2; color: #991b1b; }
+    .result-card__type-badge--map        { background: #e0f2fe; color: #075985; }
+    [data-theme="dark"] .result-card__type-badge--thread  { background: rgba(146,64,14,.3); color: #fcd34d; }
+    [data-theme="dark"] .result-card__type-badge--person  { background: rgba(30,64,175,.3); color: #93c5fd; }
+    [data-theme="dark"] .result-card__type-badge--policy  { background: rgba(107,33,168,.3); color: #d8b4fe; }
+    [data-theme="dark"] .result-card__type-badge--event   { background: rgba(22,101,52,.3); color: #86efac; }
+    [data-theme="dark"] .result-card__type-badge--place   { background: rgba(153,27,27,.3); color: #fca5a5; }
+    [data-theme="dark"] .result-card__type-badge--map     { background: rgba(7,89,133,.3); color: #7dd3fc; }
+
+    .result-card__body {}
+    .result-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-1);
+    }
+    .result-card__title mark {
+      background: rgba(196,106,0,.18);
+      color: var(--color-accent-dark);
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+    .result-card__meta {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-2);
+    }
+    .result-card__excerpt {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .result-card__excerpt mark {
+      background: rgba(196,106,0,.18);
+      color: var(--color-accent-dark);
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+
+    /* Empty / no-query states */
+    .search-empty {
+      text-align: center;
+      padding: var(--space-14) 0;
+    }
+    .search-empty__icon {
+      font-size: 3rem;
+      margin-bottom: var(--space-5);
+      opacity: .4;
+    }
+    .search-empty__title {
+      font-family: var(--font-editorial);
+      font-size: 1.375rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .search-empty__sub {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      max-width: 400px;
+      margin: 0 auto var(--space-6);
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────────── */
+    .search-sidebar { display: flex; flex-direction: column; gap: var(--space-5); }
+    .search-sidebar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .search-sidebar-card__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .suggested-list { display: flex; flex-direction: column; gap: var(--space-2); }
+    .suggested-link {
+      font-size: var(--type-sm);
+      color: var(--color-accent-dark);
+      text-decoration: none;
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color var(--duration-fast);
+    }
+    .suggested-link:last-child { border-bottom: none; }
+    .suggested-link:hover { color: var(--color-text-primary); }
+    .suggested-link__arrow { color: var(--color-text-tertiary); font-size: var(--type-xs); }
+
+    .trending-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .trending-chip {
+      font-size: var(--type-xs);
+      padding: var(--space-1) var(--space-3);
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: all var(--duration-fast);
+    }
+    .trending-chip:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+
+    [data-theme="dark"] .result-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .search-sidebar-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .trending-chip { background: var(--ink-800); border-color: var(--ink-700); color: var(--ink-300); }
+
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+    /* ── First-visit welcome tooltip ──────────────────────────── */
+    .ftv-tooltip {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      width: min(480px, 92vw);
+      background: var(--ink-950, #0d0d0d);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 20px 22px 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .ftv-tooltip.is-visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+    /* arrow */
+    .ftv-tooltip::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 11px;
+      height: 11px;
+      background: var(--ink-950, #0d0d0d);
+      border-top: 1px solid rgba(255,255,255,.12);
+      border-left: 1px solid rgba(255,255,255,.12);
+    }
+    .ftv-tooltip__eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amber-500, #f59e0b);
+      margin-bottom: 8px;
+    }
+    .ftv-tooltip__title {
+      font-family: var(--font-editorial);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .ftv-tooltip__tips {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 18px;
+    }
+    .ftv-tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.5;
+    }
+    .ftv-tip__icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.08);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 12px;
+    }
+    .ftv-tip strong { color: #fff; font-weight: 600; }
+    .ftv-tooltip__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .ftv-tooltip__dismiss {
+      background: var(--amber-500, #f59e0b);
+      color: #0d0d0d;
+      border: none;
+      border-radius: 999px;
+      padding: 7px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter .15s;
+    }
+    .ftv-tooltip__dismiss:hover { filter: brightness(1.08); }
+    .ftv-tooltip__skip {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .ftv-tooltip__skip:hover { color: rgba(255,255,255,.6); }
+
+    /* ── Hover preview card ────────────────────────────────────── */
+    .hover-preview {
+      position: fixed;
+      width: 320px;
+      background: var(--color-surface, #fff);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.18), 0 4px 12px rgba(0,0,0,.08);
+      z-index: 300;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px) scale(.98);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .hover-preview.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    [data-theme="dark"] .hover-preview {
+      background: var(--ink-800, #1a1a1a);
+      border-color: var(--ink-700, #2a2a2a);
+      box-shadow: 0 16px 48px rgba(0,0,0,.55);
+    }
+    .hover-preview__badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: var(--amber-100, #fef3c7);
+      color: var(--amber-800, #92400e);
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-bottom: 10px;
+    }
+    [data-theme="dark"] .hover-preview__badge {
+      background: rgba(245,158,11,.15);
+      color: var(--amber-400, #fbbf24);
+    }
+    .hover-preview__title {
+      font-family: var(--font-editorial);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .hover-preview__meta {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .hover-preview__excerpt {
+      font-size: 12.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .hover-preview__cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-accent-dark, #b45309);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    [data-theme="dark"] .hover-preview__cta { color: var(--amber-400, #fbbf24); }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlayNav">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Nav search overlay (separate from page search) -->
+<div class="search-overlay" id="searchOverlayNav" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInputNav" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInputNav" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchCloseNav" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist"          class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=Reconstruction+voting+rights"                 class="search-hint-chip">Reconstruction &amp; voting rights</a>
+      <a href="search.html?q=What+did+COINTELPRO+actually+do"             class="search-hint-chip">What did COINTELPRO actually do?</a>
+      <a href="search.html?q=Why+was+Fred+Hampton+killed"                 class="search-hint-chip">Why was Fred Hampton killed?</a>
+      <a href="search.html?q=What+was+the+Black+Panther+breakfast+program" class="search-hint-chip">What was the Black Panther breakfast program?</a>
+      <a href="search.html?q=How+did+slavery+shape+the+economy"           class="search-hint-chip">How did slavery shape the economy?</a>
+      <a href="search.html?q=What+ended+Reconstruction"                   class="search-hint-chip">What ended Reconstruction?</a>
+      <a href="search.html?q=Who+was+Marcus+Garvey"                       class="search-hint-chip">Who was Marcus Garvey?</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- SEARCH HEADER -->
+  <section class="search-header" aria-label="Search">
+    <div class="container search-header__inner">
+      <p class="search-header__label">Search Chain</p>
+      <form role="search" id="pageSearchForm" action="search.html" method="get" style="position:relative">
+        <!-- First-visit welcome tooltip -->
+        <div class="ftv-tooltip" id="ftvTooltip" role="tooltip" aria-live="polite">
+          <div class="ftv-tooltip__eyebrow">New here?</div>
+          <div class="ftv-tooltip__title">Search 160+ threads, people, events &amp; policies</div>
+          <div class="ftv-tooltip__tips">
+            <div class="ftv-tip">
+              <div class="ftv-tip__icon">💬</div>
+              <div><strong>Ask a full question</strong> — "Why does the racial wealth gap persist?" works just as well as a keyword.</div>
+            </div>
+            <div class="ftv-tip">
+              <div class="ftv-tip__icon">🗂</div>
+              <div><strong>Filter by type</strong> — use the chips below the bar to narrow to Threads, People, Policies, or Events.</div>
+            </div>
+            <div class="ftv-tip">
+              <div class="ftv-tip__icon">🖱</div>
+              <div><strong>Hover any result</strong> for a quick preview before clicking through.</div>
+            </div>
+          </div>
+          <div class="ftv-tooltip__footer">
+            <button class="ftv-tooltip__dismiss" id="ftvDismiss" type="button">Got it</button>
+            <button class="ftv-tooltip__skip" id="ftvSkip" type="button">Don't show again</button>
+          </div>
+        </div>
+        <div class="search-bar-wrap">
+          <svg class="search-bar-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <label for="pageSearchInput" class="sr-only">Search threads, people, policies, events, and places</label>
+          <input
+            type="search"
+            id="pageSearchInput"
+            name="q"
+            class="search-bar-input"
+            placeholder="Ask a question or search a topic — e.g. "redlining" or "why does the wealth gap persist""
+            autocomplete="off"
+            spellcheck="false"
+            autofocus
+          />
+          <button type="button" class="search-bar-clear" id="clearBtn" aria-label="Clear search">✕</button>
+        </div>
+        <div class="search-type-bar" role="group" aria-label="Filter by content type">
+          <button class="search-type-chip is-active" data-type="all"     type="button">All</button>
+          <button class="search-type-chip" data-type="thread"   type="button">Threads</button>
+          <button class="search-type-chip" data-type="person"   type="button">People</button>
+          <button class="search-type-chip" data-type="policy"   type="button">Policies</button>
+          <button class="search-type-chip" data-type="event"    type="button">Events</button>
+          <button class="search-type-chip" data-type="place"    type="button">Places</button>
+          <button class="search-type-chip" data-type="map"      type="button">Maps</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="search-results-area">
+    <div class="container">
+      <div class="search-results-layout">
+
+        <!-- Results column -->
+        <div>
+          <div class="search-status" id="searchStatus" aria-live="polite" aria-atomic="true"></div>
+          <div class="result-list" id="resultList" role="list"></div>
+          <div class="search-empty" id="emptyState">
+            <div class="search-empty__icon">◎</div>
+            <div class="search-empty__title">Search the full archive</div>
+            <p class="search-empty__sub">Try a question like "Why does the racial wealth gap persist?" or a topic like "Reconstruction" or "HOLC redlining."</p>
+            <div class="trending-chips" style="justify-content:center">
+              <a href="search.html?q=redlining"              class="trending-chip">Redlining</a>
+              <a href="search.html?q=Reconstruction"         class="trending-chip">Reconstruction</a>
+              <a href="search.html?q=GI+Bill"                class="trending-chip">GI Bill</a>
+              <a href="search.html?q=mass+incarceration"     class="trending-chip">Mass incarceration</a>
+              <a href="search.html?q=Mansa+Musa"             class="trending-chip">Mansa Musa</a>
+              <a href="search.html?q=wealth+gap"             class="trending-chip">Wealth gap</a>
+              <a href="search.html?q=Jim+Crow"               class="trending-chip">Jim Crow</a>
+              <a href="search.html?q=Fort+Pillow"            class="trending-chip">Fort Pillow</a>
+              <a href="search.html?q=COINTELPRO"             class="trending-chip">COINTELPRO</a>
+              <a href="search.html?q=Black+Panthers"         class="trending-chip">Black Panthers</a>
+              <a href="search.html?q=Fred+Hampton"           class="trending-chip">Fred Hampton</a>
+              <a href="search.html?q=Harpers+Ferry"          class="trending-chip">Harpers Ferry</a>
+              <a href="search.html?q=Nation+of+Islam"        class="trending-chip">Nation of Islam</a>
+              <a href="search.html?q=Malcolm+X"              class="trending-chip">Malcolm X</a>
+              <a href="search.html?q=convict+leasing"        class="trending-chip">Convict leasing</a>
+              <a href="search.html?q=Tulsa+massacre"         class="trending-chip">Tulsa massacre</a>
+              <a href="search.html?q=Golden+Thirteen"        class="trending-chip">Golden Thirteen</a>
+              <a href="search.html?q=Harriet+Tubman"         class="trending-chip">Harriet Tubman</a>
+            </div>
+          </div>
+          <div class="search-empty" id="noResults" style="display:none">
+            <div class="search-empty__icon">○</div>
+            <div class="search-empty__title">No results found</div>
+            <p class="search-empty__sub">Try different keywords, or browse the full archive in <a href="explore.html" style="color:var(--color-accent-dark)">Explore</a>.</p>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="search-sidebar" aria-label="Search suggestions">
+
+          <div class="search-sidebar-card">
+            <div class="search-sidebar-card__title">Start with a thread</div>
+            <div class="suggested-list">
+              <a href="thread.html"  class="suggested-link">Housing &amp; the Racial Wealth Gap <span class="suggested-link__arrow">→</span></a>
+              <a href="threads.html" class="suggested-link">Stolen Labor: Slavery to Wage Theft <span class="suggested-link__arrow">→</span></a>
+              <a href="threads.html" class="suggested-link">Mass Incarceration <span class="suggested-link__arrow">→</span></a>
+              <a href="threads.html" class="suggested-link">Health Disparities <span class="suggested-link__arrow">→</span></a>
+              <a href="threads.html" class="suggested-link">All threads → <span class="suggested-link__arrow">→</span></a>
+            </div>
+          </div>
+
+          <div class="search-sidebar-card">
+            <div class="search-sidebar-card__title">Trending searches</div>
+            <div class="trending-chips">
+              <a href="search.html?q=redlining"              class="trending-chip">Redlining</a>
+              <a href="search.html?q=Reconstruction"         class="trending-chip">Reconstruction</a>
+              <a href="search.html?q=convict+leasing"        class="trending-chip">Convict leasing</a>
+              <a href="search.html?q=Black+codes"            class="trending-chip">Black Codes</a>
+              <a href="search.html?q=Mansa+Musa"             class="trending-chip">Mansa Musa</a>
+              <a href="search.html?q=GI+Bill"                class="trending-chip">GI Bill</a>
+              <a href="search.html?q=wealth+gap"             class="trending-chip">Wealth gap</a>
+              <a href="search.html?q=Fair+Housing+Act"       class="trending-chip">Fair Housing Act</a>
+              <a href="search.html?q=Jim+Crow"               class="trending-chip">Jim Crow</a>
+              <a href="search.html?q=COINTELPRO"             class="trending-chip">COINTELPRO</a>
+              <a href="search.html?q=Black+Panthers"         class="trending-chip">Black Panthers</a>
+              <a href="search.html?q=Fred+Hampton"           class="trending-chip">Fred Hampton</a>
+              <a href="search.html?q=Nation+of+Islam"        class="trending-chip">Nation of Islam</a>
+              <a href="search.html?q=Malcolm+X"              class="trending-chip">Malcolm X</a>
+              <a href="search.html?q=Harpers+Ferry"          class="trending-chip">Harpers Ferry</a>
+              <a href="search.html?q=Tulsa+massacre"         class="trending-chip">Tulsa massacre</a>
+              <a href="search.html?q=Golden+Thirteen"        class="trending-chip">Golden Thirteen</a>
+              <a href="search.html?q=self-defense"           class="trending-chip">Self-defense</a>
+              <a href="search.html?q=Harriet+Tubman"         class="trending-chip">Harriet Tubman</a>
+              <a href="search.html?q=John+Brown"             class="trending-chip">John Brown</a>
+              <a href="search.html?q=Rainbow+Coalition"      class="trending-chip">Rainbow Coalition</a>
+              <a href="search.html?q=war+on+drugs"           class="trending-chip">War on drugs</a>
+              <a href="search.html?q=Black+Wall+Street"      class="trending-chip">Black Wall Street</a>
+            </div>
+          </div>
+
+          <div class="search-sidebar-card">
+            <div class="search-sidebar-card__title">Browse by type</div>
+            <div class="suggested-list">
+              <a href="explore.html#threads"  class="suggested-link">Threads <span class="suggested-link__arrow">→</span></a>
+              <a href="explore.html#people"   class="suggested-link">People <span class="suggested-link__arrow">→</span></a>
+              <a href="explore.html#policies" class="suggested-link">Policies &amp; laws <span class="suggested-link__arrow">→</span></a>
+              <a href="explore.html#events"   class="suggested-link">Events <span class="suggested-link__arrow">→</span></a>
+              <a href="maps.html"             class="suggested-link">Maps &amp; Timelines <span class="suggested-link__arrow">→</span></a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Hover preview card (positioned by JS) -->
+<div class="hover-preview" id="hoverPreview" aria-hidden="true">
+  <div class="hover-preview__badge" id="hpBadge"></div>
+  <div class="hover-preview__title" id="hpTitle"></div>
+  <div class="hover-preview__meta" id="hpMeta"></div>
+  <div class="hover-preview__excerpt" id="hpExcerpt"></div>
+  <div class="hover-preview__cta">Read thread <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+</div>
+
+<script>
+  // ── SEARCH DATA ───────────────────────────────────────────
+  // Static corpus for client-side search
+  const CORPUS = [
+
+    // ── THREADS ───────────────────────────────────────────────
+    { type:'thread', title:'Weeksville: The Free Black City Built Inside a City That Didn\'t Want It',
+      href:'thread-weeksville.html', meta:'Thread · 1838–Present · Self-Determination · Brooklyn · Abolition',
+      excerpt:'Founded in 1838 by James Weeks, Weeksville in Brooklyn built its own church, school, newspaper, and eldercare home — a complete parallel society for Black New Yorkers excluded from the city\'s institutions. During the 1863 Draft Riots, hundreds fled there for safety. Absorbed by Brooklyn\'s street grid and forgotten — until a historian flying over Crown Heights in 1968 spotted four wooden houses sitting at the wrong angle and realized he\'d found it.' },
+
+    { type:'thread', title:'Bruce\'s Beach: The Black Resort Manhattan Beach Stole — and a Century Later Returned',
+      href:'thread-bruces-beach.html', meta:'Thread · 1912–2022 · Property · Eminent Domain · California · Reparative Justice',
+      excerpt:'In 1912, Willa and Charles Bruce built the only Pacific Coast beach resort for Black Angelenos. Twelve years of harassment, arson, and KKK intimidation. In 1924, the city condemned the land through eminent domain for a "park" that was never built. In 2022, Los Angeles County returned the land to the Bruce family\'s descendants — one of the only documented acts of reparative land justice in American history.' },
+
+    { type:'thread', title:'Seneca Village: The Black Community Destroyed to Build Central Park',
+      href:'thread-seneca-village.html', meta:'Thread · 1825–1857 · Property · Erasure · New York',
+      excerpt:'From 1825 to 1857, Seneca Village was a thriving, predominantly Black community of landowners on Manhattan\'s Upper West Side — three churches, a school, and residents who could vote because they owned property. Then New York City seized the land under eminent domain to build Central Park. The press called them squatters. They were property owners.' },
+
+    { type:'thread', title:'South to Freedom: Mexico Offered Liberty While America Kept the Chains',
+      href:'thread-mexico-freedom.html', meta:'Thread · 1829–1865 · Slavery · Abolition · Borderlands',
+      excerpt:'Mexico abolished slavery in 1829 — 36 years before the United States. Thousands of enslaved people escaped south across the Rio Grande, where the U.S. had no legal authority to reclaim them. Texas slaveholders launched a revolution partly to stop it. The Southern Underground Railroad is the half of the story America forgot.' },
+
+    { type:'thread', title:'The Fire Next Time: Black Abolitionists and the War on Slavery',
+      href:'thread-abolitionism.html', meta:'Thread · 1829–1865 · History & Resistance',
+      excerpt:'Black abolitionists led the anti-slavery movement for 40 years before white abolitionists joined. They articulated the moral, economic, and political case against slavery — and were then erased from the history of their own struggle.' },
+
+    { type:'thread', title:'The Songhai Empire: The Largest in African History — and How It Was Erased',
+      href:'thread-songhai.html', meta:'Thread · c. 800–1591 CE · West Africa · Empire · Timbuktu',
+      excerpt:'At its peak under Askia Muhammad I, Songhai stretched 1.4 million sq km with a professional bureaucracy, a river navy, and Timbuktu\'s Sankore University with 25,000 students. Destroyed at the Battle of Tondibi in 1591 by European arquebuses. Then three centuries of historians declared Africa had no history. The 700,000 surviving Timbuktu manuscripts prove them wrong.' },
+
+    { type:'thread', title:'Before the Chain: 7 African Empires',
+      href:'thread-african-empires.html', meta:'Thread · Pre-1441 · African History',
+      excerpt:'African empires — Ghana, Mali, Songhai, Kush, Axum, Benin, and more — developed complex political systems, universities, and trade networks centuries before European colonization. The slave trade did not find a primitive continent. It destroyed an advanced one.' },
+
+    { type:'thread', title:'Al-Andalus: The Moorish Civilization Europe Erased',
+      href:'thread-moors.html', meta:'Thread · 711–1492 · Al-Andalus, Iberia',
+      excerpt:'For 781 years, Muslim Africans and Arabs governed the most advanced civilization in medieval Europe. Córdoba had 500,000 people and 70 libraries when London had 15,000 and no sewers. The Reconquista burned a million books, invented the first racial purity laws in European history — limpieza de sangre — and expelled the Moors the same year Columbus sailed.' },
+
+    { type:'thread', title:'The Rupture: The Transatlantic Slave Trade',
+      href:'thread-transatlantic-slave-trade.html', meta:'Thread · 1441–1808 · Forced Migration & Origins',
+      excerpt:'12.5 million people. 400 years. The largest forced migration in human history and the economic foundation of the modern world. This thread traces the trade routes, mortality statistics, and economic legacy of the Middle Passage.' },
+
+    { type:'thread', title:'How Slavery Really Ended — And What It Left Behind',
+      href:'thread-end-of-slavery.html', meta:'Thread · 1861–Present · Abolition & Its Aftermath',
+      excerpt:'Slavery was not ended by moral progress. It was restructured into sharecropping, convict leasing, and mass incarceration. The 13th Amendment contained the exception clause that made the restructuring legal.' },
+
+    { type:'thread', title:'Two and a Half Years Late: Juneteenth and the Promise That Wasn\'t',
+      href:'thread-juneteenth.html', meta:'Thread · 1863–Present · Emancipation & Memory',
+      excerpt:'Juneteenth was June 19, 1865 — two and a half years after the Emancipation Proclamation. The delay was not accidental. And the "freedom" that followed was immediately countered by Black Codes, convict leasing, and debt peonage.' },
+
+    { type:'thread', title:'The Arab Slave Trade: 1,300 Years Before the Ships',
+      href:'thread-arab-slave-trade.html', meta:'Thread · 650 CE–1900s · African Origins · Indian Ocean · Sahara',
+      excerpt:'The transatlantic slave trade lasted 400 years and enslaved 12.5 million Africans. The Arab slave trade lasted 1,300 years and enslaved an estimated 17 million. Saudi Arabia abolished slavery in 1962. Mauritania criminalized it in 2007. It is the longest-running forced migration in history and the least taught.' },
+
+    // ── ERA 1 PRE-PHARAOH ADDITIONS: 4 NEW THREADS ──
+    { type:'thread', title:'Africa Is the Birthplace of Every Human Being on Earth',
+      href:'thread-african-origins-humanity.html', meta:'Thread · 300,000 BCE–Present · African Origins · Human Evolution · Out of Africa',
+      excerpt:'Homo sapiens evolved in Africa 300,000 years ago. All non-African people alive today descend from a single migration out of Africa 60,000–70,000 years ago. The concept of biological race has no meaningful scientific basis. All racial differences are the product of less than 60,000 years of geographic isolation on a foundation of shared African ancestry.' },
+
+    { type:'thread', title:'The San People: The Oldest Continuous Culture on Earth',
+      href:'thread-san-people.html', meta:'Thread · ~100,000 BCE–Present · African Origins · Southern Africa · Khoisan',
+      excerpt:'The San of southern Africa carry the deepest genetic lineages in the human family tree. Their rock art tradition at the Drakensberg is 40,000 years old and still practiced. Dutch colonial commandos hunted them as vermin. Botswana evicted them from their land in 2002 to mine diamonds. They are still here.' },
+
+    { type:'thread', title:'The Green Sahara: When the World\'s Largest Desert Was a Fertile Lake District',
+      href:'thread-green-sahara.html', meta:'Thread · 11,000–3,000 BCE · African Origins · North Africa · Sahara · Tassili',
+      excerpt:'For 8,000 years the Sahara was green — lakes, hippos, cattle herds, 15,000 paintings at Tassili n\'Ajjer. When it desertified, its population migrated east toward the Nile, seeding Egyptian civilization, and south into West Africa. The Nabta Playa stone circle, built 6,000 BCE, is older than Stonehenge.' },
+
+    { type:'thread', title:'Pre-Dynastic Egypt: The African Roots of the World\'s First Nation-State',
+      href:'thread-predynastic-egypt.html', meta:'Thread · 5,000–3,100 BCE · African Origins · Nile Valley · Badarian · Naqada',
+      excerpt:'Egypt did not appear from nowhere in 3,100 BCE. The Badarian culture (5,000 BCE), the Naqada trade networks, and Hierakonpolis — one of the world\'s first cities — built the institutions, art, and political structures that Narmer formalized. The 1974 UNESCO Cairo Symposium confirmed: ancient Egypt was an African civilization built by African people.' },
+
+    // ── ERA 1 ADDITIONS: 6 NEW THREADS ──
+    { type:'thread', title:'Mansa Musa: The Richest Person Who Ever Lived',
+      href:'thread-mansa-musa.html', meta:'Thread · c. 1280–1337 · African Origins · Mali Empire · West Africa',
+      excerpt:'Mansa Musa controlled half the world\'s gold supply. His 1324 pilgrimage to Mecca brought 60,000 people and so much gold that he crashed the Egyptian economy for 12 years. His name appears on the 1375 Catalan Atlas. He is absent from most American history textbooks.' },
+
+    { type:'thread', title:'Nubia & the Kingdom of Kush: The Civilization That Ruled Egypt',
+      href:'thread-nubia-kush.html', meta:'Thread · 3500 BCE–350 CE · African Origins · Nile Valley · Sudan',
+      excerpt:'Nubia is older than Egypt. It traded with Egypt for 1,500 years, then conquered it. The 25th Dynasty — Nubian pharaohs — ruled the largest empire on earth from 747 to 656 BCE. Nubia has more pyramids than Egypt. Almost none of this appears in standard curricula.' },
+
+    { type:'thread', title:'Great Zimbabwe: The City Europeans Said Africans Couldn\'t Build',
+      href:'thread-great-zimbabwe.html', meta:'Thread · 1100–1450 CE · African Origins · Southern Africa · Zimbabwe Plateau',
+      excerpt:'An 18,000-person city built from precision-cut stone with no mortar. Gold trade routes reaching China. When European colonizers found it, they invented Phoenician and Israelite origin myths rather than accept that Africans built it. In Rhodesia, claiming African authorship was grounds for dismissal.' },
+
+    { type:'thread', title:'The Swahili Coast: Africa\'s Global Trade Network',
+      href:'thread-swahili-coast.html', meta:'Thread · 800–1500 CE · African Origins · East Africa · Indian Ocean',
+      excerpt:'For 700 years, East African city-states ran a global trade network connecting Africa, Arabia, Persia, India, and China. Ibn Battuta called Kilwa one of the most beautiful cities in the world. When Vasco da Gama arrived in 1498, he found a functioning civilization that hired him a pilot.' },
+
+    { type:'thread', title:'African Spiritual Systems: What Was Destroyed and What Survived',
+      href:'thread-african-spiritual-systems.html', meta:'Thread · Ancient–Present · African Origins · Yoruba · Vodun · Diaspora',
+      excerpt:'Yoruba, Akan, Vodun — African spiritual systems are complex cosmological and ethical frameworks. Colonization tried to destroy them. The diaspora encoded them inside Christianity, producing Santería, Candomblé, and Haitian Vodou. A Vodou ceremony sparked the Haitian Revolution in 1791.' },
+
+    { type:'thread', title:'Pre-Colonial African Governance: Democracy Before Europe Invented the Word',
+      href:'thread-precolonial-governance.html', meta:'Thread · Ancient–1884 · African Origins · Governance · Berlin Conference',
+      excerpt:'Africa had constitutional charters, democratic councils, and checks on royal power centuries before colonization. The 1235 Kouroukan Fouga predates the Magna Carta. The Igbo governed without a king. The Oyo Empire could formally remove a bad ruler. The Berlin Conference destroyed all of it.' },
+
+    { type:'thread', title:'The Kingdom of Ife: Cradle of the Yoruba and the Bronze Heads That Shook the World',
+      href:'thread-ife.html', meta:'Thread · 500–1500 CE · African Origins · Ife · Yoruba · Oduduwa · bronze casting · terracotta · Ile-Ife · Nigeria · West Africa · African art · lost-wax casting · Benin · creation myth · African civilization',
+      excerpt:'Ife is the sacred city of the Yoruba people and the site of some of the most sophisticated bronze and terracotta sculptures ever made — produced 700 years before European contact. The naturalistic bronze heads of Ife, cast using the lost-wax method at a technical level Europe wouldn\'t match for centuries, were dismissed as impossible when first encountered by Western scholars in 1910. Leo Frobenius claimed they must be the work of ancient Greeks. They were not.' },
+
+    { type:'thread', title:"The Kanem\u2013Bornu Empire: Africa\u2019s Longest-Lived Trading Empire",
+      href:'thread-kanem-bornu.html', meta:"Thread · 700–1900 CE · African Origins · Kanem · Bornu · Lake Chad · trans-Saharan trade · Islam · mai · Sayfawa dynasty · Nigeria · Niger · Chad · Cameroon · African empire · Islamic scholarship · horse cavalry",
+      excerpt:"The Kanem\u2013Bornu Empire lasted over 1,000 years \u2014 longer than the Roman Empire, longer than any European state. Centered on Lake Chad, it controlled trans-Saharan trade routes for centuries, maintained diplomatic relations with North African and Mediterranean states, and produced a tradition of Islamic scholarship and governance that shaped the entire central Sudan region." },
+
+    { type:'thread', title:"The Kingdom of Loango: Central Africa\u2019s Atlantic Powerhouse",
+      href:'thread-loango.html', meta:"Thread · 1300–1900 CE · African Origins · Loango · Kingdom of Kongo · Central Africa · Atlantic trade · copper · ivory · enslaved people · Congo · Gabon · Angola · Vili people · Manikongo · Portuguese · Dutch · trade network",
+      excerpt:"The Kingdom of Loango, on the Atlantic coast of what is now the Republic of Congo and Gabon, was one of Central Africa\u2019s most sophisticated states \u2014 a maritime and commercial power that traded copper, ivory, and textiles across the Atlantic world. It later became one of the primary embarkation points for the transatlantic slave trade, a transformation that reveals exactly how African political structures were leveraged and destroyed by European commercial interests." },
+
+    { type:'thread', title:"The Kingdom of Mapungubwe: Africa\u2019s First Class-Based State",
+      href:'thread-mapungubwe.html', meta:"Thread · 900–1300 CE · African Origins · Mapungubwe · Zimbabwe · South Africa · Limpopo · golden rhinoceros · Iron Age · class society · Great Zimbabwe · Shona · African archaeology · stone walls · gold trade · Indian Ocean",
+      excerpt:"Mapungubwe, at the confluence of the Limpopo and Shashe rivers in what is now South Africa, was the first known class-stratified state in sub-Saharan Africa \u2014 a society where rulers were literally separated from commoners by hilltop geography, buried with gold artifacts, and connected to a global trade network reaching India and China. The golden rhinoceros found in its royal graves is one of the most important artifacts in African history. South African apartheid-era archaeologists tried to suppress it." },
+
+    { type:'thread', title:"The Medieval Nubian Kingdoms: Christian Africa\u2019s Forgotten Civilization",
+      href:'thread-medieval-nubia.html', meta:"Thread · 350–1504 CE · African Origins · Nubia · Nobatia · Makuria · Alodia · Sudan · Nile · Christian Africa · Byzantine · Dongola · medieval · African Christianity · church · cathedral · Islam · Beja",
+      excerpt:"For nearly a thousand years after the fall of Meroe, three Christian kingdoms flourished along the Nile in what is now Sudan. Nobatia, Makuria, and Alodia maintained diplomatic relations with Byzantium and Egypt, built cathedrals with sophisticated murals, and resisted Arab Muslim expansion for centuries using the Baqt treaty \u2014 one of the longest-lasting diplomatic agreements in medieval history. This Christian African civilization is almost entirely absent from Western historical education." },
+
+    { type:'thread', title:'The Kingdom of Saba (Sheba): The Queen, the Incense Road, and the African Empire That Traded with Solomon',
+      href:'thread-saba.html', meta:'Thread · 1000 BCE–275 CE · African Origins · Saba · Sheba · Queen of Sheba · Yemen · Ethiopia · Makeda · Solomon · incense road · frankincense · myrrh · Arabia · Axum · Bible · Quran · Kebra Nagast · trade routes · Red Sea · ancient Africa',
+      excerpt:"The Kingdom of Saba (Sheba) controlled one of the ancient world\u2019s most valuable trade corridors \u2014 the incense road carrying frankincense and myrrh from the Horn of Africa and southern Arabia to Egypt, Mesopotamia, and the Mediterranean. The Queen of Sheba\u2019s visit to Solomon appears in the Bible, the Quran, and the Ethiopian Kebra Nagast, which claims she bore Solomon\u2019s son and founded the Ethiopian royal line. The historical kingdom behind the legend was one of the most sophisticated commercial civilizations of the ancient world." },
+
+    // ── AUDIT BATCH: 25 NEW THREADS ───────────────────────────────────────────
+
+    { type:'thread', title:'The Domestic Slave Trade: One Million Sold South',
+      href:'thread-domestic-slave-trade.html', meta:'Thread · 1790–1860 · Slavery & Resistance · Internal Slave Trade · Family Separation',
+      excerpt:'Between 1790 and 1860, approximately one million enslaved people were sold from the Upper South to the Deep South — separating more families than the transatlantic trade. Virginia planters pivoted to breeding and selling enslaved people as their primary crop. The phrase "sold down the river" entered American English as shorthand for the worst fate imaginable. One in three enslaved marriages in the Upper South was destroyed by sale. The domestic trade was the engine that kept slavery profitable after the international trade was banned.' },
+    { type:'thread', title:'Frederick Douglass: The Man They Could Not Silence',
+      href:'thread-frederick-douglass.html', meta:'Thread · 1818–1895 · Slavery & Resistance · Abolitionism',
+      excerpt:'Born enslaved in Maryland. Escaped at 20. Published a narrative naming his enslavers. Fled to England for two years while supporters purchased his freedom. Founded The North Star. Met Lincoln three times. Delivered "What to the Slave Is the Fourth of July?" in 1852. Lived to see emancipation and its betrayal.' },
+    { type:'thread', title:'Harriet Tubman: She Never Lost a Passenger',
+      href:'thread-harriet-tubman.html', meta:'Thread · c. 1822–1913 · Slavery & Resistance · Underground Railroad',
+      excerpt:'She escaped slavery and went back 13 times, freeing approximately 70 people. A $40,000 reward was posted for her capture. She led the Combahee River Raid — freeing 700 people in one night — becoming the first woman in U.S. history to lead an armed military operation. Congress took 34 years to pay her pension.' },
+    { type:'thread', title:'King Cotton: How Slavery Built American Capitalism',
+      href:'thread-cotton-economy.html', meta:'Thread · 1793–1865 · Slavery & Resistance · Economics',
+      excerpt:'By 1860, enslaved people were worth $3 billion — more than all U.S. railroads and factories combined. Cotton represented 60% of U.S. exports. Northern banks financed the trade. British mills consumed the product. Enslaved people\'s bodies were used as collateral for loans securitized into bonds sold in New York and London.' },
+
+    { type:'thread', title:'Emmett Till: The Murder That Started a Movement',
+      href:'thread-emmett-till.html', meta:'Thread · 1955 · Emancipation & Betrayal · Lynching · Civil Rights · Mamie Till-Mobley',
+      excerpt:'On August 28, 1955, fourteen-year-old Emmett Till was abducted, beaten, shot, and thrown in the Tallahatchie River in Money, Mississippi. His killers were acquitted by an all-white jury in 67 minutes, then sold their confession to Look magazine protected by double jeopardy. His mother Mamie Till-Mobley insisted on an open casket — and granted Jet magazine permission to publish the photograph. It became one of the most politically consequential images in American history. Rosa Parks said she thought of Emmett Till when she refused to give up her seat three months later.' },
+
+    { type:'thread', title:'Red Summer: 26 Cities, One Summer, 1919',
+      href:'thread-red-summer.html', meta:'Thread · 1919 · Emancipation & Betrayal · Race Massacres · Chicago · Elaine Arkansas',
+      excerpt:'In the summer of 1919, white mobs attacked Black communities in at least 26 American cities. In Chicago, a Black teenager drowned after being stoned near a white beach — and the subsequent riot killed 38 people. In Elaine, Arkansas, federal troops helped white mobs kill up to 200 Black sharecroppers who had been organizing for fair wages. In Washington D.C., white servicemen attacked Black neighborhoods blocks from the White House. The federal government did nothing. The New Negro movement was partly the response.' },
+
+    { type:'thread', title:'Ida B. Wells: The Woman Who Documented American Terror',
+      href:'thread-ida-b-wells.html', meta:'Thread · 1862–1931 · Jim Crow Era · Lynching · Journalism · NAACP · Memphis',
+      excerpt:'Ida B. Wells proved with data that lynching was not about rape — it was about economics and political control. After three of her friends were lynched in Memphis for running a grocery store that competed with a white-owned store, she launched a systematic investigation that produced Southern Horrors and A Red Record, documenting 3,000+ lynchings using white Southern newspapers as sources. White Memphis destroyed her newspaper and threatened her life. She took her findings to Britain, embarrassing the U.S. government internationally. She co-founded the NAACP in 1909 and was awarded a posthumous Pulitzer Prize in 2020 — 128 years after her investigation.' },
+
+    { type:'thread', title:'W.E.B. Du Bois: The Architect of Black Consciousness',
+      href:'thread-dubois.html', meta:'Thread · 1868–1963 · Jim Crow Era · Double Consciousness · NAACP · The Crisis · Pan-Africanism',
+      excerpt:'W.E.B. Du Bois was the first Black person to earn a PhD from Harvard, co-founder of the NAACP, editor of The Crisis magazine, and author of The Souls of Black Folk — which introduced "double consciousness" in 1903. His debate with Booker T. Washington over accommodation vs. full citizenship is the foundational tension of Black American politics. The federal government revoked his passport for eight years at age 83, tried him as a foreign agent, and drove him to renounce his citizenship and move to Ghana. He died there the night before the March on Washington.' },
+    { type:'thread', title:'Booker T. Washington: The Accommodation and Its Cost',
+      href:'thread-booker-t-washington.html', meta:'Thread · 1856–1915 · Jim Crow Era · Tuskegee',
+      excerpt:'He built Tuskegee Institute and educated thousands under violent oppression. He also told white America that Black people would accept segregation and disenfranchisement. The Tuskegee Machine suppressed Black political dissent for two decades. He secretly funded legal challenges to segregation while publicly accepting it. The tension is irresolvable.' },
+    { type:'thread', title:'The Scottsboro Boys: Nine Teenagers and the Trial That Exposed American Justice',
+      href:'thread-scottsboro.html', meta:'Thread · 1931–1950 · Jim Crow Era · Legal History',
+      excerpt:'Nine Black teenagers, ages 13–20, falsely accused of rape in Alabama in 1931. Tried within 10 days. All-white juries. Death sentences. The case reached the Supreme Court twice — producing landmark rulings on the right to counsel and jury discrimination. Most of the nine men were destroyed anyway. The last was exonerated in 2013.' },
+
+    { type:'thread', title:'Buffalo Soldiers: Fighting for a Country That Would Not Fight for Them',
+      href:'thread-buffalo-soldiers.html', meta:'Thread · 1866–1944 · Emancipation & Betrayal · Black Military · Western Frontier · Theodore Roosevelt',
+      excerpt:'After the Civil War, Congress created six all-Black Army regiments. They served under white officers, received inferior equipment, and had the lowest desertion rate in the Army. They won 23 Medals of Honor. They fought alongside Theodore Roosevelt at San Juan Hill — then were written out of his account. In 1906, Roosevelt dishonorably discharged all 167 Black soldiers of the 25th Infantry without trial after the Brownsville Affair, stripping their pensions. Congress cleared their records in 1972 — 66 years later.' },
+    { type:'thread', title:'Black Reconstruction: The 2,000 Politicians They Erased From History',
+      href:'thread-reconstruction-politicians.html', meta:'Thread · 1868–1901 · Emancipation & Betrayal · Reconstruction',
+      excerpt:'During Reconstruction, Black Americans held over 2,000 elected offices including U.S. Senator, Congressman, Lieutenant Governor, and Secretary of State. They built the South\'s first public school systems. They were removed by systematic Klan terror — not democratic defeat — and written out of history by the Dunning School.' },
+    { type:'thread', title:"The Freedmen's Bank: The First Great Theft of Black Savings",
+      href:'thread-freedmens-bank.html', meta:"Thread · 1865–1874 · Emancipation & Betrayal · Economics",
+      excerpt:"Congress chartered a bank specifically for the formerly enslaved. 61,000 depositors put in $3 million. White trustees used the money for speculative loans to politically connected businessmen. Frederick Douglass was tricked into accepting the presidency, discovered the insolvency, and watched 61,000 depositors lose their savings. No one was prosecuted." },
+    { type:'thread', title:'Convict Leasing: Slavery by Another Name',
+      href:'thread-convict-leasing.html', meta:'Thread · 1865–1942 · Emancipation & Betrayal · Criminal Justice',
+      excerpt:'Within months of emancipation, Southern states used the 13th Amendment exception clause to re-enslave Black men through the criminal justice system. Annual mortality rates in some Alabama coal mines exceeded 30%. The system ran for 80 years. The exception clause that made it legal has never been removed from the Constitution.' },
+    { type:'thread', title:'The Exodusters: 40,000 Black People Flee to Kansas',
+      href:'thread-exodusters.html', meta:'Thread · 1879–1880 · Emancipation & Betrayal · Migration',
+      excerpt:'In 1879, 40,000 Black Southerners fled to Kansas in months, walking or taking any transport available. Mississippi deployed militia to the riverbanks to stop them at gunpoint. The panic of Southern planters reveals what the post-Reconstruction order was: a coerced labor system that could not function if Black people were free to leave.' },
+
+    { type:'thread', title:'The Double V Campaign: Fight Fascism Abroad, Fight Racism at Home',
+      href:'thread-double-v.html', meta:'Thread · 1942–1945 · WWII · Black Press · Pittsburgh Courier · James Thompson · Double Victory · Civil Rights Roots · Double V · racial democracy · patriotism · Jim Crow military',
+      excerpt:'In 1942, a factory worker named James Thompson wrote a letter to the Pittsburgh Courier asking: if we fight for democracy overseas, shouldn\'t we have it here? The Double V campaign launched — two V\'s for two victories: one against fascism abroad, one against racism at home. The FBI surveilled Black newspapers for reporting it. One million Black soldiers served in a segregated military. The movement they returned to fight was already organized.' },
+
+    { type:'thread', title:'Executive Order 8802: How A. Philip Randolph Forced FDR\'s Hand',
+      href:'thread-eo8802.html', meta:'Thread · 1941 · WWII · A. Philip Randolph · March on Washington Movement · FEPC · defense industry · Brotherhood of Sleeping Car Porters · labor organizing · FDR · federal civil rights',
+      excerpt:'A. Philip Randolph threatened to march 100,000 Black Americans on Washington in 1941 unless FDR banned racial discrimination in the defense industry. FDR sent Eleanor Roosevelt to ask him to cancel. Randolph refused. FDR signed Executive Order 8802 — the first federal civil rights order since Reconstruction. The tactic: organized mass mobilization as leverage, not petition as supplication. It became the template for every major civil rights advance that followed.' },
+
+    { type:'thread', title:'The Detroit Race Riot of 1943: When the War Came Home',
+      href:'thread-detroit-1943.html', meta:'Thread · June 1943 · WWII Home Front · Detroit · race riot · Sojourner Truth Housing · redlining · Thurgood Marshall · police brutality · housing segregation · Belle Isle',
+      excerpt:'34 people killed. 25 of them Black. At least 17 of those killed by Detroit police — not by rioters. The 1943 Detroit riot was the result of federal housing policy that forced 400,000 new workers into a segregated city. Thurgood Marshall investigated and documented systematic police brutality. Congress killed the FEPC. The conditions were never addressed — and Detroit would burn again in 1967.' },
+
+    { type:'thread', title:'CORE and the First Sit-Ins: Civil Disobedience Before Anyone Had a Name for It',
+      href:'thread-core.html', meta:'Thread · 1942–1961 · CORE · Congress of Racial Equality · James Farmer · Bayard Rustin · nonviolent direct action · Gandhi · sit-ins · Freedom Rides · Journey of Reconciliation · civil rights origins',
+      excerpt:'In 1942, CORE activists in Chicago sat down at a segregated restaurant and refused to leave — 18 years before Greensboro. James Farmer wrote the tactical manual for nonviolent direct action in 1942. CORE ran the first Freedom Ride in 1947. Bayard Rustin organized the 1963 March on Washington. The civil rights movement that history calls spontaneous was built on two decades of deliberate tactical development that most textbooks skip.' },
+
+    { type:'thread', title:'The Negro Market: When Corporate America Discovered Black Consumers',
+      href:'thread-negro-market.html', meta:'Thread · 1940–Present · WWII & Post-War · Coca-Cola · Pepsi · Edward Boyd · Kendall Jenner · BLM · Black Lives Matter · corporate whitewashing · performative activism · Bernice King · Black consumers · purchasing power · boycotts · economic leverage · A&P',
+      excerpt:'Coca-Cola ignored 13 million Black consumers because it feared the "contamination" of white customers leaving. Pepsi broke ranks in 1940 and hired an all-Black sales team led by Edward Boyd — and gained market share. By the 1950s, marketers called it the "Negro Market." By the 1960s, Black consumers weaponized that purchasing power through boycotts. Then in 2017, Pepsi — the same company that once courted Black communities when nobody else would — released an ad where Kendall Jenner hands a riot cop a Pepsi at a Black Lives Matter protest. Bernice King tweeted: "If only Daddy had a Pepsi." It was pulled in 24 hours. The arc from inclusion to exploitation — told in a single brand.' },
+
+    { type:'thread', title:'The Tuskegee Airmen: 332 Fighters, Zero Bombers Lost',
+      href:'thread-tuskegee-airmen.html', meta:'Thread · 1941–1945 · WWII & Post-War · Red Tails · 332nd Fighter Group · Military Desegregation',
+      excerpt:'The Army Air Corps commissioned a study concluding Black men could not fly combat aircraft. The Tuskegee Airmen flew 1,578 combat missions and did not lose a bomber to enemy fighters on escort duty. They won 96 Distinguished Flying Crosses. When they returned home, they were required to use segregated facilities. The Freeman Field Mutiny — 101 Black officers arrested for entering a white officers club — helped catalyze Truman\'s Executive Order 9981 desegregating the military in 1948, seven years before Brown v. Board.' },
+
+    { type:'thread', title:'Redlining: The Map That Built the Wealth Gap',
+      href:'thread-redlining.html', meta:'Thread · 1934–Present · WWII & Post-War · HOLC · FHA · Housing Discrimination · Wealth Gap',
+      excerpt:'Between 1934 and 1968, the federal Home Owners Loan Corporation mapped 239 American cities and graded neighborhoods by investment risk. Any neighborhood with Black residents was automatically rated "Hazardous" and colored red. Banks and the FHA refused to lend in redlined areas. White families built equity in FHA-backed suburbs. Black families could not. Formerly redlined neighborhoods today remain 74% non-white and have home values $156,000 lower than non-redlined areas in the same city. The maps are from 1935. They are still predicting today.' },
+
+    { type:'thread', title:'Martin Luther King Jr.: What They Do Not Teach You',
+      href:'thread-mlk.html', meta:'Thread · 1955–1968 · Civil Rights · COINTELPRO · FBI · Poor People Campaign · Vietnam War',
+      excerpt:'The FBI considered King the most dangerous man in America. J. Edgar Hoover sent him an anonymous letter urging him to commit suicide. His 1966 approval rating was 33% — lower than the Communist Party USA. He opposed the Vietnam War, called America the "greatest purveyor of violence in the world," and was organizing the Poor People\'s Campaign — demanding guaranteed income — when he was murdered at 39. He has been made safe in death by the people who feared him in life. A 1999 civil court jury found his murder was the result of a conspiracy involving the FBI, Memphis police, and the U.S. Army.' },
+
+    { type:'thread', title:'Malcolm X: By Any Means Necessary',
+      href:'thread-malcolm-x.html', meta:'Thread · 1925–1965 · Civil Rights · Nation of Islam · Pan-Africanism · COINTELPRO · Assassination',
+      excerpt:'Born Malcolm Little, his father was killed by white supremacists and his mother institutionalized by the state before he turned 13. He emerged from prison as the Nation of Islam\'s most brilliant spokesperson. He was surveilled by the FBI from 1953. In 1964 he left the NOI, made his Hajj, revised his positions on race, and began building a universal human rights framework connecting Black American oppression to global anti-colonialism. He was murdered on February 21, 1965 at 39. In 2021, two men who had maintained their innocence for 55 years had their convictions vacated — citing withheld FBI and NYPD evidence.' },
+
+    { type:'thread', title:'The Freedom Riders: The Government Knew and Did Nothing',
+      href:'thread-freedom-riders.html', meta:'Thread · 1961 · Civil Rights · Interstate Commerce · CORE · Anniston Firebombing · Kennedy Administration',
+      excerpt:'On May 4, 1961, 13 people boarded buses to challenge segregated interstate travel. The FBI knew the Klan knew they were coming. The FBI told Birmingham police — who gave the Klan 15 minutes before intervening. One bus was firebombed in Anniston. Riders were beaten in Birmingham and Montgomery. Robert Kennedy asked for a "cooling off period." James Farmer replied: "We have been cooling off for 100 years." The riders refused to stop. 300 were arrested in Mississippi. The resulting political pressure forced the ICC to finally desegregate interstate transportation in November 1961.' },
+
+    { type:'thread', title:'Birmingham: The Four Girls and the Dogs',
+      href:'thread-birmingham.html', meta:'Thread · 1963 · Civil Rights · 16th Street Baptist Church · Bull Connor · Civil Rights Act · Children\'s Crusade',
+      excerpt:'The Birmingham Campaign was a strategic operation — King chose Birmingham because Bull Connor was reliably violent, and violence in front of cameras was the tactic. Three thousand children marched; Connor responded with fire hoses and police dogs. The photographs forced Kennedy to draft civil rights legislation. On September 15, 1963, KKK members bombed 16th Street Baptist Church during Sunday school. Addie Mae Collins, Cynthia Wesley, Carole Robertson (all 14), and Carol Denise McNair (11) were killed. The FBI identified the bombers within weeks. J. Edgar Hoover buried the evidence. No one was charged for 14 years.' },
+
+    { type:'thread', title:'Black LGBTQ+ History: The Revolution Marsha Started',
+      href:'thread-black-lgbtq.html', meta:'Thread · 1969–Present · Civil Rights · Stonewall · Marsha P. Johnson · Sylvia Rivera · Trans Rights',
+      excerpt:'The modern LGBTQ rights movement was launched by Black and Latinx transgender women — Marsha P. Johnson and Sylvia Rivera — at the Stonewall Inn on June 28, 1969. Johnson was credited with the first act of resistance. She and Rivera co-founded STAR to house trans youth in 1970. The mainstream gay rights movement subsequently distanced itself from trans women, viewing them as politically inconvenient. Johnson was found dead in the Hudson River in 1992. The case was closed as suicide, later reopened, and remains inconclusive. Black trans women are murdered at epidemic rates. Most cases go unsolved.' },
+
+    { type:'thread', title:'Black Political Power: Elected Into a System Built to Constrain Them',
+      href:'thread-black-mayors.html', meta:'Thread · 1967–Present · Civil Rights · Maynard Jackson · Harold Washington · Coleman Young · Obama',
+      excerpt:'Carl Stokes, Maynard Jackson, Coleman Young, Tom Bradley, Harold Washington, David Dinkins, Barack Obama — each election was historic. Each Black leader inherited cities and institutions shaped by decades of racist policy and was held accountable for problems they did not create. Maynard Jackson was sued for requiring minority business participation in Atlanta airport contracts. Harold Washington faced "Council Wars" — white aldermen blocking every initiative for two years. Obama\'s presidency was met with the birther movement and obstruction documented as qualitatively different from that faced by white presidents. The pattern is consistent: Black political power is constrained by structures it does not control.' },
+    { type:'thread', title:'The Montgomery Bus Boycott: 381 Days That Changed the Country',
+      href:'thread-montgomery-bus-boycott.html', meta:'Thread · 1955–1956 · Civil Rights · Montgomery Alabama',
+      excerpt:'Rosa Parks was a trained NAACP activist, not a tired seamstress. The boycott flyers were printed before her arrest. 40,000 Black people walked to work for 381 days, withholding 75% of the bus company\'s revenue. Martin Luther King Jr. gave the speech that launched him nationally with 20 minutes of preparation.' },
+    { type:'thread', title:'Selma and Bloody Sunday: The Bridge That Produced the Voting Rights Act',
+      href:'thread-selma.html', meta:'Thread · 1965 · Civil Rights · Alabama',
+      excerpt:'On March 7, 1965, 600 people walked onto the Edmund Pettus Bridge and were beaten by state troopers on live television. John Lewis\'s skull was fractured. 50 million people watched. Eight days later LBJ addressed Congress. The Voting Rights Act was signed in August. The Supreme Court gutted it in 2013.' },
+    { type:'thread', title:'Fred Hampton: The Chairman They Killed at 21',
+      href:'thread-fred-hampton.html', meta:'Thread · 1948–1969 · Civil Rights · COINTELPRO · Chicago',
+      excerpt:'Fred Hampton became Illinois Black Panther chairman at 20, built a Rainbow Coalition across gang lines, negotiated gang truces, and ran free breakfast programs. The FBI planted his security chief as an informant, drugged him, gave Chicago police the floor plan of his bedroom, and coordinated the raid that killed him at 21.' },
+    { type:'thread', title:'Shirley Chisholm: Unbought and Unbossed',
+      href:'thread-shirley-chisholm.html', meta:'Thread · 1968–1983 · Civil Rights · Congress · Presidential Campaign',
+      excerpt:'First Black woman elected to Congress (1968). First Black person — and first woman — to run for a major party presidential nomination (1972). She won 152 delegates. The Black male political establishment largely abandoned her. She ran anyway. Her campaign trail leads directly to Obama, Clinton, and Kamala Harris.' },
+    { type:'thread', title:'Black Feminism: The Movement That Was There First',
+      href:'thread-black-feminism.html', meta:'Thread · 1851–Present · Civil Rights · Feminism · Intersectionality',
+      excerpt:"Sojourner Truth's 'Ain't I a Woman?' (1851). The Combahee River Collective coined 'identity politics' (1977). Kimberlé Crenshaw coined 'intersectionality' (1989). Black women built the Civil Rights Movement and were systematically sidelined by it. Their intellectual framework now underlies most modern social justice analysis — and is the most attacked concept in current culture wars." },
+
+    { type:'thread', title:'The LA Uprising 1992: Six Days After the Verdict',
+      href:'thread-la-uprising.html', meta:'Thread · 1992 · Backlash Era · Rodney King · LAPD · Uprising · Daryl Gates',
+      excerpt:'On April 29, 1992, four LAPD officers were acquitted of beating Rodney King despite a widely-seen videotape. Within hours, Los Angeles erupted in six days of uprising — 63 dead, 2,383 injured, 12,111 arrested, $1 billion in property damage. The LAPD under Daryl Gates had been documented for years as a militarized force targeting Black and Latino residents — designating 47% of all Black men aged 21–24 as gang members. The uprising was the accumulated response to decades of impunity. The same pattern — video evidence, acquittal, uprising, brief reform conversation, return to status quo — repeated in Ferguson, Baltimore, and Minneapolis.' },
+
+    { type:'thread', title:'Welfare Reform: Ending Welfare As We Know It',
+      href:'thread-welfare-reform.html', meta:'Thread · 1996 · Backlash Era · PRWORA · Bill Clinton · Welfare Queen · Child Poverty',
+      excerpt:'Reagan\'s "welfare queen" myth — a racialized image of a Black woman gaming the system — built the political foundation for Bill Clinton\'s 1996 welfare reform. The Personal Responsibility and Work Opportunity Reconciliation Act eliminated the federal guarantee of assistance to poor families and imposed a 5-year lifetime limit. Welfare rolls fell 60%. Child poverty did not. Deep poverty — households living on less than $2/day — tripled. Black children, who make up a disproportionate share of children in poverty, bore the sharpest effects. Peter Edelman, a Clinton appointee, resigned in protest and called it "the worst thing Bill Clinton has done."' },
+
+    { type:'thread', title:'HIV/AIDS and Black America: The Epidemic the Government Ignored',
+      href:'thread-hiv-aids.html', meta:'Thread · 1981–Present · Backlash Era · Reagan · Public Health · Medical Racism · Tuskegee Legacy',
+      excerpt:'Black Americans are 13% of the U.S. population and 42% of all HIV diagnoses. Reagan did not say the word "AIDS" publicly until 1985 — after 12,000 deaths. His administration banned needle exchange programs, the primary harm reduction tool for intravenous drug use. Mass incarceration concentrated HIV-positive people in prisons with no treatment. Medical mistrust from Tuskegee reduced testing and treatment engagement. HIV criminalization laws — in 35 states — create incentives not to get tested. Each policy that produced the Black AIDS epidemic was a choice. None have been fully reversed.' },
+
+    { type:'thread', title:'Attica: The Massacre the Governor Ordered',
+      href:'thread-attica.html', meta:'Thread · 1971 · Backlash Era · Prison Uprising · Nelson Rockefeller · Cover-Up · State Violence',
+      excerpt:'On September 9, 1971, prisoners at Attica Correctional Facility seized D-yard and held 42 guards hostage. Their demands — decent food, medical care, amnesty — were reasonable. On September 13, Governor Rockefeller ordered the assault rather than negotiate. State police retook the prison with gunfire. 33 prisoners and 10 hostages were killed — all by state gunfire. State officials immediately told the press that prisoners had killed the hostages by slitting their throats. It was a lie. The autopsies proved it within 24 hours. No state trooper or corrections officer was ever charged. The cover-up held for decades.' },
+
+    { type:'thread', title:'The MOVE Bombing: Philadelphia Dropped a Bomb on Its Own Residents',
+      href:'thread-move-bombing.html', meta:'Thread · 1985 · Backlash Era · Philadelphia · Wilson Goode · State Violence · MOVE Organization',
+      excerpt:'On May 13, 1985, the Philadelphia Police Department dropped a military-grade bomb on a rowhouse at 6221 Osage Avenue. Police Commissioner Sambor ordered firefighters to hold for 40 minutes while the fire spread. Sixty-one homes burned. Eleven people were killed — including five children: Tomaso, Delisha, Netta, Little Phil, and Tree. Mayor Wilson Goode had authorized the operation. No police officer, city official, or employee was ever criminally charged. The city paid $1.5M in a civil settlement in 1996. In 2021, it emerged that the University of Pennsylvania had been storing the children\'s remains for a bone study without the community\'s knowledge.' },
+    { type:'thread', title:'The Crack Epidemic: The Drug That Was Treated as a Crime',
+      href:'thread-crack-epidemic.html', meta:'Thread · 1984–1994 · Backlash Era · Drug Policy · Incarceration',
+      excerpt:'The Anti-Drug Abuse Act of 1986 mandated 5 years in prison for 5 grams of crack — but required 500 grams of powder cocaine for the same sentence. Same drug. 82% of federal crack defendants were Black. The Sentencing Commission recommended equalizing the ratio four times. Congress overrode it each time. The opioid crisis affecting white communities got a treatment response.' },
+
+    { type:'thread', title:'Black Lives Matter: The Largest Protest Movement in American History',
+      href:'thread-blm.html', meta:'Thread · 2013–Present · Present Day · George Floyd · Trayvon Martin · Alicia Garza · Patrisse Cullors',
+      excerpt:'On July 13, 2013, Alicia Garza wrote a Facebook post after the Zimmerman acquittal. Patrisse Cullors added #BlackLivesMatter. After George Floyd\'s murder on May 25, 2020, 15–26 million people protested across all 50 states and 60 countries — the largest protest movement in American history. Derek Chauvin was convicted. Forty-five states then introduced legislation restricting protest rights. Corporate pledges of $90 billion in support largely did not materialize. "Defund the Police" — a demand for divestment and reinvestment — was misrepresented as "abolish the police" to isolate the movement. The distortion playbook is identical to what was used against the Panthers, SNCC, and MLK.' },
+
+    { type:'thread', title:'The School-to-Prison Pipeline: Suspended at Six, Incarcerated at Twenty',
+      href:'thread-school-to-prison.html', meta:'Thread · 1994–Present · Present Day · Zero Tolerance · School Resource Officers · Racial Discipline Disparity',
+      excerpt:'Black students are suspended at 3 times the rate of white students for the same behaviors. Black girls are disciplined at 5.5 times the rate of white girls. Studies using matched pairs find consistent racial disparity in punishment for identical conduct. The 1994 Gun-Free Schools Act and the post-Columbine proliferation of police in schools (SROs) converted minor infractions into criminal matters — an arrest record that follows students into college applications and job interviews. Students who are suspended are 3 times more likely to have juvenile justice contact the following year. Juvenile justice contact is the strongest predictor of adult incarceration.' },
+
+    { type:'thread', title:'Affirmative Action: 45 Years of Policy, Dismantled in One Ruling',
+      href:'thread-affirmative-action.html', meta:'Thread · 1961–2023 · Present Day · SFFA v. Harvard · Bakke · Grutter · Supreme Court',
+      excerpt:'Affirmative action survived Bakke (1978), Grutter (2003), and 45 years of legal challenge before the 6-3 Supreme Court ended it in Students for Fair Admissions v. Harvard (2023). The ruling struck down race-conscious admissions while leaving legacy preferences — which give a 45% admissions boost overwhelmingly to white applicants — completely intact. After California banned affirmative action in 1996, Black enrollment at UC Berkeley fell 50%. The remedy was ended without ending the harm it was remedying.' },
+
+    { type:'thread', title:'Black Maternal Mortality: Dying to Give Birth in America',
+      href:'thread-black-maternal-mortality.html', meta:'Thread · Present Day · Health · Obstetric Racism · Serena Williams · J. Marion Sims · Medical Bias',
+      excerpt:'Black women die from pregnancy-related causes at 2.6 times the rate of white women — a disparity that persists at every income and education level. Black women with college degrees die at higher rates than white women without high school diplomas. A 2016 study found that 50% of medical students and residents endorsed false beliefs about Black biology — including that Black skin is thicker and Black people feel less pain. These are beliefs traceable to J. Marion Sims, who developed foundational gynecological techniques by operating on enslaved women without anesthesia. Serena Williams had to fight hospital staff to get a CT scan after childbirth. She nearly died.' },
+
+    { type:'thread', title:'Stand Your Ground: The Law That Made Killing Black People Defensible',
+      href:'thread-stand-your-ground.html', meta:'Thread · 2005–Present · Present Day · Trayvon Martin · Jordan Davis · Ahmaud Arbery · NRA',
+      excerpt:'Florida\'s Stand Your Ground law was drafted by the NRA lobbyist and passed in 2005. By 2023, 38 states had similar laws. Studies show that when white shooters kill Black victims, Stand Your Ground is invoked and succeeds at significantly higher rates than when Black shooters kill white victims. George Zimmerman was not initially charged for killing Trayvon Martin — police cited Stand Your Ground. The law produces racial asymmetry because it asks whether fear was "reasonable" — and in a country with 400 years of anti-Black mythology encoding Black men as threats, that standard is not race-neutral.' },
+
+    { type:'thread', title:'The Racial Wealth Gap: $171,000 vs. $17,150',
+      href:'thread-wealth-gap.html', meta:'Thread · 1865–Present · Present Day · Reparations · Redlining · GI Bill · Compounding Inequality',
+      excerpt:'The median white family holds $171,000 in wealth. The median Black family holds $17,150 — a 10:1 ratio. This gap was built policy by policy: slavery extracted labor with no compensation; Reconstruction denied the promised 40 acres; redlining blocked Black homeownership during the greatest wealth-building period in American history; urban renewal destroyed existing Black wealth; the GI Bill built the white middle class while excluding Black veterans. At current trajectories, researchers project the gap will not close for 228 years. The gap is not history — it is the ongoing, compounding product of deliberate policy choices.' },
+    { type:'thread', title:'George Floyd and the 2020 Uprisings: The Largest Protest Movement in American History',
+      href:'thread-george-floyd.html', meta:'Thread · 2020–Present · Present Day · Police · Protest',
+      excerpt:'Derek Chauvin knelt on George Floyd\'s neck for 9 minutes and 29 seconds. Darnella Frazier, 17, filmed it. 15–26 million people protested in 2020 — the largest protest movement in American history. Chauvin was convicted. The George Floyd Justice in Policing Act passed the House twice and died in the Senate twice.' },
+    { type:'thread', title:'Gentrification: The Polite Word for Displacement',
+      href:'thread-gentrification.html', meta:'Thread · 1970s–Present · Present Day · Housing · Displacement',
+      excerpt:'Gentrification is the final act of a three-part process: government devalues Black neighborhoods through redlining, devalued land attracts speculators, rising prices displace the long-term residents who endured decades of neglect. Harlem went from 99% Black (1990) to 54% (2015). The cultural identity that attracts gentrifiers is erased by their arrival.' },
+    { type:'thread', title:'Black Mental Health: The Weight of 400 Years',
+      href:'thread-black-mental-health.html', meta:'Thread · Ongoing · Present Day · Mental Health · Racial Trauma',
+      excerpt:'Black Americans receive mental health treatment at half the rate of white Americans. The barriers are cost, access, and a system that in 1851 diagnosed the desire to escape slavery as a mental illness. Race-based traumatic stress is a documented clinical category. The system that pathologized Blackness is now supposed to heal it.' },
+
+    // ── NEW TIER 1 & TIER 2 THREADS ───────────────────────────────────────────
+
+    { type:'thread', title:'Black Codes: The Law That Re-Enslaved Black America',
+      href:'thread-black-codes.html', meta:'Thread · 1865–Present · Emancipation & Betrayal · Criminal Justice · Convict Leasing',
+      excerpt:'Mississippi passed the Black Codes in November 1865 — before the 13th Amendment was even ratified — creating criminal offenses that applied only to Black people. The vagrancy clause required Black men to carry proof of employment or face arrest and forced labor. This was not a brief aberration; the legal framework it created persists in modern "failure to appear" statutes, broken windows policing, and the drug war. The chain runs unbroken from 1865 to the present.' },
+
+    { type:'thread', title:'Reconstruction: What Was Built and How It Was Destroyed',
+      href:'thread-reconstruction.html', meta:'Thread · 1865–1877 · Emancipation & Betrayal · Black Political Power · KKK · Compromise of 1877',
+      excerpt:'Between 1868 and 1876, Black Americans held more than 2,000 elected offices across the South — congressmen, state legislators, sheriffs, judges. The Radical Congress passed three constitutional amendments and created the Freedmen\'s Bureau. Then the KKK waged a systematic terror campaign, the Compromise of 1877 withdrew federal troops, and the entire political structure was dismantled by violence and fraud within a decade. Reconstruction is not a failed experiment — it is proof of what Black political power could achieve, and proof of what white supremacist violence would do to stop it.' },
+
+    { type:'thread', title:"The Ku Klux Klan: America's Terrorist Organization, 1865–Present",
+      href:'thread-kkk.html', meta:'Thread · 1865–Present · Emancipation & Betrayal · White Supremacy · Terrorism · Reconstruction',
+      excerpt:'The Klan was founded in 1865 by Confederate veterans to destroy Reconstruction by terror. At its Second Wave peak in the 1920s, it had 4–6 million members including governors, senators, and Supreme Court justices. Three waves of organized racial terrorism: 1865–1871 against Reconstruction, 1915–1944 against Black migration, 1954–1968 against the Civil Rights Movement. Each wave used murder, arson, and political infiltration. Klan members held elected office at every level of American government.' },
+
+    { type:'thread', title:'Sharecropping: The Slavery That Followed Slavery',
+      href:'thread-sharecropping.html', meta:'Thread · 1865–1970 · Jim Crow Era · Labor · Debt Bondage · Great Migration',
+      excerpt:'Sharecropping replaced slavery\'s labor extraction with debt bondage. Landlords controlled the books, set the prices at the company store, and determined what sharecroppers "earned" each year. The debt was always enough to prevent leaving. Crop lien laws made it a criminal offense to leave before the debt was paid. The Colored Farmers\' Alliance organized 1.2 million members. The Elaine Massacre killed hundreds. The Great Migration was ultimately the escape route — six million people voting with their feet.' },
+
+    { type:'thread', title:'Plessy v. Ferguson: The Supreme Court Legalizes Apartheid',
+      href:'thread-plessy.html', meta:'Thread · 1896–Present · Jim Crow Era · Supreme Court · Separate but Equal · Segregation',
+      excerpt:'On May 18, 1896, the Supreme Court ruled 7–1 that racial segregation was constitutional as long as facilities were "separate but equal." Homer Plessy had been carefully selected by the Comité des Citoyens to challenge Louisiana\'s Separate Car Act. He was seven-eighths white and one-eighth Black by Louisiana law. The court ruled his equal protection rights were not violated. The ruling provided the constitutional basis for American apartheid for 58 years — until Brown v. Board in 1954.' },
+
+    { type:'thread', title:'Voter Suppression Mechanics: The Toolkit That Never Went Away',
+      href:'thread-voter-suppression-mechanics.html', meta:'Thread · 1877–Present · Jim Crow Era · Voting Rights · Poll Tax · Literacy Test · Voter ID',
+      excerpt:'Poll taxes. Literacy tests. Grandfather clauses. White primaries. Felon disenfranchisement. Voter ID laws. Polling place closures. Roll purges. The specific mechanisms of voter suppression have changed names and legal framing since 1877. The goal has not changed. Race is the strongest predictor of proximity to voter suppression measures — a pattern confirmed in peer-reviewed studies and acknowledged by the Supreme Court in Shelby County v. Holder, which then removed the only mechanism that had stopped it.' },
+
+    { type:'thread', title:'Marcus Garvey and the Politics of Black Nationhood',
+      href:'thread-garvey.html', meta:'Thread · 1914–Present · Jim Crow Era · Black Nationalism · UNIA · Pan-Africanism · Hoover',
+      excerpt:'At its peak, the Universal Negro Improvement Association had 6 million members in 40 countries — the largest Black mass movement in history. J. Edgar Hoover identified Marcus Garvey as the "most dangerous Negro in America" in 1919 and opened a federal case against him before Garvey had committed any federal crime. He was eventually convicted of mail fraud, imprisoned, and deported. His ideas did not die: they directly influenced the Nation of Islam, Black Power, Rastafarianism, and African independence movements.' },
+
+    { type:'thread', title:'The Harlem Renaissance: Black Intellectual Power, 1920–1935',
+      href:'thread-harlem-renaissance.html', meta:'Thread · 1920–1935 · Jim Crow Era · Literature · Art · Music · Great Migration · Langston Hughes',
+      excerpt:'The Great Migration brought critical mass to Harlem. Between 1920 and 1935, it produced Langston Hughes, Zora Neale Hurston, Claude McKay, Aaron Douglas, Duke Ellington — and the institutional infrastructure of the NAACP, The Crisis, Opportunity magazine, and the Apollo Theatre. The Great Depression collapsed the economic foundation. But the intellectual framework it built outlasted the era, directly shaping the Civil Rights Movement, Black Arts Movement, and Black Lives Matter.' },
+
+    { type:'thread', title:'Jazz, Blues & Cultural Theft: Whose Music Is This?',
+      href:'thread-jazz-blues.html', meta:'Thread · 1890s–Present · Jim Crow Era · Music · Cultural Appropriation · Blues · Jazz · Race Records',
+      excerpt:'The Blues emerged from Mississippi Delta work songs in the 1890s. Jazz was born in New Orleans\' Congo Square. Both were dismissed as "race music" — then recorded, distributed, and sold to white audiences through segregated "Race Records" labels. When the market opened, white artists covered Black songs for white audiences at 10× the royalties. Elvis covered Big Mama Thornton\'s Hound Dog. Pat Boone covered Little Richard\'s Tutti Frutti. The originals were erased. The pattern continues in streaming economics today.' },
+
+    { type:'thread', title:'Urban Renewal & Displacement: The Highway That Ran Through Black America',
+      href:'thread-urban-renewal.html', meta:'Thread · 1949–Present · WWII & Post-War · Housing · Highways · Robert Moses · Displacement',
+      excerpt:'The Housing Act of 1949 funded "slum clearance" under which 63% of displaced residents were non-white. Interstate highways were routed through Black neighborhoods in 475 cities — not around them. I-95 destroyed Miami\'s Overtown. I-94 erased St. Paul\'s Rondo. I-40 cut through Nashville\'s Jefferson Street. Robert Moses designed the Cross Bronx Expressway to destroy 60,000 Black and Puerto Rican residents\' homes. The "urban renewal" program was urban removal.' },
+
+    { type:'thread', title:'Tuskegee: The Government\'s 40-Year Medical Experiment on Black Men',
+      href:'thread-tuskegee.html', meta:'Thread · 1932–Present · WWII & Post-War · Medical Racism · Public Health · Syphilis · Ethics',
+      excerpt:'From 1932 to 1972, the U.S. Public Health Service studied untreated syphilis in 399 Black men in Macon County, Alabama — without their knowledge or consent, and without providing treatment even after penicillin became standard of care in 1947. Twenty-eight men died directly from syphilis, 100 died from complications, 40 wives were infected, 19 children were born with congenital syphilis. The study ran for 40 years. It ended only when a whistleblower leaked documents to the AP. Its legacy is documented Black distrust of medical institutions — a distrust the data shows is rational.' },
+
+    { type:'thread', title:'Brown v. Board of Education: The Ruling That Changed America — and Didn\'t',
+      href:'thread-brown-v-board.html', meta:'Thread · 1954–Present · Civil Rights · Supreme Court · Desegregation · NAACP · Thurgood Marshall',
+      excerpt:'On May 17, 1954, a unanimous Supreme Court ruled that racially segregated schools were unconstitutional. Thurgood Marshall\'s 20-year NAACP legal strategy had worked. Then "massive resistance" began: Southern states passed 101 laws to delay compliance, fired 38,000 Black teachers during desegregation, and closed entire school systems rather than integrate. By 1988, integration had reached its peak. By 2023, most American schools were more segregated than in 1968. Brown changed the law. It did not change the will to evade it.' },
+
+    { type:'thread', title:'Deindustrialization: When the Jobs Left Black America',
+      href:'thread-deindustrialization.html', meta:'Thread · 1970–Present · Backlash Era · Labor · Manufacturing · Detroit · Chicago · War on Drugs',
+      excerpt:'Between 1970 and 1990, Detroit lost 51% of its manufacturing jobs, Chicago lost 60%, Philadelphia lost 64%. Black workers — the last hired — were the first fired. The communities built around factory work collapsed. The War on Drugs criminalized the unemployment that followed. Politicians called it a "culture of poverty." Economists called it structural adjustment. The factories had simply moved, chasing lower wages and weaker unions. The people could not follow.' },
+
+    { type:'thread', title:'The Bail System: Wealth Determines Freedom',
+      href:'thread-bail-system.html', meta:'Thread · Present Day · Criminal Justice · Pretrial Detention · Kalief Browder · Bail Reform',
+      excerpt:'500,000 people are held in pretrial detention on any given day in America — not because they were convicted, but because they cannot afford bail. The median bail amount of $10,000 represents eight months of income for the average detained person. Kalief Browder spent three years on Rikers Island awaiting trial for allegedly stealing a backpack. Two years were in solitary. He was 16 when he entered. The charges were dropped. He died by suicide at 22. He is not an exception — he is how the system works.' },
+
+    { type:'thread', title:'Shelby County v. Holder: The Supreme Court Guts the Voting Rights Act',
+      href:'thread-shelby-county.html', meta:'Thread · 2013–Present · Present Day · Supreme Court · Voting Rights · Preclearance · John Roberts',
+      excerpt:'On June 25, 2013, Chief Justice Roberts wrote a 5–4 majority ruling striking down the coverage formula of the Voting Rights Act Section 4 — the provision that determined which states needed federal preclearance before changing voting laws. Within hours, Texas announced it would implement a voter ID law previously blocked by the DOJ. Within two years, 1,688 polling places had closed in formerly covered states. 17 million voters were purged from rolls. The Shelby County ruling is the proximate cause of the current voter suppression era.' },
+
+    { type:'thread', title:'Capital Punishment: Race, Death, and the American Justice System',
+      href:'thread-capital-punishment.html', meta:'Thread · 1972–Present · Backlash Era · Criminal Justice · Death Penalty · McCleskey · Baldus Study',
+      excerpt:'Black Americans are 41% of death row while 13% of the population. The Baldus study proved that defendants with white victims are 4.3× more likely to receive death sentences. The Supreme Court acknowledged the study in McCleskey v. Kemp (1987) — and ruled it was insufficient to prove a constitutional violation without evidence of discriminatory intent in that specific case. Warren McCleskey was executed in 1991. The racial disparity on death row has not changed since.' },
+
+    { type:'thread', title:'Environmental Racism: Toxic by Design',
+      href:'thread-environmental-racism.html', meta:'Thread · 1987–Present · Present Day · Environmental Justice · Cancer Alley · Flint · Redlining',
+      excerpt:'Black Americans are 75% more likely than white Americans to live near hazardous waste facilities. Race is a stronger predictor of toxic exposure than income. The 1987 United Church of Christ study proved it. The 1992 EPA confirmed it. Cancer Alley in Louisiana has 150+ petrochemical plants in 85 miles — census tracts with 95× the national cancer risk, in majority-Black parishes. Flint, Michigan\'s lead poisoning crisis ran for five years while state officials denied it. Redlined neighborhoods run an average 2.6°C hotter in summer due to deliberate absence of green space. The map of environmental harm is the map of housing discrimination.' },
+
+    { type:'thread', title:'Resistance on the Middle Passage: They Fought Back',
+      href:'thread-slave-ship-resistance.html', meta:'Thread · 1441–1808 · The Rupture · Middle Passage · Revolt',
+      excerpt:'At least 485 documented shipboard revolts occurred during the transatlantic slave trade. Enslaved Africans refused food, organized uprisings across language barriers, and jumped overboard rather than be delivered into slavery. The myth of Black passivity is a political invention. The historical record is different.' },
+    { type:'thread', title:'The Middle Passage: What the Crossing Cost',
+      href:'thread-middle-passage.html', meta:'Thread · 1500–1808 · The Rupture · Atlantic · 12.5 Million',
+      excerpt:'12.5 million people were loaded onto ships. 1.8 million died before landfall. The Zong massacre: 133 enslaved people thrown overboard alive so the owner could claim insurance. At least 493 documented shipboard uprisings. The crossing was designed to destroy psychological identity as well as physical freedom.' },
+
+    { type:'thread', title:'The Code Noir: France Wrote the Rules of Slavery',
+      href:'thread-code-noir.html', meta:'Thread · 1685–Present · The Rupture · Law · Louisiana · Haiti',
+      excerpt:'In 1685, Louis XIV issued the Code Noir — 60 articles making enslaved people property, authorizing dismemberment for escape, and making their murder non-prosecutable. The 1724 Louisiana version was imported into American law. The legal DNA of Jim Crow runs through Paris.' },
+
+    { type:'thread', title:'The Fire from Below: Slave Revolts & Uprisings in America',
+      href:'thread-slave-revolts.html', meta:'Thread · 1739–1831 · Slavery & Resistance · Stono · Denmark Vesey · Nat Turner',
+      excerpt:'250+ documented revolts. Stono Rebellion 1739 killed 25 whites and resulted in the Negro Act. Denmark Vesey 1822 — betrayed before launch, 35 executed. Nat Turner 1831 — 57 white people killed, then the worst wave of anti-Black repression in antebellum history. Every revolt was followed by new laws stripping rights from all Black people.' },
+
+    { type:'thread', title:'The Exception That Swallowed the Rule: The 13th Amendment Loophole',
+      href:'thread-thirteenth-amendment.html', meta:'Thread · 1865–Present · Emancipation & Betrayal · Constitution · Convict Leasing · Mass Incarceration',
+      excerpt:'"Neither slavery nor involuntary servitude, except as punishment for crime." Within a year: Black Codes. Then convict leasing. Then Jim Crow vagrancy laws. Then the War on Drugs. The loophole is the chain from 1865 to 2.3 million incarcerated Americans today. The exception clause has never been removed from the Constitution.' },
+
+    { type:'thread', title:"America's Broken Promise: The Freedmen's Bureau",
+      href:'thread-freedmens-bureau.html', meta:"Thread · 1865–1872 · Emancipation & Betrayal · Reconstruction · 40 Acres · Reparations",
+      excerpt:"The Freedmen's Bureau controlled 900,000 acres of Confederate land for redistribution. 40,000 families began farming the Sea Islands. Andrew Johnson rescinded the promise in September 1865, returned the land to planters, and vetoed Bureau renewal twice. The schools survived as HBCUs. The 40 acres did not. The wealth gap it was meant to close has never closed." },
+
+    { type:'thread', title:'COINTELPRO: The FBI\'s War on Black Liberation',
+      href:'thread-cointelpro.html', meta:'Thread · 1956–1971 · Civil Rights · FBI · Fred Hampton · MLK · Black Panthers',
+      excerpt:'From 1956 to 1971, COINTELPRO ran covert operations against civil rights leaders: forged letters, planted evidence, informants, and assassination. Hoover called the Black Panthers the greatest threat to national security. On December 4, 1969, Chicago police shot Fred Hampton twice in the head while he slept — with an FBI informant having provided the floor plan. 99 of 100 shots were fired by law enforcement.' },
+
+    { type:'thread', title:'Bayard Rustin: The Man They Hid Behind the March',
+      href:'thread-bayard-rustin.html', meta:'Thread · 1912–1987 · Civil Rights · Organizer · March on Washington · Gay Rights · Erasure',
+      excerpt:'Bayard Rustin organized the 1963 March on Washington — 250,000 people in six weeks — and was kept off the stage because he was gay. He trained Martin Luther King Jr. in Gandhian nonviolence. He pioneered the protest tactics that defined the Civil Rights Movement. In 1960, Adam Clayton Powell threatened to out him, and King\'s inner circle pushed him out. He received the Presidential Medal of Freedom posthumously in 2013.' },
+
+    { type:'thread', title:'The War on Black History: CRT, Book Bans, and the 1619 Project',
+      href:'thread-war-on-black-history.html', meta:'Thread · 2019–Present · Present Day · Education · Critical Race Theory · CRT · Book Bans · 1619 Project · Nikole Hannah-Jones · Curriculum · Censorship · Florida · Lost Cause · Tulsa Massacre · Woke · Anti-Woke · Stop WOKE Act · Don\'t Say Gay',
+      excerpt:'Since 2019, 44 states introduced legislation restricting how race can be taught in schools. "Critical Race Theory" — never taught in K–12 — was weaponized as a political label to target any honest account of American racial history. Florida\'s Stop WOKE Act and "anti-woke" legislation targeted school curricula and teacher speech. 4,349 books were banned in a single school year. The campaign has a 150-year paper trail: the Lost Cause curriculum, the suppression of the Tulsa Massacre, and now legislative attacks on the 1619 Project and AP African American Studies.' },
+
+    { type:'thread', title:'Algorithmic Racism: How Discrimination Moved into the Machine',
+      href:'thread-algorithmic-racism.html', meta:'Thread · 2000–Present · Present Day · Technology · Facial Recognition · Predictive Policing · Mortgage Algorithms · Digital Redlining · AI Bias · Structural Racism',
+      excerpt:'Facial recognition misidentifies Black faces at 10–100x the error rate for white faces (NIST, 2019). Predictive policing creates feedback loops that manufacture crime data in Black neighborhoods. Mortgage algorithms deny Black applicants at higher rates for identical financial profiles — digital redlining running on a server. Amazon\'s hiring algorithm penalized women. A healthcare algorithm underestimated the needs of 200 million patients. Algorithms don\'t eliminate bias — they launder it.' },
+
+    { type:'thread', title:'The Banjo & the Blues: African Origins of American Music',
+      href:'thread-banjo-blues.html', meta:'Thread · 1600s–Present · Music · Blues · Banjo · Akonting · Africa · Field Hollers · Work Songs · Delta Blues · Muddy Waters · W.C. Handy · Robert Johnson · Charley Patton · Great Migration · Chicago Blues · Jazz · Country · Rock · Call and Response · African American Music',
+      excerpt:'The banjo is an African instrument. Thomas Jefferson documented it in 1781. The blues was created by Black sharecroppers in the Mississippi Delta in the 1890s under the specific conditions of Jim Crow. Every American genre — rock, country, jazz, pop, hip-hop — traces directly to these African American roots. The musicians who built the foundation made pennies. The musicians who copied them made millions.' },
+
+    { type:'thread', title:'Minstrelsy: How America Learned to See Black People',
+      href:'thread-minstrelsy.html', meta:'Thread · 1830s–Present · Slavery & Resistance · Minstrel Shows · Blackface · Jim Crow · Sambo · Mammy · Zip Coon · The Brute · Thomas Dartmouth Rice · Virginia Minstrels · Birth of a Nation · D.W. Griffith · Bert Williams · TOBA · Amos and Andy · Hollywood · Al Jolson · Jazz Singer · Hattie McDaniel · Gone with the Wind · Magical Negro · Stepin Fetchit · Donald Bogle · Eric Lott · Spike Lee · OscarsSoWhite · Representation · Media · Stereotype',
+      excerpt:'Minstrel shows were the dominant American entertainment form for 70 years. The stereotypes they manufactured — Sambo, Mammy, the Brute, the Coon — were not accidents. Each one served a specific political function: justify slavery, neutralize Black aspiration, justify lynching. When the shows ended, the archetypes transferred intact into Hollywood, television, and the casting patterns that shape Black representation today. The cork came off. The frame remained.' },
+
+    { type:'thread', title:"Why R&B Exists: Race Records, Rock & Roll, and the Theft of Black Music",
+      href:'thread-rb-rock-theft.html', meta:'Thread · 1920s–Present · Music · R&B · Rhythm and Blues · Race Records · Rock and Roll · Cover Versions · Elvis · Chuck Berry · Little Richard · Pat Boone · Billboard · Jerry Wexler · Sister Rosetta Tharpe · Urban · Music Industry · Segregation · Copyright',
+      excerpt:'"Rhythm and Blues" is what Billboard called Black music in 1949 — replacing "Race Records." When white artists started playing the same music, they called it rock and roll and got the money. Pat Boone covered Little Richard. Elvis covered Big Mama Thornton. LaVern Baker petitioned Congress to stop cover versions. Congress did nothing. The name changed three times: Race Records → R&B → Urban. The segregation structure never did.' },
+
+    { type:'thread', title:'Michael Jackson: The Cost of Crossing Over',
+      href:'thread-michael-jackson.html', meta:'Thread · 1958–2009 · Backlash Era · Michael Jackson · MTV · Thriller · Billie Jean · Walter Yetnikoff · CBS Records · Pepsi endorsement · Beatles catalog · ATV Music Publishing · vitiligo · double consciousness · Du Bois · Quincy Jones · Berry Gordy · Motown · crossover · music industry racism · race records · Sony ATV',
+      excerpt:'Before Thriller, MTV had an explicit policy against playing Black artists — calling it a "rock format." CBS Records president Walter Yetnikoff threatened to pull every CBS artist from the channel unless they aired "Billie Jean." They did. Thriller became the best-selling album in history. In 1983, Jackson signed a $5M Pepsi deal — the largest celebrity endorsement in history. His hair caught fire on the set; the painkiller dependency that followed contributed to his death in 2009. In 1985, Paul McCartney\'s own advice led Jackson to buy the Beatles\' catalog for $47.5M — an unprecedented act of Black economic power in an industry built to prevent it. Each line he crossed was a color line. Each crossing had a cost.' },
+
+    { type:'thread', title:'Blaxploitation: Representation, Exploitation, and the Black Hero Hollywood Did Not Expect',
+      href:'thread-blaxploitation.html', meta:'Thread · 1971–1998 · Backlash Era · Blaxploitation · Melvin Van Peebles · Sweet Sweetback · Shaft · Gordon Parks · Superfly · Curtis Mayfield · Isaac Hayes · Pam Grier · Coffy · Foxy Brown · NAACP · Roy Wilkins · Blade · Wesley Snipes · Marvel Comics · Kevin Feige · MCU · Luke Cage · Black Panther comics · race records · film industry · Black cinema · Roger Corman',
+      excerpt:'Melvin Van Peebles financed Sweet Sweetback\'s Baadasssss Song himself in 1971 — $150K budget, $15M gross, complete Black creative control. Hollywood saw the numbers and produced 200+ films to extract the same audience. Shaft saved MGM. Superfly made millions. The studios kept the profits; Black actors got scale. The NAACP called it a cultural plague. Black audiences called it the first time they won on screen. Both were right. Pam Grier in Coffy and Foxy Brown became the first Black female action hero in American cinema and was then abandoned by Hollywood for twenty years. And Blade — a character born from the same 1973 Blaxploitation comic wave as Luke Cage — was played by Wesley Snipes in 1998, grossed $131M, saved Marvel from bankruptcy, proved superhero films could work, and taught Kevin Feige the business he used to build the MCU.' },
+
+    { type:'thread', title:'MTV and the Color Line: How a Cable Channel Tried to Erase Black Music',
+      href:'thread-mtv-color-line.html', meta:'Thread · 1981–1988 · Backlash Era · MTV · Music Television · Bob Pittman · Tom Freston · Rick James · Super Freak · David Bowie · Mark Goodman · Michael Jackson · Billie Jean · Thriller · Walter Yetnikoff · CBS Records · color line · album-oriented rock · AOR · Yo! MTV Raps · Fab 5 Freddy · hip-hop · Run-DMC · Prince · Whitney Houston · Tina Turner · race records · Black music · media gatekeeping · cable television · music video · Disco Demolition Night',
+      excerpt:"MTV launched on August 1, 1981 with an unwritten rule: Black artists don't get played. Rick James called it racist on national television. David Bowie confronted MTV's Mark Goodman on live air — Goodman explained the channel was protecting its Middle American audience from Black artists. It took CBS Records president Walter Yetnikoff threatening to pull every CBS artist from MTV before the channel would air 'Billie Jean' in March 1983. Michael Jackson's Thriller then sold 66 million copies and became the best-selling album in history. In 1988, Yo! MTV Raps gave hip-hop its first sustained national television platform — and introduced rap to the white suburban audience that made it the most commercially dominant music genre on earth." },
+
+    { type:'thread', title:'Prince Rogers Nelson: The Artist, the Masters, and the War for Ownership',
+      href:'thread-prince.html', meta:'Thread · 1958–2016 · Backlash Era · Prince Rogers Nelson · Warner Bros · master recordings · music ownership · Purple Rain · 1999 · Little Red Corvette · MTV · Sign O the Times · NPG Records · Paisley Park · Emancipation · slave · BRIT Awards · name change · unpronounceable symbol · fentanyl · estate · no will · Bremer Trust · Primary Wave · Warner Music Group · Taylor Swift · music masters · artist rights · music industry · opioid crisis · music catalog · private equity · music IP',
+      excerpt:"Prince signed with Warner Bros at 19 and delivered Purple Rain — a 20-million-selling album whose master recordings he did not own. When he understood what that meant, he changed his name to an unpronounceable symbol, wrote 'slave' on his face at the 1995 BRIT Awards, and waged a public campaign against corporate ownership of artist work. He won his freedom from Warner in 1996 and released Emancipation on his own label. He spent the last twenty years of his life fighting to recover his Warner-era masters. He died on April 21, 2016, with no will. His $200M+ estate — and everything he spent his career trying to reclaim — passed through a court administrator, then to a bank, then to a private equity-backed music company. In 2021, Warner Music Group acquired his catalog. The masters that inspired the phrase 'if you don't own your masters, your master owns you' are now owned by Warner." },
+
+    { type:'thread', title:"Parliament-Funkadelic: The Mothership, the Groove, and the Architecture of Black Joy",
+      href:'thread-parliament-funkadelic.html', meta:"Thread · 1956–Present · Backlash Era · Parliament · Funkadelic · George Clinton · P-Funk · Mothership Connection · One Nation Under a Groove · Bernie Worrell · Bootsy Collins · Eddie Hazel · Afrofuturism · Sun Ra · James Brown · Jimi Hendrix · Plainfield NJ · doo-wop · G-Funk · Dr. Dre · Snoop Dogg · The Chronic · Doggystyle · Atomic Dog · sampling · funk · psychedelic soul · Black joy · liberation theology · crack cocaine · NMAAHC · Smithsonian · master recordings · catalog rights",
+      excerpt:"George Clinton started with a doo-wop group in a Plainfield NJ barbershop in 1956. By 1975 he had built the P-Funk universe — two simultaneous bands, 40+ musicians, a working Mothership spacecraft that descended from arena ceilings, and a mythology that argued Black people were descended from extraterrestrials and that the groove itself was a form of liberation. Mothership Connection (1975) and One Nation Under a Groove (1978) were the peak. Then the anti-disco backlash of 1979 collapsed the commercial format. Clinton struggled with crack addiction. The Mothership was lost. The catalog was in legal dispute. Then Dr. Dre sampled P-Funk across The Chronic and Doggystyle — and the universe that had been commercially buried became the sonic foundation of G-Funk and the most commercially dominant era in hip-hop history. The original Mothership is now in the National Museum of African American History and Culture." },
+
+    { type:'thread', title:"Nichelle Nichols: Lt. Uhura, MLK, and the Black Woman in Space",
+      href:'thread-nichelle-nichols.html', meta:"Thread · 1932–2022 · Civil Rights Era · Nichelle Nichols · Lt. Uhura · Star Trek · NBC · Gene Roddenberry · Martin Luther King Jr. · NAACP · interracial kiss · Plato's Stepchildren · NASA · astronaut · Mae Jemison · Guion Bluford · Sally Ride · Judith Resnik · Women in Motion · Space Shuttle · STS-47 · Afrofuturism · Black representation · television history · Whoopi Goldberg · Janelle Monáe · Zoe Saldana · Black Panther · Sun Ra · George Clinton · Smithsonian · National Air and Space Museum",
+      excerpt:"In 1966, Nichelle Nichols became the first Black woman in a non-servant lead role in the history of American network television — Lt. Uhura, communications officer on the USS Enterprise, fourth in command. When she tried to quit after Season 1, Martin Luther King Jr. called her personally and told her she could not: she was playing the first non-stereotypical Black character in television history. She stayed. In 1968 the show aired the first interracial kiss on US network TV. In 1977 NASA recruited her to diversify the astronaut corps — she led a campaign that produced 1,649 female applicants (vs. 8 previously) and helped recruit Mae Jemison, the first Black woman in space, who credits Uhura directly." },
+
+    { type:'thread', title:"The Freedom of Information Act: Who Owns the Truth About What the Government Did",
+      href:'thread-foia.html', meta:"Thread · 1966–Present · Accountability Era · FOIA · Freedom of Information Act · John Moss · LBJ · Lyndon Johnson · government transparency · open records · sunshine laws · COINTELPRO · FBI · CIA · national security · Exemption 1 · Exemption 7 · redaction · Black Panthers · Fred Hampton · Martin Luther King · surveillance · BLM · Black Lives Matter · Black Identity Extremist · Church Committee · 1974 amendments · Gerald Ford · MuckRock · National Security Archive · Reporters Committee · civil rights · government accountability · state secrets · government misconduct",
+      excerpt:"FOIA was signed by LBJ in 1966 — and he hated it. Every president since has tried to narrow it. Black journalists and activists used it to expose COINTELPRO, the FBI's surveillance of Martin Luther King Jr., the murder of Fred Hampton, and decades of federal lies. The 52,000 pages of COINTELPRO files released through FOIA requests documented the state's war against Black political life in the government's own bureaucratic language. In 2017, FOIA requests eventually exposed the FBI's 'Black Identity Extremist' category — the same COINTELPRO logic, different letterhead." },
+
+    { type:'thread', title:"The School-to-Prison Pipeline: How the Education System Feeds the Carceral System",
+      href:'thread-school-to-prison.html', meta:"Thread · 1994–Present · Carceral Era · school to prison pipeline · zero tolerance · Gun-Free Schools Act · Clinton · school resource officers · SRO · Columbine · COPS in Schools · suspension · expulsion · willful defiance · Black students · racial disparity · juvenile justice · Children's Defense Fund · cradle to prison · Obama · Dear Colleague letter · Betsy DeVos · restorative justice · Oakland Unified · Denver Public Schools · mass incarceration · Bryan Stevenson · Equal Justice Initiative · implicit bias · Title VI · Office for Civil Rights · DOE · Department of Education · DOJ · Black girls · discipline gap",
+      excerpt:"A Black student is three times more likely to be suspended than a white student for the same behavior. A Black girl is six times more likely to be suspended than a white girl. Suspended students are three times more likely to have contact with the juvenile justice system that year. The Gun-Free Schools Act of 1994 launched zero-tolerance discipline. Post-Columbine COPS grants placed 50,000 officers in schools. The 2007 Children's Defense Fund report found a Black boy born in 2001 had a 1-in-3 lifetime probability of going to prison. Obama's 2014 Dear Colleague letter was the first federal check on the pipeline. Betsy DeVos rescinded it in 2018. Restorative justice cut suspensions 87% in Oakland — but has no federal funding stream." },
+
+    { type:'thread', title:"Medical Apartheid: The Dark History of Medical Experimentation on Black Americans",
+      href:'thread-medical-apartheid.html', meta:"Thread · 1600s–Present · Medical Apartheid · Harriet Washington · Tuskegee · Henrietta Lacks · HeLa cells · J. Marion Sims · gynecology · enslaved women · anesthesia · Drapetomania · Samuel Cartwright · forced sterilization · eugenics · Mississippi appendectomy · Fannie Lou Hamer · Buck v. Bell · North Carolina eugenics · ICE detention · hysterectomy · Public Health Service · PHS · syphilis · penicillin · Johns Hopkins · George Gey · Rebecca Skloot · pain tolerance myth · maternal mortality · health disparities · medical distrust · COVID vaccine hesitancy · plutonium injections · Peter Buxtun · Clinton apology · Tuskegee apology · Black women · reproductive rights · medical ethics · consent",
+      excerpt:"American medicine built itself on Black bodies. J. Marion Sims developed the foundational techniques of gynecological surgery by operating on enslaved Black women without anesthesia. The Tuskegee syphilis study ran for 40 years — 399 Black men deliberately left untreated while penicillin was withheld from 1947. Henrietta Lacks's cancer cells were taken without consent in 1951, used to develop the polio vaccine and COVID-19 treatments, and generated billions in profit — her family received nothing and wasn't told for 22 years. North Carolina's eugenics program forcibly sterilized 7,600 people (two-thirds Black women) until 1977. In 2020 a whistleblower reported non-consensual hysterectomies at an ICE detention facility. Medical distrust among Black Americans is not a cultural attitude. It is a rational response to what is in the historical record." },
+
+    { type:'thread', title:"One Continent: The African Origins of the Entire Human World",
+      href:'thread-african-diaspora.html', meta:"Thread · 300000 BCE–Present · Origins · African diaspora · Pangaea · supercontinent · plate tectonics · Homo sapiens · Out of Africa · transatlantic slave trade · Middle Passage · slavevoyages · Great Migration · Brazil · Caribbean · African American · pan-African · Marcus Garvey · W.E.B. Du Bois · African Union · Sixth Region · human origins · genetic diversity · human migration · Black Atlantic · Paul Gilroy · Afrofuturism · diaspora · West Africa · North America · South America",
+      excerpt:"The map shows today's national borders overlaid on Pangaea — the supercontinent that existed before the continents separated. Africa sits at the center. West Africa and Brazil are directly adjacent — the Atlantic Ocean that slave ships crossed for 400 years is the gap that opened when the continents began separating 130 million years ago. Every human being on Earth descends from African ancestors. Homo sapiens evolved in Africa 300,000 years ago. 12.5 million people were forcibly taken in the transatlantic slave trade. 6 million more migrated north in the Great Migration. 200–300 million people of African descent live outside Africa today. The diaspora did not scatter African people into foreign lands. It scattered them into the geological neighborhood." },
+
+    { type:'thread', title:"We Refuse: A Forceful History of Black Resistance",
+      href:'thread-we-refuse.html', meta:"Thread · 1619–Present · Resistance · Black resistance · Kellie Carter Jackson · We Refuse · tactics · flight · Underground Railroad · Harriet Tubman · Ida B. Wells · anti-lynching · NAACP · W.E.B. Du Bois · A. Philip Randolph · boycott · Montgomery Bus Boycott · nonviolent direct action · sit-ins · Birmingham · Selma · SNCC · SCLC · Robert F. Williams · Deacons for Defense · armed self-defense · Black Panthers · Fred Hampton · COINTELPRO · Great Migration · hip-hop · cultural resistance · Black Lives Matter · Alicia Garza · Trayvon Martin · George Floyd · Reconstruction · Wilmington massacre · Tulsa · Greenwood · Dred Scott · Brown v. Board · legal challenge · economic pressure · labor organizing · protest · self-defense · refusal",
+      excerpt:"Black Americans have deployed every available tool — flight, lawsuit, boycott, march, song, armed defense, social media — for four centuries. Kellie Carter Jackson's We Refuse catalogs the full spectrum: enslaved people broke tools and poisoned food. Harriet Tubman made 13 rescue missions. Ida B. Wells documented every lynching she could find. The Montgomery Bus Boycott turned economic power into civil rights leverage. The Deacons for Defense guarded organizers with guns. Hip-hop turned poverty into a global language of resistance. Black Lives Matter put smartphone video in the place the television camera once held. The question was never whether to resist. It was always which form this moment required." },
+
+    { type:'thread', title:'Soul, Funk & the Disco Purge',
+      href:'thread-soul-disco.html', meta:'Thread · 1960s–1980s · Music · Soul · Funk · Disco · Motown · James Brown · Aretha Franklin · Sam Cooke · Sly Stone · Parliament Funkadelic · Disco Demolition Night · Steve Dahl · Comiskey Park · Anti-Black · Anti-Gay · House Music · Techno · Frankie Knuckles',
+      excerpt:'Soul was the sound of the Civil Rights movement. Funk was Black cultural assertion at maximum volume. Disco was born in Black and gay clubs — and on July 12, 1979, a white rock DJ detonated a crate of disco records in a Chicago stadium before 50,000 people chanting "Disco Sucks." The anti-disco movement was anti-Black and anti-gay backlash wearing a music preference as a mask. What survived went underground and became house music and techno.' },
+
+    { type:'thread', title:'Punk, Grunge & the Hidden Black Blueprint',
+      href:'thread-punk-grunge.html', meta:'Thread · 1970s–1990s · Music · Punk · Grunge · Bad Brains · Jimi Hendrix · Kurt Cobain · Lead Belly · Sister Rosetta Tharpe · The Clash · Rock Against Racism · Hardcore · Nirvana · Rock Hall of Fame · Cultural Erasure · Black Roots',
+      excerpt:'Bad Brains — four Black men from Washington D.C. — were the greatest punk band in America. Henry Rollins, Dave Grohl, and Kurt Cobain all said so. Kurt Cobain wrote in his journals that Lead Belly was his primary musical influence. Sister Rosetta Tharpe invented electric rock guitar and was not inducted into the Rock Hall until 2018, 44 years after her death. The "white" genres of punk and grunge have a Black blueprint that cultural memory erased.' },
+
+    { type:'thread', title:'Hip-Hop: Born from Ruins',
+      href:'thread-hiphop-origins.html', meta:'Thread · 1973–Present · Music · Hip-Hop · DJ Kool Herc · Breakbeat · South Bronx · Robert Moses · Cross Bronx Expressway · Grandmaster Flash · Afrika Bambaataa · B-boy · Breakdancing · Graffiti · MCing · DJing · The Message · Def Jam · Sugarhill Gang · Public Enemy · The Roots',
+      excerpt:'The South Bronx was deliberately destroyed by urban policy — Robert Moses\'s expressway, arson-for-insurance, municipal abandonment. Out of that destruction, on August 11, 1973, DJ Kool Herc held his sister\'s back-to-school party at 1520 Sedgwick Avenue and invented hip-hop. The Bronx remains the poorest urban county in the United States. The music escaped. The conditions that produced it did not.' },
+
+    { type:'thread', title:'Gangsta Rap: Resistance, Exploitation & Self-Destruction',
+      href:'thread-gangsta-rap.html', meta:'Thread · 1988–Present · Music · Hip-Hop · Gangsta Rap · NWA · Ice Cube · Dr. Dre · Tupac · Notorious BIG · Biggie · Death Row Records · Suge Knight · FBI · Fuck tha Police · Crack Epidemic · COINTELPRO · Conscious Rap · Public Enemy · A Tribe Called Quest · Industry · Corporate',
+      excerpt:'N.W.A wrote "Fuck tha Police" after teenagers in Compton were being shot by police with no accountability. The FBI sent a letter to their label. The song was testimony. The industry then discovered Black pathology was profitable — promoted the most destructive version of hip-hop, suppressed conscious alternatives, and amplified the Tupac/Biggie beef until both were dead at 25 and 24. Neither murder has been solved. The pattern: extract value, leave the community behind.' },
+
+    { type:'thread', title:'The Harlem Renaissance: Black Art Rewrites America',
+      href:'thread-harlem-renaissance.html', meta:'Thread · 1910–1940 · Art · Literature · Harlem · Great Migration · Langston Hughes · Zora Neale Hurston · Aaron Douglas · Augusta Savage · Alain Locke · New Negro · Cotton Club · Duke Ellington · Claude McKay · Harlem Renaissance · W.E.B. Du Bois · Jazz · Double Consciousness · Cadillac · Nicholas Dreystadt · Pepsi · Coca-Cola · Edward Boyd · Madam CJ Walker · Sarah Breedlove · Black Consumer · Black Market · Chicago Defender · Pittsburgh Courier · Black Press · Advertising · Consumer Power',
+      excerpt:'Between 1910 and 1940, the Great Migration concentrated Black intellectual and artistic life in Harlem. Langston Hughes, Zora Neale Hurston, Aaron Douglas, and Augusta Savage built a counter-narrative to the lie that Black people had no culture or inner life. Meanwhile, white corporations ran national advertising campaigns as though Black consumers did not exist — until Cadillac\'s Nicholas Dreystadt argued Black buyers could save the brand (they could), and Pepsi beat Coke for decades by being the first to show up. Madam C.J. Walker became the first self-made female millionaire in America serving a market white business had ignored.' },
+
+    { type:'thread', title:'Jacob Lawrence: Migration as Masterpiece',
+      href:'thread-jacob-lawrence.html', meta:'Thread · 1917–2000 · Art · Painting · Jacob Lawrence · Migration Series · Great Migration · MoMA · Phillips Collection · Toussaint · Frederick Douglass · Harriet Tubman · Harlem · Schomburg Center · Aaron Douglas · WPA · Federal Art Project',
+      excerpt:'Jacob Lawrence grew up in Harlem during the Renaissance and at age 24 painted the Migration Series — 60 panels in flat geometric color documenting the Great Migration. MoMA and the Phillips Collection jointly purchased it — one of the first times MoMA had acquired work by a Black artist. He had already painted Toussaint L\'Ouverture, Frederick Douglass, and Harriet Tubman. The two halves of the Migration Series were not exhibited together until 1993, 52 years after he painted them.' },
+
+    { type:'thread', title:'Gordon Parks: Camera as Weapon',
+      href:'thread-gordon-parks.html', meta:'Thread · 1912–2006 · Photography · Film · Gordon Parks · Life Magazine · American Gothic · Ella Watson · Shaft · Learning Tree · FSA · Blaxploitation · Civil Rights · Poverty · Harlem · Fort Scott Kansas',
+      excerpt:'Self-taught photographer who bought his first camera at a pawnshop at 25. His 1942 photograph American Gothic — a Black cleaning woman with mop and broom before an American flag — was made in his first year at the FSA. By 1948 he was the first Black staff photographer at Life magazine. In 1969 he directed The Learning Tree, the first major Hollywood film by a Black director. In 1971 he directed Shaft and changed the economics of Black cinema.' },
+
+    { type:'thread', title:'The Black Arts Movement: Art as Revolution',
+      href:'thread-black-arts-movement.html', meta:'Thread · 1965–1975 · Art · Poetry · Theater · Black Power · Amiri Baraka · Sonia Sanchez · Nikki Giovanni · Gwendolyn Brooks · Malcolm X · BARTS · AfriCOBRA · Wall of Respect · Last Poets · Gil Scott-Heron · Hip-Hop · Free Jazz · Coltrane · Sun Ra · Broadside Press',
+      excerpt:'Three days after Malcolm X was assassinated, Amiri Baraka moved to Harlem and founded the Black Arts Repertory Theatre. The movement that followed was the most explicit attempt in American cultural history to make art an instrument of political revolution. The Last Poets and Gil Scott-Heron were the direct ancestors of hip-hop. "The Revolution Will Not Be Televised" is the movement\'s thesis in a single track.' },
+
+    { type:'thread', title:'Black Film: From Exclusion to Excellence',
+      href:'thread-black-film.html', meta:'Thread · 1915–Present · Film · Cinema · Oscar Micheaux · Birth of a Nation · Spike Lee · Julie Dash · Gordon Parks · Shaft · Blaxploitation · Do the Right Thing · Daughters of the Dust · Moonlight · Black Panther · 12 Years a Slave · John Singleton · Boyz n the Hood · Barry Jenkins · Ryan Coogler · L.A. Rebellion · Hollywood',
+      excerpt:'The first major Hollywood film depicted Black men as rapists and the KKK as heroes — screened at the White House. Oscar Micheaux made counter-films from his car for 30 years. Gordon Parks directed The Learning Tree in 1969, the first major Hollywood film by a Black director. Moonlight (2017) won Best Picture on a $1.5M budget. Black Panther grossed $1.35 billion. The excellence was always there. The recognition was the variable.' },
+
+    { type:'thread', title:'Graffiti: Writing on the Wall',
+      href:'thread-graffiti-resistance.html', meta:'Thread · 1970s–Present · Art · Graffiti · Writing · TAKI 183 · Basquiat · Jean-Michel Basquiat · SAMO · Lee Quinones · Lady Pink · Fab 5 Freddy · New York · Bronx · Subway · Hip-Hop · Street Art · Banksy · MoMA · Gentrification · Clean Train',
+      excerpt:'Black and Latino teenagers in the burned-out Bronx covered New York\'s subway system in some of the most formally sophisticated public art ever made. The city tried to erase it for twenty years. Jean-Michel Basquiat — SAMO — died at 27; his paintings now sell for $110 million. The aesthetic that came from nothing is now one of the most commercially valuable visual languages in the world. The neighborhoods that produced it are unaffordable to the people born there.' },
+
+    { type:'thread', title:'The 369th Hellfighters: Black Soldiers in WWI',
+      href:'thread-hellfighters.html', meta:'Thread · 1917–1919 · WWI · Military · Red Summer · 369th Infantry · Henry Johnson · Croix de Guerre · Harlem · France',
+      excerpt:'The 369th Infantry — the Harlem Hellfighters — spent 191 days in continuous front-line combat, longer than any other American unit in WWI. They never lost a prisoner. France awarded them the Croix de Guerre en masse. The U.S. Army assigned them to French command because it refused to fight beside Black soldiers, barred them from the Allied victory parade, and sent them home to the Red Summer of 1919. Henry Johnson fought off 20 Germans with a bolo knife; America did not recognize him until 2015.' },
+
+    { type:'thread', title:'Stamped: Racist Ideas Were Not Discovered. They Were Invented.',
+      href:'thread-stamped.html', meta:'Thread · 1453–Present · Present Day · Jason Reynolds · Ibram X. Kendi · Stamped from the Beginning · antiracism · racist ideas · Zurara · Cotton Mather · Thomas Jefferson · W.E.B. Du Bois · Angela Davis · assimilationism · segregationism · book bans · school libraries · CRT · critical race theory · National Book Award',
+      excerpt:'In 1453, a Portuguese chronicler named Gomes Eanes de Zurara wrote the first explicit racist text — to justify a slave trade that had been running for 40 years. The money came first. The ideas followed. Jason Reynolds and Ibram X. Kendi trace this pattern from 1453 to the present: every generation manufactured new justifications (religious, scientific, sociological) for exploitation already underway. Their central framework — segregationist, assimilationist, antiracist — shows that the "moderate" assimilationist position, which locates the problem in Black people rather than the system, has historically done as much damage as outright racism. Stamped was the most banned book in America in 2022. A book about how racist ideas are manufactured and suppressed was itself targeted for suppression. The thesis proved itself.' },
+
+    { type:'thread', title:'A Sky Full of Elephants: What Black Speculative Fiction Sees That History Books Don\'t',
+      href:'thread-sky-full-of-elephants.html', meta:'Thread · 2024 · Present Day · Cebo Campbell · speculative fiction · dystopian · wrongful imprisonment · biracial identity · Kingdom of Alabama · Republic of New Afrika · Reconstruction · Du Bois · double consciousness · Octavia Butler · Colson Whitehead · Toni Morrison · Black nation-building · mass incarceration',
+      excerpt:'Cebo Campbell\'s 2024 debut imagines every white American disappearing overnight. The novel doesn\'t explain why — it is interested in what happens next. Charlie Brunton, freed after 20 years of wrongful imprisonment, and Sidney, his 19-year-old biracial daughter grieving a white family that walked into a lake, travel to the Kingdom of Alabama — a new society blending African and African-American traditions. Campbell uses the impossible premise to ask what history books can\'t: when the structures of oppression vanish, does the wound? The answer, grounded in Reconstruction, the Republic of New Afrika, Du Bois\'s double consciousness, and mass incarceration statistics, is the most honest thing American historical fiction has produced in years.' },
+
+    { type:'thread', title:'What Racism Actually Is: Why "I Don\'t See Color" Doesn\'t End It',
+      href:'thread-what-racism-is.html', meta:'Thread · 1676–Present · Framework · Individual Racism · Institutional Racism · Structural Racism · Implicit Bias · Colorblind Racism · Eduardo Bonilla-Silva · White Fragility · Kimberlé Crenshaw · Wealth Gap',
+      excerpt:'Most Americans define racism as individual hatred. By that definition, racism is almost over. By the correct definition — individual, institutional, and structural — it is everywhere and measurable. Colorblind racism (Bonilla-Silva) operates through four frames: abstract liberalism, naturalization, cultural racism, and minimization of racism. The résumé audit study found identical CVs with "Black-sounding" names received 50% fewer callbacks. Understanding intent vs. outcome is the foundational framework for reading everything else.' },
+
+    { type:'thread', title:'Dr. Beverly Tatum: The Smog, the Silence, and Racial Identity',
+      href:'thread-beverly-tatum.html', meta:'Thread · 1997–Present · Beverly Tatum · Beverly Daniel Tatum · Smog · Moving Walkway · Racial Identity Development · Nigrescence · William Cross · Janet Helms · White Identity Development · Why Are All the Black Kids Sitting Together · Anti-Racism · Active Anti-Racist · Passive Non-Racist · Immersion · Encounter · Spelman College · Racial Identity Stages · Affinity Groups · Racial Dialogue · Racial Silence · Can We Talk About Race · Assimilation Blues',
+      excerpt:'Dr. Beverly Tatum gave America its most practical frameworks for understanding racism and racial identity. Racism is like smog — ambient, breathed in by everyone, not requiring intent to do harm. On the moving walkway, standing still (passive non-racism) reaches the same destination as walking forward (active racism) — only active anti-racism moves in the other direction. Her racial identity development stages explain why the Black kids are sitting together — and why schools are wrong to punish it. Her white identity development model explains why defensiveness is a developmental stage, not just bad character.' },
+
+    { type:'thread', title:'The Greenwood Pattern: They Burned It Every Time',
+      href:'thread-greenwood-pattern.html', meta:'Thread · 1898–1923 · Jim Crow Era · Tulsa · Rosewood · Ocoee · Wealth Destruction',
+      excerpt:'Ocoee 1920. Tulsa 1921. Rosewood 1923. Whenever Black Americans built economic infrastructure sufficient to challenge white dominance, white mobs destroyed it — with police complicity, no prosecutions, and land seizure following. The pattern runs from the Wilmington 1898 coup through Red Summer through the 1960s. It is the mechanism by which the racial wealth gap was maintained.' },
+
+    { type:'thread', title:'The Man Who Invented Race: Johann Friedrich Blumenbach',
+      href:'thread-blumenbach.html', meta:'Thread · 1775–Present · Scientific Racism · Ideology',
+      excerpt:'In 1775, a German physician divided humanity into five races and named his own the most beautiful: "Caucasian." He called it science. His taxonomy became the foundation for slavery apologists, eugenics, and the Holocaust. The Human Genome Project demolished it in 2003. The structures built on it remain.' },
+
+    { type:'thread', title:'The Invention of Race: Why Racism Was Created',
+      href:'thread-invention-of-race.html', meta:'Thread · 1676–Present · Origins of Racism',
+      excerpt:'Race was invented in 1676 as a legal category to divide poor laborers after Bacon\'s Rebellion. Before that, slavery existed but "race" did not. This thread traces the creation of whiteness as a political technology.' },
+
+    { type:'thread', title:'Stolen Labor: The Racial Wealth Gap from Emancipation to Today',
+      href:'thread-stolen-labor.html', meta:'Thread · 1619–Present · Economics & Wealth',
+      excerpt:'250 years of free labor, then sharecropping, redlining, and GI Bill exclusion. The racial wealth gap is arithmetic. This thread traces the compounding extraction from slavery to the present-day $171,000 median wealth gap.' },
+
+    { type:'thread', title:'The GI Bill That Built the White Middle Class',
+      href:'thread-gi-bill.html', meta:'Thread · 1944–1968 · Wealth & Policy',
+      excerpt:'The GI Bill created the American middle class — exclusively. Black veterans were excluded from home loans, college funding, and business grants by racially discriminatory administration. The bill built the suburbs white.' },
+
+    { type:'thread', title:'The Golden Thirteen: First Black Naval Officers in U.S. History',
+      href:'thread-golden-thirteen.html', meta:'Thread · 1775–1987 · Military & Integration',
+      excerpt:'After 168 years of exclusion, the U.S. Navy commissioned its first thirteen Black officers on March 17, 1944. Selected from 100,000 Black sailors, trained under a harder standard than white candidates, then assigned to shore duty and kept off combat ships. Their names were suppressed for four decades.' },
+
+    { type:'thread', title:'Housing & the Racial Wealth Gap',
+      href:'thread.html', meta:'Thread · 1933–Present · Redlining & Wealth',
+      excerpt:'Traces how HOLC redlining, FHA mortgage exclusion, and the GI Bill built the white middle class while systematically blocking Black wealth accumulation — producing the 6:1 wealth gap that persists today.' },
+
+    { type:'thread', title:'The Subprime Trap',
+      href:'thread-subprime.html', meta:'Thread · 1990s–2008 · Lending & Extraction',
+      excerpt:'Wells Fargo called them "ghetto loans" and steered Black customers into subprime mortgages even when they qualified for conventional rates. The 2008 crash stripped $40,000 in median Black household wealth — the largest destruction of Black wealth since Reconstruction.' },
+
+    { type:'thread', title:'Patrol and Punish: The Invention of American Policing',
+      href:'thread-police.html', meta:'Thread · 1704–Present · Law Enforcement & Control',
+      excerpt:'American police were invented to capture enslaved people and suppress Black rebellion. Slave patrols became police departments. The mission never changed — only the paperwork.' },
+
+    { type:'thread', title:'The 13th: Mass Incarceration and the Second Slavery',
+      href:'thread-mass-incarceration.html', meta:'Thread · 1865–Present · Criminal Justice & Control',
+      excerpt:'The 13th Amendment abolished slavery except as punishment for crime. Black Codes → convict leasing → Jim Crow → the War on Drugs → a carceral system that incarcerates Black Americans at 5.6× the rate of white Americans.' },
+
+    { type:'thread', title:'The War on Drugs: Nixon\'s Confession',
+      href:'thread-war-on-drugs.html', meta:'Thread · 1971–Present · Policy & Incarceration',
+      excerpt:'Nixon\'s aide John Ehrlichman admitted in 1994 that the War on Drugs was designed to target Black people and the anti-war left. The result: 2.3 million incarcerated today, disproportionately Black and Latino.' },
+
+    { type:'thread', title:'The Pipeline: How Rap Was Captured and Communities Were Criminalized',
+      href:'thread-rap-pipeline.html', meta:'Thread · 1973–Present · Music & Incarceration',
+      excerpt:'Rap was invented in the South Bronx as a community technology. Within 20 years it was owned by four conglomerates and rewarded for content that made mass incarceration easier to justify. The same institutional investors held both the music conglomerate stocks and the private prison stocks.' },
+
+    { type:'thread', title:'The Stolen Vote: Black Voting Rights in America',
+      href:'thread-voting-rights.html', meta:'Thread · 1865–Present · Politics & Suppression',
+      excerpt:'The 15th Amendment granted voting rights in 1870. Within a decade, every Southern state abolished that right through poll taxes, literacy tests, grandfather clauses, and terror. It\'s still being stolen — through voter ID laws, purges, and partisan gerrymandering.' },
+
+    { type:'thread', title:'The Lily White Movement: How the GOP Became a White-Only Institution',
+      href:'thread-lily-white.html', meta:'Thread · 1877–1968 · Republican Party',
+      excerpt:'Black men held 22 seats in Congress during Reconstruction — all Republican. By 1901 there were none for 28 years. The Republican Party expelled Black voters one county committee at a time. The Southern Strategy did not build a white Republican Party in the South. It inherited one.' },
+
+    { type:'thread', title:'The Movement: The Civil Rights Struggle, 1954–1968',
+      href:'thread-civil-rights.html', meta:'Thread · 1954–1968 · Politics & Resistance',
+      excerpt:'The Civil Rights Movement was a documented campaign of organized political action, not a spontaneous moral shift. It faced violent federal suppression through COINTELPRO. The victories were real, partial, and immediately attacked.' },
+
+    { type:'thread', title:'What They Were Afraid Of: The Fear of Black Assembly',
+      href:'thread-fear-of-black-assembly.html', meta:'Thread · 1739–Present · Politics & Control',
+      excerpt:'The United States has systematically criminalized Black assembly and organization for 400 years — from the Negro Act of 1740 to COINTELPRO to the surveillance of Black Lives Matter.' },
+
+    { type:'thread', title:'What the Panthers Actually Were',
+      href:'thread-black-panthers.html', meta:'Thread · 1966–1982 · Politics & Resistance',
+      excerpt:'The Black Panther Party operated free breakfast programs, medical clinics, and political education in 68 cities. The FBI destroyed it through assassinations, informants, and fabricated criminal charges under COINTELPRO. Fred Hampton was killed at 21.' },
+
+    { type:'thread', title:'After the Panthers: The Origins of the Crips and Bloods',
+      href:'thread-gangs.html', meta:'Thread · 1969–1971 · Urban History',
+      excerpt:'The Crips and Bloods emerged in Los Angeles in the years immediately after the Black Panthers were destroyed by COINTELPRO. This thread traces the direct causal line from political organization to street organization.' },
+
+    { type:'thread', title:'The Right to Defend: Black Organized Self-Defense',
+      href:'thread-self-defense.html', meta:'Thread · 1892–1982 · Resistance & Violence',
+      excerpt:'Black Americans organized armed self-defense against mob violence — from Ida B. Wells\'s call to arms to the Deacons for Defense to the Panthers. This history was criminalized and erased from the civil rights narrative.' },
+
+    { type:'thread', title:'The Great Migration: Six Million Leave the South',
+      href:'thread-great-migration.html', meta:'Thread · 1910–1970 · Migration & Labor',
+      excerpt:'Six million Black Americans fled Southern segregation and racial terror for Northern factories between 1910 and 1970. Northern racism was waiting — in housing covenants, union exclusion, and redlined neighborhoods.' },
+
+    { type:'thread', title:'Spectacle and Terror: Lynching as American Policy',
+      href:'thread-lynching.html', meta:'Thread · 1877–1950 · Violence & Terror',
+      excerpt:'Between 1877 and 1950, at least 4,400 Black Americans were lynched in front of crowds. Photographs were sold as postcards. No one was convicted. Lynching was not extrajudicial — it was the justice system.' },
+
+    { type:'thread', title:'Separate Was Never Equal: Black Education in America',
+      href:'thread-education.html', meta:'Thread · 1865–Present · Education & Inequality',
+      excerpt:'From Reconstruction to today, the American education system was designed to perpetuate racial inequality — through underfunded segregated schools, standardized tests designed to codify race, and school-to-prison pipeline policies.' },
+
+    { type:'thread', title:'HBCUs: Founded Under Exclusion',
+      href:'thread-hbcus.html', meta:'Thread · 1837–1954 · Education & Institution',
+      excerpt:'Historically Black colleges were founded because every American university refused to admit Black students. They became the foundation of Black intellectual and professional life, producing most of America\'s Black doctors, lawyers, and engineers.' },
+
+    { type:'thread', title:'Gridiron Separate and Unequal: HBCU Football',
+      href:'thread-hbcu-football.html', meta:'Thread · 1892–Present · Sports & Education',
+      excerpt:'HBCU football produced some of the greatest athletes in American history while operating on a fraction of white college football\'s resources. Integration of major conferences drained HBCU talent without compensation.' },
+
+    { type:'thread', title:'Shut Up and Play',
+      href:'thread-black-athletes.html', meta:'Thread · 1936–Present · Sports & Politics',
+      excerpt:'Black athletes have been told to "shut up and play" since Jesse Owens was denied a White House reception. This thread documents their political resistance — from Jack Johnson to Jackie Robinson to Muhammad Ali to Colin Kaepernick.' },
+
+    { type:'thread', title:'The Negro Leagues: Black Baseball',
+      href:'thread-negro-leagues.html', meta:'Thread · 1920–1960 · Sports & Segregation',
+      excerpt:'The Negro Leagues produced Josh Gibson, Satchel Paige, and some of baseball\'s greatest players. When MLB integrated, it signed players without compensation and let the leagues collapse — eliminating Black-owned enterprises worth millions.' },
+
+    { type:'thread', title:'The Black Press: The Counter-Record',
+      href:'thread-black-press.html', meta:'Thread · 1827–Present · Media & Journalism',
+      excerpt:'The Black press documented what mainstream media ignored: lynching, segregation, police violence, and Black resistance and achievement. 200 newspapers built a parallel information infrastructure that the government worked to suppress.' },
+
+    { type:'thread', title:'How America Images Blackness',
+      href:'thread-media.html', meta:'Thread · 1619–Present · Media & Representation',
+      excerpt:'American media has consistently portrayed Black people as criminal, dangerous, and deserving of punishment — from minstrelsy to Birth of a Nation to nightly news crime coverage to hip-hop vilification.' },
+
+    { type:'thread', title:'The Bombed Church: The Black Church in America',
+      href:'thread-black-church.html', meta:'Thread · 1750–Present · Religion & Resistance',
+      excerpt:'The Black church has been a center of political organizing, mutual aid, and spiritual resistance since its formation. It has also been a target — from plantation laws banning Black worship to the 1963 Birmingham bombing to the 2015 Charleston massacre.' },
+
+    { type:'thread', title:'Twice Invisible: Black Women\'s Labor, Bodies, and Resistance',
+      href:'thread-black-women.html', meta:'Thread · 1619–Present · Gender & Labor',
+      excerpt:'Black women\'s labor was enslaved, then devalued. Their bodies were medically experimented on. Their political organizing — for suffrage, civil rights, and today\'s movements — has been continuously erased from historical record.' },
+
+    { type:'thread', title:'The Body as Evidence: Black Health Disparities from Slavery to the Present',
+      href:'thread-health-disparities.html', meta:'Thread · 1619–Present · Medicine & Health',
+      excerpt:'Black Americans have shorter lifespans and worse outcomes on nearly every health metric. This is not biological — it is structural. Residential segregation, environmental racism, and healthcare exclusion are measurable causes with documented history.' },
+
+    { type:'thread', title:'Why the United States Has No Universal Healthcare',
+      href:'thread-healthcare.html', meta:'Thread · 1917–Present · Healthcare & Policy',
+      excerpt:'The US rejected universal healthcare in 1917, 1945, and 2009. Each time, racial politics were central. Southern Democrats and Republicans blocked healthcare rather than guarantee it to Black Americans.' },
+
+    { type:'thread', title:'14 Million Acres: Black Farmers and the USDA',
+      href:'thread-black-farmers.html', meta:'Thread · 1865–Present · Agriculture & Dispossession',
+      excerpt:'Black farmers owned 14 million acres in 1910. Through USDA loan discrimination, foreclosure, and violence, that fell to under 2 million. The USDA was found guilty of racial discrimination. Black farmers received partial compensation 130 years later.' },
+
+    { type:'thread', title:'The First and the Punished: Haiti',
+      href:'thread-haiti.html', meta:'Thread · 1492–Present · Revolution & Imperialism',
+      excerpt:'Haiti was the first free Black nation, the only successful slave revolution in history. The United States has spent 200 years punishing it — through a $21 billion independence debt forced on Haiti by France, military occupation, CIA coups, and continued economic sabotage.' },
+
+    { type:'thread', title:'Old Slavery, New Capitalism: The Unbroken Chain of Racial Extraction',
+      href:'thread-racial-capitalism.html', meta:'Thread · 1619–Present · Economics & Extraction',
+      excerpt:'Slavery didn\'t end when capitalism began — capitalism began because of slavery. Cotton, built on enslaved labor, was the foundation of American industrial capital. The extraction system restructured but never stopped.' },
+
+    { type:'thread', title:'What Is Owed: The Reparations Question',
+      href:'thread-reparations.html', meta:'Thread · 1865–Present · Policy & Repair',
+      excerpt:'Congress has introduced H.R. 40 for 35 years without a vote. Economists have calculated what is owed. Precedents exist — Japanese internment, German Holocaust reparations, Tulsa survivors. This thread documents the case and the obstruction.' },
+
+    { type:'thread', title:'Built to Be Dismantled: The DEI Backlash',
+      href:'thread-dei.html', meta:'Thread · 2020–Present · Politics & Culture · DEI · Diversity Equity Inclusion · Anti-Woke · Woke · Stop WOKE Act · Florida · Affirmative Action · Corporate Diversity · Backlash',
+      excerpt:'Corporate DEI programs were largely symbolic from the start. Their dismantling in 2023–2025 demonstrates that diversity without redistribution is spectacle — and that spectacle can be cancelled when politically convenient. Florida\'s Stop WOKE Act and federal executive orders against "woke ideology" are the legislative expression of the same backlash.' },
+
+    { type:'thread', title:'The Black Statue of Liberty',
+      href:'thread-statue-of-liberty.html', meta:'Thread · 1865–Present · Symbols & Rebranding',
+      excerpt:'The Statue of Liberty was originally conceived as a monument to abolition, modeled on a freed Black woman. The sculptor changed the design to attract American funding. The immigration rebranding came later. The original meaning was buried.' },
+
+    { type:'thread', title:'Built by Black Hands: The Inventors America Erased',
+      href:'thread-inventors.html', meta:'Thread · 1800–1900s · Technology & Erasure',
+      excerpt:'Black inventors created key components of the cotton gin, the peanut industry, the light bulb filament, blood banks, and hundreds of other technologies. Patent law, enslavement, and racial erasure stripped them of credit and wealth.' },
+
+    { type:'thread', title:'Who Black People Are: From African Civilizations to the Diaspora',
+      href:'thread-diaspora.html', meta:'Thread · Pre-1441–Present · Identity & History',
+      excerpt:'Black identity was forged across continents by the transatlantic slave trade. Understanding the diaspora — and why it is diaspora, not simply "African American" — requires understanding the rupture that created it.' },
+
+    { type:'thread', title:'The Flooded City: Five Ways Black Communities Were Displaced',
+      href:'thread-displacement.html', meta:'Thread · 1898–Present · Displacement & Erasure',
+      excerpt:'Five distinct Black communities were destroyed by flood, fire, confiscation, and development — Greenwood, Oscarville, Lake Lanier, Lake Marion, and more. Their stories were buried. In some cases, their remains are still underwater.' },
+
+    { type:'thread', title:'Black Wall Street: The Tulsa Massacre',
+      href:'thread-tulsa.html', meta:'Thread · 1921 · Massacre & Destruction',
+      excerpt:'On May 31–June 1, 1921, a white mob destroyed the Greenwood District — 35 blocks of Black-owned businesses, homes, and institutions. 300 people died. The city used airplanes. No one was convicted. The city refused reparations for a century.' },
+
+    { type:'thread', title:'Oscarville, Georgia: The Racial Cleansing of Forsyth County',
+      href:'thread-oscarville.html', meta:'Thread · 1912 · Massacre & Displacement',
+      excerpt:'Forsyth County was violently emptied of its 1,000 Black residents in 1912 after a white woman was assaulted. The county remained nearly all-white — a "sundown county" — until the 1990s. The land seized from Black families was never returned.' },
+
+    { type:'thread', title:'Lake Lanier: Atlanta\'s Playground Was Built on a Racial Crime Scene',
+      href:'thread-lake-lanier.html', meta:'Thread · 1912 · Infrastructure & Displacement',
+      excerpt:'Lake Lanier — Atlanta\'s recreational reservoir — was created by flooding Forsyth County, which had been violently cleared of its Black population in 1912. The Army Corps of Engineers drowned the crime scene.' },
+
+    { type:'thread', title:'Lake Marion: The Economy Built Over Ferguson',
+      href:'thread-lake-marion.html', meta:'Thread · 1941 · Displacement & Erasure',
+      excerpt:'Lake Marion in South Carolina was built by the Santee Cooper dam project, flooding the town of Ferguson — a prosperous Black community. The New Deal funded the erasure. Descendants were not compensated.' },
+
+    { type:'thread', title:'Katrina: What the Flood Revealed',
+      href:'thread-katrina.html', meta:'Thread · 2005 · Disaster & Inequality',
+      excerpt:'Hurricane Katrina did not treat everyone equally. The levee failures were concentrated in Black neighborhoods. The federal rescue response was systematically slower in Black areas. The reconstruction rebuilt the white city.' },
+
+    // ── PEOPLE ────────────────────────────────────────────────
+    { type:'person', title:'Malcolm X',
+      href:'person-malcolm-x.html', meta:'Person · 1925–1965 · United States',
+      excerpt:'el-Hajj Malik el-Shabazz — raised in a Garveyite household targeted by the KKK, orphaned by state violence, imprisoned at 20, transformed by Islam in prison, rose to become the Nation of Islam\'s national voice, made the Hajj in 1964, founded the OAAU, and was assassinated at 39. COINTELPRO. Black nationalism. By any means necessary.' },
+
+    { type:'person', title:'Mansa Musa I',
+      href:'person-mansa-musa.html', meta:'Person · c. 1280–1337 · Mali Empire',
+      excerpt:'Emperor of the Mali Empire and considered the wealthiest individual in recorded history. His 1324 pilgrimage to Mecca — a 60,000-person caravan distributing gold — caused Mediterranean inflation for a decade and announced the scale of pre-colonial African civilization to the world.' },
+
+    { type:'person', title:'Queen Nzinga of Ndongo',
+      href:'person-queen-nzinga.html', meta:'Person · 1583–1663 · Angolan Resistance',
+      excerpt:'Queen Nzinga resisted Portuguese colonization and the transatlantic slave trade for three decades through diplomatic genius and military leadership. She negotiated directly with the Portuguese governor, built military alliances, and led armies into battle into her 60s.' },
+
+    { type:'person', title:'Askia Mohammed I',
+      href:'person-askia-mohammed.html', meta:'Person · 1443–1538 · Songhai Empire',
+      excerpt:'Askia Mohammed I ruled the Songhai Empire at its peak and transformed Timbuktu into the Islamic world\'s greatest center of scholarship — 25,000 students, 700 manuscripts, and the University of Sankore. He represents the intellectual tradition the slave trade destroyed.' },
+
+    { type:'person', title:'Mansa Musa',
+      href:'person-mansa-musa.html', meta:'Person · c. 1280–1337 · Mali Empire',
+      excerpt:'Emperor of the Mali Empire, whose 1324 pilgrimage to Mecca — the wealthiest individual journey in recorded history — demonstrated the scale of pre-colonial African civilization to Europe and the Arab world.' },
+
+    { type:'person', title:'Frederick Douglass',
+      href:'person-frederick-douglass.html', meta:'Person · 1818–1895 · Abolitionism',
+      excerpt:'Abolitionist, orator, and writer whose firsthand accounts of slavery provided primary testimony for the causal chain from enslavement to post-war exclusion. Escaped slavery, founded The North Star, and advised Lincoln. His break with the status quo on the pace of emancipation anticipated debates that persist today.' },
+
+    { type:'person', title:'Harriet Tubman',
+      href:'person-harriet-tubman.html', meta:'Person · c. 1822–1913 · Abolitionism & Liberation',
+      excerpt:'Escaped slavery and returned to lead 13 missions on the Underground Railroad, freeing approximately 70 people. Served as a Union spy, scout, and armed raid commander during the Civil War. Never lost a passenger on the Railroad.' },
+
+    { type:'person', title:'W.E.B. Du Bois',
+      href:'person-web-du-bois.html', meta:'Person · 1868–1963 · Civil Rights & Scholarship',
+      excerpt:'First African American to earn a PhD from Harvard. Co-founder of the NAACP, editor of The Crisis, and author of The Souls of Black Folk. His concept of the "color line" as the defining problem of the 20th century proved precisely correct.' },
+
+    { type:'person', title:'Sojourner Truth',
+      href:'person-sojourner-truth.html', meta:'Person · c. 1797–1883 · Abolition & Women\'s Rights',
+      excerpt:'Escaped slavery in 1826 and became one of the most powerful abolitionist and women\'s rights speakers of the 19th century. Her "Ain\'t I a Woman?" speech at the 1851 Women\'s Rights Convention challenged both racial and gender subordination simultaneously.' },
+
+    { type:'person', title:'Marcus Garvey',
+      href:'person-marcus-garvey.html', meta:'Person · 1887–1940 · Pan-Africanism & Black Nationalism',
+      excerpt:'Founder of the Universal Negro Improvement Association — the largest Black mass movement in U.S. history with over 4 million members. His "Back to Africa" movement and Black economic nationalism directly inspired Malcolm X, the Nation of Islam, and Rastafarianism.' },
+
+    { type:'person', title:'Bayard Rustin',
+      href:'person-bayard-rustin.html', meta:'Person · 1912–1987 · Civil Rights & Organizing',
+      excerpt:'Chief organizer of the 1963 March on Washington and the architect of Martin Luther King Jr.\'s nonviolent strategy. Largely erased from civil rights history because he was openly gay. The most important civil rights organizer most Americans have never heard of.' },
+
+    { type:'person', title:'Medgar Evers',
+      href:'person-medgar-evers.html', meta:'Person · 1925–1963 · Civil Rights & Voting Rights',
+      excerpt:'NAACP field secretary in Mississippi who organized voter registration drives and investigated racial murders. Assassinated in his driveway on June 12, 1963 — hours after JFK\'s civil rights address. His killer was acquitted twice and not convicted until 1994.' },
+
+    { type:'person', title:'Shirley Chisholm',
+      href:'person-shirley-chisholm.html', meta:'Person · 1924–2005 · Politics & Education',
+      excerpt:'First Black woman elected to Congress (1968) and first Black candidate for a major-party presidential nomination (1972). "Unbought and Unbossed" — she was a democratic socialist who ran against the Democratic establishment and was denied Secret Service protection during her presidential campaign.' },
+
+    { type:'person', title:'John Lewis',
+      href:'person-john-lewis.html', meta:'Person · 1940–2020 · Civil Rights & Voting Rights',
+      excerpt:'Chairman of SNCC, one of the original Freedom Riders, and the youngest speaker at the 1963 March on Washington. Beaten on Bloody Sunday on the Edmund Pettus Bridge. Served 17 terms in Congress and spent his life defending the Voting Rights Act he helped pass.' },
+
+    { type:'person', title:'Symbionese Liberation Army',
+      href:'person-sla.html', meta:'Organization · 1973–1975 · Bay Area · Armed Cell',
+      excerpt:'Small Bay Area cell led by escaped convict Donald DeFreeze — a former police informant. Assassinated Dr. Marcus Foster, Oakland\'s first Black school superintendent, in November 1973 using cyanide-tipped bullets. Condemned immediately by the Black Panthers, Angela Davis, and every Black liberation organization. Kidnapped Patty Hearst in February 1974. Six members killed in a live-television LAPD shootout on May 17, 1974. A cautionary case study in revolutionary theater.' },
+
+    { type:'person', title:'Nation of Islam',
+      href:'person-nation-of-islam.html', meta:'Organization · 1930–Present · Black Nationalism · Detroit',
+      excerpt:'Black religious and political organization founded in Detroit in 1930 by Wallace Fard Muhammad. Under Elijah Muhammad built 100+ mosques, K–12 schools, farms, a fish import company, and Muhammad Speaks newspaper with 600,000 weekly circulation. Produced Malcolm X, silenced him when he exposed Elijah Muhammad\'s affairs, and whose members assassinated him in 1965. Split in 1975 between Warith Deen Mohammed (orthodox Sunni Islam) and Louis Farrakhan (rebuilt original NOI).' },
+
+    { type:'person', title:'John Brown',
+      href:'person-john-brown.html', meta:'Person · 1800–1859 · Abolitionism · Harpers Ferry',
+      excerpt:'White abolitionist who led the 1856 Pottawatomie killings in Bleeding Kansas and the 1859 raid on the federal armory at Harpers Ferry, intending to arm enslaved people and ignite a rebellion. Captured by Robert E. Lee, tried for treason, and hanged on December 2, 1859. Eighteen months later the Civil War began. Frederick Douglass: "I could live for the slave, but he could die for him."' },
+
+    { type:'person', title:'Weather Underground',
+      href:'person-weather-underground.html', meta:'Organization · 1969–1977 · White Left · Armed Resistance',
+      excerpt:'White radical SDS splinter that declared war on the U.S. government after Fred Hampton\'s assassination. Bombed the Capitol (1971), Pentagon (1972), State Department (1975), and NYPD HQ — over 20 bombings, no civilian casualties. Three members killed in 1970 Greenwich Village townhouse explosion. Charges dropped because the FBI\'s illegal pursuit made evidence inadmissible. Key figures: Bill Ayers, Bernardine Dohrn, Mark Rudd.' },
+
+    { type:'person', title:'Eldridge Cleaver',
+      href:'person-eldridge-cleaver.html', meta:'Person · 1935–1998 · Black Panthers · Soul on Ice',
+      excerpt:'Black Panther Party Minister of Information and author of Soul on Ice (1968). Fled to Algeria after a 1968 Oakland shootout with police, established the Party\'s International Section, broke publicly with Huey Newton in 1971, returned to the U.S. in 1975, and became a born-again Christian and Republican. One of the most contradictory figures of the Black liberation movement.' },
+
+    { type:'person', title:'Fred Hampton',
+      href:'person-fred-hampton.html', meta:'Person · 1948–1969 · Black Panthers · Assassinated',
+      excerpt:'Chairman of the Illinois Black Panther Party at 20. Built the Rainbow Coalition uniting street gangs, Puerto Rican nationalists, and poor white Appalachians. Assassinated at 4:45 a.m. on December 4, 1969, by Chicago police acting on an FBI floor plan drawn by informant William O\'Neal. He was 21. Police fired 90–99 rounds. Panthers fired at most one. The $1.85M settlement in 1982 admitted no wrongdoing.' },
+
+    { type:'person', title:'Bobby Seale',
+      href:'person-bobby-seale.html', meta:'Person · 1936–Present · Black Panthers & Chicago Eight',
+      excerpt:'Co-founder and chairman of the Black Panther Party for Self-Defense. Co-wrote the 10-Point Program with Huey Newton in 1966. Defendant in the Chicago Eight trial, where Judge Julius Hoffman ordered him bound and gagged in open court for asserting his right to counsel. All charges were later dropped. His memoir Seize the Time is the primary first-person account of the Panther founding.' },
+
+    { type:'person', title:'Bunchy Carter',
+      href:'person-bunchy-carter.html', meta:'Person · 1942–1969 · Black Panthers · Southern California',
+      excerpt:'Alprentice "Bunchy" Carter founded the Southern California Black Panther Party in 1967, transforming the Slausons street gang into a revolutionary political organization. Poet, organizer, "Mayor of the Ghetto" — assassinated alongside John Huggins at UCLA on January 17, 1969. Declassified FBI documents confirmed COINTELPRO manufactured the conflict that killed him.' },
+
+    { type:'person', title:'Huey P. Newton',
+      href:'person-huey-newton.html', meta:'Person · 1942–1989 · Black Panthers & Community Organizing',
+      excerpt:'Co-founder of the Black Panther Party for Self-Defense (1966). His 10-Point Program combined armed police monitoring with free breakfast programs feeding 20,000 children daily, free health clinics, and sickle cell screening — all of which J. Edgar Hoover\'s COINTELPRO systematically destroyed while calling them the greatest threat to America.' },
+
+    { type:'person', title:'Angela Davis',
+      href:'person-angela-davis.html', meta:'Person · 1944–Present · Civil Rights & Abolition',
+      excerpt:'Philosopher, activist, and political prisoner whose 1970–71 trial became a global human rights cause. Author of Women, Race & Class and Are Prisons Obsolete? Her prison abolition framework predicted the mass incarceration crisis by three decades.' },
+
+    { type:'person', title:'Ida B. Wells',
+      href:'person-ida-wells.html', meta:'Person · 1862–1931 · Journalism & Anti-lynching',
+      excerpt:'Journalist and anti-lynching crusader who documented the use of racial terror as an economic and political control mechanism after Reconstruction. Her investigative work proved that lynching was not about crime — it was about eliminating Black economic competition.' },
+
+    { type:'person', title:'Fannie Lou Hamer',
+      href:'person-fannie-lou-hamer.html', meta:'Person · 1917–1977 · Voting Rights & Organizing',
+      excerpt:'Sharecropper turned civil rights leader who was beaten, jailed, and sterilized without consent for registering to vote. Her 1964 Democratic National Convention testimony — broadcast and then suppressed by LBJ — is among the most powerful political speeches in American history.' },
+
+    { type:'person', title:'Thurgood Marshall',
+      href:'person-thurgood-marshall.html', meta:'Person · 1908–1993 · Law & Civil Rights',
+      excerpt:'Lead attorney in Brown v. Board of Education (1954) and the first Black Supreme Court Justice. Marshall won 29 of 32 cases before the Supreme Court, dismantling the legal architecture of Jim Crow before it was rebuilt through mass incarceration.' },
+
+    { type:'person', title:'Charles Hamilton Houston',
+      href:'person-charles-hamilton-houston.html', meta:'Person · 1895–1950 · Law & Education',
+      excerpt:'The architect of the legal strategy that ended de jure segregation. Houston trained Thurgood Marshall and designed the NAACP\'s decades-long campaign to dismantle Plessy v. Ferguson. He died five years before Brown. Marshall called him "the man who killed Jim Crow."' },
+
+    { type:'person', title:'Sundiata Keita',
+      href:'person-sundiata-keita.html', meta:'Person · c. 1217–c. 1255 · Mali Empire',
+      excerpt:'Founder of the Mali Empire, who united the Mandinka people and defeated the Sosso Empire to create one of the largest political entities of the 13th century. His story — the Lion King of Mali — survived 800 years in oral tradition.' },
+
+    { type:'person', title:'Ira Katznelson',
+      href:'person-ira-katznelson.html', meta:'Person · Scholar · New Deal & Racial Policy',
+      excerpt:'Political scientist whose book "When Affirmative Action Was White" documented how the New Deal and GI Bill were designed to exclude Black Americans through Southern Democratic control of Congressional committees.' },
+
+    { type:'person', title:'Richard Rothstein',
+      href:'person-richard-rothstein.html', meta:'Person · Scholar · Housing & Segregation',
+      excerpt:'Author of "The Color of Law," which documented that residential segregation was not de facto but de jure — created by explicit federal, state, and local policy. His work is the primary source for understanding redlining as government action, not market outcome.' },
+
+    // ── POLICIES ──────────────────────────────────────────────
+    { type:'policy', title:'Home Owners\' Loan Corporation (HOLC), 1933',
+      href:'explore.html', meta:'Policy · 1933 · Federal Housing',
+      excerpt:'Created neighborhood security maps grading areas A–D. Black neighborhoods were graded D (red) regardless of condition, making them ineligible for federally backed mortgage insurance. The practice became known as redlining.' },
+
+    { type:'policy', title:'FHA Underwriting Manual, 1938',
+      href:'explore.html', meta:'Policy · 1938 · Federal Housing Administration',
+      excerpt:'Institutionalized redlining in the federal mortgage guarantee program, explicitly citing "inharmonious racial groups" as grounds for denying insurance in Black neighborhoods. Set the template for 30 years of federally guaranteed segregation.' },
+
+    { type:'policy', title:'GI Bill (Servicemen\'s Readjustment Act), 1944',
+      href:'thread-gi-bill.html', meta:'Policy · 1944 · Congress',
+      excerpt:'Built the white middle class through home loans, college funding, and business grants — administered through local banks and institutions that excluded Black veterans. The largest affirmative action program in American history. For white people only.' },
+
+    { type:'policy', title:'Fair Housing Act, 1968',
+      href:'explore.html', meta:'Policy · 1968 · Civil Rights',
+      excerpt:'Prohibited future housing discrimination but could not undo 35 years of accumulated wealth exclusion. The racial homeownership gap is wider today than it was in 1968. Enforcement has been consistently underfunded.' },
+
+    { type:'policy', title:'Anti-Drug Abuse Act, 1986',
+      href:'thread-war-on-drugs.html', meta:'Policy · 1986 · Congress',
+      excerpt:'Established 100:1 crack-to-powder cocaine sentencing disparity, disproportionately targeting Black communities. Reduced to 18:1 by the Fair Sentencing Act (2010) — but not retroactively.' },
+
+    { type:'policy', title:'Black Codes, 1865',
+      href:'explore.html', meta:'Policy · 1865 · Southern States',
+      excerpt:'Laws passed immediately after emancipation that re-imposed forced labor through vagrancy, apprenticeship, and anti-enticement statutes. Made it illegal for Black people to be unemployed, then gave employers the labor of those convicted. The legal foundation for convict leasing.' },
+
+    { type:'policy', title:'13th Amendment — The Exception Clause, 1865',
+      href:'thread-mass-incarceration.html', meta:'Policy · 1865 · Constitution',
+      excerpt:'The 13th Amendment abolished slavery "except as a punishment for crime." Southern states immediately passed Black Codes to criminalize Black existence and reactivate forced labor through the prison system. The exception was the design.' },
+
+    { type:'policy', title:'Compromise of 1877',
+      href:'thread-lily-white.html', meta:'Policy · 1877 · Reconstruction',
+      excerpt:'The backroom deal that ended Reconstruction — Republicans awarded the disputed 1876 presidential election to Hayes; Democrats got federal troops withdrawn from the South. Black Americans lost all federal protection overnight. Reconstruction\'s promise died in a hotel room.' },
+
+    // ── EVENTS ────────────────────────────────────────────────
+    { type:'event', title:'Fort Pillow Massacre, 1864',
+      href:'today.html', meta:'Event · April 12, 1864 · Civil War',
+      excerpt:'Confederate forces under Nathan Bedford Forrest massacred Black Union soldiers after they surrendered at Fort Pillow, Tennessee. Became a rallying cry for Black military service and civil rights. Forrest later founded the Ku Klux Klan.' },
+
+    { type:'event', title:'Tulsa Race Massacre, 1921',
+      href:'thread-tulsa.html', meta:'Event · May 31–June 1, 1921 · Tulsa, Oklahoma',
+      excerpt:'The destruction of Greenwood ("Black Wall Street"), one of the wealthiest Black communities in America, by a white mob with tacit government support — including use of aircraft. Up to 300 killed. No one convicted. City governments blocked reparations for a century.' },
+
+    { type:'event', title:'Reconstruction, 1865–1877',
+      href:'explore.html', meta:'Event · 1865–1877 · Post-Civil War',
+      excerpt:'The period of federal effort to integrate formerly enslaved people into American civic life — 22 Black congressmen, land redistribution proposals, constitutional amendments. Its violent termination by the Compromise of 1877 established the framework for Jim Crow.' },
+
+    { type:'event', title:'The Great Migration, 1910–1970',
+      href:'thread-great-migration.html', meta:'Event · 1910–1970 · Migration',
+      excerpt:'Six million Black Americans fled the South to escape racial terror and seek economic opportunity. Their arrival in Northern cities triggered white flight, redlining, and accelerated residential segregation.' },
+
+    { type:'event', title:'Bacon\'s Rebellion, 1676',
+      href:'thread-invention-of-race.html', meta:'Event · 1676 · Colonial Virginia',
+      excerpt:'The multiracial uprising of indentured servants that terrified the planter class and directly led to the invention of race as a legal category — elevating poor white colonists above Black and Indigenous laborers to prevent future interracial class solidarity.' },
+
+    { type:'event', title:'Haitian Revolution, 1791–1804',
+      href:'thread-haiti.html', meta:'Event · 1791–1804 · Saint-Domingue',
+      excerpt:'The only successful slave revolution in history. Enslaved Haitians defeated Napoleon\'s army and established the first free Black republic. France forced Haiti to pay $21 billion in today\'s dollars as "reparations" to slaveholders for their lost property.' },
+
+    { type:'event', title:'March on Washington, 1963',
+      href:'thread-civil-rights.html', meta:'Event · August 28, 1963 · Washington D.C.',
+      excerpt:'250,000 people gathered at the National Mall — the largest political demonstration in American history to that point. The march\'s demands included jobs, fair wages, and an end to discrimination. The economic demands were largely ignored by history.' },
+
+    { type:'event', title:'COINTELPRO, 1956–1971',
+      href:'thread-black-panthers.html', meta:'Event · 1956–1971 · FBI Program',
+      excerpt:'The FBI\'s Counter Intelligence Program systematically targeted Black political organizations — the NAACP, SNCC, the Black Panther Party, and Martin Luther King Jr. — through surveillance, infiltration, fabricated charges, and assassination.' },
+
+    // ── PLACES ────────────────────────────────────────────────
+    { type:'place', title:'Greenwood District, Tulsa (Black Wall Street)',
+      href:'thread-tulsa.html', meta:'Place · Tulsa, Oklahoma · 1906–1921',
+      excerpt:'The wealthiest Black community in America before its destruction in the 1921 Tulsa Race Massacre. 35 blocks, 600 businesses, hospitals, schools, and law offices. A case study in how Black wealth accumulation was systematically targeted and destroyed.' },
+
+    { type:'place', title:'Timbuktu, Mali Empire',
+      href:'thread-african-empires.html', meta:'Place · Mali Empire · c. 1300–1591',
+      excerpt:'Center of Islamic scholarship and trade in the Mali and Songhai empires — 25,000 students, the University of Sankore, and over 700,000 manuscripts. Its intellectual tradition was disrupted by the Moroccan invasion of 1591 and the subsequent slave trade.' },
+
+    { type:'place', title:'Córdoba, Al-Andalus',
+      href:'thread-moors.html', meta:'Place · Iberia · 700s–1031',
+      excerpt:'Capital of Moorish Spain and the most advanced city in medieval Europe. Population of 500,000 with 70 libraries, paved streets, and street lighting when London had 15,000 people and no sewers. Its intellectual tradition preserved and advanced Greek philosophy for Europe.' },
+
+    { type:'place', title:'Forsyth County, Georgia',
+      href:'thread-oscarville.html', meta:'Place · Georgia · 1912–Present',
+      excerpt:'Forsyth County was violently emptied of its 1,000 Black residents in 1912. The perpetrators were never prosecuted. The county became a sundown county, remaining 99% white into the 1980s. The land seized from Black families was never returned.' },
+
+    // ── MAPS ──────────────────────────────────────────────────
+    { type:'map', title:'Transatlantic Slave Trade Routes',
+      href:'maps.html', meta:'Map · 1500–1900',
+      excerpt:'Visualizes the scale and geography of the transatlantic slave trade — 12.5 million departures, major ports, routes, and mortality at sea across four centuries.' },
+
+    { type:'map', title:'HOLC Redlining Maps, 1935–1940',
+      href:'maps.html', meta:'Map · 1935–1940',
+      excerpt:'The original HOLC security maps overlaid on modern cities, showing the direct spatial relationship between redlined neighborhoods and current racial wealth, health, and environmental outcomes.' },
+  ];
+
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── NAV SEARCH OVERLAY ────────────────────────────────────
+  const searchToggle    = document.getElementById('searchToggle');
+  const searchOverlayEl = document.getElementById('searchOverlayNav');
+  const searchCloseBtn  = document.getElementById('searchCloseNav');
+  const searchInputNav  = document.getElementById('searchInputNav');
+  const openNavSearch  = () => { searchOverlayEl.classList.add('is-open'); searchOverlayEl.setAttribute('aria-hidden','false'); searchInputNav.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeNavSearch = () => { searchOverlayEl.classList.remove('is-open'); searchOverlayEl.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openNavSearch);
+  searchCloseBtn.addEventListener('click', closeNavSearch);
+  searchOverlayEl.addEventListener('click', e => { if (e.target === searchOverlayEl) closeNavSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeNavSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openNavSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── PAGE SEARCH ───────────────────────────────────────────
+  const pageInput   = document.getElementById('pageSearchInput');
+  const clearBtn    = document.getElementById('clearBtn');
+  const resultList  = document.getElementById('resultList');
+  const searchStatus= document.getElementById('searchStatus');
+  const emptyState  = document.getElementById('emptyState');
+  const noResults   = document.getElementById('noResults');
+
+  let activeType = 'all';
+
+  // Type chips
+  document.querySelectorAll('.search-type-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.search-type-chip').forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      activeType = chip.dataset.type;
+      runSearch(pageInput.value.trim());
+    });
+  });
+
+  function highlight(text, query) {
+    if (!query) return text;
+    const esc = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp(`(${esc})`, 'gi'), '<mark>$1</mark>');
+  }
+
+  function runSearch(query) {
+    clearBtn.classList.toggle('is-visible', query.length > 0);
+
+    if (!query) {
+      resultList.innerHTML = '';
+      emptyState.style.display = '';
+      noResults.style.display = 'none';
+      searchStatus.innerHTML = '';
+      return;
+    }
+
+    const q = query.toLowerCase();
+    const words = q.split(/\s+/).filter(Boolean);
+    const filtered = CORPUS.filter(item => {
+      if (activeType !== 'all' && item.type !== activeType) return false;
+      const hay = (item.title + ' ' + item.excerpt + ' ' + item.meta).toLowerCase();
+      return words.every(w => hay.includes(w));
+    });
+
+    emptyState.style.display = 'none';
+
+    if (filtered.length === 0) {
+      resultList.innerHTML = '';
+      noResults.style.display = '';
+      searchStatus.innerHTML = `No results for <strong>"${query}"</strong>`;
+      return;
+    }
+
+    noResults.style.display = 'none';
+    searchStatus.innerHTML = `<strong>${filtered.length}</strong> result${filtered.length !== 1 ? 's' : ''} for <strong>"${query}"</strong>`;
+
+    resultList.innerHTML = filtered.map(item => `
+      <a class="result-card" href="${item.href}" role="listitem">
+        <span class="result-card__type-badge result-card__type-badge--${item.type}">${item.type}</span>
+        <div class="result-card__body">
+          <div class="result-card__title">${highlight(item.title, query)}</div>
+          <div class="result-card__meta">${item.meta}</div>
+          <div class="result-card__excerpt">${highlight(item.excerpt, query)}</div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  // Debounce
+  let debounceTimer;
+  pageInput.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => runSearch(pageInput.value.trim()), 120);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    pageInput.value = '';
+    pageInput.focus();
+    runSearch('');
+  });
+
+  // Pre-fill from URL ?q=
+  const urlQ = new URLSearchParams(window.location.search).get('q');
+  if (urlQ) {
+    pageInput.value = urlQ;
+    runSearch(urlQ);
+  }
+
+  // ── FIRST-VISIT TOOLTIP ───────────────────────────────────
+  const ftvTooltip  = document.getElementById('ftvTooltip');
+  const ftvDismiss  = document.getElementById('ftvDismiss');
+  const ftvSkip     = document.getElementById('ftvSkip');
+  const FTV_KEY     = 'chain-ftv-dismissed';
+
+  function dismissFtv() {
+    ftvTooltip.classList.remove('is-visible');
+    localStorage.setItem(FTV_KEY, '1');
+  }
+
+  if (!localStorage.getItem(FTV_KEY) && !urlQ) {
+    setTimeout(() => ftvTooltip.classList.add('is-visible'), 700);
+  }
+
+  ftvDismiss.addEventListener('click', dismissFtv);
+  ftvSkip.addEventListener('click', dismissFtv);
+
+  // Hide when user starts typing
+  pageInput.addEventListener('input', () => {
+    if (pageInput.value) ftvTooltip.classList.remove('is-visible');
+  }, { once: true });
+
+  // ── HOVER PREVIEW CARD ────────────────────────────────────
+  const hoverPreview = document.getElementById('hoverPreview');
+  const hpBadge      = document.getElementById('hpBadge');
+  const hpTitle      = document.getElementById('hpTitle');
+  const hpMeta       = document.getElementById('hpMeta');
+  const hpExcerpt    = document.getElementById('hpExcerpt');
+
+  let hoverTimer = null;
+
+  function showPreview(card, item) {
+    hpBadge.textContent   = item.type;
+    hpTitle.textContent   = item.title;
+    hpMeta.textContent    = item.meta;
+    hpExcerpt.textContent = item.excerpt;
+
+    const rect   = card.getBoundingClientRect();
+    const pw     = 320;
+    const margin = 12;
+    let left = rect.right + margin;
+    // Flip left if not enough room on right
+    if (left + pw > window.innerWidth - 8) {
+      left = rect.left - pw - margin;
+    }
+    // Clamp to viewport
+    left = Math.max(8, left);
+    const top = Math.min(
+      rect.top + window.scrollY,
+      window.scrollY + window.innerHeight - hoverPreview.offsetHeight - 12
+    );
+
+    hoverPreview.style.left = left + 'px';
+    hoverPreview.style.top  = top + 'px';
+    hoverPreview.classList.add('is-visible');
+    hoverPreview.setAttribute('aria-hidden', 'false');
+  }
+
+  function hidePreview() {
+    hoverPreview.classList.remove('is-visible');
+    hoverPreview.setAttribute('aria-hidden', 'true');
+  }
+
+  resultList.addEventListener('mouseover', e => {
+    const card = e.target.closest('.result-card');
+    if (!card) return;
+    const href = card.getAttribute('href');
+    const item = CORPUS.find(x => x.href === href);
+    if (!item) return;
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => showPreview(card, item), 180);
+  });
+
+  resultList.addEventListener('mouseout', e => {
+    const card = e.target.closest('.result-card');
+    if (!card) return;
+    clearTimeout(hoverTimer);
+    hidePreview();
+  });
+
+  // Hide on scroll/resize to avoid stale positioning
+  window.addEventListener('scroll', hidePreview, { passive: true });
+  window.addEventListener('resize', hidePreview, { passive: true });
+</script>
+
+</body>
+</html>

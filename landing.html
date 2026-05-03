@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retrieve Your Roots — The story begins long before 1619</title>
+  <meta name="description" content="Before the ships… there were empires. An immersive digital history experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600&display=swap" />
+
+  <style>
+  /* ── Reset ─────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  :root {
+    --bg:       #0d0704;
+    --gold:     #d4843a;
+    --gold-lt:  #e8a84e;
+    --gold-glo: #e8922a;
+    --cta:      #c4521a;
+    --text:     #f5f0ea;
+    --dim:      #c8b49a;
+    --mute:     #6b5040;
+    --serif:    'Playfair Display', Georgia, serif;
+    --sans:     'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ── Utility bar ── */
+  .l-utility-bar {
+    position: relative;
+    z-index: 201;
+    background: rgba(8,4,2,0.97);
+    border-bottom: 1px solid rgba(212,132,58,0.1);
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+    gap: 1rem;
+  }
+  .l-utility-bar__msg {
+    flex: 1;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: rgba(180,148,110,0.65);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .l-utility-bar__msg strong { color: var(--gold); font-weight: 600; }
+  .l-utility-bar__links {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-shrink: 0;
+  }
+  .l-utility-bar__link {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(180,148,110,0.65);
+    transition: color 0.2s;
+  }
+  .l-utility-bar__link:hover { color: var(--dim); }
+  .l-utility-bar__link--cta {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .l-utility-bar__link--cta:hover { color: var(--gold-lt); }
+  @media (max-width: 680px) {
+    .l-utility-bar__msg { display: none; }
+  }
+
+  /* ── Ember canvas (full-page fixed) ───────────────────── */
+  #ember-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── PAGE STACK ────────────────────────────────────────── */
+  .page { position: relative; z-index: 1; }
+
+  /* ═══════════════════════════════════════════════════════
+     NAVBAR
+  ═══════════════════════════════════════════════════════ */
+  .nav {
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+    gap: clamp(1rem, 3vw, 2.5rem);
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+  .nav.scrolled {
+    background: rgba(13,7,4,0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(212,132,58,0.1);
+  }
+
+  /* Wordmark */
+  .nav__logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    flex-shrink: 0;
+  }
+  .nav__logo-retrieve {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .nav__logo-sub {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* Center links */
+  .nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 2rem);
+    margin: 0 auto;
+  }
+  .nav__links a {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(245,240,234,0.72);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav__links a:hover,
+  .nav__links a.active { color: var(--text); }
+  .nav__links a.active {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* CTA pill */
+  .nav__cta {
+    flex-shrink: 0;
+    padding: 0.45rem 1.15rem;
+    background: var(--cta);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav__cta:hover { background: #d45e20; transform: translateY(-1px); }
+
+  /* Today pill */
+  .nav__today {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.32rem 0.75rem;
+    background: rgba(212,132,58,0.12);
+    border: 1px solid rgba(212,132,58,0.25);
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--gold-lt);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .nav__today:hover { background: rgba(212,132,58,0.2); border-color: rgba(212,132,58,0.45); }
+  .nav__today-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold-glo);
+    box-shadow: 0 0 6px rgba(232,146,42,0.8);
+    animation: todayPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes todayPulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:0.6; transform:scale(0.8); }
+  }
+
+  /* ── Hamburger (mobile nav) ── */
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 40px; height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .nav__hamburger:hover { background: rgba(212,132,58,0.1); }
+  .nav__hamburger span {
+    display: block;
+    width: 100%; height: 1.5px;
+    background: rgba(245,240,234,0.7);
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  @media (max-width: 680px) {
+    .nav__links { display: none; }
+    .nav__hamburger { display: flex; }
+    .nav__cta { display: none; }
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 1.5rem 5rem; /* 8rem = 52px nav + 36px utility bar + breathing room */
+    overflow: hidden;
+  }
+
+  /* Radial warm glow from center */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 65% at 50% 44%, rgba(170,60,10,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 35% at 50% 40%, rgba(200,80,20,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 100% 45% at 50% 100%, rgba(8,4,2,0.85) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 40% at 50% 0%,   rgba(8,4,2,0.65) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Lightning crack SVGs */
+  .hero__lightning {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+  }
+
+  /* ── Headline ── */
+  .hero__line {
+    display: block;
+    font-family: var(--serif);
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+  }
+  .hero__line-1 {
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    font-weight: 900;
+    color: var(--text);
+    opacity: 0;
+    animation: fadeUp 0.85s ease 0.4s forwards;
+  }
+  .hero__line-2 {
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--gold);
+    opacity: 0;
+    animation: fadeUp 0.85s ease 0.9s forwards;
+  }
+  .hero__line-3 {
+    font-size: clamp(5.5rem, 14vw, 11rem);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--gold);
+    text-shadow:
+      0 0 50px rgba(232,146,42,0.55),
+      0 0 100px rgba(200,100,20,0.25),
+      0 0 2px rgba(255,200,100,0.4);
+    opacity: 0;
+    animation: scaleGlow 1.1s cubic-bezier(0.16,1,0.3,1) 1.6s forwards;
+  }
+
+  /* ── Subtext ── */
+  .hero__sub {
+    margin-top: 1.5rem;
+    font-family: var(--serif);
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    font-style: italic;
+    color: rgba(245,240,234,0.82);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 2.5s forwards;
+  }
+  .hero__sub strong { font-weight: 700; font-style: normal; color: var(--text); }
+
+  /* ── Search entry block ── */
+  .hero__search-block {
+    margin-top: 2.25rem;
+    width: 100%;
+    max-width: 560px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 2.9s forwards;
+  }
+
+  /* Input row */
+  .hero__search-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .hero__search-input {
+    width: 100%;
+    padding: 0.9rem 3.4rem 0.9rem 1.25rem;
+    background: rgba(20,10,5,0.72);
+    border: 1.5px solid rgba(212,132,58,0.35);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* WCAG AA: placeholder contrast ensured via color below */
+  }
+  .hero__search-input::placeholder {
+    color: rgba(200,180,155,0.5);
+    font-style: italic;
+  }
+  .hero__search-input:focus {
+    border-color: var(--gold);
+    background: rgba(20,10,5,0.88);
+    box-shadow:
+      0 0 0 3px rgba(212,132,58,0.18),
+      0 4px 24px rgba(0,0,0,0.45);
+  }
+  .hero__search-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px;
+    border-radius: 6px;
+    background: var(--cta);
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
+  }
+  .hero__search-btn:hover { background: #d45e20; transform: translateY(calc(-50% - 1px)); }
+  .hero__search-btn svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; }
+
+  /* Question pills */
+  .hero__pills {
+    margin-top: 0.9rem;
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero__pill {
+    padding: 0.52rem 0.95rem;
+    background: rgba(212,132,58,0.08);
+    border: 1px solid rgba(212,132,58,0.28);
+    border-radius: 999px;
+    color: rgba(245,240,234,0.82);
+    font-family: var(--sans);
+    font-size: 0.76rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+    min-height: 36px; /* ≥ touch target via padding */
+    line-height: 1.3;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .hero__pill:hover {
+    background: rgba(212,132,58,0.18);
+    border-color: rgba(212,132,58,0.6);
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+  .hero__pill.active {
+    background: rgba(212,132,58,0.26);
+    border-color: var(--gold);
+    color: var(--gold-lt);
+  }
+  @media (max-width: 480px) {
+    .hero__pills { flex-wrap: wrap; gap: 0.45rem; }
+    .hero__pill  { white-space: normal; }
+  }
+
+  /* Secondary explore link */
+  .hero__explore-link {
+    display: inline-block;
+    margin-top: 1.4rem;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(200,178,148,0.72);
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .hero__explore-link:hover {
+    color: var(--gold-lt);
+    border-bottom-color: rgba(212,132,58,0.4);
+  }
+  .hero__explore-link:visited { color: rgba(180,150,110,0.65); }
+
+  /* Visual hint icons */
+  .hero__hints {
+    margin-top: 1.75rem;
+    display: flex;
+    gap: 1.75rem;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease 3.5s forwards;
+  }
+  .hero__hint {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(180,148,110,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .hero__hint:hover { color: rgba(212,132,58,0.75); }
+  .hero__hint-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  /* ── Mobile hero / search ── */
+  @media (max-width: 480px) {
+    .hero {
+      padding: 6.5rem 1.25rem 4rem;
+    }
+    .hero__search-block {
+      max-width: 100%;
+    }
+    .hero__search-input {
+      font-size: 1rem; /* prevent iOS zoom on focus */
+    }
+    .hero__hints {
+      gap: 1.25rem;
+    }
+  }
+  @media (max-width: 320px) {
+    .hero__line-3 {
+      font-size: 4.8rem;
+    }
+    .hero__line-1, .hero__line-2 {
+      font-size: 2.2rem;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     THE FULL CHAIN
+  ═══════════════════════════════════════════════════════ */
+  .chain {
+    position: relative;
+    z-index: 1;
+    padding: 4rem clamp(1.25rem, 5vw, 5rem) 5rem;
+  }
+
+  /* Section header */
+  .chain__header {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+  .chain__header-line {
+    flex: 1;
+    max-width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,132,58,0.5));
+  }
+  .chain__header-line:last-child {
+    background: linear-gradient(90deg, rgba(212,132,58,0.5), transparent);
+  }
+  .chain__header-text {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* Two-column layout: [timeline] [image] */
+  .chain__layout {
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, 400px);
+    gap: 0 clamp(2rem, 5vw, 5rem);
+    max-width: 1080px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .chain__layout { grid-template-columns: 1fr; }
+    .chain__image-col { order: -1; margin-bottom: 3rem; }
+  }
+
+  /* ── Left: Timeline ── */
+  .timeline {
+    position: relative;
+  }
+
+  .tl-row {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 0 1rem;
+    align-items: start;
+    position: relative;
+    padding-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .tl-row:last-child { padding-bottom: 0; }
+  .tl-row.vis { opacity: 1; transform: translateY(0); }
+
+  /* Spine line between rows — left side now */
+  .tl-row::after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 18px;
+    bottom: -3rem;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(232,146,42,0.55), rgba(212,132,58,0.12));
+    z-index: 0;
+  }
+  .tl-row:last-child::after { display: none; }
+
+  /* Left cell — node dot */
+  .tl-node {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 4px;
+    position: relative;
+    z-index: 2;
+  }
+  .tl-node__dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid rgba(232,146,42,0.5);
+    flex-shrink: 0;
+    transition: box-shadow 0.5s, background 0.5s, border-color 0.5s;
+  }
+  .tl-row.vis .tl-node__dot {
+    background: var(--gold-glo);
+    border-color: var(--gold-glo);
+    box-shadow:
+      0 0 0 4px rgba(232,146,42,0.18),
+      0 0 14px rgba(232,146,42,0.65),
+      0 0 30px rgba(212,132,58,0.3);
+  }
+
+  /* Right cell — text left-aligned */
+  .tl-left {
+    text-align: left;
+    padding-top: 0;
+  }
+  .tl-era {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 0.3rem;
+  }
+  .tl-title {
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .tl-title em { font-style: italic; color: var(--gold); }
+  .tl-body {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--dim);
+    line-height: 1.65;
+  }
+  .tl-body strong { color: var(--text); font-weight: 600; }
+
+  /* ── Stat display (row 4) ── */
+  .tl-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .tl-stat__n {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .tl-stat__n--dim  { color: var(--mute); }
+  .tl-stat__n--gold { color: var(--gold); text-shadow: 0 0 20px rgba(212,132,58,0.4); }
+  .tl-stat__vs { color: var(--mute); font-size: 1rem; }
+
+  /* ── Right column: image ── */
+  .chain__image-col {
+    position: sticky;
+    top: 60px; /* height of sticky nav */
+  }
+  @media (max-width: 860px) {
+    .chain__image-col { position: relative; top: auto; }
+  }
+  .chain__image-frame {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 2/3;
+    background: #1a0c06;
+    box-shadow: 0 12px 70px rgba(0,0,0,0.8), 0 0 0 1px rgba(212,132,58,0.12);
+  }
+  .chain__image-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: saturate(1.15) brightness(0.85);
+    display: block;
+  }
+  /* Warm overlay tint to match reference */
+  .chain__image-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(13,7,4,0.35) 0%, transparent 25%, transparent 65%, rgba(13,7,4,0.7) 100%),
+      radial-gradient(ellipse 80% 50% at 50% 60%, rgba(180,80,10,0.18) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .chain__image-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 2;
+    padding: 1.25rem 1.25rem 1rem;
+  }
+  .chain__image-caption p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.82rem;
+    color: rgba(245,240,234,0.65);
+    line-height: 1.5;
+  }
+  .chain__image-caption span {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-top: 0.25rem;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     SCROLL BUTTON
+  ═══════════════════════════════════════════════════════ */
+  .scroll-btn {
+    position: fixed;
+    bottom: 1.75rem;
+    right: 1.75rem;
+    z-index: 100;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: rgba(30,15,8,0.75);
+    border: 1.5px solid rgba(245,240,234,0.25);
+    color: var(--text);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: border-color 0.2s, background 0.2s, transform 0.15s, opacity 0.4s;
+    opacity: 0;
+    animation: fadeIn 1s ease 3.6s forwards;
+  }
+  .scroll-btn:hover {
+    border-color: var(--gold);
+    background: rgba(212,132,58,0.12);
+    transform: translateY(2px);
+  }
+  .scroll-btn.gone { opacity: 0 !important; pointer-events: none; }
+
+  /* ── Skip link ── */
+  .skip-to-main {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.6rem 1.2rem;
+    background: var(--gold);
+    color: #1a0c06;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: top 0.15s;
+  }
+  .skip-to-main:focus { top: 0.75rem; }
+
+  /* ── Footer ── */
+  .landing-footer {
+    position: relative;
+    z-index: 1;
+    background: rgba(8,4,2,0.92);
+    border-top: 1px solid rgba(212,132,58,0.12);
+    padding: 3rem clamp(1.25rem, 5vw, 5rem) 2rem;
+  }
+  .landing-footer__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 2rem 3rem;
+  }
+  @media (max-width: 860px) {
+    .landing-footer__inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .landing-footer__inner { grid-template-columns: 1fr; }
+  }
+  .landing-footer__brand-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .landing-footer__brand-sub {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--mute);
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+  }
+  .landing-footer__btns {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .landing-footer__btn {
+    padding: 0.45rem 1rem;
+    border-radius: 5px;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .landing-footer__btn--primary {
+    background: var(--cta);
+    color: #fff;
+    border: 1.5px solid var(--cta);
+  }
+  .landing-footer__btn--primary:hover { background: #d45e20; }
+  .landing-footer__btn--outline {
+    background: transparent;
+    color: var(--dim);
+    border: 1.5px solid rgba(245,240,234,0.2);
+  }
+  .landing-footer__btn--outline:hover { border-color: var(--gold); color: var(--text); }
+  .landing-footer__nav-heading {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.85rem;
+  }
+  .landing-footer__nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .landing-footer__nav-list a {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--mute);
+    transition: color 0.2s;
+  }
+  .landing-footer__nav-list a:hover { color: var(--dim); }
+  .landing-footer__bottom {
+    max-width: 1080px;
+    margin: 2rem auto 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(245,240,234,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .landing-footer__legal {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    color: rgba(107,80,64,0.7);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     KEYFRAMES
+  ═══════════════════════════════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes scaleGlow {
+    0%   { opacity: 0; transform: scale(0.84); }
+    55%  { opacity: 1; transform: scale(1.035); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  </style>
+</head>
+<body>
+
+<!-- Full-page ember canvas -->
+<a class="skip-to-main" href="#hero">Skip to main content</a>
+
+<canvas id="ember-canvas" aria-hidden="true"></canvas>
+
+<div class="page">
+
+<!-- ════════════════════════════════
+     UTILITY BAR
+════════════════════════════════ -->
+<div class="l-utility-bar" role="banner" aria-label="Site utility bar">
+  <p class="l-utility-bar__msg">
+    <strong>New:</strong> The story begins long before 1619 — explore the full chain of causes.
+  </p>
+  <nav class="l-utility-bar__links" aria-label="Utility navigation">
+    <a href="about.html"      class="l-utility-bar__link">About</a>
+    <a href="newsletter.html" class="l-utility-bar__link">Newsletter</a>
+    <a href="donate.html"     class="l-utility-bar__link l-utility-bar__link--cta">Donate</a>
+  </nav>
+</div>
+
+<!-- ════════════════════════════════
+     NAVBAR
+════════════════════════════════ -->
+<nav class="nav" id="navbar" aria-label="Primary navigation">
+  <a href="home.html" class="nav__logo" aria-label="Retrieve Your Roots home">
+    <span class="nav__logo-retrieve">Retrieve</span>
+    <span class="nav__logo-sub">Your Roots</span>
+  </a>
+  <ul class="nav__links">
+    <li><a href="explore.html">Explore</a></li>
+    <li><a href="threads.html">Threads</a></li>
+    <li><a href="maps.html">Maps &amp; Timelines</a></li>
+    <li><a href="learn.html">Learn</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:0.65rem;flex-shrink:0;">
+    <a href="today.html" class="nav__today" aria-label="Today in Black history">
+      <span class="nav__today-dot" aria-hidden="true"></span>Today
+    </a>
+    <a href="threads.html" class="nav__cta">Start the Journey →</a>
+  </div>
+  <button class="nav__hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ════════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section class="hero" id="hero">
+
+  <!-- Lightning cracks -->
+  <div class="hero__lightning" aria-hidden="true">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;overflow:hidden" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <polyline points="280,0 310,95 285,170 345,290 320,400"
+        stroke="rgba(220,130,40,0.55)" stroke-width="1.2" fill="none"
+        stroke-linecap="round"
+        style="opacity:0;animation:crackPulse 13s 1s ease-in-out infinite"/>
+      <polyline points="980,0 950,70 990,150 960,250 1010,360"
+        stroke="rgba(220,130,40,0.4)" stroke-width="0.9" fill="none"
+        stroke-linecap="round"
+        style="opacity:0;animation:crackPulse 17s 4s ease-in-out infinite"/>
+      <polyline points="1300,180 1265,280 1310,360 1280,460"
+        stroke="rgba(200,110,30,0.45)" stroke-width="0.8" fill="none"
+        stroke-linecap="round"
+        style="opacity:0;animation:crackPulse 11s 7s ease-in-out infinite"/>
+      <polyline points="120,250 155,370 125,450 160,530"
+        stroke="rgba(220,130,40,0.35)" stroke-width="0.7" fill="none"
+        stroke-linecap="round"
+        style="opacity:0;animation:crackPulse 15s 2.5s ease-in-out infinite"/>
+    </svg>
+    <style>
+    @keyframes crackPulse {
+      0%,80%,100% { opacity:0 }
+      85% { opacity:1 }
+      92% { opacity:0.4 }
+      95% { opacity:0.9 }
+    }
+    </style>
+  </div>
+
+  <div class="hero__content">
+    <h1>
+      <span class="hero__line hero__line-1">The story begins</span>
+      <span class="hero__line hero__line-2">long before</span>
+      <span class="hero__line hero__line-3">1619.</span>
+    </h1>
+
+    <p class="hero__sub">Before the ships… <strong>there were empires.</strong></p>
+
+    <!-- Primary interaction: question-driven search -->
+    <div class="hero__search-block">
+      <div class="hero__search-row">
+        <input
+          id="heroSearch"
+          class="hero__search-input"
+          type="text"
+          placeholder="What's your question about how history shapes today?"
+          aria-label="Search or ask a question about history"
+          autocomplete="off"
+        />
+        <button class="hero__search-btn" aria-label="Search" id="heroSearchBtn">
+          <!-- Arrow right icon -->
+          <svg viewBox="0 0 16 16" aria-hidden="true"><line x1="3" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12"/></svg>
+        </button>
+      </div>
+
+      <!-- 3 rotating question pills -->
+      <div class="hero__pills" id="heroPills" role="group" aria-label="Quick-select questions">
+        <!-- Populated by JS from the 6 available questions -->
+      </div>
+
+      <!-- Secondary action: plain text link -->
+      <a href="thread-african-empires.html" class="hero__explore-link">
+        Or explore African civilizations →
+      </a>
+    </div>
+
+    <!-- Tertiary visual hints -->
+    <div class="hero__hints">
+      <a href="threads.html" class="hero__hint"><span class="hero__hint-icon">📜</span> Threads</a>
+      <a href="maps.html" class="hero__hint"><span class="hero__hint-icon">🗺</span> Maps</a>
+      <a href="explore.html" class="hero__hint"><span class="hero__hint-icon">📅</span> Timeline</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════
+     THE FULL CHAIN
+════════════════════════════════ -->
+<section class="chain" id="chain">
+
+  <div class="chain__header">
+    <div class="chain__header-line"></div>
+    <span class="chain__header-text">The Full Chain</span>
+    <div class="chain__header-line"></div>
+  </div>
+
+  <div class="chain__layout">
+
+    <!-- Timeline column -->
+    <div class="timeline">
+
+      <!-- Row 1 -->
+      <div class="tl-row" id="tl1">
+        <div class="tl-node"><div class="tl-node__dot"></div></div>
+        <div class="tl-left">
+          <div class="tl-era">300–1600 CE</div>
+          <h2 class="tl-title">Sovereign<br />Civilizations</h2>
+          <p class="tl-body">
+            Thriving empires, immense wealth, and vast knowledge <strong>flourished</strong> across Africa long before the invasions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="tl-row" id="tl2">
+        <div class="tl-node"><div class="tl-node__dot"></div></div>
+        <div class="tl-left">
+          <div class="tl-era">1441–1867 CE</div>
+          <h2 class="tl-title">The Transatlantic<br /><em>Disruption</em></h2>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="tl-row" id="tl3">
+        <div class="tl-node"><div class="tl-node__dot"></div></div>
+        <div class="tl-left">
+          <div class="tl-era">1865–1877</div>
+          <h2 class="tl-title"><em>Redlining</em> America</h2>
+        </div>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="tl-row" id="tl4">
+        <div class="tl-node"><div class="tl-node__dot"></div></div>
+        <div class="tl-left">
+          <div class="tl-era">1934–1968 · Today</div>
+          <div class="tl-stat">
+            <span class="tl-stat__n tl-stat__n--dim">$24k</span>
+            <span class="tl-stat__vs">vs</span>
+            <span class="tl-stat__n tl-stat__n--gold">$188k</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+
+    <!-- Right: image -->
+    <div class="chain__image-col">
+      <div class="chain__image-frame">
+        <img
+          src="images/sankore-mosque.jpg"
+          alt="The Sankore Mosque of Timbuktu at golden hour — camels and merchants in the foreground"
+          loading="lazy"
+          width="800"
+          height="1067"
+        />
+        <div class="chain__image-caption">
+          <p>"Before the ships — the cities, the scholars, the gold."</p>
+          <span>West Africa · Timbuktu · c. 1300–1600 CE</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /chain__layout -->
+</section>
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer class="landing-footer" role="contentinfo" aria-label="Site footer">
+  <div class="landing-footer__inner">
+    <div>
+      <div class="landing-footer__brand-name">Retrieve Your Roots</div>
+      <p class="landing-footer__brand-sub">A digital history platform tracing the full arc of African and Black history — from sovereign civilizations to the present day.</p>
+      <div class="landing-footer__btns">
+        <a href="donate.html" class="landing-footer__btn landing-footer__btn--primary">Donate</a>
+        <a href="newsletter.html" class="landing-footer__btn landing-footer__btn--outline">Newsletter</a>
+      </div>
+    </div>
+    <nav aria-label="Explore navigation">
+      <p class="landing-footer__nav-heading">Explore</p>
+      <ul class="landing-footer__nav-list">
+        <li><a href="threads.html">All Threads</a></li>
+        <li><a href="explore.html">Encyclopedia</a></li>
+        <li><a href="maps.html">Maps &amp; Timelines</a></li>
+        <li><a href="today.html">Today in History</a></li>
+        <li><a href="sources.html">Sources Archive</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Learn navigation">
+      <p class="landing-footer__nav-heading">Learn</p>
+      <ul class="landing-footer__nav-list">
+        <li><a href="teaching.html">Teaching Resources</a></li>
+        <li><a href="learn.html">Learning Paths</a></li>
+        <li><a href="teaching.html#lessons">Lesson Plans</a></li>
+        <li><a href="teaching.html#guides">Discussion Guides</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="About navigation">
+      <p class="landing-footer__nav-heading">About</p>
+      <ul class="landing-footer__nav-list">
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#team">Editorial Team</a></li>
+        <li><a href="about.html#methodology">Methodology</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="landing-footer__bottom">
+    <p class="landing-footer__legal">© 2026 Retrieve Your Roots. Content under Creative Commons Attribution 4.0.</p>
+  </div>
+</footer>
+
+</div><!-- /page -->
+
+<!-- Scroll indicator -->
+<button class="scroll-btn" id="scrollBtn" aria-label="Scroll down">↓</button>
+
+<!-- ════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════ -->
+<script>
+/* ── Ember / dust particle system ────────────────────────── */
+(function () {
+  const canvas = document.getElementById('ember-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  // Particle factory
+  function mkP(scatter) {
+    const kind = Math.random();
+    const p = {
+      x:    rand(0, W),
+      y:    scatter ? rand(-20, H + 20) : H + rand(0, 40),
+      vx:   rand(-0.18, 0.22),
+      vy:   rand(-0.5, -0.15),
+      r:    kind < 0.55 ? rand(0.35, 1.0)
+              : kind < 0.85 ? rand(0.8, 2.0)
+              : rand(0.3, 0.7),
+      kind: kind < 0.55 ? 'd' : kind < 0.85 ? 'e' : 's', // dust, ember, spark
+      life: 0,
+      max:  rand(120, 350),
+      twk:  Math.random() < 0.28,
+      tph:  rand(0, Math.PI * 2),
+    };
+    if (scatter) p.life = rand(0, p.max);
+    return p;
+  }
+
+  const COUNT = 110;
+  const pool = Array.from({length: COUNT}, () => mkP(true));
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+
+    for (let i = 0; i < pool.length; i++) {
+      const p = pool[i];
+      p.x   += p.vx;
+      p.y   += p.vy;
+      p.life++;
+      p.tph += 0.055;
+      if (p.life >= p.max) { pool[i] = mkP(false); continue; }
+
+      // Opacity envelope
+      const fi = p.max * 0.1, fo = p.max * 0.82;
+      let a = p.life < fi ? p.life / fi
+            : p.life > fo ? 1 - (p.life - fo) / (p.max - fo)
+            : 1;
+      if (p.twk) a *= 0.5 + 0.5 * Math.sin(p.tph);
+      a = Math.max(0, Math.min(1, a));
+
+      if (p.kind === 'd') {
+        // soft dust grain
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${rand(18,30)},60%,58%,${a * 0.42})`;
+        ctx.fill();
+
+      } else if (p.kind === 'e') {
+        // glowing ember blob
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.5);
+        g.addColorStop(0,   `hsla(${rand(22,38)},95%,78%,${a * 0.95})`);
+        g.addColorStop(0.35,`hsla(${rand(20,32)},85%,62%,${a * 0.55})`);
+        g.addColorStop(1,   `hsla(22,70%,45%,0)`);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+
+      } else {
+        // spark streak
+        ctx.save();
+        ctx.strokeStyle = `rgba(245,195,95,${a * 0.65})`;
+        ctx.lineWidth = 0.7;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p.x - p.vx * 7, p.y - p.vy * 7);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+  frame();
+})();
+
+
+/* ── Navbar scroll ─────────────────────────────────────── */
+(function(){
+  const nav = document.getElementById('navbar');
+  let t = false;
+  function upd(){ nav.classList.toggle('scrolled', scrollY > 20); t = false; }
+  window.addEventListener('scroll', ()=>{ if(!t){ requestAnimationFrame(upd); t=true; }}, {passive:true});
+})();
+
+
+/* ── Timeline reveal ───────────────────────────────────── */
+(function(){
+  const rows = document.querySelectorAll('.tl-row');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('vis'), i * 100);
+      }
+    });
+  }, { threshold: 0.2 });
+  rows.forEach(r => obs.observe(r));
+})();
+
+
+/* ── Scroll button ─────────────────────────────────────── */
+(function(){
+  const btn = document.getElementById('scrollBtn');
+  btn.addEventListener('click', () => {
+    if (scrollY < 50) {
+      document.getElementById('chain').scrollIntoView({behavior:'smooth'});
+    } else {
+      scrollBy({top: innerHeight * 0.8, behavior:'smooth'});
+    }
+  });
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('gone', scrollY + innerHeight >= document.body.scrollHeight - 80);
+  }, {passive:true});
+})();
+
+
+/* ── Question pills ────────────────────────────────────── */
+(function(){
+  // Each entry: [question text, destination thread page]
+  const QUESTIONS = [
+    ['Why is the wealth gap so large today?',               'thread-stolen-labor.html'],
+    ['What happened after slavery ended?',                  'thread-end-of-slavery.html'],
+    ['How did redlining shape American cities?',            'thread-displacement.html'],
+    ['Which African civilizations came before colonization?','thread-african-empires.html'],
+    ['What is the legacy of the Transatlantic slave trade?','thread-transatlantic-slave-trade.html'],
+    ['How does mass incarceration connect to history?',     'thread-mass-incarceration.html'],
+    ['Why do racial health disparities exist?',             'thread-health-disparities.html'],
+    ['How have voting rights been suppressed?',             'thread-voting-rights.html'],
+    ['What caused the Great Migration?',                    'thread-great-migration.html'],
+    ['What happened at Tulsa in 1921?',                     'thread-tulsa.html'],
+    ['Who were the Moors and why does it matter?',          'thread-moors.html'],
+    ['How did the GI Bill exclude Black veterans?',         'thread-gi-bill.html'],
+  ];
+
+  const pillsEl   = document.getElementById('heroPills');
+  const inputEl   = document.getElementById('heroSearch');
+  const searchBtn = document.getElementById('heroSearchBtn');
+
+  // Show 3 questions, rotated each page load
+  const offset = Math.floor(Math.random() * QUESTIONS.length);
+  const shown  = [0, 1, 2].map(i => QUESTIONS[(offset + i) % QUESTIONS.length]);
+
+  shown.forEach(([q, href]) => {
+    const btn = document.createElement('button');
+    btn.className = 'hero__pill';
+    btn.textContent = q;
+    btn.setAttribute('type', 'button');
+    btn.dataset.href = href;
+    btn.addEventListener('click', () => {
+      // Fill input + mark pill active — single click navigates directly
+      inputEl.value = q;
+      pillsEl.querySelectorAll('.hero__pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      window.location.href = href;
+    });
+    pillsEl.appendChild(btn);
+  });
+
+  // Search submit — active pill goes direct to thread; typed text goes to search.html
+  function doSearch() {
+    const q = inputEl.value.trim();
+    if (!q) { inputEl.focus(); return; }
+    const active = pillsEl.querySelector('.hero__pill.active');
+    if (active && active.dataset.href) {
+      window.location.href = active.dataset.href;
+    } else {
+      window.location.href = 'search.html?q=' + encodeURIComponent(q);
+    }
+  }
+  searchBtn.addEventListener('click', doSearch);
+  inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+})();
+
+
+/* ── Hamburger mobile nav ──────────────────────────────── */
+(function(){
+  const btn   = document.getElementById('navHamburger');
+  const links = document.querySelector('.nav__links');
+  const cta   = document.querySelector('.nav__cta');
+  if (!btn || !links) return;
+
+  let open = false;
+
+  // Create mobile drawer on first open
+  let drawer;
+  function buildDrawer() {
+    drawer = document.createElement('div');
+    drawer.id = 'mobileDrawer';
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.style.cssText = [
+      'position:fixed;inset:0;z-index:190',
+      'background:rgba(8,4,2,0.97)',
+      'display:flex;flex-direction:column',
+      'padding:4.5rem 1.5rem 2rem',
+      'gap:1.5rem',
+      'transform:translateX(100%)',
+      'transition:transform 0.3s cubic-bezier(0.16,1,0.3,1)',
+    ].join(';');
+
+    // Clone nav links into drawer — matches main site nav
+    const navItems = [
+      ['explore.html',   'Explore'],
+      ['threads.html',   'Threads'],
+      ['maps.html',      'Maps & Timelines'],
+      ['learn.html',     'Learn'],
+      ['teaching.html',  'Teaching'],
+      ['today.html',     'Today in History'],
+    ];
+    navItems.forEach(([href, label]) => {
+      const a = document.createElement('a');
+      a.href = href; a.textContent = label;
+      a.style.cssText = 'font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--text);text-decoration:none;';
+      a.addEventListener('click', closeMenu);
+      drawer.appendChild(a);
+    });
+
+    // CTA
+    const ctaEl = document.createElement('a');
+    ctaEl.href = 'threads.html';
+    ctaEl.textContent = 'Start the Journey →';
+    ctaEl.style.cssText = 'margin-top:auto;padding:0.9rem 1.5rem;background:var(--cta);color:#fff;font-family:var(--sans);font-size:0.9rem;font-weight:700;border-radius:8px;text-align:center;text-decoration:none;';
+    drawer.appendChild(ctaEl);
+
+    document.body.appendChild(drawer);
+  }
+
+  function openMenu() {
+    if (!drawer) buildDrawer();
+    open = true;
+    drawer.style.transform = 'translateX(0)';
+    drawer.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close navigation menu');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    open = false;
+    if (drawer) {
+      drawer.style.transform = 'translateX(100%)';
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open navigation menu');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', () => open ? closeMenu() : openMenu());
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) closeMenu(); });
+})();
+
+
+/* ── Smooth anchor ─────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+
+</body>
+</html>

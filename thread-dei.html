@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built to Be Dismantled: The DEI Backlash — Thread — Chain</title>
+  <meta property="og:title" content="Built to Be Dismantled: The DEI Backlash — Thread" />
+  <meta property="og:description" content="DEI did not begin as a corporate HR program. It began as a legal mandate — the Civil Rights Act of 1964 and Executive Order 11246. This thread traces how tha..." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://chain.education/thread-dei.html" />
+  <meta name="description" content="DEI did not begin as a corporate HR program. It began as a legal mandate — the Civil Rights Act of 1964 and Executive Order 11246. This thread traces how that mandate was diluted, reframed, performed, and is now being systematically dismantled — and why that dismantling follows a pattern 150 years old." />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    /* Accent: cyan — #0891b2 / #a5f3fc */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(8,145,178,.2) 0%,transparent 70%);pointer-events:none}
+    .thread-hero__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6);position:relative}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#a5f3fc;margin-bottom:var(--space-5)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#0891b2;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:#ffffff;line-height:1.1;max-width:780px;margin-bottom:var(--space-6)}
+    .thread-hero__title em{font-style:italic;color:#a5f3fc}
+    .thread-hero__deck{font-family:var(--font-ui);font-size:1.05rem;line-height:1.7;color:var(--ink-300);max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta-row{display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center;border-top:1px solid rgba(255,255,255,.08);padding-top:var(--space-6)}
+    .thread-hero__meta-item{display:flex;flex-direction:column;gap:2px}
+    .thread-hero__meta-label{font-family:var(--font-ui);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500)}
+    .thread-hero__meta-value{font-family:var(--font-ui);font-size:.9rem;font-weight:500;color:var(--ink-200)}
+    .argument-bar{border-left:3px solid #0891b2;padding:var(--space-5) var(--space-6);margin:var(--space-10) auto;max-width:1100px;background:rgba(8,145,178,.07)}
+    .argument-bar__inner{max-width:1100px;margin:0 auto;padding:0 var(--space-6)}
+    .argument-bar__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0891b2;margin-bottom:var(--space-2)}
+    .argument-bar__text{font-family:var(--font-editorial);font-size:1.15rem;font-style:italic;color:var(--ink-800);line-height:1.6}
+    [data-theme=dark] .argument-bar__text{color:var(--ink-200)}
+    .thread-body{max-width:1100px;margin:0 auto;padding:var(--space-12) var(--space-6);display:grid;grid-template-columns:1fr 280px;gap:var(--space-12);align-items:start}
+    @media(max-width:860px){.thread-body{grid-template-columns:1fr}}
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-12) 0 var(--space-8)}
+    .era-divider__badge{flex-shrink:0;font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:#0891b2;padding:var(--space-1) var(--space-3);border-radius:2px}
+    .era-divider__line{flex:1;height:1px;background:var(--ink-200)}
+    [data-theme=dark] .era-divider__line{background:var(--ink-700)}
+    .era-divider__label{font-family:var(--font-ui);font-size:.8rem;font-weight:600;color:var(--ink-400)}
+    .entry{margin-bottom:var(--space-12);padding-bottom:var(--space-12);border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .entry{border-bottom-color:var(--ink-800)}
+    .entry:last-child{border-bottom:none}
+    .entry__header{display:flex;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-4)}
+    .entry__num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#0891b2;color:#fff;font-family:var(--font-ui);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .entry__meta{display:flex;flex-direction:column;gap:2px}
+    .entry__date{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0891b2}
+    .entry__title{font-family:var(--font-editorial);font-size:1.35rem;font-weight:700;color:var(--ink-900);line-height:1.2}
+    [data-theme=dark] .entry__title{color:var(--ink-50)}
+    .entry__body{font-family:var(--font-ui);font-size:.97rem;line-height:1.8;color:var(--ink-700);padding-left:52px}
+    [data-theme=dark] .entry__body{color:var(--ink-300)}
+    .entry__body p{margin-bottom:var(--space-4)}
+    .entry__body p:last-child{margin-bottom:0}
+    .stat-highlight{display:inline;font-family:var(--font-editorial);font-size:1.1em;font-weight:700;color:#0891b2}
+    .pull-quote{border-left:3px solid #0891b2;padding:var(--space-4) var(--space-6);margin:var(--space-6) 0;background:var(--ink-50)}
+    [data-theme=dark] .pull-quote{background:var(--ink-800)}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:1.1rem;font-style:italic;line-height:1.6;color:var(--ink-800);margin-bottom:var(--space-2)}
+    [data-theme=dark] .pull-quote__text{color:var(--ink-200)}
+    .pull-quote__attr{font-family:var(--font-ui);font-size:.78rem;font-weight:600;color:var(--ink-400)}
+
+    /* Pledge box — unique component: 2020 pledges vs 2025 reality */
+    .pledge-box{border:1px solid var(--ink-200);border-radius:4px;overflow:hidden;margin:var(--space-6) 0}
+    [data-theme=dark] .pledge-box{border-color:var(--ink-700)}
+    .pledge-box__header{display:grid;grid-template-columns:1fr 1fr;background:var(--ink-900)}
+    .pledge-box__col-head{padding:var(--space-3) var(--space-4);font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400)}
+    .pledge-box__col-head--pledge{color:#a5f3fc}
+    .pledge-box__col-head--reality{color:#fca5a5}
+    .pledge-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--ink-100)}
+    [data-theme=dark] .pledge-row{border-bottom-color:var(--ink-700)}
+    .pledge-row:last-child{border-bottom:none}
+    .pledge-cell{padding:var(--space-3) var(--space-4);font-family:var(--font-ui);font-size:.82rem;line-height:1.4;color:var(--ink-700);border-right:1px solid var(--ink-100)}
+    [data-theme=dark] .pledge-cell{color:var(--ink-300);border-right-color:var(--ink-700)}
+    .pledge-cell:last-child{border-right:none}
+    .pledge-cell--promise{background:rgba(8,145,178,.04)}
+    .pledge-cell--broke{background:rgba(220,38,38,.04);color:var(--ink-600)}
+    [data-theme=dark] .pledge-cell--broke{color:var(--ink-400)}
+    .pledge-cell strong{display:block;margin-bottom:2px;font-weight:600;color:var(--ink-800)}
+    [data-theme=dark] .pledge-cell strong{color:var(--ink-100)}
+
+    .consequence-box{background:rgba(8,145,178,.07);border:1px solid rgba(8,145,178,.22);border-radius:4px;padding:var(--space-5);margin:var(--space-6) 0}
+    .consequence-box__label{font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0891b2;margin-bottom:var(--space-3)}
+    .consequence-box__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .consequence-box__list li{font-family:var(--font-ui);font-size:.88rem;color:var(--ink-700);padding-left:var(--space-4);position:relative;line-height:1.5}
+    [data-theme=dark] .consequence-box__list li{color:var(--ink-300)}
+    .consequence-box__list li::before{content:'→';position:absolute;left:0;color:#0891b2;font-weight:700}
+    .thread-sidebar{position:sticky;top:var(--space-8)}
+    .sidebar-widget{background:var(--ink-50);border:1px solid var(--ink-100);border-radius:4px;padding:var(--space-5);margin-bottom:var(--space-5)}
+    [data-theme=dark] .sidebar-widget{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-widget__title{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400);margin-bottom:var(--space-4)}
+    .toc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-1)}
+    .toc-item a{display:block;font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-1) var(--space-2);border-left:2px solid transparent;transition:all .15s}
+    .toc-item a:hover,.toc-item--active a{color:#0891b2;border-left-color:#0891b2;background:rgba(8,145,178,.05)}
+    .related-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2)}
+    .related-list a{font-family:var(--font-ui);font-size:.82rem;color:var(--ink-500);text-decoration:none;padding:var(--space-2);display:block;border-radius:3px;transition:background .15s}
+    .related-list a:hover{background:var(--ink-100);color:var(--ink-800)}
+    [data-theme=dark] .related-list a:hover{background:var(--ink-700);color:var(--ink-100)}
+    .tts-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--space-2);background:none;border:1px solid var(--ink-200);border-radius:3px;padding:var(--space-3);font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-500);cursor:pointer;transition:all .15s}
+    [data-theme=dark] .tts-btn{border-color:var(--ink-600);color:var(--ink-400)}
+    .tts-btn:hover{border-color:#0891b2;color:#0891b2}
+    .tts-btn svg{flex-shrink:0}
+    .causal-chain{background:var(--ink-900);padding:var(--space-12) var(--space-6);margin:var(--space-16) 0 0}
+    .causal-chain__inner{max-width:1100px;margin:0 auto}
+    .causal-chain__title{font-family:var(--font-editorial);font-size:1.5rem;font-weight:700;color:var(--ink-0);margin-bottom:var(--space-8);text-align:center}
+    .chain-steps{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0}
+    .chain-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-2);flex:0 0 auto}
+    .chain-step__node{width:52px;height:52px;border-radius:50%;border:2px solid #0891b2;background:rgba(8,145,178,.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-ui);font-size:.62rem;font-weight:700;color:#a5f3fc;line-height:1.2;padding:4px;text-align:center}
+    .chain-step__label{font-family:var(--font-ui);font-size:.68rem;color:var(--ink-400);max-width:80px;line-height:1.3}
+    .chain-arrow{color:#0891b2;font-size:1.2rem;padding:0 var(--space-1);align-self:center;padding-bottom:24px}
+    .thread-cta{background:var(--ink-50);border-top:1px solid var(--ink-100);padding:var(--space-12) var(--space-6)}
+    [data-theme=dark] .thread-cta{background:var(--ink-900);border-top-color:var(--ink-800)}
+    .thread-cta__inner{max-width:640px;margin:0 auto;text-align:center}
+    .thread-cta__title{font-family:var(--font-editorial);font-size:1.6rem;font-weight:700;color:var(--ink-900);margin-bottom:var(--space-4)}
+    [data-theme=dark] .thread-cta__title{color:var(--ink-50)}
+    .thread-cta__body{font-family:var(--font-ui);font-size:.95rem;line-height:1.7;color:var(--ink-500);margin-bottom:var(--space-6)}
+    .thread-cta__btn{display:inline-block;background:#0891b2;color:#fff;font-family:var(--font-ui);font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:var(--space-3) var(--space-7);border-radius:2px;transition:background .15s}
+    .thread-cta__btn:hover{background:#0e7490}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    .site-nav{background:var(--ink-900);border-bottom:1px solid rgba(255,255,255,.07);padding:0 var(--space-6);display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100}
+    .site-nav__logo{font-family:var(--font-editorial);font-size:1.1rem;font-weight:700;color:#fff !important;text-decoration:none}
+    .site-nav__links{display:flex;align-items:center;gap:var(--space-6)}
+    .site-nav__link{font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:var(--ink-400);text-decoration:none;transition:color .15s}
+    .site-nav__link:hover{color:var(--ink-0)}
+    .site-nav__theme-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:var(--space-1) var(--space-3);font-family:var(--font-ui);font-size:.75rem;color:var(--ink-400);cursor:pointer;transition:all .15s}
+    .site-nav__theme-btn:hover{border-color:rgba(255,255,255,.4);color:var(--ink-100)}
+    .site-footer{background:var(--ink-900);border-top:1px solid rgba(255,255,255,.07);padding:var(--space-8) var(--space-6);text-align:center}
+    .site-footer__text{font-family:var(--font-ui);font-size:.8rem;color:var(--ink-500);line-height:1.6}
+    .site-footer__text a{color:var(--ink-400);text-decoration:none}
+    .site-footer__text a:hover{color:var(--ink-200)}
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="home.html" class="site-nav__logo">Chain</a>
+    <div class="site-nav__links">
+      <a href="threads.html" class="site-nav__link">All threads</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+      <button class="site-nav__theme-btn" id="theme-toggle">Light</button>
+    </div>
+  </nav>
+
+  <header class="thread-hero">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot" aria-hidden="true"></span>Policy · Backlash · Power</div>
+      <h1 class="thread-hero__title">Built to Be Dismantled: <em>The DEI Backlash</em></h1>
+      <p class="thread-hero__deck">DEI did not begin as a corporate HR program. It began as a legal mandate — the Civil Rights Act of 1964 and Executive Order 11246. This thread traces how that mandate was diluted into voluntary programs, performed after George Floyd's murder, and is now being systematically dismantled. The dismantling follows a pattern 150 years old: every time Black Americans make documented political or economic gains, the law is changed to take them back.</p>
+      <div class="thread-hero__meta-row">
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Period</span><span class="thread-hero__meta-value">1964 — Present</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Entries</span><span class="thread-hero__meta-value">9 documented events</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Domain</span><span class="thread-hero__meta-value">Policy · Law · Corporate Power</span></div>
+        <div class="thread-hero__meta-item"><span class="thread-hero__meta-label">Status</span><span class="thread-hero__meta-value">Live — 2025</span></div>
+      </div>
+    </div>
+  </header>
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">Built to Be Dismantled: The DEI Backlash — Thread</span>
+    </div>
+  </div>
+</nav>
+<!-- CONTEXT RIBBON — thread orientation tracker -->
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon" role="complementary" aria-label="Thread context">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <!-- populated by thread-journey.js -->
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>66</strong> Threads</span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>9</strong> Eras</span>
+    </div>
+    <nav class="context-ribbon__nav" aria-label="Quick access">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
+        <span class="context-ribbon__live-dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+
+  <div class="argument-bar">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__label">The argument</div>
+      <p class="argument-bar__text">The current assault on DEI is being framed as a defense of meritocracy. The historical record shows something different: it is the latest iteration of a 150-year pattern in which legal remedies for documented racial harm are dismantled the moment they begin to work. Reconstruction was dismantled. The Freedmen's Bureau was defunded. The Voting Rights Act was gutted. Affirmative action was reframed as "reverse discrimination" and then abolished. The question in each case is the same: was the remedy dismantled because it was unjust, or because it was effective?</p>
+    </div>
+  </div>
+
+  <div class="thread-body">
+    <main id="thread-main">
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 1</span><div class="era-divider__line"></div><span class="era-divider__label">The Legal Mandate, 1964–1968</span></div>
+
+      <article class="entry reveal" id="entry-1">
+        <div class="entry__header"><div class="entry__num">1</div><div class="entry__meta"><span class="entry__date">July 2, 1964 — The Civil Rights Act &amp; Executive Order 11246</span><h2 class="entry__title">DEI Began as a Legal Requirement, Not a Corporate Value Statement</h2></div></div>
+        <div class="entry__body">
+          <p>The Civil Rights Act of 1964 made it illegal to discriminate in employment on the basis of race, color, religion, sex, or national origin. Title VII created the Equal Employment Opportunity Commission (EEOC) to enforce this prohibition. This was not a voluntary diversity initiative. It was a federal law with penalties for violation.</p>
+          <p>President Lyndon Johnson went further. Executive Order 11246, issued in September 1965, required federal contractors — companies that do business with the U.S. government — to take "affirmative action" to ensure that employees and applicants were not discriminated against. The order required written affirmative action plans, goals and timetables for increasing the representation of underrepresented groups, and good-faith efforts to reach those goals. Federal contracts could be terminated for noncompliance.</p>
+          <p>Johnson framed the logic directly in his 1965 Howard University commencement address: <em>"You do not take a person who, for years, has been hobbled by chains and liberate him, bring him to the starting line of a race and then say 'you are free to compete with all the others,' and still justly believe you have been completely fair."</em> This was not sentiment. It was the rationale for a binding legal structure. The language of "diversity" and "inclusion" came later, from corporate HR departments and law school diversity statements. The original mandate was about documented, systematic discrimination — and the obligation to remedy it.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-2">
+        <div class="entry__header"><div class="entry__num">2</div><div class="entry__meta"><span class="entry__date">1969–1972 — The Nixon Administration</span><h2 class="entry__title">Nixon Implemented Affirmative Action While Inventing "Quotas" as a Political Weapon Against It</h2></div></div>
+        <div class="entry__body">
+          <p>Richard Nixon's relationship with affirmative action is one of the most thoroughly documented contradictions in American political history. His administration expanded affirmative action significantly — the Philadelphia Plan (1969) required construction unions receiving federal contracts to set specific numerical goals for hiring Black workers. Nixon signed the Equal Employment Opportunity Act of 1972, strengthening the EEOC's enforcement powers.</p>
+          <p>Simultaneously, Nixon's political operatives developed the Southern Strategy, which deliberately reframed affirmative action as "racial quotas" to drive white working-class voters away from the Democratic Party. Nixon's aide John Ehrlichman later confirmed that the administration's framing of both the War on Drugs and racial policy were designed to target Black Americans and the anti-war left politically. The word "quota" — chosen because it evoked earlier Jewish quotas in elite universities and sounded like reverse discrimination — became the primary frame for opposing affirmative action. Nixon used and weaponized affirmative action simultaneously.</p>
+          <p>This two-track strategy — implementing the policy while building the political opposition to it — established the template that has governed the DEI debate ever since: policies that produce measurable gains in Black representation are implemented under legal pressure, while the political infrastructure to dismantle them is built in parallel.</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 2</span><div class="era-divider__line"></div><span class="era-divider__label">The Courts Reframe and Limit, 1978–2003</span></div>
+
+      <article class="entry reveal" id="entry-3">
+        <div class="entry__header"><div class="entry__num">3</div><div class="entry__meta"><span class="entry__date">1978 — Regents of the University of California v. Bakke</span><h2 class="entry__title">The Supreme Court Banned Quotas, Created "Diversity" as a Substitute Rationale — and Planted the Seed of the 2023 Ruling</h2></div></div>
+        <div class="entry__body">
+          <p>In 1978, the Supreme Court ruled in <em>Regents of the University of California v. Bakke</em> that UC Davis's medical school had violated the Civil Rights Act by reserving 16 seats out of 100 specifically for minority applicants. The program was struck down. But Justice Lewis Powell's controlling opinion held that universities could consider race as one factor among many in admissions — justified not by remedying historical discrimination, but by the "educational benefits of a diverse student body."</p>
+          <p>This reframing had enormous consequences. The original justification for affirmative action — that the government had imposed documented, systematic discrimination and was obligated to remedy it — was replaced with an argument about the pedagogical value of diversity. Race-consciousness was now defensible not as repair but as an educational amenity. The shift transformed a rights claim into a preference claim. And it introduced a standard — "narrowly tailored," reviewed under "strict scrutiny" — that made the policy permanently vulnerable to legal challenge.</p>
+          <p>The <em>Grutter v. Bollinger</em> decision (2003) upheld race-conscious admissions at the University of Michigan Law School under the <em>Bakke</em> framework — but Justice O'Connor's majority opinion included an explicit sunset: <em>"We expect that 25 years from now, the use of racial preferences will no longer be necessary."</em> That 25-year clock expired in 2028. The Supreme Court did not wait. It acted in 2023.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-4">
+        <div class="entry__header"><div class="entry__num">4</div><div class="entry__meta"><span class="entry__date">1980s–2010s — Corporate DEI Expands</span><h2 class="entry__title">As Legal Mandates Were Weakened, Companies Built Voluntary DEI Programs — Which Turned Out to Be More Fragile Than Law</h2></div></div>
+        <div class="entry__body">
+          <p>As courts narrowed affirmative action requirements through the 1980s and 1990s, major corporations built voluntary diversity programs, often to avoid litigation and to signal commitment to fair employment to employees and customers. The language shifted: "affirmative action" became "diversity and inclusion," then "diversity, equity and inclusion" (DEI). The framing shifted from legal obligation to organizational value — a change that sounded progressive but had a critical consequence: voluntary programs can be voluntarily ended.</p>
+          <p>By the 2010s, DEI had become a substantial industry. Companies spent an estimated <span class="stat-highlight">$8 billion annually</span> on diversity training, consulting, and related programs. Chief Diversity Officers became standard executive positions at major corporations. University DEI offices expanded significantly. The programs varied widely in effectiveness — research on implicit bias training, in particular, showed mixed results — but represented an institutional commitment to at least tracking and reporting on racial representation.</p>
+          <p>A critical problem with this period's approach was identified by scholars including Kendi, Dobbin, and Kalev: many DEI programs were designed to manage legal risk and improve optics rather than to produce structural change. Mentorship programs, employee resource groups, and diversity training sessions rarely addressed the hiring, promotion, and compensation systems that produced unequal outcomes in the first place. The infrastructure was built on voluntary participation in an optional framework — exactly the kind that could be dismantled with a memo.</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 3</span><div class="era-divider__line"></div><span class="era-divider__label">The Performance and the Retreat, 2020–2025</span></div>
+
+      <article class="entry reveal" id="entry-5">
+        <div class="entry__header"><div class="entry__num">5</div><div class="entry__meta"><span class="entry__date">May 25 – December 2020 — The George Floyd Pledges</span><h2 class="entry__title">After George Floyd's Murder, American Corporations Made $50 Billion in DEI Pledges. Most Were Not Kept.</h2></div></div>
+        <div class="entry__body">
+          <p>In the weeks following George Floyd's murder on May 25, 2020, American corporations made an extraordinary public commitment to racial equity. Statements of solidarity were issued. Chief Diversity Officers were hired or elevated. Pledges were made. By some estimates, corporations pledged a total of approximately <span class="stat-highlight">$50 billion</span> toward racial equity initiatives — a figure widely cited but difficult to verify because the pledges themselves were vague, the timelines were long, and the accountability mechanisms were weak.</p>
+          <div class="pledge-box">
+            <div class="pledge-box__header">
+              <div class="pledge-box__col-head pledge-box__col-head--pledge">What Was Pledged (2020)</div>
+              <div class="pledge-box__col-head pledge-box__col-head--reality">What Happened (2023–2025)</div>
+            </div>
+            <div class="pledge-row">
+              <div class="pledge-cell pledge-cell--promise"><strong>Goldman Sachs</strong>Pledged $10B in capital to Black women entrepreneurs over 10 years</div>
+              <div class="pledge-cell pledge-cell--broke"><strong>Goldman Sachs</strong>Ended its DEI programs in January 2025 following the SFFA ruling and executive pressure</div>
+            </div>
+            <div class="pledge-row">
+              <div class="pledge-cell pledge-cell--promise"><strong>Walmart</strong>Pledged $100M over 5 years to a Center for Racial Equity</div>
+              <div class="pledge-cell pledge-cell--broke"><strong>Walmart</strong>Announced rollback of DEI programs in November 2024, ended Center for Racial Equity funding</div>
+            </div>
+            <div class="pledge-row">
+              <div class="pledge-cell pledge-cell--promise"><strong>Ford, GM, Toyota</strong>Each pledged millions to racial equity causes and diversity hiring</div>
+              <div class="pledge-cell pledge-cell--broke"><strong>Ford, GM, Toyota</strong>Each announced scaling back or ending DEI programs by early 2025</div>
+            </div>
+            <div class="pledge-row">
+              <div class="pledge-cell pledge-cell--promise"><strong>Amazon</strong>Pledged $10M to racial justice organizations; established diversity hiring targets</div>
+              <div class="pledge-cell pledge-cell--broke"><strong>Amazon</strong>Ended DEI programs and diversity-focused job listings in January 2025</div>
+            </div>
+            <div class="pledge-row">
+              <div class="pledge-cell pledge-cell--promise"><strong>Meta (Facebook)</strong>Pledged $200M to Black-owned businesses; DEI hiring commitments</div>
+              <div class="pledge-cell pledge-cell--broke"><strong>Meta</strong>Ended DEI programs in January 2025; Mark Zuckerberg cited SFFA ruling as rationale</div>
+            </div>
+          </div>
+          <p>A 2023 analysis by the Associated Press found that of the $50 billion pledged, a significant portion consisted of existing programs rebranded, loans counted as grants, or pledges with no tracking mechanisms. The gap between the size of the pledges and the depth of institutional change they produced was, for many scholars, not surprising: the pledges were made under social pressure, not legal obligation, and social pressure proved temporary.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-6">
+        <div class="entry__header"><div class="entry__num">6</div><div class="entry__meta"><span class="entry__date">June 29, 2023 — Students for Fair Admissions v. Harvard</span><h2 class="entry__title">The Supreme Court Overturned Race-Conscious Admissions, Eliminating the Last Major Legal Framework for Affirmative Action in Higher Education</h2></div></div>
+        <div class="entry__body">
+          <p>In <em>Students for Fair Admissions v. Harvard and UNC</em> (2023), the Supreme Court ruled 6-3 that race-conscious admissions programs at Harvard and the University of North Carolina were unconstitutional under the Equal Protection Clause. Chief Justice Roberts, writing for the majority, held that the universities' programs "unavoidably employ race in a negative manner," lacked "measurable objectives that would mark its end," and were therefore impermissible.</p>
+          <p>The majority explicitly rejected the remedial justification — the argument that universities could use race-conscious admissions to address documented histories of exclusion. It also declined to establish a new timeline, reversing the logic of Justice O'Connor's 25-year clock from <em>Grutter</em>. Justice Sotomayor's dissent stated plainly: <em>"The Court cements a superficial rule of colorblindness as a constitutional principle in an endemically segregated society where race has always mattered and continues to matter."</em></p>
+          <p>The ruling affected admissions. But within weeks, its logic was being applied far more broadly. Conservative legal groups began arguing that any consideration of race in employment, contracting, or corporate DEI programs was now constitutionally suspect. This interpretation was disputed by employment law scholars — Title VII and Executive Order 11246 remained in force — but it provided the political and legal cover that corporations used to justify rolling back programs that had faced no specific legal challenge.</p>
+        </div>
+      </article>
+
+      <div class="era-divider reveal"><span class="era-divider__badge">Era 4</span><div class="era-divider__line"></div><span class="era-divider__label">The Executive Dismantling, 2025</span></div>
+
+      <article class="entry reveal" id="entry-7">
+        <div class="entry__header"><div class="entry__num">7</div><div class="entry__meta"><span class="entry__date">January 20, 2025 — Executive Orders</span><h2 class="entry__title">Within Hours of Taking Office, President Trump Signed Executive Orders Terminating Federal DEI Programs and Threatening Private Employers</h2></div></div>
+        <div class="entry__body">
+          <p>On his first day in office, President Trump signed two executive orders directly targeting DEI. The first, "Ending Illegal Discrimination and Restoring Merit-Based Opportunity," revoked Executive Order 11246 — the 1965 order requiring affirmative action by federal contractors — terminated all federal DEI offices and positions, ended federal DEI training, and directed federal agencies to identify private-sector DEI programs that could be challenged as illegal. The second order, "Ending Radical And Wasteful Government DEI Programs And Preferencing," ordered the removal of all DEI-related content from federal websites, the placing of federal DEI employees on administrative leave, and the termination of all DEI-related contracts.</p>
+          <div class="consequence-box">
+            <div class="consequence-box__label">Documented immediate effects</div>
+            <ul class="consequence-box__list">
+              <li>Executive Order 11246, in force for 60 years, revoked on Day 1</li>
+              <li>All federal DEI offices ordered closed; approximately 100 federal CDO positions eliminated</li>
+              <li>National Institutes of Health (NIH) cancelled grants for research on health disparities affecting minority populations, citing DEI prohibitions</li>
+              <li>The Department of Defense removed all mentions of DEI from its website; diversity recruitment programs suspended</li>
+              <li>Federal contractors — companies representing a significant portion of the U.S. economy — lost their legal obligation to maintain affirmative action programs overnight</li>
+              <li>Dozens of major corporations cited the executive orders as justification for rolling back voluntary DEI programs, though the orders applied to federal employees and contractors, not all private companies</li>
+            </ul>
+          </div>
+          <p>Employment lawyers and civil rights organizations noted that the core protections of the Civil Rights Act of 1964 — the prohibition on discrimination — remained in force. An executive order cannot repeal a statute. What the orders accomplished was the elimination of the proactive remediation framework built on top of that statute — the programs, goals, timetables, and tracking mechanisms that went beyond merely prohibiting discrimination to actively addressing its documented effects.</p>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-8">
+        <div class="entry__header"><div class="entry__num">8</div><div class="entry__meta"><span class="entry__date">The Pattern — 1877, 1968, 2025</span><h2 class="entry__title">The Dismantling of DEI Is the Third Time This Has Happened. The Pattern Is Documented.</h2></div></div>
+        <div class="entry__body">
+          <p>The current rollback of DEI is frequently presented as a novel constitutional reckoning — a belated correction of policies that went too far. The historical record presents a different pattern: every time legal and institutional frameworks have been built to remedy documented racial harm in America, those frameworks have been dismantled when the political conditions allowed it. This has happened at least twice before at this scale.</p>
+          <div class="consequence-box">
+            <div class="consequence-box__label">The pattern across three eras</div>
+            <ul class="consequence-box__list">
+              <li><strong>1865–1877: Reconstruction.</strong> The 13th, 14th, and 15th Amendments. The Freedmen's Bureau. Black political representation. Federal enforcement. All built between 1865 and 1870. All dismantled between 1877 and 1900 through violence, Supreme Court rulings, and the withdrawal of federal enforcement. The stated rationale: it was time to move on; Reconstruction had "gone too far."</li>
+              <li><strong>1964–1980: The Civil Rights Era.</strong> The Civil Rights Act. The VRA. Affirmative action. The EEOC. Built between 1964 and 1972. Narrowed beginning with the Nixon Southern Strategy, <em>Bakke</em> in 1978, Reagan's EEOC underfunding in the 1980s, and a series of Supreme Court decisions chipping away at enforcement through the 1990s and 2000s. The stated rationale: quotas; reverse discrimination; colorblindness.</li>
+              <li><strong>2020–2025: The DEI Era.</strong> Corporate pledges. Diversity offices. Representation goals. <em>SFFA</em> (2023). Executive orders (January 2025). Corporate rollbacks (2024–2025). The stated rationale: illegal discrimination against non-minorities; DEI is itself racist; merit must prevail.</li>
+            </ul>
+          </div>
+          <p>Each rollback follows the same sequence: a period of Black political and economic gain, followed by organized legal and political opposition, followed by the use of the law to reverse the gains. Each rollback also borrows its language from the original civil rights framework — using the words "equality," "merit," and "discrimination" to dismantle programs designed to address unequal treatment. The pattern does not prove that any specific program was well-designed. It does suggest that the opposition is not primarily motivated by the deficiencies of specific programs.</p>
+          <div class="pull-quote">
+            <p class="pull-quote__text">"The rhetoric of colorblindness is not the absence of race consciousness. It is race consciousness deployed in the service of the status quo."</p>
+            <span class="pull-quote__attr">— Kimberlé Crenshaw, critical race theorist and law professor, <em>Columbia Law Review</em></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry reveal" id="entry-9">
+        <div class="entry__header"><div class="entry__num">9</div><div class="entry__meta"><span class="entry__date">The Present — 2025–2026</span><h2 class="entry__title">What Remains, What Has Been Removed, and What the Data Shows About the Effects</h2></div></div>
+        <div class="entry__body">
+          <p>As of 2025–2026, the legal landscape of DEI in America has been fundamentally altered. The core prohibition on employment discrimination (Title VII, Civil Rights Act of 1964) remains in force. But the proactive remediation framework — Executive Order 11246, federal contractor affirmative action plans, federal DEI offices, many corporate DEI programs — has been largely dismantled. What this means in practice depends heavily on enforcement, and enforcement is now in the hands of an administration that has stated its opposition to DEI as a policy goal.</p>
+          <p>The data on what DEI programs actually produced, when well-implemented, is relevant to assessing what their removal means. Research by Dobbin and Kalev (Harvard Business Review, 2016) found that the most effective interventions for increasing diversity in corporate management were not diversity training (which often produced backlash) but mentorship programs, diversity task forces with accountability, and transparent promotion criteria. Research on the effects of affirmative action in higher education found that it increased the enrollment of Black and Latino students, that those students graduated at high rates, and that representation in professional and business leadership increased as a result.</p>
+          <p>The racial wealth gap — <span class="stat-highlight">$188,200 vs $24,100</span> in median family wealth — did not narrow meaningfully during the DEI era. The programs that existed were not sufficient to close a gap built over 400 years of documented policy. But the research also shows that in organizations where DEI programs were implemented with accountability, representation of Black employees in management increased measurably. Those gains are now at risk in organizations where the programs have been dismantled. History suggests that voluntary progress, absent legal mandate, tends not to hold when political and economic pressure runs the other way.</p>
+        </div>
+      </article>
+
+    </main>
+
+    <aside class="thread-sidebar">
+      <div class="sidebar-widget">
+        <div class="sidebar-widget__title">Contents</div>
+        <ol class="toc-list">
+          <li class="toc-item" id="toc-1"><a href="#entry-1">The Legal Mandate 1964</a></li>
+          <li class="toc-item" id="toc-2"><a href="#entry-2">Nixon's Two-Track Strategy</a></li>
+          <li class="toc-item" id="toc-3"><a href="#entry-3">Bakke 1978: "Diversity" Replaces Rights</a></li>
+          <li class="toc-item" id="toc-4"><a href="#entry-4">Corporate DEI Expands</a></li>
+          <li class="toc-item" id="toc-5"><a href="#entry-5">$50B in Pledges After Floyd</a></li>
+          <li class="toc-item" id="toc-6"><a href="#entry-6">SFFA v. Harvard 2023</a></li>
+          <li class="toc-item" id="toc-7"><a href="#entry-7">Executive Orders Jan 2025</a></li>
+          <li class="toc-item" id="toc-8"><a href="#entry-8">The 150-Year Pattern</a></li>
+          <li class="toc-item" id="toc-9"><a href="#entry-9">What Remains</a></li>
+        </ol>
+      </div>
+      <div class="sidebar-widget">
+        <button class="tts-btn" id="tts-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread</button>
+      </div>
+      <div class="sidebar-widget">
+        <div class="sidebar-widget__title">Related threads</div>
+        <ul class="related-list">
+          <li><a href="thread-civil-rights.html">The Civil Rights Movement</a></li>
+          <li><a href="thread-voting-rights.html">Black Voting Rights</a></li>
+          <li><a href="thread-education.html">Separate Was Never Equal</a></li>
+          <li><a href="thread-reparations.html">What Is Owed</a></li>
+          <li><a href="thread-fear-of-black-assembly.html">The Fear of Black Assembly</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <section class="causal-chain">
+    <div class="causal-chain__inner">
+      <h2 class="causal-chain__title">The Cycle of Mandate and Dismantling</h2>
+      <div class="chain-steps">
+        <div class="chain-step"><div class="chain-step__node">Civil Rights Act 1964 + EO 11246 1965</div><div class="chain-step__label">Legal mandate</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">Nixon "quota" reframe 1969–72</div><div class="chain-step__label">Weaponized</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">Bakke 1978 dilutes to "diversity"</div><div class="chain-step__label">Reframed</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">$50B Floyd pledges 2020</div><div class="chain-step__label">Performed</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">SFFA 2023 + Exec orders 2025</div><div class="chain-step__label">Dismantled</div></div>
+        <div class="chain-arrow">→</div>
+        <div class="chain-step"><div class="chain-step__node">$188K vs $24K wealth gap unchanged</div><div class="chain-step__label">The gap remains</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="thread-cta">
+    <div class="thread-cta__inner">
+      <h2 class="thread-cta__title">The pattern of dismantling began in 1877. This is not the first time.</h2>
+      <p class="thread-cta__body">The post-Reconstruction period established the template for every subsequent rollback of Black political and economic gains. The voting rights thread covers the specific mechanisms — poll taxes, literacy tests, Shelby County — that have been used each time to take back what was won.</p>
+      <a href="thread-voting-rights.html" class="thread-cta__btn">Read: Black Voting Rights →</a>
+    </div>
+  </section>
+
+  
+
+<style>
+.next-thread-strip{background:var(--color-surface);border-top:1px solid var(--color-border);padding:var(--space-8) 0}
+.next-thread-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+.next-thread-strip__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-2)}
+.next-thread-strip__title{font-family:var(--font-editorial);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:800;color:var(--color-text-primary);line-height:1.2;max-width:480px}
+.next-thread-strip__btn{flex-shrink:0;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);background:var(--color-accent-dark,#92400e);color:#fff;border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:filter .15s;white-space:nowrap}
+.next-thread-strip__btn:hover{filter:brightness(1.1)}
+</style>
+
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <div class="next-thread-strip__title">What Is Owed: The Reparations Question</div>
+      </div>
+      <a href="thread-reparations.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer"><p class="site-footer__text">Chain — a public archive. <a href="threads.html">All threads</a> · <a href="teaching.html">Teaching guides</a></p></footer>
+
+  <script>
+    const themeBtn=document.getElementById('theme-toggle');
+    function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);themeBtn.textContent=t==='dark'?'Light':'Dark';}
+    applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+    themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+    const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');ro.unobserve(e.target);}});},{threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+    const to=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.toc-item').forEach(t=>t.classList.remove('toc-item--active'));const tel=document.getElementById(e.target.id.replace('entry-','toc-'));if(tel)tel.classList.add('toc-item--active');}});},{rootMargin:'-10% 0px -80% 0px'});
+    document.querySelectorAll('.entry').forEach(el=>to.observe(el));
+    const ttsBtn=document.getElementById('tts-btn');let speaking=false;
+    ttsBtn.addEventListener('click',()=>{if(speaking){window.speechSynthesis.cancel();speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}
+    const t=Array.from(document.querySelectorAll('.entry__body p')).map(n=>n.textContent).join(' ');const w=t.split(' ');const c=[];for(let i=0;i<w.length;i+=40)c.push(w.slice(i,i+40).join(' '));speaking=true;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Stop listening';let idx=0;
+    function sn(){if(idx>=c.length||!speaking){speaking=false;ttsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> Listen to this thread';return;}const u=new SpeechSynthesisUtterance(c[idx++]);u.rate=0.95;u.onend=sn;window.speechSynthesis.speak(u);}sn();});
+  </script>
+<script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>

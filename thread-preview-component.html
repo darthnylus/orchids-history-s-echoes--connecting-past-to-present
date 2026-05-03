@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thread Preview Component — Chain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" />
+  <style>
+
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-card:     #111111;
+      --bg-entry:    #0f0f0f;
+      --border:      rgba(255,255,255,0.07);
+      --border-accent: rgba(196,136,0,0.45);
+
+      --text-primary:   #e8e4d9;
+      --text-secondary: #a09880;
+      --text-muted:     #5a5040;
+
+      --amber:      #c48800;
+      --amber-bright: #e09a00;
+      --amber-dim:  rgba(196,136,0,0.18);
+      --amber-glow: rgba(196,136,0,0.08);
+
+      --sepia:      #8b6a3a;
+      --sepia-dim:  rgba(139,106,58,0.15);
+
+      --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-sans:  'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+      --radius:  8px;
+      --radius-sm: 4px;
+      --ease:    cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Section wrapper ────────────────────────────────────── */
+    .tp-section {
+      background: var(--bg);
+      padding: 5rem 1.25rem 6rem;
+      font-family: var(--font-sans);
+      color: var(--text-primary);
+    }
+
+    .tp-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ── Section header ─────────────────────────────────────── */
+    .tp-section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tp-section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .tp-section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    .tp-section-sub {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+
+    /* ── Thread card ─────────────────────────────────────────── */
+    .tp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Card header ─────────────────────────────────────────── */
+    .tp-card-header {
+      padding: 1.5rem 1.75rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(196,136,0,0.04) 0%, transparent 100%);
+    }
+
+    .tp-thread-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .tp-era-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-dim);
+      border: 1px solid var(--border-accent);
+      border-radius: 999px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+
+    .tp-year-tag {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .tp-thread-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .tp-thread-intro {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      border-left: 2px solid var(--border-accent);
+      padding-left: 1rem;
+      font-style: italic;
+    }
+
+    /* ── Progress bar ────────────────────────────────────────── */
+    .tp-progress {
+      padding: 0.875rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+
+    .tp-progress-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tp-progress-track {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .tp-progress-step {
+      height: 3px;
+      flex: 1;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.35s var(--ease);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tp-progress-step.is-done {
+      background: var(--amber);
+      opacity: 0.6;
+    }
+
+    .tp-progress-step.is-active {
+      background: var(--amber-bright);
+      opacity: 1;
+      box-shadow: 0 0 6px rgba(196,136,0,0.4);
+    }
+
+    .tp-progress-count {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--amber);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Entries list ────────────────────────────────────────── */
+    .tp-entries {
+      position: relative;
+    }
+
+    /* ── Single entry ────────────────────────────────────────── */
+    .tp-entry {
+      padding: 1.5rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .tp-entry.is-active-entry {
+      border-left-color: var(--amber);
+      background: var(--amber-glow);
+    }
+
+    .tp-entry-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.875rem;
+    }
+
+    .tp-entry-num {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--amber);
+      opacity: 0.35;
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 2rem;
+      text-align: right;
+      padding-top: 2px;
+    }
+
+    .tp-entry-meta-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tp-entry-date {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.3rem;
+    }
+
+    .tp-entry-location {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tp-entry-location::before {
+      content: '◎';
+      font-size: 0.55rem;
+      color: var(--sepia);
+    }
+
+    .tp-entry-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+    }
+
+    /* ── Stat chips ──────────────────────────────────────────── */
+    .tp-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.875rem 0 1rem 3rem;
+    }
+
+    .tp-stat {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35em;
+      font-size: 0.7rem;
+      background: var(--sepia-dim);
+      border: 1px solid rgba(139,106,58,0.2);
+      border-radius: 4px;
+      padding: 3px 9px;
+      white-space: nowrap;
+    }
+
+    .tp-stat-val {
+      font-weight: 700;
+      color: var(--amber-bright);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tp-stat-label {
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    /* ── Entry body ──────────────────────────────────────────── */
+    .tp-entry-body {
+      margin-left: 3rem;
+    }
+
+    .tp-entry-body p {
+      font-size: 0.875rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .tp-entry-body p:last-child { margin-bottom: 0; }
+
+    /* ── Pull quote ──────────────────────────────────────────── */
+    .tp-pullquote {
+      margin: 1rem 0 0.5rem;
+      padding: 0.875rem 1rem;
+      border-left: 3px solid var(--amber);
+      background: rgba(196,136,0,0.05);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .tp-pullquote p {
+      font-family: var(--font-serif);
+      font-size: 0.875rem;
+      font-style: italic;
+      color: var(--text-primary) !important;
+      line-height: 1.6;
+      margin: 0 !important;
+    }
+
+    /* ── Collapsed entries (3–5) ─────────────────────────────── */
+    .tp-entries-collapsed {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.6s var(--ease);
+    }
+
+    .tp-entries-collapsed.is-open {
+      max-height: 2000px;
+    }
+
+    /* ── Fade mask ───────────────────────────────────────────── */
+    .tp-fade-mask {
+      position: relative;
+      pointer-events: none;
+    }
+
+    .tp-fade-mask::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--bg-card));
+      transition: opacity 0.4s;
+    }
+
+    .tp-entries-collapsed.is-open ~ .tp-expand-row .tp-fade-mask::after,
+    .is-expanded .tp-fade-mask::after {
+      opacity: 0;
+    }
+
+    /* ── Expand row ──────────────────────────────────────────── */
+    .tp-expand-row {
+      padding: 0 1.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .tp-expand-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: 1px solid var(--border-accent);
+      color: var(--amber-bright);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+
+    .tp-expand-btn:hover {
+      background: var(--amber-dim);
+      border-color: var(--amber);
+    }
+
+    .tp-expand-btn__icon {
+      font-size: 0.7rem;
+      transition: transform 0.3s var(--ease);
+      display: inline-block;
+    }
+
+    .is-expanded .tp-expand-btn__icon {
+      transform: rotate(90deg);
+    }
+
+    .tp-entries-remaining {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* ── Card footer ─────────────────────────────────────────── */
+    .tp-card-footer {
+      padding: 1.25rem 1.75rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: linear-gradient(180deg, transparent 0%, rgba(196,136,0,0.03) 100%);
+    }
+
+    .tp-chain-cta {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      max-width: 420px;
+      font-style: italic;
+    }
+
+    .tp-chain-cta strong {
+      color: var(--text-primary);
+      font-style: normal;
+    }
+
+    .tp-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--amber);
+      color: #0a0a0a;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 0.6rem 1.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tp-read-btn:hover {
+      background: var(--amber-bright);
+      transform: translateY(-1px);
+    }
+
+    .tp-read-btn__arrow {
+      font-size: 0.9rem;
+      transition: transform 0.15s;
+    }
+
+    .tp-read-btn:hover .tp-read-btn__arrow {
+      transform: translateX(3px);
+    }
+
+    /* ── Other threads teaser ────────────────────────────────── */
+    .tp-other-threads {
+      margin-top: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .tp-other-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .tp-other-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 12px;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .tp-other-chip:hover {
+      border-color: var(--border-accent);
+      color: var(--amber-bright);
+    }
+
+    /* ── Mobile ──────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .tp-section { padding: 3.5rem 1rem 4rem; }
+      .tp-card-header, .tp-entry, .tp-expand-row, .tp-card-footer, .tp-progress {
+        padding-left: 1.125rem;
+        padding-right: 1.125rem;
+      }
+      .tp-entry-body, .tp-stats { margin-left: 0; }
+      .tp-entry-top { gap: 0.75rem; }
+      .tp-entry-num { font-size: 1.25rem; min-width: 1.5rem; }
+      .tp-card-footer { flex-direction: column; align-items: flex-start; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     THREAD PREVIEW COMPONENT
+     Drop this <section> into your homepage HTML
+     ============================================================ -->
+<section class="tp-section" aria-labelledby="tp-heading">
+  <div class="tp-container">
+
+    <!-- Section header -->
+    <p class="tp-section-label">See it in action</p>
+    <h2 class="tp-section-title" id="tp-heading">Here's how a thread works</h2>
+    <p class="tp-section-sub">Each thread traces the full causal chain — from the original act to its present-day consequence. Every claim has a source. Every entry has a date.</p>
+
+    <!-- ── Thread card ─────────────────────────────────────── -->
+    <div class="tp-card" id="threadPreviewCard">
+
+      <!-- Card header: title + intro -->
+      <div class="tp-card-header">
+        <div class="tp-thread-meta">
+          <span class="tp-era-tag">Civil Rights → Backlash</span>
+          <span class="tp-year-tag">1956 – 1971</span>
+        </div>
+        <h3 class="tp-thread-title">COINTELPRO: The FBI's War on Black America</h3>
+        <p class="tp-thread-intro">From 1956 to 1971, the FBI ran a classified program specifically designed to "expose, disrupt, misdirect, discredit, or otherwise neutralize" Black political organizations. Its targets included the NAACP, Martin Luther King Jr., the Nation of Islam, and the Black Panther Party. Its methods included infiltration, forged letters, planted evidence, and coordinating police assassinations. This is why the Civil Rights movement did not produce lasting institutional change.</p>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="tp-progress" aria-label="Reading progress">
+        <span class="tp-progress-label">Entry</span>
+        <div class="tp-progress-track" id="progressTrack" role="group" aria-label="5 entries">
+          <div class="tp-progress-step is-done"   data-step="1" title="Entry 1: August 1956"></div>
+          <div class="tp-progress-step is-active" data-step="2" title="Entry 2: 1956–1971"></div>
+          <div class="tp-progress-step"           data-step="3" title="Entry 3: 1963–1968"></div>
+          <div class="tp-progress-step"           data-step="4" title="Entry 4: December 1969"></div>
+          <div class="tp-progress-step"           data-step="5" title="Entry 5: 1971–Present"></div>
+        </div>
+        <span class="tp-progress-count" id="progressCount" aria-live="polite">2 of 5</span>
+      </div>
+
+      <!-- Entries always visible: 1 & 2 -->
+      <div class="tp-entries" id="visibleEntries">
+
+        <!-- Entry 1 -->
+        <article class="tp-entry is-active-entry" data-entry="1">
+          <div class="tp-entry-top">
+            <span class="tp-entry-num" aria-hidden="true">1</span>
+            <div class="tp-entry-meta-col">
+              <p class="tp-entry-date">August 28, 1956</p>
+              <p class="tp-entry-location">FBI Headquarters, Washington D.C.</p>
+              <h4 class="tp-entry-headline">Hoover's Memo: "Expose, Disrupt, Neutralize"</h4>
+            </div>
+          </div>
+          <div class="tp-stats" aria-label="Key statistics">
+            <span class="tp-stat"><span class="tp-stat-val">15 yrs</span><span class="tp-stat-label">Official duration</span></span>
+            <span class="tp-stat"><span class="tp-stat-val">2,000+</span><span class="tp-stat-label">Documented operations</span></span>
+          </div>
+          <div class="tp-entry-body">
+            <p>On August 28, 1956, FBI Director J. Edgar Hoover sent a memo to field offices authorizing a new secret counterintelligence program. Its first major Black target was the NAACP — the oldest and most mainstream civil rights organization in the country.</p>
+            <p>The program's stated goal: "prevent the rise of a 'messiah' who could unify and electrify the militant Black nationalist movement." The language was not accidental. It reveals that what the FBI feared was not crime — it was organized political power.</p>
+          </div>
+        </article>
+
+        <!-- Entry 2 -->
+        <article class="tp-entry is-active-entry" data-entry="2">
+          <div class="tp-entry-top">
+            <span class="tp-entry-num" aria-hidden="true">2</span>
+            <div class="tp-entry-meta-col">
+              <p class="tp-entry-date">1956 – 1971</p>
+              <p class="tp-entry-location">Nationwide</p>
+              <h4 class="tp-entry-headline">The Tactics: How You Destroy a Movement from the Inside</h4>
+            </div>
+          </div>
+          <div class="tp-stats" aria-label="Key tactics">
+            <span class="tp-stat"><span class="tp-stat-val">Infiltration</span></span>
+            <span class="tp-stat"><span class="tp-stat-val">Forged Letters</span></span>
+            <span class="tp-stat"><span class="tp-stat-val">Fake News Plants</span></span>
+            <span class="tp-stat"><span class="tp-stat-val">Assassination</span></span>
+          </div>
+          <div class="tp-entry-body">
+            <p>FBI informants joined organizations at every level, reporting on membership, strategy, and internal tensions — then actively working to inflame them. The FBI forged letters between Black leaders to manufacture personal feuds and political splits.</p>
+            <p>In the most extreme cases, the FBI coordinated directly with local police departments to physically eliminate Black Panther leadership. The program did not surveil threats. It manufactured them, then used them to justify lethal force.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Collapse/expand wrapper: entries 3–5 -->
+      <div class="tp-fade-mask">
+        <div class="tp-entries-collapsed" id="collapsedEntries" aria-hidden="true">
+
+          <!-- Entry 3 -->
+          <article class="tp-entry" data-entry="3">
+            <div class="tp-entry-top">
+              <span class="tp-entry-num" aria-hidden="true">3</span>
+              <div class="tp-entry-meta-col">
+                <p class="tp-entry-date">1963 – 1968</p>
+                <p class="tp-entry-location">Washington D.C. · Atlanta · Memphis</p>
+                <h4 class="tp-entry-headline">Martin Luther King Jr.: "The Most Dangerous Negro in America"</h4>
+              </div>
+            </div>
+            <div class="tp-entry-body">
+              <p>After King's "I Have a Dream" speech, Hoover wrote internally that King was "the most dangerous Negro in America." This was not a fringe opinion — it was official FBI policy. The Bureau wiretapped his phones, bugged his hotel rooms across the country, and compiled a dossier designed to destroy his credibility with the Kennedy and Johnson administrations.</p>
+              <div class="tp-pullquote">
+                <p>"In the fall of 1964, the FBI sent King an anonymous letter with a recording of alleged extramarital activity, accompanied by a note urging him to commit suicide. The letter was approved at the highest levels of the FBI."</p>
+              </div>
+              <p>King's surveillance did not end with his assassination in 1968. The FBI continued monitoring his associates for years afterward, treating the legacy of his movement as an ongoing threat to national security.</p>
+            </div>
+          </article>
+
+          <!-- Entry 4 -->
+          <article class="tp-entry" data-entry="4">
+            <div class="tp-entry-top">
+              <span class="tp-entry-num" aria-hidden="true">4</span>
+              <div class="tp-entry-meta-col">
+                <p class="tp-entry-date">December 4, 1969</p>
+                <p class="tp-entry-location">Chicago, Illinois</p>
+                <h4 class="tp-entry-headline">The Assassination of Fred Hampton</h4>
+              </div>
+            </div>
+            <div class="tp-stats" aria-label="Key statistics">
+              <span class="tp-stat"><span class="tp-stat-val">21</span><span class="tp-stat-label">Hampton's age</span></span>
+              <span class="tp-stat"><span class="tp-stat-val">4:45 am</span><span class="tp-stat-label">Time of raid</span></span>
+              <span class="tp-stat"><span class="tp-stat-val">99</span><span class="tp-stat-label">Shots fired (1 by occupants)</span></span>
+            </div>
+            <div class="tp-entry-body">
+              <p>Fred Hampton was the 21-year-old chairman of the Illinois Black Panther Party. He had organized a cross-gang truce on Chicago's South Side and was building a coalition that united Black, Puerto Rican, and poor white communities. The FBI identified him as a future national leader — a potential "messiah."</p>
+              <p>FBI informant William O'Neal had infiltrated Hampton's inner circle and provided agents with a detailed floor plan of his apartment, including the location of his bed. At 4:45 a.m. on December 4, Chicago police — briefed and directed by the FBI — raided the apartment. 99 shots were fired into the apartment; 98 came from police. Fred Hampton was shot twice in the head at close range while sleeping. He was 21.</p>
+            </div>
+          </article>
+
+          <!-- Entry 5 -->
+          <article class="tp-entry" data-entry="5" style="border-bottom:none">
+            <div class="tp-entry-top">
+              <span class="tp-entry-num" aria-hidden="true">5</span>
+              <div class="tp-entry-meta-col">
+                <p class="tp-entry-date">1971 – Present</p>
+                <p class="tp-entry-location">Media, Pennsylvania → Congress → Now</p>
+                <h4 class="tp-entry-headline">The Break-In That Exposed Everything</h4>
+              </div>
+            </div>
+            <div class="tp-entry-body">
+              <p>In March 1971, a group of eight activists calling themselves the Citizens' Commission to Investigate the FBI broke into the Bureau's field office in Media, Pennsylvania, and stole over 1,000 classified documents. They mailed the files to journalists. It was the first the public had heard the word COINTELPRO.</p>
+              <p>The Senate's Church Committee confirmed the full scope of the program in 1975. It documented assassinations coordinated with local police, forged letters, psychological warfare, and the systematic destruction of Black political organizations. No FBI agent was ever prosecuted. No legislation was passed to prevent it from happening again.</p>
+              <div class="tp-pullquote">
+                <p>"The program was not a policy failure or a rogue operation. It was the policy. The question is not whether it was dismantled — it was renamed."</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Expand / collapse button row -->
+      <div class="tp-expand-row" id="expandRow">
+        <button class="tp-expand-btn" id="expandBtn" aria-expanded="false" aria-controls="collapsedEntries">
+          <span class="tp-expand-btn__icon" aria-hidden="true">▶</span>
+          <span id="expandBtnText">Continue reading</span>
+        </button>
+        <span class="tp-entries-remaining" id="entriesRemaining" aria-live="polite">3 more entries</span>
+      </div>
+
+      <!-- Card footer -->
+      <div class="tp-card-footer">
+        <p class="tp-chain-cta">
+          <strong>COINTELPRO destroyed the organizations.</strong> The War on Drugs finished the communities. Follow that thread.
+        </p>
+        <a href="thread-cointelpro.html" class="tp-read-btn" aria-label="Read the full COINTELPRO thread">
+          Read full thread
+          <span class="tp-read-btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Other threads teaser -->
+    <div class="tp-other-threads" aria-label="Other threads in the archive">
+      <span class="tp-other-label">More threads</span>
+      <a href="thread-african-empires.html" class="tp-other-chip">African Empires</a>
+      <a href="thread-mass-incarceration.html" class="tp-other-chip">Mass Incarceration</a>
+      <a href="thread-displacement.html" class="tp-other-chip">Redlining &amp; Housing</a>
+      <a href="thread-war-on-drugs.html" class="tp-other-chip">War on Drugs</a>
+      <a href="threads.html" class="tp-other-chip">All 66 threads →</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    var card        = document.getElementById('threadPreviewCard');
+    var expandBtn   = document.getElementById('expandBtn');
+    var expandText  = document.getElementById('expandBtnText');
+    var remaining   = document.getElementById('entriesRemaining');
+    var collapsed   = document.getElementById('collapsedEntries');
+    var steps       = document.querySelectorAll('.tp-progress-step');
+    var count       = document.getElementById('progressCount');
+    var expandRow   = document.getElementById('expandRow');
+    var isExpanded  = false;
+
+    // Progress step click — jump to entry
+    steps.forEach(function (step, i) {
+      step.addEventListener('click', function () {
+        var n = i + 1;
+        if (n > 2 && !isExpanded) {
+          expandEntries();
+        }
+        updateProgress(n);
+        // scroll entry into view
+        var target = document.querySelector('[data-entry="' + n + '"]');
+        if (target) {
+          setTimeout(function () {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+        }
+      });
+    });
+
+    function updateProgress(active) {
+      steps.forEach(function (s, i) {
+        s.classList.remove('is-done', 'is-active');
+        if (i + 1 < active)  s.classList.add('is-done');
+        if (i + 1 === active) s.classList.add('is-active');
+      });
+      count.textContent = active + ' of 5';
+    }
+
+    // Intersection observer — update progress as entries scroll into view
+    if ('IntersectionObserver' in window) {
+      var entries = document.querySelectorAll('.tp-entry');
+      var observer = new IntersectionObserver(function (obs) {
+        obs.forEach(function (ob) {
+          if (ob.isIntersecting) {
+            var n = parseInt(ob.target.getAttribute('data-entry'), 10);
+            updateProgress(n);
+          }
+        });
+      }, { threshold: 0.55 });
+
+      entries.forEach(function (e) { observer.observe(e); });
+    }
+
+    function expandEntries() {
+      isExpanded = true;
+      collapsed.classList.add('is-open');
+      collapsed.removeAttribute('aria-hidden');
+      card.classList.add('is-expanded');
+      expandBtn.setAttribute('aria-expanded', 'true');
+      expandText.textContent = 'Collapse';
+      remaining.textContent = '';
+      expandBtn.querySelector('.tp-expand-btn__icon').style.transform = 'rotate(90deg)';
+    }
+
+    function collapseEntries() {
+      isExpanded = false;
+      collapsed.classList.remove('is-open');
+      collapsed.setAttribute('aria-hidden', 'true');
+      card.classList.remove('is-expanded');
+      expandBtn.setAttribute('aria-expanded', 'false');
+      expandText.textContent = 'Continue reading';
+      remaining.textContent = '3 more entries';
+      expandBtn.querySelector('.tp-expand-btn__icon').style.transform = '';
+      updateProgress(2);
+      // scroll back to top of card
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    expandBtn.addEventListener('click', function () {
+      if (isExpanded) {
+        collapseEntries();
+      } else {
+        expandEntries();
+      }
+    });
+
+    // Keyboard: Enter or Space on steps
+    steps.forEach(function (step) {
+      step.setAttribute('tabindex', '0');
+      step.setAttribute('role', 'button');
+      step.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          step.click();
+        }
+      });
+    });
+
+  })();
+</script>
+
+</body>
+</html>

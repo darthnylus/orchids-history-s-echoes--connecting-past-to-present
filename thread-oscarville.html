@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oscarville, Georgia: The Racial Cleansing of Forsyth County — Chain</title>
+  <meta property="og:title" content="Oscarville, Georgia: The Racial Cleansing of Forsyth County" />
+  <meta property="og:description" content="In 1912, every Black resident of Forsyth County, Georgia — 1,098 people — was driven out by terror in six weeks. Their land was taken. The county remained ne..." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://chain.education/thread-oscarville.html" />
+  <meta name="description" content="In 1912, every Black resident of Forsyth County, Georgia — 1,098 people — was driven out by terror in six weeks. Their land was taken. The county remained nearly 100% white for 75 years. The land is now worth hundreds of millions." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    :root { --acc: #431407; --acc-lt: #ffedd5; }
+
+    /* hero */
+    .hero { background: var(--acc); padding: var(--space-16) 0 var(--space-12); position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(239,68,68,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(0,0,0,.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero__inner { position: relative; max-width: 780px; }
+    .hero__eyebrow { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc-lt); margin-bottom: var(--space-4); }
+    .hero__hed { font-family: var(--font-editorial); font-size: clamp(2rem,5vw,3.75rem); font-weight: var(--weight-black); color: #fff; line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); margin-bottom: var(--space-5); }
+    .hero__hed em { color: var(--acc-lt); font-style: italic; }
+    .hero__sub { font-size: var(--type-md); color: rgba(255,255,255,.75); line-height: var(--leading-loose); max-width: 620px; margin-bottom: var(--space-8); }
+    .hero__meta { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+    .hero__pill { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-full); padding: var(--space-1) var(--space-4); font-size: var(--type-xs); font-weight: var(--weight-semibold); color: rgba(255,255,255,.85); }
+
+    /* argument bar */
+    .argument-bar { background: var(--acc-lt); border-bottom: 3px solid var(--acc); padding: var(--space-5) 0; }
+    .argument-bar>div { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+    .argument-bar__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc); white-space: nowrap; flex-shrink: 0; }
+    .argument-bar__text { font-size: var(--type-sm); color: var(--acc); line-height: 1.6; font-weight: var(--weight-medium); }
+
+    /* thread layout */
+    .thread-body { display: grid; grid-template-columns: 1fr 280px; gap: var(--space-10); align-items: start; padding: var(--space-12) 0; }
+    @media(max-width:900px){ .thread-body { grid-template-columns: 1fr; } }
+
+    /* sidebar */
+    .sidebar { position: sticky; top: calc(var(--nav-h,64px) + var(--space-6)); display: flex; flex-direction: column; gap: var(--space-5); }
+    .sidebar-card { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); }
+    .sidebar-card__title { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-4); }
+    .toc-link { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--type-sm); color: var(--color-text-secondary); text-decoration: none; transition: background .15s, color .15s; }
+    .toc-link:hover { background: var(--color-surface-hover); color: var(--color-text-primary); }
+    .toc-link.is-active { background: var(--acc-lt); color: var(--acc); font-weight: var(--weight-semibold); }
+    .toc-num { font-size: 10px; font-weight: var(--weight-bold); color: var(--acc); background: var(--acc-lt); border-radius: var(--radius-full); width: 18px; height: 18px; display: grid; place-items: center; flex-shrink: 0; }
+    .stat-stack { display: flex; flex-direction: column; gap: var(--space-3); }
+    .stat-item { padding: var(--space-3); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+    .stat-item__num { font-family: var(--font-editorial); font-size: 1.5rem; font-weight: var(--weight-bold); color: var(--acc); line-height: 1; margin-bottom: var(--space-1); }
+    .stat-item__label { font-size: var(--type-xs); color: var(--color-text-tertiary); line-height: 1.4; }
+
+    /* entries */
+    .entry { padding: var(--space-10) 0; border-bottom: 1px solid var(--color-border); scroll-margin-top: 80px; }
+    .entry:last-child { border-bottom: none; }
+    .entry__hd { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5); }
+    .entry__num { font-size: var(--type-xs); font-weight: var(--weight-bold); color: var(--acc); background: var(--acc-lt); border-radius: var(--radius-full); width: 28px; height: 28px; display: grid; place-items: center; flex-shrink: 0; }
+    .entry__date { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); }
+    .entry__title { font-family: var(--font-editorial); font-size: clamp(1.25rem,3vw,1.75rem); font-weight: var(--weight-bold); color: var(--color-text-primary); line-height: var(--leading-snug); margin-bottom: var(--space-4); }
+    .entry__body { font-size: var(--type-md); color: var(--color-text-secondary); line-height: var(--leading-loose); }
+    .entry__body p { margin-bottom: var(--space-4); }
+    .entry__body p:last-child { margin-bottom: 0; }
+
+    /* pull quote */
+    .pq { border-left: 3px solid var(--acc); padding: var(--space-4) var(--space-6); margin: var(--space-6) 0; background: var(--acc-lt); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .pq__t { font-family: var(--font-editorial); font-size: 1.125rem; font-style: italic; color: var(--acc); line-height: 1.6; margin-bottom: var(--space-2); }
+    .pq__a { font-size: var(--type-xs); font-weight: var(--weight-semibold); color: var(--color-text-tertiary); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+
+    /* callout box */
+    .cbox { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-6) 0; }
+    .cbox__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc); margin-bottom: var(--space-3); }
+    .cbox__body { font-size: var(--type-sm); color: var(--color-text-secondary); line-height: 1.7; }
+
+    /* unique component: land-seizure-box */
+    .land-box { background: #1c0a00; border: 1px solid rgba(255,237,213,.15); border-radius: var(--radius-xl); padding: var(--space-8); margin: var(--space-6) 0; }
+    .land-box__title { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: #fb923c; margin-bottom: var(--space-2); }
+    .land-box__sub { font-size: var(--type-sm); color: rgba(255,237,213,.55); margin-bottom: var(--space-6); line-height: 1.5; }
+    .land-table { width: 100%; border-collapse: collapse; }
+    .land-table th { font-size: 10px; font-weight: var(--weight-bold); letter-spacing: .08em; text-transform: uppercase; color: rgba(255,237,213,.4); border-bottom: 1px solid rgba(255,237,213,.1); padding: var(--space-2) var(--space-3); text-align: left; }
+    .land-table td { font-size: var(--type-sm); color: rgba(255,237,213,.8); padding: var(--space-3); border-bottom: 1px solid rgba(255,237,213,.06); vertical-align: top; line-height: 1.5; }
+    .land-table tr:last-child td { border-bottom: none; }
+    .land-table td:first-child { color: #fdba74; font-weight: var(--weight-semibold); }
+    .land-box__note { font-size: var(--type-xs); color: rgba(255,237,213,.35); margin-top: var(--space-5); line-height: 1.6; }
+
+    /* switch / era divider */
+    .sw { text-align: center; padding: var(--space-4) 0; color: var(--color-text-tertiary); font-size: var(--type-xs); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wider); text-transform: uppercase; display: flex; align-items: center; gap: var(--space-3); }
+    .sw::before, .sw::after { content: ''; flex: 1; height: 1px; background: var(--color-border); }
+
+    /* causal chain */
+    .cc { padding: var(--space-12) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-4); }
+    .cc__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-6); }
+    .cc__row { display: flex; align-items: center; gap: 0; flex-wrap: wrap; gap: var(--space-2); }
+    .cc__step { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); font-size: var(--type-sm); color: var(--color-text-primary); line-height: 1.4; font-weight: var(--weight-medium); flex: 1; min-width: 120px; text-align: center; }
+    .cc__step--acc { background: var(--acc); border-color: var(--acc); color: #fff; }
+    .cc__arr { color: var(--color-text-tertiary); font-size: 1.25rem; flex-shrink: 0; }
+
+    /* CTA */
+    .cta-sec { background: var(--acc); border-radius: var(--radius-xl); padding: var(--space-10) var(--space-8); margin: var(--space-12) 0; text-align: center; }
+    .cta-sec__hed { font-family: var(--font-editorial); font-size: 1.5rem; font-weight: var(--weight-bold); color: #fff; margin-bottom: var(--space-3); }
+    .cta-sec__sub { font-size: var(--type-sm); color: rgba(255,255,255,.7); margin-bottom: var(--space-6); line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-sec__btns { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+
+    /* TTS bar */
+    .tts-bar { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-5); background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-full); width: fit-content; margin-bottom: var(--space-8); }
+    .tts-bar__btn { background: var(--acc); color: #fff; border: none; border-radius: var(--radius-full); width: 36px; height: 36px; display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
+    .tts-bar__btn svg { width: 16px; height: 16px; }
+    .tts-bar__label { font-size: var(--type-sm); color: var(--color-text-secondary); }
+
+    /* dark mode */
+    [data-theme="dark"] .hero { background: #2c0d02; }
+    [data-theme="dark"] .argument-bar { background: #3d1408; border-color: #7c2d12; }
+    [data-theme="dark"] .argument-bar__label,
+    [data-theme="dark"] .argument-bar__text { color: #fed7aa; }
+    [data-theme="dark"] .toc-link.is-active { background: #3d1408; color: #fb923c; }
+    [data-theme="dark"] .pq { background: #2c1004; border-color: #9a3412; }
+    [data-theme="dark"] .pq__t { color: #fb923c; }
+    [data-theme="dark"] .land-box { background: #160600; }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-nav" role="banner">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__logo" aria-label="Chain — home">
+      <span class="site-nav__logo-mark" aria-hidden="true"></span>Chain
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link" aria-current="page">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">Oscarville, Georgia: The Racial Cleansing of Forsyth County</span>
+    </div>
+  </div>
+</nav>
+<!-- CONTEXT RIBBON — thread orientation tracker -->
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon" role="complementary" aria-label="Thread context">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <!-- populated by thread-journey.js -->
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>66</strong> Threads</span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>9</strong> Eras</span>
+    </div>
+    <nav class="context-ribbon__nav" aria-label="Quick access">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
+        <span class="context-ribbon__live-dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=racial+cleansing+America" class="search-hint-chip">Racial cleansing in America</a>
+      <a href="search.html?q=sundown+towns" class="search-hint-chip">Sundown towns</a>
+      <a href="search.html?q=Black+land+loss" class="search-hint-chip">Black land loss</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-hed">
+  <div class="container">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Racial Cleansing · Land Theft · Erasure</p>
+      <h1 class="hero__hed" id="hero-hed">Oscarville, Georgia:<br><em>The Erasure of Forsyth County</em></h1>
+      <p class="hero__sub">In six weeks in the fall of 1912, every Black resident of Forsyth County, Georgia — 1,098 people — was driven from their homes by armed night riders who burned churches, schools, and houses. Their land was taken. The county remained 99% white for the next 75 years. No one was prosecuted. The land is now some of the most valuable real estate in the Atlanta metro area.</p>
+      <div class="hero__meta">
+        <span class="hero__pill">1912 – Present</span>
+        <span class="hero__pill">Forsyth County, Georgia</span>
+        <span class="hero__pill">1,098 people expelled</span>
+        <span class="hero__pill">75 years of enforced whiteness</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARGUMENT BAR -->
+<div class="argument-bar" role="note" aria-label="Central argument">
+  <div>
+    <span class="argument-bar__label">The Chain</span>
+    <p class="argument-bar__text">A murder accusation in 1912 was used to expel an entire county's Black population and seize their land. The expulsion was never prosecuted, the land was never returned, and the county's enforced whiteness compounded for three generations. The land that was stolen is now worth hundreds of millions of dollars.</p>
+  </div>
+</div>
+
+<!-- TTS -->
+<div class="container" style="padding-top:var(--space-8)">
+  <div class="tts-bar" role="region" aria-label="Text-to-speech controls">
+    <button class="tts-bar__btn" id="ttsBtn" aria-label="Read article aloud">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
+    <span class="tts-bar__label" id="ttsLabel">Listen to this thread</span>
+  </div>
+</div>
+
+<!-- THREAD BODY -->
+<main id="main-content">
+<div class="container">
+  <div class="thread-body">
+
+    <!-- MAIN COLUMN -->
+    <div>
+
+      <!-- E1 -->
+      <article class="entry reveal" id="e1">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">1</span>
+          <span class="entry__date">September 1912</span>
+        </div>
+        <h2 class="entry__title">Mae Crow and the Accusation That Emptied a County</h2>
+        <div class="entry__body">
+          <p>On the night of September 8–9, 1912, an 18-year-old white woman named Mae Crow was found beaten and unconscious near the small Black community of Oscarville in Forsyth County, Georgia. She died two weeks later without regaining consciousness. She never identified her attacker.</p>
+          <p>Within hours, a Black teenage farmhand named Rob Edwards was seized from custody. On September 10, 1912, a mob dragged him from the Cumming jail, shot him, and hanged his body from a telephone pole on the town square. The county sheriff made no attempt to stop it. No one was charged with lynching him.</p>
+          <p>Two other Black men — Ernest Knox and Oscar Daniel, both teenagers — were arrested, given a one-day trial before an all-white jury, and hanged in October 1912. Whether any of them were responsible for the attack on Mae Crow has never been established. DNA evidence examined a century later could not confirm or disprove the accusations.</p>
+          <p>The trials and lynching were the spark. What came next was the point.</p>
+        </div>
+      </article>
+
+      <!-- E2 -->
+      <article class="entry reveal" id="e2">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">2</span>
+          <span class="entry__date">October – November 1912</span>
+        </div>
+        <h2 class="entry__title">Night Riders, Fire, and the Six-Week Expulsion</h2>
+        <div class="entry__body">
+          <p>In the weeks following the executions, organized groups of armed white men — known locally as night riders — moved systematically through Forsyth County. They burned Black churches. They burned Black schools. They fired into homes in the middle of the night. They delivered explicit threats: leave within 24 hours or be killed.</p>
+          <p>The terror was not random. It was coordinated. Night riders worked through the county in sections, targeting Black families farm by farm. The Forsyth County sheriff, rather than protecting Black residents, issued warnings that he could not guarantee their safety — a standard formula for official complicity in racial cleansing across the American South.</p>
+          <p>By November 1912, Forsyth County's Black population had collapsed from approximately 1,098 people to nearly zero. Families who had farmed the land for generations — some since before the Civil War — fled to Atlanta, to Ohio, to anywhere. They left behind crops in the field, livestock in the barns, and deeds to land they owned.</p>
+
+          <div class="pq">
+            <p class="pq__t">"They told us to be gone by sundown or they'd kill us all. We left with what we could carry. We never went back."</p>
+            <p class="pq__a">— Testimony collected by researcher Patrick Phillips, whose family history included Forsyth County expulsion survivors, <em>Blood at the Root</em> (2016)</p>
+          </div>
+
+          <p>The expulsion was reported in newspapers at the time — including the <em>Atlanta Constitution</em> — but was treated as an understandable local response to the crime, not as the atrocity it was. No state or federal investigation was opened.</p>
+        </div>
+      </article>
+
+      <!-- E3 -->
+      <article class="entry reveal" id="e3">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">3</span>
+          <span class="entry__date">1912 – 1915</span>
+        </div>
+        <h2 class="entry__title">The Land: What Was Taken and How</h2>
+        <div class="entry__body">
+          <p>When Black families fled Forsyth County, they left behind real property — land they had purchased, farmed, and legally owned. The mechanisms by which that land changed hands were varied, and most left no legal recourse.</p>
+          <p>Some families sold in panic for cents on the dollar to white neighbors who showed up with cash and the implicit threat of violence. Some land was simply occupied by white farmers after its owners fled and never contested in court — because appearing in Forsyth County to file a lawsuit meant risking death. Some land was seized for unpaid taxes after the owners, now living as refugees elsewhere, had no way to pay or appeared to collect the property. Some was never formally transferred at all and sits today under ownership claims that trace back to extorted or fraudulent transactions.</p>
+          <p>Historian Patrick Phillips, who spent years in Forsyth County deed records, documented that Black-owned land parcels were transferred to white neighbors in the months and years immediately following the expulsion — often at prices that reflected the sellers' total absence of bargaining power.</p>
+
+          <!-- UNIQUE COMPONENT: land-seizure-box -->
+          <div class="land-box">
+            <div class="land-box__title">Documented Land Transfers — Forsyth County, 1912–1920</div>
+            <div class="land-box__sub">Selected Black-owned parcels documented by deed records and census cross-referencing. Source: Patrick Phillips, <em>Blood at the Root</em> (2016); Forsyth County deed records.</div>
+            <table class="land-table" aria-label="Documented land transfers in Forsyth County 1912 to 1920">
+              <thead>
+                <tr>
+                  <th>Family</th>
+                  <th>What they owned</th>
+                  <th>What happened</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Grant family</td>
+                  <td>Farmland, Oscarville district; held since 1880s</td>
+                  <td>Fled October 1912; land transferred to white neighbor for nominal sum within months</td>
+                </tr>
+                <tr>
+                  <td>Brown family</td>
+                  <td>40-acre farm; family had farmed county since 1870s</td>
+                  <td>Left after church burning; property recorded as "abandoned"; seized for back taxes by 1915</td>
+                </tr>
+                <tr>
+                  <td>Jordan family</td>
+                  <td>Church property + adjacent lot, Oscarville</td>
+                  <td>Church burned October 1912; lot transferred via deed with no consideration listed</td>
+                </tr>
+                <tr>
+                  <td>Strickland family</td>
+                  <td>Tenant farm with documented land ownership claim</td>
+                  <td>Fled under night-rider threat; claim never re-filed; land absorbed into neighboring white-owned tract</td>
+                </tr>
+                <tr>
+                  <td>Multiple families</td>
+                  <td>Cemetery land, community-held</td>
+                  <td>Black cemetery in Forsyth County; families unable to return to maintain or reclaim; land status disputed for decades</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="land-box__note">Note: The full scope of Black land loss in Forsyth County has never been formally inventoried by any government body. What is documented represents a fraction of the total transfers. No Forsyth County landholding taken in the 1912 expulsion has ever been returned or compensated.</p>
+          </div>
+        </div>
+      </article>
+
+      <div class="sw reveal">1912 → Enforced Whiteness → 75 Years</div>
+
+      <!-- E4 -->
+      <article class="entry reveal" id="e4">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">4</span>
+          <span class="entry__date">1912 – 1987</span>
+        </div>
+        <h2 class="entry__title">75 Years: The County That Enforced Its Whiteness</h2>
+        <div class="entry__body">
+          <p>What happened in Forsyth County was not a one-time event but a sustained system. The expulsion of 1912 established a social contract enforced for three generations: Black people did not live in Forsyth County. Those who tried were met with violence, threat, or official indifference to both.</p>
+          <p>The 1920 federal census recorded Forsyth County as having virtually no Black residents — a demographic collapse from roughly 10% of the population to near zero in less than a decade. Each subsequent census confirmed it. Through the Depression, World War II, the Civil Rights Movement, and the Great Society programs, Forsyth County remained a racial enclave enforced by social memory and continued threat.</p>
+          <p>Oral history collected by Phillips and other researchers documented persistent intimidation against any Black person who attempted to return or settle. Workers brought in for construction projects left before dark. The county's enforced whiteness was not passive — it was actively maintained.</p>
+
+          <div class="cbox">
+            <div class="cbox__label">Forsyth County census demographics</div>
+            <div class="cbox__body">
+              <strong>1900:</strong> Approx. 10% Black population, ~1,100 Black residents<br>
+              <strong>1910:</strong> 1,098 Black residents recorded<br>
+              <strong>1920:</strong> Fewer than 30 Black residents recorded (primarily live-in domestic servants)<br>
+              <strong>1930–1980:</strong> Consistently under 1% Black population across six census cycles<br>
+              <strong>1980:</strong> Forsyth County: 43,541 residents; 39 identified as Black (0.09%)<br>
+              <strong>Source:</strong> U.S. Census Bureau records; Phillips, <em>Blood at the Root</em>
+            </div>
+          </div>
+
+          <p>This was not an anomaly. Forsyth County was one of an estimated 10,000 "sundown towns" across America — communities that used law, custom, and violence to exclude Black residents. But Forsyth County was notable for the completeness and duration of its exclusion, and for the documented, organized nature of the original expulsion.</p>
+        </div>
+      </article>
+
+      <!-- E5 -->
+      <article class="entry reveal" id="e5">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">5</span>
+          <span class="entry__date">January 17–24, 1987</span>
+        </div>
+        <h2 class="entry__title">The March, the Klan, and the Nation's Attention</h2>
+        <div class="entry__body">
+          <p>On January 17, 1987, a small interracial group organized a "Brotherhood March" through Forsyth County to mark Martin Luther King Jr.'s birthday and protest the county's exclusionary history. They were met by an estimated 400 counter-protesters — many from the Ku Klux Klan — who pelted the marchers with rocks and bottles. The march was halted. Images of white counter-protesters attacking civil rights marchers, 75 years after the expulsion, reached a national audience.</p>
+          <p>The following week, on January 24, 1987, approximately 20,000 people — including civil rights leaders, celebrities, and politicians — returned to Forsyth County in the largest civil rights march in the South since the 1960s. Coretta Scott King marched. So did Michael Dukakis. Thousands of counter-protesters, many in Klan robes, lined the route.</p>
+          <p>Oprah Winfrey traveled to Forsyth County to broadcast her show from the county. Her presence brought the story to millions of Americans who had never heard the name Oscarville. The 1987 confrontation forced a national conversation about the fact that racial cleansing had occurred in living memory and had been maintained in living memory.</p>
+
+          <div class="pq">
+            <p class="pq__t">"These people are not relics of another era. They live here. They have kept Black people out of this county for 75 years. And nobody in America knew about it."</p>
+            <p class="pq__a">— Press commentary following the January 1987 Forsyth County march</p>
+          </div>
+
+          <p>No criminal charges arose from the 1987 attack on the original march. No one was prosecuted for the 1912 lynching, the 1912 church burnings, or the expulsion itself. Forsyth County officials issued no apology. The land that had been seized in 1912 was not mentioned in any official response to the 1987 events.</p>
+        </div>
+      </article>
+
+      <!-- E6 -->
+      <article class="entry reveal" id="e6">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">6</span>
+          <span class="entry__date">1987 – 2006</span>
+        </div>
+        <h2 class="entry__title">The Reckoning That Didn't Come</h2>
+        <div class="entry__body">
+          <p>After the 1987 march, Forsyth County began to change — but through demographic pressure, not accountability. Atlanta's suburban sprawl pushed northward. New residents moved in with no connection to the county's history. By the 1990 census, the Black population had begun to climb for the first time in 80 years, driven by the growth of the Atlanta metro area, not by any deliberate policy of repair.</p>
+          <p>In 2004, the Forsyth County Board of Commissioners issued a formal apology for the 1912 expulsion — 92 years after it occurred. The resolution acknowledged that "acts of racial violence and intimidation forced African Americans to flee Forsyth County" and that this "created a legacy of pain and loss." It offered no restitution, no land review, no mechanism for descendants to file claims, and no identification of specific acts for which the county accepted responsibility.</p>
+          <p>No Georgia state body has issued any reparative action. No federal investigation has been opened. No court has examined the land transfers of 1912–1920 for legal validity. The families whose land was taken have no legal path to recover it.</p>
+
+          <div class="cbox">
+            <div class="cbox__label">Patrick Phillips, <em>Blood at the Root</em> (2016)</div>
+            <div class="cbox__body">Journalist and poet Patrick Phillips grew up in Forsyth County — a white child in a county that had made itself white — without knowing the history that surrounded him. His 2016 book, the most complete documented account of the 1912 expulsion, was based on years of archival research, deed records, newspaper archives, and interviews with descendants of expelled families. It won the American Book Award. It is the primary scholarly source for the documented record of what occurred.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- E7 -->
+      <article class="entry reveal" id="e7">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">7</span>
+          <span class="entry__date">Today</span>
+        </div>
+        <h2 class="entry__title">The Land Today: One of Georgia's Fastest-Growing, Wealthiest Counties</h2>
+        <div class="entry__body">
+          <p>Forsyth County, Georgia is today one of the fastest-growing counties in the United States. It consistently ranks among the wealthiest counties in Georgia and the Southeast. It is a prize location in the Atlanta metro area — excellent schools, rising property values, new development, sought-after zip codes.</p>
+          <p>Much of the land that Black families farmed in 1912, that was stolen through terror and extortion in the months that followed, is now worth many multiples of what it was a generation ago. The descendants of those families — scattered to Atlanta, Ohio, Michigan, and beyond — hold no share of that appreciation. The compounding that was denied them in 1912 has run for more than a century.</p>
+          <p>The Black community of Oscarville no longer exists as a community. The churches are gone. The school is gone. The cemetery — where the ancestors of expelled families were buried — was, for decades, inaccessible to their descendants. Recent efforts by community researchers have attempted to document and preserve what remains.</p>
+          <p>As of 2020, Forsyth County was approximately 7% Black — up from 0.09% in 1980, but still far below regional and state averages, and without any mechanism connecting the current demographic presence to the community that was destroyed in 1912.</p>
+        </div>
+      </article>
+
+      <!-- E8 -->
+      <article class="entry reveal" id="e8">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">8</span>
+          <span class="entry__date">The Pattern</span>
+        </div>
+        <h2 class="entry__title">Forsyth County Was Not Exceptional</h2>
+        <div class="entry__body">
+          <p>Forsyth County is the most documented example of a phenomenon that occurred across America. Researcher James Loewen identified approximately 10,000 sundown towns in the United States — communities that used violence, law, and custom to expel or exclude Black residents. The racial cleansing of 1912 follows a pattern documented in Rosewood, Florida (1923); the Greenwood District of Tulsa, Oklahoma (1921); Harrison, Arkansas; and dozens of other communities.</p>
+          <p>The pattern is consistent: an accusation against a Black individual triggers collective punishment of an entire Black community; land is seized in the chaos; legal mechanisms ensure no recourse; the theft compounds for generations as property values rise; descendants inherit neither the land nor access to the wealth it represented.</p>
+          <p>Forsyth County is known because Patrick Phillips wrote a book about it, because Oprah went there in 1987, and because the 1912 event was large and documented enough to survive in living memory into the television era. Most racial cleansings of this kind were smaller, less documented, and have been entirely forgotten by the surrounding white community.</p>
+
+          <div class="pq">
+            <p class="pq__t">"The history of Forsyth County is a history of America — it's just that Forsyth County didn't bother to hide it."</p>
+            <p class="pq__a">— Paraphrase of Phillips' argument in <em>Blood at the Root</em> (2016)</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- CAUSAL CHAIN -->
+      <div class="cc reveal" aria-label="Causal chain">
+        <p class="cc__label">The Chain: Accusation → Expulsion → Theft → Compounding</p>
+        <div class="cc__row">
+          <div class="cc__step">Accusation<br><small>1912</small></div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step cc__step--acc">Lynching &amp;<br>Night Riders</div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step">1,098 expelled<br><small>6 weeks</small></div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step">Land seized<br><small>no recourse</small></div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step">75 years<br>enforced white</div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step cc__step--acc">Land worth<br>hundreds of millions</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-sec reveal">
+        <h2 class="cta-sec__hed">The chain is still running.</h2>
+        <p class="cta-sec__sub">The land taken in 1912 was never returned. No court has reviewed the transfers. No compensation has been paid. The wealth it has generated has compounded for four generations in other people's hands.</p>
+        <div class="cta-sec__btns">
+          <a href="threads.html" class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.4)">← All threads</a>
+          <a href="thread-lake-lanier.html" class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.4)">Next: Lake Lanier →</a>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Thread navigation">
+      <nav class="sidebar-card" aria-label="Table of contents">
+        <p class="sidebar-card__title">In this thread</p>
+        <a href="#e1" class="toc-link" id="toc-e1"><span class="toc-num">1</span>Mae Crow &amp; the Accusation</a>
+        <a href="#e2" class="toc-link" id="toc-e2"><span class="toc-num">2</span>Night Riders &amp; the Expulsion</a>
+        <a href="#e3" class="toc-link" id="toc-e3"><span class="toc-num">3</span>The Land Seizures</a>
+        <a href="#e4" class="toc-link" id="toc-e4"><span class="toc-num">4</span>75 Years of Enforced Whiteness</a>
+        <a href="#e5" class="toc-link" id="toc-e5"><span class="toc-num">5</span>The 1987 March</a>
+        <a href="#e6" class="toc-link" id="toc-e6"><span class="toc-num">6</span>The Reckoning That Didn't Come</a>
+        <a href="#e7" class="toc-link" id="toc-e7"><span class="toc-num">7</span>The Land Today</a>
+        <a href="#e8" class="toc-link" id="toc-e8"><span class="toc-num">8</span>The Pattern</a>
+      </nav>
+      <div class="sidebar-card">
+        <p class="sidebar-card__title">Key numbers</p>
+        <div class="stat-stack">
+          <div class="stat-item">
+            <div class="stat-item__num">1,098</div>
+            <div class="stat-item__label">Black residents expelled in six weeks, fall 1912</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">0.09%</div>
+            <div class="stat-item__label">Black population of Forsyth County in 1980 — 68 years after expulsion</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">75 yrs</div>
+            <div class="stat-item__label">Duration of near-total racial exclusion before any demographic change</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">20,000</div>
+            <div class="stat-item__label">Marchers who returned to Forsyth County on January 24, 1987</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">$0</div>
+            <div class="stat-item__label">Compensation paid to descendants of expelled families for land taken in 1912</div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <p class="sidebar-card__title">Primary source</p>
+        <div style="font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.6;">
+          <strong>Patrick Phillips</strong><br>
+          <em>Blood at the Root: A Racial Cleansing in America</em> (2016)<br>
+          W. W. Norton &amp; Company<br>
+          American Book Award winner
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- /thread-body -->
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container site-footer__inner">
+    <div>
+      <a href="home.html" class="site-footer__logo">Chain</a>
+      <p class="site-footer__tag">Tracing cause to consequence.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <a href="threads.html">Threads</a>
+      <a href="about.html">About</a>
+      <a href="about.html#methodology">Methodology</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/nav.js" defer></script>
+<script>
+  // Theme
+  const themeToggle = document.getElementById('themeToggle');
+  if(themeToggle){
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('chain-theme', next);
+    });
+  }
+
+  // Scroll reveal
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); ro.unobserve(e.target); }});
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // TOC active state
+  const tocObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      const link = document.getElementById('toc-' + e.target.id);
+      if(link){ link.classList.toggle('is-active', e.isIntersecting); }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  document.querySelectorAll('.entry[id]').forEach(el => tocObserver.observe(el));
+
+  // TTS
+  const ttsBtn = document.getElementById('ttsBtn');
+  const ttsLabel = document.getElementById('ttsLabel');
+  let ttsUtterances = [], ttsIndex = 0, ttsPlaying = false;
+  function buildChunks(){
+    const text = Array.from(document.querySelectorAll('.entry__body p')).map(p=>p.textContent).join(' ');
+    const words = text.split(/\s+/);
+    const chunks = [];
+    for(let i=0;i<words.length;i+=40) chunks.push(words.slice(i,i+40).join(' '));
+    return chunks;
+  }
+  if(ttsBtn){
+    ttsBtn.addEventListener('click', () => {
+      if(!('speechSynthesis' in window)) return;
+      if(ttsPlaying){ speechSynthesis.cancel(); ttsPlaying=false; ttsLabel.textContent='Listen to this thread'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>'; return; }
+      const chunks = buildChunks(); ttsIndex=0; ttsPlaying=true;
+      ttsLabel.textContent='Playing…'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+      function speak(i){ if(i>=chunks.length){ttsPlaying=false;ttsLabel.textContent='Listen to this thread';ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';return;} const u=new SpeechSynthesisUtterance(chunks[i]); u.onend=()=>speak(i+1); speechSynthesis.speak(u); }
+      speak(0);
+    });
+  }
+</script>
+<script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
+
+
+<style>
+.next-thread-strip{background:var(--color-surface);border-top:1px solid var(--color-border);padding:var(--space-8) 0}
+.next-thread-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+.next-thread-strip__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-2)}
+.next-thread-strip__title{font-family:var(--font-editorial);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:800;color:var(--color-text-primary);line-height:1.2;max-width:480px}
+.next-thread-strip__btn{flex-shrink:0;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);background:var(--color-accent-dark,#92400e);color:#fff;border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:filter .15s;white-space:nowrap}
+.next-thread-strip__btn:hover{filter:brightness(1.1)}
+</style>
+
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <div class="next-thread-strip__title">Lake Marion: The Economy Built Over Ferguson</div>
+      </div>
+      <a href="thread-lake-marion.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>

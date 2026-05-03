@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lake Lanier: Atlanta's Playground Was Built on a Racial Crime Scene — Chain</title>
+  <meta property="og:title" content="Lake Lanier: Atlanta's Playground Was Built on a Racial Crime Scene" />
+  <meta property="og:description" content="Lake Lanier was created in 1956 by flooding Oscarville and surrounding communities — the same land from which 1,098 Black residents were expelled in 1912. Th..." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://chain.education/thread-lake-lanier.html" />
+  <meta name="description" content="Lake Lanier was created in 1956 by flooding Oscarville and surrounding communities — the same land from which 1,098 Black residents were expelled in 1912. The Army Corps of Engineers submerged the evidence. Atlanta built a resort on top." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    :root { --acc: #0c4a6e; --acc-lt: #e0f2fe; }
+
+    /* hero */
+    .hero { background: var(--acc); padding: var(--space-16) 0 var(--space-12); position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 90% at 110% 50%, rgba(56,189,248,.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at -10% 100%, rgba(0,0,0,.3) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* water ripple texture */
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 6px,
+        rgba(255,255,255,.03) 6px,
+        rgba(255,255,255,.03) 7px
+      );
+      pointer-events: none;
+    }
+    .hero__inner { position: relative; max-width: 780px; }
+    .hero__eyebrow { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc-lt); margin-bottom: var(--space-4); }
+    .hero__hed { font-family: var(--font-editorial); font-size: clamp(2rem,5vw,3.75rem); font-weight: var(--weight-black); color: #fff; line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); margin-bottom: var(--space-5); }
+    .hero__hed em { color: var(--acc-lt); font-style: italic; }
+    .hero__sub { font-size: var(--type-md); color: rgba(255,255,255,.75); line-height: var(--leading-loose); max-width: 640px; margin-bottom: var(--space-8); }
+    .hero__meta { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+    .hero__pill { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-full); padding: var(--space-1) var(--space-4); font-size: var(--type-xs); font-weight: var(--weight-semibold); color: rgba(255,255,255,.85); }
+
+    /* argument bar */
+    .argument-bar { background: var(--acc-lt); border-bottom: 3px solid var(--acc); padding: var(--space-5) 0; }
+    .argument-bar>div { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+    .argument-bar__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc); white-space: nowrap; flex-shrink: 0; }
+    .argument-bar__text { font-size: var(--type-sm); color: var(--acc); line-height: 1.6; font-weight: var(--weight-medium); }
+
+    /* thread layout */
+    .thread-body { display: grid; grid-template-columns: 1fr 280px; gap: var(--space-10); align-items: start; padding: var(--space-12) 0; }
+    @media(max-width:900px){ .thread-body { grid-template-columns: 1fr; } }
+
+    /* sidebar */
+    .sidebar { position: sticky; top: calc(var(--nav-h,64px) + var(--space-6)); display: flex; flex-direction: column; gap: var(--space-5); }
+    .sidebar-card { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); }
+    .sidebar-card__title { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-4); }
+    .toc-link { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--type-sm); color: var(--color-text-secondary); text-decoration: none; transition: background .15s, color .15s; }
+    .toc-link:hover { background: var(--color-surface-hover); color: var(--color-text-primary); }
+    .toc-link.is-active { background: var(--acc-lt); color: var(--acc); font-weight: var(--weight-semibold); }
+    .toc-num { font-size: 10px; font-weight: var(--weight-bold); color: var(--acc); background: var(--acc-lt); border-radius: var(--radius-full); width: 18px; height: 18px; display: grid; place-items: center; flex-shrink: 0; }
+    .stat-stack { display: flex; flex-direction: column; gap: var(--space-3); }
+    .stat-item { padding: var(--space-3); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+    .stat-item__num { font-family: var(--font-editorial); font-size: 1.5rem; font-weight: var(--weight-bold); color: var(--acc); line-height: 1; margin-bottom: var(--space-1); }
+    .stat-item__label { font-size: var(--type-xs); color: var(--color-text-tertiary); line-height: 1.4; }
+
+    /* entries */
+    .entry { padding: var(--space-10) 0; border-bottom: 1px solid var(--color-border); scroll-margin-top: 80px; }
+    .entry:last-child { border-bottom: none; }
+    .entry__hd { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5); }
+    .entry__num { font-size: var(--type-xs); font-weight: var(--weight-bold); color: var(--acc); background: var(--acc-lt); border-radius: var(--radius-full); width: 28px; height: 28px; display: grid; place-items: center; flex-shrink: 0; }
+    .entry__date { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); }
+    .entry__title { font-family: var(--font-editorial); font-size: clamp(1.25rem,3vw,1.75rem); font-weight: var(--weight-bold); color: var(--color-text-primary); line-height: var(--leading-snug); margin-bottom: var(--space-4); }
+    .entry__body { font-size: var(--type-md); color: var(--color-text-secondary); line-height: var(--leading-loose); }
+    .entry__body p { margin-bottom: var(--space-4); }
+    .entry__body p:last-child { margin-bottom: 0; }
+
+    /* pull quote */
+    .pq { border-left: 3px solid var(--acc); padding: var(--space-4) var(--space-6); margin: var(--space-6) 0; background: var(--acc-lt); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .pq__t { font-family: var(--font-editorial); font-size: 1.125rem; font-style: italic; color: var(--acc); line-height: 1.6; margin-bottom: var(--space-2); }
+    .pq__a { font-size: var(--type-xs); font-weight: var(--weight-semibold); color: var(--color-text-tertiary); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+
+    /* callout box */
+    .cbox { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-6) 0; }
+    .cbox__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc); margin-bottom: var(--space-3); }
+    .cbox__body { font-size: var(--type-sm); color: var(--color-text-secondary); line-height: 1.7; }
+
+    /* unique component: submerged-grid */
+    .submerged { background: #001f36; border: 1px solid rgba(186,230,253,.12); border-radius: var(--radius-xl); padding: var(--space-8); margin: var(--space-6) 0; }
+    .submerged__title { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: #38bdf8; margin-bottom: var(--space-2); }
+    .submerged__sub { font-size: var(--type-sm); color: rgba(186,230,253,.5); margin-bottom: var(--space-6); line-height: 1.5; }
+    .submerged__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    @media(max-width:600px){ .submerged__grid { grid-template-columns: 1fr; } }
+    .sub-item { border: 1px solid rgba(186,230,253,.1); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); background: rgba(255,255,255,.03); }
+    .sub-item__label { font-size: 10px; font-weight: var(--weight-bold); letter-spacing: .08em; text-transform: uppercase; color: #38bdf8; margin-bottom: var(--space-2); }
+    .sub-item__name { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: rgba(186,230,253,.9); margin-bottom: var(--space-1); line-height: 1.4; }
+    .sub-item__desc { font-size: var(--type-xs); color: rgba(186,230,253,.45); line-height: 1.5; }
+    .submerged__note { font-size: var(--type-xs); color: rgba(186,230,253,.3); margin-top: var(--space-6); line-height: 1.6; border-top: 1px solid rgba(186,230,253,.08); padding-top: var(--space-4); }
+
+    /* switch */
+    .sw { text-align: center; padding: var(--space-4) 0; color: var(--color-text-tertiary); font-size: var(--type-xs); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wider); text-transform: uppercase; display: flex; align-items: center; gap: var(--space-3); }
+    .sw::before, .sw::after { content: ''; flex: 1; height: 1px; background: var(--color-border); }
+
+    /* causal chain */
+    .cc { padding: var(--space-12) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-4); }
+    .cc__label { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-6); }
+    .cc__row { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+    .cc__step { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); font-size: var(--type-sm); color: var(--color-text-primary); line-height: 1.4; font-weight: var(--weight-medium); flex: 1; min-width: 120px; text-align: center; }
+    .cc__step--acc { background: var(--acc); border-color: var(--acc); color: #fff; }
+    .cc__arr { color: var(--color-text-tertiary); font-size: 1.25rem; flex-shrink: 0; }
+
+    /* CTA */
+    .cta-sec { background: var(--acc); border-radius: var(--radius-xl); padding: var(--space-10) var(--space-8); margin: var(--space-12) 0; text-align: center; }
+    .cta-sec__hed { font-family: var(--font-editorial); font-size: 1.5rem; font-weight: var(--weight-bold); color: #fff; margin-bottom: var(--space-3); }
+    .cta-sec__sub { font-size: var(--type-sm); color: rgba(255,255,255,.7); margin-bottom: var(--space-6); line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-sec__btns { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+
+    /* TTS bar */
+    .tts-bar { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-5); background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-full); width: fit-content; margin-bottom: var(--space-8); }
+    .tts-bar__btn { background: var(--acc); color: #fff; border: none; border-radius: var(--radius-full); width: 36px; height: 36px; display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
+    .tts-bar__btn svg { width: 16px; height: 16px; }
+    .tts-bar__label { font-size: var(--type-sm); color: var(--color-text-secondary); }
+
+    /* dark mode */
+    [data-theme="dark"] .hero { background: #082030; }
+    [data-theme="dark"] .argument-bar { background: #0c2d42; border-color: #0c4a6e; }
+    [data-theme="dark"] .argument-bar__label,
+    [data-theme="dark"] .argument-bar__text { color: #bae6fd; }
+    [data-theme="dark"] .toc-link.is-active { background: #0c2d42; color: #38bdf8; }
+    [data-theme="dark"] .pq { background: #082030; border-color: #0369a1; }
+    [data-theme="dark"] .pq__t { color: #38bdf8; }
+    [data-theme="dark"] .submerged { background: #020d16; }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-nav" role="banner">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__logo" aria-label="Chain — home">
+      <span class="site-nav__logo-mark" aria-hidden="true"></span>Chain
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link" aria-current="page">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">Lake Lanier: Atlanta's Playground Was Built on a Racial Crime Scene</span>
+    </div>
+  </div>
+</nav>
+<!-- CONTEXT RIBBON — thread orientation tracker -->
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon" role="complementary" aria-label="Thread context">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <!-- populated by thread-journey.js -->
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>66</strong> Threads</span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>9</strong> Eras</span>
+    </div>
+    <nav class="context-ribbon__nav" aria-label="Quick access">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
+        <span class="context-ribbon__live-dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Lake+Lanier+history" class="search-hint-chip">Lake Lanier history</a>
+      <a href="search.html?q=Forsyth+County+racial+cleansing" class="search-hint-chip">Forsyth County racial cleansing</a>
+      <a href="search.html?q=federal+infrastructure+Black+communities" class="search-hint-chip">Federal infrastructure &amp; Black communities</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-hed">
+  <div class="container">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Federal Infrastructure · Erasure · Recreation Economy</p>
+      <h1 class="hero__hed" id="hero-hed">Lake Lanier:<br><em>Atlanta's Playground Was Built on a Racial Crime Scene</em></h1>
+      <p class="hero__sub">In 1956, the U.S. Army Corps of Engineers completed Buford Dam and flooded 38,000 acres of north Georgia — including the community of Oscarville, from which 1,098 Black residents had been violently expelled in 1912. The water buried the churches, the schoolhouses, the roads, the graveyards, and the land records. Atlanta built a resort on top. The families whose land was stolen in 1912 watched it disappear under 60 feet of federal water.</p>
+      <div class="hero__meta">
+        <span class="hero__pill">1912 → 1956 → Present</span>
+        <span class="hero__pill">Hall &amp; Forsyth Counties, Georgia</span>
+        <span class="hero__pill">38,000 acres flooded</span>
+        <span class="hero__pill">Crime scene submerged</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARGUMENT BAR -->
+<div class="argument-bar" role="note" aria-label="Central argument">
+  <div>
+    <span class="argument-bar__label">The Chain</span>
+    <p class="argument-bar__text">The racial cleansing of Forsyth County in 1912 expelled Black families and seized their land. Forty-four years later, the federal government flooded that land — including the community of Oscarville itself — to create a reservoir. The physical evidence of the crime was submerged. The land became a recreation economy that generated billions. Not one displaced family, Black or white, received fair compensation. The families who lost the most in 1912 had the least recourse in 1956.</p>
+  </div>
+</div>
+
+<!-- TTS -->
+<div class="container" style="padding-top:var(--space-8)">
+  <div class="tts-bar" role="region" aria-label="Text-to-speech controls">
+    <button class="tts-bar__btn" id="ttsBtn" aria-label="Read article aloud">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
+    <span class="tts-bar__label" id="ttsLabel">Listen to this thread</span>
+  </div>
+</div>
+
+<!-- THREAD BODY -->
+<main id="main-content">
+<div class="container">
+  <div class="thread-body">
+
+    <!-- MAIN COLUMN -->
+    <div>
+
+      <!-- E1 -->
+      <article class="entry reveal" id="e1">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">1</span>
+          <span class="entry__date">1940s – 1956</span>
+        </div>
+        <h2 class="entry__title">The Dam: What the Army Corps Said It Was For</h2>
+        <div class="entry__body">
+          <p>After World War II, the U.S. Army Corps of Engineers identified the Chattahoochee River basin as a priority for flood control and hydroelectric development. The proposed solution: Buford Dam, to be built on the Chattahoochee River in Hall County, Georgia, which would back up a reservoir of roughly 38,000 acres across Hall and Forsyth counties.</p>
+          <p>The official rationale was flood control for downstream Atlanta, hydroelectric power generation, and the emerging category of "recreational opportunity" for the region's growing population. Congress authorized the project. Land acquisition began in the late 1940s. Construction was completed in 1956. The reservoir was named Lake Sidney Lanier after the Georgia poet, and it began filling that year.</p>
+          <p>What the official record did not prominently feature: the reservoir would flood a swath of land that included the community of Oscarville — the same community from which every Black resident had been driven at gunpoint 44 years earlier. The land those families had farmed, the churches they had built, the schoolhouses, the cemeteries — all of it lay within the flood zone.</p>
+          <p>By 1956, nearly all of that land was in white hands. The racial cleansing of 1912 had ensured it.</p>
+        </div>
+      </article>
+
+      <!-- E2 -->
+      <article class="entry reveal" id="e2">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">2</span>
+          <span class="entry__date">Late 1940s – 1956</span>
+        </div>
+        <h2 class="entry__title">Displacement: Who Was Moved, and What They Were Paid</h2>
+        <div class="entry__body">
+          <p>The Army Corps of Engineers acquired approximately 50,000 acres for the Buford Dam project, relocating an estimated 250 to 700 families — both Black and white — from Hall and Forsyth counties. The Corps' land acquisition process in the postwar South operated against a backdrop of racial inequality that was both legal and practiced.</p>
+          <p>Federal infrastructure projects of this era — dams, highways, urban renewal — displaced Black communities at roughly three times the rate of white communities, a pattern so consistent that advocates later named it "urban renewal is Negro removal." The Buford Dam was a rural project, not urban, but the same dynamics applied: land appraisals were conducted by local white appraisers operating in a market where Black-owned land was systematically undervalued; Black landowners had less access to legal representation to contest inadequate offers; and in Forsyth County specifically, any Black landowner would have been negotiating under decades of documented racial terror.</p>
+
+          <div class="cbox">
+            <div class="cbox__label">The pattern across federal dam projects</div>
+            <div class="cbox__body">
+              The Buford Dam was one of hundreds of federal dam projects built by the Army Corps and Bureau of Reclamation in the postwar period. Researchers examining these projects have documented that: appraisals of Black-owned land consistently ran below comparable white-owned parcels; Black landowners were less likely to receive relocation assistance; Black communities displaced by federal projects were less likely to receive replacement housing in comparable locations; and Black-owned cemeteries were among the most frequently inadequately managed in relocation plans. None of these patterns were officially acknowledged at the time.
+            </div>
+          </div>
+
+          <p>For Forsyth County specifically, there was a further complication: much of the land that had been owned by Black families in 1912 had been transferred — through terror, fraud, or abandonment — to white owners in the decades since. Those white owners received the federal condemnation payments. The original Black families, whose land it arguably was, received nothing — they had already been dispossessed once.</p>
+        </div>
+      </article>
+
+      <!-- E3 -->
+      <article class="entry reveal" id="e3">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">3</span>
+          <span class="entry__date">1956</span>
+        </div>
+        <h2 class="entry__title">What Went Underwater</h2>
+        <div class="entry__body">
+          <p>When Buford Dam closed and the reservoir began filling in 1956, it didn't just flood farmland. It submerged a landscape dense with human history — including the specific geography of the 1912 racial cleansing. Roads, homesteads, church foundations, and family cemeteries went under 60 to 160 feet of water.</p>
+          <p>The community of Oscarville — where Mae Crow's assault was reported, where Rob Edwards was seized, where night riders had burned churches and schoolhouses in 1912 — is now underwater. The physical terrain of the crime scene is inaccessible. The stone foundations of Black churches, the remnants of the schoolhouse, the roads that families fled down in October 1912: all submerged.</p>
+
+          <!-- UNIQUE COMPONENT: submerged-grid -->
+          <div class="submerged">
+            <div class="submerged__title">What Lies Beneath Lake Lanier</div>
+            <div class="submerged__sub">Documented communities, structures, and sites submerged when the reservoir filled in 1956. Sources: Army Corps of Engineers records; Hall County historical society; Patrick Phillips, <em>Blood at the Root</em> (2016).</div>
+            <div class="submerged__grid">
+              <div class="sub-item">
+                <div class="sub-item__label">Community</div>
+                <div class="sub-item__name">Oscarville</div>
+                <div class="sub-item__desc">Site of the 1912 racial cleansing; Black community expelled October 1912; community structures burned; land transferred to white owners; submerged 1956</div>
+              </div>
+              <div class="sub-item">
+                <div class="sub-item__label">Community</div>
+                <div class="sub-item__name">Flowery Branch (partial)</div>
+                <div class="sub-item__desc">Hall County township; portions of its lower-lying areas and farmland flooded; white residents relocated with Corps assistance</div>
+              </div>
+              <div class="sub-item">
+                <div class="sub-item__label">Structures</div>
+                <div class="sub-item__name">Black churches &amp; schoolhouses</div>
+                <div class="sub-item__desc">Multiple African American church sites documented in the flood zone, including those burned or abandoned after the 1912 expulsion; foundations submerged</div>
+              </div>
+              <div class="sub-item">
+                <div class="sub-item__label">Cemeteries</div>
+                <div class="sub-item__name">Black burial grounds</div>
+                <div class="sub-item__desc">Several African American cemetery sites in the flood zone; remains disinterment and relocation was inconsistent; some graves remain underwater</div>
+              </div>
+              <div class="sub-item">
+                <div class="sub-item__label">Infrastructure</div>
+                <div class="sub-item__name">Roads &amp; bridges</div>
+                <div class="sub-item__desc">Pre-existing road network, including routes used during the 1912 expulsion; now visible from the lake surface during drought drawdowns</div>
+              </div>
+              <div class="sub-item">
+                <div class="sub-item__label">Evidence</div>
+                <div class="sub-item__name">Land records terrain</div>
+                <div class="sub-item__desc">The physical landscape against which 1912 deed transfers could have been litigated is now inaccessible; the geography of the crime is gone</div>
+              </div>
+            </div>
+            <p class="submerged__note">During severe droughts — most recently 2007–2008, when the lake dropped more than 20 feet below full pool — submerged structures become partially visible: stone walls, road surfaces, bridge abutments. Local divers have documented the underwater landscape. The Corps of Engineers manages access; no comprehensive archaeological survey of the flood zone has been publicly released.</p>
+          </div>
+        </div>
+      </article>
+
+      <div class="sw reveal">1956 → The Lake Fills → The Evidence Disappears</div>
+
+      <!-- E4 -->
+      <article class="entry reveal" id="e4">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">4</span>
+          <span class="entry__date">1956 – 1980s</span>
+        </div>
+        <h2 class="entry__title">The Recreation Economy: Who the Lake Was Built For</h2>
+        <div class="entry__body">
+          <p>Lake Lanier opened to the public as a recreation area almost immediately after filling. The Army Corps of Engineers developed public access points, boat ramps, campgrounds, and parks along the 692-mile shoreline. Private development followed: marinas, lakefront homes, resort properties. By the 1970s and 1980s, Lake Lanier was the most-visited U.S. Army Corps of Engineers lake in the United States.</p>
+          <p>The recreation economy that developed at Lake Lanier in the decades after 1956 was, in practical terms, a white recreation economy. Forsyth County — which bordered the lake's western shore — remained 99% white through the 1970s and 1980s, actively enforced by the same community dynamics that had expelled Black residents in 1912. The 1987 civil rights marches that targeted Forsyth County's racial exclusion took place while Lake Lanier was simultaneously operating as one of the most popular recreation destinations in the South.</p>
+          <p>The economic value generated by the lake — property appreciation, tourism revenue, development premiums for lakefront access — accrued overwhelmingly to white landowners and white communities. The land on which this economy rested had been made all-white by the racial cleansing of 1912 and then submerged by the federal project of 1956.</p>
+
+          <div class="pq">
+            <p class="pq__t">"Lake Lanier is where Atlanta goes on vacation. Forty-four years before it was a lake, it was where Atlanta's Black families got their land stolen. Those two facts have never been in the same conversation."</p>
+            <p class="pq__a">— Framing synthesized from Phillips, <em>Blood at the Root</em> (2016) and historical records</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- E5 -->
+      <article class="entry reveal" id="e5">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">5</span>
+          <span class="entry__date">1956 – Present</span>
+        </div>
+        <h2 class="entry__title">The Death Toll: What Happens When History Is Submerged</h2>
+        <div class="entry__body">
+          <p>Lake Lanier has one of the highest drowning rates of any lake in the United States. The Army Corps of Engineers has recorded hundreds of drowning deaths since the lake opened. The lake's dangerous underwater topography — submerged structures, sudden drop-offs where land once rose, unexpected currents around dam operations — is a documented contributing factor.</p>
+          <p>The submerged structures are not mysterious. They are what was there before the water: roads that end suddenly in 60 feet of water, building foundations that create underwater hazards, the irregular terrain of a flooded landscape rather than a purpose-built reservoir. Swimmers and boaters who don't know the lake's history encounter its physical consequences.</p>
+          <p>The high death toll at Lake Lanier has circulated widely as a piece of folklore — the lake is "haunted," it "wants" victims, there is something malevolent about it. The actual explanation is more straightforward and more damning: the federal government submerged a human landscape without fully accounting for what was there, and decades of visitors have encountered the underwater results.</p>
+
+          <div class="cbox">
+            <div class="cbox__label">Lake Lanier drowning statistics</div>
+            <div class="cbox__body">
+              The U.S. Army Corps of Engineers' Lake Lanier project office has documented hundreds of drowning deaths since the lake opened in 1956, making it consistently among the most deadly recreation lakes in the United States by total fatality count. Contributing factors documented by safety investigators include: unpredictable depth changes at former road and building sites; submerged structures not marked by surface buoys; alcohol involvement; and the lake's enormous size (38,000 surface acres) creating conditions that outpace visitor awareness. No comprehensive mapping of underwater hazard sites relative to submerged structures has been publicly released.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- E6 -->
+      <article class="entry reveal" id="e6">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">6</span>
+          <span class="entry__date">2007 – 2008</span>
+        </div>
+        <h2 class="entry__title">Drought: When the Lake Reveals What's Underneath</h2>
+        <div class="entry__body">
+          <p>In 2007–2008, a severe drought dropped Lake Lanier more than 20 feet below full pool — its lowest level since it first filled in 1956. As the water receded, structures emerged that most visitors had never known existed: stone bridge abutments, road surfaces, building foundations, walls. The Atlanta media covered the drought primarily as a water supply crisis. The emerging structures were treated as curiosities.</p>
+          <p>For researchers and descendants of families who had lived in the flood zone, the drawdown was something else: a brief window into what had been submerged. The physical traces of Oscarville — the community that was burned and emptied in 1912 and then drowned in 1956 — appeared briefly at the waterline before the rains refilled the lake.</p>
+          <p>No archaeological investigation was conducted during the drawdown. The Army Corps of Engineers manages the lakebed and its contents. No systematic documentation of the submerged cultural landscape — including the sites of the 1912 Black community — has been publicly undertaken or released.</p>
+
+          <div class="pq">
+            <p class="pq__t">"When the water went down, you could see the old roads. People drove out to look at them like they were tourist attractions. Nobody mentioned whose roads they were or why they were under there."</p>
+            <p class="pq__a">— Framing from historical accounts of the 2007–2008 Lake Lanier drought drawdown</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- E7 -->
+      <article class="entry reveal" id="e7">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">7</span>
+          <span class="entry__date">Today</span>
+        </div>
+        <h2 class="entry__title">The Lake Today: $11 Billion Economy, Submerged History</h2>
+        <div class="entry__body">
+          <p>Lake Lanier today generates an estimated $6–11 billion in annual economic activity for the north Georgia region. It attracts approximately 11 million visitors per year, making it one of the most visited recreation areas in the Eastern United States. Lakefront property commands among the highest prices in Georgia. The lake is central to the identity of the Atlanta metro area as a livable, desirable region.</p>
+          <p>The community of Oscarville does not appear on any Lake Lanier tourism or recreational map. The 1912 racial cleansing is not mentioned in Army Corps of Engineers visitor materials. The families whose land was taken in 1912 and submerged in 1956 have received no compensation and have no legal mechanism to seek any. Their descendants are among the visitors who bring the $11 billion if they come at all — as guests of a recreation economy built on the burial of their history.</p>
+          <p>Georgia and Hall County have produced some local historical acknowledgment of the flooded communities, including exhibits at the Northeast Georgia History Center in Gainesville. The racial history specifically — the connection between the 1912 cleansing and the 1956 flooding — has entered public discourse primarily through Patrick Phillips' 2016 book and subsequent journalism. It has not been incorporated into any official Lake Lanier interpretive program.</p>
+        </div>
+      </article>
+
+      <!-- E8 -->
+      <article class="entry reveal" id="e8">
+        <div class="entry__hd">
+          <span class="entry__num" aria-hidden="true">8</span>
+          <span class="entry__date">The Full Chain</span>
+        </div>
+        <h2 class="entry__title">Three Acts of the Same Crime</h2>
+        <div class="entry__body">
+          <p>Oscarville and Lake Lanier together form one of the most complete documented examples of compounding racial dispossession in American history. The mechanism operates in three acts.</p>
+          <p><strong>Act One, 1912:</strong> Black families are expelled from their land through organized racial terror. Their property is seized through fraud, abandonment, and extorted sale. No one is prosecuted. The land is now all-white.</p>
+          <p><strong>Act Two, 1956:</strong> The federal government floods the land to build a reservoir. The white families who held land — legally or through the fruits of the 1912 theft — receive condemnation payments. The Black families, already twice removed, receive nothing. The physical site of the original crime is submerged. The evidence goes underwater.</p>
+          <p><strong>Act Three, ongoing:</strong> The reservoir becomes one of the most economically productive recreation assets in the American South. The appreciation of surrounding land — already distributed entirely to white owners by the first two acts — compounds for seven decades. The families whose ancestors were expelled in 1912 and flooded out in 1956 have no share of this economy and no legal path to seek one.</p>
+
+          <div class="pq">
+            <p class="pq__t">"The lake didn't erase the history. The lake is the history. It's just that the history is sixty feet underwater and covered with speedboats."</p>
+            <p class="pq__a">— Interpretive framing synthesized from Phillips, <em>Blood at the Root</em> (2016), and the documented record</p>
+          </div>
+
+          <p>The three-act structure of Oscarville and Lake Lanier — expulsion, submersion, resort — is a compression of the mechanisms that have operated across American racial history at larger scale and over longer time: the original dispossession, the institutional act that buries the evidence, and the ongoing economy that grows on top. The lake is not a metaphor. It is a literal example.</p>
+        </div>
+      </article>
+
+      <!-- CAUSAL CHAIN -->
+      <div class="cc reveal" aria-label="Causal chain">
+        <p class="cc__label">The Chain: 1912 Expulsion → 1956 Flooding → Resort Economy</p>
+        <div class="cc__row">
+          <div class="cc__step">1912:<br>Land stolen<br><small>racial terror</small></div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step cc__step--acc">All-white county<br><small>44 years</small></div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step">1956:<br>Federal dam<br><small>land flooded</small></div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step">White owners<br>compensated</div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step">Crime scene<br>submerged</div>
+          <span class="cc__arr" aria-hidden="true">→</span>
+          <div class="cc__step cc__step--acc">$11B/year<br>resort economy</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-sec reveal">
+        <h2 class="cta-sec__hed">The water didn't wash it away.</h2>
+        <p class="cta-sec__sub">The land was taken in 1912. It was submerged in 1956. The economy it generates runs today. No compensation has been paid at any stage of this chain.</p>
+        <div class="cta-sec__btns">
+          <a href="thread-oscarville.html" class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.4)">← Oscarville: The Expulsion</a>
+          <a href="threads.html" class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.4)">All threads →</a>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Thread navigation">
+      <nav class="sidebar-card" aria-label="Table of contents">
+        <p class="sidebar-card__title">In this thread</p>
+        <a href="#e1" class="toc-link" id="toc-e1"><span class="toc-num">1</span>The Dam: What It Was For</a>
+        <a href="#e2" class="toc-link" id="toc-e2"><span class="toc-num">2</span>Displacement &amp; Compensation</a>
+        <a href="#e3" class="toc-link" id="toc-e3"><span class="toc-num">3</span>What Went Underwater</a>
+        <a href="#e4" class="toc-link" id="toc-e4"><span class="toc-num">4</span>The Recreation Economy</a>
+        <a href="#e5" class="toc-link" id="toc-e5"><span class="toc-num">5</span>The Death Toll</a>
+        <a href="#e6" class="toc-link" id="toc-e6"><span class="toc-num">6</span>Drought: What Emerges</a>
+        <a href="#e7" class="toc-link" id="toc-e7"><span class="toc-num">7</span>The Lake Today</a>
+        <a href="#e8" class="toc-link" id="toc-e8"><span class="toc-num">8</span>Three Acts of the Same Crime</a>
+      </nav>
+      <div class="sidebar-card">
+        <p class="sidebar-card__title">Key numbers</p>
+        <div class="stat-stack">
+          <div class="stat-item">
+            <div class="stat-item__num">38,000</div>
+            <div class="stat-item__label">Acres flooded when Lake Lanier filled in 1956</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">44 yrs</div>
+            <div class="stat-item__label">Between the 1912 racial cleansing and the 1956 flooding of Oscarville</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">11M</div>
+            <div class="stat-item__label">Annual visitors to Lake Lanier — most-visited Army Corps lake in the U.S.</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">$11B</div>
+            <div class="stat-item__label">Estimated annual economic activity generated by Lake Lanier region</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">$0</div>
+            <div class="stat-item__label">Compensation to descendants of families expelled in 1912 and flooded out in 1956</div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div style="font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.6;">
+          <p style="margin-bottom:var(--space-3);">This thread is the direct continuation of:</p>
+          <a href="thread-oscarville.html" style="display:flex;align-items:center;gap:var(--space-2);font-weight:var(--weight-semibold);color:var(--acc);text-decoration:none;font-size:var(--type-sm);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            Oscarville, Georgia: The Erasure of Forsyth County
+          </a>
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- /thread-body -->
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container site-footer__inner">
+    <div>
+      <a href="home.html" class="site-footer__logo">Chain</a>
+      <p class="site-footer__tag">Tracing cause to consequence.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <a href="threads.html">Threads</a>
+      <a href="about.html">About</a>
+      <a href="about.html#methodology">Methodology</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/nav.js" defer></script>
+<script>
+  // Theme
+  const themeToggle = document.getElementById('themeToggle');
+  if(themeToggle){
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('chain-theme', next);
+    });
+  }
+
+  // Scroll reveal
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); ro.unobserve(e.target); }});
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // TOC active state
+  const tocObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      const link = document.getElementById('toc-' + e.target.id);
+      if(link){ link.classList.toggle('is-active', e.isIntersecting); }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  document.querySelectorAll('.entry[id]').forEach(el => tocObserver.observe(el));
+
+  // TTS
+  const ttsBtn = document.getElementById('ttsBtn');
+  const ttsLabel = document.getElementById('ttsLabel');
+  let ttsPlaying = false;
+  function buildChunks(){
+    const text = Array.from(document.querySelectorAll('.entry__body p')).map(p=>p.textContent).join(' ');
+    const words = text.split(/\s+/);
+    const chunks = [];
+    for(let i=0;i<words.length;i+=40) chunks.push(words.slice(i,i+40).join(' '));
+    return chunks;
+  }
+  if(ttsBtn){
+    ttsBtn.addEventListener('click', () => {
+      if(!('speechSynthesis' in window)) return;
+      if(ttsPlaying){ speechSynthesis.cancel(); ttsPlaying=false; ttsLabel.textContent='Listen to this thread'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>'; return; }
+      const chunks = buildChunks(); ttsPlaying=true;
+      ttsLabel.textContent='Playing…'; ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+      function speak(i){ if(i>=chunks.length){ttsPlaying=false;ttsLabel.textContent='Listen to this thread';ttsBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';return;} const u=new SpeechSynthesisUtterance(chunks[i]); u.onend=()=>speak(i+1); speechSynthesis.speak(u); }
+      speak(0);
+    });
+  }
+</script>
+<script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
+<style>
+.next-thread-strip{background:var(--color-surface);border-top:1px solid var(--color-border);padding:var(--space-8) 0}
+.next-thread-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+.next-thread-strip__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-2)}
+.next-thread-strip__title{font-family:var(--font-editorial);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:800;color:var(--color-text-primary);line-height:1.2;max-width:480px}
+.next-thread-strip__btn{flex-shrink:0;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);background:var(--color-accent-dark,#92400e);color:#fff;border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:filter .15s;white-space:nowrap}
+.next-thread-strip__btn:hover{filter:brightness(1.1)}
+</style>
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Keep reading</div>
+        <div class="next-thread-strip__title">Browse all threads in the chain</div>
+      </div>
+      <a href="threads.html" class="next-thread-strip__btn">All Threads &rarr;</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>

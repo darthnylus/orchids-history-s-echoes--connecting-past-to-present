@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Right to Defend: Black Organized Self-Defense, 1892–1982 — Thread — Chain</title>
+  <meta property="og:title" content="The Right to Defend: Black Organized Self-Defense, 1892–1982 — Thread" />
+  <meta property="og:description" content="Ida B. Wells said it first. Robert F. Williams proved it. The Deacons for Defense lived it. The Black Panthers made it visible. Organized armed self-defense ..." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://chain.education/thread-self-defense.html" />
+  <meta name="description" content="Ida B. Wells said it first. Robert F. Williams proved it. The Deacons for Defense lived it. The Black Panthers made it visible. Organized armed self-defense is a documented, continuous tradition — and every chapter was met with new laws designed to stop it." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .thread-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .thread-hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 50%, rgba(22,163,74,.14) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 85% 20%, rgba(29,78,216,.10) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 50% 100%, rgba(239,68,68,.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .thread-hero__inner { position: relative; max-width: 760px; }
+    .thread-hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(22,163,74,.15);
+      border: 1px solid rgba(22,163,74,.3);
+      border-radius: 999px;
+      padding: var(--space-1) var(--space-4);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: var(--space-6);
+    }
+    .thread-hero__kicker-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+    .thread-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-6);
+    }
+    .thread-hero__title em { color: #4ade80; font-style: normal; }
+    .thread-hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--ink-300);
+      line-height: 1.7;
+      max-width: 640px;
+      margin-bottom: var(--space-8);
+    }
+    .thread-hero__meta {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    /* ── Listen button ───────────────────────────────────────── */
+    .listen-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: var(--ink-300);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      font-family: inherit;
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      margin-left: auto;
+      white-space: nowrap;
+      align-self: flex-end;
+    }
+    .listen-btn:hover { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.3); }
+    .listen-btn:focus-visible { outline: 2px solid #4ade80; outline-offset: 3px; }
+    .listen-btn__icon { flex-shrink: 0; transition: transform var(--duration-fast); }
+    .listen-btn[data-state="playing"] { background: rgba(22,163,74,.2); border-color: rgba(22,163,74,.4); color: #4ade80; }
+    .listen-btn[data-state="playing"]:hover { background: rgba(22,163,74,.3); }
+    .listen-progress-bar {
+      height: 3px;
+      background: rgba(255,255,255,.08);
+      position: relative;
+      overflow: hidden;
+      display: none;
+    }
+    .listen-progress-bar.is-visible { display: block; }
+    .listen-progress-bar__fill {
+      height: 100%;
+      background: #4ade80;
+      width: 0%;
+      transition: width 0.5s linear;
+    }
+    .thread-meta-item__label {
+      font-size: var(--type-xs);
+      color: var(--ink-500);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      margin-bottom: 2px;
+    }
+    .thread-meta-item__value {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--ink-200);
+    }
+
+    /* ── Argument bar ────────────────────────────────────────── */
+    .argument-bar {
+      background: rgba(22,163,74,.08);
+      border-top: 1px solid rgba(22,163,74,.18);
+      border-bottom: 1px solid rgba(22,163,74,.18);
+      padding: var(--space-5) 0;
+    }
+    .argument-bar__inner {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-5);
+    }
+    .argument-bar__icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: rgba(22,163,74,.2);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-top: 2px;
+    }
+    .argument-bar__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: var(--space-1);
+    }
+    .argument-bar__text {
+      font-size: var(--type-md);
+      color: var(--ink-200);
+      line-height: 1.65;
+      max-width: 820px;
+    }
+    .argument-bar__text strong { color: #fff; }
+
+    /* ── Thread layout ───────────────────────────────────────── */
+    .thread-body { padding: var(--space-14) 0; }
+    .thread-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .thread-layout { grid-template-columns: 1fr 300px; gap: var(--space-12); }
+    }
+
+    /* ── Entry cards ─────────────────────────────────────────── */
+    .entry-list { display: flex; flex-direction: column; gap: 0; }
+    .entry-item {
+      scroll-margin-top: 80px;
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .entry-item:last-child { border-bottom: none; }
+    .entry-item__header {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: var(--space-5);
+      align-items: start;
+      margin-bottom: var(--space-6);
+    }
+    .entry-item__num {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-lg);
+      background: rgba(22,163,74,.18);
+      border: 1px solid rgba(22,163,74,.3);
+      color: #4ade80;
+      font-family: var(--font-editorial);
+      font-size: 1.375rem;
+      font-weight: 900;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .entry-item__dates {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: var(--space-1);
+    }
+    .entry-item__name {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.375rem, 3vw, 1.875rem);
+      font-weight: 900;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+      margin-bottom: var(--space-1);
+    }
+    .entry-item__location {
+      font-size: var(--type-sm);
+      color: var(--color-text-tertiary);
+    }
+
+    /* Stat strip */
+    .entry-stats {
+      display: flex;
+      gap: var(--space-5);
+      flex-wrap: wrap;
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: var(--space-6);
+    }
+    .entry-stat__num {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: #4ade80;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .entry-stat__label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-tertiary);
+    }
+
+    /* Body text */
+    .entry-item__body {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+      margin-bottom: var(--space-6);
+    }
+    .entry-item__body p { margin-bottom: var(--space-4); }
+    .entry-item__body p:last-child { margin-bottom: 0; }
+    .entry-item__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+
+    /* Feature grid */
+    .entry-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    @media (min-width: 640px) { .entry-features { grid-template-columns: repeat(3, 1fr); } }
+    .entry-feature {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+    }
+    .entry-feature__icon { font-size: 1.25rem; margin-bottom: var(--space-2); line-height: 1; }
+    .entry-feature__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+    }
+    .entry-feature__desc {
+      font-size: 0.72rem;
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+    }
+
+    /* Consequence box */
+    .consequence-box {
+      border: 1px solid rgba(239,68,68,.25);
+      border-left: 3px solid #ef4444;
+      background: rgba(239,68,68,.04);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-5);
+    }
+    [data-theme="dark"] .consequence-box { background: rgba(239,68,68,.07); }
+    .consequence-box__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: #ef4444;
+      margin-bottom: var(--space-2);
+    }
+    .consequence-box__text {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+    .consequence-box__text strong { color: var(--color-text-primary); }
+
+    /* Quote pullout */
+    .pull-quote {
+      border-left: 3px solid #4ade80;
+      padding: var(--space-4) var(--space-6);
+      margin: var(--space-7) 0;
+    }
+    .pull-quote__text {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+      font-style: italic;
+      color: var(--color-text-primary);
+      line-height: 1.55;
+      margin-bottom: var(--space-3);
+    }
+    .pull-quote__attribution {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wider);
+      color: #4ade80;
+    }
+
+    /* ── Causal chain connector ───────────────────────────────── */
+    .chain-connector {
+      background: var(--ink-900);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin: var(--space-12) 0;
+    }
+    .chain-connector__title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: #fff;
+      margin-bottom: var(--space-6);
+    }
+    .chain-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .chain-step {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: var(--space-4);
+      align-items: start;
+      padding-bottom: var(--space-5);
+      position: relative;
+    }
+    .chain-step:last-child { padding-bottom: 0; }
+    .chain-step__line {
+      position: absolute;
+      left: 15px;
+      top: 32px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(74,222,128,.5), rgba(74,222,128,.1));
+    }
+    .chain-step:last-child .chain-step__line { display: none; }
+    .chain-step__dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #4ade80;
+      background: rgba(22,163,74,.15);
+      color: #4ade80;
+      font-size: 0.7rem;
+      font-weight: var(--weight-bold);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .chain-step__era {
+      font-size: 0.68rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: 2px;
+    }
+    .chain-step__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .chain-step__desc {
+      font-size: var(--type-xs);
+      color: var(--ink-400);
+      line-height: 1.6;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────────── */
+    .sidebar { display: flex; flex-direction: column; gap: var(--space-5); }
+    .sidebar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+    }
+    [data-theme="dark"] .sidebar-card { background: var(--ink-800); border-color: var(--ink-700); }
+    .sidebar-card__title {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    /* TOC */
+    .sidebar-toc__list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+    .sidebar-toc__link {
+      display: block;
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+      padding: 5px var(--space-3);
+      border-radius: var(--radius-md);
+      transition: all var(--duration-fast);
+      text-decoration: none;
+      line-height: 1.3;
+    }
+    .sidebar-toc__link:hover { background: var(--color-surface-raised); color: var(--color-text-primary); }
+    .sidebar-toc__link.is-active { background: rgba(22,163,74,.1); color: #4ade80; font-weight: var(--weight-semibold); }
+
+    /* Fact card */
+    .sidebar-fact__stat {
+      font-family: var(--font-editorial);
+      font-size: 2rem;
+      font-weight: 900;
+      color: #4ade80;
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .sidebar-fact__label {
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    .sidebar-fact__divider {
+      height: 1px;
+      background: var(--color-border);
+      margin: var(--space-4) 0;
+    }
+
+    /* Related threads */
+    .related-thread {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-border);
+      text-decoration: none;
+    }
+    .related-thread:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-thread__num {
+      font-size: 0.68rem;
+      font-weight: var(--weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-tertiary);
+    }
+    .related-thread__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+    }
+    .related-thread:hover .related-thread__title { color: #4ade80; }
+
+    /* ── Bottom CTA ──────────────────────────────────────────── */
+    .thread-bottom-cta {
+      background: var(--ink-900);
+      padding: var(--space-16) 0;
+      text-align: center;
+    }
+    .thread-bottom-cta__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: #4ade80;
+      margin-bottom: var(--space-4);
+    }
+    .thread-bottom-cta__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: var(--space-5);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .thread-bottom-cta__sub {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      max-width: 520px;
+      margin: 0 auto var(--space-8);
+      line-height: 1.65;
+    }
+    .thread-bottom-cta__btns {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .thread-bottom-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-7);
+      border-radius: 999px;
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      text-decoration: none;
+      transition: all var(--duration-fast);
+    }
+    .thread-bottom-cta__btn--primary { background: #16a34a; color: #fff; }
+    .thread-bottom-cta__btn--primary:hover { background: #15803d; }
+    .thread-bottom-cta__btn--secondary { background: transparent; color: var(--ink-300); border: 1px solid rgba(255,255,255,.15); }
+    .thread-bottom-cta__btn--secondary:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+    /* Dark mode overrides */
+    [data-theme="dark"] .entry-stats { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .entry-feature { background: var(--ink-800); border-color: var(--ink-700); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>Resistance Thread:</strong> The Right to Defend — Black organized self-defense from Ida B. Wells to the Black Panthers.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link" aria-current="page">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">The Right to Defend: Black Organized Self-Defense, 1892–1982 — Thread</span>
+    </div>
+  </div>
+</nav>
+<!-- CONTEXT RIBBON — thread orientation tracker -->
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon" role="complementary" aria-label="Thread context">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <!-- populated by thread-journey.js -->
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>66</strong> Threads</span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>9</strong> Eras</span>
+    </div>
+    <nav class="context-ribbon__nav" aria-label="Quick access">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
+        <span class="context-ribbon__live-dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Try searching</p>
+      <a href="search.html?q=Deacons+for+Defense"    class="search-hint-chip">Deacons for Defense</a>
+      <a href="search.html?q=Robert+F+Williams"       class="search-hint-chip">Robert F. Williams</a>
+      <a href="search.html?q=Black+Panthers"          class="search-hint-chip">Black Panthers</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
+        Resistance Thread · 1892–1982
+      </div>
+      <h1 class="thread-hero__title" id="heroTitle">
+        <em>The Right to Defend:</em><br>
+        Black Organized Self-Defense
+      </h1>
+      <p class="thread-hero__subtitle">
+        Ida B. Wells said it in 1892. Robert F. Williams proved it in 1957. The Deacons for Defense lived it in 1964. The Black Panthers made it visible in 1966. This is not a story of violence — it is a documented, continuous tradition of communities protecting themselves when the law would not. And every chapter ends the same way: new laws to take the guns away.
+      </p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Period</div>
+          <div class="thread-meta-item__value">1892 – 1982</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Organizations</div>
+          <div class="thread-meta-item__value">7 documented groups</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Pattern</div>
+          <div class="thread-meta-item__value">Organize → Succeed → Get Legislated Away</div>
+        </div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread">
+          <svg class="listen-btn__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span id="listenLabel">Listen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true">
+    <div class="listen-progress-bar__fill" id="listenProgressFill"></div>
+  </div>
+</section>
+
+<!-- ARGUMENT BAR -->
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text">
+          <strong>The Second Amendment has never applied equally.</strong> When Black communities organized to defend themselves — legally, openly, and effectively — legislatures rewrote the gun laws. The NRA supported those laws. The pattern repeats: from the Mulford Act (1967) to the present. This thread documents the organizations, the confrontations, the legislation that followed, and the through-line to today's gun debate.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+  <div class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+
+        <!-- ── LEFT COLUMN: ENTRY LIST ── -->
+        <div class="entry-list">
+
+          <!-- ═══════════════════════════════════════════════ -->
+          <!-- 1. IDA B. WELLS -->
+          <!-- ═══════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-wells">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates">1892 · Memphis, Tennessee</div>
+                <h2 class="entry-item__name">Ida B. Wells — "A Winchester Rifle Should Have a Place of Honor"</h2>
+                <div class="entry-item__location">Chicago Defender / Free Speech newspaper · National</div>
+              </div>
+            </div>
+
+            <div class="entry-stats" aria-label="Key facts">
+              <div><div class="entry-stat__num">3</div><div class="entry-stat__label">Friends lynched in Memphis</div></div>
+              <div><div class="entry-stat__num">1892</div><div class="entry-stat__label">Year she wrote the foundational text</div></div>
+              <div><div class="entry-stat__num">30+</div><div class="entry-stat__label">Years of anti-lynching journalism</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>In March 1892, three of Ida B. Wells's friends — Thomas Moss, Calvin McDowell, and Henry Stewart — were lynched in Memphis for the crime of running a grocery store that outcompeted a white-owned store nearby. The white mob destroyed their store first. When the men defended it with firearms, they were arrested. Then they were taken from jail and murdered.</p>
+              <p>Wells drew the correct conclusion: <strong>the law would not protect Black people. Guns might.</strong> In a May 1892 editorial that got her own office burned down and forced her exile from Memphis, she wrote: "Of the many inhuman outrages of this present year, the only case where the proposed lynching did not occur was where the men armed themselves and prevented it... A Winchester rifle should have a place of honor in every Black home, and it should be used for that protection which the law refuses to give."</p>
+              <p>This was not rhetoric. It was strategic doctrine — and it became the foundational text for organized Black self-defense for the next ninety years. Wells spent the rest of her life documenting lynchings with the same rigor an epidemiologist tracks disease, and the same prescriptive insistence: <strong>the cure was accountability, and failing that, arms.</strong></p>
+            </div>
+
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The only case where the proposed lynching did not occur was where the men armed themselves in a body and prevented it."</p>
+              <p class="pull-quote__attribution">— Ida B. Wells, Free Speech, May 21, 1892</p>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">Immediate Consequence</div>
+              <p class="consequence-box__text">Her Memphis printing office was destroyed by a white mob while she was in New York. She was warned that returning to Memphis would mean death. She never went back. The editorial became foundational literature for every organized self-defense movement that followed.</p>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════════════════════ -->
+          <!-- 2. AFRICAN BLOOD BROTHERHOOD -->
+          <!-- ═══════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-abb">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">1919–1924 · New York City / National</div>
+                <h2 class="entry-item__name">The African Blood Brotherhood — The First Formal Organization</h2>
+                <div class="entry-item__location">Founded by Cyril Briggs · New York City</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1919</div><div class="entry-stat__label">Founded — same year as the Red Summer</div></div>
+              <div><div class="entry-stat__num">50+</div><div class="entry-stat__label">Cities with ABB chapters</div></div>
+              <div><div class="entry-stat__num">26</div><div class="entry-stat__label">Race massacres in the Red Summer</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>The summer of 1919 — called the Red Summer by NAACP writer James Weldon Johnson — saw at least 26 race riots across the United States. In Chicago, Black residents were attacked by white mobs for 13 days. In Elaine, Arkansas, Black sharecroppers organizing for better wages were massacred; estimates range from 100 to 800 Black people killed. In Washington D.C., white mobs attacked Black neighborhoods for four days. In many cities, Black WWI veterans — who had just fought in Europe "to make the world safe for democracy" — fought back.</p>
+              <p><strong>The African Blood Brotherhood was founded in direct response.</strong> Led by Cyril Briggs, a journalist from the Caribbean, it was the first Black organization to explicitly center armed self-defense as an organizational principle rather than a tactical improvisation. It had chapters in at least 50 cities, a secret membership structure, and a clear ideology: <strong>Black people had a right — not merely a choice — to defend themselves.</strong></p>
+              <p>The ABB operated openly until about 1924, when it was largely absorbed into other movements. It left behind a template: formal organization, documented chapters, a written ideology, and the precedent that collective armed defense was a legitimate political act.</p>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">Consequence</div>
+              <p class="consequence-box__text">The federal government's surveillance of Black political organizations — which would evolve into COINTELPRO — has its roots in the Red Summer era. The ABB was monitored by the Bureau of Investigation (predecessor to the FBI) from its founding. The template of treating Black self-defense organizations as subversive was set here.</p>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════════════════════ -->
+          <!-- 3. ROBERT F. WILLIAMS -->
+          <!-- ═══════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-williams">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">1957–1961 · Monroe, North Carolina</div>
+                <h2 class="entry-item__name">Robert F. Williams — The NAACP Chapter That Stood Down the Klan</h2>
+                <div class="entry-item__location">Monroe, NC · NAACP Chapter</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1957</div><div class="entry-stat__label">Year Williams armed Monroe's NAACP</div></div>
+              <div><div class="entry-stat__num">0</div><div class="entry-stat__label">Deaths during KKK motorcade standoff</div></div>
+              <div><div class="entry-stat__num">1962</div><div class="entry-stat__label">Year Negroes with Guns published</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>Robert F. Williams was a Korean War veteran who returned to Monroe, North Carolina, and became president of the local NAACP chapter in the mid-1950s. He found a chapter that was, by his own description, "afraid." KKK nightriders regularly terrorized the Black community; the police provided no protection and often participated.</p>
+              <p>Williams applied for and received a charter from the National Rifle Association for an armed self-defense club. <strong>He then used it.</strong> When a KKK motorcade rolled through the Black section of Monroe intending to terrorize a local activist's home, Williams organized 60 armed community members who opened fire on the motorcade. The Klan turned around and fled. There were no Black casualties. The motorcade never returned.</p>
+              <p>The NAACP national leadership — committed to nonviolence as political strategy — suspended Williams in 1959 for publicly stating that Black people should "meet violence with violence." Williams argued, with documented evidence, that nonviolence only works when the opponent fears public shame or legal consequence. <strong>Against the rural Klan with no federal oversight, there was neither.</strong></p>
+              <p>Williams was eventually forced into exile (Cuba, then China) after being framed for kidnapping charges. From Cuba he broadcast a radio program, "Radio Free Dixie," and in 1962 published <em>Negroes with Guns</em> — the book that directly influenced both the Deacons for Defense and the Black Panther Party.</p>
+            </div>
+
+            <div class="pull-quote">
+              <p class="pull-quote__text">"We must be willing to kill if necessary. We must make the cost of murdering us prohibitive."</p>
+              <p class="pull-quote__attribution">— Robert F. Williams, <em>Negroes with Guns</em>, 1962</p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📖</div>
+                <div class="entry-feature__label">Written Record</div>
+                <div class="entry-feature__desc"><em>Negroes with Guns</em> (1962) — read by Huey Newton and Bobby Seale before founding the Black Panthers</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📡</div>
+                <div class="entry-feature__label">Radio Free Dixie</div>
+                <div class="entry-feature__desc">Broadcast from Cuba to the U.S. South — the first Black political radio program</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">⚖️</div>
+                <div class="entry-feature__label">NRA Charter</div>
+                <div class="entry-feature__desc">Williams' rifle club was NRA-chartered. The NRA did not protest this until Black organizations in California became visible in 1967.</div>
+              </div>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">Direct Lineage</div>
+              <p class="consequence-box__text"><strong>Negroes with Guns</strong> was required reading for the Deacons for Defense and is documented as a foundational text for the Black Panther Party. The organizational model Williams demonstrated — an armed chapter within a legitimate civil organization — was directly replicated by both groups.</p>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════════════════════ -->
+          <!-- 4. MEDGAR EVERS -->
+          <!-- ═══════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-evers">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates">1954–1963 · Mississippi</div>
+                <h2 class="entry-item__name">Medgar Evers — Armed Patrols in the Mississippi Delta</h2>
+                <div class="entry-item__location">Mississippi NAACP · Statewide</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">WWII</div><div class="entry-stat__label">Veteran, Normandy campaign</div></div>
+              <div><div class="entry-stat__num">1963</div><div class="entry-stat__label">Assassinated in his driveway</div></div>
+              <div><div class="entry-stat__num">31yr</div><div class="entry-stat__label">Before his killer was convicted</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>Medgar Evers returned from WWII — where he had fought in the Normandy invasion — to a Mississippi that treated Black veterans the same as before the war: as second-class citizens subject to violence and disenfranchisement. He and his brother attempted to vote in Decatur, Mississippi in 1946. They were turned away by a white mob. Evers later recalled standing his ground: "I was not going to be turned around."</p>
+              <p>As field secretary for the Mississippi NAACP, Evers organized <strong>neighborhood watch patrols of armed veterans</strong> throughout the Delta. These were not secret: they operated on the same logic as Williams — that the mere presence of armed, organized men willing to defend their communities was itself a deterrent. Civil rights workers coming into Mississippi knew Evers's network was there.</p>
+              <p>On June 12, 1963 — hours after President Kennedy's national address on civil rights — Evers was shot in his driveway by a Klan member named Byron De La Beckwith. He died within the hour. <strong>De La Beckwith was tried twice in 1964; both trials ended in hung juries.  He was not convicted until 1994 — 31 years later.</strong></p>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">What His Murder Proved</div>
+              <p class="consequence-box__text">Evers's assassination — at his own home, in front of his family, after a career organizing within the law — demonstrated precisely what Williams and Wells had argued: the law would not protect Black people in the South. This was not theory. It was data. The Deacons for Defense were founded the following year.</p>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════════════════════ -->
+          <!-- 5. LOWNDES COUNTY -->
+          <!-- ═══════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-lowndes">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates">1965–1966 · Lowndes County, Alabama</div>
+                <h2 class="entry-item__name">Lowndes County Freedom Organization — The Original Black Panther</h2>
+                <div class="entry-item__location">Lowndes County, Alabama · Organized with SNCC</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">80%</div><div class="entry-stat__label">Black population of Lowndes County</div></div>
+              <div><div class="entry-stat__num">0</div><div class="entry-stat__label">Registered Black voters before 1965</div></div>
+              <div><div class="entry-stat__num">1966</div><div class="entry-stat__label">Year Oakland adopted the Black Panther symbol</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>Lowndes County, Alabama, was 80% Black — and had zero registered Black voters in 1965. This was not an accident. It was the product of systematic terror: landowners who evicted tenant farmers who tried to register, and a county where living to old age meant, for Black residents, having never challenged the racial order.</p>
+              <p>Stokely Carmichael came to Lowndes County after the Selma-to-Montgomery marches as part of SNCC's voter registration work. Working with local organizer John Hulett, they formed the <strong>Lowndes County Freedom Organization</strong> — an independent Black political party operating entirely within state law. Alabama required that parties have an animal symbol on the ballot. They chose a <strong>snarling black panther.</strong></p>
+              <p>The LCFO combined political organizing with armed self-defense. Hulett was direct about it: "We are not going to let anyone beat us anymore." When night riders drove through, armed residents were posted. <strong>The symbol predated Oakland by a year.</strong> When Huey Newton and Bobby Seale founded the Black Panther Party for Self-Defense in 1966, they adopted Lowndes County's symbol explicitly.</p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🐾</div>
+                <div class="entry-feature__label">The Symbol</div>
+                <div class="entry-feature__desc">The Black Panther symbol originated in Lowndes County, 1965 — adopted by Oakland a year later</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🗳️</div>
+                <div class="entry-feature__label">Ballot Organization</div>
+                <div class="entry-feature__desc">A registered political party, operating entirely within Alabama state law</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🛡️</div>
+                <div class="entry-feature__label">Armed Patrols</div>
+                <div class="entry-feature__desc">Organized night watch against KKK nightriders — coordinated with SNCC field staff</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════════════════════ -->
+          <!-- 6. DEACONS FOR DEFENSE -->
+          <!-- ═══════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-deacons">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates">1964–1968 · Louisiana and Mississippi</div>
+                <h2 class="entry-item__name">Deacons for Defense and Justice — Escorting the Movement</h2>
+                <div class="entry-item__location">Jonesboro &amp; Bogalusa, Louisiana · Mississippi chapters</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">60+</div><div class="entry-stat__label">Chapters at peak</div></div>
+              <div><div class="entry-stat__num">1964</div><div class="entry-stat__label">Founded in Jonesboro, LA</div></div>
+              <div><div class="entry-stat__num">0</div><div class="entry-stat__label">Civil rights workers killed while under Deacon escort</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>The Deacons for Defense and Justice were founded in Jonesboro, Louisiana, in 1964 by a group of Black Korean War and WWII veterans who had watched the Klan operate freely while local police did nothing — or helped. Their founding principle was simple and documented: CORE organizers coming into Louisiana to register voters would be protected. Armed.</p>
+              <p>In Bogalusa, Louisiana — a paper mill town where the Klan had an open and active chapter — the Deacons became a direct counterforce. When Klan members attempted to disrupt civil rights marches, Deacon members appeared with firearms. The confrontations were often tense but rarely escalated to shooting: <strong>the presence of armed, organized men changed the calculus.</strong> The Klan was not accustomed to opposition that was willing and able to shoot back.</p>
+              <p>CORE's national director James Farmer publicly credited the Deacons with keeping CORE workers alive in Louisiana. The Deacons operated entirely within the law — they had legal permits and were careful to comply with open carry regulations. This mattered: it denied local authorities the pretext to arrest them.</p>
+              <p>At their peak, the Deacons had chapters across Louisiana, Mississippi, and into North Carolina. They are <strong>almost entirely absent from mainstream civil rights history curricula.</strong></p>
+            </div>
+
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The Deacons are the reason there are not more CORE workers in cemeteries in Louisiana."</p>
+              <p class="pull-quote__attribution">— James Farmer, CORE National Director</p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🚗</div>
+                <div class="entry-feature__label">Convoy Escorts</div>
+                <div class="entry-feature__desc">Armed vehicles following CORE organizers on rural roads throughout Louisiana</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🏛️</div>
+                <div class="entry-feature__label">Legal Open Carry</div>
+                <div class="entry-feature__desc">Operated with permits, complying with state law — making arrest without cause impossible</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📱</div>
+                <div class="entry-feature__label">Radio Network</div>
+                <div class="entry-feature__desc">CB radio coordination between chapters — an early community safety communication network</div>
+              </div>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">Legislative Response</div>
+              <p class="consequence-box__text">Louisiana tightened its open carry laws in the years following the Deacons' peak activity. The pattern — Black community arms itself legally, state rewrites the law — is a documented repetition across U.S. history. The Deacons' legal compliance made direct suppression difficult; it prompted legislative rather than direct suppression.</p>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════════════════════ -->
+          <!-- 7. BLACK PANTHER PARTY -->
+          <!-- ═══════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-panthers">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates">1966–1982 · Oakland, California / National</div>
+                <h2 class="entry-item__name">The Black Panther Party — When Visibility Got the Laws Changed</h2>
+                <div class="entry-item__location">Oakland, CA · Chapters in 68 cities</div>
+              </div>
+            </div>
+
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">68</div><div class="entry-stat__label">Cities with BPP chapters at peak</div></div>
+              <div><div class="entry-stat__num">1967</div><div class="entry-stat__label">Mulford Act signed — 1 year after founding</div></div>
+              <div><div class="entry-stat__num">295</div><div class="entry-stat__label">Documented FBI COINTELPRO operations against BPP</div></div>
+            </div>
+
+            <div class="entry-item__body">
+              <p>Huey Newton and Bobby Seale founded the Black Panther Party for Self-Defense in Oakland in October 1966. They had read Robert F. Williams. They had studied the Deacons. They carried their founding texts — the California Penal Code and the U.S. Constitution — as prominently as they carried their rifles, because their initial tactic was entirely legal: <strong>armed citizens had the right, under California law at the time, to openly carry loaded firearms in public.</strong></p>
+              <p>The Panthers used this right to conduct police patrols in Oakland — following police cars to sites of arrests, standing at a legal distance, and observing. This was documentation. It was accountability. It was also visible in a way that rural Louisiana was not, and it produced an immediate legislative response.</p>
+              <p><strong>In May 1967, 30 armed Panthers entered the California State Capitol building</strong> to protest the Mulford Act — a bill specifically written to prohibit the kind of armed police monitoring the Panthers were doing. The image went around the world. Ronald Reagan, then Governor of California, signed the Mulford Act into law in July 1967. <strong>The NRA supported it.</strong></p>
+              <p>The Panthers then pivoted from armed patrols to the 10-Point Program — a sweeping community survival agenda that included free breakfast programs for children (which the FBI's own documents describe as the most dangerous BPP program, because it built community support). At their peak the BPP fed more than 10,000 children breakfast every school day.</p>
+              <p>The FBI's COINTELPRO program ran 295 documented operations against the BPP — forging letters to create internal conflict, assassinating leaders (Fred Hampton was killed in his sleep by Chicago police in an FBI-coordinated raid in 1969, age 21), and systematically dismantling the organization. By 1982 the BPP had formally dissolved.</p>
+            </div>
+
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The Black Panther Party breakfast program represents the greatest threat to the internal security of the country."</p>
+              <p class="pull-quote__attribution">— FBI internal memo, J. Edgar Hoover, 1969</p>
+            </div>
+
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🍳</div>
+                <div class="entry-feature__label">Breakfast Program</div>
+                <div class="entry-feature__desc">Fed 10,000+ children daily — became the model for the federal free school breakfast program</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">🏥</div>
+                <div class="entry-feature__label">Free Clinics</div>
+                <div class="entry-feature__desc">13 health clinics providing free care in cities with BPP chapters</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📋</div>
+                <div class="entry-feature__label">10-Point Program</div>
+                <div class="entry-feature__desc">A documented policy platform: housing, employment, education, police accountability, land</div>
+              </div>
+            </div>
+
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Mulford Act — A Documented Pattern</div>
+              <p class="consequence-box__text">The Mulford Act (1967) was California's first major gun control legislation. It was written specifically in response to Black Panther open carry patrols. <strong>The NRA supported it and sent a representative to Sacramento to lobby for its passage.</strong> This is documented. It is the same NRA that today argues any gun regulation is an unconstitutional infringement. The principle, it turns out, is selective.</p>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════════════════════ -->
+          <!-- CAUSAL CHAIN -->
+          <!-- ═══════════════════════════════════════════════ -->
+          <div class="chain-connector reveal" id="entry-chain">
+            <h2 class="chain-connector__title">The Through-Line: Organize → Succeed → Get Legislated Away</h2>
+            <div class="chain-steps">
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">01</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1892 — Foundation</div>
+                  <div class="chain-step__title">Ida B. Wells establishes the doctrine: armed defense is the only reliable deterrent</div>
+                  <div class="chain-step__desc">Her office is burned. She is exiled from Memphis. The doctrine survives and spreads through the Black press.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">02</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1919 — Organization</div>
+                  <div class="chain-step__title">African Blood Brotherhood formalizes the doctrine after the Red Summer massacres</div>
+                  <div class="chain-step__desc">First organizational model: chapters, membership, ideology. FBI surveillance begins immediately.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">03</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1957 — Proof of Concept</div>
+                  <div class="chain-step__title">Robert F. Williams proves it works: an armed community stands down the Klan</div>
+                  <div class="chain-step__desc">Zero casualties. KKK motorcycle doesn't return. Williams is suspended by the NAACP and framed for kidnapping. He goes into exile.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">04</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1964 — Replication</div>
+                  <div class="chain-step__title">Deacons for Defense replicate the model across Louisiana and Mississippi</div>
+                  <div class="chain-step__desc">Zero CORE workers killed under Deacon escort. Louisiana tightens gun laws. Federal attention increases.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">05</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">1966 — Visibility</div>
+                  <div class="chain-step__title">Black Panther Party makes it national and visible — and triggers the Mulford Act</div>
+                  <div class="chain-step__desc">California bans open carry. NRA supports the ban. FBI runs 295 operations against BPP. Fred Hampton assassinated at 21.</div>
+                </div>
+              </div>
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">06</div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">Today — The Present</div>
+                  <div class="chain-step__title">The debate over gun rights and policing cannot be understood without this history</div>
+                  <div class="chain-step__desc">The Second Amendment's selective application — defended for white militias, restricted when Black communities organized — is a documented pattern across 130 years. It is not interpretation. It is record.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /entry-list -->
+
+        <!-- ── RIGHT COLUMN: SIDEBAR ── -->
+        <aside class="sidebar" aria-label="Thread navigation and related content">
+
+          <nav class="sidebar-card sidebar-toc" aria-label="Contents">
+            <h2 class="sidebar-card__title">In this thread</h2>
+            <ol class="sidebar-toc__list">
+              <li><a href="#entry-wells"    class="sidebar-toc__link">01 · Ida B. Wells (1892)</a></li>
+              <li><a href="#entry-abb"      class="sidebar-toc__link">02 · African Blood Brotherhood (1919)</a></li>
+              <li><a href="#entry-williams" class="sidebar-toc__link">03 · Robert F. Williams (1957)</a></li>
+              <li><a href="#entry-evers"    class="sidebar-toc__link">04 · Medgar Evers (1954–63)</a></li>
+              <li><a href="#entry-lowndes"  class="sidebar-toc__link">05 · Lowndes County (1965)</a></li>
+              <li><a href="#entry-deacons"  class="sidebar-toc__link">06 · Deacons for Defense (1964)</a></li>
+              <li><a href="#entry-panthers" class="sidebar-toc__link">07 · Black Panther Party (1966)</a></li>
+              <li><a href="#entry-chain"    class="sidebar-toc__link">The through-line →</a></li>
+            </ol>
+          </nav>
+
+          <div class="sidebar-card" aria-label="Key facts">
+            <h2 class="sidebar-card__title">Key facts</h2>
+            <div class="sidebar-fact__stat">1967</div>
+            <div class="sidebar-fact__label">Year the NRA-supported Mulford Act banned open carry in California — specifically targeting Black Panther patrols</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">295</div>
+            <div class="sidebar-fact__label">Documented FBI COINTELPRO operations against the Black Panther Party, 1967–1971</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">10,000+</div>
+            <div class="sidebar-fact__label">Children fed breakfast daily by the BPP free breakfast program — the model for today's federal school breakfast program</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">21</div>
+            <div class="sidebar-fact__label">Age of Fred Hampton when he was killed in an FBI-coordinated police raid in 1969</div>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Related threads</h2>
+            <a href="thread-african-empires.html" class="related-thread">
+              <div class="related-thread__num">Thread 1</div>
+              <div class="related-thread__title">Before the Chain: 7 African Empires</div>
+            </a>
+            <a href="threads.html" class="related-thread">
+              <div class="related-thread__num">Thread 2</div>
+              <div class="related-thread__title">The Transatlantic Slave Trade</div>
+            </a>
+            <a href="threads.html" class="related-thread">
+              <div class="related-thread__num">Thread 3</div>
+              <div class="related-thread__title">Reconstruction &amp; Its Destruction</div>
+            </a>
+            <a href="threads.html" class="related-thread">
+              <div class="related-thread__num">Thread 4</div>
+              <div class="related-thread__title">Mass Incarceration</div>
+            </a>
+            <a href="maps.html" class="related-thread" style="margin-top:var(--space-2)">
+              <div class="related-thread__num">Map</div>
+              <div class="related-thread__title">Self-Defense Geography, 1919–1966 →</div>
+            </a>
+          </div>
+
+          <div class="sidebar-card" style="background:rgba(22,163,74,.06); border-color:rgba(22,163,74,.2);">
+            <h2 class="sidebar-card__title" style="color:#4ade80;">Further reading</h2>
+            <div style="font-size:var(--type-xs); color:var(--color-text-secondary); line-height:1.65; display:flex; flex-direction:column; gap:var(--space-3);">
+              <div><strong style="color:var(--color-text-primary);">Negroes with Guns</strong><br>Robert F. Williams, 1962</div>
+              <div><strong style="color:var(--color-text-primary);">The Deacons for Defense</strong><br>Lance Hill, 2004</div>
+              <div><strong style="color:var(--color-text-primary);">This Nonviolent Stuff'll Get You Killed</strong><br>Charles E. Cobb Jr., 2014</div>
+              <div><strong style="color:var(--color-text-primary);">The COINTELPRO Papers</strong><br>Churchill &amp; Vander Wall, 1990</div>
+              <div><strong style="color:var(--color-text-primary);">Ida: A Sword Among Lions</strong><br>Paula Giddings, 2008</div>
+            </div>
+          </div>
+
+        </aside>
+
+      </div><!-- /thread-layout -->
+    </div><!-- /container -->
+  </div><!-- /thread-body -->
+</main>
+
+<!-- BOTTOM CTA -->
+<section class="thread-bottom-cta" aria-labelledby="ctaTitle">
+  <div class="container">
+    <p class="thread-bottom-cta__eyebrow">Continue the chain</p>
+    <h2 class="thread-bottom-cta__title" id="ctaTitle">The through-line connects. See it on the map.</h2>
+    <p class="thread-bottom-cta__sub">From Monroe, NC to Bogalusa, LA to Oakland, CA — see the geography of organized resistance and the legislation that followed each chapter.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="maps.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">See the resistance map →</a>
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All threads</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+
+<style>
+.next-thread-strip{background:var(--color-surface);border-top:1px solid var(--color-border);padding:var(--space-8) 0}
+.next-thread-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+.next-thread-strip__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-2)}
+.next-thread-strip__title{font-family:var(--font-editorial);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:800;color:var(--color-text-primary);line-height:1.2;max-width:480px}
+.next-thread-strip__btn{flex-shrink:0;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);background:var(--color-accent-dark,#92400e);color:#fff;border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:filter .15s;white-space:nowrap}
+.next-thread-strip__btn:hover{filter:brightness(1.1)}
+</style>
+
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <div class="next-thread-strip__title">Shut Up and Play: Ali, Kaepernick, and Athletic Protest</div>
+      </div>
+      <a href="thread-black-athletes.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── SIDEBAR TOC ACTIVE STATE ──────────────────────────────
+  const entryIds = ['entry-wells','entry-abb','entry-williams','entry-evers','entry-lowndes','entry-deacons','entry-panthers','entry-chain'];
+  const tocObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      document.querySelectorAll('.sidebar-toc__link').forEach(l => l.classList.remove('is-active'));
+      const active = document.querySelector(`.sidebar-toc__link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('is-active');
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  entryIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) tocObs.observe(el);
+  });
+
+  // ── TEXT-TO-SPEECH ────────────────────────────────────────
+  const listenBtn    = document.getElementById('listenBtn');
+  const listenLabel  = document.getElementById('listenLabel');
+  const listenIcon   = document.getElementById('listenIcon');
+  const progressBar  = document.getElementById('listenProgressBar');
+  const progressFill = document.getElementById('listenProgressFill');
+  const PLAY_ICON  = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  const PAUSE_ICON = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  function getReadableText() {
+    const main = document.getElementById('main-content');
+    if (!main) return '';
+    const els = main.querySelectorAll('.entry-item__name, .entry-item__dates, .entry-item__body p, .pull-quote__text, .consequence-box__text, .chain-step__title, .chain-step__desc');
+    return Array.from(els).map(el => el.innerText.trim()).filter(Boolean).join('. ');
+  }
+  let utterance = null, totalChunks = 1, currentChunk = 0;
+  function setListenState(state) {
+    listenBtn.dataset.state = state;
+    if (state === 'idle') {
+      listenIcon.innerHTML = PLAY_ICON;
+      listenLabel.textContent = 'Listen';
+      listenBtn.setAttribute('aria-label', 'Listen to this thread');
+      progressBar.classList.remove('is-visible');
+      progressFill.style.width = '0%';
+    } else if (state === 'playing') {
+      listenIcon.innerHTML = PAUSE_ICON;
+      listenLabel.textContent = 'Pause';
+      listenBtn.setAttribute('aria-label', 'Pause narration');
+      progressBar.classList.add('is-visible');
+    } else if (state === 'paused') {
+      listenIcon.innerHTML = PLAY_ICON;
+      listenLabel.textContent = 'Resume';
+      listenBtn.setAttribute('aria-label', 'Resume narration');
+    }
+  }
+  listenBtn.addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) { listenLabel.textContent = 'Not supported'; listenBtn.disabled = true; return; }
+    const state = listenBtn.dataset.state;
+    if (state === 'idle') {
+      const text = getReadableText();
+      const words = text.split(' ');
+      const chunks = [];
+      for (let i = 0; i < words.length; i += 40) chunks.push(words.slice(i, i + 40).join(' '));
+      totalChunks = chunks.length || 1;
+      currentChunk = 0;
+      window.speechSynthesis.cancel();
+      function speakChunk(i) {
+        if (i >= chunks.length) { setListenState('idle'); return; }
+        utterance = new SpeechSynthesisUtterance(chunks[i]);
+        utterance.rate = 0.92; utterance.pitch = 1; utterance.lang = 'en-US';
+        const voices = window.speechSynthesis.getVoices();
+        const preferred = voices.find(v => /samantha|karen|daniel|google us/i.test(v.name));
+        if (preferred) utterance.voice = preferred;
+        utterance.onstart = () => { currentChunk = i; progressFill.style.width = `${Math.round((i / totalChunks) * 100)}%`; };
+        utterance.onend = () => speakChunk(i + 1);
+        utterance.onerror = () => setListenState('idle');
+        window.speechSynthesis.speak(utterance);
+      }
+      speakChunk(0);
+      setListenState('playing');
+    } else if (state === 'playing') {
+      window.speechSynthesis.pause();
+      setListenState('paused');
+    } else if (state === 'paused') {
+      window.speechSynthesis.resume();
+      setListenState('playing');
+    }
+  });
+</script>
+<script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>

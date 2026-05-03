@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Today in Black History — Chain</title>
+  <link rel="canonical" href="https://chain.education/today.html" />
+  <meta name="description" content="What happened on this date in Black history — from sovereign African kingdoms to present-day America. Each entry connected to the full causal chain." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <style>
+
+    /* ── Page header ───────────────────────────────────────── */
+    .today-hero {
+      background: var(--ink-900);
+      color: #fff;
+      padding: var(--space-16) 0 var(--space-12);
+      position: relative;
+      overflow: hidden;
+    }
+    .today-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(196,106,0,.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(160,75,48,.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .today-hero__inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+    @media (min-width: 900px) {
+      .today-hero__inner { grid-template-columns: 1fr auto; align-items: end; }
+    }
+    .today-hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-5);
+    }
+    .today-hero__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--amber-400);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(240,147,50,.5); }
+      50%       { box-shadow: 0 0 0 6px rgba(240,147,50,0); }
+    }
+    .today-hero__date {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: var(--weight-bold);
+      line-height: 1;
+      letter-spacing: var(--tracking-tight);
+      color: #fff;
+      margin-bottom: var(--space-4);
+    }
+    .today-hero__date em {
+      color: var(--amber-300);
+      font-style: normal;
+    }
+    .today-hero__subhead {
+      font-size: var(--type-md);
+      color: var(--ink-400);
+      line-height: var(--leading-loose);
+      max-width: 520px;
+    }
+
+    /* Calendar widget */
+    .today-cal {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      min-width: 260px;
+    }
+    .today-cal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-4);
+    }
+    .today-cal__month {
+      font-family: var(--font-editorial);
+      font-size: var(--type-md);
+      font-weight: var(--weight-bold);
+      color: #fff;
+    }
+    .today-cal__nav {
+      display: flex;
+      gap: var(--space-2);
+    }
+    .today-cal__nav-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.06);
+      color: var(--ink-400);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      transition: background var(--duration-fast), color var(--duration-fast);
+    }
+    .today-cal__nav-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+    .today-cal__days-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      margin-bottom: var(--space-2);
+    }
+    .today-cal__day-name {
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--ink-600);
+      text-align: center;
+      padding: var(--space-1);
+    }
+    .today-cal__grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .today-cal__cell {
+      aspect-ratio: 1;
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      font-size: var(--type-xs);
+      color: var(--ink-500);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      position: relative;
+    }
+    .today-cal__cell:hover { background: rgba(255,255,255,.08); color: #fff; }
+    .today-cal__cell.has-event::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--amber-400);
+    }
+    .today-cal__cell.is-today {
+      background: var(--amber-500);
+      color: var(--ink-900);
+      font-weight: var(--weight-bold);
+    }
+    .today-cal__cell.is-today::after { background: var(--ink-900); }
+    .today-cal__cell.is-selected {
+      background: rgba(240,147,50,.2);
+      color: var(--amber-300);
+      outline: 1px solid var(--amber-500);
+    }
+    .today-cal__cell.other-month { opacity: 0.25; pointer-events: none; }
+
+    /* ── Events count badge ─────────────────────────────────── */
+    .today-count-bar {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-5) 0;
+    }
+    .today-count-bar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .today-count-bar__label {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+    }
+    .today-count-bar__num {
+      font-family: var(--font-editorial);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+    }
+    .today-count-bar__categories {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .today-cat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-pill);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+    .today-cat-pill:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .today-cat-pill.is-active {
+      background: var(--color-accent-dark);
+      border-color: var(--color-accent-dark);
+      color: #fff;
+    }
+    .today-cat-pill__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    /* ── Main layout ────────────────────────────────────────── */
+    .today-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      padding: var(--space-10) 0 var(--space-16);
+    }
+    @media (min-width: 1024px) {
+      .today-layout {
+        grid-template-columns: 1fr 320px;
+        align-items: start;
+        gap: var(--space-12);
+      }
+    }
+
+    /* ── Featured event (lead) ──────────────────────────────── */
+    .today-lead {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: var(--space-8);
+      transition: box-shadow var(--duration-normal);
+    }
+    .today-lead:hover { box-shadow: var(--shadow-lg); }
+    .today-lead__band {
+      height: 5px;
+      background: linear-gradient(to right, var(--amber-400), var(--sienna-400), var(--slate-600));
+    }
+    .today-lead__body {
+      padding: var(--space-8) var(--space-8) var(--space-6);
+    }
+    .today-lead__meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+      flex-wrap: wrap;
+    }
+    .today-lead__type-badge {
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      padding: 3px var(--space-3);
+      border-radius: var(--radius-pill);
+      background: var(--color-accent-light);
+      color: var(--color-accent-dark);
+    }
+    .today-lead__year {
+      font-family: var(--font-editorial);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-tertiary);
+    }
+    .today-lead__years-ago {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-left: auto;
+    }
+    .today-lead__headline {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.375rem, 3vw, 1.875rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-5);
+    }
+    .today-lead__body-text {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+      margin-bottom: var(--space-6);
+    }
+    .today-lead__chain {
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      margin-bottom: var(--space-6);
+    }
+    .today-lead__chain-label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-3);
+    }
+    .today-lead__chain-text {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+    .today-lead__chain-text a {
+      color: var(--color-accent-dark);
+      font-weight: var(--weight-semibold);
+    }
+    .today-lead__actions {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    /* ── Entry list ─────────────────────────────────────────── */
+    .today-entries { display: flex; flex-direction: column; gap: var(--space-1); }
+    .today-entry {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: var(--space-4);
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: background var(--duration-fast);
+      align-items: flex-start;
+    }
+    .today-entry:hover { background: var(--color-surface-alt); }
+
+    .today-entry__year-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 3px;
+    }
+    .today-entry__year {
+      font-family: var(--font-editorial);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-dark);
+      line-height: 1;
+    }
+    .today-entry__connector {
+      width: 1px;
+      flex: 1;
+      min-height: 24px;
+      background: linear-gradient(to bottom, var(--color-border), transparent);
+      margin-top: var(--space-2);
+    }
+    .today-entry__body {}
+    .today-entry__type {
+      font-size: 10px;
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: 3px;
+    }
+    .today-entry__title {
+      font-family: var(--font-editorial);
+      font-size: var(--type-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-2);
+    }
+    .today-entry__summary {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .today-entry__chain-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-accent-dark);
+      margin-top: var(--space-3);
+    }
+
+    /* ── Sidebar ────────────────────────────────────────────── */
+    .today-sidebar {}
+
+    .sidebar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    .sidebar-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-5);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+
+    /* On this date in different years */
+    .year-list { display: flex; flex-direction: column; gap: var(--space-1); }
+    .year-item {
+      display: flex;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background var(--duration-fast);
+      align-items: flex-start;
+    }
+    .year-item:hover { background: var(--color-surface-alt); }
+    .year-item__yr {
+      font-family: var(--font-editorial);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-dark);
+      min-width: 36px;
+      padding-top: 2px;
+    }
+    .year-item__text {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Quote block */
+    .quote-block {
+      background: var(--ink-900);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    .quote-block__text {
+      font-family: var(--font-editorial);
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--ink-200);
+      line-height: 1.55;
+      margin-bottom: var(--space-3);
+    }
+    .quote-block__attr {
+      font-size: 0.75rem;
+      color: var(--ink-500);
+      letter-spacing: var(--tracking-wide);
+    }
+    .quote-block__attr strong { color: var(--amber-300); font-style: normal; }
+
+    /* Month nav */
+    .month-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-2);
+    }
+    .month-btn {
+      padding: var(--space-2);
+      border-radius: var(--radius-sm);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all var(--duration-fast);
+    }
+    .month-btn:hover { background: var(--color-surface-alt); color: var(--color-text-primary); }
+    .month-btn.is-active {
+      background: var(--color-accent-light);
+      border-color: var(--color-accent-dark);
+      color: var(--color-accent-dark);
+      font-weight: var(--weight-bold);
+    }
+
+    /* Newsletter CTA */
+    .newsletter-cta {
+      background: linear-gradient(135deg, var(--amber-700), var(--sienna-600));
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      color: #fff;
+      margin-bottom: var(--space-6);
+    }
+    .newsletter-cta__title {
+      font-family: var(--font-editorial);
+      font-size: 1.125rem;
+      font-weight: var(--weight-bold);
+      margin-bottom: var(--space-3);
+    }
+    .newsletter-cta__body {
+      font-size: var(--type-sm);
+      color: rgba(255,255,255,.75);
+      line-height: 1.6;
+      margin-bottom: var(--space-5);
+    }
+    .newsletter-cta__form { display: flex; gap: var(--space-2); flex-direction: column; }
+    .newsletter-cta__input {
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      border: none;
+      font-size: var(--type-sm);
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      outline: none;
+      transition: background var(--duration-fast);
+    }
+    .newsletter-cta__input::placeholder { color: rgba(255,255,255,.5); }
+    .newsletter-cta__input:focus { background: rgba(255,255,255,.25); }
+    .newsletter-cta__btn {
+      padding: var(--space-3) var(--space-5);
+      background: #fff;
+      color: var(--amber-700);
+      border-radius: var(--radius-md);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      transition: background var(--duration-fast);
+      text-align: center;
+    }
+    .newsletter-cta__btn:hover { background: var(--amber-50); }
+
+    /* Dark mode */
+    [data-theme="dark"] .today-lead,
+    [data-theme="dark"] .sidebar-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .today-entry:hover { background: var(--ink-800); }
+    [data-theme="dark"] .today-lead__chain { background: var(--ink-900); }
+    [data-theme="dark"] .today-count-bar { background: var(--ink-900); }
+    [data-theme="dark"] .today-cat-pill { background: var(--ink-800); border-color: var(--ink-700); color: var(--ink-300); }
+    [data-theme="dark"] .today-cat-pill.is-active { background: var(--amber-500); border-color: var(--amber-500); color: var(--ink-900); }
+    [data-theme="dark"] .quote-block { background: var(--ink-800); border: 1px solid var(--ink-700); }
+    [data-theme="dark"] .year-item:hover { background: var(--ink-700); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- MAIN NAVIGATION -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history" aria-current="page">
+        <span class="today-pill__dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist" class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=How+did+redlining+affect+schools" class="search-hint-chip">How did redlining affect schools?</a>
+      <a href="search.html?q=Reconstruction+voting+rights" class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link" aria-current="page">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="today-hero" aria-labelledby="today-heading">
+    <div class="container today-hero__inner">
+      <div>
+        <div class="today-hero__eyebrow">
+          <span class="today-hero__dot" aria-hidden="true"></span>
+          Today in Black History
+        </div>
+        <h1 id="today-heading" class="today-hero__date">
+          <span id="today-month-name">April</span> <em id="today-day-num">10</em>
+        </h1>
+        <p class="today-hero__subhead">
+          Every date in history is a link in the chain. What happened on this day — and how does it connect to the present?
+        </p>
+      </div>
+      <!-- Calendar -->
+      <div class="today-cal" aria-label="Calendar navigation">
+        <div class="today-cal__header">
+          <span class="today-cal__month" id="cal-month-label">April 2026</span>
+          <div class="today-cal__nav">
+            <button class="today-cal__nav-btn" id="cal-prev" aria-label="Previous month">‹</button>
+            <button class="today-cal__nav-btn" id="cal-next" aria-label="Next month">›</button>
+          </div>
+        </div>
+        <div class="today-cal__days-header" aria-hidden="true">
+          <span class="today-cal__day-name">S</span>
+          <span class="today-cal__day-name">M</span>
+          <span class="today-cal__day-name">T</span>
+          <span class="today-cal__day-name">W</span>
+          <span class="today-cal__day-name">T</span>
+          <span class="today-cal__day-name">F</span>
+          <span class="today-cal__day-name">S</span>
+        </div>
+        <div class="today-cal__grid" id="cal-grid" role="grid" aria-label="Calendar days"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNT BAR -->
+  <div class="today-count-bar">
+    <div class="container today-count-bar__inner">
+      <p class="today-count-bar__label">
+        <span class="today-count-bar__num" id="entry-count">6</span> events on <span id="count-date-label">April 10</span>
+      </p>
+      <div class="today-count-bar__categories" role="group" aria-label="Filter by category">
+        <button class="today-cat-pill is-active" data-cat="all" aria-pressed="true">All</button>
+        <button class="today-cat-pill" data-cat="event" aria-pressed="false">
+          <span class="today-cat-pill__dot" style="background:var(--slate-400)"></span>Events
+        </button>
+        <button class="today-cat-pill" data-cat="person" aria-pressed="false">
+          <span class="today-cat-pill__dot" style="background:var(--sienna-400)"></span>People
+        </button>
+        <button class="today-cat-pill" data-cat="policy" aria-pressed="false">
+          <span class="today-cat-pill__dot" style="background:var(--amber-400)"></span>Policy
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <div class="today-layout">
+
+      <!-- MAIN COLUMN -->
+      <div>
+        <!-- LEAD EVENT -->
+        <article class="today-lead reveal" id="entry-1864" aria-labelledby="lead-headline">
+          <div class="today-lead__band"></div>
+          <div class="today-lead__body">
+            <div class="today-lead__meta">
+              <span class="today-lead__type-badge">Event</span>
+              <span class="today-lead__year">1864</span>
+              <span class="today-lead__years-ago" id="lead-years-ago">162 years ago</span>
+            </div>
+            <h2 id="lead-headline" class="today-lead__headline">
+              Fort Pillow Massacre — Confederate forces kill 300 Black Union soldiers after they surrender
+            </h2>
+            <p class="today-lead__body-text">
+              On April 10, 1864, Confederate General Nathan Bedford Forrest's troops attacked Fort Pillow, Tennessee — a Union garrison staffed largely by Black soldiers of the United States Colored Troops (USCT). After the fort's garrison surrendered, Confederate soldiers executed hundreds of Black soldiers rather than taking them prisoner. The massacre was one of the most documented acts of racial atrocity in the Civil War and became a rallying cry — "Remember Fort Pillow!" — for Black Union troops.
+            </p>
+            <p class="today-lead__body-text">
+              Nathan Bedford Forrest later founded the Ku Klux Klan. The federal government's failure to prosecute him for Fort Pillow set a precedent of non-accountability for racial terror that would repeat throughout Reconstruction and beyond.
+            </p>
+            <div class="today-lead__chain">
+              <p class="today-lead__chain-label">→ The chain from here</p>
+              <p class="today-lead__chain-text">
+                The Fort Pillow Massacre connects directly to the failure of Reconstruction accountability — the same political calculus that allowed Forrest to found the KKK, that permitted the Compromise of 1877 to end federal protection of Black citizens, and that led to the systematic destruction of Black political power documented in <a href="threads.html">the thread archive</a>. Impunity for racial violence in 1864 is the direct ancestor of impunity in 1921 (Tulsa), 1955 (Emmett Till), and beyond.
+              </p>
+            </div>
+            <div class="today-lead__actions">
+              <a href="threads.html" class="btn btn--primary">Explore threads →</a>
+              <a href="thread-african-empires.html" class="btn btn--secondary">Start at the beginning</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ENTRY LIST -->
+        <div class="today-entries" id="entries-list" aria-label="Events on this date">
+
+          <a href="#entry-1741" class="today-entry reveal" id="entry-1741" data-cat="policy">
+            <div class="today-entry__year-col">
+              <span class="today-entry__year">1741</span>
+              <div class="today-entry__connector" aria-hidden="true"></div>
+            </div>
+            <div class="today-entry__body">
+              <div class="today-entry__type">Policy · Colonial Law</div>
+              <div class="today-entry__title">New York City restricts assembly of enslaved people after rumored rebellion</div>
+              <p class="today-entry__summary">Following a series of fires and a rumored slave conspiracy in 1741, New York colonial authorities passed sweeping laws restricting the movement and assembly of enslaved Africans. Thirteen Black men were burned at the stake, seventeen hanged. The episode established a pattern of preemptive collective punishment for Black assembly that would echo through Reconstruction-era Black Codes and 20th-century anti-loitering laws.</p>
+              <span class="today-entry__chain-link">In thread: Mass Incarceration →</span>
+            </div>
+          </a>
+
+          <a href="#entry-1892" class="today-entry reveal" id="entry-1892" data-cat="person">
+            <div class="today-entry__year-col">
+              <span class="today-entry__year">1892</span>
+              <div class="today-entry__connector" aria-hidden="true"></div>
+            </div>
+            <div class="today-entry__body">
+              <div class="today-entry__type">Person · Milestone</div>
+              <div class="today-entry__title">Ida B. Wells publishes her first anti-lynching editorial</div>
+              <p class="today-entry__summary">After three of her friends are lynched in Memphis — businessmen targeted because their grocery store competed with a white-owned store — Wells begins the investigative journalism campaign that will expose the racial terror campaign disguised as "law and order."</p>
+              <span class="today-entry__chain-link">In thread: Mass Incarceration →</span>
+            </div>
+          </a>
+
+          <a href="#entry-1951" class="today-entry reveal" id="entry-1951" data-cat="event">
+            <div class="today-entry__year-col">
+              <span class="today-entry__year">1951</span>
+              <div class="today-entry__connector" aria-hidden="true"></div>
+            </div>
+            <div class="today-entry__body">
+              <div class="today-entry__type">Event · Legal</div>
+              <div class="today-entry__title">NAACP files <em>Briggs v. Elliott</em> — the first of the five cases that become Brown v. Board</div>
+              <p class="today-entry__summary">Filed in Clarendon County, South Carolina — where Black students outnumbered white students 3:1 but received 1/10th the educational funding. The case documented structural school inequity with data that would anchor the Supreme Court's 1954 ruling.</p>
+              <span class="today-entry__chain-link">In thread: Redlining → Achievement Gap →</span>
+            </div>
+          </a>
+
+          <a href="#entry-1968" class="today-entry reveal" id="entry-1968" data-cat="policy">
+            <div class="today-entry__year-col">
+              <span class="today-entry__year">1968</span>
+              <div class="today-entry__connector" aria-hidden="true"></div>
+            </div>
+            <div class="today-entry__body">
+              <div class="today-entry__type">Policy · Federal Law</div>
+              <div class="today-entry__title">Fair Housing Act signed into law — six days after MLK's assassination</div>
+              <p class="today-entry__summary">President Johnson signed the Fair Housing Act prohibiting racial discrimination in housing sales, rentals, and financing. It had stalled in Congress for two years. King's assassination created the political pressure to pass it — the final bill was weaker than advocates wanted and enforcement remained structurally inadequate for decades.</p>
+              <span class="today-entry__chain-link">In thread: Redlining → Achievement Gap →</span>
+            </div>
+          </a>
+
+          <a href="#entry-1919" class="today-entry reveal" id="entry-1919" data-cat="event">
+            <div class="today-entry__year-col">
+              <span class="today-entry__year">1919</span>
+              <div class="today-entry__connector" aria-hidden="true"></div>
+            </div>
+            <div class="today-entry__body">
+              <div class="today-entry__type">Event · Migration</div>
+              <div class="today-entry__title">Chicago's "Red Summer" begins — 38 people killed in five days of racial violence</div>
+              <p class="today-entry__summary">After years of Great Migration-era tensions over housing and jobs, a 17-year-old Black swimmer was stoned to death for crossing an informal beach boundary. Five days of street violence followed, with white mobs attacking Black neighborhoods on the South Side — the same neighborhoods that HOLC would redline 14 years later.</p>
+              <span class="today-entry__chain-link">In thread: Redlining → Achievement Gap →</span>
+            </div>
+          </a>
+
+          <a href="#entry-1964" class="today-entry reveal" id="entry-1964" data-cat="person">
+            <div class="today-entry__year-col">
+              <span class="today-entry__year">1964</span>
+              <div class="today-entry__connector" aria-hidden="true"></div>
+            </div>
+            <div class="today-entry__body">
+              <div class="today-entry__type">Person · Testimony</div>
+              <div class="today-entry__title">Fannie Lou Hamer testifies before the Credentials Committee at the Democratic National Convention</div>
+              <p class="today-entry__summary">Hamer's televised testimony — describing being beaten in a Mississippi jail for attempting to register to vote — was so powerful that President Johnson called an emergency press conference to preempt it. The footage was broadcast later that night and watched by millions. LBJ was furious. The testimony directly accelerated the Voting Rights Act.</p>
+              <span class="today-entry__chain-link">In thread: Mass Incarceration →</span>
+            </div>
+          </a>
+
+        </div><!-- /today-entries -->
+      </div><!-- /main col -->
+
+      <!-- SIDEBAR -->
+      <aside class="today-sidebar" aria-label="Related content">
+
+        <!-- Quote -->
+        <blockquote class="quote-block reveal">
+          <p class="quote-block__text">"The most disrespected person in America is the Black woman. The most unprotected person in America is the Black woman. The most neglected person in America is the Black woman."</p>
+          <footer class="quote-block__attr">
+            <strong>Malcolm X</strong> · May 22, 1962
+          </footer>
+        </blockquote>
+
+        <!-- On this date across years -->
+        <div class="sidebar-card reveal">
+          <h2 class="sidebar-card__title">April 10 across history</h2>
+          <div class="year-list">
+            <a href="#entry-1741" class="year-item">
+              <span class="year-item__yr">1741</span>
+              <span class="year-item__text">New York City enacts laws restricting assembly of enslaved people following a rumored rebellion</span>
+            </a>
+            <a href="#entry-1864" class="year-item">
+              <span class="year-item__yr">1864</span>
+              <span class="year-item__text">Fort Pillow Massacre — 300 Black Union soldiers killed after surrendering</span>
+            </a>
+            <a href="#entry-1892" class="year-item">
+              <span class="year-item__yr">1892</span>
+              <span class="year-item__text">Ida B. Wells publishes first anti-lynching editorial in Free Speech</span>
+            </a>
+            <a href="#entry-1919" class="year-item">
+              <span class="year-item__yr">1919</span>
+              <span class="year-item__text">Chicago Red Summer violence begins on the South Side</span>
+            </a>
+            <a href="#entry-1951" class="year-item">
+              <span class="year-item__yr">1951</span>
+              <span class="year-item__text">NAACP files Briggs v. Elliott — first of the Brown v. Board cases</span>
+            </a>
+            <a href="#entry-1964" class="year-item">
+              <span class="year-item__yr">1964</span>
+              <span class="year-item__text">Fannie Lou Hamer testifies before DNC Credentials Committee</span>
+            </a>
+            <a href="#entry-1968" class="year-item">
+              <span class="year-item__yr">1968</span>
+              <span class="year-item__text">Fair Housing Act signed — six days after MLK's assassination</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Browse by month -->
+        <div class="sidebar-card reveal">
+          <h2 class="sidebar-card__title">Browse by month</h2>
+          <div class="month-nav" role="group" aria-label="Jump to month">
+            <button class="month-btn" data-month="0">Jan</button>
+            <button class="month-btn" data-month="1">Feb</button>
+            <button class="month-btn" data-month="2">Mar</button>
+            <button class="month-btn is-active" data-month="3">Apr</button>
+            <button class="month-btn" data-month="4">May</button>
+            <button class="month-btn" data-month="5">Jun</button>
+            <button class="month-btn" data-month="6">Jul</button>
+            <button class="month-btn" data-month="7">Aug</button>
+            <button class="month-btn" data-month="8">Sep</button>
+            <button class="month-btn" data-month="9">Oct</button>
+            <button class="month-btn" data-month="10">Nov</button>
+            <button class="month-btn" data-month="11">Dec</button>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter-cta reveal">
+          <h2 class="newsletter-cta__title">This date. Every day.</h2>
+          <p class="newsletter-cta__body">Get one historical event in your inbox each morning — with its causal context and present-day consequence.</p>
+          <div class="newsletter-cta__form">
+            <input type="email" class="newsletter-cta__input" placeholder="your@email.com" aria-label="Email address" />
+            <button class="newsletter-cta__btn" type="button">Subscribe — it's free</button>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); } });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── DATE DISPLAY ──────────────────────────────────────────
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const SHORT_MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const now = new Date();
+  let viewYear  = now.getFullYear();
+  let viewMonth = now.getMonth();
+  let selectedDay = now.getDate();
+
+  document.getElementById('today-month-name').textContent = MONTHS[now.getMonth()];
+  document.getElementById('today-day-num').textContent    = now.getDate();
+  document.getElementById('count-date-label').textContent = `${MONTHS[now.getMonth()]} ${now.getDate()}`;
+  const leadYearEl = document.querySelector('.today-lead__year');
+  const leadYear = leadYearEl ? parseInt(leadYearEl.textContent) : 1864;
+  document.getElementById('lead-years-ago').textContent = `${now.getFullYear() - leadYear} years ago`;
+
+  // Dates that "have events" for visual indicator
+  // ── EVENT DATABASE ─────────────────────────────────────────
+  const EVENTS_BY_DATE = {
+    '1-1':  [{ year:1863, type:'Policy · Federal Law', cat:'policy', title:'Emancipation Proclamation takes effect', summary:"President Lincoln's executive order declaring enslaved people in Confederate states 'forever free' takes legal effect. It did not free enslaved people in border states that remained in the Union. It was a war measure — Lincoln said as much. But it transformed the meaning of the Civil War and authorized the enlistment of Black men into the Union Army.", chain:"The Proclamation's limits mattered as much as its words. The 13th Amendment (1865) was required to actually abolish slavery — and its exception clause ('except as punishment for a crime') created the legal architecture for convict leasing.", thread:'thread-end-of-slavery.html' }],
+    '1-15': [{ year:1929, type:'Person · Birth', cat:'person', title:'Martin Luther King Jr. born in Atlanta, Georgia', summary:"Born Michael King Jr. in Atlanta, the man who would become the most recognized face of the civil rights movement was 26 when the Montgomery Bus Boycott began, 34 when he delivered 'I Have a Dream,' and 39 when he was assassinated. The movement he helped lead was built on decades of organizing by women, lawyers, and community leaders who never became household names.", chain:"King's FBI file began in 1955 and ran to thousands of pages. COINTELPRO surveilled, infiltrated, and worked to destroy the organizations he led. The FBI sent him an anonymous letter encouraging him to commit suicide.", thread:'thread-mlk.html' }],
+    '2-1':  [{ year:1960, type:'Event · Protest', cat:'event', title:'Greensboro sit-ins begin — four Black students refuse to leave a whites-only lunch counter', summary:"On February 1, 1960, Ezell Blair Jr., David Richmond, Franklin McCain, and Joseph McNeil — freshmen at North Carolina A&T — sat at the Woolworth's lunch counter in Greensboro and refused to leave when denied service. Within two months, sit-ins had spread to 54 cities across nine states. Within six months, Woolworth's desegregated its lunch counters.", chain:"The sit-ins directly inspired the formation of SNCC, which became one of the most effective organizing bodies of the civil rights era and trained a generation of organizers including John Lewis and Diane Nash.", thread:'thread-freedom-riders.html' }],
+    '2-3':  [{ year:1870, type:'Policy · Amendment', cat:'policy', title:'15th Amendment ratified — Black men gain the right to vote', summary:"The 15th Amendment prohibited denial of voting rights based on race, color, or previous condition of servitude. It was immediately and systematically circumvented through poll taxes, literacy tests, grandfather clauses, white primaries, and terrorist violence. By 1900, Black voter registration in the South had collapsed from Reconstruction highs.", chain:"The gap between the 15th Amendment's passage (1870) and its enforcement (Voting Rights Act, 1965) spans 95 years — during which generations of Black Americans were excluded from the political system while being taxed, policed, and governed by it.", thread:'thread-reconstruction.html' }],
+    '2-21': [{ year:1965, type:'Person · Assassination', cat:'person', title:'Malcolm X assassinated at the Audubon Ballroom, New York City', summary:"Malcolm X was shot and killed while speaking in Harlem. He was 39. In the months before his death he had broken with the Nation of Islam and was developing a more internationalist framework for Black liberation. Three men were convicted; two were exonerated in 2021 — 56 years after the murder — after evidence revealed that the NYPD and FBI had identified the actual perpetrators and withheld it.", chain:"The pattern of law enforcement covering up or enabling the assassination of Black leaders is documented across the COINTELPRO archive from the 1950s through Fred Hampton's killing in 1969.", thread:'thread-cointelpro.html' }],
+    '3-7':  [{ year:1965, type:'Event · March', cat:'event', title:"Bloody Sunday — state troopers attack marchers on the Edmund Pettus Bridge", summary:"On March 7, 1965, 600 civil rights marchers led by John Lewis and Hosea Williams began walking from Selma to Montgomery to demand voting rights. At the bridge, Alabama state troopers attacked them with clubs and tear gas on live television. The footage created a national crisis and directly triggered the Voting Rights Act five months later.", chain:"The Edmund Pettus Bridge is named for a Confederate general who was also a Grand Dragon of the KKK. It still bears that name. The Voting Rights Act passed in 1965 was substantially gutted by Shelby County v. Holder in 2013.", thread:'thread-voting-rights.html' }],
+    '4-4':  [{ year:1968, type:'Person · Assassination', cat:'person', title:'Martin Luther King Jr. assassinated at the Lorraine Motel, Memphis', summary:"Dr. King was in Memphis supporting striking sanitation workers — Black men demanding equal pay and safe working conditions. He was shot on the balcony of the Lorraine Motel at 6:01 PM. He was 39. A 1999 civil trial found that a conspiracy involving Memphis police and federal agencies contributed to his death.", chain:"King's FBI file ran to hundreds of thousands of pages. COINTELPRO had sent him an anonymous letter in 1964 urging him to kill himself. The week of his assassination he was planning the Poor People's Campaign — a multiracial economic justice coalition the FBI considered more dangerous than his civil rights work.", thread:'thread-cointelpro.html' }],
+    '4-9':  [{ year:1865, type:'Event · Civil War', cat:'event', title:"Lee surrenders at Appomattox — the Civil War effectively ends", summary:"General Lee surrendered to General Grant at Appomattox Court House on April 9, 1865. The Civil War killed approximately 620,000 soldiers. Reconstruction — the attempt to rebuild the South on a basis of racial equality — was already being undermined before the war ended. It formally ended in 1877 with the withdrawal of federal troops.", chain:"The Confederacy lost the war but won the peace. The Lost Cause mythology that emerged after 1865 — portraying the war as noble, slavery as benign — shaped American history education, public monuments, and political culture for 150 years.", thread:'thread-reconstruction.html' }],
+    '4-10': [{ year:1864, type:'Event · Massacre', cat:'event', title:'Fort Pillow Massacre — Confederate forces kill 300 Black Union soldiers after they surrender', summary:"On April 10, 1864, Confederate General Nathan Bedford Forrest's troops attacked Fort Pillow, Tennessee — a garrison staffed largely by Black soldiers of the USCT. After the garrison surrendered, Confederate soldiers executed hundreds of Black soldiers rather than taking them prisoner. 'Remember Fort Pillow!' became a rallying cry for Black Union troops.", chain:"Forrest later founded the Ku Klux Klan. The federal government's failure to prosecute him for Fort Pillow set a precedent of non-accountability for racial terror that would repeat throughout Reconstruction and beyond.", thread:'thread-reconstruction.html' },
+             { year:1968, type:'Policy · Federal Law', cat:'policy', title:"Fair Housing Act signed — six days after MLK's assassination", summary:"President Johnson signed the Fair Housing Act prohibiting racial discrimination in housing sales, rentals, and financing. It had stalled in Congress for two years. King's assassination created the political pressure to finally pass it.", chain:"The Fair Housing Act prohibited new discrimination but could not undo 35 years of accumulated HOLC and FHA mortgage exclusion. The racial homeownership gap is wider today than it was in 1968.", thread:'thread-redlining.html' }],
+    '4-16': [{ year:1963, type:'Document · Letter', cat:'event', title:'MLK writes "Letter from Birmingham Jail"', summary:"Arrested for leading demonstrations without a permit, King wrote his landmark letter in the margins of a newspaper. Addressed to white Alabama clergymen who urged protesters to wait, King's argument — that the 'white moderate' who preferred order to justice was a greater obstacle than the outright segregationist — remains one of the most precise diagnoses of American liberalism ever written.", chain:"The letter's critique of those who prefer 'a negative peace which is the absence of tension to a positive peace which is the presence of justice' directly anticipates every subsequent debate about the proper pace of civil rights, protest tactics, and reform vs. transformation.", thread:'thread-mlk.html' }],
+    '4-19': [{ year:1960, type:'Event · Organizing', cat:'event', title:'SNCC founded at Shaw University, Raleigh', summary:"The Student Nonviolent Coordinating Committee was founded at a conference called by Ella Baker, who urged student protesters to maintain independence from established civil rights organizations. SNCC became the most radical and effective student organizing body of the civil rights era, pioneering voter registration in Mississippi and Alabama that older organizations were reluctant to attempt.", chain:"SNCC's voter registration work in Mississippi directly created the political pressure for the Voting Rights Act. Several SNCC leaders — John Lewis, Diane Nash, Bob Moses — shaped American politics for the following six decades.", thread:'thread-freedom-riders.html' }],
+    '5-4':  [{ year:1961, type:'Event · Protest', cat:'event', title:'Freedom Riders depart Washington DC', summary:"Thirteen riders — seven Black, six white — boarded two buses in DC to test the Supreme Court's ruling that segregated interstate bus terminals were unconstitutional. In Anniston, Alabama, one bus was firebombed. In Birmingham, riders were beaten with baseball bats while FBI informants stood by. CORE handed leadership to SNCC, who refused to stop.", chain:"The Freedom Riders' persistence forced the Kennedy administration to pressure the ICC to issue regulations actually enforcing desegregation. The federal government's initial response — managing optics rather than enforcing the law — established a pattern repeated throughout the civil rights era.", thread:'thread-freedom-riders.html' }],
+    '5-17': [{ year:1954, type:'Policy · Supreme Court', cat:'policy', title:'Brown v. Board of Education — Supreme Court rules school segregation unconstitutional', summary:"The Supreme Court's unanimous ruling overturned the 'separate but equal' doctrine of Plessy v. Ferguson (1896). The ruling was denounced by 101 Southern members of Congress. Desegregation was implemented with 'all deliberate speed' — which in many districts meant decades.", chain:"School desegregation peaked in the late 1980s and has since reversed. American schools are more racially segregated today than in the late 1960s. The mechanism is residential segregation — a product of federal housing policy — and the funding of schools through local property taxes.", thread:'thread-redlining.html' }],
+    '5-25': [{ year:2020, type:'Event · Police Violence', cat:'event', title:'George Floyd killed by Minneapolis police officer Derek Chauvin', summary:"George Floyd died when Officer Chauvin knelt on his neck for nine minutes and twenty-nine seconds. The murder was filmed by a 17-year-old bystander. It triggered the largest protest movement in American history — an estimated 26 million people participated across all 50 states and more than 60 countries. Chauvin was convicted of murder in 2021.", chain:"In the 12 months before Floyd's death, Minneapolis police had used force against Black residents at seven times the rate of white residents. The pattern is national — documented in consent decrees, DOJ investigations, and audits across hundreds of police departments.", thread:'thread-george-floyd.html' }],
+    '6-19': [{ year:1865, type:'Event · Emancipation', cat:'event', title:"Juneteenth — Union soldiers arrive in Texas announcing the end of slavery", summary:"On June 19, 1865 — two and a half years after the Emancipation Proclamation took effect, and two months after the Civil War ended — Union soldiers arrived in Galveston, Texas and announced that enslaved people were free. Enslavers had suppressed the information to extract one last harvest. Juneteenth was not recognized as a federal holiday until June 2021.", chain:"The 156 years between Juneteenth's first celebration and its federal recognition is itself a historical document — showing which histories are deemed worthy of national commemoration and when that determination changes.", thread:'thread-end-of-slavery.html' }],
+    '7-2':  [{ year:1964, type:'Policy · Federal Law', cat:'policy', title:'Civil Rights Act of 1964 signed into law', summary:"President Johnson signed the Civil Rights Act, prohibiting discrimination based on race, color, religion, sex, or national origin in employment, public accommodations, and federally funded programs. The bill had been filibustered for 60 days by Southern senators. It passed because of sustained mass protest and the political pressure created by demonstrators absorbing violence on national television.", chain:"The Civil Rights Act prohibited discrimination but did not address the accumulated wealth gap produced by 250 years of slavery and 90 years of Jim Crow. Prohibiting future discrimination without addressing past deprivation is not equality — it is the starting gun of a race where one side has already run half the course.", thread:'thread-mlk.html' }],
+    '7-26': [{ year:1948, type:'Policy · Executive Order', cat:'policy', title:"Truman desegregates the U.S. military — Executive Order 9981", summary:"President Truman's order declared 'equality of treatment and opportunity for all persons in the armed services without regard to race.' Black soldiers had fought in every American war under segregated conditions, dying for a democracy that denied them citizenship at home. Full desegregation was not complete until 1954.", chain:"The military desegregated in 1948. Schools in 1954. Public accommodations in 1964. Voting in 1965. Housing nominally in 1968. Each step came after sustained organized pressure — none was voluntary.", thread:'thread-gi-bill.html' }],
+    '8-6':  [{ year:1965, type:'Policy · Federal Law', cat:'policy', title:'Voting Rights Act signed — the 15th Amendment finally enforced', summary:"President Johnson signed the Voting Rights Act, which prohibited discriminatory voting practices and established federal oversight of elections in states with histories of discrimination. Within three years, Black voter registration in Mississippi rose from 6.7% to 59.8%.", chain:"The Act has been weakened by Supreme Court decisions in 2013 (Shelby County v. Holder) and 2021 (Brnovich v. DNC). Rights that require continuous political battle to maintain are not settled law — they are contested terrain.", thread:'thread-voting-rights.html' }],
+    '8-28': [{ year:1963, type:'Event · March', cat:'event', title:'March on Washington — 250,000 people gather at the Lincoln Memorial', summary:"The March on Washington for Jobs and Freedom drew 250,000 people. John Lewis's original speech was so militant that organizers pressured him to soften it. King's 'I Have a Dream' section was improvised. The march was organized largely by Bayard Rustin, a gay Black man whose sexuality was used to limit his public role.", chain:"The March on Washington was for JOBS and freedom — the economic component has been largely erased from historical memory. The march's demands included a federal jobs program and a $2 minimum wage. Most of those economic demands were never met.", thread:'thread-mlk.html' }],
+    '9-15': [{ year:1963, type:'Event · Bombing', cat:'event', title:'16th Street Baptist Church bombing — four girls killed in Birmingham', summary:"Members of the Ku Klux Klan planted a bomb at the 16th Street Baptist Church in Birmingham, killing four girls during Sunday school: Addie Mae Collins (14), Cynthia Wesley (14), Carole Robertson (14), and Carol Denise McNair (11). FBI Director J. Edgar Hoover blocked prosecution of the known perpetrators for over a decade.", chain:"The FBI identified the bombers within weeks. Hoover personally blocked prosecution. Robert Chambliss was not convicted until 1977. The last conviction came in 2002 — 39 years after the murders. The pattern of FBI covering up racial violence runs through COINTELPRO.", thread:'thread-cointelpro.html' }],
+    '12-1': [{ year:1955, type:'Event · Protest', cat:'event', title:"Rosa Parks refuses to give up her seat — Montgomery Bus Boycott begins", summary:"Rosa Parks was not simply tired. She was secretary of the Montgomery NAACP chapter and had been trained at the Highlander Folk School. Her arrest was the strategic trigger for a boycott planned in advance. The Montgomery Bus Boycott lasted 381 days, cost the bus company 65% of its revenue, and ended with a Supreme Court ruling against bus segregation. The 26-year-old minister chosen to lead it was Martin Luther King Jr.", chain:"The boycott required 381 days of Black Montgomery residents walking miles to work, carpooling, and enduring harassment — demonstrating both community discipline and the economic leverage that Black consumers could exercise when organized.", thread:'thread-we-refuse.html' }],
+    '12-4': [{ year:1969, type:'Person · Assassination', cat:'person', title:'Fred Hampton assassinated by Chicago police and FBI in pre-dawn raid', summary:"Fred Hampton, 21-year-old chairman of the Illinois Black Panther Party, was killed in a pre-dawn raid coordinated by the Cook County State's Attorney and the FBI. Hampton was shot twice in the head while unconscious, having been sedated by an FBI informant. 14 officers fired approximately 99 shots. A survivor fired one. The officers were not charged.", chain:"Hampton had been building the Rainbow Coalition — an alliance of Black Panthers, Young Patriots, and Young Lords. The FBI's COINTELPRO files show his coalition-building was specifically identified as a threat. He was killed eight months after his 21st birthday.", thread:'thread-cointelpro.html' }],
+    '12-6': [{ year:1865, type:'Policy · Amendment', cat:'policy', title:'13th Amendment ratified — slavery abolished, with one exception', summary:"The 13th Amendment abolished slavery 'except as a punishment for crime whereof the party shall have been duly convicted.' That exception clause was immediately weaponized. Black Codes criminalized vagrancy and unemployment. Convict leasing — renting prisoners to private companies — replicated the conditions of slavery within a year of the Amendment's passage.", chain:"The 13th Amendment's exception clause created a direct legal pathway from slavery to convict leasing to chain gangs to mass incarceration. The 2.3 million people currently incarcerated in the U.S. — disproportionately Black — exist within a constitutional framework that explicitly permits their forced labor.", thread:'thread-convict-leasing.html' }],
+  };
+
+  // Build EVENT_DAYS lookup for calendar dot display
+  const EVENT_DAYS = {};
+  Object.keys(EVENTS_BY_DATE).forEach(k => { EVENT_DAYS[k] = true; });
+
+  // ── DYNAMIC DAY CONTENT RENDERER ──────────────────────────
+  function renderDayContent(month, day) {
+    const key = `${month}-${day}`;
+    const events = EVENTS_BY_DATE[key];
+    const leadEl    = document.querySelector('.today-lead');
+    const entriesEl = document.getElementById('entries-list');
+    const sidebarYearList = document.querySelector('.year-list');
+    const yearLabel = document.querySelector('.sidebar-card__title');
+
+    if (!events || events.length === 0) {
+      if (leadEl) leadEl.innerHTML = `
+        <div class="today-lead__band"></div>
+        <div class="today-lead__body">
+          <div class="today-lead__meta"><span class="today-lead__type-badge">On This Date</span></div>
+          <h2 class="today-lead__headline" id="lead-headline">No events recorded for ${MONTHS[month-1]} ${day}</h2>
+          <p class="today-lead__body-text">Our archive is growing. This date has not been documented yet — but every day in Black history connects to the chain. Browse the full thread archive to explore any era.</p>
+          <div class="today-lead__actions">
+            <a href="search.html" class="btn btn--primary">Search the archive &rarr;</a>
+            <a href="threads.html" class="btn btn--secondary">Browse all threads</a>
+          </div>
+        </div>`;
+      if (entriesEl) entriesEl.innerHTML = '';
+      if (sidebarYearList) sidebarYearList.innerHTML = '<p style="font-size:var(--type-sm);color:var(--color-text-tertiary);padding:var(--space-3) 0">No additional entries for this date.</p>';
+      if (yearLabel) yearLabel.textContent = `${MONTHS[month-1]} ${day} across history`;
+      return;
+    }
+
+    const lead = events[0];
+    const leadYearsDiff = new Date().getFullYear() - lead.year;
+
+    if (leadEl) leadEl.innerHTML = `
+      <div class="today-lead__band"></div>
+      <div class="today-lead__body">
+        <div class="today-lead__meta">
+          <span class="today-lead__type-badge">${lead.type.split('\u00b7')[0].trim()}</span>
+          <span class="today-lead__year">${lead.year}</span>
+          <span class="today-lead__years-ago">${leadYearsDiff} years ago</span>
+        </div>
+        <h2 id="lead-headline" class="today-lead__headline">${lead.title}</h2>
+        <p class="today-lead__body-text">${lead.summary}</p>
+        ${lead.chain ? `<div class="today-lead__chain"><p class="today-lead__chain-label">&rarr; The chain from here</p><p class="today-lead__chain-text">${lead.chain}</p></div>` : ''}
+        <div class="today-lead__actions">
+          ${lead.thread ? `<a href="${lead.thread}" class="btn btn--primary">Read the thread &rarr;</a>` : ''}
+          <a href="threads.html" class="btn btn--secondary">Browse all threads</a>
+        </div>
+      </div>`;
+
+    if (entriesEl) {
+      if (events.length > 1) {
+        entriesEl.innerHTML = events.slice(1).map(ev => `
+          <a href="${ev.thread || 'threads.html'}" class="today-entry reveal" data-cat="${ev.cat}">
+            <div class="today-entry__year-col">
+              <span class="today-entry__year">${ev.year}</span>
+              <div class="today-entry__connector" aria-hidden="true"></div>
+            </div>
+            <div class="today-entry__body">
+              <div class="today-entry__type">${ev.type}</div>
+              <div class="today-entry__title">${ev.title}</div>
+              <p class="today-entry__summary">${ev.summary}</p>
+            </div>
+          </a>`).join('');
+      } else {
+        entriesEl.innerHTML = '';
+      }
+    }
+
+    if (yearLabel) yearLabel.textContent = `${MONTHS[month-1]} ${day} across history`;
+    if (sidebarYearList) {
+      sidebarYearList.innerHTML = events.map(ev => `
+        <div class="year-item">
+          <span class="year-item__yr">${ev.year}</span>
+          <span class="year-item__text">${ev.title}</span>
+        </div>`).join('');
+    }
+  }
+
+  function renderCalendar() {
+    const label = document.getElementById('cal-month-label');
+    const grid  = document.getElementById('cal-grid');
+    label.textContent = `${MONTHS[viewMonth]} ${viewYear}`;
+
+    const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+    const prevDays    = new Date(viewYear, viewMonth, 0).getDate();
+
+    let html = '';
+    // prev month cells
+    for (let i = firstDay - 1; i >= 0; i--) {
+      html += `<div class="today-cal__cell other-month" aria-hidden="true">${prevDays - i}</div>`;
+    }
+    // current month cells
+    for (let d = 1; d <= daysInMonth; d++) {
+      const key  = `${viewMonth + 1}-${d}`;
+      const isToday    = d === now.getDate() && viewMonth === now.getMonth() && viewYear === now.getFullYear();
+      const isSelected = d === selectedDay && viewMonth === now.getMonth() && viewYear === now.getFullYear();
+      const hasEvent   = EVENT_DAYS[key];
+      let cls = 'today-cal__cell';
+      if (isToday)    cls += ' is-today';
+      if (isSelected && !isToday) cls += ' is-selected';
+      if (hasEvent)   cls += ' has-event';
+      html += `<button class="${cls}" data-day="${d}" aria-label="${MONTHS[viewMonth]} ${d}, ${viewYear}">${d}</button>`;
+    }
+    // next month fill
+    const total = firstDay + daysInMonth;
+    const remain = total % 7 === 0 ? 0 : 7 - (total % 7);
+    for (let i = 1; i <= remain; i++) {
+      html += `<div class="today-cal__cell other-month" aria-hidden="true">${i}</div>`;
+    }
+    grid.innerHTML = html;
+
+    // Day click
+    grid.querySelectorAll('button.today-cal__cell').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedDay = parseInt(btn.dataset.day);
+        document.getElementById('today-month-name').textContent = MONTHS[viewMonth];
+        document.getElementById('today-day-num').textContent    = selectedDay;
+        document.getElementById('count-date-label').textContent = `${MONTHS[viewMonth]} ${selectedDay}`;
+        renderDayContent(viewMonth + 1, selectedDay);
+        renderCalendar();
+      });
+    });
+  }
+
+  document.getElementById('cal-prev').addEventListener('click', () => {
+    viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; } renderCalendar();
+  });
+  document.getElementById('cal-next').addEventListener('click', () => {
+    viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; } renderCalendar();
+  });
+  renderCalendar();
+  // Render today's events on initial load
+  renderDayContent(now.getMonth() + 1, now.getDate());
+
+  // ── MONTH NAV BUTTONS ─────────────────────────────────────
+  document.querySelectorAll('.month-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.month-btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      viewMonth = parseInt(btn.dataset.month);
+      const daysInNewMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+      if (selectedDay > daysInNewMonth) selectedDay = daysInNewMonth;
+      renderCalendar();
+      document.getElementById('today-month-name').textContent = MONTHS[viewMonth];
+      document.getElementById('count-date-label').textContent = `${MONTHS[viewMonth]} ${selectedDay}`;
+    });
+  });
+
+  // ── CATEGORY FILTER ───────────────────────────────────────
+  document.querySelectorAll('.today-cat-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.today-cat-pill').forEach(p => { p.classList.remove('is-active'); p.setAttribute('aria-pressed','false'); });
+      pill.classList.add('is-active'); pill.setAttribute('aria-pressed','true');
+      const cat = pill.dataset.cat;
+      document.querySelectorAll('.today-entry').forEach(entry => {
+        entry.style.display = (cat === 'all' || entry.dataset.cat === cat) ? '' : 'none';
+      });
+    });
+  });
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

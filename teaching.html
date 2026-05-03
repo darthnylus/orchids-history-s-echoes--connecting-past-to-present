@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching Resources — Chain</title>
+  <link rel="canonical" href="https://chain.education/teaching.html" />
+  <meta name="description" content="Lesson plans, discussion guides, and classroom resources for teaching African and Black history — from pre-colonial Africa through present-day America." />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();</script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <style>
+    /* ---- PAGE-LEVEL STYLES ---- */
+    .page-hero {
+      background: var(--color-nav-bg);
+      color: var(--color-text-inverse);
+      padding: clamp(3rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+    }
+    .page-hero__eyebrow {
+      font-family: var(--font-sans);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: 1rem;
+    }
+    .page-hero__headline {
+      font-family: var(--font-editorial);
+      font-size: var(--type-2xl);
+      font-weight: 700;
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-snug);
+      max-width: 36ch;
+      margin-bottom: 1.25rem;
+    }
+    .page-hero__subhead {
+      font-family: var(--font-sans);
+      font-size: var(--type-md);
+      line-height: var(--leading-loose);
+      color: var(--ink-300);
+      max-width: 60ch;
+      margin-bottom: 2rem;
+    }
+    .page-hero__cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* ---- SECTION CHROME ---- */
+    .teaching-section {
+      padding: clamp(3rem, 7vw, 5rem) 0;
+    }
+    .teaching-section--alt {
+      background: var(--color-surface-alt);
+    }
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+    .section-header--row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* ---- FILTER TABS ---- */
+    .filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border: 1.5px solid var(--color-border);
+      border-radius: 999px;
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      background: var(--color-surface);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+    }
+    .filter-tab:hover,
+    .filter-tab--active {
+      border-color: var(--amber-400);
+      background: var(--amber-50);
+      color: var(--amber-600);
+    }
+    .filter-tab__count {
+      font-size: var(--type-xs);
+      background: var(--ink-100);
+      border-radius: 999px;
+      padding: 0.1rem 0.4rem;
+    }
+
+    /* ---- LESSON CARDS ---- */
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+      gap: 1.5rem;
+    }
+    .lesson-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: 0.75rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
+    }
+    .lesson-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-color: var(--amber-300);
+      transform: translateY(-2px);
+    }
+    .lesson-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      flex-wrap: wrap;
+    }
+    .lesson-card__type-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 999px;
+      font-family: var(--font-sans);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+    .badge--lesson {
+      background: var(--amber-100);
+      color: var(--amber-700);
+    }
+    .badge--guide {
+      background: var(--slate-100);
+      color: var(--slate-700);
+    }
+    .badge--activity {
+      background: var(--sienna-100);
+      color: var(--sienna-700);
+    }
+    .lesson-card__grade {
+      font-family: var(--font-sans);
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      font-weight: var(--weight-medium);
+    }
+    .lesson-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: var(--leading-snug);
+      color: var(--color-text-primary);
+      letter-spacing: var(--tracking-snug);
+    }
+    .lesson-card__summary {
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      line-height: var(--leading-normal);
+      color: var(--color-text-secondary);
+      flex: 1;
+    }
+    .lesson-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--color-border-subtle);
+    }
+    .lesson-card__detail {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+    .lesson-card__detail-item {
+      font-family: var(--font-sans);
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .lesson-card__link {
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--amber-600);
+      text-decoration: none;
+    }
+    .lesson-card__link:hover {
+      text-decoration: underline;
+    }
+
+    /* ---- GUIDES GRID ---- */
+    .guides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+      gap: 1.5rem;
+    }
+    .guide-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: 0.75rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
+    }
+    .guide-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-color: var(--slate-300);
+      transform: translateY(-2px);
+    }
+    .guide-card__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--slate-100);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate-600);
+    }
+    .guide-card__title {
+      font-family: var(--font-editorial);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      line-height: var(--leading-snug);
+      color: var(--color-text-primary);
+      letter-spacing: var(--tracking-snug);
+    }
+    .guide-card__summary {
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      line-height: var(--leading-normal);
+      color: var(--color-text-secondary);
+      flex: 1;
+    }
+    .guide-card__link {
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--slate-600);
+      text-decoration: none;
+      margin-top: auto;
+    }
+    .guide-card__link:hover {
+      color: var(--slate-800);
+      text-decoration: underline;
+    }
+
+    /* ---- COMING SOON state for download links ---- */
+    .download-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--slate-400);
+      cursor: default;
+      pointer-events: none;
+      text-decoration: none;
+      margin-top: auto;
+    }
+    .download-soon__badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--slate-200);
+      color: var(--slate-500);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+    [data-theme="dark"] .download-soon__badge {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.35);
+    }
+    .download-soon-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.45);
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      border-radius: 0.5rem;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      cursor: default;
+      pointer-events: none;
+    }
+    .download-soon-btn .download-soon__badge {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ---- FEATURED RESOURCE (full-width) ---- */
+    .featured-resource {
+      background: var(--slate-800);
+      color: white;
+      border-radius: 1rem;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .featured-resource__eyebrow {
+      font-family: var(--font-sans);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: 0.625rem;
+    }
+    .featured-resource__title {
+      font-family: var(--font-editorial);
+      font-size: var(--type-xl);
+      font-weight: 700;
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-snug);
+      margin-bottom: 1rem;
+    }
+    .featured-resource__summary {
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      line-height: var(--leading-normal);
+      color: var(--slate-300);
+      max-width: 55ch;
+    }
+    .featured-resource__cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+      flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .featured-resource {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- STANDARDS SECTION ---- */
+    .standards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+      gap: 1.25rem;
+    }
+    .standard-card {
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+    .standard-card__name {
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .standard-card__desc {
+      font-family: var(--font-sans);
+      font-size: var(--type-xs);
+      line-height: var(--leading-normal);
+      color: var(--color-text-secondary);
+    }
+
+    /* ---- NEWSLETTER STRIP ---- */
+    .newsletter-strip {
+      background: var(--amber-50);
+      border: 1.5px solid var(--amber-200);
+      border-radius: 0.75rem;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .newsletter-strip__text h3 {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--amber-800, var(--amber-700));
+      margin-bottom: 0.25rem;
+    }
+    .newsletter-strip__text p {
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      color: var(--amber-700);
+    }
+    .newsletter-strip__form {
+      display: flex;
+      gap: 0.625rem;
+      flex-wrap: wrap;
+    }
+    .newsletter-strip__input {
+      padding: 0.6rem 1rem;
+      border: 1.5px solid var(--amber-300);
+      border-radius: 0.375rem;
+      font-family: var(--font-sans);
+      font-size: var(--type-sm);
+      background: white;
+      color: var(--color-text-primary);
+      min-width: 220px;
+    }
+    .newsletter-strip__input:focus {
+      outline: 2px solid var(--amber-400);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- =========================================================
+     UTILITY BAR
+     ========================================================= -->
+<div class="utility-bar" role="banner" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New resource:</strong> Lesson plan — Teaching the Tulsa Race Massacre for grades 9–12.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- =========================================================
+     MAIN NAVIGATION
+     ========================================================= -->
+<header class="site-nav" role="banner">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- =========================================================
+     SEARCH OVERLAY
+     ========================================================= -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input
+        type="search"
+        id="searchInput"
+        name="q"
+        class="search-overlay__input"
+        placeholder="Search lesson plans, guides, topics…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Browse teaching resources</p>
+      <a href="#lessons" class="search-hint-chip">All lesson plans</a>
+      <a href="#guides" class="search-hint-chip">Discussion guides</a>
+      <a href="#lessons" class="search-hint-chip">Grades 6–8</a>
+      <a href="#lessons" class="search-hint-chip">Grades 9–12</a>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     MOBILE NAV DRAWER
+     ========================================================= -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+<main id="main-content">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="teaching-headline">
+    <div class="container">
+      <p class="page-hero__eyebrow">Teaching Resources</p>
+      <h1 id="teaching-headline" class="page-hero__headline">
+        Bring the full chain<br />into your classroom.
+      </h1>
+      <p class="page-hero__subhead">
+        Lesson plans, discussion guides, and primary-source activities designed to connect African and Black history — from pre-colonial civilizations to present-day America — with rigorous, standards-aligned pedagogy.
+      </p>
+      <div class="page-hero__cta-group">
+        <a href="#lessons" class="btn btn--primary">Browse lesson plans</a>
+        <a href="#guides" class="btn btn--outline-inverse" style="border-color: rgba(255,255,255,0.3); color: var(--ink-100);">Discussion guides</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED RESOURCE -->
+  <section class="teaching-section" aria-label="Featured teaching resource">
+    <div class="container">
+      <div class="featured-resource">
+        <div class="featured-resource__content">
+          <p class="featured-resource__eyebrow">Featured Resource</p>
+          <h2 class="featured-resource__title">Teaching the Full Chain:<br />A Complete Curriculum Guide</h2>
+          <p class="featured-resource__summary">
+            A semester-long framework for teaching African and Black history as a connected arc — from the empires of Mali and Songhai through the slave trade, Reconstruction, the Great Migration, and the ongoing present. Includes 14 lesson plans, 8 discussion guides, and assessment rubrics aligned to Common Core and C3 Social Studies Standards.
+          </p>
+        </div>
+        <div class="featured-resource__cta">
+          <span class="download-soon-btn" aria-disabled="true" role="link">Download PDF guide <span class="download-soon__badge">Coming soon</span></span>
+          <a href="#lessons" class="btn btn--ghost" style="color: var(--ink-200); border: 1.5px solid rgba(255,255,255,0.2);">View individual lessons</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LESSON PLANS -->
+  <section class="teaching-section teaching-section--alt" id="lessons" aria-labelledby="lessons-heading">
+    <div class="container">
+
+      <div class="section-header section-header--row">
+        <div>
+          <p class="section-eyebrow">Classroom ready</p>
+          <h2 id="lessons-heading" class="section-title">Lesson Plans</h2>
+          <p class="section-subtitle" style="max-width: 55ch;">
+            Each lesson is built around a primary source, a causal question, and a discussion activity. All are free to download and adapt.
+          </p>
+        </div>
+      </div>
+
+      <div class="filter-tabs" role="group" aria-label="Filter by grade level">
+        <a href="#lessons" class="filter-tab filter-tab--active">All grades <span class="filter-tab__count">12</span></a>
+        <a href="#lessons" class="filter-tab">Grades 6–8 <span class="filter-tab__count">5</span></a>
+        <a href="#lessons" class="filter-tab">Grades 9–12 <span class="filter-tab__count">7</span></a>
+      </div>
+
+      <div class="lessons-grid">
+
+        <!-- REDLINING LESSON — anchor target -->
+        <article class="lesson-card" id="redlining-lesson" aria-label="Lesson: Redlining and Housing Inequality">
+          <div class="lesson-card__meta">
+            <span class="lesson-card__type-badge badge--lesson">Lesson Plan</span>
+            <span class="lesson-card__grade">Grades 9–12</span>
+          </div>
+          <h3 class="lesson-card__title">Redlining &amp; Housing Inequality: How a Federal Policy Created Today's Wealth Gap</h3>
+          <p class="lesson-card__summary">
+            Students examine original HOLC security maps alongside current neighborhood data to trace how 1930s federal mortgage policy continues to determine school quality, health outcomes, and generational wealth today. Includes a primary source analysis activity and structured academic controversy.
+          </p>
+          <div class="lesson-card__footer">
+            <div class="lesson-card__detail">
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                3 class periods
+              </span>
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF · 18 pages
+              </span>
+            </div>
+            <a href="thread.html" class="lesson-card__link" aria-label="Download Redlining lesson plan">Download →</a>
+          </div>
+        </article>
+
+        <article class="lesson-card" aria-label="Lesson: The Transatlantic Slave Trade">
+          <div class="lesson-card__meta">
+            <span class="lesson-card__type-badge badge--lesson">Lesson Plan</span>
+            <span class="lesson-card__grade">Grades 9–12</span>
+          </div>
+          <h3 class="lesson-card__title">The Transatlantic Slave Trade: Scale, System, and Consequence</h3>
+          <p class="lesson-card__summary">
+            Using data from the Trans-Atlantic Slave Trade Database, students analyze the scope and economic logic of the trade — and its deliberate destruction of African social structures, families, and accumulated wealth. Includes data visualization activities.
+          </p>
+          <div class="lesson-card__footer">
+            <div class="lesson-card__detail">
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                4 class periods
+              </span>
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF · 24 pages
+              </span>
+            </div>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
+          </div>
+        </article>
+
+        <article class="lesson-card" aria-label="Lesson: Reconstruction and its Dismantling">
+          <div class="lesson-card__meta">
+            <span class="lesson-card__type-badge badge--lesson">Lesson Plan</span>
+            <span class="lesson-card__grade">Grades 9–12</span>
+          </div>
+          <h3 class="lesson-card__title">Reconstruction: A Brief Democracy and Its Deliberate Dismantling</h3>
+          <p class="lesson-card__summary">
+            Students compare Reconstruction-era constitutional amendments with the Compromise of 1877 and subsequent Black Codes, tracing how a democratic opening was systematically closed and what that meant for the next 150 years of American politics.
+          </p>
+          <div class="lesson-card__footer">
+            <div class="lesson-card__detail">
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                3 class periods
+              </span>
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF · 20 pages
+              </span>
+            </div>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
+          </div>
+        </article>
+
+        <article class="lesson-card" aria-label="Lesson: Mali and Songhai Empires">
+          <div class="lesson-card__meta">
+            <span class="lesson-card__type-badge badge--lesson">Lesson Plan</span>
+            <span class="lesson-card__grade">Grades 6–8</span>
+          </div>
+          <h3 class="lesson-card__title">Mali &amp; Songhai: Empires of Scholarship, Trade, and Law</h3>
+          <p class="lesson-card__summary">
+            An introduction to pre-colonial West Africa through the lens of the Mali and Songhai Empires — including the University of Sankore at Timbuktu, the hajj of Mansa Musa, and sophisticated trans-Saharan trade networks. Designed to establish the baseline of what existed before the slave trade.
+          </p>
+          <div class="lesson-card__footer">
+            <div class="lesson-card__detail">
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                2 class periods
+              </span>
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF · 14 pages
+              </span>
+            </div>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
+          </div>
+        </article>
+
+        <article class="lesson-card" aria-label="Lesson: The Great Migration">
+          <div class="lesson-card__meta">
+            <span class="lesson-card__type-badge badge--lesson">Lesson Plan</span>
+            <span class="lesson-card__grade">Grades 6–8</span>
+          </div>
+          <h3 class="lesson-card__title">Why Six Million People Moved: The Great Migration and What Caused It</h3>
+          <p class="lesson-card__summary">
+            Students investigate the causal chain connecting Jim Crow violence, economic exclusion, and the promise of northern cities — and trace why the conditions migrants found in the North were often shaped by the same discriminatory systems they fled.
+          </p>
+          <div class="lesson-card__footer">
+            <div class="lesson-card__detail">
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                3 class periods
+              </span>
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF · 16 pages
+              </span>
+            </div>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
+          </div>
+        </article>
+
+        <article class="lesson-card" aria-label="Lesson: The GI Bill and Racial Exclusion">
+          <div class="lesson-card__meta">
+            <span class="lesson-card__type-badge badge--lesson">Lesson Plan</span>
+            <span class="lesson-card__grade">Grades 9–12</span>
+          </div>
+          <h3 class="lesson-card__title">The GI Bill: How America Built the White Middle Class and Excluded Everyone Else</h3>
+          <p class="lesson-card__summary">
+            A close examination of the Servicemen's Readjustment Act of 1944, how its benefits were administered in a racially discriminatory way, and what the compounding effects have been on wealth, homeownership, and educational attainment across generations.
+          </p>
+          <div class="lesson-card__footer">
+            <div class="lesson-card__detail">
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                2 class periods
+              </span>
+              <span class="lesson-card__detail-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF · 15 pages
+              </span>
+            </div>
+            <span class="download-soon lesson-card__link" aria-disabled="true" role="link">Download <span class="download-soon__badge">Coming soon</span></span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCUSSION GUIDES -->
+  <section class="teaching-section" id="guides" aria-labelledby="guides-heading">
+    <div class="container">
+
+      <div class="section-header">
+        <p class="section-eyebrow">Facilitated inquiry</p>
+        <h2 id="guides-heading" class="section-title">Discussion Guides</h2>
+        <p class="section-subtitle" style="max-width: 58ch;">
+          Structured conversation frameworks for classroom, book club, or community use. Each guide includes opening prompts, deeper inquiry questions, and facilitation notes.
+        </p>
+      </div>
+
+      <div class="guides-grid">
+
+        <!-- REDLINING DISCUSSION GUIDE — anchor target -->
+        <article class="guide-card" id="discussion-guide-redlining" aria-label="Discussion Guide: Connecting Redlining to Contemporary Housing">
+          <div class="guide-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <span class="lesson-card__type-badge badge--guide">Discussion Guide</span>
+          </div>
+          <h3 class="guide-card__title">Connecting History to Contemporary Housing Debates</h3>
+          <p class="guide-card__summary">
+            A structured discussion connecting the federal redlining maps of the 1930s to current debates about housing policy, school funding, and neighborhood investment. Includes opening readings, tiered discussion questions, and a "chain of causation" activity.
+          </p>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
+        </article>
+
+        <article class="guide-card" aria-label="Discussion Guide: Reparations">
+          <div class="guide-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <span class="lesson-card__type-badge badge--guide">Discussion Guide</span>
+          </div>
+          <h3 class="guide-card__title">The Reparations Debate: History, Arguments, and Evidence</h3>
+          <p class="guide-card__summary">
+            Examines the historical and contemporary arguments around reparations — from Frederick Douglass to H.R. 40 — using primary sources and economic evidence. Designed for structured academic controversy or Socratic seminar.
+          </p>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
+        </article>
+
+        <article class="guide-card" aria-label="Discussion Guide: Mass Incarceration">
+          <div class="guide-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <span class="lesson-card__type-badge badge--guide">Discussion Guide</span>
+          </div>
+          <h3 class="guide-card__title">The Roots of Mass Incarceration: Policy, Poverty, and Race</h3>
+          <p class="guide-card__summary">
+            Traces the historical arc from Reconstruction-era Black Codes through the War on Drugs to the present carceral state. Includes data, firsthand accounts, and comparative policy analysis prompts.
+          </p>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
+        </article>
+
+        <article class="guide-card" aria-label="Discussion Guide: What Was Lost — African Civilizations">
+          <div class="guide-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <span class="lesson-card__type-badge badge--guide">Discussion Guide</span>
+          </div>
+          <h3 class="guide-card__title">What Was Lost: African Civilizations Before the Slave Trade</h3>
+          <p class="guide-card__summary">
+            An opening-unit discussion guide for orienting students to the civilizations — Mali, Songhai, Kush, Benin, Great Zimbabwe — that existed before European colonization and the slave trade. Challenges common assumptions about Africa's pre-colonial history.
+          </p>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
+        </article>
+
+        <article class="guide-card" aria-label="Discussion Guide: The Achievement Gap">
+          <div class="guide-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <span class="lesson-card__type-badge badge--guide">Discussion Guide</span>
+          </div>
+          <h3 class="guide-card__title">The Achievement Gap Is a Funding Gap: Schools, Zip Codes, and Inequality</h3>
+          <p class="guide-card__summary">
+            Connects property-tax school funding, neighborhood segregation, and educational outcomes to trace why the "achievement gap" is more accurately a resource gap — and how that gap traces back through decades of deliberate policy.
+          </p>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
+        </article>
+
+        <article class="guide-card" aria-label="Discussion Guide: Voting Rights">
+          <div class="guide-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <span class="lesson-card__type-badge badge--guide">Discussion Guide</span>
+          </div>
+          <h3 class="guide-card__title">Voting Rights: From the 15th Amendment to Shelby County</h3>
+          <p class="guide-card__summary">
+            Tracks the history of voting rights legislation and restriction — from Reconstruction amendments through the Voting Rights Act of 1965 to the Supreme Court's 2013 decision — and examines what the pattern reveals about how rights are expanded and contracted.
+          </p>
+          <span class="download-soon guide-card__link" aria-disabled="true" role="link">Download guide <span class="download-soon__badge">Coming soon</span></span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDARDS ALIGNMENT -->
+  <section class="teaching-section teaching-section--alt" aria-labelledby="standards-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Curriculum alignment</p>
+        <h2 id="standards-heading" class="section-title">Standards &amp; Frameworks</h2>
+        <p class="section-subtitle" style="max-width: 58ch;">
+          All Chain teaching resources are aligned to national and widely-adopted state standards frameworks.
+        </p>
+      </div>
+      <div class="standards-grid">
+        <div class="standard-card">
+          <p class="standard-card__name">Common Core ELA</p>
+          <p class="standard-card__desc">All lessons include reading, writing, and evidence-based argumentation tasks that meet CCSS.ELA-LITERACY.RH and CCSS.ELA-LITERACY.WHST standards for history/social studies.</p>
+        </div>
+        <div class="standard-card">
+          <p class="standard-card__name">C3 Social Studies Framework</p>
+          <p class="standard-card__desc">Resources are built around the College, Career, and Civic Life (C3) Framework's inquiry arc — compelling questions, supporting questions, sources, and informed action.</p>
+        </div>
+        <div class="standard-card">
+          <p class="standard-card__name">AP US History &amp; AP African American Studies</p>
+          <p class="standard-card__desc">Content aligns with APUSH Period 5 (1844–1877), Period 7 (1890–1945), and Period 8 (1945–1980) themes, and supports the AP African American Studies pilot framework.</p>
+        </div>
+        <div class="standard-card">
+          <p class="standard-card__name">State Diversity &amp; Inclusion Standards</p>
+          <p class="standard-card__desc">Resources support Illinois, California, New Jersey, and New York African American history curriculum mandates, with adaptations available for additional state contexts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATOR NEWSLETTER -->
+  <section class="teaching-section" aria-label="Educator newsletter signup">
+    <div class="container">
+      <div class="newsletter-strip">
+        <div class="newsletter-strip__text">
+          <h3>New resources every month</h3>
+          <p>Join 4,200+ educators receiving new lesson plans, discussion guides, and primary source spotlights.</p>
+        </div>
+        <form class="newsletter-strip__form" action="newsletter.html" method="get" aria-label="Subscribe to educator newsletter">
+          <label for="teacherEmail" class="sr-only">Your email address</label>
+          <input
+            type="email"
+            id="teacherEmail"
+            name="email"
+            class="newsletter-strip__input"
+            placeholder="your@school.edu"
+            autocomplete="email"
+          />
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <div class="footer-wordmark">Chain</div>
+        <p class="footer-mission">
+          A nonprofit digital history platform. We document how the past continues to shape the present — through evidence, narrative, and connected research.
+        </p>
+        <div class="footer-actions">
+          <a href="donate.html"     class="footer-btn footer-btn--primary">Donate</a>
+          <a href="newsletter.html" class="footer-btn footer-btn--outline">Newsletter</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-group" aria-label="Explore navigation">
+        <h2 class="footer-nav-heading">Explore</h2>
+        <ul class="footer-nav-links">
+          <li><a href="threads.html"   class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"   class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"      class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"     class="footer-link">Today in History</a></li>
+          <li><a href="sources.html"   class="footer-link">Sources Archive</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-nav-group" aria-label="Teaching navigation">
+        <h2 class="footer-nav-heading">Teaching</h2>
+        <ul class="footer-nav-links">
+          <li><a href="teaching.html"         class="footer-link">Teaching Resources</a></li>
+          <li><a href="teaching.html#lessons" class="footer-link">Lesson Plans</a></li>
+          <li><a href="teaching.html#guides"  class="footer-link">Discussion Guides</a></li>
+          <li><a href="learn.html"            class="footer-link">Learning Paths</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-nav-group" aria-label="About navigation">
+        <h2 class="footer-nav-heading">About</h2>
+        <ul class="footer-nav-links">
+          <li><a href="about.html"               class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology"   class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"             class="footer-link">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        © 2026 Chain. Content published under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="text-decoration: underline; color: inherit;">Creative Commons Attribution 4.0</a> unless otherwise noted.
+      </p>
+      <div class="footer-trust" aria-label="Trust indicators">
+        <div class="footer-trust-item">
+          <svg class="footer-trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M8 1l2 5h5l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5z"/>
+          </svg>
+          <span>Editorially independent</span>
+        </div>
+        <div class="footer-trust-item">
+          <svg class="footer-trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="1" y="3" width="14" height="10" rx="2"/>
+            <path d="M5 8h6M8 5v6"/>
+          </svg>
+          <span>Nonprofit 501(c)(3)</span>
+        </div>
+        <div class="footer-trust-item">
+          <svg class="footer-trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M8 1a4 4 0 1 1 0 8A4 4 0 0 1 8 1zM2 14c0-3 2.7-5 6-5s6 2 6 5"/>
+          </svg>
+          <span>Scholar-reviewed content</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

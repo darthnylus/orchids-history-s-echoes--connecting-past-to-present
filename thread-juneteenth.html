@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two and a Half Years Late: Juneteenth and the Promise That Wasn't — Thread — Chain</title>
+  <meta property="og:title" content="Two and a Half Years Late: Juneteenth and the Promise That Wasn't — Thread" />
+  <meta property="og:description" content="June 19, 1865. Union soldiers arrive in Galveston, Texas and announce that slavery is over. The Emancipation Proclamation had been issued 2.5 years earlier. ..." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://chain.education/thread-juneteenth.html" />
+  <meta name="description" content="June 19, 1865. Union soldiers arrive in Galveston, Texas and announce that slavery is over. The Emancipation Proclamation had been issued 2.5 years earlier. The celebration that followed became Juneteenth — and the story of what came after it is the rest of American history." />
+  <script>
+    (function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    /* Accent: emerald green — #34d399 / #10b981 */
+    .thread-hero{background:var(--ink-900);padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;background:
+      radial-gradient(ellipse 60% 80% at 12% 50%,rgba(16,185,129,.15) 0%,transparent 60%),
+      radial-gradient(ellipse 40% 60% at 88% 20%,rgba(5,150,105,.10) 0%,transparent 55%),
+      radial-gradient(ellipse 50% 60% at 50% 100%,rgba(251,191,36,.07) 0%,transparent 50%);
+      pointer-events:none}
+    .thread-hero__inner{position:relative;max-width:760px}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(16,185,129,.10);border:1px solid rgba(16,185,129,.28);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#6ee7b7;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#10b981}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#6ee7b7;font-style:normal}
+    .thread-hero__subtitle{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.78);line-height:1.7;max-width:640px;margin-bottom:var(--space-8)}
+    .thread-hero__meta{display:flex;gap:var(--space-6);flex-wrap:wrap;align-items:flex-end}
+    .thread-meta-item__label{font-size:var(--type-xs);color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:var(--tracking-wide);margin-bottom:2px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.90);text-shadow:0 1px 4px rgba(0,0,0,.6)}
+    .listen-btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--ink-300);font-size:var(--type-xs);font-weight:var(--weight-semibold);font-family:inherit;cursor:pointer;transition:all var(--duration-fast);margin-left:auto;white-space:nowrap;align-self:flex-end}
+    .listen-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+    .listen-btn[data-state="playing"]{background:rgba(16,185,129,.2);border-color:rgba(16,185,129,.4);color:#6ee7b7}
+    .listen-progress-bar{height:3px;background:rgba(255,255,255,.08);display:none}
+    .listen-progress-bar.is-visible{display:block}
+    .listen-progress-bar__fill{height:100%;background:#10b981;width:0%;transition:width 0.5s linear}
+
+    .argument-bar{background:rgba(16,185,129,.06);border-top:1px solid rgba(16,185,129,.15);border-bottom:1px solid rgba(16,185,129,.15);padding:var(--space-5) 0}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:36px;height:36px;flex-shrink:0;background:rgba(16,185,129,.15);border-radius:50%;display:grid;place-items:center;margin-top:2px}
+    .argument-bar__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#6ee7b7;margin-bottom:var(--space-1)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.65;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+
+    .era-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-10) 0 var(--space-4)}
+    .era-divider__line{flex:1;height:1px;background:var(--color-border)}
+    .era-divider__badge{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#059669;background:rgba(16,185,129,.10);border:1px solid rgba(16,185,129,.22);border-radius:999px;padding:3px var(--space-4);white-space:nowrap}
+
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(16,185,129,.10);border:1px solid rgba(16,185,129,.25);color:#6ee7b7}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#34d399;margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#10b981;line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:0.7rem;text-transform:uppercase;letter-spacing:var(--tracking-wide);color:var(--color-text-tertiary)}
+    [data-theme="dark"] .entry-stats{background:var(--ink-800);border-color:var(--ink-700)}
+
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:var(--leading-loose);margin-bottom:var(--space-6)}
+    .entry-item__body p{margin-bottom:var(--space-4)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+
+    .entry-features{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);margin-bottom:var(--space-6)}
+    @media(min-width:640px){.entry-features{grid-template-columns:repeat(3,1fr)}}
+    .entry-feature{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-4)}
+    [data-theme="dark"] .entry-feature{background:var(--ink-800);border-color:var(--ink-700)}
+    .entry-feature__icon{font-size:1.25rem;margin-bottom:var(--space-2);line-height:1}
+    .entry-feature__label{font-size:var(--type-xs);font-weight:var(--weight-semibold);color:var(--color-text-primary);margin-bottom:2px}
+    .entry-feature__desc{font-size:0.72rem;color:var(--color-text-tertiary);line-height:1.5}
+
+    .consequence-box{border:1px solid rgba(16,185,129,.20);border-left:3px solid #10b981;background:rgba(16,185,129,.04);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:var(--space-5) var(--space-6);margin-bottom:var(--space-5)}
+    [data-theme="dark"] .consequence-box{background:rgba(16,185,129,.07)}
+    .consequence-box__label{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#10b981;margin-bottom:var(--space-2)}
+    .consequence-box__text{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.65}
+    .consequence-box__text strong{color:var(--color-text-primary)}
+
+    .pull-quote{border-left:3px solid #10b981;padding:var(--space-4) var(--space-6);margin:var(--space-7) 0}
+    .pull-quote__text{font-family:var(--font-editorial);font-size:clamp(1.125rem,2.5vw,1.375rem);font-style:italic;color:var(--color-text-primary);line-height:1.55;margin-bottom:var(--space-3)}
+    .pull-quote__attribution{font-size:var(--type-xs);font-weight:var(--weight-semibold);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:#10b981}
+
+    /* Celebration callout — unique to this thread */
+    .celebration-box{background:linear-gradient(135deg,rgba(16,185,129,.10) 0%,rgba(251,191,36,.08) 100%);border:1px solid rgba(16,185,129,.25);border-radius:var(--radius-xl);padding:var(--space-6) var(--space-7);margin:var(--space-7) 0}
+    .celebration-box__title{font-family:var(--font-editorial);font-size:1.1rem;font-weight:900;color:var(--color-text-primary);margin-bottom:var(--space-3)}
+    .celebration-box__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .celebration-box__body strong{color:var(--color-text-primary)}
+
+    .chain-connector{background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-8);margin:var(--space-12) 0}
+    .chain-connector__title{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:#fff;margin-bottom:var(--space-6)}
+    .chain-steps{display:flex;flex-direction:column;gap:0;position:relative}
+    .chain-step{display:grid;grid-template-columns:32px 1fr;gap:var(--space-4);align-items:start;padding-bottom:var(--space-5);position:relative}
+    .chain-step:last-child{padding-bottom:0}
+    .chain-step__line{position:absolute;left:15px;top:32px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(16,185,129,.5),rgba(16,185,129,.1))}
+    .chain-step:last-child .chain-step__line{display:none}
+    .chain-step__dot{width:32px;height:32px;border-radius:50%;border:2px solid #10b981;background:rgba(16,185,129,.15);color:#10b981;font-size:0.7rem;font-weight:var(--weight-bold);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+    .chain-step__era{font-size:0.68rem;font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:#10b981;margin-bottom:2px}
+    .chain-step__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:#fff;margin-bottom:3px}
+    .chain-step__desc{font-size:var(--type-xs);color:var(--ink-400);line-height:1.6}
+
+    .sidebar{display:flex;flex-direction:column;gap:var(--space-5)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5)}
+    [data-theme="dark"] .sidebar-card{background:var(--ink-800);border-color:var(--ink-700)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid var(--color-border)}
+    .sidebar-toc__list{list-style:none;display:flex;flex-direction:column;gap:1px}
+    .sidebar-toc__link{display:block;font-size:var(--type-xs);color:var(--color-text-secondary);padding:5px var(--space-3);border-radius:var(--radius-md);transition:all var(--duration-fast);text-decoration:none;line-height:1.3}
+    .sidebar-toc__link:hover{background:var(--color-surface-raised);color:var(--color-text-primary)}
+    .sidebar-toc__link.is-active{background:rgba(16,185,129,.10);color:#10b981;font-weight:var(--weight-semibold)}
+    .sidebar-fact__stat{font-family:var(--font-editorial);font-size:2rem;font-weight:900;color:#10b981;line-height:1;margin-bottom:var(--space-1)}
+    .sidebar-fact__label{font-size:var(--type-xs);color:var(--color-text-secondary);line-height:1.5}
+    .sidebar-fact__divider{height:1px;background:var(--color-border);margin:var(--space-4) 0}
+    .related-thread{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);text-decoration:none}
+    .related-thread:last-child{border-bottom:none;padding-bottom:0}
+    .related-thread__num{font-size:0.68rem;font-weight:var(--weight-bold);text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary)}
+    .related-thread__title{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:var(--color-text-primary);line-height:1.35}
+    .related-thread:hover .related-thread__title{color:#10b981}
+
+    .thread-bottom-cta{background:var(--ink-900);padding:var(--space-16) 0;text-align:center}
+    .thread-bottom-cta__eyebrow{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#6ee7b7;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-5);max-width:640px;margin-left:auto;margin-right:auto}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:var(--ink-400);max-width:520px;margin:0 auto var(--space-8);line-height:1.65}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-7);border-radius:999px;font-size:var(--type-sm);font-weight:var(--weight-semibold);text-decoration:none;transition:all var(--duration-fast)}
+    .thread-bottom-cta__btn--primary{background:#059669;color:#fff}
+    .thread-bottom-cta__btn--primary:hover{background:#047857}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:var(--ink-300);border:1px solid rgba(255,255,255,.15)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.06);color:#fff}
+
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.5s var(--ease-out),transform 0.5s var(--ease-out)}
+    .reveal.is-visible{opacity:1;transform:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Juneteenth Thread:</strong> Two and a Half Years Late — the freedom that was delayed, the celebration that survived, and the promises that still haven't been kept.</p>
+    <nav class="utility-bar__links">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home"><span class="site-nav__name">Chain</span><span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link" aria-current="page">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay"><svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span class="hide-mobile">Search</span></button>
+      <a href="today.html" class="today-pill"><span class="today-pill__dot" aria-hidden="true"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/><line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/><line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/></svg></button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">Two and a Half Years Late: Juneteenth and the Promise That Wasn't — Thread</span>
+    </div>
+  </div>
+</nav>
+<!-- CONTEXT RIBBON — thread orientation tracker -->
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon" role="complementary" aria-label="Thread context">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <!-- populated by thread-journey.js -->
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>66</strong> Threads</span>
+      <span class="context-ribbon__divider" aria-hidden="true">·</span>
+      <span class="context-ribbon__stat"><strong>9</strong> Eras</span>
+    </div>
+    <nav class="context-ribbon__nav" aria-label="Quick access">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
+        <span class="context-ribbon__live-dot" aria-hidden="true"></span>
+        Today
+      </a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search"><label for="searchInput" class="sr-only">Search Chain</label><input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off"/><button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button></form>
+    <div class="search-overlay__hints"><p class="search-overlay__hint-label">Try searching</p><a href="search.html?q=Juneteenth" class="search-hint-chip">Juneteenth</a><a href="search.html?q=Emancipation+Proclamation" class="search-hint-chip">Emancipation Proclamation</a><a href="search.html?q=General+Order+No+3" class="search-hint-chip">General Order No. 3</a></div>
+  </div>
+</div>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close"><button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button></div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="thread-hero" aria-labelledby="heroTitle">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
+        Juneteenth Thread · June 19, 1865 – Present
+      </div>
+      <h1 class="thread-hero__title" id="heroTitle">
+        <em>Two and a Half Years Late:</em><br>
+        Juneteenth and the Promise That Wasn't
+      </h1>
+      <p class="thread-hero__subtitle">
+        January 1, 1863: President Lincoln signs the Emancipation Proclamation. June 19, 1865: Union soldiers arrive in Galveston, Texas and announce that the 250,000 enslaved people of Texas are free. Between those two dates — 929 days — slavery continued in the Confederacy's most remote corner, enforced by the same violence that had always sustained it. The people of Texas celebrated June 19th as the day freedom finally arrived. They called it Juneteenth. Then America spent 156 years deciding whether that day deserved a holiday.
+      </p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">The Date</div><div class="thread-meta-item__value">June 19, 1865</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">People Freed in Texas</div><div class="thread-meta-item__value">~250,000</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Federal Holiday Declared</div><div class="thread-meta-item__value">June 17, 2021</div></div>
+        <button class="listen-btn" id="listenBtn" data-state="idle" aria-label="Listen to this thread"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" id="listenIcon"><polygon points="5 3 19 12 5 21 5 3"/></svg><span id="listenLabel">Listen</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="listen-progress-bar" id="listenProgressBar" aria-hidden="true"><div class="listen-progress-bar__fill" id="listenProgressFill"></div></div>
+</section>
+
+<div class="argument-bar" role="note" aria-label="Core argument">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The thread's argument</div>
+        <p class="argument-bar__text">
+          <strong>Juneteenth is not just a celebration — it is a measure of the distance between American promises and American reality.</strong> The Emancipation Proclamation didn't free everyone. The 13th Amendment had a loophole. The 40 acres were revoked. The Black Codes followed within months. The Freedmen's Bureau was defunded. Reconstruction was abandoned. And for 156 years, the day that freedom finally reached the last enslaved people in America was not a national holiday. Understanding what Juneteenth actually was — and what followed it — is essential to understanding everything that came after.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <div class="thread-body">
+    <div class="container">
+      <div class="thread-layout">
+        <div class="entry-list">
+
+          <!-- ERA 1: THE PROCLAMATION AND THE GAP -->
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era I · The Proclamation &amp; the 929-Day Gap · 1863–1865</span><div class="era-divider__line"></div></div>
+
+          <!-- 01: EMANCIPATION PROCLAMATION -->
+          <article class="entry-item reveal" id="entry-proclamation">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div>
+                <div class="entry-item__dates">January 1, 1863</div>
+                <h2 class="entry-item__name">The Emancipation Proclamation: What It Actually Said</h2>
+                <div class="entry-item__location">Washington, D.C. · The executive order that freed — and didn't free</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">3.5M</div><div class="entry-stat__label">Enslaved people in Confederate states — covered by the Proclamation</div></div>
+              <div><div class="entry-stat__num">500K</div><div class="entry-stat__label">In border states — NOT covered, remained enslaved</div></div>
+              <div><div class="entry-stat__num">0</div><div class="entry-stat__label">People immediately freed on January 1, 1863 — all were in Confederate territory</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The Emancipation Proclamation, issued by President Lincoln on January 1, 1863, is taught in schools as the moment slavery ended. It was not. The Proclamation declared that enslaved people in states "in rebellion against the United States" were "forever free" — but it explicitly excluded the border states (Missouri, Kentucky, Maryland, Delaware) that had remained in the Union, as well as parts of Louisiana and Virginia already under Union control.</p>
+              <p>More critically: <strong>it had no mechanism of enforcement in Confederate territory, where the people it "freed" were still physically enslaved and surrounded by those who enslaved them.</strong> The Proclamation was a war measure and a political document — it prevented Britain and France from recognizing the Confederacy by framing the war explicitly as a war over slavery, and it authorized Black men to serve in the Union Army. But it freed no one on January 1, 1863. Freedom required the arrival of Union forces, and Union forces had not yet reached everyone.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The military reality</div>
+              <p class="consequence-box__text">For enslaved people in areas under Confederate control, the Emancipation Proclamation was a distant legal declaration with no practical power. <strong>Freedom, in practice, arrived when Union soldiers arrived — and Union soldiers reached different parts of the South at different times.</strong> Texas, the largest Confederate state and the most geographically remote from the main theaters of war, was last.</p>
+            </div>
+          </article>
+
+          <!-- 02: THE 929 DAYS -->
+          <article class="entry-item reveal" id="entry-929days">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">January 1863 – June 1865</div>
+                <h2 class="entry-item__name">929 Days: Why Texas Was Last</h2>
+                <div class="entry-item__location">Texas · The geography of continued enslavement</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">929</div><div class="entry-stat__label">Days between Proclamation and Galveston announcement</div></div>
+              <div><div class="entry-stat__num">250,000</div><div class="entry-stat__label">Enslaved people in Texas in June 1865</div></div>
+              <div><div class="entry-stat__num">April 9</div><div class="entry-stat__label">1865 — Lee surrenders. June 19: Texas announcement. 71 days.</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Texas in 1865 was geographically isolated and militarily uncontested for most of the Civil War. The Union Army's main campaigns — Gettysburg, Vicksburg, Sherman's March — played out thousands of miles to the east. Texas had no significant Union military presence, and Confederate authority remained intact. <strong>Planters in Texas had actually moved enslaved people to Texas from other Confederate states specifically because Texas was seen as a refuge</strong> — beyond the reach of Union armies advancing through the Southeast. Some historians estimate the enslaved population in Texas had doubled during the war years as a result.</p>
+              <p>Robert E. Lee surrendered on April 9, 1865. The Confederacy collapsed over the following weeks. But news traveled slowly in 1865, and armed authority did not transfer instantly. Union Major General Gordon Granger arrived in Galveston, Texas with troops on June 19, 1865 — 71 days after Lee's surrender — and read aloud General Order No. 3. It contained three sentences.</p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"The people of Texas are informed that, in accordance with a proclamation from the Executive of the United States, all slaves are free. This involves an absolute equality of personal rights and rights of property between former masters and slaves, and the connection heretofore existing between them becomes that between employer and hired labor."</p>
+              <p class="pull-quote__attribution">— General Order No. 3, Major General Gordon Granger, June 19, 1865</p>
+            </div>
+          </article>
+
+          <!-- 03: THE MOMENT -->
+          <article class="entry-item reveal" id="entry-moment">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">June 19, 1865</div>
+                <h2 class="entry-item__name">Galveston: The Day Freedom Finally Arrived</h2>
+                <div class="entry-item__location">Galveston, Texas · The moment and what followed it</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">June 19</div><div class="entry-stat__label">1865 — General Order No. 3 read in Galveston</div></div>
+              <div><div class="entry-stat__num">1866</div><div class="entry-stat__label">First official Juneteenth celebration in Texas</div></div>
+              <div><div class="entry-stat__num">$0</div><div class="entry-stat__label">Land, capital, or compensation provided to the newly freed</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The accounts of what happened on June 19, 1865 describe people dropping tools, crying, shouting, praying, and running. Families that had been separated — sold, divided, scattered across the state — began moving immediately to find one another. The formerly enslaved population of Galveston was a few thousand; the order would spread outward to plantations across Texas over the following days and weeks. Some enslavers withheld the news for as long as they could — the harvest was approaching.</p>
+              <p>Within hours, there was also clarity about what the order did not provide: no land, no capital, no protection from the former enslavers who still controlled the land, the law, and the labor markets. <strong>The same day freedom was announced, the formerly enslaved faced the question of survival in an economy designed to coerce their continued labor</strong> — this time through debt, contract law, and violence rather than explicit ownership. The celebration was real. The circumstances it celebrated were immediately complicated.</p>
+            </div>
+            <div class="celebration-box">
+              <div class="celebration-box__title">What the celebration looked like</div>
+              <div class="celebration-box__body">
+                <p>The first Juneteenth celebration in 1866 was held in Texas and featured prayer, music, food, and readings of the Emancipation Proclamation. The tradition established specific elements: <strong>red food and drink</strong> (red soda water, strawberry soda, and red beans — symbolic of blood and resilience), <strong>barbecue</strong>, <strong>spiritual music</strong>, and the reading of freedom documents aloud. Families used Juneteenth gatherings to share news of relatives — searching for those who had been sold away. The holiday was a reunion ritual as much as a celebration.</p>
+                <p>As Black Texans migrated north and west during the Great Migration (1910–1970), they carried Juneteenth with them, planting the celebration in cities across the country. It was never just a Texas holiday — it was a diaspora tradition that spread wherever Black Texans went.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ERA 2: BROKEN PROMISES & SUPPRESSION -->
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era II · The Broken Promises · 1865–1877</span><div class="era-divider__line"></div></div>
+
+          <!-- 04: FREEDMEN'S BUREAU -->
+          <article class="entry-item reveal" id="entry-freedmen">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">04</div>
+              <div>
+                <div class="entry-item__dates">1865–1872</div>
+                <h2 class="entry-item__name">The Freedmen's Bureau: The Promise Defunded</h2>
+                <div class="entry-item__location">United States · The one institution that could have changed everything</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1865</div><div class="entry-stat__label">Bureau established by Congress</div></div>
+              <div><div class="entry-stat__num">1872</div><div class="entry-stat__label">Bureau defunded and abolished</div></div>
+              <div><div class="entry-stat__num">4M</div><div class="entry-stat__label">Formerly enslaved people the Bureau was meant to serve</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The Bureau of Refugees, Freedmen, and Abandoned Lands — the Freedmen's Bureau — was created in March 1865 to manage the transition from slavery to freedom. It was charged with providing food, housing, medical care, legal assistance, and education to the formerly enslaved, and with overseeing labor contracts to ensure fair treatment. It established over 1,000 schools, including institutions that would become Howard University, Fisk University, and Morehouse College.</p>
+              <p>President Andrew Johnson vetoed the Bureau's extension twice. Congress overrode him once. Johnson then systematically undermined the Bureau's authority — overturning land redistribution, pardoning former Confederate officials, and restricting the Bureau's ability to protect Black workers from coercive labor arrangements. <strong>Congress abolished the Bureau in 1872, just seven years after it was created, and eight years before anything close to economic stability could be established for 4 million people starting with nothing.</strong></p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">What Reconstruction could have been</div>
+              <p class="consequence-box__text">Historians have argued that a fully funded, long-term Freedmen's Bureau — with the land redistribution, education, and legal protection it was theoretically empowered to provide — could have substantially closed the wealth gap and established Black political power on a durable foundation. <strong>It was defunded before it had completed a single generation of work.</strong> The infrastructure that replaced it was the Black Codes.</p>
+            </div>
+          </article>
+
+          <!-- 05: BLACK CODES -->
+          <article class="entry-item reveal" id="entry-codes">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">05</div>
+              <div>
+                <div class="entry-item__dates">1865–1866</div>
+                <h2 class="entry-item__name">Black Codes: Freedom Rescinded by Statute</h2>
+                <div class="entry-item__location">Texas, Mississippi, Louisiana, and across the South</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">8 months</div><div class="entry-stat__label">After Juneteenth — Mississippi passes its Black Code</div></div>
+              <div><div class="entry-stat__num">All</div><div class="entry-stat__label">Former Confederate states had passed Black Codes within 2 years</div></div>
+              <div><div class="entry-stat__num">1867</div><div class="entry-stat__label">Radical Reconstruction overturns them — temporarily</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The celebration of Juneteenth was barely a year old when Southern state legislatures began systematically re-creating the conditions of slavery through statute. Texas's Black Code of 1866 required Black workers to sign year-long labor contracts. It prohibited Black Texans from testifying against white Texans in court, restricted their movement, and criminalized "vagrancy" — allowing the arrest of anyone without a labor contract. The penalties for "vagrancy" were fines that could only be paid by entering forced labor.</p>
+              <p>The pattern was replicated across the South. <strong>Within 18 months of the Juneteenth announcement, Southern states had legally reconstructed the key features of slavery: forced labor, restricted movement, legal helplessness, and criminal enforcement against those who resisted.</strong> Radical Reconstruction overturned the Black Codes in 1867 — but Reconstruction ended in 1877, and the tools were picked up again under Jim Crow.</p>
+            </div>
+          </article>
+
+          <!-- ERA 3: THE HOLIDAY & ITS SUPPRESSION -->
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era III · The Celebration Survives · 1866–1980</span><div class="era-divider__line"></div></div>
+
+          <!-- 06: THE TRADITION TRAVELS -->
+          <article class="entry-item reveal" id="entry-tradition">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">06</div>
+              <div>
+                <div class="entry-item__dates">1866–1970s</div>
+                <h2 class="entry-item__name">The Tradition Travels: How Juneteenth Spread Across America</h2>
+                <div class="entry-item__location">Texas → Chicago, Los Angeles, Houston, Detroit · The Great Migration carries the celebration</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1.5M</div><div class="entry-stat__label">Black Texans who migrated north and west 1910–1970</div></div>
+              <div><div class="entry-stat__num">1930s</div><div class="entry-stat__label">Depression-era celebrations declined as families couldn't afford to travel</div></div>
+              <div><div class="entry-stat__num">1968</div><div class="entry-stat__label">Rev. Ralph Abernathy brings Juneteenth to Washington for Poor People's Campaign</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Through the late 19th century, Juneteenth celebrations grew in Texas. Communities gathered on June 19th for prayer services, picnics, readings of the Emancipation Proclamation, and music. In 1872, Black community leaders in Houston purchased Emancipation Park — 10 acres in Houston's Fourth Ward — specifically to have a guaranteed space for Juneteenth celebrations, because segregation prevented them from using public parks.</p>
+              <p>The Great Migration of the early 20th century carried Juneteenth traditions to cities across the country — Chicago, Los Angeles, Detroit, Oakland. Wherever Black Texans settled, they brought June 19th with them. The holiday had its lean years: during the Depression, many families couldn't afford to travel home for celebrations, and during the Civil Rights Era, some questioned whether to continue celebrating an incomplete freedom. <strong>Reverend Ralph Abernathy brought the tradition to Washington, D.C. in 1968 for the Poor People's Campaign — connecting Juneteenth explicitly to the ongoing struggle for economic justice.</strong> That reframing revitalized the holiday as something more than commemoration.</p>
+            </div>
+          </article>
+
+          <!-- 07: TEXAS STATE HOLIDAY -->
+          <article class="entry-item reveal" id="entry-texas1980">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">07</div>
+              <div>
+                <div class="entry-item__dates">1980</div>
+                <h2 class="entry-item__name">Texas Makes Juneteenth a State Holiday — 115 Years After the Fact</h2>
+                <div class="entry-item__location">Austin, Texas · Legislator Al Edwards's 12-year fight</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1980</div><div class="entry-stat__label">Texas becomes first state to make Juneteenth an official state holiday</div></div>
+              <div><div class="entry-stat__num">12 yrs</div><div class="entry-stat__label">Al Edwards introduced the bill for 12 years before it passed</div></div>
+              <div><div class="entry-stat__num">47</div><div class="entry-stat__label">U.S. states had recognized Juneteenth before federal recognition</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Texas State Representative Al Edwards first introduced a bill to make Juneteenth an official state holiday in 1968. He introduced it every legislative session for twelve years. In 1980, it passed. Texas became the first state in the nation to officially recognize Juneteenth as a state holiday. Edwards later said that he pushed for official recognition because Juneteenth was fading from public memory — younger generations, further removed from 1865, were losing connection to the tradition.</p>
+              <p>Other states followed slowly. By 2021, 47 states had recognized Juneteenth in some form — but recognition ranged from full paid state holiday to ceremonial acknowledgment. <strong>The holiday that had been celebrated by Black communities for 155 years was still, in 2021, not recognized by the federal government as anything at all.</strong></p>
+            </div>
+          </article>
+
+          <!-- ERA 4: FEDERAL RECOGNITION & WHAT IT MEANS -->
+          <div class="era-divider" aria-hidden="true"><div class="era-divider__line"></div><span class="era-divider__badge">Era IV · Federal Recognition &amp; Its Limits · 2021–Present</span><div class="era-divider__line"></div></div>
+
+          <!-- 08: OPAL LEE -->
+          <article class="entry-item reveal" id="entry-opal">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">08</div>
+              <div>
+                <div class="entry-item__dates">1939–2021</div>
+                <h2 class="entry-item__name">Opal Lee: The 94-Year-Old Who Made Juneteenth a Federal Holiday</h2>
+                <div class="entry-item__location">Fort Worth, Texas · 82 years of fighting</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">1939</div><div class="entry-stat__label">Opal Lee's family home destroyed by white mob on her 12th birthday</div></div>
+              <div><div class="entry-stat__num">2016</div><div class="entry-stat__label">At age 89, begins annual 2.5-mile "Juneteenth walk" to represent 2.5-year delay</div></div>
+              <div><div class="entry-stat__num">94</div><div class="entry-stat__label">Her age when President Biden signed the federal holiday bill</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Opal Lee was 12 years old in 1939 when a white mob of 500 people attacked her family's home in Fort Worth, Texas — on June 19th, Juneteenth — throwing rocks through windows and setting fire to the family's belongings. The house was on a street that had previously been an all-white neighborhood. The mob was angered by the family's presence.</p>
+              <p>Lee became a teacher and community activist. In 2016, at age 89, she began walking 2.5 miles every Juneteenth — 1.25 miles out, 1.25 miles back — representing the 2.5 years it took for freedom to reach Texas. She collected signatures, met with legislators, and refused to stop until the federal government recognized June 19th as a national holiday. <strong>On June 17, 2021, President Biden signed the Juneteenth National Independence Day Act into law, with Opal Lee present in the East Room of the White House. She was 94.</strong></p>
+            </div>
+            <div class="pull-quote">
+              <p class="pull-quote__text">"It's not just a Texas thing. It's not just a Black thing. It's an American thing."</p>
+              <p class="pull-quote__attribution">— Opal Lee, "Grandmother of Juneteenth"</p>
+            </div>
+          </article>
+
+          <!-- 09: FEDERAL HOLIDAY CONTEXT -->
+          <article class="entry-item reveal" id="entry-federal">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">09</div>
+              <div>
+                <div class="entry-item__dates">June 17, 2021</div>
+                <h2 class="entry-item__name">The Federal Holiday: Recognition and What It Doesn't Do</h2>
+                <div class="entry-item__location">Washington, D.C. · The holiday in context</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">98-0</div><div class="entry-stat__label">Senate vote for the federal holiday</div></div>
+              <div><div class="entry-stat__num">415–14</div><div class="entry-stat__label">House vote — 14 Republicans voted no</div></div>
+              <div><div class="entry-stat__num">156 yrs</div><div class="entry-stat__label">From June 19, 1865 to June 19, 2021 federal recognition</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The Juneteenth National Independence Day Act passed the Senate 98–0 and the House 415–14. The 14 no votes came from Republican representatives who cited concerns about the holiday's name ("Independence Day" is already July 4th) or opposed what they called "identity politics." President Biden signed it on June 17, 2021 — two days before June 19th — in time for the first federal observance.</p>
+              <p>The federal holiday recognition was the result of decades of community organizing, and it matters. It establishes June 19, 1865 as a date the nation officially acknowledges — the day freedom finally, fully arrived in America. But <strong>a holiday does not pass reparations legislation. It does not close the racial wealth gap. It does not restore the 40 acres that were revoked. It does not free the 2.3 million people currently incarcerated through a system built on the 13th Amendment's exception clause.</strong> The recognition is meaningful. The work it acknowledges is not finished.</p>
+            </div>
+            <div class="entry-features">
+              <div class="entry-feature"><div class="entry-feature__icon">📜</div><div class="entry-feature__label">What It Is</div><div class="entry-feature__desc">A federal public holiday — 12th on the calendar. Federal employees get a paid day off. The date is officially recognized.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">💰</div><div class="entry-feature__label">What It Isn't</div><div class="entry-feature__desc">Not reparations. Not structural change. Not restoration of revoked land or compensated labor.</div></div>
+              <div class="entry-feature"><div class="entry-feature__icon">🗳️</div><div class="entry-feature__label">The 14 No Votes</div><div class="entry-feature__desc">All Republican. Among their objections: the name, "identity politics," and concerns it would "further divide" Americans.</div></div>
+            </div>
+          </article>
+
+          <!-- 10: WHAT JUNETEENTH MEANS NOW -->
+          <article class="entry-item reveal" id="entry-meaning">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">10</div>
+              <div>
+                <div class="entry-item__dates">Present</div>
+                <h2 class="entry-item__name">What Juneteenth Means Now — and the Backlash Against Teaching It</h2>
+                <div class="entry-item__location">United States · The holiday and the fight over history</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">44</div><div class="entry-stat__label">States that have passed laws restricting how race and history can be taught (2021–2023)</div></div>
+              <div><div class="entry-stat__num">2021</div><div class="entry-stat__label">Federal holiday passed — same year "critical race theory" bans accelerated</div></div>
+              <div><div class="entry-stat__num">$171K</div><div class="entry-stat__label">Racial wealth gap — the measure of what Juneteenth has not yet resolved</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>The same year Juneteenth became a federal holiday, 44 states introduced or passed legislation restricting how teachers could discuss race, racism, and American history. Florida's "Stop WOKE Act" prohibited instruction that might cause students to "feel discomfort" because of their race. Texas passed laws restricting how teachers could discuss the 1619 Project and the history of slavery. Several of these laws were specifically cited by educators as affecting Juneteenth curriculum.</p>
+              <p><strong>The pattern is familiar: acknowledge the celebration, suppress the history that makes it meaningful.</strong> You can have a Juneteenth holiday where corporations sell red velvet ice cream — and simultaneously ban teachers from explaining why Black Codes followed Juneteenth within months, why the 40 acres were revoked, and what the 13th Amendment's exception clause produced. The holiday without the history is a comfort, not a reckoning.</p>
+            </div>
+            <div class="consequence-box">
+              <div class="consequence-box__label">The corporate Juneteenth problem</div>
+              <p class="consequence-box__text">After the 2021 federal recognition, major corporations launched Juneteenth-branded products — Walmart released a Juneteenth-themed ice cream (since withdrawn after backlash), multiple brands released "celebration" merchandise. Critics argued the commercialization was extracting profit from a day rooted in the recognition of Black suffering without investment in Black communities. <strong>The holiday was recognized. The wealth gap it commemorates was not addressed.</strong></p>
+            </div>
+          </article>
+
+          <!-- CAUSAL CHAIN -->
+          <div class="chain-connector reveal" role="note" aria-label="Causal chain">
+            <h2 class="chain-connector__title">Freedom Deferred, Then Celebrated, Then Marketed</h2>
+            <div class="chain-steps">
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">1</div><div><div class="chain-step__era">January 1, 1863</div><div class="chain-step__title">Emancipation Proclamation — frees no one immediately</div><div class="chain-step__desc">Legal declaration that freedom would come when Union forces arrived. Texas remained enslaved for another 929 days.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">2</div><div><div class="chain-step__era">June 19, 1865</div><div class="chain-step__title">Galveston announcement — freedom arrives, then begins to be taken away</div><div class="chain-step__desc">Within months: Black Codes. Within years: Freedmen's Bureau defunded. Within 12 years: Reconstruction abandoned.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">3</div><div><div class="chain-step__era">1866–2020</div><div class="chain-step__title">Community preserves the holiday for 155 years without federal support</div><div class="chain-step__desc">Despite suppression, migration, and commercialization, Black communities maintained Juneteenth as a living tradition.</div></div></div>
+              <div class="chain-step"><div class="chain-step__line" aria-hidden="true"></div><div class="chain-step__dot" aria-hidden="true">4</div><div><div class="chain-step__era">June 17, 2021</div><div class="chain-step__title">Federal holiday — recognition without repair</div><div class="chain-step__desc">The nation officially acknowledges the date. The wealth gap, mass incarceration, and health disparities that trace to 1865 remain unaddressed.</div></div></div>
+              <div class="chain-step"><div class="chain-step__dot" aria-hidden="true">5</div><div><div class="chain-step__era">Today</div><div class="chain-step__title">Holiday recognized, history being banned</div><div class="chain-step__desc">44 states restrict how the history behind Juneteenth can be taught. You can celebrate the freedom. You cannot explain why it was delayed, what followed it, or why it remains incomplete.</div></div></div>
+            </div>
+          </div>
+
+        </div><!-- /.entry-list -->
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" aria-label="Thread navigation and facts">
+          <div class="sidebar-card" id="toc-card">
+            <div class="sidebar-card__title">In This Thread</div>
+            <nav aria-label="Thread table of contents">
+              <ul class="sidebar-toc__list">
+                <li><a class="sidebar-toc__link" href="#entry-proclamation">01 · The Emancipation Proclamation</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-929days">02 · The 929-Day Gap</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-moment">03 · June 19, 1865 — Galveston</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-freedmen">04 · The Freedmen's Bureau</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-codes">05 · Black Codes — 1865</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-tradition">06 · The Tradition Travels</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-texas1980">07 · Texas State Holiday — 1980</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-opal">08 · Opal Lee</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-federal">09 · Federal Holiday — 2021</a></li>
+                <li><a class="sidebar-toc__link" href="#entry-meaning">10 · What It Means Now</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">By the Numbers</div>
+            <div class="sidebar-fact__stat">929</div>
+            <div class="sidebar-fact__label">Days between the Emancipation Proclamation (Jan 1, 1863) and the Galveston announcement (June 19, 1865)</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">156 yrs</div>
+            <div class="sidebar-fact__label">From June 19, 1865 to the first federal Juneteenth holiday — the community kept it alive for all 156 of them</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">2.5 mi</div>
+            <div class="sidebar-fact__label">Opal Lee's annual Juneteenth walk — 1.25 miles out, 1.25 miles back — representing the 2.5 years of delay</div>
+            <div class="sidebar-fact__divider"></div>
+            <div class="sidebar-fact__stat">44</div>
+            <div class="sidebar-fact__label">States that introduced or passed laws restricting how race and history can be taught (2021–2023) — the same years they celebrated the new federal holiday</div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Related Threads</div>
+            <a href="thread-transatlantic-slave-trade.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">The Rupture: The Transatlantic Slave Trade</span>
+            </a>
+            <a href="thread-stolen-labor.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">Stolen Labor &amp; the Racial Wealth Gap</span>
+            </a>
+            <a href="thread-mass-incarceration.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">The 13th: Mass Incarceration</span>
+            </a>
+            <a href="thread-abolitionism.html" class="related-thread">
+              <span class="related-thread__num">Thread</span>
+              <span class="related-thread__title">The Fire Next Time: Black Abolitionists</span>
+            </a>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Further Reading</div>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);">
+              <strong style="color:var(--color-text-primary);">On Juneteenth</strong> — Annette Gordon-Reed (2021). Personal and historical account of Juneteenth's Texas roots.
+            </p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);">
+              <strong style="color:var(--color-text-primary);">The Half Has Never Been Told</strong> — Edward Baptist (2014). The economic history of American slavery.
+            </p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;margin-bottom:var(--space-3);">
+              <strong style="color:var(--color-text-primary);">Black Reconstruction in America</strong> — W.E.B. Du Bois (1935). The destruction of Reconstruction and its meaning.
+            </p>
+            <p style="font-size:var(--type-xs);color:var(--color-text-tertiary);line-height:1.6;">
+              <strong style="color:var(--color-text-primary);">Opal Lee and What It Means to Be Free</strong> — KieSha Fain (2022). Children's picture book; also useful for adult context.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- BOTTOM CTA -->
+<section class="thread-bottom-cta" aria-labelledby="cta-title">
+  <div class="container">
+    <p class="thread-bottom-cta__eyebrow">The chain continues</p>
+    <h2 class="thread-bottom-cta__title" id="cta-title">Freedom arrived. Then they built the system that replaced slavery. The holiday came 156 years later.</h2>
+    <p class="thread-bottom-cta__sub">Juneteenth is the celebration of a moment. Understanding what that moment produced — and what came after — is the work of every other thread in this archive.</p>
+    <div class="thread-bottom-cta__btns">
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Explore all threads →</a>
+      <a href="thread-stolen-labor.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">Next: Stolen Labor</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+
+<style>
+.next-thread-strip{background:var(--color-surface);border-top:1px solid var(--color-border);padding:var(--space-8) 0}
+.next-thread-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap}
+.next-thread-strip__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:var(--space-2)}
+.next-thread-strip__title{font-family:var(--font-editorial);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:800;color:var(--color-text-primary);line-height:1.2;max-width:480px}
+.next-thread-strip__btn{flex-shrink:0;display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);background:var(--color-accent-dark,#92400e);color:#fff;border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:filter .15s;white-space:nowrap}
+.next-thread-strip__btn:hover{filter:brightness(1.1)}
+</style>
+
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <div class="next-thread-strip__title">Black Codes: The Law That Re-Enslaved Black America</div>
+      </div>
+      <a href="thread-black-codes.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="home.html" class="site-footer__wordmark">Chain</a>
+      <p class="site-footer__tagline">Black history &amp; present-day America. Every consequence has an origin.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Learn</h3><a href="threads.html" class="site-footer__link">Threads</a><a href="maps.html" class="site-footer__link">Maps &amp; Timelines</a><a href="today.html" class="site-footer__link">Today in History</a><a href="explore.html" class="site-footer__link">Explore</a></div>
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Site</h3><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="teaching.html" class="site-footer__link">Teaching</a><a href="contact.html" class="site-footer__link">Contact</a></div>
+      <div class="site-footer__col"><h3 class="site-footer__col-title">Support</h3><a href="donate.html" class="site-footer__link">Donate</a><a href="newsletter.html" class="site-footer__link">Newsletter</a></div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <div class="container site-footer__bottom-inner">
+      <p class="site-footer__legal">Chain is an independent educational archive. All historical claims are sourced.</p>
+      <a href="sources.html" class="site-footer__sources-link">View sources</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const themeToggle=document.getElementById('themeToggle'),moonIcon=document.querySelector('.icon-moon'),sunIcons=document.querySelectorAll('.icon-sun');
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('chain-theme',t);if(t==='dark'){moonIcon.style.display='none';sunIcons.forEach(el=>el.style.display='')}else{moonIcon.style.display='';sunIcons.forEach(el=>el.style.display='none')}}
+  applyTheme(localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  themeToggle.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+  const mobileMenuToggle=document.getElementById('mobileMenuToggle'),mobileNav=document.getElementById('mobileNav'),mobileClose=document.getElementById('mobileClose'),mobileBackdrop=document.getElementById('mobileBackdrop');
+  function openMobileNav(){mobileNav.classList.add('is-open');mobileNav.setAttribute('aria-hidden','false');mobileMenuToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeMobileNav(){mobileNav.classList.remove('is-open');mobileNav.setAttribute('aria-hidden','true');mobileMenuToggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  mobileMenuToggle.addEventListener('click',openMobileNav);mobileClose.addEventListener('click',closeMobileNav);mobileBackdrop.addEventListener('click',closeMobileNav);
+  const searchToggle=document.getElementById('searchToggle'),searchOverlay=document.getElementById('searchOverlay'),searchClose=document.getElementById('searchClose'),searchInput=document.getElementById('searchInput');
+  searchToggle.addEventListener('click',()=>{searchOverlay.classList.add('is-open');searchOverlay.setAttribute('aria-hidden','false');searchToggle.setAttribute('aria-expanded','true');setTimeout(()=>searchInput.focus(),50)});
+  searchClose.addEventListener('click',()=>{searchOverlay.classList.remove('is-open');searchOverlay.setAttribute('aria-hidden','true');searchToggle.setAttribute('aria-expanded','false')});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){searchOverlay.classList.remove('is-open');searchOverlay.setAttribute('aria-hidden','true')}});
+  const revealEls=document.querySelectorAll('.reveal'),revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}})},{threshold:0.08});
+  revealEls.forEach(el=>revealObserver.observe(el));
+  const tocLinks=document.querySelectorAll('.sidebar-toc__link'),entryItems=document.querySelectorAll('.entry-item'),tocObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const id=entry.target.id;tocLinks.forEach(link=>link.classList.toggle('is-active',link.getAttribute('href')==='#'+id))}})},{rootMargin:'-10% 0px -80% 0px'});
+  entryItems.forEach(el=>tocObserver.observe(el));
+  const listenBtn=document.getElementById('listenBtn'),listenLabel=document.getElementById('listenLabel'),listenIcon=document.getElementById('listenIcon'),progressBar=document.getElementById('listenProgressBar'),progressFill=document.getElementById('listenProgressFill');
+  let currentUtterance=0,speaking=false;
+  const PLAY_SVG='<polygon points="5 3 19 12 5 21 5 3"/>',PAUSE_SVG='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  function getTextChunks(){const articles=document.querySelectorAll('.entry-item');const allText=Array.from(articles).map(a=>a.innerText).join(' ');const words=allText.split(/\s+/);const chunks=[];for(let i=0;i<words.length;i+=40)chunks.push(words.slice(i,i+40).join(' '));return chunks}
+  function speakChunk(chunks,idx){if(idx>=chunks.length){resetListen();return}const utt=new SpeechSynthesisUtterance(chunks[idx]);utt.onend=()=>{currentUtterance=idx+1;progressFill.style.width=((currentUtterance/chunks.length)*100)+'%';speakChunk(chunks,currentUtterance)};utt.onerror=()=>resetListen();speechSynthesis.speak(utt)}
+  function resetListen(){speaking=false;speechSynthesis.cancel();listenBtn.setAttribute('data-state','idle');listenLabel.textContent='Listen';listenIcon.innerHTML=PLAY_SVG;progressBar.classList.remove('is-visible');progressFill.style.width='0%';currentUtterance=0}
+  listenBtn.addEventListener('click',()=>{if(!speaking){speaking=true;listenBtn.setAttribute('data-state','playing');listenLabel.textContent='Pause';listenIcon.innerHTML=PAUSE_SVG;progressBar.classList.add('is-visible');const chunks=getTextChunks();speakChunk(chunks,currentUtterance)}else{resetListen()}});
+</script>
+<script src="js/thread.js" defer></script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>

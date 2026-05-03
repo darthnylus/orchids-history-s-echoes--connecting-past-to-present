@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Chain</title>
+  <link rel="canonical" href="https://chain.education/contact.html" />
+  <meta name="description" content="Get in touch with Chain. Report an error, pitch a thread, request teaching support, or ask a press question." />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <style>
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .contact-hero {
+      background: var(--ink-900);
+      padding: var(--space-14) 0 var(--space-12);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 70% at 70% 20%, rgba(196,106,0,.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .contact-hero__inner { position: relative; max-width: 640px; }
+    .contact-hero__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-4);
+    }
+    .contact-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      line-height: var(--leading-snug);
+      margin-bottom: var(--space-5);
+    }
+    .contact-hero__lead {
+      font-size: var(--type-md);
+      color: var(--ink-300);
+      line-height: var(--leading-loose);
+    }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    .contact-body {
+      padding: var(--space-14) 0;
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr 360px; gap: var(--space-12); }
+    }
+
+    /* ── Reason tabs ─────────────────────────────────────────── */
+    .reason-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-7);
+    }
+    .reason-tab {
+      padding: var(--space-2) var(--space-4);
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-medium);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+    .reason-tab:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
+    .reason-tab.is-active {
+      background: var(--color-accent-dark);
+      border-color: var(--color-accent-dark);
+      color: #fff;
+    }
+
+    /* ── Form ────────────────────────────────────────────────── */
+    .contact-form-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-bottom: var(--space-5);
+    }
+    @media (min-width: 540px) { .form-row--two { grid-template-columns: 1fr 1fr; } }
+
+    .form-field { display: flex; flex-direction: column; gap: var(--space-2); }
+    .form-label {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+    }
+    .form-label span { color: var(--color-text-tertiary); font-weight: var(--weight-normal); }
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      font-size: var(--type-sm);
+      font-family: inherit;
+      transition: border-color var(--duration-fast);
+      box-sizing: border-box;
+    }
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--color-accent-dark);
+      box-shadow: 0 0 0 3px var(--color-accent-light);
+    }
+    .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+    .form-hint {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+    }
+
+    .form-context-note {
+      background: var(--color-surface-alt, var(--color-surface));
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--amber-400);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-4) var(--space-5);
+      margin-bottom: var(--space-6);
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .form-context-note strong { color: var(--color-text-primary); }
+
+    .form-submit {
+      width: 100%;
+      padding: var(--space-4);
+      background: var(--amber-500);
+      color: var(--ink-900);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      cursor: pointer;
+      transition: background var(--duration-fast);
+      margin-top: var(--space-2);
+    }
+    .form-submit:hover { background: var(--amber-400); }
+    .form-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-10) var(--space-8);
+    }
+    .form-success.is-visible { display: block; }
+    .form-success__icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-5);
+    }
+    .form-success__title {
+      font-family: var(--font-editorial);
+      font-size: 1.5rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .form-success__sub {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────────── */
+    .contact-sidebar { display: flex; flex-direction: column; gap: var(--space-5); }
+
+    .contact-info-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .contact-info-card__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .contact-info-list { display: flex; flex-direction: column; gap: var(--space-4); }
+    .contact-info-item {}
+    .contact-info-item__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-1);
+    }
+    .contact-info-item__value {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+    .contact-info-item__value a { color: var(--color-accent-dark); font-weight: var(--weight-medium); }
+
+    .response-time-bar {
+      background: var(--ink-900);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      color: var(--ink-300);
+    }
+    .response-time-bar__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: #fff;
+      margin-bottom: var(--space-4);
+    }
+    .response-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      font-size: var(--type-xs);
+    }
+    .response-row:last-child { border-bottom: none; }
+    .response-row__type { color: var(--ink-400); }
+    .response-row__time { color: var(--amber-300); font-weight: var(--weight-semibold); }
+
+    /* Dark mode */
+    [data-theme="dark"] .contact-form-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .contact-info-card { background: var(--ink-800); border-color: var(--ink-700); }
+    [data-theme="dark"] .form-input,
+    [data-theme="dark"] .form-textarea,
+    [data-theme="dark"] .form-select { background: var(--ink-900); border-color: var(--ink-700); color: var(--ink-100); }
+    [data-theme="dark"] .reason-tab { background: var(--ink-800); border-color: var(--ink-700); color: var(--ink-300); }
+    [data-theme="dark"] .form-context-note { background: var(--ink-900); border-color: var(--ink-700); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link" aria-current="page">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+    <div class="search-overlay__hints">
+      <p class="search-overlay__hint-label">Start with a question</p>
+      <a href="search.html?q=Why+does+housing+inequality+persist" class="search-hint-chip">Why does housing inequality persist?</a>
+      <a href="search.html?q=Reconstruction+voting+rights" class="search-hint-chip">Reconstruction &amp; voting rights</a>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="about.html"      class="mobile-nav__utility-link">About</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="contact-hero" aria-labelledby="contact-heading">
+    <div class="container contact-hero__inner">
+      <p class="contact-hero__eyebrow">Contact</p>
+      <h1 id="contact-heading" class="contact-hero__title">We read every message.</h1>
+      <p class="contact-hero__lead">We're a small team. Use the form below to reach the right person without getting lost in an inbox.</p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <section class="contact-body">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- FORM COLUMN -->
+        <div>
+          <!-- Reason tabs -->
+          <div class="reason-tabs" role="group" aria-label="Reason for contact">
+            <button class="reason-tab is-active" data-reason="correction" type="button">Report an error</button>
+            <button class="reason-tab" data-reason="thread"     type="button">Pitch a thread</button>
+            <button class="reason-tab" data-reason="teaching"   type="button">Teaching support</button>
+            <button class="reason-tab" data-reason="press"      type="button">Press inquiry</button>
+            <button class="reason-tab" data-reason="other"      type="button">Other</button>
+          </div>
+
+          <!-- Context notes per reason -->
+          <div class="form-context-note" id="contextNote" aria-live="polite">
+            <strong>Reporting an error:</strong> Please include the page URL, the specific claim, and the source you believe contradicts it. We investigate every substantive challenge and publish corrections visibly.
+          </div>
+
+          <div class="contact-form-card reveal">
+            <!-- Form -->
+            <form id="contactForm" novalidate>
+              <input type="hidden" id="reasonInput" name="reason" value="correction" />
+
+              <div class="form-row form-row--two">
+                <div class="form-field">
+                  <label class="form-label" for="firstName">First name</label>
+                  <input class="form-input" type="text" id="firstName" name="firstName" autocomplete="given-name" required />
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="lastName">Last name <span>(optional)</span></label>
+                  <input class="form-input" type="text" id="lastName" name="lastName" autocomplete="family-name" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label class="form-label" for="email">Email address</label>
+                  <input class="form-input" type="email" id="email" name="email" autocomplete="email" required />
+                  <p class="form-hint">We only use this to reply to you. We don't add you to any list.</p>
+                </div>
+              </div>
+
+              <div class="form-row" id="orgRow" style="display:none">
+                <div class="form-field">
+                  <label class="form-label" for="org">Organization <span>(optional)</span></label>
+                  <input class="form-input" type="text" id="org" name="org" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label class="form-label" for="subject">Subject</label>
+                  <input class="form-input" type="text" id="subject" name="subject" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label class="form-label" for="message">Message</label>
+                  <textarea class="form-textarea" id="message" name="message" required></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="form-submit" id="submitBtn">Send message →</button>
+            </form>
+
+            <!-- Success -->
+            <div class="form-success" id="formSuccess" aria-live="polite">
+              <div class="form-success__icon">✓</div>
+              <div class="form-success__title">Message received.</div>
+              <p class="form-success__sub">We'll get back to you within the timeframe listed for your topic. Check your spam folder if you don't hear from us — our reply domain is chain-history.org.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="contact-sidebar" aria-label="Contact information">
+
+          <div class="contact-info-card reveal">
+            <div class="contact-info-card__title">Who handles what</div>
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-info-item__label">Factual corrections</div>
+                <div class="contact-info-item__value">Reviewed by the editorial team. We cite the challenge and our response publicly if we make a correction.</div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-item__label">Thread pitches</div>
+                <div class="contact-info-item__value">We consider every pitch. If your idea has scholarly backing and a clear causal argument, we'll follow up.</div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-item__label">Teaching support</div>
+                <div class="contact-info-item__value">Free lesson plans, source packets, and discussion guides available. We also do live workshops for schools.</div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-item__label">Press</div>
+                <div class="contact-info-item__value">Journalists and researchers are welcome. We can provide background briefings, data, and expert referrals.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="response-time-bar reveal">
+            <div class="response-time-bar__title">Typical response times</div>
+            <div class="response-row">
+              <span class="response-row__type">Factual corrections</span>
+              <span class="response-row__time">2–5 days</span>
+            </div>
+            <div class="response-row">
+              <span class="response-row__type">Thread pitches</span>
+              <span class="response-row__time">1–2 weeks</span>
+            </div>
+            <div class="response-row">
+              <span class="response-row__type">Teaching support</span>
+              <span class="response-row__time">3–5 days</span>
+            </div>
+            <div class="response-row">
+              <span class="response-row__type">Press inquiries</span>
+              <span class="response-row__time">24–48 hours</span>
+            </div>
+            <div class="response-row">
+              <span class="response-row__type">General</span>
+              <span class="response-row__time">1 week</span>
+            </div>
+          </div>
+
+          <div class="contact-info-card reveal">
+            <div class="contact-info-card__title">Other ways to reach us</div>
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-info-item__label">Corrections policy</div>
+                <div class="contact-info-item__value">Full methodology and corrections log at <a href="sources.html">sources.html</a></div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-item__label">Teaching resources</div>
+                <div class="contact-info-item__value"><a href="teaching.html">teaching.html</a> — free, no login required</div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-item__label">Support the work</div>
+                <div class="contact-info-item__value"><a href="donate.html">donate.html</a> — reader-funded, no ads</div>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ─────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+
+  // ── REASON TABS ───────────────────────────────────────────
+  const reasonTabs = document.querySelectorAll('.reason-tab');
+  const contextNote = document.getElementById('contextNote');
+  const reasonInput = document.getElementById('reasonInput');
+  const orgRow      = document.getElementById('orgRow');
+
+  const CONTEXT_NOTES = {
+    correction: '<strong>Reporting an error:</strong> Please include the page URL, the specific claim, and the source you believe contradicts it. We investigate every substantive challenge and publish corrections visibly.',
+    thread:     '<strong>Pitching a thread:</strong> Describe the causal argument you want to make and the time span it covers. The stronger the scholarly foundation, the faster we can evaluate it.',
+    teaching:   '<strong>Teaching support:</strong> Let us know your grade level, subject, and what you\'re covering. We can send lesson plans, primary source packets, and discussion guides within a few days.',
+    press:      '<strong>Press inquiry:</strong> Please include your outlet, deadline, and the specific question or angle. We can provide background briefings, data, or connect you with subject-matter experts.',
+    other:      '<strong>General message:</strong> We read everything. If your message doesn\'t fit a category, just write it — we\'ll route it to the right person.'
+  };
+
+  reasonTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      reasonTabs.forEach(t => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      const r = tab.dataset.reason;
+      reasonInput.value = r;
+      contextNote.innerHTML = CONTEXT_NOTES[r] || '';
+      orgRow.style.display = (r === 'press') ? 'grid' : 'none';
+    });
+  });
+
+  // ── FORM SUBMIT ───────────────────────────────────────────
+  const contactForm  = document.getElementById('contactForm');
+  const formSuccess  = document.getElementById('formSuccess');
+  const submitBtn    = document.getElementById('submitBtn');
+  const emailInput   = document.getElementById('email');
+  const firstInput   = document.getElementById('firstName');
+  const messageInput = document.getElementById('message');
+  const subjectInput = document.getElementById('subject');
+
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    let valid = true;
+    [firstInput, emailInput, subjectInput, messageInput].forEach(el => {
+      el.style.borderColor = '';
+      if (!el.value.trim() || (el.type === 'email' && !el.value.includes('@'))) {
+        el.style.borderColor = '#ef4444';
+        el.focus();
+        valid = false;
+      }
+    });
+    if (!valid) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    setTimeout(() => {
+      contactForm.style.display = 'none';
+      formSuccess.classList.add('is-visible');
+    }, 800);
+  });
+
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

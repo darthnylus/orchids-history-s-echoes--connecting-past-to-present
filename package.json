@@ -1,0 +1,11 @@
+{
+  "name": "chain-history-platform",
+  "version": "1.0.0",
+  "description": "Chain — A digital history platform connecting African and Black history to present-day America",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static site — no build step required'",
+    "start": "python3 -m http.server 3000",
+    "dev": "python3 -m http.server 3000"
+  }
+}

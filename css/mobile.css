@@ -1,0 +1,957 @@
+/* ============================================================
+   CHAIN — Mobile-first responsive stylesheet
+   Loaded after system.css on every page.
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────
+   0. GLOBAL OVERFLOW GUARD
+   Belt + suspenders — nothing escapes horizontally
+   ───────────────────────────────────────────────────────── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ─────────────────────────────────────────────────────────
+   1. TYPOGRAPHY UPGRADE
+   Slightly larger, looser body text for long-form reading
+   ───────────────────────────────────────────────────────── */
+body {
+  font-size: 1.0625rem;
+  line-height: 1.72;
+}
+
+.chapter__body p,
+.entry-item__body p,
+.thread-body p,
+.about-prose p {
+  font-size: 1.0625rem;
+  line-height: 1.78;
+  max-width: 68ch;
+}
+
+.thread-page-description {
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  line-height: 1.72;
+}
+
+h1, h2 { letter-spacing: -0.025em; }
+h3, h4  { letter-spacing: -0.015em; }
+
+/* ─────────────────────────────────────────────────────────
+   2. SURFACE CONTRAST
+   ───────────────────────────────────────────────────────── */
+:root {
+  --color-surface: #ffffff;
+  --color-bg: #f4f1ed;
+  --color-surface-alt: #ece9e4;
+}
+
+[data-theme="light"] {
+  --color-surface: #ffffff;
+  --color-bg: #f4f1ed;
+  --color-surface-alt: #ece9e4;
+  --color-border: #dbd6d0;
+  --color-border-subtle: #ece9e4;
+}
+
+/* ─────────────────────────────────────────────────────────
+   3. FOCUS RINGS
+   ───────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--amber-400);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* ─────────────────────────────────────────────────────────
+   4. PROGRESS BAR
+   ───────────────────────────────────────────────────────── */
+#chain-progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
+  z-index: 9999;
+  transition: width 0.1s linear;
+  transform-origin: left;
+}
+
+/* ─────────────────────────────────────────────────────────
+   5. THREAD CARD — hover lift + light-mode shadow
+   ───────────────────────────────────────────────────────── */
+.thread-card__domain-bar {
+  height: 3px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+[data-theme="light"] .thread-card {
+  box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+}
+[data-theme="light"] .thread-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,.1), 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* ─────────────────────────────────────────────────────────
+   6. COMPACT PAGE HEADERS (Threads / About / Resources)
+   ───────────────────────────────────────────────────────── */
+.page-header {
+  background: var(--ink-900);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding: var(--space-10) 0 var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 100% at 100% 50%, rgba(196,146,0,.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 80% at 0% 100%, rgba(120,60,30,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.page-header__inner { position: relative; z-index: 1; }
+
+.page-header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--type-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--amber-400);
+  margin-bottom: var(--space-4);
+}
+.page-header__eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--amber-400);
+  flex-shrink: 0;
+}
+
+.page-header__title {
+  font-family: var(--font-editorial);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: var(--space-4);
+}
+
+.page-header__desc {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--ink-300);
+  line-height: 1.65;
+  max-width: 60ch;
+}
+
+.page-header__stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.page-header__stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.page-header__stat-num {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--amber-300);
+  line-height: 1;
+}
+
+.page-header__stat-label {
+  font-size: var(--type-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+
+/* ─────────────────────────────────────────────────────────
+   7. SCROLL-REVEAL ANIMATIONS
+   ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+
+  .chain-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .55s cubic-bezier(.25,.46,.45,.94), transform .55s cubic-bezier(.25,.46,.45,.94);
+  }
+  .chain-reveal.is-visible { opacity: 1; transform: none; }
+
+  .chain-reveal--delay-1 { transition-delay: .07s; }
+  .chain-reveal--delay-2 { transition-delay: .14s; }
+  .chain-reveal--delay-3 { transition-delay: .21s; }
+  .chain-reveal--delay-4 { transition-delay: .28s; }
+
+  .chain-reveal--left {
+    opacity: 0;
+    transform: translateX(-14px);
+    transition: opacity .5s cubic-bezier(.25,.46,.45,.94), transform .5s cubic-bezier(.25,.46,.45,.94);
+  }
+  .chain-reveal--left.is-visible { opacity: 1; transform: none; }
+
+  .chain-reveal--pop {
+    opacity: 0;
+    transform: scale(.96) translateY(8px);
+    transition: opacity .4s var(--ease-out), transform .4s var(--ease-out);
+  }
+  .chain-reveal--pop.is-visible { opacity: 1; transform: none; }
+
+  .entry-item {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .5s cubic-bezier(.25,.46,.45,.94), transform .5s cubic-bezier(.25,.46,.45,.94);
+  }
+  .entry-item.is-visible { opacity: 1; transform: none; }
+
+  .thread-card {
+    transition: transform .22s cubic-bezier(.25,.46,.45,.94), box-shadow .22s cubic-bezier(.25,.46,.45,.94), border-color .22s ease;
+  }
+  .thread-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.12); }
+
+  .goal-card {
+    transition: transform .22s cubic-bezier(.25,.46,.45,.94), box-shadow .22s ease, border-color .22s ease;
+  }
+
+  .chapter {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .6s cubic-bezier(.25,.46,.45,.94), transform .6s cubic-bezier(.25,.46,.45,.94);
+  }
+  .chapter.is-visible { opacity: 1; transform: none; }
+
+  .causal-node {
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity .45s cubic-bezier(.25,.46,.45,.94), transform .45s cubic-bezier(.25,.46,.45,.94);
+  }
+  .causal-node.is-visible { opacity: 1; transform: none; }
+
+  .stat-callout {
+    opacity: 0;
+    transform: translateY(10px) scale(.98);
+    transition: opacity .5s var(--ease-out), transform .5s var(--ease-out);
+  }
+  .stat-callout.is-visible { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chain-reveal, .chain-reveal--left, .chain-reveal--pop,
+  .entry-item, .chapter, .causal-node, .stat-callout {
+    opacity: 1 !important; transform: none !important; transition: none !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   8. HERO CHAIN SVG (desktop only)
+   ───────────────────────────────────────────────────────── */
+.hero-chain-svg {
+  position: absolute;
+  right: 5%; top: 50%;
+  transform: translateY(-50%);
+  width: min(320px, 40vw);
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .13;
+}
+
+@media (max-width: 959px) {
+  .hero-chain-svg { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-chain-svg .chain-link-path {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: draw-link .9s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .hero-chain-svg .chain-link-path:nth-child(1)  { animation-delay: .10s; }
+  .hero-chain-svg .chain-link-path:nth-child(2)  { animation-delay: .35s; }
+  .hero-chain-svg .chain-link-path:nth-child(3)  { animation-delay: .60s; }
+  .hero-chain-svg .chain-link-path:nth-child(4)  { animation-delay: .85s; }
+  .hero-chain-svg .chain-link-path:nth-child(5)  { animation-delay: 1.10s; }
+  .hero-chain-svg .chain-link-path:nth-child(6)  { animation-delay: 1.35s; }
+
+  @keyframes draw-link { to { stroke-dashoffset: 0; } }
+
+  .hero-chain-svg { animation: chain-svg-fade .4s .05s both; }
+  @keyframes chain-svg-fade { from { opacity: 0; } to { opacity: .13; } }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MOBILE BREAKPOINT  ≤ 767px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 767px) {
+
+  /* ── UTILITY BAR: hide on phones — too dense to be useful ── */
+  .utility-bar { display: none; }
+
+  /* Adjust sticky offset since utility bar is gone */
+  .site-nav { top: 0 !important; }
+  .context-ribbon { top: var(--nav-main-h, 68px) !important; }
+
+  /* ── SITE NAV ────────────────────────────────────────────── */
+  .site-nav__inner { padding-inline: var(--space-4); gap: var(--space-2); }
+  .site-nav__brand { flex: 1; min-width: 0; }
+  .site-nav__tagline { display: none; }          /* "Black history…" tagline hidden */
+  .site-nav__links { display: none !important; } /* desktop links hidden — drawer handles this */
+  .site-nav__actions { gap: var(--space-1); flex-shrink: 0; }
+
+  /* Nav search + theme buttons: 44×44 touch targets */
+  .nav-search-btn,
+  #themeToggle, .theme-toggle,
+  .nav-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── TODAY button: smaller on mobile ────────────────────── */
+  .today-btn {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.7rem;
+  }
+
+  /* ── HOME HERO ───────────────────────────────────────────── */
+  .hero {
+    min-height: 100svh;                          /* Full screen height */
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-10);
+    display: flex;
+    align-items: center;
+    overflow: hidden;                            /* Clip decorative texture/overlay elements */
+  }
+
+  .hero__inner {
+    gap: 0;                                      /* Remove gap — single column */
+    padding-inline: var(--space-5);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero__content {
+    width: 100%;
+    min-width: 0;                                /* Prevent flex children from overflowing */
+    box-sizing: border-box;
+  }
+
+  /* Headline: tight, dramatic, fits phone width */
+  .hero__headline {
+    font-size: clamp(2.4rem, 11vw, 3rem);
+    line-height: 1.07;
+    margin-bottom: var(--space-5);
+  }
+
+  .hero__eyebrow { margin-bottom: var(--space-4); }
+
+  /* Subhead: readable at body size */
+  .hero__subhead {
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 100%;
+    margin-bottom: var(--space-8);
+  }
+
+  /* Search: full width, comfortable padding */
+  .hero__search-entry {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__search-input {
+    font-size: 1rem;                             /* Prevents iOS zoom on focus */
+    padding: 0.9rem 3.25rem 0.9rem 1rem;
+  }
+
+  /* Question pills: hide on very small phones, show on ≥375px */
+  .hero__q-pills {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__q-pill {
+    font-size: 0.72rem;
+    padding: 0.38rem 0.75rem;
+    min-height: 34px;
+  }
+
+  /* Journey CTA: stack button + sub-text */
+  .hero__journey-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin: var(--space-6) 0 var(--space-3);
+    padding-top: var(--space-5);
+  }
+
+  /* "Enter Chain" button: full width, large touch target */
+  .hero__journey-btn {
+    width: 100%;
+    justify-content: center;
+    padding: var(--space-4) var(--space-6);
+    font-size: 1rem;
+    min-height: 52px;                            /* Generous touch target */
+  }
+
+  .hero__journey-btn-sub { display: none; }      /* Hide thread count sub-label */
+
+  .hero__journey-browse {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── HERO ARTIFACT (era chart sidebar) — hide on phones ──── */
+  /* The era distribution chart is a desktop data visualization.
+     On mobile the hero is already dense; hiding keeps the CTA
+     above the fold without losing critical content. */
+  .hero__artifact { display: none !important; }
+
+  /* ── EXPLORE GOALS section ───────────────────────────────── */
+  .explore-goals { padding: var(--space-10) 0; }
+
+  .explore-goals__grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3);
+  }
+
+  .explore-goals__header { margin-bottom: var(--space-6); }
+
+  /* Goal cards: horizontal layout on mobile (icon left, text right) */
+  .goal-card {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 0 var(--space-4);
+    padding: var(--space-4) var(--space-4);
+    align-items: start;
+  }
+
+  .goal-card__icon {
+    grid-row: 1 / 5;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0;
+    align-self: center;
+  }
+
+  .goal-card__label,
+  .goal-card__title,
+  .goal-card__desc,
+  .goal-card__link { grid-column: 2; }
+
+  .goal-card__desc {
+    font-size: var(--type-xs);
+    line-height: 1.5;
+  }
+
+  /* ── ORIGINS / CIV CARDS ─────────────────────────────────── */
+  .origins-section,
+  [class*="origins"] > .container {
+    padding-inline: var(--space-4);
+  }
+
+  /* Civ card grid: horizontal scroll strip on mobile */
+  .civilizations-grid,
+  .civ-grid,
+  .origins-cards {
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: var(--space-4);
+    padding-bottom: var(--space-2);
+    padding-inline: var(--space-5);
+    margin-inline: calc(-1 * var(--space-5));    /* bleed to screen edges */
+  }
+
+  .civilizations-grid::-webkit-scrollbar,
+  .civ-grid::-webkit-scrollbar,
+  .origins-cards::-webkit-scrollbar { display: none; }
+
+  .civ-card {
+    flex: 0 0 min(85vw, 320px);                  /* Snappy card width */
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  /* ── PAGE HEADERS (Threads / About / Resources) ──────────── */
+  .page-header {
+    padding: var(--space-8) 0 var(--space-6);
+  }
+
+  .page-header__title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    line-height: 1.1;
+  }
+
+  .page-header__stat-row {
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  /* ── THREADS PAGE ────────────────────────────────────────── */
+
+  /* Toolbar: stack top row */
+  .threads-toolbar__top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .tbar-search { width: 100%; }
+
+  /* View toggle + sort row */
+  .view-toggle, .tbar-sort { flex: 1; min-width: 0; }
+  .view-toggle { display: flex; }
+
+  .view-toggle__btn {
+    flex: 1;
+    justify-content: center;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--type-xs);
+    min-height: 40px;
+  }
+
+  /* Filter chips row: horizontal scroll */
+  .threads-toolbar__filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: var(--space-1);
+    gap: var(--space-2);
+  }
+  .threads-toolbar__filters::-webkit-scrollbar { display: none; }
+
+  .tbar-filter-chips { flex-shrink: 0; flex-wrap: nowrap; gap: var(--space-2); }
+  .tbar-chip { white-space: nowrap; flex-shrink: 0; }
+
+  /* Filter chips: minimum touch height */
+  .chip, .tbar-chip, .adv-chip, .filter-chip {
+    min-height: 36px;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  /* Advanced filter panel */
+  .adv-filter-panel { padding: var(--space-4); }
+  .adv-filter-panel__inner { flex-direction: column; gap: var(--space-4); }
+  .adv-filter-group__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+  /* Thread cards: single column */
+  .threads-grid { grid-template-columns: 1fr !important; }
+
+  /* Table view: scroll horizontally */
+  .threads-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Journey view */
+  .journey-era__header { padding: var(--space-4) var(--space-3); }
+  .journey-era__meta { display: none; }
+
+  /* ── INDIVIDUAL THREAD PAGES ─────────────────────────────── */
+
+  /* Hero: comfortable padding */
+  .thread-hero, .thread-page-hero {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+
+  .thread-page-title { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+
+  .thread-meta-row {
+    gap: var(--space-4);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Timeline band: touch scroll */
+  .tl-band {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-3);
+  }
+  .tl-band__node { scroll-snap-align: start; }
+
+  .entry-timeline {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Argument bar */
+  .argument-bar { padding: var(--space-6) 0; }
+  .argument-bar__headline { font-size: clamp(1.25rem, 4vw, 1.75rem); }
+
+  /* Layout: no side gap */
+  .thread-page-layout {
+    gap: var(--space-8);
+    padding-block: var(--space-10);
+  }
+
+  /* Causal chain */
+  .causal-chain { padding-left: var(--space-8); }
+  .chapter { margin-bottom: var(--space-12); }
+
+  /* Read-next: stack */
+  .read-next { flex-direction: column; gap: var(--space-3); }
+
+  /* Related threads: 1 col */
+  .related-threads__grid { grid-template-columns: 1fr !important; }
+
+  /* Breadcrumb: horizontal scroll when needed */
+  .thread-breadcrumb__list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .thread-breadcrumb__list::-webkit-scrollbar { display: none; }
+  .thread-breadcrumb__era-label { white-space: nowrap; }
+
+  /* Pull quotes, evidence boxes */
+  .pull-quote { margin-inline: 0; }
+  .evidence-box { padding: var(--space-4); }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  .site-footer__grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-8);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   SMALL PHONES  ≤ 374px  (iPhone SE etc.)
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 374px) {
+  .hero__headline { font-size: 2.1rem; }
+  .hero__q-pills  { display: none; }             /* Too cramped — hide pills */
+
+  .hero__journey-btn {
+    font-size: 0.9rem;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .page-header__title { font-size: 1.65rem; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   TABLET  540–767px  — 2-col grids
+   ───────────────────────────────────────────────────────── */
+@media (min-width: 540px) and (max-width: 767px) {
+  .threads-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .related-threads__grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .explore-goals__grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Goal cards: back to vertical layout at tablet */
+  .goal-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .goal-card__icon {
+    grid-row: unset;
+    width: 44px; height: 44px;
+    margin-bottom: var(--space-3);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   UTILITY: horizontal scroll container
+   ───────────────────────────────────────────────────────── */
+.h-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.h-scroll::-webkit-scrollbar { display: none; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   COMPREHENSIVE MOBILE AUDIT — ROUND 2
+   Covers: entry-stats, inventor-dir, about page, context
+   ribbon, hero search, footer, misc touch-target fixes.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Entry stats block inside thread pages ───────────────
+   Default is flex-row; on narrow phones it overflows.
+   Switch to a 2-column grid so numbers stay readable.   */
+@media (max-width: 599px) {
+  .entry-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4) !important;
+  }
+  .entry-stats > div {
+    text-align: center;
+    padding: var(--space-2) 0;
+  }
+  /* Very wide stat numbers — allow wrapping */
+  .entry-stat__num {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+/* ── About page ──────────────────────────────────────────
+   team-grid: already 2-col at ≥640px.
+   Below 640px ensure it's strictly 1-col.             */
+@media (max-width: 639px) {
+  .team-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* values-grid: desktop is 2-col inside a bordered box.
+     On mobile stack into a single column, remove
+     split border so each row fills full width.        */
+  .values-grid {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .value-card {
+    border-right: none !important;
+    grid-template-columns: 56px 1fr !important;
+  }
+  /* last item loses bottom border on desktop but on
+     mobile the last stacked item should keep it off  */
+  .value-card:last-child { border-bottom: none !important; }
+
+  /* About hero: reduce vertical padding on phones */
+  .about-hero {
+    padding: var(--space-10) 0 var(--space-8) !important;
+  }
+  .about-hero__headline {
+    font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+  }
+
+  /* About body sections: tighter gap */
+  .about-body__inner {
+    gap: var(--space-8) !important;
+  }
+}
+
+/* ── Context ribbon ──────────────────────────────────────
+   On very small phones (≤374px) the ribbon can overflow.
+   Trim it aggressively.                               */
+@media (max-width: 374px) {
+  .context-ribbon__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding-block: var(--space-2);
+  }
+  .context-ribbon__nav {
+    gap: var(--space-3);
+  }
+}
+
+/* ── Hero search row ─────────────────────────────────────
+   The ⌘K badge and search input can clip on narrow
+   phones. Hide badge, ensure input is full-width.    */
+@media (max-width: 479px) {
+  .hero__search-kbd { display: none; }
+  .hero__search-row {
+    padding-left: var(--space-3) !important;
+  }
+  .hero__search-input {
+    font-size: 1rem; /* prevent iOS zoom */
+    padding-left: var(--space-3) !important;
+  }
+}
+
+/* ── Inventor directory ──────────────────────────────────
+   The live-fetched Wikidata grid needs to be
+   single-column on phones.                           */
+@media (max-width: 599px) {
+  .inventor-dir__grid {
+    grid-template-columns: 1fr !important;
+  }
+  .inventor-dir__controls {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-3) !important;
+  }
+  .inventor-dir__search {
+    width: 100% !important;
+    font-size: 1rem; /* prevent iOS zoom */
+  }
+  .inventor-dir {
+    padding: var(--space-6) var(--space-4) !important;
+  }
+}
+
+/* ── What-existed-before strip (thread pages) ────────────
+   Horizontal scroll strip — ensure snap and touch scroll
+   work correctly; add a subtle scroll hint gradient.  */
+@media (max-width: 767px) {
+  .what-before__strip,
+  .before-strip,
+  [class*="before-strip"],
+  [class*="what-before__strip"] {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .before-card,
+  [class*="before-card"] {
+    scroll-snap-align: start;
+    flex: 0 0 min(78vw, 280px) !important;
+  }
+}
+
+/* ── Page container padding — global ─────────────────────
+   On very small phones the 16px system container
+   padding can feel tight. Ensure at least 16px.      */
+@media (max-width: 374px) {
+  .container {
+    padding-inline: var(--space-4) !important;
+  }
+}
+
+/* ── Site footer ─────────────────────────────────────────
+   Footer nav columns: ensure correct stacking and
+   comfortable touch targets for all footer links.    */
+@media (max-width: 767px) {
+  .site-footer {
+    padding: var(--space-10) 0 var(--space-6);
+  }
+  .site-footer__nav-col h4 {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+  .site-footer__link {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}
+
+/* ── Donate / Newsletter / Contact pages ─────────────────
+   Form inputs: ensure 16px so iOS doesn't zoom.      */
+@media (max-width: 767px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    font-size: 1rem !important;  /* prevents iOS auto-zoom */
+    min-height: 44px;            /* WCAG 2.5.5 touch target */
+  }
+  textarea { min-height: 120px; }
+
+  /* Submit buttons: full-width on phones */
+  .form-submit,
+  button[type="submit"] {
+    width: 100%;
+    min-height: 52px;
+    justify-content: center;
+  }
+}
+
+/* ── Thread page hero ─────────────────────────────────────
+   "What existed before" section title can overflow
+   on narrow screens.                                 */
+@media (max-width: 599px) {
+  .thread-page-hero .container,
+  .thread-hero .container {
+    padding-inline: var(--space-4);
+  }
+
+  /* Argument bar headline wrap fix */
+  .argument-bar__headline {
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Entry item header: tighten on very small phones */
+  .entry-item__header {
+    gap: var(--space-3);
+  }
+  .entry-item__name {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+  }
+}
+
+/* ── Tap highlight & smooth scroll ───────────────────────
+   System-level mobile polish.                        */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ── Image overflow guard ────────────────────────────────
+   Any img or picture that could bleed past its container */
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Causal chain: tighten left gutter on phones ─────────
+   Prevents the chain from eating too much horizontal
+   space on narrow screens.                           */
+@media (max-width: 479px) {
+  .causal-chain {
+    padding-left: var(--space-7) !important;
+  }
+  .causal-node__dot {
+    left: calc(var(--space-7) * -1 + 8px);
+  }
+}
+
+/* ── Thread page — stat callout ──────────────────────────
+   Two-column stat callout → single column on phones  */
+@media (max-width: 599px) {
+  .stat-callout__grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-4) !important;
+  }
+  .stat-callout {
+    padding: var(--space-5) var(--space-4) !important;
+  }
+}
