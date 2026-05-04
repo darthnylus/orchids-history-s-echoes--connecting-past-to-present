@@ -1057,6 +1057,7 @@ var THREAD_INDEX = [
   {h:'thread-colfax-massacre.html',t:'The Colfax Massacre: The Killing That Rewrote Constitutional Law',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1873'},
   {h:'thread-reconstruction.html',t:'Reconstruction: What Was Built and How It Was Destroyed',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – 1877'},
   {h:'thread-watermelon.html',t:'The Watermelon: African Crop, Symbol of Freedom, Racist Weapon',d:'history-culture labor-wealth',e:4,el:'Emancipation & Betrayal',c:'#0a2210',y:'1865 – Present'},
+  {h:'thread-fried-chicken.html',t:'Fried Chicken: African Technique, Black Enterprise, Stolen Industry',d:'history-culture labor-wealth',e:4,el:'Emancipation & Betrayal',c:'#3d1500',y:'1619 – Present'},
   {h:'thread-hamburg-massacre.html',t:'The Hamburg Massacre: How Reconstruction Died at Gunpoint',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1876 – 1877'},
   {h:'thread-lynching.html',t:'Spectacle and Terror: Lynching as American Policy',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1877 – 2022'},
   {h:'thread-fear-of-black-assembly.html',t:'What They Were Afraid Of: Fear of Black Assembly',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1739 – Present'},
