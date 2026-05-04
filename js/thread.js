@@ -434,6 +434,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-lynching.html',t:'Spectacle and Terror: Lynching as American Policy',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1877 – 2022'},
       {h:'thread-fear-of-black-assembly.html',t:'What They Were Afraid Of: Fear of Black Assembly',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1739 – Present'},
       {h:'thread-red-summer.html',t:'Red Summer: 26 Cities, One Summer, 1919',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1919'},
+      {h:'thread-george-stinney.html',t:'George Stinney Jr.: The Youngest Person Executed in 20th-Century America',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#2d0a0a',y:'1944 – 2014'},
       {h:'thread-emmett-till.html',t:'Emmett Till: The Murder That Started a Movement',d:'history-culture criminal-justice',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1955 – Present'},
       {h:'thread-reconstruction-politicians.html',t:'Black Reconstruction: The 2,000 Politicians They Erased',d:'history-culture',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1868 – 1901'},
       {h:'thread-convict-leasing.html',t:'Convict Leasing: Slavery by Another Name',d:'labor-wealth',e:4,el:'Emancipation & Betrayal',c:'#7a3e3e',y:'1865 – 1942'},
