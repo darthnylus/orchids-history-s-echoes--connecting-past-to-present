@@ -1723,3 +1723,46 @@
   .ppp-tab::after { transition: none !important; }
   .then-now-split::after { animation: none !important; }
 }
+
+/* ============================================================
+   MARQUEE TICKER SECTION
+   ============================================================ */
+.wf-marquee-section {
+  background: var(--ink-900);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  padding-block: var(--space-5);
+  overflow: hidden;
+  user-select: none;
+}
+
+[data-theme="light"] .wf-marquee-section {
+  background: var(--ink-900);
+}
+
+.wf-marquee-section .wf-marquee {
+  cursor: default;
+}
+
+.wf-marquee-section .wf-marquee__inner {
+  --marquee-duration: 50s;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.wf-marquee__item {
+  font-size: var(--type-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-400);
+  white-space: nowrap;
+  transition: color var(--duration-fast);
+}
+.wf-marquee__item:hover { color: var(--amber-300); }
+
+.wf-marquee__sep {
+  color: var(--amber-400);
+  font-size: var(--type-xs);
+  opacity: 0.5;
+}

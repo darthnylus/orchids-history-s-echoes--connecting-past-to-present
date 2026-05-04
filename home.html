@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="css/system.css" />
   <link rel="stylesheet" href="css/mobile.css" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/scroll-fx.css" />
 </head>
 <body>
 
@@ -205,8 +206,8 @@
   <!-- =======================================================
        SECTION 1: HERO — Data-Forward Research Tool
        ======================================================= -->
-  <section class="hero" aria-labelledby="hero-headline">
-    <div class="hero__texture" aria-hidden="true"></div>
+  <section class="hero" aria-labelledby="hero-headline" data-wf-section="Hero">
+    <div class="hero__texture" aria-hidden="true" data-parallax="0.12"></div>
     <div class="hero__grid-overlay" aria-hidden="true"></div>
     <div class="container hero__inner">
 
@@ -257,7 +258,7 @@
 
         <!-- Primary CTA -->
         <div class="hero__journey-cta animate-fade-up animate-delay-300">
-          <a href="thread-pharaohs.html" class="hero__journey-btn" aria-label="Start the Journey — Thread 1: African Origins">
+          <a href="thread-pharaohs.html" class="hero__journey-btn wf-ripple" aria-label="Start the Journey — Thread 1: African Origins">
             <span class="hero__journey-btn-icon" aria-hidden="true">→</span>
             Start the Journey
             <span class="hero__journey-btn-sub">Thread 1 · African Origins · 500 BCE</span>
@@ -345,16 +346,16 @@
        SECTION 1.5: HOW DO YOU WANT TO EXPLORE?
        Audience / goal-based entry points
        ======================================================= -->
-  <section class="explore-goals" aria-labelledby="explore-goals-heading">
+  <section class="explore-goals" aria-labelledby="explore-goals-heading" data-wf-section="Explore Goals">
     <div class="container">
       <div class="explore-goals__header">
-        <p class="explore-goals__eyebrow">Where would you like to start?</p>
-        <h2 id="explore-goals-heading" class="explore-goals__heading">Choose your path into the chain</h2>
+        <p class="explore-goals__eyebrow wf-eyebrow">Where would you like to start?</p>
+        <h2 id="explore-goals-heading" class="explore-goals__heading wf-up wf-delay-100">Choose your path into the chain</h2>
       </div>
-      <div class="explore-goals__grid" role="list">
+      <div class="explore-goals__grid wf-grid-reveal" role="list">
 
         <!-- Students -->
-        <a href="threads.html?view=journey" class="goal-card" role="listitem" aria-label="For Students — Guided reading paths" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <a href="threads.html?view=journey" class="goal-card wf-tilt wf-spotlight" role="listitem" aria-label="For Students — Guided reading paths" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
           <div class="goal-card__icon-wrap" aria-hidden="true" style="width:44px;height:44px;min-width:44px;min-height:44px;margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -373,7 +374,7 @@
         </a>
 
         <!-- Educators -->
-        <a href="teaching.html" class="goal-card" role="listitem" aria-label="For Educators — Lesson plans and teaching guides" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <a href="teaching.html" class="goal-card wf-tilt wf-spotlight" role="listitem" aria-label="For Educators — Lesson plans and teaching guides" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
           <div class="goal-card__icon-wrap" aria-hidden="true" style="width:44px;height:44px;min-width:44px;min-height:44px;margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -394,7 +395,7 @@
         </a>
 
         <!-- Researchers -->
-        <a href="sources.html" class="goal-card" role="listitem" aria-label="For Researchers — Primary sources and full corpus" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <a href="sources.html" class="goal-card wf-tilt wf-spotlight" role="listitem" aria-label="For Researchers — Primary sources and full corpus" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
           <div class="goal-card__icon-wrap" aria-hidden="true" style="width:44px;height:44px;min-width:44px;min-height:44px;margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -416,7 +417,7 @@
         </a>
 
         <!-- Browse -->
-        <a href="threads.html" class="goal-card goal-card--browse reveal" role="listitem" aria-label="Just browsing — Explore all threads by era or theme" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <a href="threads.html" class="goal-card goal-card--browse reveal wf-tilt wf-spotlight" role="listitem" aria-label="Just browsing — Explore all threads by era or theme" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
           <div class="goal-card__icon-wrap" aria-hidden="true" style="width:44px;height:44px;min-width:44px;min-height:44px;margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/>
@@ -443,22 +444,22 @@
        SECTION 1B: BEFORE THE CHAIN — Origins
        African civilizations before the slave trade
        ======================================================= -->
-  <section class="origins-section section" id="origins" aria-labelledby="origins-heading">
+  <section class="origins-section section" id="origins" aria-labelledby="origins-heading" data-wf-section="Origins">
     <div class="container">
 
       <div class="origins-header">
         <div class="origins-header__text">
-          <p class="section-eyebrow">Where it begins</p>
-          <h2 id="origins-heading" class="section-title">Before the chain was broken</h2>
-          <p class="section-subtitle">The Transatlantic Slave Trade did not happen in a vacuum. It happened to a world — one of kingdoms and universities, ocean trade and written law, medicine and mathematics. Understanding what was destroyed is inseparable from understanding what followed.</p>
+          <p class="section-eyebrow wf-eyebrow">Where it begins</p>
+          <h2 id="origins-heading" class="section-title wf-blur wf-delay-100">Before the chain was broken</h2>
+          <p class="section-subtitle wf-up wf-delay-200">The Transatlantic Slave Trade did not happen in a vacuum. It happened to a world — one of kingdoms and universities, ocean trade and written law, medicine and mathematics. Understanding what was destroyed is inseparable from understanding what followed.</p>
         </div>
         <a href="threads.html#origins" class="view-all origins-header__link chain-reveal chain-reveal--delay-2" aria-label="Explore all threads on African origins and pre-colonial history">Explore African history threads <span aria-hidden="true">→</span></a>
       </div>
 
       <!-- Civilization cards -->
-      <div class="civilizations-grid" role="list" aria-label="Major African civilizations before the slave trade">
+      <div class="civilizations-grid wf-grid-reveal" role="list" aria-label="Major African civilizations before the slave trade">
 
-        <article class="civ-card" role="listitem">
+        <article class="civ-card wf-tilt wf-spotlight" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
             <picture>
             <source type="image/webp" srcset="images/great-mosque-djenne-800.webp 800w, images/great-mosque-djenne.webp 1024w" sizes="(max-width:640px) 100vw, 1024px" />
@@ -493,7 +494,7 @@
           </div>
         </article>
 
-        <article class="civ-card" role="listitem">
+        <article class="civ-card wf-tilt wf-spotlight" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
             <picture>
             <source type="image/webp" srcset="images/mansa-musa-catalan-atlas.webp" />
@@ -528,7 +529,7 @@
           </div>
         </article>
 
-        <article class="civ-card" role="listitem">
+        <article class="civ-card wf-tilt wf-spotlight" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
             <picture>
             <source type="image/webp" srcset="images/sankore-mosque-800.webp 800w, images/sankore-mosque.webp 1465w" sizes="(max-width:640px) 100vw, 1465px" />
@@ -563,7 +564,7 @@
           </div>
         </article>
 
-        <article class="civ-card" role="listitem">
+        <article class="civ-card wf-tilt wf-spotlight" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
             <picture>
             <source type="image/webp" srcset="images/meroe-pyramids.webp" />
@@ -598,7 +599,7 @@
           </div>
         </article>
 
-        <article class="civ-card" role="listitem">
+        <article class="civ-card wf-tilt wf-spotlight" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
             <picture>
             <source type="image/webp" srcset="images/axum-obelisk-800.webp 800w, images/axum-obelisk.webp 1251w" sizes="(max-width:640px) 100vw, 1251px" />
@@ -633,7 +634,7 @@
           </div>
         </article>
 
-        <article class="civ-card" role="listitem">
+        <article class="civ-card wf-tilt wf-spotlight" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
             <picture>
             <source type="image/webp" srcset="images/benin-bronze-warrior-800.webp 800w, images/benin-bronze-warrior.webp 1055w" sizes="(max-width:640px) 100vw, 1055px" />
@@ -668,7 +669,7 @@
           </div>
         </article>
 
-        <article class="civ-card" role="listitem">
+        <article class="civ-card wf-tilt wf-spotlight" role="listitem">
           <div class="civ-card__thumb" aria-hidden="true">
             <div style="width:100%;height:100%;min-height:200px;position:relative;overflow:hidden">
               <img src="images/moors-riders.png" alt="" role="presentation" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;min-height:200px" loading="lazy" />
@@ -716,17 +717,17 @@
           <p class="origins-bridge__body">
             Understanding this is not a matter of historical pride. It is a prerequisite for understanding the chain. Enslavement was not the starting condition of Black life — it was an interruption of it.
           </p>
-          <div class="origins-bridge__stats" aria-label="Key figures: The scale of the slave trade">
-            <div class="origins-bridge__stat">
-              <span class="origins-bridge__stat-number">12.5M</span>
+          <div class="origins-bridge__stats wf-stagger" aria-label="Key figures: The scale of the slave trade">
+            <div class="origins-bridge__stat wf-stat-pop">
+              <span class="origins-bridge__stat-number wf-counter" data-wf-target="12.5M">12.5M</span>
               <span class="origins-bridge__stat-label">People forcibly removed from Africa by the Transatlantic Slave Trade (1441–1867)</span>
             </div>
-            <div class="origins-bridge__stat">
-              <span class="origins-bridge__stat-number">~2M</span>
+            <div class="origins-bridge__stat wf-stat-pop wf-delay-150">
+              <span class="origins-bridge__stat-number wf-counter" data-wf-target="2M">~2M</span>
               <span class="origins-bridge__stat-label">Who died during the Middle Passage — the sea crossing — before ever reaching the Americas</span>
             </div>
-            <div class="origins-bridge__stat">
-              <span class="origins-bridge__stat-number">400 yrs</span>
+            <div class="origins-bridge__stat wf-stat-pop wf-delay-300">
+              <span class="origins-bridge__stat-number wf-counter" data-wf-target="400 yrs">400 yrs</span>
               <span class="origins-bridge__stat-label">Duration of the Transatlantic Slave Trade — longer than the United States has existed</span>
             </div>
           </div>
@@ -751,23 +752,73 @@
   </section>
 
   <!-- =======================================================
+       MARQUEE TICKER — Thread topics
+       ======================================================= -->
+  <div class="wf-marquee-section" aria-hidden="true">
+    <div class="wf-marquee">
+      <div class="wf-marquee__inner">
+        <span class="wf-marquee__item">Redlining</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">The Middle Passage</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Reconstruction</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Black Wall Street</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Mass Incarceration</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">The Great Migration</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Jim Crow</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">The GI Bill</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Timbuktu</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">The Haitian Revolution</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">War on Drugs</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Mansa Musa</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Civil Rights Act</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Emmett Till</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">COINTELPRO</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">The Benin Kingdom</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Voter Suppression</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Buffalo Soldiers</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Convict Leasing</span>
+        <span class="wf-marquee__sep">·</span>
+        <span class="wf-marquee__item">Black Press</span>
+        <span class="wf-marquee__sep">·</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================
        SECTION 2: FOLLOW A THREAD — Interactive scrollytelling
        Signature causal chain experience — moved before Questions
        so the narrative arc flows: Origins → Chain → Questions
        ======================================================= -->
-  <section class="thread-feature section" id="follow-thread" aria-labelledby="thread-feature-heading">
+  <section class="thread-feature section" id="follow-thread" aria-labelledby="thread-feature-heading" data-wf-section="The Chain">
     <div class="thread-feature__bg-accent" aria-hidden="true"></div>
     <div class="container">
 
       <div class="thread-feature__header">
-        <p class="thread-feature__label">
+        <p class="thread-feature__label wf-eyebrow">
           <span class="thread-feature__label-dot" aria-hidden="true"></span>
           The Chain
         </p>
-        <h2 id="thread-feature-heading" class="thread-feature__title">
+        <h2 id="thread-feature-heading" class="thread-feature__title wf-blur wf-delay-100">
           Follow it from the beginning
         </h2>
-        <p class="thread-feature__description">
+        <p class="thread-feature__description wf-up wf-delay-200">
           Each step connects to the next. From sovereign African civilizations to this morning's headlines — the chain is unbroken. Click any step to expand.
         </p>
         <button id="stepsPauseBtn" class="steps-pause-btn" aria-label="Pause auto-advancing steps" aria-pressed="false">
@@ -927,15 +978,15 @@
        SECTION 3: STARTING QUESTIONS
        Now positioned AFTER the chain — user has context first
        ======================================================= -->
-  <section class="questions-section section--sm" id="questions" aria-labelledby="questions-heading">
+  <section class="questions-section section--sm" id="questions" aria-labelledby="questions-heading" data-wf-section="Questions">
     <div class="container">
       <div class="questions-section__header chain-reveal">
-        <h2 id="questions-heading" class="questions-section__title">Now — where does your question lead?</h2>
-        <p class="questions-section__sub">Every thread on Chain begins with a question people actually ask. Pick one and follow it.</p>
+        <h2 id="questions-heading" class="questions-section__title wf-blur">Now — where does your question lead?</h2>
+        <p class="questions-section__sub wf-up wf-delay-150">Every thread on Chain begins with a question people actually ask. Pick one and follow it.</p>
       </div>
-      <ul class="question-grid" role="list">
+      <ul class="question-grid wf-grid-reveal" role="list">
         <li>
-          <a href="thread-african-empires.html" class="question-card" aria-label="Explore question: What was Africa like before the slave trade?">
+          <a href="thread-african-empires.html" class="question-card wf-spotlight" aria-label="Explore question: What was Africa like before the slave trade?">
             <div class="question-card__icon" aria-hidden="true">🏛</div>
             <div>
               <p class="question-card__q">What was Africa like before the slave trade?</p>
@@ -944,7 +995,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-transatlantic-slave-trade.html" class="question-card" aria-label="Explore question: How did the Transatlantic Slave Trade begin and who built it?">
+          <a href="thread-transatlantic-slave-trade.html" class="question-card wf-spotlight" aria-label="Explore question: How did the Transatlantic Slave Trade begin and who built it?">
             <div class="question-card__icon" aria-hidden="true">⛓</div>
             <div>
               <p class="question-card__q">How did the Transatlantic Slave Trade begin — and who built it?</p>
@@ -953,7 +1004,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-displacement.html" class="question-card" aria-label="Explore question: Why does housing inequality persist today?">
+          <a href="thread-displacement.html" class="question-card wf-spotlight" aria-label="Explore question: Why does housing inequality persist today?">
             <div class="question-card__icon" aria-hidden="true">🏠</div>
             <div>
               <p class="question-card__q">Why does housing inequality persist today?</p>
@@ -962,7 +1013,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-end-of-slavery.html" class="question-card" aria-label="Explore question: How did Reconstruction shape modern America?">
+          <a href="thread-end-of-slavery.html" class="question-card wf-spotlight" aria-label="Explore question: How did Reconstruction shape modern America?">
             <div class="question-card__icon" aria-hidden="true">🗳</div>
             <div>
               <p class="question-card__q">How did Reconstruction shape modern America?</p>
@@ -971,7 +1022,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-mass-incarceration.html" class="question-card" aria-label="Explore question: What are the historical roots of mass incarceration?">
+          <a href="thread-mass-incarceration.html" class="question-card wf-spotlight" aria-label="Explore question: What are the historical roots of mass incarceration?">
             <div class="question-card__icon" aria-hidden="true">⚖️</div>
             <div>
               <p class="question-card__q">What are the historical roots of mass incarceration?</p>
@@ -980,7 +1031,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-stolen-labor.html" class="question-card" aria-label="Explore question: Why is there a racial wealth gap?">
+          <a href="thread-stolen-labor.html" class="question-card wf-spotlight" aria-label="Explore question: Why is there a racial wealth gap?">
             <div class="question-card__icon" aria-hidden="true">📊</div>
             <div>
               <p class="question-card__q">Why is there a racial wealth gap?</p>
@@ -989,7 +1040,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-health-disparities.html" class="question-card" aria-label="Explore question: Why do racial health disparities exist?">
+          <a href="thread-health-disparities.html" class="question-card wf-spotlight" aria-label="Explore question: Why do racial health disparities exist?">
             <div class="question-card__icon" aria-hidden="true">🏥</div>
             <div>
               <p class="question-card__q">Why do racial health disparities exist?</p>
@@ -998,7 +1049,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-voting-rights.html" class="question-card" aria-label="Explore question: How have voting rights been restricted and why?">
+          <a href="thread-voting-rights.html" class="question-card wf-spotlight" aria-label="Explore question: How have voting rights been restricted and why?">
             <div class="question-card__icon" aria-hidden="true">📜</div>
             <div>
               <p class="question-card__q">How have voting rights been restricted and why?</p>
@@ -1007,7 +1058,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-black-panthers.html" class="question-card" aria-label="Explore question: What did the Black Panther Party actually do?">
+          <a href="thread-black-panthers.html" class="question-card wf-spotlight" aria-label="Explore question: What did the Black Panther Party actually do?">
             <div class="question-card__icon" aria-hidden="true">✊</div>
             <div>
               <p class="question-card__q">What did the Black Panther Party actually do?</p>
@@ -1016,7 +1067,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-self-defense.html" class="question-card" aria-label="Explore question: Why did Black Americans arm themselves for self-defense?">
+          <a href="thread-self-defense.html" class="question-card wf-spotlight" aria-label="Explore question: Why did Black Americans arm themselves for self-defense?">
             <div class="question-card__icon" aria-hidden="true">🛡</div>
             <div>
               <p class="question-card__q">Why did Black Americans arm themselves for self-defense?</p>
@@ -1025,7 +1076,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-tulsa.html" class="question-card" aria-label="Explore question: What was Black Wall Street and what destroyed it?">
+          <a href="thread-tulsa.html" class="question-card wf-spotlight" aria-label="Explore question: What was Black Wall Street and what destroyed it?">
             <div class="question-card__icon" aria-hidden="true">🔥</div>
             <div>
               <p class="question-card__q">What was Black Wall Street and what destroyed it?</p>
@@ -1034,7 +1085,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-great-migration.html" class="question-card" aria-label="Explore question: Why did six million Black Americans leave the South?">
+          <a href="thread-great-migration.html" class="question-card wf-spotlight" aria-label="Explore question: Why did six million Black Americans leave the South?">
             <div class="question-card__icon" aria-hidden="true">🚂</div>
             <div>
               <p class="question-card__q">Why did six million Black Americans leave the South?</p>
@@ -1043,7 +1094,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-war-on-drugs.html" class="question-card" aria-label="Explore question: Was the War on Drugs designed to target Black communities?">
+          <a href="thread-war-on-drugs.html" class="question-card wf-spotlight" aria-label="Explore question: Was the War on Drugs designed to target Black communities?">
             <div class="question-card__icon" aria-hidden="true">⚠️</div>
             <div>
               <p class="question-card__q">Was the War on Drugs designed to target Black communities?</p>
@@ -1052,7 +1103,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-fear-of-black-assembly.html" class="question-card" aria-label="Explore question: Why has the government always feared Black organizing?">
+          <a href="thread-fear-of-black-assembly.html" class="question-card wf-spotlight" aria-label="Explore question: Why has the government always feared Black organizing?">
             <div class="question-card__icon" aria-hidden="true">🕵️</div>
             <div>
               <p class="question-card__q">Why has the government always feared Black organizing?</p>
@@ -1061,7 +1112,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-black-press.html" class="question-card" aria-label="Explore question: What role did the Black press play in the freedom struggle?">
+          <a href="thread-black-press.html" class="question-card wf-spotlight" aria-label="Explore question: What role did the Black press play in the freedom struggle?">
             <div class="question-card__icon" aria-hidden="true">📰</div>
             <div>
               <p class="question-card__q">What role did the Black press play in the freedom struggle?</p>
@@ -1070,7 +1121,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-gi-bill.html" class="question-card" aria-label="Explore question: How did the GI Bill build the white middle class and exclude Black veterans?">
+          <a href="thread-gi-bill.html" class="question-card wf-spotlight" aria-label="Explore question: How did the GI Bill build the white middle class and exclude Black veterans?">
             <div class="question-card__icon" aria-hidden="true">🏡</div>
             <div>
               <p class="question-card__q">How did the GI Bill build the white middle class and exclude Black veterans?</p>
@@ -1079,7 +1130,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-invention-of-race.html" class="question-card" aria-label="Explore question: Where did the concept of race come from?">
+          <a href="thread-invention-of-race.html" class="question-card wf-spotlight" aria-label="Explore question: Where did the concept of race come from?">
             <div class="question-card__icon" aria-hidden="true">🧬</div>
             <div>
               <p class="question-card__q">Where did the concept of race come from?</p>
@@ -1088,7 +1139,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-golden-thirteen.html" class="question-card" aria-label="Explore question: Why did it take 168 years for the Navy to commission a Black officer?">
+          <a href="thread-golden-thirteen.html" class="question-card wf-spotlight" aria-label="Explore question: Why did it take 168 years for the Navy to commission a Black officer?">
             <div class="question-card__icon" aria-hidden="true">🎖</div>
             <div>
               <p class="question-card__q">Why did it take 168 years for the Navy to commission a Black officer?</p>
@@ -1097,7 +1148,7 @@
           </a>
         </li>
         <li>
-          <a href="thread-police.html" class="question-card" aria-label="Explore question: What are the historical roots of American policing?">
+          <a href="thread-police.html" class="question-card wf-spotlight" aria-label="Explore question: What are the historical roots of American policing?">
             <div class="question-card__icon" aria-hidden="true">🚨</div>
             <div>
               <p class="question-card__q">What are the historical roots of American policing?</p>
@@ -1112,16 +1163,16 @@
   <!-- =======================================================
        SECTION 4: EXPLORE BY MAP AND TIME
        ======================================================= -->
-  <section class="explore-section section" aria-labelledby="explore-heading">
+  <section class="explore-section section" aria-labelledby="explore-heading" data-wf-section="Explore">
     <div class="container">
       <div class="section-header chain-reveal">
-        <p class="section-eyebrow">Multiple Ways to Explore</p>
-        <h2 id="explore-heading" class="section-title">History has a geography and a timeline</h2>
+        <p class="section-eyebrow wf-eyebrow">Multiple Ways to Explore</p>
+        <h2 id="explore-heading" class="section-title wf-blur wf-delay-100">History has a geography and a timeline</h2>
         <p class="section-subtitle">Explore where things happened and when — or follow the causal chain across both dimensions at once.</p>
       </div>
-      <div class="explore-section__grid">
+      <div class="explore-section__grid wf-stagger">
 
-        <a href="maps.html" class="explore-card explore-card--map reveal" aria-label="Explore interactive maps of redlining, migration, and inequality">
+        <a href="maps.html" class="explore-card explore-card--map reveal wf-tilt wf-spotlight" aria-label="Explore interactive maps of redlining, migration, and inequality">
           <div class="explore-card__bg" aria-hidden="true"></div>
           <div class="explore-card__gradient" aria-hidden="true"></div>
           <div class="explore-card__body">
@@ -1132,7 +1183,7 @@
           </div>
         </a>
 
-        <a href="maps.html" class="explore-card explore-card--timeline reveal" aria-label="Explore the interactive history timeline">
+        <a href="maps.html" class="explore-card explore-card--timeline reveal wf-tilt wf-spotlight" aria-label="Explore the interactive history timeline">
           <div class="explore-card__bg" aria-hidden="true"></div>
           <div class="explore-card__gradient" aria-hidden="true"></div>
           <div class="explore-card__body">
@@ -1151,12 +1202,12 @@
        SECTION 5: PEOPLE / POLICY / PLACE
        Tabbed object browser
        ======================================================= -->
-  <section class="ppp-section section" aria-labelledby="ppp-heading">
+  <section class="ppp-section section" aria-labelledby="ppp-heading" data-wf-section="Archive">
     <div class="container">
       <div class="ppp-section__header chain-reveal">
         <div>
-          <p class="section-eyebrow">The Archive</p>
-          <h2 id="ppp-heading" class="section-title">People. Policy. Place.</h2>
+          <p class="section-eyebrow wf-eyebrow">The Archive</p>
+          <h2 id="ppp-heading" class="section-title wf-blur wf-delay-100">People. Policy. Place.</h2>
         </div>
         <a href="explore.html" class="view-all" aria-label="View all entries in the archive">View all entries →</a>
       </div>
@@ -1172,9 +1223,9 @@
 
       <!-- African Origins panel -->
       <div id="ppp-panel-origins" role="tabpanel" aria-labelledby="tab-origins">
-        <ul class="ppp-grid" role="list">
+        <ul class="ppp-grid wf-grid-reveal" role="list">
           <li>
-            <a href="person-mansa-musa.html" class="object-card" aria-label="Read about Mansa Musa, ruler of the Mali Empire">
+            <a href="person-mansa-musa.html" class="object-card wf-spotlight" aria-label="Read about Mansa Musa, ruler of the Mali Empire">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background-image: url('images/mansa-musa-portrait.webp'), linear-gradient(135deg, #7a3e00, #a05200); background-size: cover; background-position: center 15%;" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1191,7 +1242,7 @@
             </a>
           </li>
           <li>
-            <a href="person-askia-mohammed.html" class="object-card" aria-label="Read about Askia Mohammed, ruler of the Songhai Empire">
+            <a href="person-askia-mohammed.html" class="object-card wf-spotlight" aria-label="Read about Askia Mohammed, ruler of the Songhai Empire">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background-image: url('images/askia-mohammed-portrait.webp'), linear-gradient(135deg, #5c2a1a, #a04b30); background-size: cover; background-position: center top;" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1208,7 +1259,7 @@
             </a>
           </li>
           <li>
-            <a href="person-queen-nzinga.html" class="object-card" aria-label="Read about Queen Nzinga of Ndongo and Matamba">
+            <a href="person-queen-nzinga.html" class="object-card wf-spotlight" aria-label="Read about Queen Nzinga of Ndongo and Matamba">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background-image: url('images/nzinga-portrait-illustration.webp'), linear-gradient(135deg, #2c3550, #556080); background-size: cover; background-position: center top;" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1225,7 +1276,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-african-empires.html#mali" class="object-card" aria-label="Read about Sundiata Keita, founder of the Mali Empire">
+            <a href="thread-african-empires.html#mali" class="object-card wf-spotlight" aria-label="Read about Sundiata Keita, founder of the Mali Empire">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background-image: url('images/sundiata-keita-portrait.webp'), linear-gradient(135deg, #3d4a6e, #7a3e00); background-size: cover; background-position: center top;" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1246,9 +1297,9 @@
 
       <!-- People panel -->
       <div id="ppp-panel-people" role="tabpanel" aria-labelledby="tab-people" hidden>
-        <ul class="ppp-grid" role="list">
+        <ul class="ppp-grid wf-grid-reveal" role="list">
           <li>
-            <a href="thread-black-press.html" class="object-card" aria-label="Read about Ida B. Wells, journalist and anti-lynching activist">
+            <a href="thread-black-press.html" class="object-card wf-spotlight" aria-label="Read about Ida B. Wells, journalist and anti-lynching activist">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #3d4a6e, #1e2433);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1265,7 +1316,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-civil-rights.html" class="object-card" aria-label="Read about Thurgood Marshall, civil rights lawyer and Supreme Court Justice">
+            <a href="thread-civil-rights.html" class="object-card wf-spotlight" aria-label="Read about Thurgood Marshall, civil rights lawyer and Supreme Court Justice">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2c3550, #1a1a1a);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1282,7 +1333,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-voting-rights.html" class="object-card" aria-label="Read about Fannie Lou Hamer, voting rights activist">
+            <a href="thread-voting-rights.html" class="object-card wf-spotlight" aria-label="Read about Fannie Lou Hamer, voting rights activist">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #5c2a1a, #2e2e2e);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1299,7 +1350,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-civil-rights.html" class="object-card" aria-label="Read about Charles Hamilton Houston, civil rights lawyer and architect of the civil rights legal strategy">
+            <a href="thread-civil-rights.html" class="object-card wf-spotlight" aria-label="Read about Charles Hamilton Houston, civil rights lawyer and architect of the civil rights legal strategy">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #3d4a6e, #0d0d0d);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1316,7 +1367,7 @@
             </a>
           </li>
           <li>
-            <a href="person-frederick-douglass.html" class="object-card" aria-label="Read about Frederick Douglass, abolitionist and editor of The North Star">
+            <a href="person-frederick-douglass.html" class="object-card wf-spotlight" aria-label="Read about Frederick Douglass, abolitionist and editor of The North Star">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #1a3a5c, #0d0d0d);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1333,7 +1384,7 @@
             </a>
           </li>
           <li>
-            <a href="person-harriet-tubman.html" class="object-card" aria-label="Read about Harriet Tubman, conductor of the Underground Railroad">
+            <a href="person-harriet-tubman.html" class="object-card wf-spotlight" aria-label="Read about Harriet Tubman, conductor of the Underground Railroad">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2d5a27, #0d1a0d);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1350,7 +1401,7 @@
             </a>
           </li>
           <li>
-            <a href="person-web-du-bois.html" class="object-card" aria-label="Read about W.E.B. Du Bois, sociologist and co-founder of the NAACP">
+            <a href="person-web-du-bois.html" class="object-card wf-spotlight" aria-label="Read about W.E.B. Du Bois, sociologist and co-founder of the NAACP">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #5c2d91, #1a0d2e);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1367,7 +1418,7 @@
             </a>
           </li>
           <li>
-            <a href="person-john-lewis.html" class="object-card" aria-label="Read about John Lewis, civil rights leader and congressman">
+            <a href="person-john-lewis.html" class="object-card wf-spotlight" aria-label="Read about John Lewis, civil rights leader and congressman">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #1a3a5c, #2e2e2e);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1384,7 +1435,7 @@
             </a>
           </li>
           <li>
-            <a href="person-angela-davis.html" class="object-card" aria-label="Read about Angela Davis, philosopher and prison abolitionist">
+            <a href="person-angela-davis.html" class="object-card wf-spotlight" aria-label="Read about Angela Davis, philosopher and prison abolitionist">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #8b0000, #1a0000);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--person">Person</span>
@@ -1405,9 +1456,9 @@
 
       <!-- Policy panel (hidden) -->
       <div id="ppp-panel-policy" role="tabpanel" aria-labelledby="tab-policy" hidden>
-        <ul class="ppp-grid" role="list">
+        <ul class="ppp-grid wf-grid-reveal" role="list">
           <li>
-            <a href="thread-displacement.html" class="object-card" aria-label="Read about the HOLC Residential Security Maps, 1935">
+            <a href="thread-displacement.html" class="object-card wf-spotlight" aria-label="Read about the HOLC Residential Security Maps, 1935">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background-image: url('images/holc-redlining-philadelphia.jpg'), linear-gradient(135deg, #5c2a1a, #7d3a24); background-size: cover; background-position: center 15%;" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--policy">Policy</span>
@@ -1424,7 +1475,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-gi-bill.html" class="object-card" aria-label="Read about the GI Bill of 1944 and racial exclusion">
+            <a href="thread-gi-bill.html" class="object-card wf-spotlight" aria-label="Read about the GI Bill of 1944 and racial exclusion">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2c3550, #3d4a6e);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--policy">Policy</span>
@@ -1441,7 +1492,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-voting-rights.html" class="object-card" aria-label="Read about the Voting Rights Act of 1965">
+            <a href="thread-voting-rights.html" class="object-card wf-spotlight" aria-label="Read about the Voting Rights Act of 1965">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #7a3e00, #a05200);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--policy">Law</span>
@@ -1458,7 +1509,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-end-of-slavery.html" class="object-card" aria-label="Read about the Black Codes, 1865–1866">
+            <a href="thread-end-of-slavery.html" class="object-card wf-spotlight" aria-label="Read about the Black Codes, 1865–1866">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #1e2433, #2c3550);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--policy">Law</span>
@@ -1479,9 +1530,9 @@
 
       <!-- Places panel (hidden) -->
       <div id="ppp-panel-places" role="tabpanel" aria-labelledby="tab-places" hidden>
-        <ul class="ppp-grid" role="list">
+        <ul class="ppp-grid wf-grid-reveal" role="list">
           <li>
-            <a href="thread-tulsa.html" class="object-card" aria-label="Read about Greenwood District, Tulsa — Black Wall Street">
+            <a href="thread-tulsa.html" class="object-card wf-spotlight" aria-label="Read about Greenwood District, Tulsa — Black Wall Street">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #a04b30, #5c2a1a);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--place">Place</span>
@@ -1498,7 +1549,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-voting-rights.html" class="object-card" aria-label="Read about Selma, Alabama and Bloody Sunday">
+            <a href="thread-voting-rights.html" class="object-card wf-spotlight" aria-label="Read about Selma, Alabama and Bloody Sunday">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #3d4a6e, #1e2433);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--place">Place</span>
@@ -1515,7 +1566,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-great-migration.html" class="object-card" aria-label="Read about Chicago's South Side and the Great Migration">
+            <a href="thread-great-migration.html" class="object-card wf-spotlight" aria-label="Read about Chicago's South Side and the Great Migration">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2c3550, #444);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--place">Place</span>
@@ -1532,7 +1583,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-transatlantic-slave-trade.html" class="object-card" aria-label="Read about Point Comfort, Virginia — site of first enslaved Africans' arrival">
+            <a href="thread-transatlantic-slave-trade.html" class="object-card wf-spotlight" aria-label="Read about Point Comfort, Virginia — site of first enslaved Africans' arrival">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background-image: url('images/slave-ship-brookes.jpg'), linear-gradient(135deg, #7a3e00, #2e2e2e); background-size: cover; background-position: center 40%;" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--place">Place</span>
@@ -1553,9 +1604,9 @@
 
       <!-- Events panel (hidden) -->
       <div id="ppp-panel-events" role="tabpanel" aria-labelledby="tab-events" hidden>
-        <ul class="ppp-grid" role="list">
+        <ul class="ppp-grid wf-grid-reveal" role="list">
           <li>
-            <a href="thread-end-of-slavery.html" class="object-card" aria-label="Read about the Compromise of 1877">
+            <a href="thread-end-of-slavery.html" class="object-card wf-spotlight" aria-label="Read about the Compromise of 1877">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #2c3550, #1e2433);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--event">Event</span>
@@ -1572,7 +1623,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-tulsa.html" class="object-card" aria-label="Read about the 1921 Tulsa Race Massacre">
+            <a href="thread-tulsa.html" class="object-card wf-spotlight" aria-label="Read about the 1921 Tulsa Race Massacre">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #5c2a1a, #7d3a24);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--event">Event</span>
@@ -1589,7 +1640,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-education.html" class="object-card" aria-label="Read about Brown v. Board of Education, 1954">
+            <a href="thread-education.html" class="object-card wf-spotlight" aria-label="Read about Brown v. Board of Education, 1954">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #3d4a6e, #556080);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--event">Case</span>
@@ -1606,7 +1657,7 @@
             </a>
           </li>
           <li>
-            <a href="thread-great-migration.html" class="object-card" aria-label="Read about the Great Migration, 1910–1970">
+            <a href="thread-great-migration.html" class="object-card wf-spotlight" aria-label="Read about the Great Migration, 1910–1970">
               <div class="object-card__image">
                 <div class="object-card__image-bg" style="background: linear-gradient(135deg, #444, #6b6b6b);" aria-hidden="true"></div>
                 <span class="object-card__type-badge badge--event">Event</span>
@@ -1632,12 +1683,12 @@
        SECTION 6: THEN → NOW EXPLAINER
        Issue-driven causal framing
        ======================================================= -->
-  <section class="then-now-section section" aria-labelledby="then-now-heading">
+  <section class="then-now-section section" aria-labelledby="then-now-heading" data-wf-section="Then → Now">
     <div class="container">
       <div class="then-now-header section-header--centered chain-reveal">
-        <p class="section-eyebrow">Then → Now</p>
-        <h2 id="then-now-heading" class="section-title">Policy has a long tail</h2>
-        <p class="then-now-header__subtitle">These aren't historical events that ended in the past. They are chains that run unbroken to today's news cycle.</p>
+        <p class="section-eyebrow wf-eyebrow">Then → Now</p>
+        <h2 id="then-now-heading" class="section-title wf-blur wf-delay-100">Policy has a long tail</h2>
+        <p class="then-now-header__subtitle wf-up wf-delay-200">These aren't historical events that ended in the past. They are chains that run unbroken to today's news cycle.</p>
       </div>
 
       <!-- Issue 1: Redlining → School Funding -->
@@ -1646,15 +1697,15 @@
           Redlining → School Funding → Health Outcomes
         </h3>
         <div class="then-now-split">
-          <div>
-            <article class="then-card">
+          <div class="wf-left">
+            <article class="then-card wf-spotlight">
               <div class="then-card__era-bar then-card__era-bar--then">
                 <span class="then-card__era-label">Then</span>
                 <span class="then-card__year">1935–1968</span>
               </div>
               <div class="then-card__body">
                 <h4 class="then-card__headline">Federal maps drew a color line around American cities</h4>
-                <p class="then-card__stat">239</p>
+                <p class="then-card__stat wf-counter" data-wf-target="239">239</p>
                 <p class="then-card__stat-caption">
                   U.S. cities where HOLC "residential security maps" graded neighborhoods — with Black and immigrant areas rated D (red), making federally backed mortgages impossible to obtain.
                 </p>
@@ -1662,15 +1713,15 @@
               </div>
             </article>
           </div>
-          <div>
-            <article class="then-card">
+          <div class="wf-right">
+            <article class="then-card wf-spotlight">
               <div class="then-card__era-bar then-card__era-bar--now">
                 <span class="then-card__era-label">Now</span>
                 <span class="then-card__year">2024</span>
               </div>
               <div class="then-card__body">
                 <h4 class="then-card__headline">Formerly redlined neighborhoods still show measurably worse outcomes</h4>
-                <p class="then-card__stat">$1,800</p>
+                <p class="then-card__stat wf-counter" data-wf-target="$1,800">$1,800</p>
                 <p class="then-card__stat-caption">
                   Less per student annually in majority-Black school districts vs. majority-white districts — a direct result of property-tax school funding in neighborhoods whose values were suppressed by federal policy.
                 </p>
@@ -1691,15 +1742,15 @@
           Reconstruction → Disenfranchisement → Voter Suppression
         </h3>
         <div class="then-now-split">
-          <div>
-            <article class="then-card">
+          <div class="wf-left">
+            <article class="then-card wf-spotlight">
               <div class="then-card__era-bar then-card__era-bar--then">
                 <span class="then-card__era-label">Then</span>
                 <span class="then-card__year">1865–1877</span>
               </div>
               <div class="then-card__body">
                 <h4 class="then-card__headline">Black men voted and governed at rates never again seen until the 1960s</h4>
-                <p class="then-card__stat">16</p>
+                <p class="then-card__stat wf-counter" data-wf-target="16">16</p>
                 <p class="then-card__stat-caption">
                   Black men served in the U.S. Congress during Reconstruction. More than 600 served in state legislatures. The infrastructure of Black political power was built — then systematically demolished after 1877.
                 </p>
@@ -1707,15 +1758,15 @@
               </div>
             </article>
           </div>
-          <div>
-            <article class="then-card">
+          <div class="wf-right">
+            <article class="then-card wf-spotlight">
               <div class="then-card__era-bar then-card__era-bar--now">
                 <span class="then-card__era-label">Now</span>
                 <span class="then-card__year">2013–Present</span>
               </div>
               <div class="then-card__body">
                 <h4 class="then-card__headline">After <em>Shelby County v. Holder</em>, 29 states passed new voting restrictions</h4>
-                <p class="then-card__stat">29</p>
+                <p class="then-card__stat wf-counter" data-wf-target="29">29</p>
                 <p class="then-card__stat-caption">
                   States enacted new voter ID laws, polling place closures, and registration restrictions within years of the Supreme Court gutting the Voting Rights Act's preclearance requirement — disproportionately affecting Black voters.
                 </p>
@@ -1736,16 +1787,16 @@
   <!-- =======================================================
        SECTION 7: LEARNING MODES BY AUDIENCE
        ======================================================= -->
-  <section class="learning-section section" aria-labelledby="learning-heading">
+  <section class="learning-section section" aria-labelledby="learning-heading" data-wf-section="How to Explore">
     <div class="container">
       <div class="section-header">
-        <p class="section-eyebrow" style="color: var(--amber-300);">How You Want to Explore</p>
-        <h2 id="learning-heading" class="section-title section-title--light">Chain is built for how you think</h2>
-        <p class="section-subtitle section-subtitle--light">Whether you're curious, studying, teaching, or reporting — you'll find a way in that fits how you work.</p>
+        <p class="section-eyebrow wf-eyebrow" style="color: var(--amber-300);">How You Want to Explore</p>
+        <h2 id="learning-heading" class="section-title section-title--light wf-blur wf-delay-100">Chain is built for how you think</h2>
+        <p class="section-subtitle section-subtitle--light wf-up wf-delay-200">Whether you're curious, studying, teaching, or reporting — you'll find a way in that fits how you work.</p>
       </div>
-      <ul class="audience-grid reveal" role="list">
+      <ul class="audience-grid wf-grid-reveal reveal" role="list">
         <li>
-          <div class="audience-card">
+          <div class="audience-card wf-spotlight">
             <div class="audience-card__number" aria-hidden="true">01</div>
             <p class="audience-card__label">Curious reader</p>
             <h3 class="audience-card__title">Start with a question</h3>
@@ -1758,7 +1809,7 @@
           </div>
         </li>
         <li>
-          <div class="audience-card">
+          <div class="audience-card wf-spotlight">
             <div class="audience-card__number" aria-hidden="true">02</div>
             <p class="audience-card__label">Student</p>
             <h3 class="audience-card__title">Build a deeper argument</h3>
@@ -1771,7 +1822,7 @@
           </div>
         </li>
         <li>
-          <div class="audience-card">
+          <div class="audience-card wf-spotlight">
             <div class="audience-card__number" aria-hidden="true">03</div>
             <p class="audience-card__label">Educator</p>
             <h3 class="audience-card__title">Bring history into the room</h3>
@@ -1784,7 +1835,7 @@
           </div>
         </li>
         <li>
-          <div class="audience-card">
+          <div class="audience-card wf-spotlight">
             <div class="audience-card__number" aria-hidden="true">04</div>
             <p class="audience-card__label">Researcher / Journalist</p>
             <h3 class="audience-card__title">Follow the evidence chain</h3>
@@ -1803,19 +1854,19 @@
   <!-- =======================================================
        SECTION 8: FEATURED SOURCES SHELF
        ======================================================= -->
-  <section class="sources-section section" aria-labelledby="sources-heading">
+  <section class="sources-section section" aria-labelledby="sources-heading" data-wf-section="Sources">
     <div class="container">
       <div class="section-header chain-reveal">
         <div class="sources-section__intro">
-          <p class="section-eyebrow">The Evidence Base</p>
-          <h2 id="sources-heading" class="section-title">Essential sources</h2>
-          <p class="section-subtitle">Every thread on Chain is built on documented evidence. Here are some of the foundational works this platform draws from.</p>
+          <p class="section-eyebrow wf-eyebrow">The Evidence Base</p>
+          <h2 id="sources-heading" class="section-title wf-blur wf-delay-100">Essential sources</h2>
+          <p class="section-subtitle wf-up wf-delay-200">Every thread on Chain is built on documented evidence. Here are some of the foundational works this platform draws from.</p>
         </div>
         <a href="sources.html" class="view-all" aria-label="View all sources in the archive">View full sources archive →</a>
       </div>
-      <div class="sources-shelf reveal">
+      <div class="sources-shelf wf-grid-reveal reveal">
 
-        <article class="source-card">
+        <article class="source-card wf-tilt wf-spotlight">
           <div class="source-card__type">
             <span>📚</span> Book
           </div>
@@ -1827,7 +1878,7 @@
           </div>
         </article>
 
-        <article class="source-card">
+        <article class="source-card wf-tilt wf-spotlight">
           <div class="source-card__type">
             <span>📚</span> Book
           </div>
@@ -1839,7 +1890,7 @@
           </div>
         </article>
 
-        <article class="source-card">
+        <article class="source-card wf-tilt wf-spotlight">
           <div class="source-card__type">
             <span>📊</span> Dataset
           </div>
@@ -1851,7 +1902,7 @@
           </div>
         </article>
 
-        <article class="source-card">
+        <article class="source-card wf-tilt wf-spotlight">
           <div class="source-card__type">
             <span>📚</span> Book
           </div>
@@ -1863,7 +1914,7 @@
           </div>
         </article>
 
-        <article class="source-card">
+        <article class="source-card wf-tilt wf-spotlight">
           <div class="source-card__type">
             <span>📄</span> Research
           </div>
@@ -1875,7 +1926,7 @@
           </div>
         </article>
 
-        <article class="source-card">
+        <article class="source-card wf-tilt wf-spotlight">
           <div class="source-card__type">
             <span>📚</span> Book
           </div>
@@ -1895,7 +1946,7 @@
        SECTION 9: EDITORIAL SPOTLIGHT
        Fresh content and features
        ======================================================= -->
-  <section class="editorial-section section" aria-labelledby="editorial-heading">
+  <section class="editorial-section section" aria-labelledby="editorial-heading" data-wf-section="Latest">
     <div class="container">
       <div class="section-header chain-reveal" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--space-4);">
         <div>
@@ -1904,10 +1955,10 @@
         </div>
         <a href="explore.html#latest" class="view-all" aria-label="View all recent content">See everything →</a>
       </div>
-      <div class="editorial-grid reveal">
+      <div class="editorial-grid wf-grid-reveal reveal">
 
         <!-- Featured article -->
-        <a href="thread-baldwin.html" class="editorial-card editorial-card--featured" aria-labelledby="editorial-1-heading">
+        <a href="thread-baldwin.html" class="editorial-card editorial-card--featured wf-zoom wf-spotlight" aria-labelledby="editorial-1-heading">
           <div class="editorial-card__image">
             <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e 0%,#2d2d4e 40%,#1a1a2e 100%);display:flex;align-items:center;justify-content:center;">
               <div style="text-align:center;padding:2rem">
@@ -1932,7 +1983,7 @@
         </a>
 
         <!-- Article 2 -->
-        <a href="thread-haitian-revolution.html" class="editorial-card" aria-labelledby="editorial-2-heading">
+        <a href="thread-haitian-revolution.html" class="editorial-card wf-up wf-spotlight" aria-labelledby="editorial-2-heading">
           <div class="editorial-card__image" style="height: 150px;">
             <div style="width:100%;height:100%;background:linear-gradient(135deg,#3d0000 0%,#6b0000 60%,#3d0000 100%);display:flex;align-items:center;justify-content:center;">
               <div style="font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:900;color:#d44040;text-align:center;padding:1rem;line-height:1.2">1791 · Haiti · The Only Successful Slave Revolt in History</div>
@@ -1951,7 +2002,7 @@
         </a>
 
         <!-- Article 3 -->
-        <a href="thread-convict-leasing.html" class="editorial-card" aria-labelledby="editorial-3-heading">
+        <a href="thread-convict-leasing.html" class="editorial-card wf-up wf-spotlight" aria-labelledby="editorial-3-heading">
           <div class="editorial-card__image" style="height: 150px;">
             <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0d00 0%,#2a1a00 60%,#1a0d00 100%);display:flex;align-items:center;justify-content:center;">
               <div style="font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;font-weight:900;color:#b87333;text-align:center;padding:1rem;line-height:1.25">Arrested. Leased. Dead at 22.<br/><span style="color:rgba(255,255,255,.5);font-size:0.9rem">Green Cottenham, 1908</span></div>
@@ -2064,6 +2115,7 @@
      JAVASCRIPT
      ========================================================= -->
 <script src="js/main.js" defer></script>
+<script src="js/scroll-fx.js" defer></script>
 
 <script>
 // ── Civ-card hover peek panels ─────────────────────────────
