@@ -472,7 +472,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-displacement.html',t:'The Flooded City: Five Ways Black Communities Were Taken',d:'housing labor-wealth',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1898 – Present'},
       {h:'thread-urban-renewal.html',t:'Urban Renewal: The Highway That Ran Through Black America',d:'housing history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1949 – Present'},
       {h:'thread-double-v.html',t:'The Double V Campaign: Fight Fascism Abroad, Fight Racism at Home',d:'history-culture',e:6,el:'WWII & Post-War',c:'#8b1a1a',y:'1942 – 1945'},
-      {h:'thread-eo8802.html',t:'Executive Order 8802: How A. Philip Randolph Forced FDR's Hand',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a3a6b',y:'1941'},
+      {h:'thread-eo8802.html',t:"Executive Order 8802: How A. Philip Randolph Forced FDR's Hand",d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a3a6b',y:'1941'},
       {h:'thread-detroit-1943.html',t:'The Detroit Race Riot of 1943: When the War Came Home',d:'history-culture',e:6,el:'WWII & Post-War',c:'#7a2a00',y:'1943'},
       {h:'thread-core.html',t:'CORE and the First Sit-Ins: How Civil Disobedience Was Invented Before Anyone Had a Name for It',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a2a',y:'1942 – 1961'},
 {h:'thread-negro-market.html',t:'The Negro Market: When Corporate America Discovered Black Consumers',d:'history-culture labor-wealth',e:6,el:'WWII & Post-War',c:'#5a1a1a',y:'1940 – Present'},
