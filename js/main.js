@@ -1102,6 +1102,7 @@ var THREAD_INDEX = [
       {h:'thread-core.html',t:'CORE and the First Sit-Ins: How Civil Disobedience Was Invented Before Anyone Had a Name for It',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a2a',y:'1942 – 1961'},
 {h:'thread-negro-market.html',t:'The Negro Market: When Corporate America Discovered Black Consumers',d:'history-culture labor-wealth',e:6,el:'WWII & Post-War',c:'#5a1a1a',y:'1940 – Present'},
       {h:'thread-tuskegee-airmen.html',t:'The Tuskegee Airmen: 332 Fighters, Zero Bombers Lost',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1941 – Present'},
+  {h:'thread-sundown-states.html',t:"Free State, White State: The North's Black Exclusion Laws",d:'housing history-culture',e:3,el:'Slavery & Resistance',c:'#0d1829',y:'1804 – Present'},
   {h:'thread-oregon-exclusion.html',t:"Oregon's Black Exclusion Law: Free State, White State",d:'housing history-culture',e:3,el:'Slavery & Resistance',c:'#0b1f0e',y:'1844 – Present'},
   {h:'thread-redlining.html',t:'Redlining: The Map That Built the Wealth Gap',d:'housing labor-wealth',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1934 – Present'},
   {h:'thread-paul-robeson.html',t:'Paul Robeson: The Man America Tried to Erase',d:'history-culture',e:6,el:'WWII & Post-War',c:'#1a4a6b',y:'1898 – 1976'},

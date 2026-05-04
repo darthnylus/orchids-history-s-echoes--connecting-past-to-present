@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Free State, White State: The North's Black Exclusion Laws — Chain</title>
+  <meta name="description" content="Free states didn't just reject slavery — many rejected Black people entirely. Ohio, Indiana, Illinois, Iowa, and Oregon all passed laws banning Black residents, fining them, auctioning them, or requiring bonds to stay. The North's anti-Black history is not a footnote. It is the foundation." />
+  <meta property="og:title" content="Free State, White State: The North's Black Exclusion Laws" />
+  <meta property="og:description" content="Free states didn't just reject slavery — many rejected Black people entirely. Ohio, Indiana, Illinois, and Oregon all wrote Black exclusion into law. This is the history the 'North was better' narrative erases." />
+  <meta property="og:type" content="article" />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    /* Cold Prussian blue — institutional North */
+    :root{
+      --acc:#0d1829;
+      --acc-lt:#1a3a6e;   /* deep navy — WCAG AA on white */
+      --acc-on-dark:#93c5fd; /* pale sky blue — for use on dark sections */
+    }
+    [data-theme="dark"]{
+      --acc:#0d1829;
+      --acc-lt:#93c5fd;
+      --acc-on-dark:#93c5fd;
+    }
+
+    /* HERO */
+    .thread-hero{background:#080e1a;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 150% 70% at 10% 40%,rgba(20,50,100,.22) 0%,transparent 60%),
+                 radial-gradient(ellipse 70% 60% at 90% 80%,rgba(15,30,70,.28) 0%,transparent 55%)}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:1}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(147,197,253,.12);border:1px solid rgba(147,197,253,.28);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#93c5fd;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#93c5fd}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.4rem,5.5vw,4.25rem);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.025em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#93c5fd;font-style:italic}
+    .thread-hero__subtitle{font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,.72);line-height:1.75;max-width:620px;margin-bottom:var(--space-10)}
+    .thread-hero__meta{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.10);padding-top:var(--space-6)}
+    .thread-meta-item{padding-right:var(--space-8);border-right:1px solid rgba(255,255,255,.10);margin-right:var(--space-8)}
+    .thread-meta-item:last-child{border-right:none;margin-right:0}
+    .thread-meta-item__label{font-size:10px;color:rgba(255,255,255,.40);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.92)}
+
+    /* STATE GRID — always dark */
+    .state-section{background:#080e1a;padding:var(--space-14) 0;border-top:1px solid rgba(147,197,253,.07)}
+    .state-section__header{max-width:640px;margin-bottom:var(--space-10)}
+    .state-section__eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(147,197,253,.60);margin-bottom:var(--space-3)}
+    .state-section__heading{font-family:var(--font-editorial);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-4)}
+    .state-section__sub{font-size:var(--type-sm);color:rgba(255,255,255,.55);line-height:1.75}
+
+    /* STATE COMPARISON TABLE */
+    .state-table{width:100%;border-collapse:collapse;font-size:var(--type-sm);background:#0a1220;border-radius:12px;overflow:hidden;border:1px solid rgba(147,197,253,.12)}
+    .state-table thead tr{background:#0d1829}
+    .state-table th{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(147,197,253,.65);padding:var(--space-4) var(--space-5);text-align:left;border-bottom:1px solid rgba(147,197,253,.12)}
+    .state-table td{padding:var(--space-4) var(--space-5);border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.65);vertical-align:top;line-height:1.55}
+    .state-table tr:last-child td{border-bottom:none}
+    .state-table td:first-child{font-weight:700;color:#93c5fd;white-space:nowrap}
+    .state-table td:nth-child(2){color:rgba(255,255,255,.45);font-size:var(--type-xs)}
+    .state-table .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em}
+    .tag--constitution{background:rgba(220,38,38,.15);color:#fca5a5;border:1px solid rgba(220,38,38,.2)}
+    .tag--statute{background:rgba(147,197,253,.12);color:#93c5fd;border:1px solid rgba(147,197,253,.18)}
+    .tag--practice{background:rgba(250,204,21,.10);color:#fde68a;border:1px solid rgba(250,204,21,.15)}
+
+    /* ARGUMENT BAR */
+    .argument-bar{background:rgba(26,58,110,.06);border-top:1px solid rgba(26,58,110,.15);border-bottom:1px solid rgba(26,58,110,.15);padding:var(--space-6) 0}
+    [data-theme="dark"] .argument-bar{background:rgba(147,197,253,.04);border-color:rgba(147,197,253,.12)}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:34px;height:34px;flex-shrink:0;background:rgba(26,58,110,.10);border-radius:50%;display:grid;place-items:center;margin-top:3px;color:var(--acc-lt)}
+    [data-theme="dark"] .argument-bar__icon{background:rgba(147,197,253,.10);color:#93c5fd}
+    .argument-bar__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-2)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.7;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+
+    /* ENTRIES */
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(26,58,110,.10);border:1px solid rgba(26,58,110,.25);color:var(--acc-lt)}
+    [data-theme="dark"] .entry-item__num{background:rgba(147,197,253,.10);border-color:rgba(147,197,253,.22)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(26,58,110,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    [data-theme="dark"] .pullquote{background:rgba(147,197,253,.04)}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+
+    /* SIDEBAR */
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:700;letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .sidebar-card__body a{color:var(--acc-lt);font-weight:600}
+    .sidebar-card__body a:hover{text-decoration:underline}
+
+    /* CTA */
+    .thread-bottom-cta{background:#080e1a;border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#93c5fd;margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.72);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:all .15s}
+    .thread-bottom-cta__btn--primary{background:#93c5fd;color:#080e1a}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.08)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.18)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.08);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">Free State, White State</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="thread-hero">
+  <div class="thread-hero__bg"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot"></span>
+        Housing &amp; Racial Law
+      </div>
+      <h1 class="thread-hero__title">Free State, <em>White State</em></h1>
+      <p class="thread-hero__subtitle">The standard American narrative divides the country into a slaveholding South and a free North. That division is real — and it is incomplete. Ohio, Indiana, Illinois, Iowa, and Oregon all passed laws that banned Black residents, fined them, auctioned them to labor contractors, or required them to post enormous bonds just to exist in the state. The North didn't want slavery. It also didn't want Black people.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Era</div>
+          <div class="thread-meta-item__value">1804 &ndash; Present</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">States</div>
+          <div class="thread-meta-item__value">OH · IN · IL · IA · OR &amp; more</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Domain</div>
+          <div class="thread-meta-item__value">Law &middot; Housing &middot; History</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Two states</div>
+          <div class="thread-meta-item__value">Wrote exclusion into their constitutions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATE COMPARISON SECTION -->
+<section class="state-section">
+  <div class="container">
+    <div class="state-section__header">
+      <div class="state-section__eyebrow">The Record</div>
+      <h2 class="state-section__heading">Northern State Exclusion Laws at a Glance</h2>
+      <p class="state-section__sub">These were not fringe positions. They were majority-ratified laws and constitutional provisions passed by the same states that opposed slavery — often by the same legislators, in the same sessions.</p>
+    </div>
+
+    <table class="state-table">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Year</th>
+          <th>Mechanism</th>
+          <th>Type</th>
+          <th>What it did</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ohio</td>
+          <td>1804–1849</td>
+          <td>Black Laws</td>
+          <td><span class="tag tag--statute">Statute</span></td>
+          <td>Required Black residents to register, carry freedom papers, and post a $500 bond with white guarantors. Barred Black testimony against white defendants. Repealed 1849.</td>
+        </tr>
+        <tr>
+          <td>Indiana</td>
+          <td>1851–post-Civil War</td>
+          <td>Article XIII, State Constitution</td>
+          <td><span class="tag tag--constitution">Constitution</span></td>
+          <td>Banned Black immigration outright. Required existing Black residents to register. Voided contracts with unregistered Black people. Fined anyone encouraging Black settlement.</td>
+        </tr>
+        <tr>
+          <td>Illinois</td>
+          <td>1853–1865</td>
+          <td>Black Immigration Law</td>
+          <td><span class="tag tag--statute">Statute</span></td>
+          <td>Fined any Black person who entered and remained. If unable to pay, they were sold to labor contractors for the time required to work off the fine — re-enslavement in a free state.</td>
+        </tr>
+        <tr>
+          <td>Iowa</td>
+          <td>1851–1860s</td>
+          <td>Exclusion Statutes + Constitution</td>
+          <td><span class="tag tag--statute">Statute</span></td>
+          <td>1851 state constitution excluded Black people from the state militia and from voting. Statutes restricted Black immigration. Largely unenforced but legally intact.</td>
+        </tr>
+        <tr>
+          <td>Oregon</td>
+          <td>1844–2002</td>
+          <td>Lash Law + Article I Sec. 35</td>
+          <td><span class="tag tag--constitution">Constitution</span></td>
+          <td>1844 lash law required Black residents to be flogged until they left. 1857 constitution banned Black residency, property ownership, and contracts. Clause removed by ballot in 2002.</td>
+        </tr>
+        <tr>
+          <td>California</td>
+          <td>1850s–1863</td>
+          <td>Anti-Testimony Laws + Exclusion Bills</td>
+          <td><span class="tag tag--statute">Statute</span></td>
+          <td>Barred Black and Chinese testimony against white defendants. Multiple exclusion bills introduced; some passed locally. Governor Peter Burnett (formerly of Oregon) explicitly called for exclusion in 1851.</td>
+        </tr>
+        <tr>
+          <td>Michigan / Wisconsin</td>
+          <td>1840s–1860s</td>
+          <td>Militia exclusions + ballot restrictions</td>
+          <td><span class="tag tag--practice">Practice + Statute</span></td>
+          <td>Both states excluded Black men from state militias and effectively from voting through property and registration requirements. Black residents faced informal exclusion from most towns and counties.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ARGUMENT BAR -->
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The Chain</div>
+        <div class="argument-bar__text"><strong>The "North was better" narrative is not false — it is incomplete.</strong> Free states rejected slavery. They also rejected Black presence, Black property, Black testimony, and Black citizenship through statutes and constitutional provisions that shaped where Black Americans could go, what they could own, and what legal recourse they had. When the Great Migration sent millions north, they arrived into this legal architecture. The de facto segregation of Northern cities was not an accident or a cultural attitude. It was the downstream product of decades of de jure exclusion that cleared the ground for it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THREAD BODY -->
+<div class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <div class="entry-list">
+
+        <!-- ENTRY 1 -->
+        <article class="entry-item" id="entry-1">
+          <div class="entry-item__header">
+            <div class="entry-item__num">1</div>
+            <div>
+              <div class="entry-item__dates">1804 – 1849</div>
+              <h2 class="entry-item__name">Ohio's Black Laws: The Template</h2>
+              <div class="entry-item__location">Ohio — first free state with Black exclusion statutes</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">$500</div>
+              <div class="entry-stat__label">Bond required of Black residents (1804)</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">1804</div>
+              <div class="entry-stat__label">First Black Laws passed in Ohio</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">45 yrs</div>
+              <div class="entry-stat__label">Duration before repeal (1849)</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>Ohio entered the Union in 1803 as a free state. Within a year, its legislature passed the first Black Laws. The laws required every Black resident to register with the county clerk and carry a certificate of freedom — a paper proving they were not enslaved. Any Black person who couldn't produce papers on demand was presumed enslaved and could be seized. The laws also required Black residents to post a <strong>$500 bond</strong> with two white sureties as guarantors of their future good behavior — a sum equivalent to roughly $10,000 today, far beyond the reach of virtually any laborer, Black or white.</p>
+            <p>The practical effect was to create a permanent two-tier legal system. Black Ohioans who couldn't post bond lived in technical violation of the law. They couldn't testify against white defendants in court, removing any legal protection against violence or theft. They were excluded from public schools, from the state militia, and from the political process.</p>
+            <p>Ohio's Black Laws became the legislative template that other free states adapted and expanded. Indiana, Illinois, and Iowa all drew from Ohio's structure when crafting their own exclusion regimes. What Ohio had pioneered — formal legal marginalization of free Black people in a slave-free state — became a model for the entire Old Northwest Territory.</p>
+
+            <div class="pullquote">
+              <p>"The Black Laws of Ohio represent an attempt to resolve the contradictions of a state that was free in law but deeply hostile to Black freedom in practice."</p>
+              <cite>— Leon Litwack, <em>North of Slavery: The Negro in the Free States</em>, 1961</cite>
+            </div>
+
+            <p>The laws were repealed in 1849 under pressure from abolitionists and Black community organizers in Cincinnati and Columbus — not because white Ohioans had broadly changed their views, but because the laws had become an embarrassment in a state increasingly aligned with the antislavery movement. The attitudes that produced the laws did not repeal with them. Ohio's cities remained deeply segregated through mechanisms that didn't require statutory language: restrictive covenants, employer discrimination, and neighborhood intimidation.</p>
+          </div>
+        </article>
+
+        <!-- ENTRY 2 -->
+        <article class="entry-item" id="entry-2">
+          <div class="entry-item__header">
+            <div class="entry-item__num">2</div>
+            <div>
+              <div class="entry-item__dates">1851</div>
+              <h2 class="entry-item__name">Indiana's Constitution: Exclusion at the Founding</h2>
+              <div class="entry-item__location">Indiana — Black exclusion written into the state constitution</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">Art. XIII</div>
+              <div class="entry-stat__label">Constitutional article banning Black immigration</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Voided</div>
+              <div class="entry-stat__label">Contracts with unregistered Black residents</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Fined</div>
+              <div class="entry-stat__label">Anyone who employed or housed Black immigrants</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>When Indiana rewrote its constitution in 1851, delegates had a choice: leave the question of Black residents to statute, or write it into the foundational document. They chose the document. <strong>Article XIII</strong> read: "No negro or mulatto shall come into, or settle in, the State, after the adoption of this Constitution." Black people already in Indiana were required to register with county authorities. Any contract — for employment, rental, or services — made with an unregistered Black resident was declared legally void, meaning they could be cheated without legal recourse.</p>
+            <p>The clause also penalized white Hoosiers who facilitated Black immigration: anyone who employed, hired, or encouraged Black people to settle in Indiana could be fined. The law created social enforcement, turning white neighbors into monitors of the exclusion regime.</p>
+            <p>Indiana's constitutional ban is notable for its comprehensiveness — it didn't just make Black life difficult, it attempted to make it legally impossible. And it was ratified by popular vote, meaning it reflected genuine majority preference, not just legislative imposition.</p>
+            <p>The provision was effectively nullified by the 14th Amendment after the Civil War but was never formally removed from the Indiana constitution during the 19th century. It remained as text — inoperative but present — for decades, a standing declaration of original intent.</p>
+
+            <div class="pullquote">
+              <p>"Indiana's constitution of 1851 was, in the matter of race, more restrictive than that of any slaveholding state. The difference was that Indiana didn't want the labor. It didn't want the people at all."</p>
+              <cite>— Emma Lou Thornbrough, <em>The Negro in Indiana Before 1900</em>, 1957</cite>
+            </div>
+          </div>
+        </article>
+
+        <!-- ENTRY 3 -->
+        <article class="entry-item" id="entry-3">
+          <div class="entry-item__header">
+            <div class="entry-item__num">3</div>
+            <div>
+              <div class="entry-item__dates">1853 – 1865</div>
+              <h2 class="entry-item__name">Illinois' Auction Law: Re-Enslavement by Fine</h2>
+              <div class="entry-item__location">Illinois — Lincoln's home state</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">$50</div>
+              <div class="entry-stat__label">Fine for entering and remaining in Illinois while Black</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Auctioned</div>
+              <div class="entry-stat__label">Fate of those who couldn't pay</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">1865</div>
+              <div class="entry-stat__label">Repealed — the same year slavery ended nationally</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>Illinois passed its Black immigration law in 1853 — twelve years before the 13th Amendment abolished slavery. The law was direct: any Black person who entered Illinois and remained was guilty of a misdemeanor, subject to a $50 fine. If they could not pay the fine — and most could not — they were <strong>sold at public auction</strong> to whoever would pay it, bound to labor for that person for the time required to work off the debt.</p>
+            <p>This was not slavery in name. In structure and effect, it was difficult to distinguish. A free Black person, guilty of no crime other than crossing a state line, could be seized, fined, and sold to compelled labor in a state that called itself free. The auctioneer was the state. The buyer was a private citizen. The mechanism was debt rather than birth, but the result — compelled, unpaid labor under legal coercion — was the same.</p>
+            <p>Illinois had been Abraham Lincoln's political home since 1830. Lincoln opposed slavery's extension and, over the course of the 1850s, developed an increasingly sophisticated moral case against it. He did not, during this period, advocate for the repeal of Illinois' Black exclusion laws. His position, as expressed in the Lincoln-Douglas debates of 1858, was that he did not favor Black social or political equality — he opposed slavery on moral and republican grounds while accepting legal segregation as the existing order.</p>
+
+            <div class="pullquote">
+              <p>"I will say then that I am not, nor ever have been, in favor of bringing about in any way the social and political equality of the white and Black races."</p>
+              <cite>— Abraham Lincoln, fourth Lincoln-Douglas debate, Charleston, Illinois, September 18, 1858</cite>
+            </div>
+
+            <p>The 1853 law was repealed in 1865 as part of post-war Reconstruction changes. Its twelve years on the books — during which it was actively enforceable — shaped the Black population of Illinois, depressing it and concentrating it in areas where enforcement was lax. When the Great Migration brought Black Southerners to Chicago beginning around 1910, they arrived in a state that had spent most of the previous century legally structured to exclude them.</p>
+          </div>
+        </article>
+
+        <!-- ENTRY 4 -->
+        <article class="entry-item" id="entry-4">
+          <div class="entry-item__header">
+            <div class="entry-item__num">4</div>
+            <div>
+              <div class="entry-item__dates">1844 – 1880s</div>
+              <h2 class="entry-item__name">The Western Corridor: Iowa, California, and the Pacific Vision</h2>
+              <div class="entry-item__location">Iowa Territory · California · Pacific Northwest</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">Peter Burnett</div>
+              <div class="entry-stat__label">Governor of both Oregon Territory and California</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">1851</div>
+              <div class="entry-stat__label">California governor publicly called for Black exclusion</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">1857</div>
+              <div class="entry-stat__label">Iowa constitution restricted Black voting and militia service</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>The exclusion impulse was not confined to the Midwest. As white settlement pushed toward the Pacific, so did the legal architecture of racial exclusion — in many cases carried westward by the same people who had built it in Ohio and Indiana.</p>
+            <p>Peter Burnett is a representative figure. He was instrumental in drafting Oregon Territory's 1844 Lash Law — requiring Black residents to be flogged until they left. He then became California's first American governor in 1849–1850, and in his first State of the State address in 1851, he called explicitly for a law excluding Black people from California. The bill did not pass the California legislature, but the attempt and its reception illustrated that the ideology traveled with the settlers.</p>
+            <p>Iowa's 1851 constitution excluded Black men from voting and from the state militia. Iowa also had statutes restricting Black immigration, though enforcement was inconsistent. The pattern across Iowa, Wisconsin, and Michigan was similar: formal legal restrictions that were selectively enforced, creating a climate of legal vulnerability even for Black residents who were technically tolerated. You could be present, but you couldn't be protected. You could work, but you couldn't testify. You could live there, but you couldn't vote or bear arms in defense of the state that taxed you.</p>
+
+            <div class="pullquote">
+              <p>"We find ourselves surrounded by an inferior race… The same spirit which suggested the exclusion of slavery from Oregon likewise suggests the exclusion of free negroes."</p>
+              <cite>— Peter Burnett, first State of the State address, California, January 7, 1851</cite>
+            </div>
+
+            <p>California is the most complex case. Its gold rush population was diverse and rapidly changing. Anti-Black legislation competed with anti-Chinese legislation for legislative attention, and the state's racial hierarchy was elaborate. What remained consistent was the barring of Black and Chinese testimony against white defendants — a provision that made both communities legally undefendable against violence, fraud, and exploitation by white Californians for over a decade.</p>
+          </div>
+        </article>
+
+        <!-- ENTRY 5 -->
+        <article class="entry-item" id="entry-5">
+          <div class="entry-item__header">
+            <div class="entry-item__num">5</div>
+            <div>
+              <div class="entry-item__dates">1910 – Present</div>
+              <h2 class="entry-item__name">What the Great Migration Found</h2>
+              <div class="entry-item__location">Chicago · Detroit · Cleveland · Indianapolis · Portland</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">6M+</div>
+              <div class="entry-stat__label">Black Americans who migrated North, 1910–1970</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Redlined</div>
+              <div class="entry-stat__label">Neighborhoods in every Northern city they arrived in</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">"Promised Land"</div>
+              <div class="entry-stat__label">What the North was called — and what it wasn't</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>Between 1910 and 1970, more than six million Black Americans left the South. They were fleeing Jim Crow terror, sharecropping debt, disfranchisement, and lynching. They were going toward the cities of the North and West — Chicago, Detroit, Cleveland, Milwaukee, Indianapolis, Los Angeles, Portland — places where the formal slave system had never existed. They called it the Promised Land.</p>
+            <p>What they found was a legal landscape that had been shaped by a century of exclusion laws. The statutes had been repealed. The constitutional bans had been nullified by the 14th Amendment. But the physical and economic architecture those laws had built remained intact: residential segregation enforced by restrictive covenants and redlining, school segregation enforced by district boundaries drawn to track housing segregation, employment discrimination enforced by union exclusion and employer preference.</p>
+            <p>The Northern cities that Black migrants entered had not been neutral ground. They had been <em>structured</em> — by the Ohio Black Laws, by Indiana's constitutional ban, by Illinois' auction statute, by decades of exclusionary housing practice — to confine Black residents to specific neighborhoods, specific jobs, and specific schools. <strong>The Black Belts of Chicago, the ghettos of Detroit and Cleveland, the compressed neighborhoods of Indianapolis — these were not spontaneous formations. They were the spatial outcome of legal architecture built over the previous century.</strong></p>
+            <p>The narrative that the North was "better" for Black Americans was not entirely false. Legal slavery did not exist. Lynching was less frequent. Formal political participation was more accessible. But the narrative that the North was free — that Northern segregation was cultural rather than legal, incidental rather than structural — is a myth the documents do not support. The laws are in the archives. The votes are recorded. The demographic outcomes they produced are measurable in census data today.</p>
+
+            <div class="pullquote">
+              <p>"The Negro who 'goes North' does not go into a land of freedom. He goes into a land of a different kind of slavery."</p>
+              <cite>— Ida B. Wells, <em>The Reason Why the Colored American Is Not in the World's Columbian Exposition</em>, 1893</cite>
+            </div>
+
+            <p>The wealth gap between Black and white households in Chicago, Detroit, Indianapolis, and Portland today is among the highest in the nation — higher in several cases than in Southern cities where formal slavery existed. The causation runs through the exclusion laws, through redlining, through the GI Bill's racial application. None of it is mysterious once the legal record is read straight.</p>
+          </div>
+        </article>
+
+      </div><!-- /entry-list -->
+
+      <!-- SIDEBAR -->
+      <aside class="thread-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Related Threads</div>
+          <div class="sidebar-card__body">
+            <p><a href="thread-oregon-exclusion.html">Oregon's Black Exclusion Law</a> — The deepest case study: constitutional ban, the Lash Law, 2002 ballot measure.</p>
+            <p style="margin-top:var(--space-4)"><a href="thread-great-migration.html">The Great Migration</a> — Six million people who went North and what they found.</p>
+            <p style="margin-top:var(--space-4)"><a href="thread-redlining.html">Redlining</a> — How the federal government institutionalized Northern housing segregation from 1934.</p>
+            <p style="margin-top:var(--space-4)"><a href="thread-gi-bill.html">The GI Bill's Racial Divide</a> — The law that built the white middle class and excluded Black veterans.</p>
+            <p style="margin-top:var(--space-4)"><a href="thread-sundown-towns.html">Sundown Towns</a> — The town-level enforcement of the same ideology: leave by dark or face the consequences.</p>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Source</div>
+          <div class="sidebar-card__body">
+            <p>Leon Litwack's <em>North of Slavery: The Negro in the Free States, 1790–1860</em> (1961) is the foundational academic study documenting the systematic legal discrimination of free Black people in Northern states before the Civil War.</p>
+            <p style="margin-top:var(--space-3)">James Loewen's <em>Sundown Towns</em> (2005) documents the post-Reconstruction extension of this practice at the municipal level across thousands of towns in the North, Midwest, and West.</p>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">The Common Thread</div>
+          <div class="sidebar-card__body">
+            <p>Every Northern exclusion law shared the same underlying logic: Black presence was a problem to be managed, not a right to be protected. The mechanisms differed — fines, bonds, auctions, constitutional bans — but the ideology was consistent across state lines.</p>
+            <p style="margin-top:var(--space-3)">That ideology did not disappear when the laws were repealed. It transferred into housing policy, school assignment, employer practice, and eventually the zoning and development decisions that shape American cities today.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">Continue the Thread</div>
+      <h2 class="thread-bottom-cta__title">The laws were repealed. The cities they built weren't.</h2>
+      <p class="thread-bottom-cta__sub">When six million Black Americans migrated North, they walked into a legal architecture a century in the making. Follow the chain into redlining, the GI Bill, and the wealth gaps those systems built.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-great-migration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Next: The Great Migration &rarr;</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">Browse all threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT THREAD STRIP -->
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div class="next-thread-strip__label">Next Thread</div>
+      <a href="thread-great-migration.html" class="next-thread-strip__link">The Great Migration <span class="next-thread-strip__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="home.html" class="site-footer__wordmark">Chain</a>
+        <p class="site-footer__tagline">Connecting historical policy to present-day consequence.</p>
+      </div>
+      <nav class="site-footer__nav">
+        <a href="threads.html">Threads</a>
+        <a href="explore.html">Explore</a>
+        <a href="maps.html">Maps</a>
+        <a href="about.html">About</a>
+        <a href="teaching.html">Teaching</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
