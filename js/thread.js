@@ -370,6 +370,7 @@ document.querySelectorAll('.source-cite').forEach(cite => {
       {h:'thread-san-people.html',t:'The San People: The Oldest Continuous Culture on Earth',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'~100,000 BCE – Present'},
       {h:'thread-green-sahara.html',t:'The Green Sahara: When the Desert Was a Fertile Lake District',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'11,000 – 3,000 BCE'},
       {h:'thread-african-empires.html',t:'Before the Chain: 7 African Empires',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'1070 BCE – 1897 CE'},
+      {h:'thread-greek-philosophy-africa.html',t:"Before Greece: The African and Eastern Origins of Western Philosophy",d:'history-culture',e:1,el:'African Origins',c:'#3d1f00',y:'3000 BCE – Present'},
       {h:'thread-moors.html',t:'Al-Andalus: The Moorish Civilization',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'711 CE – Present'},
       {h:'thread-songhai.html',t:'The Songhai Empire',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'c. 800 CE – 1591'},
       {h:'thread-predynastic-egypt.html',t:'Pre-Dynastic Egypt: The African Roots of the World\'s First Nation-State',d:'history-culture',e:1,el:'African Origins',c:'#b8972a',y:'5000 – 3100 BCE'},

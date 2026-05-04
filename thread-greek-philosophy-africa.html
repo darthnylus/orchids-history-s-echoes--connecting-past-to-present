@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Before Greece: The African and Eastern Origins of Western Philosophy — Chain</title>
+  <meta name="description" content="Thales, Pythagoras, and Plato all traveled to Egypt and studied under African priests. The Pythagorean theorem was known in Babylon 1,000 years before Pythagoras. The 'Greek miracle' narrative erased its sources — and that erasure became a weapon." />
+  <meta property="og:title" content="Before Greece: The African and Eastern Origins of Western Philosophy" />
+  <meta property="og:description" content="The 'Greek miracle' didn't happen in a vacuum. Greece's foundational philosophers traveled to Egypt, Babylon, and Persia to learn. The erasure of those sources built a racial mythology that still shapes curriculum today." />
+  <meta property="og:type" content="article" />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}a{color:inherit;text-decoration:none}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/system.css"/>
+  <link rel="stylesheet" href="css/thread-page.css"/>
+  <style>
+    /* Papyrus amber — ancient manuscript gold */
+    :root{
+      --acc:#3d1f00;
+      --acc-lt:#7a3d00;    /* deep amber — WCAG AA on white */
+      --acc-on-dark:#f59e0b; /* gold — for use on dark sections */
+    }
+    [data-theme="dark"]{
+      --acc:#3d1f00;
+      --acc-lt:#f59e0b;
+      --acc-on-dark:#f59e0b;
+    }
+
+    /* HERO */
+    .thread-hero{background:#1a0e00;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
+    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 160% 80% at 15% 50%,rgba(120,70,0,.22) 0%,transparent 60%),
+                 radial-gradient(ellipse 80% 60% at 88% 72%,rgba(80,40,0,.28) 0%,transparent 55%)}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:1}
+    .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.28);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:#f59e0b;margin-bottom:var(--space-6)}
+    .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:#f59e0b}
+    .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.4rem,5.5vw,4.25rem);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.025em;margin-bottom:var(--space-6)}
+    .thread-hero__title em{color:#f59e0b;font-style:italic}
+    .thread-hero__subtitle{font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,.72);line-height:1.75;max-width:620px;margin-bottom:var(--space-10)}
+    .thread-hero__meta{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.10);padding-top:var(--space-6)}
+    .thread-meta-item{padding-right:var(--space-8);border-right:1px solid rgba(255,255,255,.10);margin-right:var(--space-8)}
+    .thread-meta-item:last-child{border-right:none;margin-right:0}
+    .thread-meta-item__label{font-size:10px;color:rgba(255,255,255,.40);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+    .thread-meta-item__value{font-size:var(--type-sm);font-weight:var(--weight-semibold);color:rgba(255,255,255,.92)}
+
+    /* PHILOSOPHER TRAVEL GRID — always dark */
+    .travel-section{background:#1a0e00;padding:var(--space-14) 0;border-top:1px solid rgba(245,158,11,.07)}
+    .travel-section__header{max-width:640px;margin-bottom:var(--space-10)}
+    .travel-section__eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,158,11,.60);margin-bottom:var(--space-3)}
+    .travel-section__heading{font-family:var(--font-editorial);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-4)}
+    .travel-section__sub{font-size:var(--type-sm);color:rgba(255,255,255,.55);line-height:1.75}
+    .travel-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden}
+    @media(min-width:640px){.travel-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){.travel-grid{grid-template-columns:repeat(3,1fr)}}
+    .travel-card{background:#1a0e00;padding:var(--space-6) var(--space-5);transition:background .15s}
+    .travel-card:hover{background:#241400}
+    .travel-card__name{font-size:var(--type-sm);font-weight:800;color:#f59e0b;margin-bottom:var(--space-1);letter-spacing:-.01em}
+    .travel-card__dates{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.30);margin-bottom:var(--space-3)}
+    .travel-card__destination{font-size:var(--type-xs);color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:var(--space-2)}
+    .travel-card__destination strong{color:rgba(245,158,11,.80);font-weight:600}
+    .travel-card__learned{font-size:10px;color:rgba(245,158,11,.50);margin-top:var(--space-3);font-style:italic;line-height:1.5;border-top:1px solid rgba(255,255,255,.07);padding-top:var(--space-2)}
+
+    /* ARGUMENT BAR */
+    .argument-bar{background:rgba(122,61,0,.06);border-top:1px solid rgba(122,61,0,.15);border-bottom:1px solid rgba(122,61,0,.15);padding:var(--space-6) 0}
+    [data-theme="dark"] .argument-bar{background:rgba(245,158,11,.04);border-color:rgba(245,158,11,.12)}
+    .argument-bar__inner{display:flex;align-items:flex-start;gap:var(--space-5)}
+    .argument-bar__icon{width:34px;height:34px;flex-shrink:0;background:rgba(122,61,0,.10);border-radius:50%;display:grid;place-items:center;margin-top:3px;color:var(--acc-lt)}
+    [data-theme="dark"] .argument-bar__icon{background:rgba(245,158,11,.10);color:#f59e0b}
+    .argument-bar__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-2)}
+    .argument-bar__text{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.7;max-width:820px}
+    .argument-bar__text strong{color:var(--color-text-primary)}
+
+    /* ENTRIES */
+    .thread-body{padding:var(--space-14) 0}
+    .thread-layout{display:grid;grid-template-columns:1fr;gap:var(--space-10);align-items:start}
+    @media(min-width:1024px){.thread-layout{grid-template-columns:1fr 300px;gap:var(--space-12)}}
+    .entry-list{display:flex;flex-direction:column;gap:0}
+    .entry-item{scroll-margin-top:80px;padding:var(--space-10) 0;border-bottom:1px solid var(--color-border)}
+    .entry-item:last-of-type{border-bottom:none}
+    .entry-item__header{display:grid;grid-template-columns:56px 1fr;gap:var(--space-5);align-items:start;margin-bottom:var(--space-6)}
+    .entry-item__num{width:56px;height:56px;border-radius:var(--radius-lg);display:grid;place-items:center;flex-shrink:0;font-family:var(--font-editorial);font-size:1.375rem;font-weight:900;background:rgba(122,61,0,.10);border:1px solid rgba(122,61,0,.25);color:var(--acc-lt)}
+    [data-theme="dark"] .entry-item__num{background:rgba(245,158,11,.10);border-color:rgba(245,158,11,.22)}
+    .entry-item__dates{font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-1)}
+    .entry-item__name{font-family:var(--font-editorial);font-size:clamp(1.375rem,3vw,1.875rem);font-weight:900;color:var(--color-text-primary);line-height:1.15;margin-bottom:var(--space-1)}
+    .entry-item__location{font-size:var(--type-sm);color:var(--color-text-tertiary)}
+    .entry-stats{display:flex;gap:var(--space-5);flex-wrap:wrap;padding:var(--space-4) var(--space-5);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--space-6)}
+    .entry-stat__num{font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--acc-lt);line-height:1;margin-bottom:2px}
+    .entry-stat__label{font-size:var(--type-xs);color:var(--color-text-tertiary)}
+    .entry-item__body{font-size:var(--type-md);color:var(--color-text-secondary);line-height:1.8}
+    .entry-item__body p{margin:0 0 var(--space-5)}
+    .entry-item__body p:last-child{margin-bottom:0}
+    .entry-item__body strong{color:var(--color-text-primary);font-weight:var(--weight-semibold)}
+    .entry-item__body em{color:var(--acc-lt);font-style:normal;font-weight:var(--weight-semibold)}
+    .pullquote{border-left:3px solid var(--acc-lt);padding:var(--space-4) var(--space-6);margin:var(--space-7) 0;background:rgba(122,61,0,.05);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
+    [data-theme="dark"] .pullquote{background:rgba(245,158,11,.04)}
+    .pullquote p{font-family:var(--font-editorial);font-size:1.15rem;color:var(--color-text-primary);line-height:1.55;margin:0 0 var(--space-2);font-style:italic}
+    .pullquote cite{font-size:var(--type-xs);color:var(--color-text-tertiary);font-style:normal}
+
+    /* CONCEPT ORIGIN TABLE */
+    .origin-table{width:100%;border-collapse:collapse;margin:var(--space-6) 0;font-size:var(--type-sm)}
+    .origin-table th{font-size:var(--type-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc-lt);padding:var(--space-3) var(--space-4);border-bottom:2px solid rgba(122,61,0,.20);text-align:left}
+    [data-theme="dark"] .origin-table th{border-color:rgba(245,158,11,.18)}
+    .origin-table td{padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--color-border);color:var(--color-text-secondary);vertical-align:top;line-height:1.55}
+    .origin-table td:first-child{font-weight:600;color:var(--color-text-primary)}
+    .origin-table td:nth-child(2){color:var(--acc-lt);font-weight:600}
+    .origin-table tr:last-child td{border-bottom:none}
+
+    /* SIDEBAR */
+    .thread-sidebar{display:flex;flex-direction:column;gap:var(--space-6)}
+    .sidebar-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .sidebar-card__title{font-size:var(--type-xs);font-weight:700;letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-4)}
+    .sidebar-card__body{font-size:var(--type-sm);color:var(--color-text-secondary);line-height:1.7}
+    .sidebar-card__body a{color:var(--acc-lt);font-weight:600}
+    .sidebar-card__body a:hover{text-decoration:underline}
+
+    /* CTA */
+    .thread-bottom-cta{background:#1a0e00;border-top:1px solid rgba(255,255,255,.06);padding:var(--space-14) 0}
+    .thread-bottom-cta__inner{max-width:640px}
+    .thread-bottom-cta__eyebrow{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f59e0b;margin-bottom:var(--space-3)}
+    .thread-bottom-cta__title{font-family:var(--font-editorial);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:var(--space-4)}
+    .thread-bottom-cta__sub{font-size:var(--type-md);color:rgba(255,255,255,.72);line-height:1.7;margin-bottom:var(--space-8)}
+    .thread-bottom-cta__btns{display:flex;gap:var(--space-4);flex-wrap:wrap}
+    .thread-bottom-cta__btn{display:inline-flex;align-items:center;padding:var(--space-3) var(--space-6);border-radius:999px;font-size:var(--type-sm);font-weight:700;text-decoration:none;transition:all .15s}
+    .thread-bottom-cta__btn--primary{background:#f59e0b;color:#1a0e00}
+    .thread-bottom-cta__btn--primary:hover{filter:brightness(1.08)}
+    .thread-bottom-cta__btn--secondary{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.18)}
+    .thread-bottom-cta__btn--secondary:hover{background:rgba(255,255,255,.08);color:#fff}
+  </style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark"><span class="site-nav__name">Chain</span><span class="site-nav__tagline">/ Black history &amp; present-day America</span></a>
+    <nav class="site-nav__links"><a href="explore.html" class="site-nav__link">Explore</a><a href="threads.html" class="site-nav__link" aria-current="true">Threads</a><a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a><a href="learn.html" class="site-nav__link">Learn</a><a href="teaching.html" class="site-nav__link">Teaching</a></nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">Before Greece: African Origins of Western Philosophy</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="thread-hero">
+  <div class="thread-hero__bg"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot"></span>
+        Intellectual History &amp; Erasure
+      </div>
+      <h1 class="thread-hero__title">Before Greece: <em>The African and Eastern Origins of Western Philosophy</em></h1>
+      <p class="thread-hero__subtitle">Thales traveled to Egypt to study geometry. Pythagoras spent over a decade under Egyptian priests. Plato studied there for years. The theorem bearing Pythagoras&rsquo; name was solved in Babylon more than a thousand years before he was born. The &ldquo;Greek miracle&rdquo; &mdash; the story that rational thought was invented by Europeans &mdash; was constructed in the 18th and 19th centuries and used to build a racial hierarchy. The sources knew better. They said so themselves.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Era</div>
+          <div class="thread-meta-item__value">3000 BCE &ndash; Present</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Source Civilizations</div>
+          <div class="thread-meta-item__value">Egypt &middot; Babylon &middot; Persia &middot; India</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Domain</div>
+          <div class="thread-meta-item__value">Philosophy &middot; History &middot; Education</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Erasure constructed</div>
+          <div class="thread-meta-item__value">18th &ndash; 19th century</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL GRID SECTION -->
+<section class="travel-section">
+  <div class="container">
+    <div class="travel-section__header">
+      <div class="travel-section__eyebrow">The Record of Study</div>
+      <h2 class="travel-section__heading">Where the Greek Philosophers Actually Went</h2>
+      <p class="travel-section__sub">These are not disputed claims. They appear in ancient sources — Herodotus, Diogenes Laërtius, Iamblichus, Strabo. The philosophers themselves acknowledged their debts. The erasure came later.</p>
+    </div>
+
+    <div class="travel-grid">
+      <div class="travel-card">
+        <div class="travel-card__name">Thales of Miletus</div>
+        <div class="travel-card__dates">c. 624 – 546 BCE</div>
+        <div class="travel-card__destination">Studied in <strong>Egypt</strong> — learned geometry from priests at Memphis and Heliopolis. Used <strong>Babylonian</strong> astronomical records (Saros cycles) to predict the solar eclipse of 585 BCE.</div>
+        <div class="travel-card__learned">His cosmology — water as the primordial substance — mirrors the Egyptian creation myth of Nun, the primordial waters predating all existence.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-card__name">Pythagoras</div>
+        <div class="travel-card__dates">c. 570 – 495 BCE</div>
+        <div class="travel-card__destination">Spent <strong>over a decade in Egypt</strong>, studying under priests at Diospolis (Thebes). Later studied in <strong>Babylon</strong>. Ancient biographers Iamblichus and Porphyry confirm both journeys.</div>
+        <div class="travel-card__learned">Soul transmigration (metempsychosis), number mysticism, and the mathematical cosmology attributed to Pythagoras all have documented Egyptian and Babylonian precedents.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-card__name">Plato</div>
+        <div class="travel-card__dates">c. 428 – 348 BCE</div>
+        <div class="travel-card__destination">Traveled to <strong>Egypt</strong>, reportedly studying for several years. His dialogue <em>Timaeus</em> features an Egyptian priest explicitly telling a Greek: "You Greeks are always children — you have no ancient knowledge."</div>
+        <div class="travel-card__learned">The mathematical order of the <em>Republic</em> mirrors Ma'at. The Allegory of the Cave parallels Egyptian initiation rites. The Timaeus creation account draws directly on Egyptian cosmology.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-card__name">Herodotus</div>
+        <div class="travel-card__dates">c. 484 – 425 BCE</div>
+        <div class="travel-card__destination">Traveled extensively in <strong>Egypt</strong>, interviewing priests and recording Egyptian traditions in his <em>Histories</em>.</div>
+        <div class="travel-card__learned">"Almost all the names of the gods came into Greece from Egypt." Documented Egyptian origins of Greek religious practices and credited Egypt as the source of geometric knowledge transmitted to Greece.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-card__name">Pyrrho of Elis</div>
+        <div class="travel-card__dates">c. 360 – 270 BCE</div>
+        <div class="travel-card__destination">Traveled with Alexander the Great's army to <strong>India</strong>, where he studied under gymnosophists — ascetic philosophers of the Jain and early Buddhist traditions.</div>
+        <div class="travel-card__learned">Pyrrhonian Skepticism — the suspension of judgment (epoché) as a path to inner peace (ataraxia) — closely mirrors Buddhist and Jain epistemological teachings he encountered in India.</div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-card__name">Plotinus</div>
+        <div class="travel-card__dates">c. 204 – 270 CE</div>
+        <div class="travel-card__destination">Joined a military expedition to <strong>Persia</strong> specifically to access Persian and Indian philosophy. Founded Neoplatonism — a tradition deeply shaped by the Hermetic wisdom texts attributed to Egyptian priests.</div>
+        <div class="travel-card__learned">The Neoplatonic "One" — the ineffable first principle beyond all description — has direct parallels in Egyptian and Indian metaphysical traditions predating Plotinus by centuries.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARGUMENT BAR -->
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The Chain</div>
+        <div class="argument-bar__text"><strong>The "Greek miracle" was constructed, not discovered.</strong> Egypt and Babylon produced the mathematics, cosmology, and moral frameworks that Greek philosophers traveled to learn. The Greeks synthesized and systematized — that is real and significant. What is false is the narrative that rational thought was a European invention. That narrative was built in the 18th–19th century alongside scientific racism. It has been used ever since to characterize African intellectual tradition as absent — justifying educational exclusion, curriculum erasure, and the premise that Black students are less capable of abstract thought. The documents that disprove it were available the whole time.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THREAD BODY -->
+<div class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <div class="entry-list">
+
+        <!-- ENTRY 1 -->
+        <article class="entry-item" id="entry-1">
+          <div class="entry-item__header">
+            <div class="entry-item__num">1</div>
+            <div>
+              <div class="entry-item__dates">c. 2000 – 600 BCE</div>
+              <h2 class="entry-item__name">Egypt and Babylon: The First Universities</h2>
+              <div class="entry-item__location">Memphis · Thebes · Heliopolis · Babylon · Nippur</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">1000+ yrs</div>
+              <div class="entry-stat__label">Before Pythagoras, Babylonians used his theorem</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">3000 BCE</div>
+              <div class="entry-stat__label">Egyptian mathematical papyri begin</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Plimpton 322</div>
+              <div class="entry-stat__label">Babylonian tablet with Pythagorean triples, c. 1900 BCE</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>Before the first Greek philosopher was born, Egypt had been producing systematic knowledge for two thousand years. The temple complexes at Memphis, Thebes, and Heliopolis were not just religious sites — they were institutions of learning where priests trained in mathematics, astronomy, medicine, architecture, and what we would now call philosophy. The Egyptian concept of <strong>Ma'at</strong> — cosmic order, truth, justice, balance — was a fully developed moral and metaphysical framework governing law, ethics, and the relationship between the human and the divine.</p>
+            <p>In Babylon, the record is equally clear. The clay tablet known as <strong>Plimpton 322</strong>, dated to approximately 1900 BCE, contains a sophisticated table of Pythagorean triples — integer solutions to the relationship a² + b² = c². Pythagoras was born around 570 BCE. The Babylonians were working with his theorem more than <em>1,300 years before he was born.</em> They also developed base-60 mathematics (the system still used for measuring time and angles), tracked planetary movements with remarkable precision, and maintained astronomical records spanning centuries — the same records Thales used to predict the 585 BCE solar eclipse.</p>
+            <p>This was not primitive knowledge. Egyptian and Babylonian mathematics included solutions to quadratic equations, calculations of the area of a circle using an approximation of pi, and the geometric knowledge required to build structures that remained the tallest human-made objects on Earth for nearly 4,000 years. The idea that these civilizations were intellectually less sophisticated than Greece is not a conclusion supported by the evidence. It is a conclusion that was imposed on the evidence.</p>
+
+            <div class="pullquote">
+              <p>"The Egyptians were the first to discover the solar year and to portion out its course into twelve parts… The Egyptians, I think, use the knowledge of these things more skillfully than the Greeks."</p>
+              <cite>— Herodotus, <em>The Histories</em>, Book II, c. 440 BCE</cite>
+            </div>
+          </div>
+        </article>
+
+        <!-- ENTRY 2 -->
+        <article class="entry-item" id="entry-2">
+          <div class="entry-item__header">
+            <div class="entry-item__num">2</div>
+            <div>
+              <div class="entry-item__dates">c. 600 – 400 BCE</div>
+              <h2 class="entry-item__name">Thales, Pythagoras, and the Egyptian Teachers</h2>
+              <div class="entry-item__location">Miletus · Egypt · Babylon</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">13+ yrs</div>
+              <div class="entry-stat__label">Pythagoras reportedly studied in Egypt</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">585 BCE</div>
+              <div class="entry-stat__label">Thales' eclipse prediction — using Babylonian data</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Iamblichus</div>
+              <div class="entry-stat__label">Ancient biographer who documented Pythagoras' travels</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>Thales of Miletus is typically described as "the first philosopher" — the moment Greek rational thought began. What this framing omits is where Thales got his knowledge. Ancient sources including Proclus and Diogenes Laërtius record that Thales traveled to Egypt and studied geometry with Egyptian priests. His claim that water is the fundamental substance underlying all of reality mirrors the Egyptian cosmological concept of <strong>Nun</strong> — the primordial waters that existed before creation, from which all existence emerged. This is not a coincidence of parallel development. It is what you would expect from a student who had spent time in Egyptian temples.</p>
+            <p>Pythagoras is the clearest case. The ancient biographers Iamblichus and Porphyry, both writing from earlier sources, describe Pythagoras spending <strong>more than a decade in Egypt</strong>, studying under priests at Diospolis (Thebes), after receiving letters of introduction from Polycrates of Samos and the Pharaoh Amasis II. He then traveled to Babylon, where he studied with Chaldean priests who were the masters of astronomical science in the ancient world. He returned to establish his school at Croton — teaching mathematics, the transmigration of souls, and the mystical properties of number, all of which have direct Egyptian and Babylonian precedents.</p>
+
+            <div class="pullquote">
+              <p>"Pythagoras went to Egypt and there became a student of the priests… after learning the Egyptian language, he also went up to the Chaldeans and magi."</p>
+              <cite>— Iamblichus, <em>Life of Pythagoras</em>, c. 300 CE, citing earlier sources</cite>
+            </div>
+
+            <p>The soul transmigration doctrine central to Pythagorean philosophy — the belief that souls are reborn into successive bodies — appears in Egyptian religious texts long before Pythagoras. The musical ratios Pythagoras is credited with discovering (the mathematical relationship between string length and pitch) were known in Egypt and Mesopotamia. The "Pythagorean" theorem: documented in Babylon 1,300 years prior. What Pythagoras contributed was systematization and the construction of a philosophical school around these ideas. That is a genuine contribution. It is not the invention of the ideas themselves.</p>
+          </div>
+        </article>
+
+        <!-- ENTRY 3 -->
+        <article class="entry-item" id="entry-3">
+          <div class="entry-item__header">
+            <div class="entry-item__num">3</div>
+            <div>
+              <div class="entry-item__dates">c. 390 – 360 BCE</div>
+              <h2 class="entry-item__name">Plato in Egypt: Ma'at and the Republic</h2>
+              <div class="entry-item__location">Athens · Egypt · Syracuse</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">Ma'at</div>
+              <div class="entry-stat__label">Egyptian principle of cosmic order — precursor to Plato's Forms</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Timaeus</div>
+              <div class="entry-stat__label">Plato's dialogue explicitly praising Egyptian wisdom over Greek</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Solon</div>
+              <div class="entry-stat__label">Plato's ancestor — also credited with studying in Egypt</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>Plato traveled to Egypt following the death of Socrates, reportedly staying for several years. The evidence for his Egyptian study is less direct than for Pythagoras but is consistent across multiple ancient sources, and more importantly, it is visible in the texts themselves. Plato's dialogue <em>Timaeus</em> — his account of the creation of the cosmos — is built around a framing device in which an Egyptian priest tells the Athenian lawgiver Solon: <em>"You Greeks are always children — you have no ancient knowledge, and Egypt preserves what the rest of the world has forgotten."</em> Plato put those words in an Egyptian priest's mouth in one of his most important philosophical texts. He was not presenting the priest as wrong.</p>
+            <p>The parallels between Platonic philosophy and Egyptian intellectual tradition are substantive. The concept of <strong>Ma'at</strong> — the Egyptian principle of cosmic order, truth, justice, and balance that governed both the physical universe and ethical life — predates Plato's Theory of Forms by over a thousand years. Where Plato posited an eternal realm of perfect, abstract Forms of which earthly objects are imperfect copies, Egyptian cosmology had already developed the idea of a perfect divine order (Ma'at) against which earthly existence was measured. The soul's journey toward reunion with that order in Egyptian belief closely prefigures the Platonic soul's return to the realm of Forms.</p>
+
+            <table class="origin-table">
+              <thead>
+                <tr>
+                  <th>Platonic Concept</th>
+                  <th>Egyptian/Eastern Precedent</th>
+                  <th>Approximate Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Theory of Forms — eternal perfect archetypes</td>
+                  <td>Ma'at — the perfect divine order underlying reality</td>
+                  <td>~2400 BCE onward</td>
+                </tr>
+                <tr>
+                  <td>The tripartite soul (reason / spirit / appetite)</td>
+                  <td>Egyptian soul components: Ka, Ba, Akh</td>
+                  <td>~3100 BCE onward</td>
+                </tr>
+                <tr>
+                  <td>The philosopher-king ruling by wisdom</td>
+                  <td>The Pharaoh as divine embodiment of Ma'at governing through cosmic order</td>
+                  <td>~3100 BCE onward</td>
+                </tr>
+                <tr>
+                  <td>Allegory of the Cave — shadows vs. true reality</td>
+                  <td>Egyptian initiation rites involving symbolic passage from darkness to light</td>
+                  <td>~2000 BCE onward</td>
+                </tr>
+                <tr>
+                  <td>Timaeus cosmology — the Demiurge shaping matter</td>
+                  <td>Ptah creating through thought and speech (Memphite Theology)</td>
+                  <td>~2300 BCE (Shabaka Stone)</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="pullquote">
+              <p>"In Egypt alone it is religiously ordained that philosophical discourse shall follow immediately after hymns to the gods."</p>
+              <cite>— Plato, <em>Laws</em>, Book II — Plato attributing philosophical rigor to Egyptian religious practice</cite>
+            </div>
+          </div>
+        </article>
+
+        <!-- ENTRY 4 -->
+        <article class="entry-item" id="entry-4">
+          <div class="entry-item__header">
+            <div class="entry-item__num">4</div>
+            <div>
+              <div class="entry-item__dates">4th century BCE – 3rd century CE</div>
+              <h2 class="entry-item__name">India, Persia, and the Full Circuit of Ancient Knowledge</h2>
+              <div class="entry-item__location">India · Persia · Alexandria</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">Pyrrho</div>
+              <div class="entry-stat__label">Traveled with Alexander to India, met Buddhist/Jain teachers</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Alexandria</div>
+              <div class="entry-stat__label">Founded 331 BCE — the meeting point of all ancient knowledge</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">Zoroaster</div>
+              <div class="entry-stat__label">Persian dualism influenced Greek and later Western thought</div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>The intellectual exchange was not limited to Egypt and Babylon. When Alexander the Great's campaigns pushed east in the 4th century BCE, Greek philosophers traveled with the army specifically to encounter other intellectual traditions. <strong>Pyrrho of Elis</strong>, founder of Greek Skepticism, accompanied the expedition to India and spent time with gymnosophists — ascetic philosophers from Jain and early Buddhist traditions whom the Greeks found extraordinary. Pyrrho's core philosophical position — that achieving inner peace (ataraxia) requires suspending all judgment about the world (epoché) — is structurally identical to teachings he would have encountered in those conversations. Greek Skepticism does not appear in this form before Pyrrho's Indian journey.</p>
+            <p>Persian Zoroastrianism contributed its dualism — the cosmic opposition of truth and light against falsehood and darkness — to Greek and later Western thought. Heraclitus, living in Ephesus under Persian rule, developed a philosophy centered on opposing forces governed by a universal logos, with fire as its symbol. The structural parallels to Zoroastrian cosmology, in a city under Persian administration, are not coincidental.</p>
+            <p>Alexandria, founded in 331 BCE, became the formal meeting point of all these traditions. The Library of Alexandria collected texts from Egypt, Babylon, Persia, India, and across the Greek world. It was Africa's city — on Egyptian soil, funded by Egyptian resources, sitting at the intellectual intersection of the ancient world. The scholarship produced there was not Greek scholarship that happened to be located in Africa. It was a genuinely pan-civilizational enterprise on African ground, drawing on millennia of African and Near Eastern intellectual tradition.</p>
+
+            <div class="pullquote">
+              <p>"Pyrrho… held that nothing is either beautiful or ugly, just or unjust… There is nothing actually good or bad, since for every argument establishing that something is good, there is an equal argument that it is bad. He got this from the naked wise men of India."</p>
+              <cite>— Diogenes Laërtius, <em>Lives of the Eminent Philosophers</em>, Book IX</cite>
+            </div>
+          </div>
+        </article>
+
+        <!-- ENTRY 5 -->
+        <article class="entry-item" id="entry-5">
+          <div class="entry-item__header">
+            <div class="entry-item__num">5</div>
+            <div>
+              <div class="entry-item__dates">1760s – Present</div>
+              <h2 class="entry-item__name">The Erasure: How the "Greek Miracle" Became a Race Story</h2>
+              <div class="entry-item__location">Germany · Britain · United States · American classrooms</div>
+            </div>
+          </div>
+          <div class="entry-stats">
+            <div>
+              <div class="entry-stat__num">1760s</div>
+              <div class="entry-stat__label">Winckelmann constructs "Greece as origin of civilization"</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">1830</div>
+              <div class="entry-stat__label">Hegel declares Africa has "no history"</div>
+            </div>
+            <div>
+              <div class="entry-stat__num">1954</div>
+              <div class="entry-stat__label">George G.M. James publishes <em>Stolen Legacy</em></div>
+            </div>
+          </div>
+          <div class="entry-item__body">
+            <p>The "Greek miracle" — the idea that rational thought, philosophy, and civilization were invented by ancient Greeks, appearing fully formed on the European continent with no significant debts to Africa or Asia — is not an ancient narrative. It was constructed in the 18th century, precisely as European colonialism reached its maximum expansion and as scientific racism was being formalized as an academic discipline.</p>
+            <p><strong>Johann Joachim Winckelmann</strong>, writing in the 1760s, established the framework that would dominate Western classical scholarship for two centuries: ancient Greece as the originary source of art, philosophy, and civilization, understood as racially and culturally superior to all that came before or elsewhere. Winckelmann's Greeks were explicitly racialized — he described them as "white" in ways that made their achievements racial achievements. This was the foundation on which "Western Civilization" as a curriculum category was built.</p>
+            <p>Georg Wilhelm Friedrich Hegel, in his 1830 <em>Lectures on the Philosophy of History</em>, declared that Africa "is no historical part of the world; it has no movement or development to exhibit." This from a philosopher writing in the same tradition as Plato — who had traveled to Africa to study, who wrote an Egyptian priest into his most important cosmological dialogue to praise Egyptian wisdom as superior to Greek. Hegel either had not read Plato carefully or had decided the evidence did not matter.</p>
+
+            <div class="pullquote">
+              <p>"The African is not a historical human being. He stands at the threshold of world history."</p>
+              <cite>— G.W.F. Hegel, <em>Lectures on the Philosophy of History</em>, 1830 — written 2,200 years after Egypt had produced the mathematical and philosophical foundations Hegel's own tradition rested on</cite>
+            </div>
+
+            <p>The response from African and African-American scholars was direct and documented. <strong>George G.M. James</strong>, in his 1954 <em>Stolen Legacy</em>, argued systematically that what is called "Greek philosophy" was in substantial part Egyptian philosophy, learned by Greek students in African temples and transmitted under Greek names that erased the source. James' work was contested, sometimes fairly — he overstated certain claims and some of his specific attributions exceed the available evidence. But his core thesis — that Greek philosophy had deep African precedents that were systematically erased by European scholarship — has been substantially confirmed by later academic work, including Martin Bernal's <em>Black Athena</em> (1987) and the broader field of Afrocentric classical studies.</p>
+            <p>The erasure has concrete present-day consequences. When Western philosophy curricula begin with Greece and treat African intellectual tradition as either nonexistent or as a primitive precursor, they are not making a neutral historical claim. They are reproducing a narrative constructed to justify racial hierarchy. Students — particularly Black students — are taught that the intellectual tradition they are entering was built without African contribution, by people who look nothing like them, and that African civilizations had nothing comparable to offer. The ancient texts say otherwise. The philosophers themselves said otherwise. The choice to teach the erasure instead of the record is not an absence of information. It is a decision.</p>
+          </div>
+        </article>
+
+      </div><!-- /entry-list -->
+
+      <!-- SIDEBAR -->
+      <aside class="thread-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Texts</div>
+          <div class="sidebar-card__body">
+            <p><strong style="color:var(--color-text-primary)">George G.M. James</strong> — <em>Stolen Legacy</em> (1954). The foundational argument that Greek philosophy derived substantially from Egyptian sources.</p>
+            <p style="margin-top:var(--space-4)"><strong style="color:var(--color-text-primary)">Martin Bernal</strong> — <em>Black Athena</em> (1987). Academic two-volume study documenting the African and Semitic roots of Greek civilization and the 18th-century construction of the "Aryan model."</p>
+            <p style="margin-top:var(--space-4)"><strong style="color:var(--color-text-primary)">Leon Litwack</strong> — <em>North of Slavery</em>. Context on how racial narratives shaped academic disciplines across the 19th century.</p>
+            <p style="margin-top:var(--space-4)"><strong style="color:var(--color-text-primary)">Herodotus</strong> — <em>The Histories</em>, Book II. The primary ancient source most directly attributing Greek mathematical and religious knowledge to Egyptian origins.</p>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Related Threads</div>
+          <div class="sidebar-card__body">
+            <p><a href="thread-african-empires.html">African Empires</a> — The civilizations that were producing knowledge while Europe was in the early medieval period.</p>
+            <p style="margin-top:var(--space-4)"><a href="thread-minstrelsy.html">Minstrelsy</a> — How the intellectual erasure connects to the broader project of denying Black humanity and capacity.</p>
+            <p style="margin-top:var(--space-4)"><a href="thread-tuskegee-airmen.html">Hidden Figures &amp; Tuskegee Airmen</a> — The same erasure pattern applied to 20th-century Black intellectual and technical achievement.</p>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">The Ancient Testimony</div>
+          <div class="sidebar-card__body">
+            <p>The Greeks themselves credited their sources. Herodotus on Egypt. Iamblichus on Pythagoras. Plato in the <em>Timaeus</em>. Diogenes Laërtius on Pyrrho and India.</p>
+            <p style="margin-top:var(--space-3)">The erasure was not produced by reading the ancient sources carefully. It was produced by <em>not</em> reading them — or by reading them and deciding the record didn't fit the narrative being built.</p>
+            <p style="margin-top:var(--space-3)">The sources have always been there. The choice to omit them from curricula and textbooks is a choice made in the present tense.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">Continue the Thread</div>
+      <h2 class="thread-bottom-cta__title">The philosophers traveled to Africa to learn. Their students erased the trip.</h2>
+      <p class="thread-bottom-cta__sub">The "Greek miracle" was a 19th-century construction built to justify racial hierarchy. The African empires that produced the knowledge it erased were among the most sophisticated civilizations in the ancient world. Follow the chain.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-african-empires.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Next: African Empires &rarr;</a>
+        <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">Browse all threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT THREAD STRIP -->
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div class="next-thread-strip__label">Next Thread</div>
+      <a href="thread-african-empires.html" class="next-thread-strip__link">African Empires <span class="next-thread-strip__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="home.html" class="site-footer__wordmark">Chain</a>
+        <p class="site-footer__tagline">Connecting historical policy to present-day consequence.</p>
+      </div>
+      <nav class="site-footer__nav">
+        <a href="threads.html">Threads</a>
+        <a href="explore.html">Explore</a>
+        <a href="maps.html">Maps</a>
+        <a href="about.html">About</a>
+        <a href="teaching.html">Teaching</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
