@@ -500,48 +500,116 @@
 
     /* Newsletter CTA */
     .newsletter-cta {
-      background: linear-gradient(135deg, var(--amber-700), var(--sienna-600));
+      position: relative;
+      background: linear-gradient(150deg, #5c2a0e 0%, #7a3520 40%, #4a1a08 100%);
       border-radius: var(--radius-xl);
-      padding: var(--space-7);
+      padding: var(--space-7) var(--space-7) var(--space-6);
       color: #fff;
       margin-bottom: var(--space-6);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 4px 24px rgba(92,42,14,.35), 0 1px 4px rgba(0,0,0,.2);
+    }
+    /* Decorative warm orb */
+    .newsletter-cta::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(245,147,50,.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Subtle grain texture overlay */
+    .newsletter-cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      border-radius: inherit;
+    }
+    .newsletter-cta__eyebrow {
+      font-size: 0.65rem;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber-300);
+      margin-bottom: var(--space-2);
+      position: relative;
+      z-index: 1;
     }
     .newsletter-cta__title {
       font-family: var(--font-editorial);
-      font-size: 1.125rem;
+      font-size: 1.375rem;
       font-weight: var(--weight-bold);
       margin-bottom: var(--space-3);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
     }
     .newsletter-cta__body {
       font-size: var(--type-sm);
-      color: rgba(255,255,255,.75);
-      line-height: 1.6;
+      color: rgba(255,255,255,.72);
+      line-height: 1.65;
       margin-bottom: var(--space-5);
+      position: relative;
+      z-index: 1;
     }
-    .newsletter-cta__form { display: flex; gap: var(--space-2); flex-direction: column; }
+    .newsletter-cta__form {
+      display: flex;
+      gap: var(--space-2);
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
     .newsletter-cta__input {
       padding: var(--space-3) var(--space-4);
       border-radius: var(--radius-md);
-      border: none;
+      border: 1px solid rgba(255,255,255,.18);
       font-size: var(--type-sm);
-      background: rgba(255,255,255,.15);
+      background: rgba(0,0,0,.2);
       color: #fff;
       outline: none;
-      transition: background var(--duration-fast);
+      transition: border-color var(--duration-fast), background var(--duration-fast), box-shadow var(--duration-fast);
+      font-family: var(--font-sans);
     }
-    .newsletter-cta__input::placeholder { color: rgba(255,255,255,.5); }
-    .newsletter-cta__input:focus { background: rgba(255,255,255,.25); }
+    .newsletter-cta__input::placeholder { color: rgba(255,255,255,.4); }
+    .newsletter-cta__input:focus {
+      border-color: rgba(245,147,50,.6);
+      background: rgba(0,0,0,.3);
+      box-shadow: 0 0 0 3px rgba(245,147,50,.15);
+    }
     .newsletter-cta__btn {
       padding: var(--space-3) var(--space-5);
       background: #fff;
-      color: var(--amber-700);
+      color: #5c2a0e;
       border-radius: var(--radius-md);
       font-size: var(--type-sm);
       font-weight: var(--weight-bold);
-      transition: background var(--duration-fast);
+      letter-spacing: 0.01em;
+      border: none;
+      cursor: pointer;
+      transition: background var(--duration-fast), transform 80ms ease, box-shadow var(--duration-fast);
       text-align: center;
+      font-family: var(--font-sans);
     }
-    .newsletter-cta__btn:hover { background: var(--amber-50); }
+    .newsletter-cta__btn:hover {
+      background: var(--amber-50);
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+    }
+    .newsletter-cta__btn:active { transform: scale(.98); }
+    .newsletter-cta__footer {
+      margin-top: var(--space-3);
+      font-size: 0.7rem;
+      color: rgba(255,255,255,.38);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.02em;
+    }
 
     /* Dark mode */
     [data-theme="dark"] .today-lead,
@@ -912,12 +980,14 @@
 
         <!-- Newsletter -->
         <div class="newsletter-cta reveal">
-          <h2 class="newsletter-cta__title">This date. Every day.</h2>
-          <p class="newsletter-cta__body">Get one historical event in your inbox each morning — with its causal context and present-day consequence.</p>
+          <p class="newsletter-cta__eyebrow">Daily Newsletter</p>
+          <h2 class="newsletter-cta__title">This date.<br>Every day.</h2>
+          <p class="newsletter-cta__body">One historical event in your inbox each morning — with its causal context and present-day consequence.</p>
           <div class="newsletter-cta__form">
-            <input type="email" class="newsletter-cta__input" placeholder="your@email.com" aria-label="Email address" />
+            <input type="email" class="newsletter-cta__input" placeholder="your@email.com" aria-label="Email address" autocomplete="email" />
             <button class="newsletter-cta__btn" type="button">Subscribe — it's free</button>
           </div>
+          <p class="newsletter-cta__footer">Free &middot; No ads &middot; Unsubscribe any time</p>
         </div>
 
       </aside>
