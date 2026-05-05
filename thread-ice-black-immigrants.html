@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICE and Black Immigrants: The Deportation Machine and Who It Targets — Chain</title>
+  <meta name="description" content="Black immigrants make up 7% of the undocumented population but 20% of those deported on criminal grounds. This is how the immigration enforcement system was built to target Black people — and why it looks exactly like what came before it." />
+  <meta property="og:title" content="ICE and Black Immigrants: The Deportation Machine and Who It Targets" />
+  <meta property="og:description" content="Black immigrants make up 7% of the undocumented population but 20% of those deported on criminal grounds. From Marcus Garvey to the Del Rio bridge, this is the chain." />
+  <meta property="og:type" content="article" />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    :root { --acc: #0f4c3a; --acc-lt: #2a9d6e; --acc-warm: #c4a21a; }
+    [data-theme="dark"] { --acc: #1a6b52; --acc-lt: #3dc98a; --acc-warm: #e0c030; }
+
+    .thread-hero { background: #030d09; padding: var(--space-16) 0 var(--space-14); position: relative; overflow: hidden; }
+    .thread-hero__bg {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 55% at 10% 45%, rgba(15,76,58,.6) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 60% at 90% 80%, rgba(196,162,26,.12) 0%, transparent 60%);
+    }
+    .thread-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to bottom,transparent,var(--_bg)); pointer-events:none; z-index:1; }
+    .thread-hero__inner { position:relative; max-width:820px; z-index:2; }
+    .thread-hero__kicker { display:inline-flex; align-items:center; gap:var(--space-2); background:rgba(15,76,58,.2); border:1px solid rgba(42,157,110,.38); border-radius:999px; padding:var(--space-1) var(--space-4); font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-6); }
+    .thread-hero__kicker-dot { width:6px; height:6px; border-radius:50%; background:var(--acc-lt); }
+    .thread-hero__title { font-family:var(--font-editorial); font-size:clamp(2.25rem,5.5vw,4.25rem); font-weight:900; color:#fff; line-height:1.08; letter-spacing:-0.02em; margin-bottom:var(--space-6); }
+    .thread-hero__title em { color:var(--acc-lt); font-style:normal; }
+    .thread-hero__subtitle { font-size:clamp(1rem,2vw,1.2rem); color:rgba(255,255,255,.78); line-height:1.72; max-width:680px; margin-bottom:var(--space-8); }
+    .thread-hero__meta { display:flex; gap:var(--space-6); flex-wrap:wrap; }
+    .thread-meta-item__label { font-size:var(--type-xs); color:rgba(255,255,255,.48); text-transform:uppercase; letter-spacing:var(--tracking-wide); margin-bottom:2px; }
+    .thread-meta-item__value { font-size:var(--type-sm); font-weight:var(--weight-semibold); color:rgba(255,255,255,.9); }
+
+    .argument-bar { background:rgba(15,76,58,.05); border-top:1px solid rgba(15,76,58,.2); border-bottom:1px solid rgba(15,76,58,.2); padding:var(--space-5) 0; }
+    [data-theme="dark"] .argument-bar { background:rgba(42,157,110,.05); border-color:rgba(42,157,110,.18); }
+    .argument-bar__inner { display:flex; align-items:flex-start; gap:var(--space-5); }
+    .argument-bar__icon { width:36px; height:36px; flex-shrink:0; background:rgba(15,76,58,.12); border-radius:50%; display:grid; place-items:center; margin-top:2px; color:var(--acc-lt); }
+    .argument-bar__label { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-1); }
+    .argument-bar__text { font-size:var(--type-md); color:var(--color-text-secondary); line-height:1.65; max-width:860px; }
+    .argument-bar__text strong { color:var(--color-text-primary); }
+
+    .thread-body { padding:var(--space-14) 0; }
+    .thread-layout { display:grid; grid-template-columns:1fr; gap:var(--space-10); align-items:start; }
+    @media(min-width:1024px){ .thread-layout { grid-template-columns:1fr 300px; gap:var(--space-12); } }
+
+    .era-divider { display:flex; align-items:center; gap:var(--space-4); margin:var(--space-10) 0 var(--space-4); }
+    .era-divider__line { flex:1; height:1px; background:var(--color-border); }
+    .era-divider__badge { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); background:rgba(15,76,58,.1); border:1px solid rgba(42,157,110,.25); border-radius:999px; padding:3px var(--space-4); white-space:nowrap; }
+    [data-theme="dark"] .era-divider__badge { background:rgba(42,157,110,.1); }
+
+    .entry-list { display:flex; flex-direction:column; gap:0; }
+    .entry-item { scroll-margin-top:80px; padding:var(--space-10) 0; border-bottom:1px solid var(--color-border); }
+    .entry-item:last-of-type { border-bottom:none; }
+    .entry-item__header { display:grid; grid-template-columns:56px 1fr; gap:var(--space-5); align-items:start; margin-bottom:var(--space-6); }
+    .entry-item__num { width:56px; height:56px; border-radius:var(--radius-lg); display:grid; place-items:center; flex-shrink:0; font-family:var(--font-editorial); font-size:1.375rem; font-weight:900; background:rgba(15,76,58,.1); border:1px solid rgba(42,157,110,.25); color:var(--acc-lt); }
+    [data-theme="dark"] .entry-item__num { background:rgba(42,157,110,.08); }
+    .entry-item__dates { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-1); }
+    .entry-item__name { font-family:var(--font-editorial); font-size:clamp(1.25rem,2.5vw,1.75rem); font-weight:900; color:var(--color-text-primary); line-height:1.18; margin-bottom:var(--space-1); }
+    .entry-item__location { font-size:var(--type-sm); color:var(--color-text-tertiary); }
+    .entry-stats { display:flex; gap:var(--space-5); flex-wrap:wrap; padding:var(--space-4) var(--space-5); background:var(--color-surface); border-radius:var(--radius-lg); border:1px solid var(--color-border); margin-bottom:var(--space-6); }
+    .entry-stat__num { font-family:var(--font-editorial); font-size:1.25rem; font-weight:var(--weight-bold); color:var(--acc-lt); line-height:1; margin-bottom:2px; }
+    .entry-stat__label { font-size:var(--type-xs); color:var(--color-text-tertiary); }
+    .entry-item__body { font-size:var(--type-md); color:var(--color-text-secondary); line-height:1.82; }
+    .entry-item__body p { margin:0 0 var(--space-5); }
+    .entry-item__body p:last-child { margin-bottom:0; }
+    .entry-item__body strong { color:var(--color-text-primary); font-weight:var(--weight-semibold); }
+    .entry-item__body em { color:var(--acc-lt); font-style:normal; font-weight:var(--weight-semibold); }
+
+    .pullquote { border-left:3px solid var(--acc-lt); padding:var(--space-4) var(--space-6); margin:var(--space-7) 0; background:rgba(15,76,58,.04); border-radius:0 var(--radius-lg) var(--radius-lg) 0; }
+    [data-theme="dark"] .pullquote { background:rgba(42,157,110,.05); }
+    .pullquote p { font-family:var(--font-editorial); font-size:1.1rem; color:var(--color-text-primary); line-height:1.58; margin:0 0 var(--space-2); font-style:italic; }
+    .pullquote cite { font-size:var(--type-xs); color:var(--color-text-tertiary); font-style:normal; }
+
+    .chain-callout { background:rgba(196,162,26,.07); border:1px solid rgba(196,162,26,.22); border-radius:var(--radius-lg); padding:var(--space-5) var(--space-6); margin:var(--space-6) 0; }
+    [data-theme="dark"] .chain-callout { background:rgba(224,192,48,.06); border-color:rgba(224,192,48,.2); }
+    .chain-callout__label { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-warm); margin-bottom:var(--space-3); }
+    .chain-callout__text { font-size:var(--type-sm); color:var(--color-text-secondary); line-height:1.7; }
+    .chain-callout__text strong { color:var(--color-text-primary); }
+
+    /* Data comparison box */
+    .data-box { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); overflow:hidden; margin:var(--space-6) 0; }
+    .data-box__title { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); padding:var(--space-4) var(--space-5); border-bottom:1px solid var(--color-border); background:rgba(15,76,58,.05); }
+    [data-theme="dark"] .data-box__title { background:rgba(42,157,110,.06); }
+    .data-row { display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:1px solid var(--color-border); }
+    .data-row:last-child { border-bottom:none; }
+    .data-row--header .data-cell { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:var(--color-text-tertiary); background:rgba(0,0,0,.03); }
+    [data-theme="dark"] .data-row--header .data-cell { background:rgba(255,255,255,.03); }
+    .data-cell { padding:var(--space-3) var(--space-5); font-size:var(--type-sm); color:var(--color-text-secondary); border-right:1px solid var(--color-border); line-height:1.5; }
+    .data-cell:last-child { border-right:none; }
+    .data-cell strong { color:var(--color-text-primary); }
+    .data-cell--highlight { color:var(--acc-lt); font-weight:var(--weight-semibold); }
+
+    .thread-sidebar { display:flex; flex-direction:column; gap:var(--space-6); }
+    .sidebar-card { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-xl); padding:var(--space-6); }
+    .sidebar-card__title { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-4); }
+    .sidebar-card__body { font-size:var(--type-sm); color:var(--color-text-secondary); line-height:1.72; }
+    .sidebar-card__body strong { color:var(--color-text-primary); }
+    .sidebar-link-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:var(--space-2); }
+    .sidebar-link-list li a { font-size:var(--type-sm); color:var(--acc-lt); text-decoration:underline; text-underline-offset:2px; }
+
+    .thread-bottom-cta { background:#030d09; border-top:1px solid rgba(255,255,255,.06); padding:var(--space-14) 0; }
+    .thread-bottom-cta__inner { max-width:680px; }
+    .thread-bottom-cta__eyebrow { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-3); }
+    .thread-bottom-cta__title { font-family:var(--font-editorial); font-size:clamp(1.75rem,4vw,2.6rem); font-weight:900; color:#fff; line-height:1.15; margin-bottom:var(--space-4); }
+    .thread-bottom-cta__sub { font-size:var(--type-md); color:rgba(255,255,255,.58); line-height:1.7; margin-bottom:var(--space-8); }
+    .thread-bottom-cta__btns { display:flex; gap:var(--space-4); flex-wrap:wrap; }
+    .thread-bottom-cta__btn { display:inline-flex; align-items:center; padding:var(--space-3) var(--space-6); border-radius:999px; font-size:var(--type-sm); font-weight:var(--weight-bold); text-decoration:none; transition:all var(--duration-fast); }
+    .thread-bottom-cta__btn--primary { background:var(--acc-lt); color:#030d09; }
+    .thread-bottom-cta__btn--primary:hover { filter:brightness(1.12); }
+    .thread-bottom-cta__btn--secondary { background:transparent; color:rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.18); }
+    .thread-bottom-cta__btn--secondary:hover { background:rgba(255,255,255,.07); color:#fff; }
+
+    .next-thread-strip { background:var(--color-surface); border-top:1px solid var(--color-border); padding:var(--space-8) 0; }
+    .next-thread-strip__inner { display:flex; align-items:center; justify-content:space-between; gap:var(--space-6); flex-wrap:wrap; }
+    .next-thread-strip__label { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--color-text-tertiary); margin-bottom:var(--space-2); }
+    .next-thread-strip__title { font-family:var(--font-editorial); font-size:clamp(1.1rem,2vw,1.4rem); font-weight:800; color:var(--color-text-primary); line-height:1.2; max-width:520px; }
+    .next-thread-strip__btn { flex-shrink:0; display:inline-flex; align-items:center; gap:var(--space-2); padding:var(--space-3) var(--space-6); background:var(--acc-lt); color:#030d09; border-radius:999px; font-size:var(--type-sm); font-weight:700; text-decoration:none; transition:filter .15s; white-space:nowrap; }
+    .next-thread-strip__btn:hover { filter:brightness(1.1); }
+  </style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>Present-Day Chain:</strong> ICE · <a href="thread-voting-rights.html" style="color:var(--amber-300,#fcd34d)">Voting Rights</a> · <a href="thread-mass-incarceration.html" style="color:var(--amber-300,#fcd34d)">Mass Incarceration</a></p>
+    <nav class="utility-bar__links">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+      <a href="admin.html" class="utility-bar__link" style="color:var(--amber-300,#fcd34d);font-weight:700;">✦ Generator</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link" aria-current="true">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+    </nav>
+    <div class="site-nav__actions">
+      <a href="today.html" class="today-pill"><span class="today-pill__dot"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep">/</span>
+      <span class="thread-breadcrumb__current">ICE and Black Immigrants: The Deportation Machine</span>
+    </div>
+  </div>
+</nav>
+
+<div class="context-ribbon context-ribbon--thread">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">Immigration &amp; State Power · 1927–Present</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="thread-voting-rights.html" class="context-ribbon__link">Voting Rights →</a>
+    </nav>
+  </div>
+</div>
+
+<section class="thread-hero">
+  <div class="thread-hero__bg"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>Immigration &amp; State Power · 1927 – Present</div>
+      <h1 class="thread-hero__title">ICE and<br /><em>Black Immigrants:</em><br />The Deportation Machine</h1>
+      <p class="thread-hero__subtitle">Black immigrants are 7% of the undocumented population in the United States. They make up 20% of those facing deportation on criminal grounds. This is not a coincidence — it is the intersection of two systems that have always worked together: immigration enforcement and the criminalization of Blackness.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Time span</div><div class="thread-meta-item__value">1927 – Present</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Central theme</div><div class="thread-meta-item__value">Anti-Blackness built into immigration enforcement</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Key events</div><div class="thread-meta-item__value">Garvey deportation · IIRIRA 1996 · Del Rio 2021</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The Central Argument</div>
+        <p class="argument-bar__text">The United States immigration enforcement system does not treat Black immigrants the same way it treats other immigrants. Black immigrants are detained at higher rates, deported at higher rates relative to their population, and held in worse conditions — often in private facilities in the Deep South staffed by the same culture that produced mass incarceration. This is not bureaucratic accident. Immigration law has always had a racial architecture. The "crimmigration" pipeline — which funnels anyone with a criminal record into deportation proceedings — interacts with the over-policing of Black communities to produce a system where being Black in America means a traffic stop can end in deportation. <strong>This thread is about that pipeline and the people it has moved through it since 1927.</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main">
+        <div class="entry-list">
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">The Precedent · 1927 – 1953</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e1">
+            <div class="entry-item__header">
+              <div class="entry-item__num">1</div>
+              <div>
+                <div class="entry-item__dates">1927 · 1953</div>
+                <h2 class="entry-item__name">Deportation as a Political Weapon: Garvey and James</h2>
+                <div class="entry-item__location">New York City → Jamaica · New York City → Trinidad</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The use of immigration law against Black political figures did not begin with ICE. <strong>Marcus Garvey</strong> — founder of the Universal Negro Improvement Association, the largest Black mass movement in American history with chapters in 40 countries — was convicted of mail fraud in 1923 in a prosecution widely believed to have been orchestrated by J. Edgar Hoover's Bureau of Investigation, which had been surveilling Garvey since 1919. After serving two years at Atlanta Federal Penitentiary, President Coolidge commuted his sentence in 1927 on the condition of immediate deportation to Jamaica. Garvey was a Jamaican citizen; the deportation was technically legal. It was also the explicit goal: remove the most effective Black organizer in America through whatever legal mechanism was available.</p>
+              <p><strong>C.L.R. James</strong> — Trinidadian Marxist historian, author of <em>The Black Jacobins</em> (1938), the definitive history of the Haitian Revolution — was detained on Ellis Island in 1952 and deported to England in 1953 under the McCarran-Walter Act, which gave the government sweeping authority to deport noncitizens for political beliefs. James had lived in the United States for 15 years, had written some of the most important works in the Black radical tradition, and was a permanent legal resident. The mechanism was different from Garvey's — no criminal conviction was required. The result was the same: a Black intellectual whose ideas were considered dangerous was removed from the country.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Both deportations used the law as it was written — no laws were broken by the government. This is the defining feature of the immigration enforcement system as it applies to Black people: it does not need to be used unlawfully to produce racially targeted outcomes. <strong>The architecture is the weapon.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">The Legal Architecture · 1952 – 1996</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e2">
+            <div class="entry-item__header">
+              <div class="entry-item__num">2</div>
+              <div>
+                <div class="entry-item__dates">1952 – 1965</div>
+                <h2 class="entry-item__name">The McCarran-Walter Act: Immigration Law Designed to Exclude the Black Diaspora</h2>
+                <div class="entry-item__location">United States Congress</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The <strong>Immigration and Nationality Act of 1952</strong> (McCarran-Walter Act) retained the national-origins quota system established in 1924 — a system explicitly designed to limit immigration from Southern and Eastern Europe and virtually eliminate it from Asia and Africa. For the British Caribbean, which had no separate quota as British subjects, it created a new mechanism: a <strong>"colonial quota"</strong> of 100 immigrants per year per colony, regardless of the larger British quota. In practice, this meant that a Jamaican or Trinidadian immigrant had to wait in a queue of 100 per year, while a British-born white immigrant could enter under the full British quota. The racial architecture was not subtle.</p>
+              <p>The <strong>Immigration Act of 1965</strong> (Hart-Celler Act), passed the same year as the Voting Rights Act, abolished national-origins quotas and opened the door to Caribbean, African, and Asian immigration for the first time. The Black immigrant population in the United States grew from roughly 125,000 in 1960 to over 3.5 million by 2000. Caribbean nations — Jamaica, Haiti, Trinidad, Barbados, Guyana — became major source countries. Nigerian and Ghanaian immigration grew substantially through the 1980s and 1990s. The door had been opened. The enforcement apparatus that would target those who came through it was being built simultaneously.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The 1965 Act is often presented as an unambiguous civil rights victory. Its sponsors — including Senator Ted Kennedy — predicted it would not substantially change the ethnic composition of the United States. They were wrong. The Black immigrant population it produced became the target population for the enforcement system built in 1996.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry-item" id="e3">
+            <div class="entry-item__header">
+              <div class="entry-item__num">3</div>
+              <div>
+                <div class="entry-item__dates">1996</div>
+                <h2 class="entry-item__name">IIRIRA: The Law That Built the Deportation Pipeline — Passed the Same Year as the Crime Bill</h2>
+                <div class="entry-item__location">United States Congress</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The <strong>Illegal Immigration Reform and Immigrant Responsibility Act of 1996</strong> (IIRIRA) — signed by President Clinton the same year as the welfare reform bill, two years after the 1994 Crime Bill — created the modern deportation machinery. Its key provisions: it <strong>massively expanded the list of crimes that triggered mandatory deportation</strong>, including crimes for which sentences had already been served; it made deportation orders nearly unreviewable by courts; it created the <strong>"aggravated felony"</strong> category, which in immigration law means something very different from its plain English meaning — it includes minor offenses like shoplifting, turnstile jumping, and misdemeanors that carried sentences of one year or more; and it <strong>eliminated most discretionary relief</strong> that immigration judges had previously used to consider family ties, length of residence, and other equities before ordering deportation.</p>
+              <p>The 1996 law was explicitly punitive in its design — it was passed in the context of the same "tough on crime" politics that produced mass incarceration. Its interaction with the criminal justice system was not incidental: <strong>anyone convicted of an "aggravated felony" under immigration law was subject to mandatory, automatic deportation</strong> — no judicial review, no consideration of circumstances. Because Black immigrants, like Black citizens, are over-policed and over-prosecuted, the law's nominal race-neutrality produced racially skewed outcomes from the day it took effect.</p>
+              <div class="entry-stats">
+                <div><div class="entry-stat__num">1996</div><div class="entry-stat__label">IIRIRA passed — same year as welfare reform, 2 years after Crime Bill</div></div>
+                <div><div class="entry-stat__num">Mandatory</div><div class="entry-stat__label">Deportation for "aggravated felonies" — no judicial discretion</div></div>
+                <div><div class="entry-stat__num">Retroactive</div><div class="entry-stat__label">Applied to convictions already served — sentences already completed</div></div>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">IIRIRA was passed with bipartisan support and signed by a Democratic president. It has never been substantially revised. Every deportation in the United States since 1996 — under Clinton, Bush, Obama, Trump, and Biden — has operated under its framework. <strong>Obama deported more people in his first term than any previous president, including more Haitians than any previous administration.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">ICE Created · 2003 – Present</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e4">
+            <div class="entry-item__header">
+              <div class="entry-item__num">4</div>
+              <div>
+                <div class="entry-item__dates">2003 – Present</div>
+                <h2 class="entry-item__name">ICE Is Created: A New Agency Built on the 1996 Framework</h2>
+                <div class="entry-item__location">Department of Homeland Security, United States</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>Immigration and Customs Enforcement (ICE)</strong> was created in March 2003 as part of the Department of Homeland Security, following the post-9/11 reorganization of the federal government. ICE absorbed the enforcement functions of the Immigration and Naturalization Service (INS). Its framing was counterterrorism — the new agency was positioned as a national security apparatus responding to the threat exposed by the September 11 attacks. In practice, the vast majority of its enforcement activity had nothing to do with terrorism: it was the deportation of people who had violated civil immigration law or had criminal convictions under the IIRIRA framework.</p>
+              <p>ICE's <strong>287(g) program</strong> — which deputizes local police to perform immigration enforcement functions — became one of the primary pipelines for Black immigrant deportation. In jurisdictions with 287(g) agreements, any encounter with local police — a traffic stop, a domestic dispute call, a minor arrest — could result in immigration detainer. Black immigrants in these jurisdictions were already more likely than white immigrants to have police contact, for the same reasons Black citizens are: over-policing of Black neighborhoods, racial profiling in traffic enforcement, higher rates of arrest for equivalent conduct. <strong>287(g) took that disparity and attached deportation to it.</strong></p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Studies by the Black Alliance for Just Immigration (BAJI) and the Immigrant Defense Project have consistently found that Black immigrants — particularly those from Jamaica, Haiti, Nigeria, and Ghana — are overrepresented in immigration detention and deportation orders relative to their share of the undocumented population. <strong>In 2020, Black immigrants were 7.2% of the undocumented population and 20.3% of people in immigration detention facing deportation on criminal grounds.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry-item" id="e5">
+            <div class="entry-item__header">
+              <div class="entry-item__num">5</div>
+              <div>
+                <div class="entry-item__dates">2003 – Present</div>
+                <h2 class="entry-item__name">The Crimmigration Pipeline: How a Traffic Stop Becomes a Deportation</h2>
+                <div class="entry-item__location">United States</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The term <strong>"crimmigration"</strong> — coined by legal scholar Juliet Stumpf in 2006 — describes the merger of the criminal justice system and immigration enforcement into a single pipeline. Under the IIRIRA/ICE framework, the pipeline works like this: a Black immigrant — lawful permanent resident, visa holder, or undocumented — has any contact with the criminal justice system. For Black immigrants, that contact is statistically more likely than for white immigrants, because of racial profiling in policing. The contact results in a conviction, even a minor one, even one for which no jail time is served. That conviction triggers an immigration detainer. ICE picks the person up — sometimes from the courthouse after their case is resolved, a practice civil rights organizations have called a due process violation. They enter immigration detention. The IIRIRA framework largely strips the immigration judge of discretion. Deportation follows.</p>
+              <p>The pipeline has swallowed people who have been legal residents for decades, whose children are American citizens, who have no connection to their country of birth, who served in the United States military. <strong>Alejandro Valenzuela</strong>, a Jamaican-born Green Card holder who had lived in the U.S. for 30 years and whose entire family was American, was deported in 2017 for a marijuana conviction from 1996 — a conviction for which he had already served his sentence 21 years earlier, which was no longer even a crime in many states. His case was not unusual. Under the IIRIRA mandatory deportation framework, it was entirely routine.</p>
+              <div class="data-box">
+                <div class="data-box__title">The Crimmigration Pipeline: How Race Compounds at Each Stage</div>
+                <div class="data-row data-row--header">
+                  <div class="data-cell">Stage</div>
+                  <div class="data-cell">The racial disparity</div>
+                </div>
+                <div class="data-row">
+                  <div class="data-cell"><strong>Police contact</strong></div>
+                  <div class="data-cell">Black people are stopped, searched, and arrested at 2–5× the rate of white people for equivalent conduct</div>
+                </div>
+                <div class="data-row">
+                  <div class="data-cell"><strong>Prosecution</strong></div>
+                  <div class="data-cell">Black defendants are charged with more serious offenses and offered worse plea deals for equivalent conduct</div>
+                </div>
+                <div class="data-row">
+                  <div class="data-cell"><strong>Conviction</strong></div>
+                  <div class="data-cell">Black defendants are convicted at higher rates; convictions trigger immigration detainers automatically under IIRIRA</div>
+                </div>
+                <div class="data-row">
+                  <div class="data-cell"><strong>Detention</strong></div>
+                  <div class="data-cell data-cell--highlight">Black immigrants are 20% of detained immigrants facing deportation on criminal grounds — vs. 7% of undocumented population</div>
+                </div>
+                <div class="data-row">
+                  <div class="data-cell"><strong>Deportation</strong></div>
+                  <div class="data-cell">Mandatory deportation under IIRIRA strips judges of discretion to consider equity — the disparity cannot be corrected at this stage</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">Haiti · The Sharpest Case</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e6">
+            <div class="entry-item__header">
+              <div class="entry-item__num">6</div>
+              <div>
+                <div class="entry-item__dates">2010 – Present</div>
+                <h2 class="entry-item__name">Haiti: The Country the U.S. Impoverished, Then Deported People Back To</h2>
+                <div class="entry-item__location">Haiti → United States → Haiti</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Haiti is inseparable from the American immigration enforcement story. The United States has shaped Haitian poverty for two centuries: it refused to recognize Haitian independence until 1862 (81 years after the Haitian Revolution); it occupied Haiti militarily from 1915 to 1934, restructuring its economy for American corporate interests; it supported the Duvalier dictatorship through the Cold War; and its agricultural subsidies destroyed Haitian rice farming in the 1980s and 1990s, driving rural poverty that produced the urban migration that created the Port-au-Prince slums that collapsed in the 2010 earthquake. The conditions that make Haitians seek refuge in the United States are substantially the product of American policy.</p>
+              <p>The 2010 earthquake killed 100,000–300,000 people and left 1.5 million homeless. The Obama administration extended <strong>Temporary Protected Status (TPS)</strong> to Haitians in the U.S. — a designation acknowledging Haiti was too devastated to safely receive deportees. In 2017, the Trump administration announced the termination of Haitian TPS, affecting 58,000 people. Courts blocked immediate implementation, but the policy direction was set: Haitians who had rebuilt lives in the United States for a decade after the earthquake were to be returned to a country that had still not recovered from it, and which was further destabilized by Hurricane Matthew (2016) and a cholera epidemic introduced by UN peacekeepers.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The Haitian deportation story connects American foreign policy, American immigration enforcement, and American anti-Blackness in a single chain: <strong>the United States helped create the conditions that make Haiti unlivable, then built an enforcement system to send Haitians back to the conditions it helped create.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry-item" id="e7">
+            <div class="entry-item__header">
+              <div class="entry-item__num">7</div>
+              <div>
+                <div class="entry-item__dates">September 2021</div>
+                <h2 class="entry-item__name">Del Rio: Whips, Horses, and 15,000 Haitians Under a Bridge</h2>
+                <div class="entry-item__location">Del Rio, Texas — the U.S.-Mexico border</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>In September 2021, approximately <strong>15,000 Haitian migrants</strong> — many of whom had been living in South America for years after the 2010 earthquake and were now fleeing the destabilization that followed the assassination of Haitian President Jovenel Moïse in July 2021 — gathered in an encampment under the Del Rio International Bridge on the Texas-Mexico border, waiting to seek asylum. The Biden administration's response: mass expulsion under <strong>Title 42</strong>, the public health provision that the Trump administration had used to expel migrants without asylum hearings, and which the Biden administration had promised to end but had continued.</p>
+              <p>What made Del Rio a national crisis was not just the scale — it was the images. U.S. Customs and Border Protection agents on horseback were photographed and filmed charging at Haitian migrants, swinging their reins in motions that observers and the administration's own special envoy described as whipping. The images were unmistakable in their historical resonance: Black people on American soil being corralled by men on horseback. <strong>Biden's special envoy to Haiti, Daniel Foote, resigned in protest.</strong> "I will not be associated with the United States' inhumane, counterproductive decision to use Title 42 to deport thousands of Haitian refugees," Foote wrote. Over 8,000 Haitians were deported to Haiti in the weeks following the encampment, on deportation flights that continued through the winter.</p>
+              <div class="pullquote">
+                <p>"I will not be associated with the United States' inhumane, counterproductive decision to use Title 42 to deport thousands of Haitian refugees and Haitian migrants to Haiti, a country where American officials are urging citizens not to travel."</p>
+                <cite>— Daniel Foote, U.S. Special Envoy to Haiti, resignation letter, September 23, 2021</cite>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">President Biden called the images of agents on horseback "outrageous" and promised consequences. The agents were investigated by DHS and cleared of wrongdoing in 2022. <strong>No agent was disciplined. Title 42 remained in effect for Haitian deportations for two more years.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">Detention · The Invisible System</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e8">
+            <div class="entry-item__header">
+              <div class="entry-item__num">8</div>
+              <div>
+                <div class="entry-item__dates">2003 – Present</div>
+                <h2 class="entry-item__name">Immigration Detention: Private Prisons in the Deep South, Solitary for Hunger Strikers</h2>
+                <div class="entry-item__location">Detention facilities across the American South</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The United States operates the largest immigration detention system in the world, holding an average of 30,000–50,000 people at any given time. <strong>Approximately 70% of immigration detainees are held in facilities operated by private prison corporations</strong> — primarily GEO Group and CoreCivic — under contracts with ICE. Many of these facilities are in the rural South: Louisiana, Mississippi, Georgia, Alabama, Texas. They are staffed by the same workforce, operating under the same culture, as the mass incarceration system that disproportionately imprisons Black Americans.</p>
+              <p>Reports by Human Rights Watch, the ACLU, and the DHS Inspector General have documented conditions in these facilities that include: inadequate medical care (multiple detainee deaths from treatable conditions), use of solitary confinement against people who organized hunger strikes to protest conditions, denial of legal materials, and guards using racial slurs against Black detainees. <strong>At the Irwin County Detention Center in Georgia, a whistleblower nurse reported in 2020 that a contracted doctor had performed unauthorized gynecological procedures — including hysterectomies — on detained immigrant women, many of them Black.</strong> The allegations were referred to the DHS Inspector General. As of 2025, no criminal charges had been filed.</p>
+              <div class="entry-stats">
+                <div><div class="entry-stat__num">30–50K</div><div class="entry-stat__label">People held in immigration detention daily</div></div>
+                <div><div class="entry-stat__num">70%</div><div class="entry-stat__label">Held in private, for-profit facilities</div></div>
+                <div><div class="entry-stat__num">20%</div><div class="entry-stat__label">Of criminal deportation cases involve Black immigrants — vs. 7% of undocumented population</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">Present Day · The Unfinished Chain</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e9">
+            <div class="entry-item__header">
+              <div class="entry-item__num">9</div>
+              <div>
+                <div class="entry-item__dates">2025 – Present</div>
+                <h2 class="entry-item__name">Mass Deportation and the Black Diaspora: What the Current Enforcement Push Means</h2>
+                <div class="entry-item__location">United States</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The Trump administration's 2025 mass deportation campaign — its stated goal of removing millions of people — operates through the same IIRIRA infrastructure, with expanded use of 287(g) agreements, increased ICE funding, military support for border enforcement, and the elimination of sanctuary city policies through federal funding leverage. For Black immigrant communities, the acceleration of this machinery is not an abstract policy debate. It is the question of whether a Haitian family that has been in the United States for 15 years, a Jamaican grandfather who has been a legal permanent resident for 20 years, a Nigerian student who overstayed a visa — whether any of these people, upon contact with the criminal justice system for any reason, will have their lives dismantled by a process that operates without meaningful judicial review.</p>
+              <p>The <strong>Black Alliance for Just Immigration (BAJI)</strong>, the <strong>UndocuBlack Network</strong>, and other Black immigrant advocacy organizations have consistently made the argument that Black immigrant justice is inseparable from Black American justice — that the same racial logic that produced mass incarceration produces mass deportation of Black immigrants, and that the two communities share a structural interest in dismantling both. The argument has not yet produced unified political coalition sufficient to change the law. The law has not changed since 1996.</p>
+              <div class="pullquote">
+                <p>"You cannot separate what happens to Black immigrants from what happens to Black Americans. We are targeted by the same system. We are criminalized by the same logic. The border is just where that logic goes to work in a different way."</p>
+                <cite>— Paraphrase of BAJI organizing framework, multiple publications, 2018–2024</cite>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The IIRIRA framework has now been in place for nearly 30 years — through six presidents, three Republican and three Democratic. It has never been substantially reformed. The John Lewis Voting Rights Advancement Act, which would restore one aspect of racial equity in American democracy, has not passed. The IIRIRA has not been amended. <strong>The architecture of racial enforcement — in voting, in criminal justice, in immigration — was built over decades. Dismantling it has not yet begun.</strong></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <aside class="thread-sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">The Numbers</div>
+          <div class="sidebar-card__body">
+            <strong>7%</strong> — Black immigrants as share of undocumented population<br /><br />
+            <strong>20%</strong> — Black immigrants as share of criminal deportation cases<br /><br />
+            <strong>3.5M+</strong> — Black immigrants in the U.S. (2020 census)<br /><br />
+            <strong>58,000</strong> — Haitians whose TPS was terminated in 2017<br /><br />
+            <strong>15,000</strong> — Haitians at Del Rio bridge, September 2021<br /><br />
+            <strong>8,000+</strong> — Haitians deported from Del Rio in weeks following<br /><br />
+            <strong>70%</strong> — Immigration detainees held in private facilities<br /><br />
+            <strong>1996</strong> — Year IIRIRA passed. It has not been substantially amended.
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">The Legal Architecture</div>
+          <div class="sidebar-card__body">
+            <strong>1924</strong> National Origins Quota Act — excludes Black diaspora<br /><br />
+            <strong>1952</strong> McCarran-Walter — colonial quotas, deportation for politics<br /><br />
+            <strong>1965</strong> Hart-Celler — opens the door to Black immigrants<br /><br />
+            <strong>1996</strong> IIRIRA — mandatory deportation pipeline built<br /><br />
+            <strong>2003</strong> ICE created — enforcement centralized under DHS<br /><br />
+            <strong>287(g)</strong> — local police deputized as immigration agents<br /><br />
+            <strong>Title 42</strong> — used to mass-expel Haitians without hearings
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Organizations</div>
+          <div class="sidebar-card__body">
+            <strong>Black Alliance for Just Immigration (BAJI)</strong> — connecting Black immigrant and Black American justice<br /><br />
+            <strong>UndocuBlack Network</strong> — advocacy by and for undocumented Black immigrants<br /><br />
+            <strong>Haitian Bridge Alliance</strong> — Del Rio response; Haitian asylum advocacy<br /><br />
+            <strong>Immigrant Defense Project</strong> — crimmigration legal defense
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Related Threads</div>
+          <ul class="sidebar-link-list">
+            <li><a href="thread-mass-incarceration.html">Mass Incarceration →</a></li>
+            <li><a href="thread-voting-rights.html">Voting Rights →</a></li>
+            <li><a href="thread-haiti.html">Haiti: The First Black Republic →</a></li>
+            <li><a href="thread-cointelpro.html">COINTELPRO →</a></li>
+            <li><a href="thread-environmental-racism.html">Environmental Racism →</a></li>
+            <li><a href="thread-crack-epidemic.html">The Crack Epidemic →</a></li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">Same System, Different Mechanism</div>
+      <h2 class="thread-bottom-cta__title">The law that built mass incarceration and the law that built mass deportation were passed the same year, by the same Congress, signed by the same president.</h2>
+      <p class="thread-bottom-cta__sub">IIRIRA (1996) and the Violent Crime Control Act (1994) are two parts of the same architecture. They both target Blackness — one through the prison system, one through the deportation system. They both rely on the over-policing of Black communities to generate the arrests that feed the pipeline. And neither has been substantially reformed in thirty years.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-mass-incarceration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">Mass Incarceration →</a>
+        <a href="thread-haiti.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">Haiti →</a>
+        <a href="thread-voting-rights.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">Voting Rights →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <div class="next-thread-strip__title">Mass Incarceration: The System That Fed the Pipeline</div>
+      </div>
+      <a href="thread-mass-incarceration.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="home.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+  </div>
+</footer>
+
+<script>
+  const t = document.getElementById('themeToggle');
+  if(t) t.addEventListener('click', () => {
+    const n = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', n);
+    localStorage.setItem('chain-theme', n);
+  });
+</script>
+</body>
+</html>
