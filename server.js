@@ -5,6 +5,22 @@ import { dirname, join } from 'path';
 import Anthropic from '@anthropic-ai/sdk';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Load .env file into process.env if present
+const envPath = join(__dirname, '.env');
+if (existsSync(envPath)) {
+  readFileSync(envPath, 'utf8').split('\n').forEach(line => {
+    const eq = line.indexOf('=');
+    if (eq > 0) {
+      const key = line.slice(0, eq).trim();
+      const val = line.slice(eq + 1).trim();
+      if (key && !process.env[key]) {
+        // Unescape \\n back to real newlines for multi-line vars
+        process.env[key] = val.replace(/\\n/g, '\n');
+      }
+    }
+  });
+}
 const app      = express();
 const PORT     = 3000;
 const DATA_DIR = join(__dirname, 'data');
@@ -18,13 +34,31 @@ if (!existsSync(CONFIG))   writeFileSync(CONFIG,   JSON.stringify({ apiKey: '' }
 app.use(express.json());
 app.use(express.static(__dirname));
 
-// ── Resolve API key: env var takes priority, then persisted config ─────────────
+// ── Resolve API key: Orchids proxy token > env var > persisted config ──────────
 function getApiKey() {
-  if (process.env.ANTHROPIC_API_KEY) return process.env.ANTHROPIC_API_KEY;
+  if (process.env.ANTHROPIC_AUTH_TOKEN) return process.env.ANTHROPIC_AUTH_TOKEN;
+  if (process.env.ANTHROPIC_API_KEY)    return process.env.ANTHROPIC_API_KEY;
   try {
     const cfg = JSON.parse(readFileSync(CONFIG, 'utf8'));
     return cfg.apiKey || '';
   } catch { return ''; }
+}
+
+function buildAnthropicClient() {
+  // In Orchids, always use the injected proxy — never the user-supplied sk-ant- key
+  const orchidsToken = process.env.ANTHROPIC_AUTH_TOKEN;
+  const opts = { apiKey: orchidsToken || getApiKey() };
+  if (process.env.ANTHROPIC_BASE_URL) opts.baseURL = process.env.ANTHROPIC_BASE_URL;
+  if (process.env.ANTHROPIC_CUSTOM_HEADERS) {
+    const headers = {};
+    process.env.ANTHROPIC_CUSTOM_HEADERS.split('\n').forEach(line => {
+      const [k, ...v] = line.split(':');
+      if (k && v.length) headers[k.trim()] = v.join(':').trim();
+    });
+    opts.defaultHeaders = headers;
+  }
+  console.log('[DEBUG] Client opts:', JSON.stringify({ ...opts, apiKey: opts.apiKey?.slice(0,12) + '...' }));
+  return new Anthropic(opts);
 }
 
 // ── SAVE / GET API KEY ─────────────────────────────────────────────────────────
@@ -40,6 +74,8 @@ app.post('/api/config/key', (req, res) => {
 });
 
 app.get('/api/config/key-status', (_req, res) => {
+  const orchidsToken = process.env.ANTHROPIC_AUTH_TOKEN;
+  if (orchidsToken) return res.json({ configured: true, preview: 'Orchids proxy (auto)' });
   const key = getApiKey();
   res.json({ configured: !!key, preview: key ? `sk-ant-...${key.slice(-4)}` : null });
 });
@@ -76,7 +112,7 @@ app.post('/api/generate', async (req, res) => {
   const { month, day, context } = req.body;
   if (!month || !day) return res.status(400).json({ error: 'month and day required' });
 
-  const key = getApiKey();
+  const key = process.env.ANTHROPIC_AUTH_TOKEN || getApiKey();
   if (!key) return res.status(401).json({ error: 'NO_API_KEY', message: 'Anthropic API key not configured. Add it in Settings.' });
 
   const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -87,7 +123,7 @@ app.post('/api/generate', async (req, res) => {
     : `Generate the single most historically significant Black history event that occurred on ${monthName} ${day}. If multiple strong candidates exist, prefer the one with the clearest present-day causal chain.`;
 
   try {
-    const anthropic = new Anthropic({ apiKey: key });
+    const anthropic = buildAnthropicClient();
     const message = await anthropic.messages.create({
       model: 'claude-sonnet-4-6',
       max_tokens: 1024,

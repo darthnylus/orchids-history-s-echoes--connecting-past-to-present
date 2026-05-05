@@ -382,22 +382,23 @@
 <script>
   const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-  // ── API KEY / SETTINGS ─────────────────────────────────────────────────────
-  async function checkKeyStatus() {
-    try {
-      const res  = await fetch('/api/config/key-status');
-      const data = await res.json();
-      const banner = document.getElementById('keyBanner');
-      if (data.configured) {
-        banner.className = 'key-banner key-banner--ok';
-        banner.innerHTML = `✓ API key configured (${data.preview}) — <a onclick="openSettings()">update</a>`;
-        banner.style.display = 'flex';
-      } else {
-        banner.className = 'key-banner';
-        banner.innerHTML = `⚠ No Anthropic API key set — article generation is disabled. <a onclick="openSettings()">Add your key →</a>`;
-        banner.style.display = 'flex';
-      }
-    } catch (_) {}
+  // ── API KEY / SETTINGS — stored in localStorage, used browser-side ──────────
+  const LS_KEY = 'chain_anthropic_key';
+
+  function getStoredKey() { return localStorage.getItem(LS_KEY) || ''; }
+
+  function checkKeyStatus() {
+    const key    = getStoredKey();
+    const banner = document.getElementById('keyBanner');
+    if (key) {
+      banner.className = 'key-banner key-banner--ok';
+      banner.innerHTML = `✓ API key ready (sk-ant-…${key.slice(-4)}) — <a onclick="openSettings()">update</a>`;
+      banner.style.display = 'flex';
+    } else {
+      banner.className = 'key-banner';
+      banner.innerHTML = `⚠ No Anthropic API key set — article generation is disabled. <a onclick="openSettings()">Add your key →</a>`;
+      banner.style.display = 'flex';
+    }
   }
 
   function openSettings()  { document.getElementById('settingsModal').classList.add('is-open'); }
@@ -408,25 +409,18 @@
   document.getElementById('modalCancelBtn').addEventListener('click', closeSettings);
   document.getElementById('settingsModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeSettings(); });
 
-  document.getElementById('saveKeyBtn').addEventListener('click', async () => {
+  document.getElementById('saveKeyBtn').addEventListener('click', () => {
     const key    = document.getElementById('apiKeyInput').value.trim();
     const status = document.getElementById('keyStatus');
-    const btn    = document.getElementById('saveKeyBtn');
-    if (!key) { status.className = 'status status--error'; status.textContent = 'Please paste your API key.'; return; }
-    btn.disabled = true; btn.textContent = 'Saving…';
-    status.className = 'status status--loading';
-    status.innerHTML = '<span class="spinner"></span> Validating…';
-    try {
-      const res  = await fetch('/api/config/key', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ apiKey: key }) });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
-      status.className = 'status status--success';
-      status.textContent = '✓ Key saved.';
-      setTimeout(() => { closeSettings(); checkKeyStatus(); }, 900);
-    } catch (err) {
+    if (!key || !key.startsWith('sk-ant-')) {
       status.className = 'status status--error';
-      status.textContent = '✗ ' + err.message;
-    } finally { btn.disabled = false; btn.textContent = 'Save Key'; }
+      status.textContent = 'Key must start with sk-ant-';
+      return;
+    }
+    localStorage.setItem(LS_KEY, key);
+    status.className = 'status status--success';
+    status.textContent = '✓ Key saved in browser.';
+    setTimeout(() => { closeSettings(); checkKeyStatus(); }, 800);
   });
 
   checkKeyStatus();
@@ -443,7 +437,34 @@
 
   let currentArticle = null;
 
-  // ── GENERATE ───────────────────────────────────────────────────────────────
+  // ── SYSTEM PROMPT ──────────────────────────────────────────────────────────
+  const SYSTEM_PROMPT = `You are a historian and editor for Chain, a digital platform tracing African and Black history through causal threads from ancient Africa to present-day America. Your writing is rigorous, primary-source-grounded, and always answers: what caused this? what did it cause?
+
+When asked to generate a historical event article, respond ONLY with valid JSON — no markdown fences, no commentary. Follow this exact schema:
+
+{
+  "year": 1965,
+  "type": "Policy · Federal Law",
+  "cat": "policy",
+  "title": "Short, direct title (max 90 chars) — no clickbait",
+  "summary": "2–3 sentences. What happened, who was involved, primary-source detail. Precise, not padded.",
+  "chain": "1–2 sentences. The direct causal consequence traceable to the present day.",
+  "thread": "thread-slug.html or null if no matching thread exists"
+}
+
+Categories for "cat": event | policy | person | document
+Categories for "type": follow the pattern "Category · Subcategory" e.g. "Event · Massacre", "Policy · Amendment", "Person · Birth", "Document · Letter"
+
+Valid thread slugs (only use these exact values or null):
+thread-end-of-slavery.html, thread-reconstruction.html, thread-redlining.html, thread-mlk.html,
+thread-cointelpro.html, thread-voting-rights.html, thread-great-migration.html, thread-gi-bill.html,
+thread-freedom-riders.html, thread-convict-leasing.html, thread-slave-revolts.html,
+thread-we-refuse.html, thread-george-floyd.html, thread-abolitionism.html, thread-police.html,
+thread-fear-of-black-assembly.html, thread-mexico-freedom.html, thread-slave-ship-resistance.html
+
+If you are unsure of a date's history, still generate the single most historically significant Black history event you can confirm occurred on that date. Never fabricate citations or invent events — only use documented history.`;
+
+  // ── GENERATE — calls Anthropic API directly from the browser ───────────────
   document.getElementById('generateBtn').addEventListener('click', async () => {
     const month   = parseInt(document.getElementById('genMonth').value);
     const day     = parseInt(document.getElementById('genDay').value);
@@ -452,27 +473,50 @@
     const label   = document.getElementById('generateBtnLabel');
     const status  = document.getElementById('genStatus');
 
+    const apiKey = getStoredKey();
+    if (!apiKey) { openSettings(); return; }
+
     btn.disabled = true;
     label.innerHTML = '<span class="spinner"></span> Generating…';
     status.className = 'status status--loading';
     status.innerHTML = '<span class="spinner"></span> Claude is researching ' + MONTHS[month-1] + ' ' + day + '…';
 
+    const userPrompt = context
+      ? `Generate a Black history article for ${MONTHS[month-1]} ${day}. Additional context: ${context}`
+      : `Generate the single most historically significant Black history event that occurred on ${MONTHS[month-1]} ${day}. If multiple strong candidates exist, prefer the one with the clearest present-day causal chain.`;
+
     try {
-      const res  = await fetch('/api/generate', {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ month, day, context })
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1024,
+          system: SYSTEM_PROMPT,
+          messages: [{ role: 'user', content: userPrompt }]
+        })
       });
+
       const data = await res.json();
       if (!res.ok) {
-        if (data.error === 'NO_API_KEY') {
+        if (res.status === 401) {
           openSettings();
-          throw new Error('No API key configured. Add your Anthropic key in Settings.');
+          throw new Error('Invalid API key. Check your key in Settings.');
         }
-        throw new Error(data.error || data.message || 'Generation failed');
+        throw new Error(data.error?.message || 'Generation failed');
       }
 
-      currentArticle = data.article;
+      const raw     = data.content[0].text.trim();
+      const article = JSON.parse(raw);
+      article.month = month;
+      article.day   = day;
+
+      currentArticle = article;
       renderPreview(currentArticle);
       status.className = 'status status--success';
       status.textContent = '✓ Article generated — review and save below.';
