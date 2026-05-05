@@ -743,6 +743,429 @@
   </section>
 
   <!-- SAMPLE ISSUE -->
+  <style>
+    /* ── Premium Newsletter Preview ───────────────────────── */
+    .nl-preview-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* Chrome bar */
+    .nl-prev-chrome {
+      background: #f4f4f5;
+      border-bottom: 1px solid #e4e4e7;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nl-prev-chrome__dots { display: flex; gap: 6px; }
+    .nl-prev-chrome__dot  { width: 11px; height: 11px; border-radius: 50%; }
+    .nl-prev-chrome__bar  {
+      flex: 1;
+      height: 24px;
+      background: #e4e4e7;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 10px;
+      color: #a1a1aa;
+      letter-spacing: .02em;
+    }
+
+    /* Internal email body */
+    .nl-prev-body { background: #fff; }
+
+    /* ── Email header bar */
+    .nl-prev-topbar {
+      background: #1a1a2e;
+      padding: 10px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nl-prev-topbar__logo {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .nl-prev-topbar__nav {
+      display: flex;
+      gap: 18px;
+    }
+    .nl-prev-topbar__nav a {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      text-decoration: none;
+    }
+
+    /* ── Hero banner */
+    .nl-prev-hero {
+      background: linear-gradient(135deg, #c991a8 0%, #9e6b8a 40%, #2c7fb8 100%);
+      padding: 52px 36px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .nl-prev-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 120%, rgba(44,127,184,.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .nl-prev-hero__badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .nl-prev-hero__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .nl-prev-hero__sub {
+      font-size: 13px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.6;
+      max-width: 380px;
+      margin: 0 auto 24px;
+      position: relative;
+    }
+    .nl-prev-hero__btn {
+      display: inline-block;
+      background: #fff;
+      color: #9e6b8a;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .18s, box-shadow .18s;
+      box-shadow: 0 2px 12px rgba(0,0,0,.18);
+      position: relative;
+    }
+    .nl-prev-hero__btn:hover { background: #f3e8ef; box-shadow: 0 4px 20px rgba(0,0,0,.22); }
+
+    /* ── Section padding util */
+    .nl-prev-section { padding: 32px 32px 24px; }
+    .nl-prev-section--alt { background: #faf8fb; }
+    .nl-prev-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #e4d0db, transparent);
+      margin: 0 32px;
+    }
+
+    /* ── Featured story */
+    .nl-prev-quote {
+      border-left: 3px solid #c991a8;
+      padding: 12px 0 12px 18px;
+      margin-bottom: 16px;
+    }
+    .nl-prev-quote__text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      color: #3d1d30;
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+    .nl-prev-quote__attr {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #9e6b8a;
+    }
+    .nl-prev-intro {
+      font-size: 13px;
+      color: #4b4b5a;
+      line-height: 1.7;
+    }
+
+    /* ── 3-column collections */
+    .nl-prev-col3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .nl-prev-col-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    }
+    .nl-prev-col-card__img {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .nl-prev-col-card__body { background: #fff; padding: 10px 12px 12px; }
+    .nl-prev-col-card__label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .nl-prev-col-card__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.35;
+    }
+    .nl-prev-section-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #b8829e;
+      margin-bottom: 10px;
+    }
+
+    /* ── Large feature */
+    .nl-prev-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .nl-prev-feature__img {
+      border-radius: 10px;
+      height: 160px;
+      background: linear-gradient(145deg, #2c7fb8, #1a4f7a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: rgba(255,255,255,.7);
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nl-prev-feature__img-caption {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+    .nl-prev-feature__kicker {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #2c7fb8;
+      margin-bottom: 8px;
+    }
+    .nl-prev-feature__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .nl-prev-feature__body {
+      font-size: 12px;
+      color: #4b4b5a;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .nl-prev-feature__link {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #9e6b8a;
+      text-decoration: none;
+      border-bottom: 1.5px solid #c991a8;
+      padding-bottom: 1px;
+    }
+
+    /* ── 2×2 article grid */
+    .nl-prev-grid22 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .nl-prev-art {
+      background: #fff;
+      border: 1px solid #ede0e8;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: box-shadow .18s;
+    }
+    .nl-prev-art:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+    .nl-prev-art__img {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .nl-prev-art__body { padding: 10px 12px 12px; }
+    .nl-prev-art__tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #b8829e;
+      margin-bottom: 4px;
+    }
+    .nl-prev-art__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.3;
+    }
+
+    /* ── Exclusive offer */
+    .nl-prev-offer {
+      background: linear-gradient(130deg, #9e6b8a 0%, #c991a8 50%, #2c7fb8 100%);
+      padding: 32px;
+      text-align: center;
+    }
+    .nl-prev-offer__badge {
+      display: inline-block;
+      background: rgba(255,255,255,.2);
+      border: 1px solid rgba(255,255,255,.4);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .nl-prev-offer__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .nl-prev-offer__body {
+      font-size: 12px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.6;
+      max-width: 380px;
+      margin: 0 auto 20px;
+    }
+    .nl-prev-offer__btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .nl-prev-offer__btn-primary {
+      background: #fff;
+      color: #9e6b8a;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 11px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .18s;
+    }
+    .nl-prev-offer__btn-primary:hover { background: #f3e8ef; }
+    .nl-prev-offer__btn-secondary {
+      background: transparent;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255,255,255,.6);
+      text-decoration: none;
+      transition: background .18s;
+    }
+    .nl-prev-offer__btn-secondary:hover { background: rgba(255,255,255,.12); }
+
+    /* ── Email footer */
+    .nl-prev-footer {
+      background: #1a1a2e;
+      padding: 24px 32px;
+      text-align: center;
+    }
+    .nl-prev-footer__logo {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .nl-prev-footer__links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .nl-prev-footer__links a {
+      font-size: 10px;
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+      letter-spacing: .04em;
+    }
+    .nl-prev-footer__social {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .nl-prev-footer__social-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: rgba(255,255,255,.6);
+    }
+    .nl-prev-footer__legal {
+      font-size: 9px;
+      color: rgba(255,255,255,.3);
+      line-height: 1.6;
+      letter-spacing: .02em;
+    }
+
+    [data-theme="dark"] .nl-preview-wrap { box-shadow: 0 8px 48px rgba(0,0,0,.45); }
+  </style>
+
   <section class="preview-section" aria-labelledby="preview-heading">
     <div class="container">
       <div class="preview-section__header">
@@ -751,86 +1174,171 @@
         <p class="preview-section__sub">Each edition is short enough to read with your morning coffee — and dense enough to change how you see the news.</p>
       </div>
 
-      <div class="email-mockup reveal" aria-label="Sample newsletter email">
-        <div class="email-mockup__chrome">
-          <div class="email-chrome-dots" aria-hidden="true">
-            <div class="email-chrome-dot" style="background:#ef4444"></div>
-            <div class="email-chrome-dot" style="background:#f59e0b"></div>
-            <div class="email-chrome-dot" style="background:#22c55e"></div>
+      <div class="nl-preview-wrap reveal" aria-label="Sample newsletter email">
+
+        <!-- Chrome -->
+        <div class="nl-prev-chrome">
+          <div class="nl-prev-chrome__dots">
+            <div class="nl-prev-chrome__dot" style="background:#ef4444"></div>
+            <div class="nl-prev-chrome__dot" style="background:#f59e0b"></div>
+            <div class="nl-prev-chrome__dot" style="background:#22c55e"></div>
           </div>
+          <div class="nl-prev-chrome__bar">retrieve-your-roots.com/newsletter</div>
         </div>
-        <div class="email-mockup__meta">
-          <div class="email-meta-row"><strong>From:</strong> The Chain Letter &lt;letter@chain.history&gt;</div>
-          <div class="email-meta-row"><strong>Subject:</strong> April 10, 1968 — The Fair Housing Act signed. Why it took MLK's assassination to pass it.</div>
-          <div class="email-meta-row"><strong>Date:</strong> Thursday, April 10</div>
-        </div>
-        <div class="email-mockup__content">
-          <div class="email-date-badge">
-            <span class="email-date-badge__dot" aria-hidden="true"></span>
-            Today in Black History · April 10
+
+        <div class="nl-prev-body">
+
+          <!-- Header nav -->
+          <div class="nl-prev-topbar">
+            <div class="nl-prev-topbar__logo">The Chain</div>
+            <nav class="nl-prev-topbar__nav" aria-label="Email navigation">
+              <a href="#">Threads</a>
+              <a href="#">Today</a>
+              <a href="#">Archive</a>
+              <a href="#">About</a>
+            </nav>
           </div>
-          <h3 class="email-subject">The Fair Housing Act was signed today in 1968 — six days after Martin Luther King Jr. was assassinated.</h3>
-          <div class="email-body">
-            <p>The Fair Housing Act had been stalled in Congress for two years. Opponents — including many Northern Democrats — had blocked it repeatedly. Then, on April 4, 1968, King was shot in Memphis. The shock and the uprising that followed changed the political calculus overnight.</p>
-            <p>President Johnson signed the bill on April 11. But the law that finally passed was significantly weaker than advocates had sought. Enforcement mechanisms were toothless. The Department of Housing and Urban Development had no power to issue cease-and-desist orders. Complaints had to go through lengthy court processes that few families could afford.</p>
+
+          <!-- Hero -->
+          <div class="nl-prev-hero">
+            <div class="nl-prev-hero__badge">Special Edition</div>
+            <h2 class="nl-prev-hero__title">Mother's Day</h2>
+            <p class="nl-prev-hero__sub">Celebrate the women who shaped our history — and whose stories we are still learning to tell.</p>
+            <a href="#" class="nl-prev-hero__btn">Explore the Collection →</a>
           </div>
-          <div class="email-chain-box">
-            <div class="email-chain-box__label">→ The chain from here</div>
-            <div class="email-chain-box__text">The same neighborhoods that HOLC graded "D" in 1933 remained segregated after 1968 — because the Fair Housing Act prohibited new discrimination but didn't undo the wealth gap already created by 35 years of exclusion from FHA mortgages and GI Bill loans. <a href="thread.html">The Redlining thread</a> traces exactly how those 1933 maps still determine school quality and household wealth today.</div>
+
+          <!-- Featured story -->
+          <div class="nl-prev-section">
+            <div class="nl-prev-section-label">Featured Story</div>
+            <div class="nl-prev-quote">
+              <p class="nl-prev-quote__text">"She is the queen of the household, and on her depends, to a great degree, the character and prosperity of the whole family."</p>
+              <div class="nl-prev-quote__attr">— Lydia Maria Child</div>
+            </div>
+            <p class="nl-prev-intro">From the fields of the antebellum South to the frontlines of the civil rights movement, Black women have been the architects of American freedom. This edition traces five women whose decisions changed the course of history — and whose names belong in every classroom.</p>
           </div>
-          <a href="today.html" class="email-cta-link">
-            Read today's full entry on Chain →
-          </a>
-        </div>
-      </div>
 
-      <!-- Past issues -->
-      <h3 style="font-family:var(--font-editorial);font-size:1.25rem;font-weight:var(--weight-bold);color:var(--color-text-primary);margin:var(--space-12) 0 var(--space-6)">Recent editions</h3>
-      <div class="archive-grid">
+          <div class="nl-prev-divider"></div>
 
-        <a href="today.html" class="archive-card reveal">
-          <div class="archive-card__date">April 9 — Event</div>
-          <div class="archive-card__title">The assassination of Martin Luther King Jr. and the legislation it unlocked</div>
-          <div class="archive-card__preview">How King's murder in Memphis became the political event that passed the Fair Housing Act — and why the bill that passed was weaker than the one he fought for.</div>
-          <div class="archive-card__thread">→ Redlining thread</div>
-        </a>
+          <!-- 3-column collections -->
+          <div class="nl-prev-section nl-prev-section--alt">
+            <div class="nl-prev-section-label">Curated Collections</div>
+            <div class="nl-prev-col3">
+              <div class="nl-prev-col-card">
+                <div class="nl-prev-col-card__img" style="background: linear-gradient(135deg, #c991a8, #9e6b8a);">🎓</div>
+                <div class="nl-prev-col-card__body">
+                  <div class="nl-prev-col-card__label" style="color:#9e6b8a">Education &amp; Leaders</div>
+                  <div class="nl-prev-col-card__title">The women who built Black institutions from nothing</div>
+                </div>
+              </div>
+              <div class="nl-prev-col-card">
+                <div class="nl-prev-col-card__img" style="background: linear-gradient(135deg, #2c7fb8, #1a4f7a);">🎨</div>
+                <div class="nl-prev-col-card__body">
+                  <div class="nl-prev-col-card__label" style="color:#2c7fb8">Arts &amp; Culture</div>
+                  <div class="nl-prev-col-card__title">How Black women gave America its literary voice</div>
+                </div>
+              </div>
+              <div class="nl-prev-col-card">
+                <div class="nl-prev-col-card__img" style="background: linear-gradient(135deg, #9e6b8a, #2c7fb8);">✊</div>
+                <div class="nl-prev-col-card__body">
+                  <div class="nl-prev-col-card__label" style="color:#b8829e">Activism &amp; Impact</div>
+                  <div class="nl-prev-col-card__title">Protest, journalism, and the fight that never stopped</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <a href="today.html" class="archive-card reveal">
-          <div class="archive-card__date">April 4 — Policy</div>
-          <div class="archive-card__title">The Compromise of 1877 — how Reconstruction ended in a backroom deal</div>
-          <div class="archive-card__preview">The disputed 1876 presidential election was resolved by agreeing to remove federal troops from the South. Black political power collapsed within a decade.</div>
-          <div class="archive-card__thread">→ Reconstruction timeline</div>
-        </a>
+          <div class="nl-prev-divider"></div>
 
-        <a href="today.html" class="archive-card reveal">
-          <div class="archive-card__date">April 1 — Person</div>
-          <div class="archive-card__title">Mansa Musa I: why the world's richest person in history was African</div>
-          <div class="archive-card__preview">In 1327, Mansa Musa's hajj to Mecca was so ostentatiously wealthy it caused inflation across North Africa and the Middle East for a decade. His empire controlled more gold than anywhere on Earth.</div>
-          <div class="archive-card__thread">→ African Origins</div>
-        </a>
+          <!-- Large feature -->
+          <div class="nl-prev-section">
+            <div class="nl-prev-section-label">Historical Moments</div>
+            <div class="nl-prev-feature">
+              <div class="nl-prev-feature__img">
+                🏛️
+                <span class="nl-prev-feature__img-caption">Image placeholder</span>
+              </div>
+              <div>
+                <div class="nl-prev-feature__kicker">This Week in History</div>
+                <h3 class="nl-prev-feature__title">The Moments That Defined a Movement</h3>
+                <p class="nl-prev-feature__body">From courtrooms to cotton fields to Capitol Hill — five decisions by Black women that altered the course of American history, each traceable forward to the present day.</p>
+                <a href="#" class="nl-prev-feature__link">Read the thread →</a>
+              </div>
+            </div>
+          </div>
 
-        <a href="today.html" class="archive-card reveal">
-          <div class="archive-card__date">Mar 28 — Policy</div>
-          <div class="archive-card__title">The GI Bill: how the same law built the white middle class and excluded Black veterans</div>
-          <div class="archive-card__preview">The Servicemen's Readjustment Act of 1944 offered college tuition and mortgages to veterans — administered through segregated local offices that steered Black veterans away from benefits.</div>
-          <div class="archive-card__thread">→ Redlining thread</div>
-        </a>
+          <div class="nl-prev-divider"></div>
 
-        <a href="today.html" class="archive-card reveal">
-          <div class="archive-card__date">Mar 25 — Event</div>
-          <div class="archive-card__title">Tulsa, 1921: how "Black Wall Street" was destroyed in 18 hours</div>
-          <div class="archive-card__preview">The Greenwood District was the most prosperous Black community in America. A white mob, aided by local law enforcement, leveled 35 blocks. No reparations were ever paid.</div>
-          <div class="archive-card__thread">→ Wealth destruction thread</div>
-        </a>
+          <!-- 2×2 article grid -->
+          <div class="nl-prev-section nl-prev-section--alt">
+            <div class="nl-prev-section-label">Weekly Focus</div>
+            <div class="nl-prev-grid22">
+              <div class="nl-prev-art">
+                <div class="nl-prev-art__img" style="background: linear-gradient(135deg, #c991a8 0%, #9e6b8a 100%);">✊</div>
+                <div class="nl-prev-art__body">
+                  <div class="nl-prev-art__tag">Civil Rights</div>
+                  <div class="nl-prev-art__title">Rosa Parks &amp; the Boycott That Changed Everything</div>
+                </div>
+              </div>
+              <div class="nl-prev-art">
+                <div class="nl-prev-art__img" style="background: linear-gradient(135deg, #3d1d30 0%, #9e6b8a 100%);">✍️</div>
+                <div class="nl-prev-art__body">
+                  <div class="nl-prev-art__tag">Journalism</div>
+                  <div class="nl-prev-art__title">Ida B. Wells: The Statistics Behind Racial Terror</div>
+                </div>
+              </div>
+              <div class="nl-prev-art">
+                <div class="nl-prev-art__img" style="background: linear-gradient(135deg, #2c7fb8 0%, #1a4f7a 100%);">📖</div>
+                <div class="nl-prev-art__body">
+                  <div class="nl-prev-art__tag">Literature</div>
+                  <div class="nl-prev-art__title">Maya Angelou's Literary Legacy &amp; Its Roots</div>
+                </div>
+              </div>
+              <div class="nl-prev-art">
+                <div class="nl-prev-art__img" style="background: linear-gradient(135deg, #1a4f7a 0%, #3d1d30 100%);">🗺️</div>
+                <div class="nl-prev-art__body">
+                  <div class="nl-prev-art__tag">Freedom</div>
+                  <div class="nl-prev-art__title">Harriet Tubman: 13 Missions, 70 People Freed</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <a href="today.html" class="archive-card reveal">
-          <div class="archive-card__date">Mar 20 — Person</div>
-          <div class="archive-card__title">Ida B. Wells and the statistical proof of racial terror</div>
-          <div class="archive-card__preview">After three of her friends were lynched for owning a successful grocery store, Wells began documenting racial terror with the rigor of an investigative journalist — and changed American public opinion.</div>
-          <div class="archive-card__thread">→ Mass Incarceration thread</div>
-        </a>
+          <div class="nl-prev-divider"></div>
 
-      </div>
+          <!-- Exclusive offer -->
+          <div class="nl-prev-offer">
+            <div class="nl-prev-offer__badge">Exclusive Offer</div>
+            <h3 class="nl-prev-offer__title">Save 20% This Mother's Day</h3>
+            <p class="nl-prev-offer__body">Get 20% off our Mother's Day curated collections and gain access to exclusive archived essays and interviews — only available this week.</p>
+            <div class="nl-prev-offer__btns">
+              <a href="newsletter.html" class="nl-prev-offer__btn-primary">Claim Your Discount</a>
+              <a href="threads.html" class="nl-prev-offer__btn-secondary">Browse Collections</a>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="nl-prev-footer">
+            <div class="nl-prev-footer__logo">The Chain</div>
+            <div class="nl-prev-footer__links">
+              <a href="#">Threads</a>
+              <a href="#">Today in History</a>
+              <a href="#">Archive</a>
+              <a href="#">About</a>
+              <a href="#">Unsubscribe</a>
+            </div>
+            <div class="nl-prev-footer__social">
+              <div class="nl-prev-footer__social-icon">𝕏</div>
+              <div class="nl-prev-footer__social-icon">in</div>
+              <div class="nl-prev-footer__social-icon">ig</div>
+            </div>
+            <div class="nl-prev-footer__legal">
+              © 2025 The Chain · retrieve-your-roots.com<br>
+              You're receiving this because you subscribed. <a href="#" style="color:rgba(255,255,255,.4)">Unsubscribe</a> · <a href="#" style="color:rgba(255,255,255,.4)">Privacy Policy</a>
+            </div>
+          </div>
+
+        </div><!-- /nl-prev-body -->
+      </div><!-- /nl-preview-wrap -->
     </div>
   </section>
 
