@@ -5,7 +5,12 @@
   "private": true,
   "scripts": {
     "build": "echo 'Static site — no build step required'",
-    "start": "python3 -m http.server 3000",
-    "dev": "python3 -m http.server 3000"
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.94.0",
+    "express": "^5.2.1"
   }
 }

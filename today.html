@@ -1286,8 +1286,30 @@
     viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; } renderCalendar();
   });
   renderCalendar();
-  // Render today's events on initial load
-  renderDayContent(now.getMonth() + 1, now.getDate());
+
+  // ── MERGE GENERATED ARTICLES from /api/articles ─────────────
+  // Silently merges saved articles over the hardcoded EVENTS_BY_DATE,
+  // then renders. Falls back gracefully if the API is unavailable.
+  (async () => {
+    try {
+      const res = await fetch('/api/articles', { signal: AbortSignal.timeout(3000) });
+      if (res.ok) {
+        const db = await res.json();
+        Object.entries(db.events || {}).forEach(([key, evts]) => {
+          if (!evts.length) return;
+          const existing = EVENTS_BY_DATE[key] || [];
+          // Prepend generated articles; dedupe by year
+          const years = new Set(evts.map(e => e.year));
+          const filtered = existing.filter(e => !years.has(e.year));
+          EVENTS_BY_DATE[key] = [...evts, ...filtered];
+          EVENT_DAYS[key] = true;
+        });
+        // Refresh calendar dots to include new dates
+        renderCalendar();
+      }
+    } catch (_) { /* API not running — use hardcoded data */ }
+    renderDayContent(now.getMonth() + 1, now.getDate());
+  })();
 
   // ── MONTH NAV BUTTONS ─────────────────────────────────────
   document.querySelectorAll('.month-btn').forEach(btn => {

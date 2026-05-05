@@ -1,6 +1,6 @@
 {
   "startupCommands": [
-    "python3 -m http.server 3000"
+    "npm install; node server.js"
   ],
   "projectId": "f7ebae14-a30f-4f72-9bac-d89a61c81c84",
   "templateId": "any"
