@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detroit: Motown, the '67 Uprising, and the City They Left to Die — Chain</title>
+  <meta name="description" content="Detroit's Black community built Paradise Valley, invented the Motown Sound, survived the '43 and '67 uprisings — then watched the auto industry, white flight, and the state deliberately drain the city dry." />
+  <meta property="og:title" content="Detroit: Motown, the '67 Uprising, and the City They Left to Die" />
+  <meta property="og:description" content="Detroit's Black community built Paradise Valley, invented the Motown Sound, survived the '43 and '67 uprisings — then watched the auto industry, white flight, and the state deliberately drain the city dry." />
+  <meta property="og:type" content="article" />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    :root { --acc: #7a3a0a; --acc-lt: #d4692a; --acc-warm: #c4a21a; }
+    [data-theme="dark"] { --acc: #9a4a1a; --acc-lt: #f0824a; --acc-warm: #e0c030; }
+
+    .thread-hero { background: #0d0600; padding: var(--space-16) 0 var(--space-14); position: relative; overflow: hidden; }
+    .thread-hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 90% 60% at 10% 40%, rgba(122,58,10,.55) 0%, transparent 65%),
+                  radial-gradient(ellipse 60% 50% at 90% 80%, rgba(212,105,42,.2) 0%, transparent 60%); }
+    .thread-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+      background:linear-gradient(to bottom,transparent,var(--_bg)); pointer-events:none; z-index:1; }
+    .thread-hero__inner { position: relative; max-width: 820px; z-index: 2; }
+    .thread-hero__kicker { display:inline-flex; align-items:center; gap:var(--space-2);
+      background:rgba(122,58,10,.2); border:1px solid rgba(212,105,42,.38); border-radius:999px;
+      padding:var(--space-1) var(--space-4); font-size:var(--type-xs); font-weight:var(--weight-bold);
+      letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-6); }
+    .thread-hero__kicker-dot { width:6px; height:6px; border-radius:50%; background:var(--acc-lt); }
+    .thread-hero__title { font-family:var(--font-editorial); font-size:clamp(2.25rem,5.5vw,4.25rem); font-weight:900; color:#fff; line-height:1.08; letter-spacing:-0.02em; margin-bottom:var(--space-6); }
+    .thread-hero__title em { color:var(--acc-lt); font-style:normal; }
+    .thread-hero__subtitle { font-size:clamp(1rem,2vw,1.2rem); color:rgba(255,255,255,.78); line-height:1.72; max-width:680px; margin-bottom:var(--space-8); }
+    .thread-hero__meta { display:flex; gap:var(--space-6); flex-wrap:wrap; }
+    .thread-meta-item__label { font-size:var(--type-xs); color:rgba(255,255,255,.48); text-transform:uppercase; letter-spacing:var(--tracking-wide); margin-bottom:2px; }
+    .thread-meta-item__value { font-size:var(--type-sm); font-weight:var(--weight-semibold); color:rgba(255,255,255,.9); }
+
+    .argument-bar { background:rgba(122,58,10,.05); border-top:1px solid rgba(122,58,10,.2); border-bottom:1px solid rgba(122,58,10,.2); padding:var(--space-5) 0; }
+    [data-theme="dark"] .argument-bar { background:rgba(212,105,42,.05); border-color:rgba(212,105,42,.18); }
+    .argument-bar__inner { display:flex; align-items:flex-start; gap:var(--space-5); }
+    .argument-bar__icon { width:36px; height:36px; flex-shrink:0; background:rgba(122,58,10,.12); border-radius:50%; display:grid; place-items:center; margin-top:2px; color:var(--acc-lt); }
+    .argument-bar__label { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-1); }
+    .argument-bar__text { font-size:var(--type-md); color:var(--color-text-secondary); line-height:1.65; max-width:860px; }
+    .argument-bar__text strong { color:var(--color-text-primary); }
+
+    .thread-body { padding:var(--space-14) 0; }
+    .thread-layout { display:grid; grid-template-columns:1fr; gap:var(--space-10); align-items:start; }
+    @media(min-width:1024px){ .thread-layout { grid-template-columns:1fr 300px; gap:var(--space-12); } }
+
+    .era-divider { display:flex; align-items:center; gap:var(--space-4); margin:var(--space-10) 0 var(--space-4); }
+    .era-divider__line { flex:1; height:1px; background:var(--color-border); }
+    .era-divider__badge { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase;
+      color:var(--acc-lt); background:rgba(122,58,10,.1); border:1px solid rgba(212,105,42,.25); border-radius:999px; padding:3px var(--space-4); white-space:nowrap; }
+    [data-theme="dark"] .era-divider__badge { background:rgba(212,105,42,.1); }
+
+    .entry-list { display:flex; flex-direction:column; gap:0; }
+    .entry-item { scroll-margin-top:80px; padding:var(--space-10) 0; border-bottom:1px solid var(--color-border); }
+    .entry-item:last-of-type { border-bottom:none; }
+    .entry-item__header { display:grid; grid-template-columns:56px 1fr; gap:var(--space-5); align-items:start; margin-bottom:var(--space-6); }
+    .entry-item__num { width:56px; height:56px; border-radius:var(--radius-lg); display:grid; place-items:center; flex-shrink:0;
+      font-family:var(--font-editorial); font-size:1.375rem; font-weight:900;
+      background:rgba(122,58,10,.1); border:1px solid rgba(212,105,42,.25); color:var(--acc-lt); }
+    [data-theme="dark"] .entry-item__num { background:rgba(212,105,42,.08); }
+    .entry-item__dates { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wide); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-1); }
+    .entry-item__name { font-family:var(--font-editorial); font-size:clamp(1.25rem,2.5vw,1.75rem); font-weight:900; color:var(--color-text-primary); line-height:1.18; margin-bottom:var(--space-1); }
+    .entry-item__location { font-size:var(--type-sm); color:var(--color-text-tertiary); }
+    .entry-stats { display:flex; gap:var(--space-5); flex-wrap:wrap; padding:var(--space-4) var(--space-5);
+      background:var(--color-surface); border-radius:var(--radius-lg); border:1px solid var(--color-border); margin-bottom:var(--space-6); }
+    .entry-stat__num { font-family:var(--font-editorial); font-size:1.25rem; font-weight:var(--weight-bold); color:var(--acc-lt); line-height:1; margin-bottom:2px; }
+    .entry-stat__label { font-size:var(--type-xs); color:var(--color-text-tertiary); }
+    .entry-item__body { font-size:var(--type-md); color:var(--color-text-secondary); line-height:1.82; }
+    .entry-item__body p { margin:0 0 var(--space-5); }
+    .entry-item__body p:last-child { margin-bottom:0; }
+    .entry-item__body strong { color:var(--color-text-primary); font-weight:var(--weight-semibold); }
+    .entry-item__body em { color:var(--acc-lt); font-style:normal; font-weight:var(--weight-semibold); }
+
+    .pullquote { border-left:3px solid var(--acc-lt); padding:var(--space-4) var(--space-6); margin:var(--space-7) 0;
+      background:rgba(122,58,10,.04); border-radius:0 var(--radius-lg) var(--radius-lg) 0; }
+    [data-theme="dark"] .pullquote { background:rgba(212,105,42,.05); }
+    .pullquote p { font-family:var(--font-editorial); font-size:1.1rem; color:var(--color-text-primary); line-height:1.58; margin:0 0 var(--space-2); font-style:italic; }
+    .pullquote cite { font-size:var(--type-xs); color:var(--color-text-tertiary); font-style:normal; }
+
+    .chain-callout { background:rgba(196,162,26,.07); border:1px solid rgba(196,162,26,.22); border-radius:var(--radius-lg); padding:var(--space-5) var(--space-6); margin:var(--space-6) 0; }
+    [data-theme="dark"] .chain-callout { background:rgba(224,192,48,.06); border-color:rgba(224,192,48,.2); }
+    .chain-callout__label { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-warm); margin-bottom:var(--space-3); }
+    .chain-callout__text { font-size:var(--type-sm); color:var(--color-text-secondary); line-height:1.7; }
+    .chain-callout__text strong { color:var(--color-text-primary); }
+
+    .thread-sidebar { display:flex; flex-direction:column; gap:var(--space-6); }
+    .sidebar-card { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-xl); padding:var(--space-6); }
+    .sidebar-card__title { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-4); }
+    .sidebar-card__body { font-size:var(--type-sm); color:var(--color-text-secondary); line-height:1.72; }
+    .sidebar-card__body strong { color:var(--color-text-primary); }
+    .sidebar-link-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:var(--space-2); }
+    .sidebar-link-list li a { font-size:var(--type-sm); color:var(--acc-lt); text-decoration:underline; text-underline-offset:2px; }
+
+    .thread-bottom-cta { background:#0d0600; border-top:1px solid rgba(255,255,255,.06); padding:var(--space-14) 0; }
+    .thread-bottom-cta__inner { max-width:680px; }
+    .thread-bottom-cta__eyebrow { font-size:var(--type-xs); font-weight:var(--weight-bold); letter-spacing:var(--tracking-wider); text-transform:uppercase; color:var(--acc-lt); margin-bottom:var(--space-3); }
+    .thread-bottom-cta__title { font-family:var(--font-editorial); font-size:clamp(1.75rem,4vw,2.6rem); font-weight:900; color:#fff; line-height:1.15; margin-bottom:var(--space-4); }
+    .thread-bottom-cta__sub { font-size:var(--type-md); color:rgba(255,255,255,.58); line-height:1.7; margin-bottom:var(--space-8); }
+    .thread-bottom-cta__btns { display:flex; gap:var(--space-4); flex-wrap:wrap; }
+    .thread-bottom-cta__btn { display:inline-flex; align-items:center; padding:var(--space-3) var(--space-6); border-radius:999px; font-size:var(--type-sm); font-weight:var(--weight-bold); text-decoration:none; transition:all var(--duration-fast); }
+    .thread-bottom-cta__btn--primary { background:var(--acc-lt); color:#0d0600; }
+    .thread-bottom-cta__btn--primary:hover { filter:brightness(1.12); }
+    .thread-bottom-cta__btn--secondary { background:transparent; color:rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.18); }
+    .thread-bottom-cta__btn--secondary:hover { background:rgba(255,255,255,.07); color:#fff; }
+
+    .next-thread-strip { background:var(--color-surface); border-top:1px solid var(--color-border); padding:var(--space-8) 0; }
+    .next-thread-strip__inner { display:flex; align-items:center; justify-content:space-between; gap:var(--space-6); flex-wrap:wrap; }
+    .next-thread-strip__label { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--color-text-tertiary); margin-bottom:var(--space-2); }
+    .next-thread-strip__title { font-family:var(--font-editorial); font-size:clamp(1.1rem,2vw,1.4rem); font-weight:800; color:var(--color-text-primary); line-height:1.2; max-width:520px; }
+    .next-thread-strip__btn { flex-shrink:0; display:inline-flex; align-items:center; gap:var(--space-2); padding:var(--space-3) var(--space-6); background:var(--acc-lt); color:#0d0600; border-radius:999px; font-size:var(--type-sm); font-weight:700; text-decoration:none; transition:filter .15s; white-space:nowrap; }
+    .next-thread-strip__btn:hover { filter:brightness(1.1); }
+  </style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message"><strong>City Histories:</strong> Detroit · <a href="thread-chicago.html" style="color:var(--amber-300,#fcd34d)">Chicago</a> · <a href="thread-new-york.html" style="color:var(--amber-300,#fcd34d)">New York</a></p>
+    <nav class="utility-bar__links">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+      <a href="admin.html" class="utility-bar__link" style="color:var(--amber-300,#fcd34d);font-weight:700;">✦ Generator</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link" aria-current="true">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+    </nav>
+    <div class="site-nav__actions">
+      <a href="today.html" class="today-pill"><span class="today-pill__dot"></span>Today</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep">/</span>
+      <span class="thread-breadcrumb__current">Detroit: Motown, the '67 Uprising, and the City They Left to Die</span>
+    </div>
+  </div>
+</nav>
+
+<div class="context-ribbon context-ribbon--thread">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">City Histories · 1900s–Present</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="thread-chicago.html" class="context-ribbon__link">Chicago →</a>
+      <a href="thread-new-york.html" class="context-ribbon__link">New York →</a>
+    </nav>
+  </div>
+</div>
+
+<section class="thread-hero">
+  <div class="thread-hero__bg"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker"><span class="thread-hero__kicker-dot"></span>City Histories · 1900s – Present</div>
+      <h1 class="thread-hero__title">Detroit:<br /><em>Motown, the '67 Uprising,<br />and the City They Left to Die</em></h1>
+      <p class="thread-hero__subtitle">Detroit's Black community built Paradise Valley, invented the most commercially successful Black music empire in history, survived two devastating uprisings — and then watched the auto industry leave, the white population flee, and the state of Michigan drain the city dry before a bankruptcy judge sold it off.</p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Time span</div><div class="thread-meta-item__value">1900s – Present</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Central theme</div><div class="thread-meta-item__value">Industrial promise, racist extraction, and abandonment</div></div>
+        <div class="thread-meta-item"><div class="thread-meta-item__label">Key figures</div><div class="thread-meta-item__value">Berry Gordy · Coleman Young · Aretha Franklin</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The Central Argument</div>
+        <p class="argument-bar__text">Detroit is the sharpest example in American urban history of what happens when a city's economy is built on a single industry that can leave, when that industry's workforce is racially segregated by union policy and residential covenant, and when the state withdraws investment from the communities left behind. Detroit's Black community did not create Detroit's collapse. They were its first victims — excluded from the prosperity of the auto boom by union racism and housing covenants, then blamed for the city's decline when the industry and the white population both abandoned it simultaneously.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+      <main class="thread-main">
+        <div class="entry-list">
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">Black Bottom &amp; Paradise Valley · 1910s – 1950s</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e1">
+            <div class="entry-item__header">
+              <div class="entry-item__num">1</div>
+              <div>
+                <div class="entry-item__dates">1910s – 1950s</div>
+                <h2 class="entry-item__name">Black Bottom and Paradise Valley: Detroit's Black Metropolis</h2>
+                <div class="entry-item__location">East Side, Detroit</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>As Black migrants arrived from the South during and after World War I, Detroit's housing market confined them — through <strong>racially restrictive covenants, redlining, and violence</strong> — to a narrow corridor on the city's east side. The neighborhood's low-lying geography gave it the name <strong>Black Bottom</strong>; the commercial corridor along Hastings Street that served it was called <strong>Paradise Valley</strong>. By the 1940s, Paradise Valley was the most vibrant Black entertainment and commercial district in the Midwest outside of Chicago's Bronzeville — comparable to Harlem in its density of jazz clubs, theaters, restaurants, and Black-owned businesses.</p>
+              <p>The <strong>Graystone Ballroom</strong> and the <strong>Forest Club</strong> hosted every major Black musician of the era. Black Detroit produced or nurtured Ella Fitzgerald, John Lee Hooker, and the early careers of nearly everyone who would later record for Motown. The district had its own hotels (the Gotham Hotel, the only first-class hotel in Detroit that admitted Black guests), its own newspapers, its own professional class — doctors, lawyers, business owners who had been excluded from white institutions and built their own. <strong>In 1950, an estimated 120,000 Black Detroiters lived in this corridor.</strong></p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Between 1950 and 1966, <strong>Black Bottom and Paradise Valley were completely demolished</strong> by urban renewal and freeway construction — specifically the <strong>Chrysler Freeway (I-375)</strong>, routed directly through the neighborhood. 129 blocks were cleared. 8,000 families were displaced with minimal compensation. The community's institutions, its businesses, its social fabric — gone. The freeway is currently being removed by the city of Detroit, and there is an active effort to rebuild the neighborhood. <strong>It is one of the only cases in American history of a city formally attempting to reverse an act of racist urban destruction.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">The 1943 Uprising · Race and the Auto Industry</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e2">
+            <div class="entry-item__header">
+              <div class="entry-item__num">2</div>
+              <div>
+                <div class="entry-item__dates">June 1943</div>
+                <h2 class="entry-item__name">The 1943 Detroit Race Riot: When the Arsenal of Democracy Turned on Itself</h2>
+                <div class="entry-item__location">Belle Isle and throughout Detroit</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Detroit in 1943 was the "Arsenal of Democracy" — its auto plants had converted to wartime production and were employing hundreds of thousands of workers. Black workers had migrated in massive numbers for these jobs, but the <strong>United Auto Workers union</strong> enforced a racial hierarchy within the plants: Black workers were confined to the foundry, the hardest and most dangerous work, while white workers held the skilled and supervisory positions. When the Ford Motor Company promoted three Black workers to positions previously held only by whites in June 1943, 25,000 white workers walked off the job in a "hate strike."</p>
+              <p>On June 20, 1943, a fight broke out on Belle Isle, a recreational island in the Detroit River. Within hours, the violence had spread across the city. The riot lasted three days. <strong>34 people were killed — 25 of them Black — and 433 were injured.</strong> Federal troops were deployed to end it. The causes: wartime competition for housing and jobs, racial restrictive covenants that made Black neighborhoods impossibly overcrowded, and a police department that arrested Black residents while allowing white mobs to operate freely. Of the 34 killed, 17 were killed by police — all 17 were Black.</p>
+              <div class="entry-stats">
+                <div><div class="entry-stat__num">34</div><div class="entry-stat__label">Killed — 25 Black, 9 white</div></div>
+                <div><div class="entry-stat__num">17</div><div class="entry-stat__label">Killed by police — all 17 were Black</div></div>
+                <div><div class="entry-stat__num">433</div><div class="entry-stat__label">Injured; federal troops deployed to end it</div></div>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The 1943 riot accelerated white flight from mixed neighborhoods, hardened residential segregation, and embedded a pattern of police impunity toward Black Detroiters that would continue for another three decades — until the <strong>1967 uprising</strong> made it nationally impossible to ignore.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">Motown · 1959 – 1972</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e3">
+            <div class="entry-item__header">
+              <div class="entry-item__num">3</div>
+              <div>
+                <div class="entry-item__dates">1959 – 1972</div>
+                <h2 class="entry-item__name">Motown Records: The $800 Loan That Built the World's Biggest Black Music Empire</h2>
+                <div class="entry-item__location">2648 West Grand Boulevard, Detroit ("Hitsville U.S.A.")</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>Berry Gordy Jr.</strong>, a former assembly line worker at Ford's Lincoln-Mercury plant, founded <strong>Tamla Records</strong> in 1959 with an $800 family loan. He renamed it Motown Record Corporation — the Motor City label. His first office and recording studio was a house on West Grand Boulevard he called <strong>Hitsville U.S.A.</strong> His explicit strategy: create Black music that white radio stations would play. The Motown Sound — tight arrangements, call-and-response vocals, pop-accessible hooks layered over Detroit soul — was engineered for crossover. It worked.</p>
+              <p>Between 1961 and 1971, <strong>Motown had 110 Billboard top-ten hits</strong>. The roster: The Supremes (Diana Ross), The Temptations, The Four Tops, Marvin Gaye, Stevie Wonder, Smokey Robinson and the Miracles, Martha and the Vandellas, the Jackson 5. Gordy ran Motown like a Ford assembly line — songwriters, producers, and artists worked specific roles in a vertically integrated creative factory. The <strong>Funk Brothers</strong>, the studio band that played on virtually every Motown hit, were never credited on any album. They were salaried employees, paid session rates, while the records they played on sold tens of millions of copies.</p>
+              <p>Gordy moved Motown's headquarters to <strong>Los Angeles in 1972</strong> — drawn by the film industry and the mainstream entertainment establishment. Detroit lost the label, and with it the infrastructure and professional ecosystem that had supported hundreds of musicians, producers, and studio workers. The Hitsville U.S.A. building is now a museum.</p>
+              <div class="entry-stats">
+                <div><div class="entry-stat__num">$800</div><div class="entry-stat__label">Berry Gordy's founding loan, 1959</div></div>
+                <div><div class="entry-stat__num">110</div><div class="entry-stat__label">Billboard top-ten hits, 1961–1971</div></div>
+                <div><div class="entry-stat__num">1972</div><div class="entry-stat__label">Gordy moves Motown to L.A. — Detroit loses its engine</div></div>
+              </div>
+              <div class="pullquote">
+                <p>"I wanted to make music that would appeal to everyone — not just Black people. I wanted to make America hear us."</p>
+                <cite>— Berry Gordy Jr., <em>To Be Loved</em> (1994)</cite>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The Funk Brothers — the uncredited session musicians on virtually every Motown hit — were the subject of the 2002 documentary <em>Standing in the Shadows of Motown</em>, which finally gave them public recognition decades after their contributions. The pattern of Black creative labor generating wealth for Black-owned but hierarchically structured institutions — where the credit and the royalties flow upward — mirrors the broader extractive logic Black artists have always navigated.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">The 1967 Uprising · America's Deadliest 20th-Century Urban Rebellion</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e4">
+            <div class="entry-item__header">
+              <div class="entry-item__num">4</div>
+              <div>
+                <div class="entry-item__dates">July 23–28, 1967</div>
+                <h2 class="entry-item__name">The 1967 Detroit Uprising: Five Days That Broke the City Open</h2>
+                <div class="entry-item__location">Detroit's Near West Side → citywide</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>At 3:35 a.m. on July 23, 1967, Detroit Police raided an unlicensed after-hours bar (<em>blind pig</em>) at 12th Street and Clairmount Avenue — a regular gathering spot for Black veterans celebrating the return of two servicemen from Vietnam. Police expected a small group; they found 82 people. The arrests took over an hour. A crowd gathered. Bottles were thrown. By dawn, the West Side was burning.</p>
+              <p>The <strong>1967 Detroit uprising</strong> lasted five days and is the largest and deadliest urban rebellion in twentieth-century American history. <strong>43 people were killed, 1,189 injured, 7,200 arrested, and 2,000 buildings were destroyed.</strong> Governor George Romney requested federal troops; President Johnson sent the 82nd and 101st Airborne Divisions — the same units that had been deployed in Vietnam. National Guardsmen fired indiscriminately into buildings. The <strong>Algiers Motel incident</strong> — in which Detroit police murdered three young Black men, Carl Cooper (17), Aubrey Pollard (19), and Fred Temple (18), in a motel annex during the uprising — became emblematic of the police's conduct. No officer was convicted.</p>
+              <p>The uprising's causes were not the blind pig raid. They were <strong>two decades of compressed grievance</strong>: police brutality, the destruction of Black Bottom, overcrowded segregated housing, unemployment (Black unemployment in Detroit was twice the white rate), and a police department — the <strong>Big Four</strong> tactical units — that operated as an occupation force in Black neighborhoods. The Kerner Commission, appointed by President Johnson to investigate the "riots," concluded in 1968 that <strong>"white racism"</strong> was the primary cause. The report was immediately shelved.</p>
+              <div class="entry-stats">
+                <div><div class="entry-stat__num">43</div><div class="entry-stat__label">Killed — largest death toll of any 20th-c. urban uprising</div></div>
+                <div><div class="entry-stat__num">7,200</div><div class="entry-stat__label">Arrested; 82nd and 101st Airborne deployed</div></div>
+                <div><div class="entry-stat__num">2,000</div><div class="entry-stat__label">Buildings destroyed</div></div>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The 1967 uprising accelerated white flight that had already been underway. Detroit's white population, 1.5 million in 1950, fell to 400,000 by 2000. The tax base collapsed with it. The auto industry followed: GM, Ford, and Chrysler relocated plants to the suburbs, the South, and eventually overseas. <strong>The single largest driver of Detroit's fiscal collapse was not Black residents — it was the departure of white residents and their tax dollars, and the departure of the auto industry that had justified the city's existence.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">Coleman Young &amp; Political Power · 1973 – 1997</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e5">
+            <div class="entry-item__header">
+              <div class="entry-item__num">5</div>
+              <div>
+                <div class="entry-item__dates">1973 – 1997</div>
+                <h2 class="entry-item__name">Coleman Young: Detroit's First Black Mayor and the War Against Him</h2>
+                <div class="entry-item__location">Detroit City Hall</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>Coleman Young</strong> was elected Detroit's first Black mayor in November 1973, defeating the white police commissioner John Nichols in a campaign that split the city almost perfectly along racial lines. Young had been on the HUAC blacklist in 1952 for refusing to name names; he had organized Black workers in the UAW; he had served in the <strong>Tuskegee Airmen's</strong> ground crew. He took office knowing the city was structurally compromised: the tax base was eroding, the auto industry was consolidating, and the federal government was deliberately redirecting infrastructure investment to the suburbs.</p>
+              <p>Young's first major act was <strong>disbanding the STRESS unit</strong> (Stop the Robberies, Enjoy Safe Streets) — a plainclothes police decoy operation that had killed 22 people in its first two years, 20 of them Black. He diversified the police force, promoted Black officers, and redirected city investment toward Black neighborhoods that had been neglected for decades. The white political establishment — in suburban Detroit, in the state legislature, in Washington — treated every Young initiative as either incompetent or corrupt. State funding to Detroit was systematically reduced. The "Renaissance Center" corporate development on the riverfront, pushed by Ford's Henry Ford II, absorbed public money while the neighborhoods decayed.</p>
+              <p>Young served five terms — 20 years — and died in 1997. His tenure was marked by genuine achievements in Black political empowerment and genuine failures in economic policy, many of which were constrained by the structural conditions he inherited. <strong>He remains one of the most consequential and most unfairly maligned figures in American urban history.</strong></p>
+              <div class="pullquote">
+                <p>"I issue an open warning now to all dope pushers, rip-off artists, and muggers: It's time to leave Detroit. Hit 8 Mile Road."</p>
+                <cite>— Coleman Young, 1973 inaugural address</cite>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Young's successors inherited a city in accelerating structural decline. The 2013 Detroit municipal bankruptcy — the largest in American history — was the formal endpoint of a process that began with white flight and deindustrialization in the 1950s. <strong>The bankruptcy judge approved the sale of Detroit Institute of Arts assets before public pension cuts were negotiated — a decision that placed the city's cultural patrimony above the retirement security of its public workers, most of whom were Black.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">The Water Crisis &amp; Flint · 2014 – Present</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e6">
+            <div class="entry-item__header">
+              <div class="entry-item__num">6</div>
+              <div>
+                <div class="entry-item__dates">2014 – Present</div>
+                <h2 class="entry-item__name">Flint: Environmental Racism as State Policy</h2>
+                <div class="entry-item__location">Flint, Michigan (57% Black)</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>In 2013, the Michigan state government — acting under emergency manager legislation that stripped Flint's elected city government of authority — appointed an <strong>unelected emergency manager</strong> to run the city's finances. In April 2014, to save money, the emergency manager switched Flint's water supply from Detroit's treated Lake Huron water to the Flint River — without applying the federally required corrosion inhibitor treatment. The Flint River's chemistry corroded the city's aging lead pipes, leaching lead into the water supply. <strong>Flint's children drank lead-poisoned water for 18 months before state officials acknowledged the problem.</strong></p>
+              <p>When a local pediatrician, <strong>Dr. Mona Hanna-Attisha</strong>, published data showing elevated blood-lead levels in Flint children in September 2015, state officials publicly disputed her findings. The EPA had known since June 2015. Governor Snyder's office had internal emails documenting the danger from July 2015. The cover-up continued until January 2016. By then, <strong>6,000–12,000 children had been exposed to high lead levels</strong>. Lead poisoning in children causes irreversible neurological damage — lower IQ, behavioral problems, reduced impulse control. There is no cure.</p>
+              <p>Flint is a majority-Black city. The emergency manager system — which had also been imposed on Detroit, Pontiac, Benton Harbor, and other majority-Black Michigan cities — stripped elected local government from communities of color while leaving white-majority communities to self-govern. Environmental law scholars have described Flint as a textbook case of <strong>environmental racism</strong>: the systematic exposure of non-white communities to environmental hazards that white communities are protected from.</p>
+              <div class="entry-stats">
+                <div><div class="entry-stat__num">18 mo.</div><div class="entry-stat__label">Duration children drank lead water before acknowledgment</div></div>
+                <div><div class="entry-stat__num">12K</div><div class="entry-stat__label">Children estimated to have elevated blood-lead levels</div></div>
+                <div><div class="entry-stat__num">57%</div><div class="entry-stat__label">Flint's Black population at time of water switch</div></div>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Governor Rick Snyder was charged with willful neglect of duty in 2021. The charges were dropped on a technicality in 2022. No senior state official was convicted. The city reached a $626 million settlement in 2021, most of which went to the children who were poisoned. <strong>Flint's water infrastructure has not been fully replaced as of 2025.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-divider"><div class="era-divider__line"></div><div class="era-divider__badge">Aretha Franklin &amp; the Spiritual Legacy</div><div class="era-divider__line"></div></div>
+
+          <div class="entry-item" id="e7">
+            <div class="entry-item__header">
+              <div class="entry-item__num">7</div>
+              <div>
+                <div class="entry-item__dates">1942 – 2018</div>
+                <h2 class="entry-item__name">Aretha Franklin: The Queen from Detroit's New Bethel Baptist Church</h2>
+                <div class="entry-item__location">New Bethel Baptist Church, Detroit</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>Aretha Franklin</strong> was born in Memphis but raised in Detroit, the daughter of the nationally prominent Baptist preacher <strong>C.L. Franklin</strong>, whose sermons were recorded and distributed on Chess Records. She learned to sing in the choir of New Bethel Baptist Church on Linwood Avenue — the church her father led for 35 years, the same church that became a major venue for civil rights organizing, hosting King and other movement leaders. Aretha's first recordings were Gospel, made at Columbia at 18. Her career did not break through until she signed with Atlantic Records in 1966 and producer Jerry Wexler recorded her at FAME Studios in Muscle Shoals, Alabama.</p>
+              <p>The result — <em>I Never Loved a Man the Way I Love You</em> (1967), followed by "Respect" (Otis Redding's song, rewritten and transformed by Aretha into something new) — made her the defining voice of soul music at the precise moment the civil rights movement was confronting its hardest questions. "Respect" became an anthem not just for Black America but for the women's movement. Franklin performed at the March on Washington and at King's funeral in 1968, where she sang "Precious Lord" — the Thomas Dorsey Gospel standard from Chicago — as his casket was carried out.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Franklin's voice ran through three generations of Detroit's Black sacred and secular tradition: from her father's church to Chess Records' Gospel distribution to Motown's commercial machine to Atlantic's soul moment. <strong>She is buried at Woodlawn Cemetery in Detroit, alongside her father. Her funeral in August 2018, at Greater Grace Temple, drew presidents, musicians, and dignitaries from across the world — back to the city that made her.</strong></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <aside class="thread-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Figures</div>
+          <div class="sidebar-card__body">
+            <strong>Berry Gordy Jr.</strong> — Founded Motown, 1959; $800 → global empire<br /><br />
+            <strong>The Funk Brothers</strong> — Uncredited session musicians on every Motown hit<br /><br />
+            <strong>Aretha Franklin</strong> — "Queen of Soul"; New Bethel Baptist; civil rights movement voice<br /><br />
+            <strong>Coleman Young</strong> — Detroit's first Black mayor, 1973–1993<br /><br />
+            <strong>Dr. Mona Hanna-Attisha</strong> — Pediatrician who exposed the Flint water crisis<br /><br />
+            <strong>Marvin Gaye</strong> — <em>What's Going On</em> (1971); the political conscience of Motown<br /><br />
+            <strong>Stevie Wonder</strong> — Motown child prodigy; later refused to perform in apartheid South Africa
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Causal Chain Summary</div>
+          <div class="sidebar-card__body">
+            <strong>1910s–40s:</strong> Great Migration builds Black Bottom &amp; Paradise Valley<br /><br />
+            <strong>1943:</strong> Race riot — 17 of 17 police kills are Black<br /><br />
+            <strong>1950s–60s:</strong> I-375 destroys Black Bottom (now being removed)<br /><br />
+            <strong>1959:</strong> Motown founded with $800<br /><br />
+            <strong>1967:</strong> Uprising — 43 killed; 82nd Airborne deployed<br /><br />
+            <strong>1972:</strong> Motown moves to L.A.; Detroit loses its engine<br /><br />
+            <strong>1973:</strong> Coleman Young elected; disbands STRESS police unit<br /><br />
+            <strong>1970s–90s:</strong> White flight + auto industry departure collapse tax base<br /><br />
+            <strong>2013:</strong> Largest U.S. municipal bankruptcy; pension cuts for Black workers<br /><br />
+            <strong>2014:</strong> Flint water switch — children poisoned; cover-up confirmed<br /><br />
+            <strong>Today:</strong> Demolition of I-375 begins — first U.S. effort to reverse racist urban destruction
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Related Threads</div>
+          <ul class="sidebar-link-list">
+            <li><a href="thread-detroit-1943.html">Detroit 1943: The Race Riot →</a></li>
+            <li><a href="thread-great-migration.html">The Great Migration →</a></li>
+            <li><a href="thread-deindustrialization.html">Deindustrialization →</a></li>
+            <li><a href="thread-environmental-racism.html">Environmental Racism →</a></li>
+            <li><a href="thread-gentrification.html">Gentrification →</a></li>
+            <li><a href="thread-chicago.html">Chicago →</a></li>
+            <li><a href="thread-new-york.html">New York →</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="thread-bottom-cta">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">The City That Industry Built and Abandoned</div>
+      <h2 class="thread-bottom-cta__title">Detroit didn't collapse because of its Black residents. It collapsed because the industry and the white tax base both left — and the state made sure the people left behind paid the price.</h2>
+      <p class="thread-bottom-cta__sub">Paradise Valley was demolished for a freeway. The freeway is now being torn down. Flint's children were poisoned to save $15 a day in water treatment costs. The Motown Sound crossed over to every radio station in America while its creators worked for session wages. Detroit's story is the concentrated version of what industrial capitalism does to Black communities when the profits stop flowing.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-great-migration.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">The Great Migration →</a>
+        <a href="thread-chicago.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">Chicago →</a>
+        <a href="thread-new-york.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">New York →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the City Histories series</div>
+        <div class="next-thread-strip__title">Chicago: Where Black America Built a City Within a City</div>
+      </div>
+      <a href="thread-chicago.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand"><a href="home.html" class="site-footer__wordmark">Chain</a><p class="site-footer__tagline">Understand the chain, not just the event.</p></div>
+      <nav class="site-footer__nav"><a href="threads.html" class="site-footer__link">Threads</a><a href="explore.html" class="site-footer__link">Explore</a><a href="maps.html" class="site-footer__link">Maps</a><a href="about.html" class="site-footer__link">About</a><a href="sources.html" class="site-footer__link">Sources</a><a href="donate.html" class="site-footer__link">Donate</a></nav>
+    </div>
+    <div class="site-footer__bottom"><p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p></div>
+  </div>
+</footer>
+
+<script>
+  const t = document.getElementById('themeToggle');
+  if(t) t.addEventListener('click', () => {
+    const n = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', n);
+    localStorage.setItem('chain-theme', n);
+  });
+</script>
+</body>
+</html>
