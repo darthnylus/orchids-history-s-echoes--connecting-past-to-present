@@ -406,7 +406,10 @@
     }
 
     /* ── Sidebar ────────────────────────────────────────────── */
-    .today-sidebar {}
+    .today-sidebar {
+      min-width: 0;        /* let grid cell shrink to its track width */
+      overflow: hidden;    /* no sidebar element may bleed past column edge */
+    }
 
     .sidebar-card {
       background: var(--color-surface);
@@ -414,6 +417,9 @@
       border-radius: var(--radius-xl);
       padding: var(--space-6);
       margin-bottom: var(--space-6);
+      min-width: 0;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
     .sidebar-card__title {
       font-family: var(--font-editorial);
@@ -503,12 +509,17 @@
       position: relative;
       background: linear-gradient(150deg, #5c2a0e 0%, #7a3520 40%, #4a1a08 100%);
       border-radius: var(--radius-xl);
-      padding: var(--space-7) var(--space-7) var(--space-6);
+      /* fluid padding: generous on wide viewports, tighter in narrow sidebar */
+      padding: clamp(1rem, 4%, 1.75rem) clamp(1rem, 5%, 1.75rem) clamp(0.875rem, 3.5%, 1.5rem);
       color: #fff;
       margin-bottom: var(--space-6);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.06);
       box-shadow: 0 4px 24px rgba(92,42,14,.35), 0 1px 4px rgba(0,0,0,.2);
+      /* prevent text nodes from exceeding the card bounding box */
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
     /* Decorative warm orb */
     .newsletter-cta::before {
@@ -557,6 +568,9 @@
       margin-bottom: var(--space-5);
       position: relative;
       z-index: 1;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
     }
     .newsletter-cta__form {
       display: flex;
@@ -566,6 +580,8 @@
       z-index: 1;
     }
     .newsletter-cta__input {
+      width: 100%;
+      min-width: 0;
       padding: var(--space-3) var(--space-4);
       border-radius: var(--radius-md);
       border: 1px solid rgba(255,255,255,.18);
@@ -575,6 +591,7 @@
       outline: none;
       transition: border-color var(--duration-fast), background var(--duration-fast), box-shadow var(--duration-fast);
       font-family: var(--font-sans);
+      box-sizing: border-box;
     }
     .newsletter-cta__input::placeholder { color: rgba(255,255,255,.4); }
     .newsletter-cta__input:focus {
@@ -583,6 +600,8 @@
       box-shadow: 0 0 0 3px rgba(245,147,50,.15);
     }
     .newsletter-cta__btn {
+      width: 100%;
+      min-width: 0;
       padding: var(--space-3) var(--space-5);
       background: #fff;
       color: #5c2a0e;
@@ -595,6 +614,10 @@
       transition: background var(--duration-fast), transform 80ms ease, box-shadow var(--duration-fast);
       text-align: center;
       font-family: var(--font-sans);
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .newsletter-cta__btn:hover {
       background: var(--amber-50);
