@@ -25,6 +25,43 @@
     }
     body { background: var(--bg); color: var(--text); font-family: Inter, sans-serif; min-height: 100vh; }
 
+    /* ── API Key banner */
+    .key-banner {
+      background: rgba(239,68,68,.08);
+      border-bottom: 1px solid rgba(239,68,68,.2);
+      padding: 10px 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: #f87171;
+    }
+    .key-banner a { color: var(--amber); font-weight: 600; cursor: pointer; text-decoration: underline; }
+    .key-banner--ok { background: rgba(34,197,94,.08); border-color: rgba(34,197,94,.2); color: #4ade80; }
+
+    /* ── Settings modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.7);
+      display: none; align-items: center; justify-content: center; z-index: 200;
+    }
+    .modal-overlay.is-open { display: flex; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.5);
+    }
+    .modal__title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .modal__sub { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+    .modal__sub a { color: var(--amber); }
+    .modal__row { display: flex; gap: 8px; margin-top: 8px; }
+    .modal__close { background: none; border: none; color: var(--muted); font-size: 18px; cursor: pointer; line-height: 1; padding: 2px 6px; border-radius: 4px; }
+    .modal__close:hover { color: var(--text); }
+    .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+
     /* ── Top bar */
     .topbar {
       background: var(--surface);
@@ -237,6 +274,9 @@
 </head>
 <body>
 
+<!-- API key status banner (injected by JS) -->
+<div id="keyBanner" style="display:none;"></div>
+
 <div class="topbar">
   <div style="display:flex;align-items:center;gap:14px;">
     <span class="topbar__logo">Chain</span>
@@ -246,7 +286,33 @@
     <a href="today.html">Today</a>
     <a href="newsletter.html">Newsletter</a>
     <a href="threads.html">Threads</a>
+    <a href="#" id="settingsBtn" style="color:var(--amber);">⚙ Settings</a>
   </nav>
+</div>
+
+<!-- Settings modal -->
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal__title">Anthropic API Key</div>
+      </div>
+      <button class="modal__close" id="modalClose">✕</button>
+    </div>
+    <p class="modal__sub">
+      The article generator calls Claude via the Anthropic API. Paste your key below — it is stored locally on the server and never sent anywhere else.<br><br>
+      Get a key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>. Keys start with <code style="background:var(--surface2);padding:1px 5px;border-radius:4px;">sk-ant-</code>
+    </p>
+    <div class="field">
+      <label>API Key</label>
+      <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-…" autocomplete="off" />
+    </div>
+    <div id="keyStatus" class="status" style="margin-top:10px;"></div>
+    <div class="modal__row">
+      <button class="btn btn--primary" id="saveKeyBtn" style="flex:1;">Save Key</button>
+      <button class="btn btn--ghost" id="modalCancelBtn">Cancel</button>
+    </div>
+  </div>
 </div>
 
 <div class="layout">
@@ -316,6 +382,55 @@
 <script>
   const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
+  // ── API KEY / SETTINGS ─────────────────────────────────────────────────────
+  async function checkKeyStatus() {
+    try {
+      const res  = await fetch('/api/config/key-status');
+      const data = await res.json();
+      const banner = document.getElementById('keyBanner');
+      if (data.configured) {
+        banner.className = 'key-banner key-banner--ok';
+        banner.innerHTML = `✓ API key configured (${data.preview}) — <a onclick="openSettings()">update</a>`;
+        banner.style.display = 'flex';
+      } else {
+        banner.className = 'key-banner';
+        banner.innerHTML = `⚠ No Anthropic API key set — article generation is disabled. <a onclick="openSettings()">Add your key →</a>`;
+        banner.style.display = 'flex';
+      }
+    } catch (_) {}
+  }
+
+  function openSettings()  { document.getElementById('settingsModal').classList.add('is-open'); }
+  function closeSettings() { document.getElementById('settingsModal').classList.remove('is-open'); }
+
+  document.getElementById('settingsBtn').addEventListener('click', e => { e.preventDefault(); openSettings(); });
+  document.getElementById('modalClose').addEventListener('click', closeSettings);
+  document.getElementById('modalCancelBtn').addEventListener('click', closeSettings);
+  document.getElementById('settingsModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeSettings(); });
+
+  document.getElementById('saveKeyBtn').addEventListener('click', async () => {
+    const key    = document.getElementById('apiKeyInput').value.trim();
+    const status = document.getElementById('keyStatus');
+    const btn    = document.getElementById('saveKeyBtn');
+    if (!key) { status.className = 'status status--error'; status.textContent = 'Please paste your API key.'; return; }
+    btn.disabled = true; btn.textContent = 'Saving…';
+    status.className = 'status status--loading';
+    status.innerHTML = '<span class="spinner"></span> Validating…';
+    try {
+      const res  = await fetch('/api/config/key', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ apiKey: key }) });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      status.className = 'status status--success';
+      status.textContent = '✓ Key saved.';
+      setTimeout(() => { closeSettings(); checkKeyStatus(); }, 900);
+    } catch (err) {
+      status.className = 'status status--error';
+      status.textContent = '✗ ' + err.message;
+    } finally { btn.disabled = false; btn.textContent = 'Save Key'; }
+  });
+
+  checkKeyStatus();
+
   // Set today's date on load
   const now = new Date();
   document.getElementById('genMonth').value = now.getMonth() + 1;
@@ -349,7 +464,13 @@
         body: JSON.stringify({ month, day, context })
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Generation failed');
+      if (!res.ok) {
+        if (data.error === 'NO_API_KEY') {
+          openSettings();
+          throw new Error('No API key configured. Add your Anthropic key in Settings.');
+        }
+        throw new Error(data.error || data.message || 'Generation failed');
+      }
 
       currentArticle = data.article;
       renderPreview(currentArticle);

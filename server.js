@@ -9,14 +9,40 @@ const app      = express();
 const PORT     = 3000;
 const DATA_DIR = join(__dirname, 'data');
 const ARTICLES = join(DATA_DIR, 'articles.json');
+const CONFIG   = join(DATA_DIR, 'config.json');
 
 if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR);
 if (!existsSync(ARTICLES)) writeFileSync(ARTICLES, JSON.stringify({ events: {} }, null, 2));
+if (!existsSync(CONFIG))   writeFileSync(CONFIG,   JSON.stringify({ apiKey: '' }, null, 2));
 
 app.use(express.json());
 app.use(express.static(__dirname));
 
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+// ── Resolve API key: env var takes priority, then persisted config ─────────────
+function getApiKey() {
+  if (process.env.ANTHROPIC_API_KEY) return process.env.ANTHROPIC_API_KEY;
+  try {
+    const cfg = JSON.parse(readFileSync(CONFIG, 'utf8'));
+    return cfg.apiKey || '';
+  } catch { return ''; }
+}
+
+// ── SAVE / GET API KEY ─────────────────────────────────────────────────────────
+app.post('/api/config/key', (req, res) => {
+  const { apiKey } = req.body;
+  if (!apiKey || !apiKey.startsWith('sk-ant-')) {
+    return res.status(400).json({ error: 'Invalid key — must start with sk-ant-' });
+  }
+  const cfg = JSON.parse(readFileSync(CONFIG, 'utf8'));
+  cfg.apiKey = apiKey;
+  writeFileSync(CONFIG, JSON.stringify(cfg, null, 2));
+  res.json({ success: true });
+});
+
+app.get('/api/config/key-status', (_req, res) => {
+  const key = getApiKey();
+  res.json({ configured: !!key, preview: key ? `sk-ant-...${key.slice(-4)}` : null });
+});
 
 // ── SYSTEM PROMPT ──────────────────────────────────────────────────────────────
 const SYSTEM = `You are a historian and editor for Chain, a digital platform tracing African and Black history through causal threads from ancient Africa to present-day America. Your writing is rigorous, primary-source-grounded, and always answers: what caused this? what did it cause?
@@ -50,6 +76,9 @@ app.post('/api/generate', async (req, res) => {
   const { month, day, context } = req.body;
   if (!month || !day) return res.status(400).json({ error: 'month and day required' });
 
+  const key = getApiKey();
+  if (!key) return res.status(401).json({ error: 'NO_API_KEY', message: 'Anthropic API key not configured. Add it in Settings.' });
+
   const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const monthName = MONTHS[month - 1];
 
@@ -58,6 +87,7 @@ app.post('/api/generate', async (req, res) => {
     : `Generate the single most historically significant Black history event that occurred on ${monthName} ${day}. If multiple strong candidates exist, prefer the one with the clearest present-day causal chain.`;
 
   try {
+    const anthropic = new Anthropic({ apiKey: key });
     const message = await anthropic.messages.create({
       model: 'claude-sonnet-4-6',
       max_tokens: 1024,
@@ -73,7 +103,8 @@ app.post('/api/generate', async (req, res) => {
     res.json({ success: true, article });
   } catch (err) {
     console.error('Generate error:', err);
-    res.status(500).json({ error: err.message });
+    const status = err.status || 500;
+    res.status(status).json({ error: err.message });
   }
 });
 
@@ -86,10 +117,9 @@ app.post('/api/save', (req, res) => {
   const key  = `${article.month}-${article.day}`;
   const slot = db.events[key] || [];
 
-  // Replace if same year already exists, otherwise append
   const idx = slot.findIndex(e => e.year === article.year);
   if (idx >= 0) slot[idx] = article;
-  else slot.unshift(article);        // new articles lead the day
+  else slot.unshift(article);
 
   db.events[key] = slot;
   db.lastUpdated  = new Date().toISOString();
