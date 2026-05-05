@@ -923,10 +923,14 @@
     }
     .nl-prev-col-card__img {
       height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
+      display: block;
+      overflow: hidden;
+    }
+    .nl-prev-col-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .nl-prev-col-card__body { background: #fff; padding: 10px 12px 12px; }
     .nl-prev-col-card__label {
@@ -962,21 +966,14 @@
     .nl-prev-feature__img {
       border-radius: 10px;
       height: 160px;
-      background: linear-gradient(145deg, #2c7fb8, #1a4f7a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      color: rgba(255,255,255,.7);
-      flex-direction: column;
-      gap: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
     }
-    .nl-prev-feature__img-caption {
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.55);
+    .nl-prev-feature__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .nl-prev-feature__kicker {
       font-size: 9px;
@@ -1026,11 +1023,15 @@
     }
     .nl-prev-art:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
     .nl-prev-art__img {
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
+      height: 90px;
+      display: block;
+      overflow: hidden;
+    }
+    .nl-prev-art__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .nl-prev-art__body { padding: 10px 12px 12px; }
     .nl-prev-art__tag {
@@ -1200,11 +1201,14 @@
           </div>
 
           <!-- Hero -->
-          <div class="nl-prev-hero">
-            <div class="nl-prev-hero__badge">Special Edition</div>
-            <h2 class="nl-prev-hero__title">Mother's Day</h2>
-            <p class="nl-prev-hero__sub">Celebrate the women who shaped our history — and whose stories we are still learning to tell.</p>
-            <a href="#" class="nl-prev-hero__btn">Explore the Collection →</a>
+          <div class="nl-prev-hero" style="position:relative;">
+            <img src="https://image.pollinations.ai/prompt/Black%20women%20civil%20rights%20historical%20portrait%20collage%20Mother%27s%20Day%20celebration%20warm%20golden%20light%20painterly%20style%20dignified%20powerful?width=680&height=320&nologo=true&seed=101" alt="Black women historical figures, Mother's Day edition" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.22;border-radius:0;" loading="lazy" />
+            <div style="position:relative;z-index:1;">
+              <div class="nl-prev-hero__badge">Special Edition</div>
+              <h2 class="nl-prev-hero__title">Mother's Day</h2>
+              <p class="nl-prev-hero__sub">Celebrate the women who shaped our history — and whose stories we are still learning to tell.</p>
+              <a href="#" class="nl-prev-hero__btn">Explore the Collection →</a>
+            </div>
           </div>
 
           <!-- Featured story -->
@@ -1224,21 +1228,27 @@
             <div class="nl-prev-section-label">Curated Collections</div>
             <div class="nl-prev-col3">
               <div class="nl-prev-col-card">
-                <div class="nl-prev-col-card__img" style="background: linear-gradient(135deg, #c991a8, #9e6b8a);">🎓</div>
+                <div class="nl-prev-col-card__img" style="background:#c991a8;padding:0;overflow:hidden;">
+                  <img src="https://image.pollinations.ai/prompt/Black%20woman%20educator%20leader%20historical%20painting%20warm%20tones%20dignified%20portrait%20school%20classroom%20HBCU%20vintage%20illustration?width=300&height=160&nologo=true&seed=202" alt="Education and Leaders" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                </div>
                 <div class="nl-prev-col-card__body">
                   <div class="nl-prev-col-card__label" style="color:#9e6b8a">Education &amp; Leaders</div>
                   <div class="nl-prev-col-card__title">The women who built Black institutions from nothing</div>
                 </div>
               </div>
               <div class="nl-prev-col-card">
-                <div class="nl-prev-col-card__img" style="background: linear-gradient(135deg, #2c7fb8, #1a4f7a);">🎨</div>
+                <div class="nl-prev-col-card__img" style="background:#2c7fb8;padding:0;overflow:hidden;">
+                  <img src="https://image.pollinations.ai/prompt/Black%20woman%20artist%20musician%20Harlem%20Renaissance%20painting%20jazz%20culture%20elegant%20portrait%20warm%20painterly%20style%20heritage?width=300&height=160&nologo=true&seed=303" alt="Arts and Culture" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                </div>
                 <div class="nl-prev-col-card__body">
                   <div class="nl-prev-col-card__label" style="color:#2c7fb8">Arts &amp; Culture</div>
                   <div class="nl-prev-col-card__title">How Black women gave America its literary voice</div>
                 </div>
               </div>
               <div class="nl-prev-col-card">
-                <div class="nl-prev-col-card__img" style="background: linear-gradient(135deg, #9e6b8a, #2c7fb8);">✊</div>
+                <div class="nl-prev-col-card__img" style="background:#9e6b8a;padding:0;overflow:hidden;">
+                  <img src="https://image.pollinations.ai/prompt/Black%20woman%20activist%20civil%20rights%20march%20protest%20historical%20painting%20powerful%20determined%20portrait%20dramatic%20lighting?width=300&height=160&nologo=true&seed=404" alt="Activism and Impact" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                </div>
                 <div class="nl-prev-col-card__body">
                   <div class="nl-prev-col-card__label" style="color:#b8829e">Activism &amp; Impact</div>
                   <div class="nl-prev-col-card__title">Protest, journalism, and the fight that never stopped</div>
@@ -1253,9 +1263,8 @@
           <div class="nl-prev-section">
             <div class="nl-prev-section-label">Historical Moments</div>
             <div class="nl-prev-feature">
-              <div class="nl-prev-feature__img">
-                🏛️
-                <span class="nl-prev-feature__img-caption">Image placeholder</span>
+              <div class="nl-prev-feature__img" style="padding:0;overflow:hidden;background:#1a4f7a;">
+                <img src="https://image.pollinations.ai/prompt/Black%20women%20civil%20rights%20movement%20historical%20moment%20courthouse%20steps%20dignified%20powerful%20dramatic%20cinematic%20vintage%20photography%20style?width=400&height=320&nologo=true&seed=505" alt="Historical Moments — Black women civil rights" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
               </div>
               <div>
                 <div class="nl-prev-feature__kicker">This Week in History</div>
@@ -1273,28 +1282,36 @@
             <div class="nl-prev-section-label">Weekly Focus</div>
             <div class="nl-prev-grid22">
               <div class="nl-prev-art">
-                <div class="nl-prev-art__img" style="background: linear-gradient(135deg, #c991a8 0%, #9e6b8a 100%);">✊</div>
+                <div class="nl-prev-art__img" style="padding:0;overflow:hidden;background:#9e6b8a;">
+                  <img src="https://image.pollinations.ai/prompt/Rosa%20Parks%20dignified%20portrait%20Montgomery%20Alabama%20bus%20seat%20civil%20rights%201955%20painterly%20warm%20tones%20historical%20illustration?width=300&height=120&nologo=true&seed=606" alt="Rosa Parks" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                </div>
                 <div class="nl-prev-art__body">
                   <div class="nl-prev-art__tag">Civil Rights</div>
                   <div class="nl-prev-art__title">Rosa Parks &amp; the Boycott That Changed Everything</div>
                 </div>
               </div>
               <div class="nl-prev-art">
-                <div class="nl-prev-art__img" style="background: linear-gradient(135deg, #3d1d30 0%, #9e6b8a 100%);">✍️</div>
+                <div class="nl-prev-art__img" style="padding:0;overflow:hidden;background:#3d1d30;">
+                  <img src="https://image.pollinations.ai/prompt/Ida%20B%20Wells%20journalist%20activist%20portrait%201890s%20newspaper%20pen%20dignified%20powerful%20historical%20painterly%20illustration%20warm%20sepia%20tones?width=300&height=120&nologo=true&seed=707" alt="Ida B. Wells" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                </div>
                 <div class="nl-prev-art__body">
                   <div class="nl-prev-art__tag">Journalism</div>
                   <div class="nl-prev-art__title">Ida B. Wells: The Statistics Behind Racial Terror</div>
                 </div>
               </div>
               <div class="nl-prev-art">
-                <div class="nl-prev-art__img" style="background: linear-gradient(135deg, #2c7fb8 0%, #1a4f7a 100%);">📖</div>
+                <div class="nl-prev-art__img" style="padding:0;overflow:hidden;background:#2c7fb8;">
+                  <img src="https://image.pollinations.ai/prompt/Maya%20Angelou%20poet%20author%20portrait%20books%20library%20warm%20golden%20light%20dignified%20elegant%20painterly%20illustration%20literary%20legacy?width=300&height=120&nologo=true&seed=808" alt="Maya Angelou" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                </div>
                 <div class="nl-prev-art__body">
                   <div class="nl-prev-art__tag">Literature</div>
                   <div class="nl-prev-art__title">Maya Angelou's Literary Legacy &amp; Its Roots</div>
                 </div>
               </div>
               <div class="nl-prev-art">
-                <div class="nl-prev-art__img" style="background: linear-gradient(135deg, #1a4f7a 0%, #3d1d30 100%);">🗺️</div>
+                <div class="nl-prev-art__img" style="padding:0;overflow:hidden;background:#1a4f7a;">
+                  <img src="https://image.pollinations.ai/prompt/Harriet%20Tubman%20freedom%20fighter%20Underground%20Railroad%20portrait%20night%20stars%20lantern%20determined%20powerful%20painterly%20historical%20illustration?width=300&height=120&nologo=true&seed=909" alt="Harriet Tubman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+                </div>
                 <div class="nl-prev-art__body">
                   <div class="nl-prev-art__tag">Freedom</div>
                   <div class="nl-prev-art__title">Harriet Tubman: 13 Missions, 70 People Freed</div>
