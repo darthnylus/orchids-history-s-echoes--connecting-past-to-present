@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicago: Where Black America Built a City Within a City — Thread — Chain</title>
+  <meta name="description" content="From Jean Baptiste Point du Sable's founding trading post to Barack Obama's South Side, Chicago has been the laboratory of Black American power — journalism, medicine, music, politics, and resistance — for 250 years." />
+  <meta property="og:title" content="Chicago: Where Black America Built a City Within a City" />
+  <meta property="og:description" content="From Jean Baptiste Point du Sable's founding trading post to Barack Obama's South Side, Chicago has been the laboratory of Black American power — journalism, medicine, music, politics, and resistance — for 250 years." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://chain.education/thread-chicago.html" />
+  <script>(function(){var t=localStorage.getItem('chain-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    /* ── Accent: Chicago blue/steel — #1a3a5c / #4a9eca */
+    :root {
+      --acc: #1a3a5c;
+      --acc-lt: #4a9eca;
+      --acc-warm: #c47d1a;
+    }
+    [data-theme="dark"] {
+      --acc: #2a5a8c;
+      --acc-lt: #6bbde8;
+      --acc-warm: #e09a30;
+    }
+
+    .thread-hero {
+      background: #040a12;
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .thread-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 90% 60% at 10% 40%, rgba(26,58,92,.55) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 70% at 90% 80%, rgba(196,125,26,.18) 0%, transparent 60%);
+    }
+    .thread-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--_bg));
+      pointer-events: none;
+      z-index: 1;
+    }
+    .thread-hero__inner {
+      position: relative;
+      max-width: 820px;
+      z-index: 2;
+    }
+    .thread-hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(26,58,92,.18);
+      border: 1px solid rgba(74,158,202,.35);
+      border-radius: 999px;
+      padding: var(--space-1) var(--space-4);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--acc-lt);
+      margin-bottom: var(--space-6);
+    }
+    .thread-hero__kicker-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--acc-lt);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(74,158,202,.5); }
+      50%      { box-shadow: 0 0 0 6px rgba(74,158,202,0); }
+    }
+    .thread-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-6);
+    }
+    .thread-hero__title em { color: var(--acc-lt); font-style: normal; }
+    .thread-hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,.78);
+      line-height: 1.72;
+      max-width: 680px;
+      margin-bottom: var(--space-8);
+    }
+    .thread-hero__meta {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .thread-meta-item__label {
+      font-size: var(--type-xs);
+      color: rgba(255,255,255,.48);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      margin-bottom: 2px;
+    }
+    .thread-meta-item__value {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: rgba(255,255,255,.9);
+    }
+
+    /* Argument bar */
+    .argument-bar {
+      background: rgba(26,58,92,.05);
+      border-top: 1px solid rgba(26,58,92,.18);
+      border-bottom: 1px solid rgba(26,58,92,.18);
+      padding: var(--space-5) 0;
+    }
+    [data-theme="dark"] .argument-bar {
+      background: rgba(74,158,202,.05);
+      border-color: rgba(74,158,202,.18);
+    }
+    .argument-bar__inner {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-5);
+    }
+    .argument-bar__icon {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      background: rgba(26,58,92,.12);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-top: 2px;
+      color: var(--acc-lt);
+    }
+    .argument-bar__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--acc-lt);
+      margin-bottom: var(--space-1);
+    }
+    .argument-bar__text {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      max-width: 860px;
+    }
+    .argument-bar__text strong { color: var(--color-text-primary); }
+
+    /* Thread body */
+    .thread-body { padding: var(--space-14) 0; }
+    .thread-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .thread-layout { grid-template-columns: 1fr 300px; gap: var(--space-12); }
+    }
+
+    /* Era divider */
+    .era-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin: var(--space-10) 0 var(--space-4);
+    }
+    .era-divider__line { flex: 1; height: 1px; background: var(--color-border); }
+    .era-divider__badge {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--acc-lt);
+      background: rgba(26,58,92,.1);
+      border: 1px solid rgba(74,158,202,.25);
+      border-radius: 999px;
+      padding: 3px var(--space-4);
+      white-space: nowrap;
+    }
+    [data-theme="dark"] .era-divider__badge {
+      background: rgba(74,158,202,.1);
+    }
+
+    /* Entries */
+    .entry-list { display: flex; flex-direction: column; gap: 0; }
+    .entry-item {
+      scroll-margin-top: 80px;
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .entry-item:last-of-type { border-bottom: none; }
+    .entry-item__header {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: var(--space-5);
+      align-items: start;
+      margin-bottom: var(--space-6);
+    }
+    .entry-item__num {
+      width: 56px; height: 56px;
+      border-radius: var(--radius-lg);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-family: var(--font-editorial);
+      font-size: 1.375rem;
+      font-weight: 900;
+      background: rgba(26,58,92,.1);
+      border: 1px solid rgba(74,158,202,.25);
+      color: var(--acc-lt);
+    }
+    [data-theme="dark"] .entry-item__num {
+      background: rgba(74,158,202,.08);
+    }
+    .entry-item__dates {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--acc-lt);
+      margin-bottom: var(--space-1);
+    }
+    .entry-item__name {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 900;
+      color: var(--color-text-primary);
+      line-height: 1.18;
+      margin-bottom: var(--space-1);
+    }
+    .entry-item__location {
+      font-size: var(--type-sm);
+      color: var(--color-text-tertiary);
+    }
+    .entry-stats {
+      display: flex;
+      gap: var(--space-5);
+      flex-wrap: wrap;
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: var(--space-6);
+    }
+    .entry-stat__num {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--acc-lt);
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .entry-stat__label { font-size: var(--type-xs); color: var(--color-text-tertiary); }
+
+    .entry-item__body {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: 1.82;
+    }
+    .entry-item__body p { margin: 0 0 var(--space-5); }
+    .entry-item__body p:last-child { margin-bottom: 0; }
+    .entry-item__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+    .entry-item__body em { color: var(--acc-lt); font-style: normal; font-weight: var(--weight-semibold); }
+
+    /* Pull quote */
+    .pullquote {
+      border-left: 3px solid var(--acc-lt);
+      padding: var(--space-4) var(--space-6);
+      margin: var(--space-7) 0;
+      background: rgba(26,58,92,.04);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+    [data-theme="dark"] .pullquote { background: rgba(74,158,202,.05); }
+    .pullquote p {
+      font-family: var(--font-editorial);
+      font-size: 1.1rem;
+      color: var(--color-text-primary);
+      line-height: 1.58;
+      margin: 0 0 var(--space-2);
+      font-style: italic;
+    }
+    .pullquote cite { font-size: var(--type-xs); color: var(--color-text-tertiary); font-style: normal; }
+
+    /* Causal chain box */
+    .chain-callout {
+      background: rgba(196,125,26,.07);
+      border: 1px solid rgba(196,125,26,.22);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      margin: var(--space-6) 0;
+    }
+    [data-theme="dark"] .chain-callout { background: rgba(224,154,48,.06); border-color: rgba(224,154,48,.2); }
+    .chain-callout__label {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--acc-warm);
+      margin-bottom: var(--space-3);
+    }
+    .chain-callout__text {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+    .chain-callout__text strong { color: var(--color-text-primary); }
+
+    /* Sidebar */
+    .thread-sidebar { display: flex; flex-direction: column; gap: var(--space-6); }
+    .sidebar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .sidebar-card__title {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--acc-lt);
+      margin-bottom: var(--space-4);
+    }
+    .sidebar-card__body {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.72;
+    }
+    .sidebar-card__body strong { color: var(--color-text-primary); }
+    .sidebar-link-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+    .sidebar-link-list li a {
+      font-size: var(--type-sm);
+      color: var(--acc-lt);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .sidebar-link-list li a:hover { color: var(--color-text-primary); }
+
+    /* Bottom CTA */
+    .thread-bottom-cta {
+      background: var(--ink-950, #040a12);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: var(--space-14) 0;
+    }
+    .thread-bottom-cta__inner { max-width: 680px; }
+    .thread-bottom-cta__eyebrow {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--acc-lt);
+      margin-bottom: var(--space-3);
+    }
+    .thread-bottom-cta__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: var(--space-4);
+    }
+    .thread-bottom-cta__sub {
+      font-size: var(--type-md);
+      color: rgba(255,255,255,.58);
+      line-height: 1.7;
+      margin-bottom: var(--space-8);
+    }
+    .thread-bottom-cta__btns { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+    .thread-bottom-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-3) var(--space-6);
+      border-radius: 999px;
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      text-decoration: none;
+      transition: all var(--duration-fast);
+    }
+    .thread-bottom-cta__btn--primary { background: var(--acc-lt); color: #040a12; }
+    .thread-bottom-cta__btn--primary:hover { filter: brightness(1.12); }
+    .thread-bottom-cta__btn--secondary { background: transparent; color: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.18); }
+    .thread-bottom-cta__btn--secondary:hover { background: rgba(255,255,255,.07); color: #fff; }
+
+    /* Next thread strip */
+    .next-thread-strip { background: var(--color-surface); border-top: 1px solid var(--color-border); padding: var(--space-8) 0; }
+    .next-thread-strip__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+    .next-thread-strip__label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-2); }
+    .next-thread-strip__title { font-family: var(--font-editorial); font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 800; color: var(--color-text-primary); line-height: 1.2; max-width: 520px; }
+    .next-thread-strip__btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6); background: var(--acc-lt); color: #040a12; border-radius: 999px; font-size: var(--type-sm); font-weight: 700; text-decoration: none; transition: filter .15s; white-space: nowrap; }
+    .next-thread-strip__btn:hover { filter: brightness(1.1); }
+  </style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>New thread:</strong> Before the slave trade — the civilizations, kingdoms, and intellectual traditions that were deliberately destroyed.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html"      class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html"     class="utility-bar__link utility-bar__link--cta">Donate</a>
+      <a href="admin.html"      class="utility-bar__link" style="color:var(--amber-300,#fcd34d);font-weight:700;">✦ Generator</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html"      class="site-nav__link">Home</a>
+      <a href="threads.html"   class="site-nav__link" aria-current="true">Threads</a>
+      <a href="about.html"     class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html"    class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html"   class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html"    class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="thread-breadcrumb__current" aria-current="page">Chicago: Black America's Second City</span>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTEXT RIBBON -->
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <span class="context-ribbon__stat">City Histories · 1780s–Present</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html" class="context-ribbon__link">All Threads</a>
+      <a href="today.html"   class="context-ribbon__link context-ribbon__link--live"><span class="context-ribbon__live-dot"></span>Today</a>
+      <a href="search.html"  class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="thread-hero" aria-labelledby="thread-heading">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="thread-hero__inner">
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot"></span>
+        City Histories · 1780s – Present
+      </div>
+      <h1 id="thread-heading" class="thread-hero__title">
+        Chicago:<br /><em>Where Black America<br />Built a City Within a City</em>
+      </h1>
+      <p class="thread-hero__subtitle">
+        A Black man founded Chicago. Black migrants from the South transformed it. Black journalists, doctors, musicians, politicians, and activists built institutions within it that changed the world — while the city's white political machine built walls to contain them. This is the full chain.
+      </p>
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Time span</div>
+          <div class="thread-meta-item__value">1780s – Present</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Central theme</div>
+          <div class="thread-meta-item__value">Black institution-building under structural constraint</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Key figures</div>
+          <div class="thread-meta-item__value">du Sable · Abbott · Ida B. Wells · Hampton · Obama</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARGUMENT BAR -->
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The Central Argument</div>
+        <p class="argument-bar__text">Chicago is not merely a stop on the Great Migration — it is the proof of concept. When Black Americans were legally excluded from full participation in American life, Chicago's South Side became the laboratory where they built their own newspapers, hospitals, political machines, music industries, and cultural institutions. The world's understanding of the blues, gospel, house music, investigative journalism, and Black political possibility was shaped by what happened in a narrow strip of Chicago real estate that white policy deliberately made small — and Black ingenuity made large anyway.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+
+      <main class="thread-main">
+        <div class="entry-list">
+
+          <!-- ERA 1: FOUNDING -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">The Founding · 1780s</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e1">
+            <div class="entry-item__header">
+              <div class="entry-item__num">1</div>
+              <div>
+                <div class="entry-item__dates">c. 1790</div>
+                <h2 class="entry-item__name">Jean Baptiste Point du Sable: The Black Man Who Founded Chicago</h2>
+                <div class="entry-item__location">Mouth of the Chicago River, Lake Michigan</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The first permanent non-Indigenous settler at the site that would become Chicago was <strong>Jean Baptiste Point du Sable</strong> — a trader of Haitian and French descent, born in Saint-Domingue (present-day Haiti) around 1745. By the early 1790s, du Sable had built what contemporary accounts describe as a substantial trading post at the mouth of the Chicago River: a house, bakehouse, dairy, smokehouse, poultry house, stable, mill, and farm. He traded with Indigenous peoples across the Great Lakes region and built profitable relationships with British, French, and Native American traders alike.</p>
+              <p>Du Sable sold his Chicago holdings in 1800 and eventually died in Missouri in 1818. His name does not appear in the founding myths of Chicago that were constructed in the nineteenth century — those myths centered white settlers and speculators. The erasure was deliberate: Chicago's incorporation documents (1833, 1837) make no mention of him. It was not until the 1960s, amid the civil rights movement, that Chicago formally recognized du Sable as its founder — and not until 1968 that a public school and a harbor were named in his honor.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The founding erasure set the template for how Chicago would treat Black contributions for the next 200 years: essential to the city's existence, invisible in its official history. <strong>Du Sable Lakefront Park</strong>, renamed in 2021, is the latest formal correction to that record.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ERA 2: GREAT MIGRATION -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">The Great Migration · 1915 – 1970</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e2">
+            <div class="entry-item__header">
+              <div class="entry-item__num">2</div>
+              <div>
+                <div class="entry-item__dates">1905 – 1960</div>
+                <h2 class="entry-item__name">The Chicago Defender: The Newspaper That Moved a People</h2>
+                <div class="entry-item__location">Bronzeville, Chicago's South Side</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>Robert S. Abbott</strong> founded the <em>Chicago Defender</em> in May 1905 with an initial investment of 25 cents — borrowing a kitchen table and a borrowed hat press from his landlady. Within fifteen years it had become the most widely read Black newspaper in America, with a circulation that reached <strong>230,000 copies per week</strong> by 1920. Because direct Black newspaper sales were suppressed in much of the South (white postmasters refused to deliver it; white employers fired anyone caught reading it), the Defender circulated through Pullman porters — Black railroad workers who carried bundles south on every overnight train.</p>
+              <p>The Defender's function went far beyond journalism. Starting in 1916, it published <strong>Northern train schedules, job listings, and explicit editorial calls for Southern Black Americans to leave</strong>. "Come North," read one famous headline. Historians credit the paper as a direct catalyst of the First Great Migration. Abbott published detailed accounts of lynchings in the South alongside photographs of Chicago's boulevards, factories, and jazz clubs. The contrast was the argument: come north, survive, build.</p>
+              <div class="entry-stats">
+                <div><div class="entry-stat__num">25¢</div><div class="entry-stat__label">Abbott's starting capital, 1905</div></div>
+                <div><div class="entry-stat__num">230K</div><div class="entry-stat__label">Weekly circulation by 1920</div></div>
+                <div><div class="entry-stat__num">500K+</div><div class="entry-stat__label">Black migrants reached Chicago, 1916–1970</div></div>
+              </div>
+              <div class="pullquote">
+                <p>"I beg you, my brother, to leave the benighted land. Come north, where the law protects you regardless of color."</p>
+                <cite>— Chicago Defender editorial, c. 1917</cite>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The Defender's editorial campaign is one of the most consequential acts of Black journalism in American history. The paper shaped the demographic transformation of Chicago, Detroit, Cleveland, and New York. <strong>Its archives are now held at the Chicago History Museum and the Library of Congress.</strong> The paper still publishes today.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry-item" id="e3">
+            <div class="entry-item__header">
+              <div class="entry-item__num">3</div>
+              <div>
+                <div class="entry-item__dates">1910s – 1950s</div>
+                <h2 class="entry-item__name">Bronzeville: The Black Metropolis Built Inside a Cage</h2>
+                <div class="entry-item__location">South Side, Chicago</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>As hundreds of thousands of Black migrants arrived in Chicago, they were systematically excluded from most of the city. <strong>Racially restrictive real estate covenants</strong> — private contracts attached to deeds that prohibited sale to Black buyers — confined Black Chicagoans to a narrow strip of the South Side. By 1940, over 90% of Chicago's Black population lived in this corridor. The covenants were legally enforceable until the Supreme Court ruled them unenforceable in <em>Shelley v. Kraemer</em> (1948) — and informally enforced by violence and realtor collusion for decades after.</p>
+              <p>What emerged within those constraints was <strong>Bronzeville</strong> — a self-sufficient Black city. By the 1930s and 1940s, Bronzeville had its own banks (Supreme Life Insurance Company, founded 1919), its own hospital (<strong>Provident Hospital</strong>, founded 1891 by Dr. Daniel Hale Williams), its own department stores, its own newspapers, its own hotel (the Grand Hotel), and its own entertainment district along <strong>47th Street</strong> and the <strong>Stroll</strong>. Black-owned businesses employed Black workers who were excluded from white-owned firms and unions. The neighborhood's density produced cultural collision at a scale that generated world-historical art.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Bronzeville's concentrated wealth and culture was deliberately dismantled by urban renewal policies of the 1950s–1970s. The Robert Taylor Homes and Cabrini-Green public housing projects replaced Bronzeville's working- and middle-class neighborhoods, concentrating poverty where prosperity had been. The Defender and Ida B. Wells had both documented the process in real time. <strong>Chicago's persistent South Side poverty is not the natural state of things — it is the artifact of policy.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ERA 3: MEDICINE & SCIENCE -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">Medicine &amp; Science · 1891 – 1893</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e4">
+            <div class="entry-item__header">
+              <div class="entry-item__num">4</div>
+              <div>
+                <div class="entry-item__dates">1891 – 1893</div>
+                <h2 class="entry-item__name">Dr. Daniel Hale Williams: The First Open-Heart Surgery</h2>
+                <div class="entry-item__location">Provident Hospital, Chicago</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>Dr. Daniel Hale Williams</strong> founded <strong>Provident Hospital</strong> in 1891 as the first Black-owned and operated hospital in the United States — a direct response to the fact that Black doctors were barred from practicing in white Chicago hospitals. Two years later, on July 9, 1893, a patient named James Cornish arrived at Provident with a stab wound to the chest. Williams performed what is documented as one of the <strong>first successful open-heart surgeries in the world</strong>, suturing the pericardium (the sac surrounding the heart) without the benefit of antibiotics, blood transfusions, or modern surgical equipment. Cornish recovered and lived for another 50 years.</p>
+              <p>Williams later became the only Black charter member of the American College of Surgeons. He also became surgeon-in-chief at Freedmen's Hospital in Washington, D.C., where he founded the first nursing school in the country that admitted Black women. His career traced the full architecture of exclusion: brilliant enough to overcome white barriers, his very existence proved how many other brilliant people those barriers had stopped.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Provident Hospital continued serving Chicago's Black South Side for over a century. <strong>The Black maternal mortality crisis today — where Black women die in childbirth at 2–3 times the rate of white women — is partly traceable to the continued underfunding of the Black hospital network Williams built.</strong> When those hospitals were defunded and closed in the late twentieth century, the communities they served lost care infrastructure that white neighborhoods never lost.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ERA 4: ACTIVISM -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">Activism &amp; Journalism · 1895 – 1966</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e5">
+            <div class="entry-item__header">
+              <div class="entry-item__num">5</div>
+              <div>
+                <div class="entry-item__dates">1895 – 1930</div>
+                <h2 class="entry-item__name">Ida B. Wells in Chicago: Suffrage, Journalism, and the NAACP</h2>
+                <div class="entry-item__location">Chicago's South Side</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>After her Memphis newspaper office was destroyed by a white mob in 1892, <strong>Ida B. Wells</strong> settled in Chicago, where she spent the rest of her career. She wrote for the Chicago Defender, lectured internationally on the statistical reality of lynching, and in <strong>1909</strong> was one of two Black women among the founding members of the <strong>NAACP</strong>. (She was later marginalized within the organization by its white male leadership, who considered her approach too confrontational — a pattern that would recur throughout civil rights history.)</p>
+              <p>In <strong>1913</strong>, Wells founded the <strong>Alpha Suffrage Club</strong> — the first Black women's suffrage club in Illinois and among the first in the nation. When the 1913 suffrage parade in Washington, D.C., attempted to relegate Black women to the back of the march, Wells refused. She joined the Illinois delegation at the front. The photograph of her walking in the parade, alongside white women who had not invited her, was reprinted nationally. She ran for Illinois state senate in 1930 — the first Black woman to do so — and lost. She died six weeks later.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Wells's 1895 pamphlet <em>A Red Record</em> — the first systematic statistical analysis of lynching in America — was a methodological innovation that influenced investigative journalism and civil rights documentation for a century. Her insistence that racial terror was not random but systematically organized to suppress Black economic competition directly anticipates modern scholarship on structural racism.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry-item" id="e6">
+            <div class="entry-item__header">
+              <div class="entry-item__num">6</div>
+              <div>
+                <div class="entry-item__dates">1926</div>
+                <h2 class="entry-item__name">Carter G. Woodson Announces Negro History Week — In Chicago</h2>
+                <div class="entry-item__location">Wabash Avenue YMCA, Bronzeville, Chicago</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>In <strong>February 1926</strong>, historian and Harvard Ph.D. <strong>Carter G. Woodson</strong> announced the inaugural celebration of <strong>Negro History Week</strong> at the Wabash Avenue YMCA in Chicago's Bronzeville neighborhood. Woodson chose the second week of February to coincide with the birthdays of Abraham Lincoln (February 12) and Frederick Douglass (February 14). The week was intended not as celebration but as corrective: Woodson's foundational insight, articulated in his 1933 book <em>The Mis-Education of the Negro</em>, was that the systematic exclusion of Black history from American education was itself a tool of subjugation.</p>
+              <p>Negro History Week became <strong>Black History Month</strong> in 1976, when President Gerald Ford formally recognized the full month. Woodson's Association for the Study of Negro Life and History (founded 1915, also in Chicago) produced the first academic journal of Black history, the <em>Journal of Negro History</em>, still published today as the <em>Journal of African American History</em>.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The contemporary political effort to restrict the teaching of Black history in American public schools — framed as opposition to "critical race theory" — is a direct descendant of the conditions Woodson was fighting in 1926. <strong>The history has never stopped being contested.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry-item" id="e7">
+            <div class="entry-item__header">
+              <div class="entry-item__num">7</div>
+              <div>
+                <div class="entry-item__dates">1966</div>
+                <h2 class="entry-item__name">Dr. King Moves to Chicago: The Freedom Movement Confronts Northern Racism</h2>
+                <div class="entry-item__location">Lawndale (North Lawndale), Chicago's West Side</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>In January 1966, <strong>Dr. Martin Luther King Jr.</strong> moved into a third-floor walk-up apartment at 1550 S. Hamlin Avenue in Chicago's North Lawndale neighborhood — paying $90 a month, the going rate for a slum apartment the landlord rented to Black families in a neighborhood white residents had long since fled. King's move was a deliberate act of solidarity and strategic pressure: he wanted to expose Northern urban racism, which was harder to photograph than Birmingham fire hoses but equally devastating in its effects.</p>
+              <p>The <strong>Chicago Freedom Movement</strong>, organized with local SCLC affiliate <strong>Al Raby</strong> and the Coordinating Council of Community Organizations, targeted housing discrimination and redlining. When King and demonstrators marched through all-white neighborhoods — Marquette Park, Gage Park, Cicero — they were met by <strong>brick-throwing mobs, swastika signs, and Confederate flags</strong>. King later said it was the most vicious racial hostility he had ever personally faced. "I've been in many demonstrations all across the south," he told reporters, "but I can say that I have never seen — even in Mississippi and Alabama — mobs as hostile and as hate-filled as I've seen in Chicago."</p>
+              <p>The campaign ultimately produced the <strong>Summit Agreement</strong> with Mayor Richard J. Daley and the Chicago Real Estate Board — a pledge to end discriminatory real estate practices that was never enforced. Historians consider the Chicago Freedom Movement a strategic defeat that illuminated the limits of nonviolent protest when confronting structural economic racism in the North.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The Chicago Freedom Movement's failure shaped King's radicalization: his 1967 book <em>Where Do We Go from Here: Chaos or Community?</em> and his Poor People's Campaign were direct products of what he learned in Chicago. The housing segregation he marched against remains statistically measurable in Chicago today — the metropolitan area is still among the most residentially segregated in the United States.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ERA 5: POLITICS -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">Political Power · 1928 – Present</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e8">
+            <div class="entry-item__header">
+              <div class="entry-item__num">8</div>
+              <div>
+                <div class="entry-item__dates">1928 – 2008</div>
+                <h2 class="entry-item__name">Chicago's Political Chain: DePriest to Braun to Washington to Obama</h2>
+                <div class="entry-item__location">Chicago → Washington, D.C.</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Chicago produced an unbroken chain of Black political firsts that transformed American government. <strong>Oscar DePriest</strong>, elected to Congress in 1928, was the first Black congressman elected in the North after Reconstruction, and the first Black man elected to Congress in the twentieth century — ending a 28-year absence. He served until 1935, representing Chicago's South Side.</p>
+              <p><strong>Harold Washington</strong> was elected Chicago's first Black mayor in 1983, defeating both the white Democratic machine and a Republican challenger in a campaign that mobilized Black voters at unprecedented rates. His administration was characterized by a four-year "Council Wars" — the city council, led by white aldermen, blocked nearly every initiative Washington proposed. He was reelected in 1987 and died of a heart attack seven months later. The coalition he built directly inspired the next generation of Black Chicago politicians.</p>
+              <p><strong>Carol Moseley Braun</strong>, elected to the U.S. Senate from Illinois in 1992, became the first Black woman and first Black Democrat ever elected to the Senate. <strong>Barack Obama</strong>, a South Side community organizer and state senator, was elected to the U.S. Senate in 2004 — delivering the keynote address at the Democratic National Convention that year that made him nationally known — and to the presidency in 2008 and 2012.</p>
+              <div class="entry-stats">
+                <div><div class="entry-stat__num">1928</div><div class="entry-stat__label">DePriest: first Black congressman (North), 20th century</div></div>
+                <div><div class="entry-stat__num">1983</div><div class="entry-stat__label">Harold Washington: first Black mayor of Chicago</div></div>
+                <div><div class="entry-stat__num">2009</div><div class="entry-stat__label">Obama: first Black U.S. president, from Chicago's South Side</div></div>
+              </div>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Chicago's Black political power was built on the Great Migration's demographic reality — the concentration of Black voters on the South Side created electoral leverage that translated into national representation. The suppression of that political power (Council Wars, gerrymandering, voter ID laws targeting urban precincts) is the direct counter-chain.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ERA 6: CULTURE & MUSIC -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">Music &amp; Culture · 1920s – 1980s</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e9">
+            <div class="entry-item__header">
+              <div class="entry-item__num">9</div>
+              <div>
+                <div class="entry-item__dates">1920s – 1950s</div>
+                <h2 class="entry-item__name">Gospel, the Blues, and Chess Records: Chicago's Musical Factory</h2>
+                <div class="entry-item__location">South Side &amp; West Side, Chicago</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>The same Great Migration that packed Bronzeville with musicians from Mississippi, Arkansas, Tennessee, and Georgia produced the densest concentration of musical innovation in American history. <strong>Thomas A. Dorsey</strong> — originally a blues and jazz pianist who had toured with Bessie Smith — combined blues tonality with sacred lyrics at <strong>Pilgrim Baptist Church</strong> in the 1930s, creating the form now called <strong>modern Gospel music</strong>. His 1932 composition "Take My Hand, Precious Lord" became the most widely sung Gospel song in history. <strong>Mahalia Jackson</strong>, who came to Chicago from New Orleans in 1927, became the definitive voice of that tradition — performing at Newport Jazz Festivals, in Carnegie Hall, and at the March on Washington in 1963 (it was Jackson who urged King to "tell them about the dream").</p>
+              <p><strong>Electric blues</strong> was born on Chicago's South Side when Mississippi Delta blues musicians — <strong>Muddy Waters</strong> (born McKinley Morganfield), <strong>Howlin' Wolf</strong>, <strong>Little Walter</strong>, and <strong>Buddy Guy</strong> — electrified the acoustic tradition to be heard above the noise of South Side bars and clubs. <strong>Chess Records</strong>, founded on South Michigan Avenue in 1950 by Polish immigrant brothers Leonard and Phil Chess, recorded the Chicago blues canon: Muddy Waters, Howlin' Wolf, Chuck Berry, Bo Diddley, Etta James. Chess recordings directly influenced the Rolling Stones, Led Zeppelin, and virtually every rock musician of the 1960s — a commercial chain in which Black musicians' innovations made white musicians wealthy while the originators fought for royalties.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The Chess Records model — where Black artists' creativity was commercialized through white-owned infrastructure, with artists receiving limited royalties and no ownership — prefigures the streaming era's structural extraction from Black musicians. <strong>Chess Records is now a National Historic Landmark at 2120 S. Michigan Ave.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry-item" id="e10">
+            <div class="entry-item__header">
+              <div class="entry-item__num">10</div>
+              <div>
+                <div class="entry-item__dates">1970 – 1987</div>
+                <h2 class="entry-item__name">Soul Train and House Music: Chicago Invents the Future of Popular Culture</h2>
+                <div class="entry-item__location">Chicago → The Warehouse, South Loop</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>Don Cornelius</strong> created and debuted <em>Soul Train</em> as a local Chicago television program on WCIU in 1970 — a weekly music and dance show that put Black artists center screen in an era when mainstream television treated Black performers as novelty acts or guests. The show went into national syndication in 1971, reaching 25 million viewers at its peak. For over 35 years, <em>Soul Train</em> was the primary television platform for Black American popular music. Its production company later moved to Los Angeles but its origin was entirely Chicago.</p>
+              <p>A decade later, Chicago's Black and Latino LGBTQ+ community created a new genre entirely. <strong>DJ Frankie Knuckles</strong>, working at a South Loop club called <strong>The Warehouse</strong> from 1977 onwards, developed the repetitive, percussion-driven, synthesizer-layered dance music that would be called <strong>House music</strong> — named for the club. Knuckles drew on Philadelphia soul, Eurodisco, and electronic music, layering them into something that would spread to Detroit (where techno was born in House's shadow), then to Europe, then to global popular music. House music is the direct ancestor of nearly every form of contemporary electronic dance music.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The origin story of House music — Black and Latino queer youth in Chicago creating a new form in a club — was systematically erased as the genre went global and commercial. European producers were credited with "inventing" electronic dance music while Knuckles and Chicago's originators were footnoted. <strong>Frankie Knuckles was named Chicago's official "ambassador of House music" in 2004. He died in 2014. The Warehouse's site is now a national cultural landmark.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ERA 7: MEDIA EMPIRE -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">Media Empires · 1945 – 2000</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e11">
+            <div class="entry-item__header">
+              <div class="entry-item__num">11</div>
+              <div>
+                <div class="entry-item__dates">1945 – 2000</div>
+                <h2 class="entry-item__name">Johnson Publishing Company: Ebony, Jet, and the Mirror Black America Needed</h2>
+                <div class="entry-item__location">South Michigan Avenue, Chicago</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p><strong>John H. Johnson</strong> founded <em>Negro Digest</em> in 1942 and <em>Ebony</em> in November 1945 with $500 borrowed against his mother's furniture. <em>Ebony</em> explicitly modeled itself on <em>Life</em> magazine — a glossy photographic celebration of American life — but focused entirely on Black American life: Black celebrities, Black families, Black professionals, Black joy. In an era when mainstream American media consistently portrayed Black life as either criminal, impoverished, or invisible, <em>Ebony</em> showed something different, and hundreds of thousands of Black households subscribed. <em>Jet</em>, launched in 1951 as a pocket-sized weekly news digest, reached even deeper into Black households. At their peak, both magazines reached <strong>80% of Black American adults</strong>.</p>
+              <p>Johnson Publishing Company became one of the largest Black-owned businesses in America. Its headquarters — a modernist tower at 820 S. Michigan Avenue, completed in 1972 — was the first major downtown Chicago building designed by a Black architect (<strong>John W. Moutoussamy</strong>) for a Black client. In 1955, <em>Jet</em> published the <strong>open-casket photograph of Emmett Till</strong> — the decision by Mamie Till-Mobley to show the world what had been done to her son, published by a Black magazine that white media would have refused. That photograph became one of the most significant images in civil rights history.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Johnson Publishing filed for bankruptcy in 2019 as print advertising collapsed. The archives — decades of photographs documenting Black American life that no mainstream media company captured — were threatened with dispersal. A coalition of HBCUs and cultural institutions raised funds to preserve them. <strong>The archive is now held by the Smithsonian Institution's National Museum of African American History and Culture.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ERA 8: FRED HAMPTON / COINTELPRO -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">Assassination &amp; Resistance · 1969</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e12">
+            <div class="entry-item__header">
+              <div class="entry-item__num">12</div>
+              <div>
+                <div class="entry-item__dates">December 4, 1969</div>
+                <h2 class="entry-item__name">Fred Hampton: The Rainbow Coalition and the Government That Killed It</h2>
+                <div class="entry-item__location">2337 West Monroe Street, Chicago</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>By 1969, <strong>Fred Hampton</strong> — chairman of the Illinois Black Panther Party at age 21 — had done something the FBI considered more dangerous than any individual act of violence: he had organized Chicago's rival street gangs, the Blackstone Rangers and the Disciples, into a political coalition. He had united them with poor white Appalachian migrants (the <strong>Young Patriots Organization</strong>), Puerto Rican activists (the <strong>Young Lords</strong>), and the Brown Berets. He called it the <strong>Rainbow Coalition</strong> — a name Jesse Jackson would later adopt. His breakfast program fed thousands of Chicago children daily.</p>
+              <p>The FBI's COINTELPRO program designated Hampton a "Black Messiah" threat. An informant — <strong>William O'Neal</strong>, Hampton's own security chief — provided the FBI with a floor plan of Hampton's apartment and, on the night of December 3rd, drugged Hampton's drinks with secobarbital. At 4:45 a.m. on December 4, 1969, a 14-person Chicago Police tactical unit raided the apartment. <strong>The evidence technicians found 99 bullets fired from outside, and one from inside.</strong> Hampton, sedated and pregnant girlfriend Deborah Johnson beside him, was shot twice in the head at point-blank range. He was 21.</p>
+              <p>The federal government paid Hampton's family <strong>$1.85 million</strong> in 1982. No officer was ever criminally charged. The COINTELPRO program was formally ended in 1971 after activists stole and published its documents. It had run since 1956.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">The tactics used to destroy Hampton's Rainbow Coalition — informant infiltration, manufactured conflicts between organizations, coordinated state violence — have since been documented in hundreds of COINTELPRO files. <strong>The 2021 film <em>Judas and the Black Messiah</em> dramatizes the assassination.</strong> Hampton's son, Fred Hampton Jr., continues organizing in Chicago.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ERA 9: LEGACY -->
+          <div class="era-divider" aria-hidden="true">
+            <div class="era-divider__line"></div>
+            <div class="era-divider__badge">Present-Day Chicago · The Unfinished Chain</div>
+            <div class="era-divider__line"></div>
+          </div>
+
+          <div class="entry-item" id="e13">
+            <div class="entry-item__header">
+              <div class="entry-item__num">13</div>
+              <div>
+                <div class="entry-item__dates">1970s – Present</div>
+                <h2 class="entry-item__name">Urban Renewal, Public Housing, and the Deliberate Destruction of Bronzeville</h2>
+                <div class="entry-item__location">South Side &amp; West Side, Chicago</div>
+              </div>
+            </div>
+            <div class="entry-item__body">
+              <p>Between the 1950s and the 1990s, Chicago used urban renewal, highway construction, and public housing policy to systematically dismantle the Black Metropolis that had been built within its walls. The <strong>Robert Taylor Homes</strong> (completed 1962, 28 high-rise towers on a two-mile strip of State Street) and <strong>Cabrini-Green</strong> were not built to house the poor — they were built to contain Black residents in concentrated poverty while their previous neighborhoods were cleared for white institutions, hospitals, and eventually gentrification. The Dan Ryan Expressway was deliberately routed through Black neighborhoods as a barrier separating the South Side from white neighborhoods to the west.</p>
+              <p>When these projects were demolished in the 1990s and 2000s — the Robert Taylor Homes fully razed by 2007 — their residents were dispersed with rental vouchers (Section 8) to the same neighborhoods that had been redlined for decades. The concentrated wealth of the Black Metropolis was gone. The Stroll's buildings were rubble. The jazz clubs and the banks and the hospitals had largely closed. What replaced them was not repair but further extraction: <strong>gentrification</strong> moved into Bronzeville at exactly the moment the demographic defenses that had built it were dismantled.</p>
+              <div class="chain-callout">
+                <div class="chain-callout__label">→ The Chain from Here</div>
+                <p class="chain-callout__text">Chicago's present-day violence — concentrated in a handful of South and West Side neighborhoods — is inseparable from this history. The communities with the highest rates of gun violence are the communities where public housing was demolished, where Bronzeville's institutions were cleared, where the Defender and Ebony and Provident Hospital were all defunded or closed. <strong>The violence is not pathology. It is the predictable endpoint of a 70-year policy of concentrated disinvestment.</strong></p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /entry-list -->
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="thread-sidebar" aria-label="Thread context and key figures">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Figures</div>
+          <div class="sidebar-card__body">
+            <strong>Jean Baptiste Point du Sable</strong> — Chicago's founder, c. 1790<br /><br />
+            <strong>Dr. Daniel Hale Williams</strong> — Provident Hospital founder; first open-heart surgery, 1893<br /><br />
+            <strong>Robert S. Abbott</strong> — Chicago Defender founder, 1905<br /><br />
+            <strong>Ida B. Wells</strong> — anti-lynching journalist; Alpha Suffrage Club founder, 1913<br /><br />
+            <strong>Carter G. Woodson</strong> — Negro History Week, announced in Chicago, 1926<br /><br />
+            <strong>Thomas A. Dorsey &amp; Mahalia Jackson</strong> — creators of modern Gospel<br /><br />
+            <strong>Muddy Waters &amp; Howlin' Wolf</strong> — architects of Chicago electric blues<br /><br />
+            <strong>Harold Washington</strong> — first Black mayor of Chicago, 1983<br /><br />
+            <strong>Fred Hampton</strong> — Illinois BPP chairman; assassinated by FBI/CPD, 1969<br /><br />
+            <strong>John H. Johnson</strong> — Ebony, Jet; largest Black-owned media company<br /><br />
+            <strong>Frankie Knuckles</strong> — inventor of House music, The Warehouse, 1977<br /><br />
+            <strong>Barack Obama</strong> — South Side community organizer; 44th President
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Key Institutions</div>
+          <div class="sidebar-card__body">
+            <strong>Chicago Defender</strong> (1905–present)<br />
+            <strong>Provident Hospital</strong> (1891–2002, closed; legacy continues)<br />
+            <strong>Chess Records</strong> (1950–1975, 2120 S. Michigan Ave.)<br />
+            <strong>Johnson Publishing Co.</strong> (1942–2019)<br />
+            <strong>The Warehouse</strong> (1977–1983, birthplace of House music)<br />
+            <strong>Wabash Ave. YMCA</strong> (where Black History Month was born)<br />
+            <strong>Pilgrim Baptist Church</strong> (birthplace of modern Gospel)
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Related Threads</div>
+          <ul class="sidebar-link-list">
+            <li><a href="thread-great-migration.html">The Great Migration →</a></li>
+            <li><a href="thread-fred-hampton.html">Fred Hampton: The Chairman They Killed at 21 →</a></li>
+            <li><a href="thread-redlining.html">Redlining &amp; Housing →</a></li>
+            <li><a href="thread-black-press.html">The Black Press →</a></li>
+            <li><a href="thread-cointelpro.html">COINTELPRO →</a></li>
+            <li><a href="thread-gentrification.html">Gentrification →</a></li>
+            <li><a href="thread-black-church.html">The Black Church →</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card__title">Causal Chain Summary</div>
+          <div class="sidebar-card__body">
+            <strong>1790s:</strong> du Sable founds Chicago — erased from history<br /><br />
+            <strong>1891:</strong> Provident Hospital — first Black-owned hospital<br /><br />
+            <strong>1905:</strong> Chicago Defender sparks Great Migration<br /><br />
+            <strong>1910s–40s:</strong> Covenants confine migrants → Bronzeville built<br /><br />
+            <strong>1926:</strong> Black History Month announced in Bronzeville<br /><br />
+            <strong>1950s–60s:</strong> Urban renewal demolishes Bronzeville<br /><br />
+            <strong>1966:</strong> King confronts Northern racism — summit broken<br /><br />
+            <strong>1969:</strong> Hampton assassinated — Rainbow Coalition destroyed<br /><br />
+            <strong>1983:</strong> Harold Washington elected — machine fights back<br /><br />
+            <strong>2008:</strong> Obama elected from South Side<br /><br />
+            <strong>Today:</strong> South Side violence = decades of deliberate disinvestment
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="thread-bottom-cta" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="thread-bottom-cta__inner">
+      <div class="thread-bottom-cta__eyebrow">The City That Built and Buried Its Builders</div>
+      <h2 id="cta-heading" class="thread-bottom-cta__title">
+        A Black man founded Chicago. The city spent 200 years pretending otherwise — while Black Chicagoans built the newspaper, hospital, music, and political infrastructure that shaped the world.
+      </h2>
+      <p class="thread-bottom-cta__sub">The violence, the poverty, the displacement visible on Chicago's South Side today is not the failure of a community. It is the predictable result of a century of deliberate policy: covenants, redlining, urban renewal, COINTELPRO, and gentrification. The chain is traceable. The chain is reversible.</p>
+      <div class="thread-bottom-cta__btns">
+        <a href="thread-great-migration.html"  class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">The Great Migration →</a>
+        <a href="thread-fred-hampton.html"      class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">Fred Hampton →</a>
+        <a href="threads.html"                  class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All Threads</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT THREAD STRIP -->
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <div class="next-thread-strip__title">The Great Migration: Six Million Leave the South, 1910–1970</div>
+      </div>
+      <a href="thread-great-migration.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Learn</h3>
+        <ul class="footer-links">
+          <li><a href="teaching.html" class="footer-link">Teaching Resources</a></li>
+          <li><a href="learn.html"    class="footer-link">Learning Paths</a></li>
+          <li><a href="sources.html"  class="footer-link">Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── THEME ──────────────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // ── SEARCH ─────────────────────────────────────────────────────
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey||e.ctrlKey) && e.key==='k') { e.preventDefault(); openSearch(); }
+  });
+
+  // ── MOBILE NAV ─────────────────────────────────────────────────
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  const openMobileNav  = () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+  const closeMobileNav = () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mobileMenuToggle.addEventListener('click', openMobileNav);
+  mobileClose.addEventListener('click', closeMobileNav);
+  mobileBackdrop.addEventListener('click', closeMobileNav);
+</script>
+</body>
+</html>
