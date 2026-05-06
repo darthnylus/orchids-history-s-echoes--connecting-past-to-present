@@ -1541,21 +1541,185 @@
   transform: scale(1.2);
 }
 
-/* ── Explore cards: elevated hover with glow ─────────────── */
+/* ── Explore section grid ────────────────────────────────── */
+.explore-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 680px) {
+  .explore-section__grid { grid-template-columns: 1fr; }
+}
+
+/* ── Explore cards: base ─────────────────────────────────── */
 .explore-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 320px;
+  text-decoration: none;
+  color: inherit;
+  background: #0d1117;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.06);
   transition:
     transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .explore-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.32), 0 0 0 1px rgba(255,255,255,0.1);
 }
+
+/* Background visual layer */
 .explore-card__bg {
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease;
 }
 .explore-card:hover .explore-card__bg {
   transform: scale(1.06);
+  opacity: 0.26;
+}
+
+/* Map card — SVG grid lines as background art */
+.explore-card--map .explore-card__bg {
+  background-color: transparent;
+  background-image:
+    linear-gradient(rgba(251,191,36,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251,191,36,0.12) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 70% at 30% 60%, rgba(251,191,36,0.15) 0%, transparent 60%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  opacity: 1;
+}
+.explore-card--map::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 25% 55%,
+    rgba(217,119,6,0.22) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Timeline card — horizontal tick marks as background art */
+.explore-card--timeline .explore-card__bg {
+  background-color: transparent;
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(96,165,250,0.14) 0px, rgba(96,165,250,0.14) 1px,
+      transparent 1px, transparent 60px),
+    linear-gradient(180deg, transparent 50%, rgba(96,165,250,0.06) 50%),
+    radial-gradient(ellipse 80% 70% at 70% 40%, rgba(59,130,246,0.18) 0%, transparent 65%);
+  background-size: 60px 100%, 100% 24px, 100% 100%;
+  opacity: 1;
+}
+.explore-card--timeline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 72% 40%,
+    rgba(37,99,235,0.22) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Bottom gradient overlay */
+.explore-card__gradient {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 70%;
+  background: linear-gradient(to top,
+    rgba(10,10,14,0.98) 0%,
+    rgba(10,10,14,0.82) 40%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Card body — content on top */
+.explore-card__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem 1.75rem 1.75rem;
+  justify-content: flex-end;
+}
+
+/* Large decorative icon */
+.explore-card__icon {
+  font-size: 2.25rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+}
+
+.explore-card__title {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.6rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.explore-card__desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+  max-width: 36ch;
+}
+
+.explore-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fbbf24;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+}
+.explore-card:hover .explore-card__link {
+  gap: 0.6rem;
+  opacity: 1;
+}
+
+/* Map card accent */
+.explore-card--map .explore-card__link { color: #fbbf24; }
+.explore-card--map .explore-card__title { color: #fff; }
+
+/* Timeline card accent */
+.explore-card--timeline .explore-card__link { color: #93c5fd; }
+.explore-card--timeline .explore-card__title { color: #fff; }
+
+/* Dot-matrix decorative pattern top-right */
+.explore-card--map::after,
+.explore-card--timeline::after {
+  content: '';
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 80px;
+  height: 80px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+  background-size: 10px 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
 }
 
 /* ── Object cards: image zoom + lift ─────────────────────── */
