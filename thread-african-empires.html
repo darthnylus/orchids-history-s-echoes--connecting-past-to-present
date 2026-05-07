@@ -358,6 +358,79 @@
     }
     .disruption-box__text strong { color: var(--color-text-primary); }
 
+    /* ── GGS / Perspective box ────────────────────────────────── */
+    .perspective-box {
+      margin-top: var(--space-10);
+      background: rgba(99,102,241,.06);
+      border: 1px solid rgba(99,102,241,.2);
+      border-left: 4px solid #6366f1;
+      border-radius: 6px;
+      padding: var(--space-7) var(--space-7) var(--space-6);
+    }
+    [data-theme="dark"] .perspective-box { background: rgba(99,102,241,.08); border-color: rgba(99,102,241,.25); }
+    .perspective-box__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #818cf8;
+      margin-bottom: var(--space-2);
+    }
+    .perspective-box__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.1rem,2vw,1.35rem);
+      font-weight: 800;
+      color: var(--color-text-primary);
+      margin: 0 0 var(--space-5);
+      line-height: 1.3;
+    }
+    .perspective-box__body {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin: 0 0 var(--space-4);
+    }
+    .perspective-box__body strong { color: var(--color-text-primary); }
+    .perspective-box__body em { font-style: italic; }
+    .perspective-box__books {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+    @media (max-width: 600px) { .perspective-box__books { grid-template-columns: 1fr; } }
+    .perspective-box__book {
+      border-radius: 6px;
+      padding: var(--space-4) var(--space-5);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .perspective-box__book--partial {
+      background: rgba(245,158,11,.06);
+      border-color: rgba(245,158,11,.2);
+    }
+    .perspective-box__book--essential {
+      background: rgba(34,197,94,.06);
+      border-color: rgba(34,197,94,.2);
+    }
+    .perspective-box__book-title {
+      font-size: var(--type-sm);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+    }
+    .perspective-box__book-author {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-2);
+    }
+    .perspective-box__book-verdict {
+      font-size: 11px;
+      line-height: 1.55;
+      color: var(--color-text-secondary);
+    }
+    .perspective-box__book--partial .perspective-box__book-title { color: #f59e0b; }
+    .perspective-box__book--essential .perspective-box__book-title { color: #22c55e; }
+
     /* ── Causal chain connector ───────────────────────────────── */
     .chain-connector {
       background: var(--ink-900);
@@ -1509,6 +1582,27 @@
             </div>
           </div>
 
+          <!-- GUNS GERMS & STEEL CRITICAL NOTE -->
+          <div class="perspective-box reveal">
+            <div class="perspective-box__label">A book you may have read — and what it gets wrong</div>
+            <h3 class="perspective-box__title"><em>Guns, Germs, and Steel</em> — Jared Diamond (1997)</h3>
+            <p class="perspective-box__body">Diamond's Pulitzer-winning book argues that European global dominance came from geographic luck — the shape of continents, the availability of domesticable animals, the east-west orientation of Eurasia that spread crops and technology faster. He explicitly rejects racial explanations. For many readers, it's the first serious mainstream counter to the idea that Europeans were simply smarter or more civilized.</p>
+            <p class="perspective-box__body">That's worth something. But read alongside the civilizations in this thread, GGS has a significant blind spot: <strong>it explains the conditions that made European expansion possible, but almost entirely ignores what was actively destroyed.</strong> The Songhai Empire had standardized weights, a professional bureaucracy, a river navy, and universities. The Kingdom of Benin had 120-foot paved roads and a constitutional governance structure. Diamond's framework treats Africa largely as a place where advantageous conditions were absent — not as a place where sophisticated systems were deliberately dismantled by force, extraction, and enslavement.</p>
+            <p class="perspective-box__body">The book also offers no account of what the gun, the germ, and the steel were <em>used for</em> — or who paid the price. For that, the essential text is Walter Rodney's <strong><em>How Europe Underdeveloped Africa</em></strong> (1972), which argues that Africa was not simply left behind by geography — it was actively drained. The wealth that built European capitalism came directly out of Africa and the labor of enslaved Africans. GGS explains a process. Rodney names it.</p>
+            <div class="perspective-box__books">
+              <div class="perspective-box__book perspective-box__book--partial">
+                <div class="perspective-box__book-title">Guns, Germs, and Steel</div>
+                <div class="perspective-box__book-author">Jared Diamond, 1997</div>
+                <div class="perspective-box__book-verdict">Useful partial argument — counters racial hierarchy, but misses Africa's actual civilizational depth and the active violence of colonialism</div>
+              </div>
+              <div class="perspective-box__book perspective-box__book--essential">
+                <div class="perspective-box__book-title">How Europe Underdeveloped Africa</div>
+                <div class="perspective-box__book-author">Walter Rodney, 1972</div>
+                <div class="perspective-box__book-verdict">Essential — names colonialism as deliberate extraction, not geographic accident; directly addresses what Diamond omits</div>
+              </div>
+            </div>
+          </div>
+
         </div><!-- end main col -->
 
         <!-- SIDEBAR -->
@@ -1586,6 +1680,24 @@
               <div class="sidebar-timeline-item">
                 <div class="sidebar-timeline-item__dates">r. 1255–1285</div>
                 <div><div class="sidebar-timeline-item__name">Sundiata Keita</div><div class="sidebar-timeline-item__region">Founder, Mali Empire</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Further reading</div>
+            <div class="sidebar-timeline">
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">1997</div>
+                <div><div class="sidebar-timeline-item__name">Guns, Germs, and Steel</div><div class="sidebar-timeline-item__region">Jared Diamond — geographic argument against racial hierarchy; read critically</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">1972</div>
+                <div><div class="sidebar-timeline-item__name">How Europe Underdeveloped Africa</div><div class="sidebar-timeline-item__region">Walter Rodney — the essential counter; colonialism as deliberate extraction</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">1987</div>
+                <div><div class="sidebar-timeline-item__name">African Origins of Civilization</div><div class="sidebar-timeline-item__region">Cheikh Anta Diop — the foundational text on African civilizational continuity</div></div>
               </div>
             </div>
           </div>
