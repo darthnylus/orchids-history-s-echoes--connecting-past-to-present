@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Things You Didn't Know About Memorial Day — The Chain Letter</title>
+  <meta name="description" content="The first Memorial Day was held by freed slaves in Charleston, South Carolina — not by Congress. Here's what the textbooks left out." />
+  <link rel="canonical" href="https://chain.education/newsletter-memorial-day-2025.html" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <style>
+
+    /* ── Article hero ─────────────────────────────────────────── */
+    .article-hero {
+      background: var(--ink-900);
+      padding: var(--space-16) 0 var(--space-12);
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(196,106,0,.14) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 0% 100%, rgba(160,75,48,.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .article-hero__inner { position: relative; max-width: 740px; }
+    .article-hero__breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+      font-size: var(--type-xs);
+      color: var(--ink-500);
+    }
+    .article-hero__breadcrumb a { color: var(--amber-400); text-decoration: none; }
+    .article-hero__breadcrumb a:hover { color: var(--amber-300); }
+    .article-hero__breadcrumb span { color: var(--ink-600); }
+    .article-hero__meta-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-5);
+    }
+    .article-hero__tag {
+      display: inline-block;
+      padding: 3px var(--space-3);
+      border-radius: 999px;
+      background: rgba(196,106,0,.15);
+      border: 1px solid rgba(196,106,0,.3);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--amber-300);
+    }
+    .article-hero__date {
+      font-size: var(--type-xs);
+      color: var(--ink-500);
+    }
+    .article-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-5);
+    }
+    .article-hero__title em { color: var(--amber-300); font-style: normal; }
+    .article-hero__deck {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--ink-300);
+      line-height: 1.65;
+      max-width: 620px;
+      margin-bottom: var(--space-6);
+    }
+    .article-hero__byline {
+      font-size: var(--type-xs);
+      color: var(--ink-500);
+    }
+    .article-hero__byline strong { color: var(--ink-300); }
+
+    /* ── Article layout ───────────────────────────────────────── */
+    .article-body { padding: var(--space-14) 0; }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr 280px; gap: var(--space-12); }
+    }
+
+    /* ── Fact items ───────────────────────────────────────────── */
+    .fact-list { display: flex; flex-direction: column; gap: 0; }
+    .fact-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: var(--space-6);
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--color-border);
+      align-items: start;
+    }
+    .fact-item:last-child { border-bottom: none; }
+    .fact-item__num {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-lg);
+      background: var(--color-accent-dark, #92400e);
+      color: #fff;
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: 900;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .fact-item__content {}
+    .fact-item__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+      font-weight: 900;
+      color: var(--color-text-primary);
+      line-height: 1.2;
+      margin-bottom: var(--space-4);
+    }
+    .fact-item__body {
+      font-size: var(--type-md);
+      color: var(--color-text-secondary);
+      line-height: var(--leading-loose);
+    }
+    .fact-item__body p { margin-bottom: var(--space-4); }
+    .fact-item__body p:last-child { margin-bottom: 0; }
+    .fact-item__body strong { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+    .fact-item__body em { font-style: italic; }
+
+    /* ── Pullquote ────────────────────────────────────────────── */
+    .pullquote {
+      border-left: 4px solid var(--color-accent-dark, #92400e);
+      padding: var(--space-4) var(--space-6);
+      margin: var(--space-6) 0;
+      background: rgba(196,106,0,.05);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+    .pullquote__text {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.0625rem, 2vw, 1.25rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .pullquote__attr {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-2);
+    }
+
+    /* ── Sidebar ──────────────────────────────────────────────── */
+    .article-sidebar { display: flex; flex-direction: column; gap: var(--space-5); }
+    .sidebar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    [data-theme="dark"] .sidebar-card { background: var(--ink-800); border-color: var(--ink-700); }
+    .sidebar-card__title {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sidebar-timeline { display: flex; flex-direction: column; gap: var(--space-3); }
+    .sidebar-timeline-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: var(--space-3);
+      align-items: start;
+    }
+    .sidebar-timeline-item__dates {
+      font-size: 0.65rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-accent-dark);
+      text-align: right;
+      padding-top: 2px;
+    }
+    .sidebar-timeline-item__name {
+      font-size: var(--type-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-bottom: 1px;
+    }
+    .sidebar-timeline-item__region {
+      font-size: 0.65rem;
+      color: var(--color-text-tertiary);
+    }
+    .sidebar-related-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: var(--type-xs);
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color var(--duration-fast);
+    }
+    .sidebar-related-link:last-child { border-bottom: none; }
+    .sidebar-related-link:hover { color: var(--color-accent-dark); }
+    .sidebar-related-link__arrow { font-size: 10px; flex-shrink: 0; }
+
+    /* ── Bottom CTA ───────────────────────────────────────────── */
+    .article-cta {
+      background: var(--ink-900);
+      padding: var(--space-14) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,106,0,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .article-cta__inner { position: relative; max-width: 520px; margin: 0 auto; }
+    .article-cta__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      margin-bottom: var(--space-4);
+    }
+    .article-cta__title em { color: var(--amber-300); font-style: normal; }
+    .article-cta__sub {
+      font-size: var(--type-sm);
+      color: var(--ink-400);
+      line-height: 1.65;
+      margin-bottom: var(--space-7);
+    }
+    .article-cta__form { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+    .article-cta__input {
+      flex: 1 1 220px;
+      max-width: 280px;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      font-size: var(--type-sm);
+      font-family: inherit;
+    }
+    .article-cta__input::placeholder { color: var(--ink-500); }
+    .article-cta__btn {
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-md);
+      background: var(--amber-500);
+      color: var(--ink-900);
+      font-size: var(--type-sm);
+      font-weight: var(--weight-bold);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background var(--duration-fast);
+    }
+    .article-cta__btn:hover { background: var(--amber-400); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar" aria-label="Site utility bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>The Chain Letter</strong> — One historical event. Full context. Every weekday.
+    </p>
+    <nav class="utility-bar__links" aria-label="Utility navigation">
+      <a href="about.html" class="utility-bar__link">About</a>
+      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
+      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
+    </nav>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain — Home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline" aria-hidden="true">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <a href="home.html" class="site-nav__link">Home</a>
+      <a href="threads.html" class="site-nav__link">Threads</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
+      <a href="contact.html" class="site-nav__link">Contact</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="nav-search-btn" id="searchToggle" aria-label="Open search" aria-expanded="false" aria-controls="searchOverlay">
+        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="hide-mobile">Search</span>
+      </button>
+      <a href="today.html" class="today-pill" aria-label="Today in Black history">
+        <span class="today-pill__dot" aria-hidden="true"></span>Today
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          <circle class="icon-sun" cx="12" cy="12" r="5" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="1" x2="12" y2="3" style="display:none"/>
+          <line class="icon-sun" x1="12" y1="21" x2="12" y2="23" style="display:none"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn hide-desktop" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-nav__backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-nav__drawer">
+    <div class="mobile-nav__close">
+      <button class="mobile-nav__close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav__links">
+      <li><a href="home.html"         class="mobile-nav__link">Home</a></li>
+      <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
+      <li><a href="about.html"        class="mobile-nav__link">About</a></li>
+      <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
+      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
+      <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__divider"></div>
+    <ul class="mobile-nav__utilities">
+      <li><a href="today.html"      class="mobile-nav__utility-link">Today in History</a></li>
+      <li><a href="newsletter.html" class="mobile-nav__utility-link">Newsletter</a></li>
+      <li><a href="donate.html"     class="mobile-nav__utility-link">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
+  <div class="search-overlay__inner">
+    <form class="search-overlay__form" action="search.html" method="get" role="search">
+      <label for="searchInput" class="sr-only">Search Chain</label>
+      <input type="search" id="searchInput" name="q" class="search-overlay__input" placeholder="Search by person, year, policy, or event…" autocomplete="off" spellcheck="false" />
+      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
+    </form>
+  </div>
+</div>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="article-hero" aria-labelledby="article-heading">
+    <div class="container article-hero__inner">
+      <nav class="article-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="newsletter.html">The Chain Letter</a>
+        <span aria-hidden="true">/</span>
+        <span>Issue · May 26, 2025</span>
+      </nav>
+      <div class="article-hero__meta-row">
+        <span class="article-hero__tag">Special Edition</span>
+        <span class="article-hero__date">May 26, 2025 · Memorial Day</span>
+      </div>
+      <h1 id="article-heading" class="article-hero__title">
+        5 Things You Didn't Know<br />About <em>Memorial Day</em>
+      </h1>
+      <p class="article-hero__deck">The first Memorial Day ceremony was held by freed slaves. Congress made it official 100 years later. Here's what the textbooks left out.</p>
+      <p class="article-hero__byline">By <strong>The Chain</strong> · 5 min read</p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <section class="article-body">
+    <div class="container">
+      <div class="article-layout">
+
+        <!-- MAIN CONTENT -->
+        <main>
+          <div class="fact-list">
+
+            <!-- Fact 1 -->
+            <div class="fact-item reveal">
+              <div class="fact-item__num">1</div>
+              <div class="fact-item__content">
+                <h2 class="fact-item__title">The very first Memorial Day ceremony was held by freed slaves after the Civil War</h2>
+                <div class="fact-item__body">
+                  <p>When Confederate troops evacuated Charleston, South Carolina, newly emancipated slaves dug up a mass grave of fallen Union prisoners. They gave them a proper burial in a new cemetery, complete with a whitewashed fence and a powerful inscription: <strong>"Martyrs of the Race Course."</strong></p>
+                  <p>On May 1, 1865, a crowd of 10,000 strong — mostly freed slaves and missionaries — gathered for a parade. Three thousand Black school children marched with bouquets of flowers, their voices ringing out with "John Brown's Body." Members of the 54th Massachusetts and other Black Union regiments performed double-time marches. Black ministers recited verses from the Bible.</p>
+                  <div class="pullquote">
+                    <p class="pullquote__text">"The first Memorial Day was all about paying homage to the men who died fighting to abolish slavery."</p>
+                  </div>
+                  <p>This ceremony — organized entirely by Black Americans one month after the war ended — predates the official "Decoration Day" by three years. It has been largely absent from mainstream Memorial Day histories for over a century.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fact 2 -->
+            <div class="fact-item reveal">
+              <div class="fact-item__num">2</div>
+              <div class="fact-item__content">
+                <h2 class="fact-item__title">The first official "Decoration Day" was held on May 30, 1868 — at Arlington National Cemetery</h2>
+                <div class="fact-item__body">
+                  <p>Ohio Rep. James Garfield — a former general and future president — addressed a crowd of 5,000. His words still resonate:</p>
+                  <div class="pullquote">
+                    <p class="pullquote__text">"Hither our children's children shall come to pay their tribute of grateful homage. For this are we met today. By the happy suggestion of a great society, assemblies like this are gathering at this hour in every state in the Union."</p>
+                    <p class="pullquote__attr">— Rep. James Garfield, May 30, 1868</p>
+                  </div>
+                  <p>After the speech, the crowd solemnly entered the cemetery to pay respects to the Civil War fallen. The date — May 30 — was chosen partly because it didn't fall on any existing battle anniversary, and partly because flowers were in bloom across most of the country.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fact 3 -->
+            <div class="fact-item reveal">
+              <div class="fact-item__num">3</div>
+              <div class="fact-item__content">
+                <h2 class="fact-item__title">It took a full century for Memorial Day to become an official national holiday</h2>
+                <div class="fact-item__body">
+                  <p>Congress made it official in 1968 with the <strong>Uniform Monday Holiday Act</strong> — a law that moved Memorial Day, Labor Day, Columbus Day, and Veterans Day to Mondays to give workers more three-day weekends.</p>
+                  <p>Over those 100 years, the scope had expanded from honoring Civil War dead specifically to honoring all fallen U.S. service members. The staggering losses of World War I and World War II — 116,000 and 405,000 Americans killed respectively — made the national observance more urgent than ever. The date was also shifted: from the traditional May 30 to the last Monday of May.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fact 4 -->
+            <div class="fact-item reveal">
+              <div class="fact-item__num">4</div>
+              <div class="fact-item__content">
+                <h2 class="fact-item__title">A National Moment of Remembrance has been held at 3:00 PM local time every Memorial Day since 2000</h2>
+                <div class="fact-item__body">
+                  <p>Congress passed the <strong>National Moment of Remembrance Act</strong> in 2000, dedicating one minute — at 3:00 PM local time — to pause, reflect, and honor all who died in service to their country.</p>
+                  <p>The act was championed by the White House Commission on the National Moment of Remembrance, which was established to help restore the solemn meaning of Memorial Day amid concerns that it had become primarily associated with the start of summer, retail sales, and barbecues rather than military sacrifice.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fact 5 -->
+            <div class="fact-item reveal">
+              <div class="fact-item__num">5</div>
+              <div class="fact-item__content">
+                <h2 class="fact-item__title">The iconic red poppy became a symbol of remembrance after World War I — inspired by a poem written in the trenches</h2>
+                <div class="fact-item__body">
+                  <p>The red poppy entered the language of remembrance through Canadian Lt. Col. John McCrae's haunting poem <em>"In Flanders Fields"</em> (1915), written after he witnessed the death of a close friend at the Second Battle of Ypres. The poem opens:</p>
+                  <div class="pullquote">
+                    <p class="pullquote__text">"In Flanders fields the poppies blow / Between the crosses, row on row, / That mark our place; and in the sky / The larks, still bravely singing, fly / Scarce heard amid the guns below."</p>
+                    <p class="pullquote__attr">— Lt. Col. John McCrae, 1915</p>
+                  </div>
+                  <p>Poppies had grown wild across the churned battlefields of Belgium and northern France — their red blooms emerging from the soil disturbed by explosions and mass burial. The flower became a living testament to the resilience of life amid the devastation of war.</p>
+                  <p>American activist Moina Michael read the poem in 1918 and began wearing a red poppy in honor of the fallen — launching a campaign that spread the symbol internationally. Today, the red poppy is worn across the United States, United Kingdom, Canada, and Australia every November in remembrance of the war dead.</p>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- .fact-list -->
+
+          <!-- Chain connection -->
+          <div style="margin-top:var(--space-12);background:var(--ink-900);border-radius:var(--radius-xl);padding:var(--space-8);" class="reveal">
+            <p style="font-size:var(--type-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-400);margin-bottom:var(--space-3)">The Chain connection</p>
+            <p style="font-family:var(--font-editorial);font-size:clamp(1.1rem,2vw,1.35rem);font-weight:800;color:#fff;line-height:1.35;margin-bottom:var(--space-5)">Why the first Memorial Day was held by Black Americans — and then forgotten</p>
+            <p style="font-size:var(--type-sm);color:var(--ink-400);line-height:1.7;margin-bottom:var(--space-4)">The erasure of the May 1, 1865 Charleston ceremony from mainstream Memorial Day history is not accidental. As Reconstruction ended and Jim Crow began, Southern states created their own "Confederate Memorial Day" and pushed back against the Union-aligned origins of the holiday. The history of who actually started Memorial Day was gradually written out — replaced by a narrative that centered white Northern veterans.</p>
+            <p style="font-size:var(--type-sm);color:var(--ink-400);line-height:1.7;margin-bottom:var(--space-5)">David Blight, historian at Yale, documented the Charleston ceremony in his book <em>Race and Reunion: The Civil War in American Memory</em> (2001). His research restored the record. But the story remains largely absent from public school curricula and mainstream Memorial Day coverage — a small example of the larger pattern Chain documents: the systematic removal of Black agency and contribution from American historical memory.</p>
+            <a href="thread-reconstruction.html" style="font-size:var(--type-sm);font-weight:700;color:var(--amber-300);text-decoration:none;">Read: The Reconstruction Thread →</a>
+          </div>
+
+        </main>
+
+        <!-- SIDEBAR -->
+        <aside class="article-sidebar" aria-label="Related content">
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Key dates</div>
+            <div class="sidebar-timeline">
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">May 1, 1865</div>
+                <div><div class="sidebar-timeline-item__name">First Memorial Day</div><div class="sidebar-timeline-item__region">Charleston, SC — organized by freed slaves</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">May 30, 1868</div>
+                <div><div class="sidebar-timeline-item__name">First official Decoration Day</div><div class="sidebar-timeline-item__region">Arlington National Cemetery — 5,000 attendees</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">1915</div>
+                <div><div class="sidebar-timeline-item__name">"In Flanders Fields" published</div><div class="sidebar-timeline-item__region">Lt. Col. John McCrae — red poppy symbol born</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">1968</div>
+                <div><div class="sidebar-timeline-item__name">Uniform Monday Holiday Act</div><div class="sidebar-timeline-item__region">Memorial Day made federal holiday — moved to last Monday in May</div></div>
+              </div>
+              <div class="sidebar-timeline-item">
+                <div class="sidebar-timeline-item__dates">2000</div>
+                <div><div class="sidebar-timeline-item__name">National Moment of Remembrance</div><div class="sidebar-timeline-item__region">3:00 PM silence established by Congress</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">Related threads</div>
+            <a href="thread-reconstruction.html" class="sidebar-related-link">
+              <span>Reconstruction &amp; Its Betrayal</span>
+              <span class="sidebar-related-link__arrow">→</span>
+            </a>
+            <a href="thread-buffalo-soldiers.html" class="sidebar-related-link">
+              <span>Buffalo Soldiers</span>
+              <span class="sidebar-related-link__arrow">→</span>
+            </a>
+            <a href="thread-double-v.html" class="sidebar-related-link">
+              <span>The Double V Campaign</span>
+              <span class="sidebar-related-link__arrow">→</span>
+            </a>
+            <a href="thread-tuskegee-airmen.html" class="sidebar-related-link">
+              <span>The Tuskegee Airmen</span>
+              <span class="sidebar-related-link__arrow">→</span>
+            </a>
+            <a href="thread-hellfighters.html" class="sidebar-related-link">
+              <span>The Harlem Hellfighters</span>
+              <span class="sidebar-related-link__arrow">→</span>
+            </a>
+          </div>
+
+          <div class="sidebar-card" style="background:var(--ink-900);border-color:rgba(255,255,255,.08);">
+            <div class="sidebar-card__title" style="color:var(--amber-300);border-color:rgba(255,255,255,.08);">Subscribe free</div>
+            <p style="font-size:var(--type-xs);color:var(--ink-400);line-height:1.6;margin-bottom:var(--space-4)">Get editions like this in your inbox every weekday. No ads. No paywall.</p>
+            <a href="newsletter.html#subscribe" style="display:block;text-align:center;padding:var(--space-3) var(--space-5);background:var(--amber-500);color:var(--ink-900);border-radius:var(--radius-md);font-size:var(--type-sm);font-weight:700;text-decoration:none;">Subscribe →</a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="article-cta" aria-labelledby="cta-heading">
+    <div class="article-cta__inner">
+      <h2 id="cta-heading" class="article-cta__title">
+        History like this,<br /><em>every weekday.</em>
+      </h2>
+      <p class="article-cta__sub">Free. No ads. The context the news forgets to give you — in your inbox every morning.</p>
+      <div class="article-cta__form">
+        <input type="email" class="article-cta__input" placeholder="your@email.com" aria-label="Email address" autocomplete="email" />
+        <button class="article-cta__btn" type="button">Subscribe →</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="home.html" class="footer-wordmark">Chain</a>
+        <p class="footer-tagline">Understand the chain, not just the event.</p>
+        <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Explore</h3>
+        <ul class="footer-links">
+          <li><a href="threads.html"  class="footer-link">All Threads</a></li>
+          <li><a href="explore.html"  class="footer-link">Encyclopedia</a></li>
+          <li><a href="maps.html"     class="footer-link">Maps &amp; Timelines</a></li>
+          <li><a href="today.html"    class="footer-link">Today in History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">Newsletter</h3>
+        <ul class="footer-links">
+          <li><a href="newsletter.html" class="footer-link">Subscribe</a></li>
+          <li><a href="newsletter.html" class="footer-link">Past Issues</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h3 class="footer-links-title">About</h3>
+        <ul class="footer-links">
+          <li><a href="about.html"             class="footer-link">About Chain</a></li>
+          <li><a href="about.html#methodology" class="footer-link">Methodology</a></li>
+          <li><a href="contact.html"           class="footer-link">Contact</a></li>
+          <li><a href="donate.html"            class="footer-link">Support us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2025 Chain. Free to use, share, and teach. No paywall. No ads.</p>
+      <p class="footer-mission">Built to make history accessible — and accountability unavoidable.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme
+  const themeToggle = document.getElementById('themeToggle');
+  const moonIcon    = document.querySelector('.icon-moon');
+  const sunIcons    = document.querySelectorAll('.icon-sun');
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('chain-theme', t);
+    const dark = t === 'dark';
+    moonIcon.style.display = dark ? 'none' : 'block';
+    sunIcons.forEach(i => i.style.display = dark ? 'block' : 'none');
+  }
+  applyTheme(localStorage.getItem('chain-theme') ||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  // Search
+  const searchToggle  = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose   = document.getElementById('searchClose');
+  const searchInput   = document.getElementById('searchInput');
+  const openSearch  = () => { searchOverlay.classList.add('is-open'); searchOverlay.setAttribute('aria-hidden','false'); searchInput.focus(); document.body.style.overflow='hidden'; searchToggle.setAttribute('aria-expanded','true'); };
+  const closeSearch = () => { searchOverlay.classList.remove('is-open'); searchOverlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; searchToggle.setAttribute('aria-expanded','false'); };
+  searchToggle.addEventListener('click', openSearch);
+  searchClose.addEventListener('click', closeSearch);
+  searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); });
+
+  // Mobile nav
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mobileClose      = document.getElementById('mobileClose');
+  const mobileNav        = document.getElementById('mobileNav');
+  const mobileBackdrop   = document.getElementById('mobileBackdrop');
+  mobileMenuToggle.addEventListener('click', () => { mobileNav.classList.add('is-open'); mobileNav.setAttribute('aria-hidden','false'); mobileMenuToggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; });
+  mobileClose.addEventListener('click', () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; });
+  mobileBackdrop.addEventListener('click', () => { mobileNav.classList.remove('is-open'); mobileNav.setAttribute('aria-hidden','true'); mobileMenuToggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.04 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+<script src="js/thread.js" defer></script>
+
+</body>
+</html>
