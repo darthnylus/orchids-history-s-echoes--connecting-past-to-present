@@ -18,9 +18,10 @@
     :root{--acc:#2a4a6b;--acc-lt:#6ab0e0}
     [data-theme="dark"]{--acc:#2a4a6b;--acc-lt:#6ab0e0}
     .thread-hero{background:#040a14;padding:var(--space-16) 0 var(--space-14);position:relative;overflow:hidden}
-    .thread-hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 80% at 20% 50%,rgba(42,74,107,.45) 0%,transparent 60%)}
-    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:1}
-    .thread-hero__inner{position:relative;max-width:760px;z-index:2}
+    .thread-hero__bg-img{position:absolute;inset:0;background-image:url('images/hero-what-racism-is.webp');background-size:cover;background-position:center 40%;opacity:.15;filter:grayscale(.3) brightness(.7);pointer-events:none;z-index:0}
+    .thread-hero__bg{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to right,rgba(4,10,20,.97) 0%,rgba(4,10,20,.88) 45%,rgba(4,10,20,.55) 100%),radial-gradient(ellipse 100% 80% at 20% 50%,rgba(42,74,107,.45) 0%,transparent 60%)}
+    .thread-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--_bg));pointer-events:none;z-index:2}
+    .thread-hero__inner{position:relative;max-width:760px;z-index:3}
     .thread-hero__kicker{display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(42,74,107,.12);border:1px solid rgba(42,74,107,.30);border-radius:999px;padding:var(--space-1) var(--space-4);font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--acc-lt);margin-bottom:var(--space-6)}
     .thread-hero__kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--acc-lt)}
     .thread-hero__title{font-family:var(--font-editorial);font-size:clamp(2.25rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:var(--space-6)}
@@ -114,6 +115,7 @@
   </div>
 </div>
 <section class="thread-hero">
+  <div class="thread-hero__bg-img" aria-hidden="true"></div>
   <div class="thread-hero__bg" aria-hidden="true"></div>
   <div class="container">
     <div class="thread-hero__inner">
