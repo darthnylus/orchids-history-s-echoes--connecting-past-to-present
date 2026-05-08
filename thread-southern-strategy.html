@@ -39,14 +39,26 @@
       position: relative;
       overflow: hidden;
     }
+    .thread-hero__bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/southern-strategy.png');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.18;
+      filter: sepia(0.4) saturate(0.5) brightness(0.6);
+      pointer-events: none;
+    }
     .thread-hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
+        linear-gradient(to right, rgba(10,4,4,.97) 0%, rgba(10,4,4,.92) 40%, rgba(10,4,4,.65) 70%, rgba(10,4,4,.3) 100%),
         radial-gradient(ellipse 55% 70% at 100% 30%, rgba(127,29,29,.22) 0%, transparent 65%),
         radial-gradient(ellipse 40% 50% at 0% 80%, rgba(80,10,10,.15) 0%, transparent 60%);
       pointer-events: none;
+      z-index: 1;
     }
     .thread-hero__inner { position: relative; max-width: 760px; }
     .thread-hero__kicker {
@@ -315,7 +327,8 @@
 
   <!-- HERO -->
   <section class="thread-hero" aria-labelledby="thread-heading">
-    <div class="container thread-hero__inner">
+    <div class="thread-hero__bg-img" aria-hidden="true"></div>
+    <div class="container thread-hero__inner" style="position:relative;z-index:2;">
       <div class="thread-hero__kicker">
         <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
         Electoral Politics · Race &amp; Policy · 1948 – Present
