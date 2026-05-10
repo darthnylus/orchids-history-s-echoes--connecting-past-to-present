@@ -144,7 +144,7 @@
 <div class="toast-container" id="toastContainer"></div>
 
 <script>
-const API = 'http://localhost:3001';
+const API = (() => { const h = window.location.hostname; if (h === 'localhost' && window.location.port !== '3001') return 'http://localhost:3001'; if (h.startsWith('3001-')) return ''; if (h.startsWith('3000-')) return window.location.origin.replace('3000-','3001-'); return ''; })();
 let currentYear = new Date().getFullYear();
 let currentMonth = new Date().getMonth(); // 0-indexed
 let editCalId = null;
