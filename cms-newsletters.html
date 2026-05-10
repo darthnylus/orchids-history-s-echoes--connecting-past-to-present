@@ -170,6 +170,7 @@ async function loadNewsletters() {
         <td style="font-size:12px;color:var(--text-muted)">${n.scheduled_date||'—'}</td>
         <td style="font-size:12px;color:var(--text-muted)">${fmtDate(n.updated_at)}</td>
         <td><div class="row-actions">
+          <a href="cms-newsletter-preview.html?id=${n.id}" class="btn btn-ghost btn-sm" style="color:var(--gold)">Preview</a>
           <button class="btn btn-ghost btn-sm" onclick="viewNewsletter(${n.id})">View</button>
           <button class="btn btn-ghost btn-sm" onclick="editNewsletter(${n.id})">Edit</button>
           <button class="btn btn-ghost btn-sm" style="color:#f87171" onclick="deleteNewsletter(${n.id})">Delete</button>

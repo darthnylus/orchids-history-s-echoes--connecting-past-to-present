@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Newsletter Preview — Retrieve Your Roots CMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/cms.css"/>
+  <style>
+    /* ── Preview shell ───────────────────────────────────────────────────────── */
+    .preview-shell {
+      background: var(--ink-2);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .preview-shell__info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .preview-shell__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .preview-shell__title {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .preview-width-btns {
+      display: flex;
+      gap: 6px;
+    }
+    .width-btn {
+      background: transparent;
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-md);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--ease);
+    }
+    .width-btn.active {
+      background: rgba(201,168,76,.08);
+      border-color: var(--gold-border-strong);
+      color: var(--gold);
+    }
+    /* ── Email frame ─────────────────────────────────────────────────────────── */
+    .email-frame {
+      margin: 32px auto;
+      transition: max-width .25s ease;
+      padding: 0 16px;
+    }
+    .email-frame--desktop { max-width: 680px; }
+    .email-frame--mobile  { max-width: 390px; }
+
+    /* ── Email itself ─────────────────────────────────────────────────────────── */
+    .email {
+      background: #0f0c07;
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 60px rgba(0,0,0,.7);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* Header bar */
+    .email-header {
+      background: linear-gradient(135deg, #1a1508 0%, #0f0c07 100%);
+      border-bottom: 1px solid rgba(201,168,76,.2);
+      padding: 32px 40px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .email-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .email-brand-eyebrow {
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,.5);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .email-brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #c9a84c;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
+    }
+    .email-tagline {
+      font-size: 11px;
+      color: rgba(240,234,216,.35);
+      letter-spacing: .08em;
+    }
+
+    /* Thin gold rule */
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,168,76,.35), transparent);
+      margin: 0;
+      border: none;
+    }
+
+    /* Issue metadata bar */
+    .email-meta-bar {
+      background: #0a0804;
+      padding: 10px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: rgba(240,234,216,.3);
+    }
+    .email-meta-bar__issue {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: rgba(201,168,76,.5);
+    }
+
+    /* Hero strip */
+    .email-hero {
+      padding: 44px 40px 36px;
+      background: linear-gradient(180deg, #141009 0%, #0f0c07 100%);
+    }
+    .email-issue-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,.55);
+      margin-bottom: 12px;
+    }
+    .email-issue-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #f0ead8;
+      line-height: 1.15;
+      margin-bottom: 0;
+    }
+
+    /* Body */
+    .email-body {
+      padding: 0 40px 40px;
+    }
+
+    /* Section: hook */
+    .email-section { margin-bottom: 32px; }
+
+    .email-opening {
+      font-size: 18px;
+      font-weight: 400;
+      color: #e8e0cc;
+      line-height: 1.75;
+      border-left: 3px solid #c9a84c;
+      padding-left: 20px;
+      font-style: italic;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .email-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,.6);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .email-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,168,76,.12);
+    }
+
+    .email-body-text {
+      font-size: 15px;
+      color: rgba(240,234,216,.8);
+      line-height: 1.85;
+    }
+    .email-body-text p {
+      margin: 0 0 16px;
+    }
+    .email-body-text p:last-child { margin-bottom: 0; }
+
+    /* Truth vs Narrative callout */
+    .email-truth-box {
+      background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, rgba(201,168,76,.03) 100%);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .email-truth-box__headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #c9a84c;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .email-truth-text {
+      font-size: 14px;
+      color: rgba(240,234,216,.75);
+      line-height: 1.8;
+    }
+    .email-truth-text p { margin: 0 0 12px; }
+    .email-truth-text p:last-child { margin: 0; }
+
+    /* Quote */
+    .email-quote {
+      margin: 0;
+      padding: 20px 28px;
+      background: rgba(0,0,0,.25);
+      border-left: 4px solid #c9a84c;
+      border-radius: 0 8px 8px 0;
+    }
+    .email-quote__text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      font-style: italic;
+      color: #e8d9a8;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .email-quote__attr {
+      font-size: 11px;
+      color: rgba(201,168,76,.6);
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
+
+    /* CTA */
+    .email-cta-box {
+      background: #c9a84c;
+      border-radius: 10px;
+      padding: 24px 28px;
+      text-align: center;
+    }
+    .email-cta-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      color: #0a0804;
+      font-weight: 700;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .email-cta-btn {
+      display: inline-block;
+      background: #0a0804;
+      color: #c9a84c;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .email-footer {
+      border-top: 1px solid rgba(201,168,76,.1);
+      padding: 24px 40px;
+      background: #0a0804;
+      text-align: center;
+    }
+    .email-footer__brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px;
+      color: rgba(201,168,76,.5);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .email-footer__links {
+      font-size: 11px;
+      color: rgba(240,234,216,.25);
+      margin-bottom: 8px;
+    }
+    .email-footer__links a {
+      color: rgba(201,168,76,.4);
+      text-decoration: none;
+    }
+    .email-footer__unsub {
+      font-size: 10px;
+      color: rgba(240,234,216,.18);
+    }
+
+    /* Loading state */
+    .preview-loading {
+      text-align: center;
+      padding: 80px 40px;
+      color: rgba(240,234,216,.3);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Preview shell toolbar -->
+<div class="preview-shell">
+  <div class="preview-shell__info">
+    <div class="preview-shell__label">Newsletter Preview</div>
+    <div class="preview-shell__title" id="shellTitle">Loading…</div>
+    <span class="status-badge" id="shellStatus"></span>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <div class="preview-width-btns">
+      <button class="width-btn active" id="btnDesktop" onclick="setWidth('desktop')">Desktop</button>
+      <button class="width-btn" id="btnMobile" onclick="setWidth('mobile')">Mobile</button>
+    </div>
+    <a href="cms-newsletters.html" class="btn btn-secondary btn-sm">← Back to Issues</a>
+    <a href="cms-newsletters.html" class="btn btn-ghost btn-sm" onclick="editThisIssue()">Edit Issue</a>
+  </div>
+</div>
+
+<!-- Email frame -->
+<div class="email-frame email-frame--desktop" id="emailFrame">
+  <div class="preview-loading" id="loadingState">
+    <div class="spinner" style="width:24px;height:24px;margin:0 auto 12px"></div>
+    Loading newsletter…
+  </div>
+  <div class="email" id="emailEl" style="display:none"></div>
+</div>
+
+<script>
+const API = 'http://localhost:3001';
+const params = new URLSearchParams(location.search);
+const nlId = params.get('id') || 1;
+
+async function load() {
+  try {
+    const n = await fetch(`${API}/cms/api/newsletters/${nlId}`).then(r => r.json());
+
+    // Shell
+    document.getElementById('shellTitle').textContent = n.issue_title;
+    const sb = document.getElementById('shellStatus');
+    sb.className = `status-badge status-badge--${n.publish_status}`;
+    sb.textContent = n.publish_status;
+
+    // Build email HTML
+    const today = new Date().toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+    function paragraphize(text) {
+      if (!text) return '';
+      return text.split('\n\n').filter(Boolean).map(p => `<p>${esc(p.trim()).replace(/\n/g,'<br>')}</p>`).join('');
+    }
+
+    const emailEl = document.getElementById('emailEl');
+    emailEl.innerHTML = `
+      <!-- Header -->
+      <div class="email-header">
+        <div class="email-brand-eyebrow">Issue #0${n.id} · ${today}</div>
+        <div class="email-brand">Retrieve Your Roots</div>
+        <div class="email-tagline">History They Buried. Truth We Recover.</div>
+      </div>
+
+      <hr class="gold-rule"/>
+
+      <div class="email-meta-bar">
+        <span class="email-meta-bar__issue">Issue ${String(n.id).padStart(3,'0')}</span>
+        <span>${n.topic_title ? 'Topic: ' + esc(n.topic_title) : 'Retrieve Your Roots Newsletter'}</span>
+        <span>hello@retrieve-your-roots.com</span>
+      </div>
+
+      <!-- Hero -->
+      <div class="email-hero">
+        <div class="email-issue-num">This Week's Thread</div>
+        <div class="email-issue-title">${esc(n.issue_title)}</div>
+      </div>
+
+      <hr class="gold-rule"/>
+
+      <!-- Body -->
+      <div class="email-body">
+
+        ${n.opening_hook ? `
+        <!-- Opening hook -->
+        <div class="email-section" style="padding-top:32px">
+          <div class="email-opening">${esc(n.opening_hook).replace(/\n\n/g,'</em><br><br><em>').replace(/\n/g,'<br>')}</div>
+        </div>
+        ` : ''}
+
+        ${n.main_story ? `
+        <!-- Main story -->
+        <div class="email-section">
+          <div class="email-section-label">The History</div>
+          <div class="email-body-text">${paragraphize(n.main_story)}</div>
+        </div>
+        ` : ''}
+
+        ${n.truth_vs_narrative_section ? `
+        <!-- Truth vs Narrative -->
+        <div class="email-section">
+          <div class="email-section-label">Truth vs. Narrative</div>
+          <div class="email-truth-box">
+            <div class="email-truth-box__headline">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              What they left out
+            </div>
+            <div class="email-truth-text">${paragraphize(n.truth_vs_narrative_section)}</div>
+          </div>
+        </div>
+        ` : ''}
+
+        ${n.quote_section ? `
+        <!-- Quote -->
+        <div class="email-section">
+          <div class="email-section-label">From the Record</div>
+          <blockquote class="email-quote">
+            <div class="email-quote__text">&ldquo;${esc(n.quote_section).replace(/^"/, '').replace(/" ?—/, '"<br>—').replace(/"$/, '')}&rdquo;</div>
+          </blockquote>
+        </div>
+        ` : ''}
+
+        ${n.call_to_action ? `
+        <!-- CTA -->
+        <div class="email-section">
+          <div class="email-cta-box">
+            <div class="email-cta-text">${esc(n.call_to_action).replace(/\n/g,'<br>')}</div>
+            <a href="#" class="email-cta-btn">Share This Issue →</a>
+          </div>
+        </div>
+        ` : ''}
+
+      </div>
+
+      <!-- Footer -->
+      <div class="email-footer">
+        <div class="email-footer__brand">Retrieve Your Roots</div>
+        <div class="email-footer__links">
+          <a href="#">Read on the Web</a> &nbsp;·&nbsp;
+          <a href="https://x.com/Chain_hello">@Chain_hello</a> &nbsp;·&nbsp;
+          <a href="mailto:hello@retrieve-your-roots.com">hello@retrieve-your-roots.com</a>
+        </div>
+        <div class="email-footer__unsub">You're receiving this because you subscribed to Retrieve Your Roots. <a href="#" style="color:rgba(201,168,76,.3)">Unsubscribe</a></div>
+      </div>
+    `;
+
+    document.getElementById('loadingState').style.display = 'none';
+    emailEl.style.display = 'block';
+
+  } catch(e) {
+    document.getElementById('loadingState').innerHTML = `<div style="color:#f87171">Could not load newsletter — is the CMS server running on port 3001?</div>`;
+  }
+}
+
+function setWidth(mode) {
+  const frame = document.getElementById('emailFrame');
+  frame.className = `email-frame email-frame--${mode}`;
+  document.getElementById('btnDesktop').classList.toggle('active', mode === 'desktop');
+  document.getElementById('btnMobile').classList.toggle('active', mode === 'mobile');
+}
+
+function editThisIssue() {
+  // Will be handled by the link href
+}
+
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+load();
+</script>
+</body>
+</html>
