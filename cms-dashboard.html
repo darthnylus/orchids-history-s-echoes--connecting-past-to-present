@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Dashboard — Retrieve Your Roots CMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/cms.css"/>
+</head>
+<body>
+<div class="cms-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="cms-sidebar" id="sidebar">
+    <div class="cms-sidebar__brand">
+      <div class="cms-sidebar__brand-name">Retrieve Your Roots</div>
+      <div class="cms-sidebar__brand-sub">Content Command Center</div>
+    </div>
+    <nav class="cms-sidebar__nav">
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Overview</div></div>
+      <a href="cms-dashboard.html" class="cms-nav__item active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Content</div></div>
+      <a href="cms-topics.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Historical Topics
+      </a>
+      <a href="cms-newsletters.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Newsletter Issues
+      </a>
+      <a href="cms-twitter.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        Twitter / X Posts
+      </a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Assets</div></div>
+      <a href="cms-quotes.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+        Quotes
+      </a>
+      <a href="cms-image-prompts.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Image Prompts
+      </a>
+      <a href="cms-sources.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Sources
+      </a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Planning</div></div>
+      <a href="cms-calendar.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Content Calendar
+      </a>
+    </nav>
+    <div class="cms-sidebar__footer">
+      <a href="home.html" style="color:var(--gold-dim);font-size:11px;">← Back to site</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="cms-main">
+
+    <!-- TOPBAR -->
+    <div class="cms-topbar">
+      <div class="cms-topbar__title">Dashboard</div>
+      <div class="cms-topbar__actions">
+        <a href="cms-topic-edit.html" class="btn btn-primary btn-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Topic
+        </a>
+      </div>
+    </div>
+
+    <div class="cms-page">
+
+      <!-- Hero -->
+      <div class="dash-hero">
+        <div class="dash-hero__eyebrow">Editorial Command Center</div>
+        <div class="dash-hero__title">Retrieve Your Roots</div>
+        <div class="dash-hero__sub">The central content brain for the brand. Every historical topic, article, quote, timeline fact, image prompt, and social post — stored, searchable, and ready for automation.</div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stat-grid" id="statGrid">
+        <div class="card card--glow" style="cursor:pointer" onclick="location.href='cms-topics.html'">
+          <div class="card__label">Historical Topics</div>
+          <div class="card__title" id="stat-topics">—</div>
+          <div class="card__sub" id="stat-topics-pub">— published</div>
+        </div>
+        <div class="card" style="cursor:pointer" onclick="location.href='cms-newsletters.html'">
+          <div class="card__label">Newsletter Issues</div>
+          <div class="card__title" id="stat-newsletters">—</div>
+          <div class="card__sub" id="stat-newsletters-draft">— in draft</div>
+        </div>
+        <div class="card" style="cursor:pointer" onclick="location.href='cms-twitter.html'">
+          <div class="card__label">Twitter / X Posts</div>
+          <div class="card__title" id="stat-twitter">—</div>
+          <div class="card__sub">posts in library</div>
+        </div>
+        <div class="card" style="cursor:pointer" onclick="location.href='cms-quotes.html'">
+          <div class="card__label">Quotes</div>
+          <div class="card__title" id="stat-quotes">—</div>
+          <div class="card__sub">in archive</div>
+        </div>
+        <div class="card" style="cursor:pointer" onclick="location.href='cms-image-prompts.html'">
+          <div class="card__label">Image Prompts</div>
+          <div class="card__title" id="stat-images">—</div>
+          <div class="card__sub">ready to generate</div>
+        </div>
+        <div class="card" style="cursor:pointer" onclick="location.href='cms-calendar.html'">
+          <div class="card__label">Upcoming Posts</div>
+          <div class="card__title" id="stat-calendar">—</div>
+          <div class="card__sub">scheduled</div>
+        </div>
+      </div>
+
+      <div class="two-col" style="gap:24px;margin-bottom:32px">
+
+        <!-- AI generation panel -->
+        <div class="ai-card">
+          <div class="ai-card__header">
+            <div class="ai-card__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <div class="ai-card__title">AI Content Generation</div>
+              <div class="ai-card__sub">Generate newsletter drafts and X posts from any topic</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="form-group">
+              <label class="form-label">Select Topic</label>
+              <select class="form-select" id="aiTopicSelect">
+                <option value="">Loading topics...</option>
+              </select>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn btn-gold-outline btn-sm" onclick="generateNewsletter()" id="btnNewsletter">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Generate Newsletter Draft
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="generateTwitter('thread')" id="btnThread">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                Generate X Thread
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="generateTwitter('single post')" id="btnPost">
+                Generate X Post
+              </button>
+            </div>
+            <div id="aiStatus" style="font-size:12px;color:var(--text-muted);min-height:20px"></div>
+          </div>
+        </div>
+
+        <!-- Quick add -->
+        <div class="card">
+          <div class="card__label" style="margin-bottom:16px">Quick Actions</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="cms-topic-edit.html" class="btn btn-secondary" style="justify-content:flex-start">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              Add New Historical Topic
+            </a>
+            <a href="cms-topics.html" class="btn btn-secondary" style="justify-content:flex-start">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Browse &amp; Search Topics
+            </a>
+            <a href="cms-calendar.html" class="btn btn-secondary" style="justify-content:flex-start">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              View Content Calendar
+            </a>
+            <a href="cms-newsletters.html" class="btn btn-secondary" style="justify-content:flex-start">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Manage Newsletters
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent topics -->
+      <div class="section-header">
+        <div class="section-header__left">
+          <div class="section-eyebrow">Database</div>
+          <div class="section-title">Recent Historical Topics</div>
+        </div>
+        <a href="cms-topics.html" class="btn btn-ghost btn-sm">View all →</a>
+      </div>
+
+      <div class="table-wrap" id="recentTopicsWrap">
+        <table class="cms-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Civilization</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="recentTopicsBody">
+            <tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:32px">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+const API = 'http://localhost:3001';
+
+async function loadStats() {
+  try {
+    const s = await fetch(`${API}/cms/api/stats`).then(r => r.json());
+    document.getElementById('stat-topics').textContent = s.topics;
+    document.getElementById('stat-topics-pub').textContent = `${s.topics_published} published`;
+    document.getElementById('stat-newsletters').textContent = s.newsletters;
+    document.getElementById('stat-newsletters-draft').textContent = `${s.newsletters_draft} in draft`;
+    document.getElementById('stat-twitter').textContent = s.twitter_posts;
+    document.getElementById('stat-quotes').textContent = s.quotes;
+    document.getElementById('stat-images').textContent = s.image_prompts;
+    document.getElementById('stat-calendar').textContent = s.calendar_upcoming;
+  } catch(e) {
+    console.error('Stats error:', e);
+  }
+}
+
+async function loadRecentTopics() {
+  try {
+    const topics = await fetch(`${API}/cms/api/topics`).then(r => r.json());
+    const tbody = document.getElementById('recentTopicsBody');
+    if (!topics.length) {
+      tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state"><div class="empty-state__icon">📚</div><div class="empty-state__title">No topics yet</div><div class="empty-state__sub">Start building your content database</div><a href="cms-topic-edit.html" class="btn btn-primary">Add First Topic</a></div></td></tr>`;
+      return;
+    }
+    tbody.innerHTML = topics.slice(0,8).map(t => `
+      <tr>
+        <td class="td-title">${esc(t.title)}</td>
+        <td><span class="cat-pill">${esc(t.category)}</span></td>
+        <td style="color:var(--text-tertiary);font-size:12px">${esc(t.civilization||'—')}</td>
+        <td><span class="status-badge status-badge--${t.status}">${t.status}</span></td>
+        <td>
+          <div class="row-actions">
+            <a href="cms-topic-edit.html?id=${t.id}" class="btn btn-ghost btn-sm" title="Edit">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Edit
+            </a>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+
+    // Populate AI topic select
+    const sel = document.getElementById('aiTopicSelect');
+    sel.innerHTML = '<option value="">Choose a topic…</option>' + topics.map(t => `<option value="${t.id}">${esc(t.title)}</option>`).join('');
+  } catch(e) {
+    console.error('Topics error:', e);
+  }
+}
+
+async function generateNewsletter() {
+  const topicId = document.getElementById('aiTopicSelect').value;
+  if (!topicId) { toast('Please select a topic first', 'info'); return; }
+  const btn = document.getElementById('btnNewsletter');
+  const status = document.getElementById('aiStatus');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Generating…';
+  status.textContent = 'Calling AI — this takes 5-10 seconds…';
+  try {
+    const r = await fetch(`${API}/cms/api/generate/newsletter`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ topic_id: parseInt(topicId) })
+    }).then(r => r.json());
+    if (r.success) {
+      toast('Newsletter draft created!', 'success');
+      status.innerHTML = `Draft saved — <a href="cms-newsletters.html" style="color:var(--gold)">view in Newsletters →</a>`;
+      loadStats();
+    } else {
+      toast('Generation failed: ' + r.error, 'error');
+      status.textContent = 'Error: ' + r.error;
+    }
+  } catch(e) {
+    toast('Network error', 'error');
+    status.textContent = 'Network error — is the CMS server running on port 3001?';
+  }
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Generate Newsletter Draft`;
+}
+
+async function generateTwitter(type) {
+  const topicId = document.getElementById('aiTopicSelect').value;
+  if (!topicId) { toast('Please select a topic first', 'info'); return; }
+  const btn = type === 'thread' ? document.getElementById('btnThread') : document.getElementById('btnPost');
+  const status = document.getElementById('aiStatus');
+  btn.disabled = true;
+  status.textContent = 'Generating X post — this takes 5-10 seconds…';
+  try {
+    const r = await fetch(`${API}/cms/api/generate/twitter`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ topic_id: parseInt(topicId), post_type: type })
+    }).then(r => r.json());
+    if (r.success) {
+      toast('X post draft created!', 'success');
+      status.innerHTML = `Post saved — <a href="cms-twitter.html" style="color:var(--gold)">view in X Posts →</a>`;
+      loadStats();
+    } else {
+      toast('Error: ' + r.error, 'error');
+      status.textContent = 'Error: ' + r.error;
+    }
+  } catch(e) {
+    toast('Network error', 'error');
+  }
+  btn.disabled = false;
+}
+
+function esc(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function toast(msg, type='info') {
+  const c = document.getElementById('toastContainer');
+  const el = document.createElement('div');
+  el.className = `toast toast--${type}`;
+  el.textContent = msg;
+  c.appendChild(el);
+  setTimeout(() => el.remove(), 3500);
+}
+
+loadStats();
+loadRecentTopics();
+</script>
+</body>
+</html>

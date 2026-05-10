@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Add / Edit Topic — Retrieve Your Roots CMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/cms.css"/>
+</head>
+<body>
+<div class="cms-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="cms-sidebar">
+    <div class="cms-sidebar__brand">
+      <div class="cms-sidebar__brand-name">Retrieve Your Roots</div>
+      <div class="cms-sidebar__brand-sub">Content Command Center</div>
+    </div>
+    <nav class="cms-sidebar__nav">
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Overview</div></div>
+      <a href="cms-dashboard.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Content</div></div>
+      <a href="cms-topics.html" class="cms-nav__item active">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Historical Topics
+      </a>
+      <a href="cms-newsletters.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Newsletter Issues
+      </a>
+      <a href="cms-twitter.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        Twitter / X Posts
+      </a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Assets</div></div>
+      <a href="cms-quotes.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+        Quotes
+      </a>
+      <a href="cms-image-prompts.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Image Prompts
+      </a>
+      <a href="cms-sources.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Sources
+      </a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Planning</div></div>
+      <a href="cms-calendar.html" class="cms-nav__item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Content Calendar
+      </a>
+    </nav>
+    <div class="cms-sidebar__footer">
+      <a href="home.html" style="color:var(--gold-dim);font-size:11px;">← Back to site</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="cms-main">
+    <div class="cms-topbar">
+      <div class="cms-topbar__title" id="pageTitle">New Historical Topic</div>
+      <div class="cms-topbar__actions">
+        <a href="cms-topics.html" class="btn btn-ghost btn-sm">← Back to Topics</a>
+      </div>
+    </div>
+
+    <div class="cms-page">
+      <form id="topicForm" onsubmit="saveTopic(event)">
+
+        <!-- Section 1: Core Identity -->
+        <div style="margin-bottom:var(--sp-8)">
+          <div class="section-eyebrow" style="margin-bottom:var(--sp-2)">Core Identity</div>
+          <div class="form-grid" style="gap:var(--sp-5)">
+            <div class="form-col-span">
+              <div class="form-group">
+                <label class="form-label">Title *</label>
+                <input type="text" class="form-input" id="f-title" name="title" required placeholder="e.g. The Kingdom of Kush: Africa's First Superpower"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category *</label>
+              <select class="form-select" id="f-category" name="category" required>
+                <option value="">Select category…</option>
+                <option>Ancient African Civilizations</option>
+                <option>Hidden History</option>
+                <option>Black Excellence</option>
+                <option>Pre-1619 History</option>
+                <option>Colonial Rewriting</option>
+                <option>Erased Inventions</option>
+                <option>Kings and Queens</option>
+                <option>Warriors and Empires</option>
+                <option>Spiritual Systems</option>
+                <option>Timeline Facts</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Status</label>
+              <select class="form-select" id="f-status" name="status">
+                <option value="draft">Draft</option>
+                <option value="reviewed">Reviewed</option>
+                <option value="scheduled">Scheduled</option>
+                <option value="published">Published</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Civilization</label>
+              <input type="text" class="form-input" id="f-civilization" name="civilization" placeholder="e.g. Kushite / Nubian, Mali Empire, Yoruba…"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Time Period</label>
+              <input type="text" class="form-input" id="f-time_period" name="time_period" placeholder="e.g. 785 BCE – 350 CE"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Location</label>
+              <input type="text" class="form-input" id="f-location" name="location" placeholder="e.g. Meroe, modern Sudan"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Key Figures</label>
+              <input type="text" class="form-input" id="f-key_figures" name="key_figures" placeholder="e.g. King Piye, Taharqa, Amanirenas"/>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider"/>
+
+        <!-- Section 2: Content -->
+        <div style="margin-bottom:var(--sp-8)">
+          <div class="section-eyebrow" style="margin-bottom:var(--sp-2)">Content</div>
+          <div class="form-grid" style="gap:var(--sp-5)">
+            <div class="form-col-span">
+              <div class="form-group">
+                <label class="form-label">Short Summary</label>
+                <textarea class="form-textarea" id="f-short_summary" name="short_summary" placeholder="2-3 sentences. Used on cards and previews." rows="3"></textarea>
+                <div class="form-hint">Appears on cards, social previews, and AI generation inputs.</div>
+              </div>
+            </div>
+            <div class="form-col-span">
+              <div class="form-group">
+                <label class="form-label">Long Summary</label>
+                <textarea class="form-textarea form-textarea--tall" id="f-long_summary" name="long_summary" placeholder="Full narrative — as detailed as needed. This is the content brain." rows="8"></textarea>
+              </div>
+            </div>
+            <div class="form-col-span">
+              <div class="form-group">
+                <label class="form-label">Historical Significance</label>
+                <textarea class="form-textarea" id="f-historical_significance" name="historical_significance" placeholder="Why does this matter? What was built, destroyed, or changed?" rows="4"></textarea>
+              </div>
+            </div>
+            <div class="form-col-span">
+              <div class="form-group">
+                <label class="form-label">Truth vs. Narrative</label>
+                <textarea class="form-textarea" id="f-truth_vs_narrative" name="truth_vs_narrative" placeholder="What does mainstream history get wrong or omit? What's the suppressed truth?" rows="4"></textarea>
+                <div class="form-hint">This powers the "Truth vs. Narrative" section in newsletter drafts and social posts.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider"/>
+
+        <!-- Section 3: Metadata -->
+        <div style="margin-bottom:var(--sp-8)">
+          <div class="section-eyebrow" style="margin-bottom:var(--sp-2)">Metadata</div>
+          <div class="form-grid" style="gap:var(--sp-5)">
+            <div class="form-group">
+              <label class="form-label">Tags</label>
+              <input type="text" class="form-input" id="f-tags" name="tags" placeholder="Comma-separated: Kush, Nubia, Ancient History, Pyramids"/>
+              <div class="form-hint">Comma-separated tags for search and filtering.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Source URL</label>
+              <input type="url" class="form-input" id="f-source_url" name="source_url" placeholder="https://…"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Save Topic
+          </button>
+          <button type="button" class="btn btn-secondary btn-lg" onclick="saveAndGenerate()" id="saveGenBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Save &amp; Generate Newsletter
+          </button>
+          <a href="cms-topics.html" class="btn btn-ghost btn-lg">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+const API = 'http://localhost:3001';
+const params = new URLSearchParams(location.search);
+const editId = params.get('id');
+
+if (editId) {
+  document.getElementById('pageTitle').textContent = 'Edit Historical Topic';
+  loadTopic();
+}
+
+async function loadTopic() {
+  try {
+    const t = await fetch(`${API}/cms/api/topics/${editId}`).then(r => r.json());
+    const fields = ['title','category','civilization','time_period','location','short_summary','long_summary',
+      'key_figures','historical_significance','truth_vs_narrative','source_url','tags','status'];
+    fields.forEach(f => {
+      const el = document.getElementById('f-' + f);
+      if (el) el.value = t[f] || '';
+    });
+  } catch(e) {
+    toast('Could not load topic', 'error');
+  }
+}
+
+async function saveTopic(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Saving…';
+
+  const body = {};
+  ['title','category','civilization','time_period','location','short_summary','long_summary',
+   'key_figures','historical_significance','truth_vs_narrative','source_url','tags','status']
+  .forEach(f => {
+    const el = document.getElementById('f-' + f);
+    if (el) body[f] = el.value.trim();
+  });
+
+  try {
+    let r;
+    if (editId) {
+      r = await fetch(`${API}/cms/api/topics/${editId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      }).then(r => r.json());
+      toast('Topic updated!', 'success');
+    } else {
+      r = await fetch(`${API}/cms/api/topics`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      }).then(r => r.json());
+      toast('Topic created!', 'success');
+    }
+    if (r.success) {
+      setTimeout(() => location.href = 'cms-topics.html', 1200);
+    }
+  } catch(err) {
+    toast('Save failed — is the CMS server running?', 'error');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Save Topic`;
+}
+
+async function saveAndGenerate() {
+  const btn = document.getElementById('saveGenBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Saving…';
+
+  const body = {};
+  ['title','category','civilization','time_period','location','short_summary','long_summary',
+   'key_figures','historical_significance','truth_vs_narrative','source_url','tags','status']
+  .forEach(f => {
+    const el = document.getElementById('f-' + f);
+    if (el) body[f] = el.value.trim();
+  });
+
+  try {
+    let savedId = editId;
+    if (editId) {
+      await fetch(`${API}/cms/api/topics/${editId}`, {
+        method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+      });
+    } else {
+      const r = await fetch(`${API}/cms/api/topics`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+      }).then(r => r.json());
+      savedId = r.id;
+    }
+
+    btn.innerHTML = '<span class="spinner"></span> Generating newsletter…';
+    const gen = await fetch(`${API}/cms/api/generate/newsletter`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ topic_id: parseInt(savedId) })
+    }).then(r => r.json());
+
+    if (gen.success) {
+      toast('Topic saved + newsletter draft generated!', 'success');
+      setTimeout(() => location.href = 'cms-newsletters.html', 1400);
+    }
+  } catch(err) {
+    toast('Error: ' + err.message, 'error');
+  }
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Save &amp; Generate Newsletter`;
+}
+
+function toast(msg, type='info') {
+  const c = document.getElementById('toastContainer');
+  const el = document.createElement('div');
+  el.className = `toast toast--${type}`;
+  el.textContent = msg;
+  c.appendChild(el);
+  setTimeout(() => el.remove(), 3500);
+}
+</script>
+</body>
+</html>

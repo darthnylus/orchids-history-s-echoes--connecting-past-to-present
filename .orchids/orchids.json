@@ -1,6 +1,7 @@
 {
   "startupCommands": [
-    "npm install; node server.js"
+    "npm install; node server.js",
+    "node cms-server.js"
   ],
   "projectId": "f7ebae14-a30f-4f72-9bac-d89a61c81c84",
   "templateId": "any"

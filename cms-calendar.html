@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Content Calendar — Retrieve Your Roots CMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'"/>
+  <link rel="stylesheet" href="css/cms.css"/>
+</head>
+<body>
+<div class="cms-layout">
+  <aside class="cms-sidebar">
+    <div class="cms-sidebar__brand"><div class="cms-sidebar__brand-name">Retrieve Your Roots</div><div class="cms-sidebar__brand-sub">Content Command Center</div></div>
+    <nav class="cms-sidebar__nav">
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Overview</div></div>
+      <a href="cms-dashboard.html" class="cms-nav__item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Content</div></div>
+      <a href="cms-topics.html" class="cms-nav__item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Historical Topics</a>
+      <a href="cms-newsletters.html" class="cms-nav__item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Newsletter Issues</a>
+      <a href="cms-twitter.html" class="cms-nav__item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>Twitter / X Posts</a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Assets</div></div>
+      <a href="cms-quotes.html" class="cms-nav__item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>Quotes</a>
+      <a href="cms-image-prompts.html" class="cms-nav__item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Image Prompts</a>
+      <a href="cms-sources.html" class="cms-nav__item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Sources</a>
+      <div class="cms-nav__section"><div class="cms-nav__section-label">Planning</div></div>
+      <a href="cms-calendar.html" class="cms-nav__item active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Content Calendar</a>
+    </nav>
+    <div class="cms-sidebar__footer"><a href="home.html" style="color:var(--gold-dim);font-size:11px;">← Back to site</a></div>
+  </aside>
+
+  <div class="cms-main">
+    <div class="cms-topbar">
+      <div class="cms-topbar__title">Content Calendar</div>
+      <div class="cms-topbar__actions">
+        <button class="btn btn-ghost btn-sm" onclick="changeMonth(-1)">← Prev</button>
+        <span id="monthLabel" style="font-size:14px;font-weight:600;color:var(--text-primary);min-width:120px;text-align:center"></span>
+        <button class="btn btn-ghost btn-sm" onclick="changeMonth(1)">Next →</button>
+        <button class="btn btn-primary btn-sm" onclick="openModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Schedule
+        </button>
+      </div>
+    </div>
+
+    <div class="cms-page--full" style="padding:24px">
+      <!-- Platform legend -->
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;padding:0 4px">
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">
+          <span style="width:10px;height:10px;background:rgba(16,185,129,.3);border-radius:2px;display:inline-block"></span>Newsletter
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">
+          <span style="width:10px;height:10px;background:rgba(59,130,246,.3);border-radius:2px;display:inline-block"></span>Twitter/X
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">
+          <span style="width:10px;height:10px;background:rgba(236,72,153,.3);border-radius:2px;display:inline-block"></span>Instagram
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">
+          <span style="width:10px;height:10px;background:rgba(20,184,166,.3);border-radius:2px;display:inline-block"></span>TikTok
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">
+          <span style="width:10px;height:10px;background:rgba(239,68,68,.3);border-radius:2px;display:inline-block"></span>YouTube
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">
+          <span style="width:10px;height:10px;background:rgba(201,168,76,.25);border-radius:2px;display:inline-block"></span>Website
+        </div>
+      </div>
+
+      <!-- Calendar grid -->
+      <div id="calendarGrid"></div>
+
+      <!-- Upcoming list -->
+      <div style="margin-top:32px">
+        <div class="section-header">
+          <div class="section-header__left">
+            <div class="section-eyebrow">Queue</div>
+            <div class="section-title" style="font-size:1.25rem">All Scheduled Items</div>
+          </div>
+        </div>
+        <div id="upcomingList">
+          <div style="text-align:center;padding:24px;color:var(--text-muted)">Loading…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Schedule Modal -->
+<div class="modal-overlay" id="calModal">
+  <div class="modal" style="max-width:560px">
+    <div class="modal__header">
+      <div class="modal__title" id="calModalTitle">Schedule Content</div>
+      <button class="modal__close" onclick="closeModal()">✕</button>
+    </div>
+    <form id="calForm" onsubmit="saveCalItem(event)">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="form-group">
+          <label class="form-label">Content Type *</label>
+          <select class="form-select" id="cf-type" required>
+            <option value="newsletter">Newsletter Issue</option>
+            <option value="twitter">Twitter/X Post</option>
+            <option value="instagram">Instagram Post</option>
+            <option value="tiktok">TikTok Video</option>
+            <option value="youtube">YouTube Shorts</option>
+            <option value="website">Website Article</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Platform *</label>
+          <select class="form-select" id="cf-platform" required>
+            <option value="newsletter">Newsletter</option>
+            <option value="twitter">Twitter/X</option>
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="youtube">YouTube Shorts</option>
+            <option value="website">Website</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Scheduled Date *</label>
+          <input type="date" class="form-input" id="cf-date" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <select class="form-select" id="cf-status">
+            <option value="scheduled">Scheduled</option>
+            <option value="draft">Draft / Idea</option>
+            <option value="published">Published</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Notes</label>
+          <textarea class="form-textarea" id="cf-notes" rows="3" placeholder="What is this post about? Link to topic or draft…"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" id="calSaveBtn">Schedule</button>
+        <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+const API = 'http://localhost:3001';
+let currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth(); // 0-indexed
+let editCalId = null;
+let allCalItems = [];
+
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+function platformClass(p) {
+  const map = { newsletter:'newsletter', twitter:'twitter', instagram:'instagram', tiktok:'tiktok', youtube:'youtube', website:'website' };
+  return map[p] || 'website';
+}
+
+async function loadCalendar() {
+  const from = `${currentYear}-${String(currentMonth+1).padStart(2,'0')}-01`;
+  const lastDay = new Date(currentYear, currentMonth+1, 0).getDate();
+  const to = `${currentYear}-${String(currentMonth+1).padStart(2,'0')}-${lastDay}`;
+  try {
+    allCalItems = await fetch(`${API}/cms/api/calendar?from=${from}&to=${to}`).then(r=>r.json());
+    renderCalendar();
+    renderUpcoming();
+  } catch(e) {
+    document.getElementById('calendarGrid').innerHTML = `<div style="color:#f87171;padding:32px;text-align:center">Could not connect to CMS server.</div>`;
+  }
+}
+
+function renderCalendar() {
+  document.getElementById('monthLabel').textContent = `${MONTHS[currentMonth]} ${currentYear}`;
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const lastDay = new Date(currentYear, currentMonth+1, 0).getDate();
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+
+  // Group items by date
+  const byDate = {};
+  allCalItems.forEach(item => {
+    const d = item.scheduled_date;
+    if (!byDate[d]) byDate[d] = [];
+    byDate[d].push(item);
+  });
+
+  let html = `<div class="cal-grid">`;
+  // Header row
+  DAYS.forEach(d => { html += `<div class="cal-day cal-day--header">${d}</div>`; });
+  // Empty cells before first day
+  for (let i = 0; i < firstDay; i++) html += `<div class="cal-day" style="opacity:.3"></div>`;
+  // Day cells
+  for (let d = 1; d <= lastDay; d++) {
+    const dateStr = `${currentYear}-${String(currentMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isToday = dateStr === todayStr;
+    const items = byDate[dateStr] || [];
+    html += `<div class="cal-day${isToday?' cal-day--today':''}">
+      <div class="cal-day__num">${d}</div>
+      ${items.slice(0,3).map(item => `<div class="cal-event cal-event--${platformClass(item.platform)}" title="${esc(item.notes||item.content_type)}" onclick="editCalItem(${item.id})">${esc(item.content_type)}</div>`).join('')}
+      ${items.length > 3 ? `<div style="font-size:10px;color:var(--text-muted)">+${items.length-3} more</div>` : ''}
+    </div>`;
+  }
+  html += `</div>`;
+  document.getElementById('calendarGrid').innerHTML = html;
+}
+
+async function renderUpcoming() {
+  const allItems = await fetch(`${API}/cms/api/calendar`).then(r=>r.json()).catch(()=>[]);
+  const div = document.getElementById('upcomingList');
+  if (!allItems.length) {
+    div.innerHTML = `<div class="empty-state"><div class="empty-state__icon">📅</div><div class="empty-state__title">Nothing scheduled yet</div><div class="empty-state__sub">Start planning your content cadence</div><button class="btn btn-primary" onclick="openModal()">Schedule First Post</button></div>`;
+    return;
+  }
+  div.innerHTML = `<div class="table-wrap"><table class="cms-table"><thead><tr><th>Date</th><th>Type</th><th>Platform</th><th>Status</th><th>Notes</th><th></th></tr></thead><tbody>` +
+    allItems.map(item=>`<tr>
+      <td style="font-weight:600;color:var(--text-primary);white-space:nowrap">${item.scheduled_date}</td>
+      <td><span class="cat-pill">${esc(item.content_type)}</span></td>
+      <td><span class="platform-chip platform-chip--${platformClass(item.platform)}">${esc(item.platform)}</span></td>
+      <td><span class="status-badge status-badge--${item.status}">${item.status}</span></td>
+      <td class="td-truncate" style="max-width:200px;color:var(--text-muted);font-size:12px">${esc(item.notes||'—')}</td>
+      <td><div class="row-actions">
+        <button class="btn btn-ghost btn-sm" onclick="editCalItem(${item.id})">Edit</button>
+        <button class="btn btn-ghost btn-sm" style="color:#f87171" onclick="deleteCalItem(${item.id})">Del</button>
+      </div></td>
+    </tr>`).join('') + '</tbody></table></div>';
+}
+
+function changeMonth(delta) {
+  currentMonth += delta;
+  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+  loadCalendar();
+}
+
+function openModal(dateStr) {
+  editCalId = null;
+  document.getElementById('calModalTitle').textContent = 'Schedule Content';
+  document.getElementById('calForm').reset();
+  if (dateStr) document.getElementById('cf-date').value = dateStr;
+  document.getElementById('calModal').classList.add('open');
+}
+
+async function editCalItem(id) {
+  editCalId = id;
+  const all = await fetch(`${API}/cms/api/calendar`).then(r=>r.json());
+  const item = all.find(x=>x.id===id);
+  if (!item) return;
+  document.getElementById('calModalTitle').textContent = 'Edit Scheduled Item';
+  document.getElementById('cf-type').value = item.content_type||'newsletter';
+  document.getElementById('cf-platform').value = item.platform||'newsletter';
+  document.getElementById('cf-date').value = item.scheduled_date||'';
+  document.getElementById('cf-status').value = item.status||'scheduled';
+  document.getElementById('cf-notes').value = item.notes||'';
+  document.getElementById('calModal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('calModal').classList.remove('open'); }
+
+async function saveCalItem(e) {
+  e.preventDefault();
+  const btn = document.getElementById('calSaveBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>';
+  const body = {
+    content_type: document.getElementById('cf-type').value,
+    platform: document.getElementById('cf-platform').value,
+    scheduled_date: document.getElementById('cf-date').value,
+    status: document.getElementById('cf-status').value,
+    notes: document.getElementById('cf-notes').value,
+  };
+  try {
+    if (editCalId) {
+      await fetch(`${API}/cms/api/calendar/${editCalId}`, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body) });
+    } else {
+      await fetch(`${API}/cms/api/calendar`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body) });
+    }
+    toast('Scheduled!', 'success');
+    closeModal(); loadCalendar();
+  } catch(err) { toast('Save failed', 'error'); }
+  btn.disabled = false; btn.textContent = 'Schedule';
+}
+
+async function deleteCalItem(id) {
+  if (!confirm('Remove this scheduled item?')) return;
+  await fetch(`${API}/cms/api/calendar/${id}`, { method:'DELETE' });
+  toast('Removed', 'success'); loadCalendar();
+}
+
+function esc(s) { if (!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function toast(msg, type='info') {
+  const c = document.getElementById('toastContainer');
+  const el = document.createElement('div'); el.className = `toast toast--${type}`; el.textContent = msg;
+  c.appendChild(el); setTimeout(() => el.remove(), 3000);
+}
+
+loadCalendar();
+</script>
+</body>
+</html>
