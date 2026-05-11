@@ -142,24 +142,48 @@
 
     /* Hero strip */
     .email-hero {
-      padding: 44px 40px 36px;
-      background: linear-gradient(180deg, #141009 0%, #0f0c07 100%);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .email-hero__img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(.55) saturate(.8) sepia(.25);
+    }
+    .email-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,8,4,.15) 0%, rgba(10,8,4,.5) 60%, rgba(10,8,4,.95) 100%),
+        linear-gradient(to right, rgba(10,8,4,.4) 0%, transparent 50%);
+    }
+    .email-hero__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 40px 32px;
     }
     .email-issue-num {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: .16em;
       text-transform: uppercase;
-      color: rgba(201,168,76,.55);
-      margin-bottom: 12px;
+      color: rgba(201,168,76,.75);
+      margin-bottom: 10px;
     }
     .email-issue-title {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 900;
-      color: #f0ead8;
-      line-height: 1.15;
+      color: #f5edd8;
+      line-height: 1.12;
       margin-bottom: 0;
+      text-shadow: 0 2px 16px rgba(0,0,0,.6);
     }
 
     /* Body */
@@ -356,6 +380,28 @@ const API = (() => { const h = window.location.hostname; if (h === 'localhost' &
 const params = new URLSearchParams(location.search);
 const nlId = params.get('id') || 1;
 
+// Pick the best hero image based on topic title / category keywords
+function heroImg(n) {
+  const text = ((n.issue_title || '') + ' ' + (n.topic_title || '')).toLowerCase();
+  if (text.match(/mansa|mali|empire|gold|pilgrimage|richest/))   return 'images/mansa-musa-catalan-atlas.webp';
+  if (text.match(/kush|nubia|meroe|pyramids/))                    return 'images/meroe-pyramids.webp';
+  if (text.match(/pharaoh|egypt|kemet|dynasty/))                  return 'images/black-pharaohs.webp';
+  if (text.match(/aksum|axum|obelisk/))                           return 'images/axum-obelisk.webp';
+  if (text.match(/timbuktu|mosque|djenne|sankore/))               return 'images/sankore-mosque.webp';
+  if (text.match(/manuscripts|book|library|scholar/))             return 'images/timbuktu-manuscripts.webp';
+  if (text.match(/benin|bronze|warrior/))                         return 'images/benin-bronze-warrior.webp';
+  if (text.match(/nzinga|queen|angola/))                          return 'images/nzinga-portrait-lithograph.webp';
+  if (text.match(/songhai|askia|sundiata/))                       return 'images/songhai-empire.webp';
+  if (text.match(/dogon|astronomic|star|sirius/))                 return 'images/djenne-terracotta.webp';
+  if (text.match(/slavery|slave|abolit|freedom/))                 return 'images/slave-revolts.webp';
+  if (text.match(/redlin|housing|ghetto/))                        return 'images/holc-redlining-philadelphia.webp';
+  if (text.match(/king|mlk|march|civil rights/))                  return 'images/march-on-washington-wide.jpg';
+  if (text.match(/nixon|southern strategy|republican|atwater/))   return 'images/southern-strategy.png';
+  if (text.match(/health|medicine|disparity/))                    return 'images/imhotep.webp';
+  // default: Catalan Atlas — gold, cinematic, Africa-rooted
+  return 'images/mansa-musa-catalan-atlas.webp';
+}
+
 async function load() {
   try {
     const n = await fetch(`${API}/cms/api/newsletters/${nlId}`).then(r => r.json());
@@ -393,8 +439,12 @@ async function load() {
 
       <!-- Hero -->
       <div class="email-hero">
-        <div class="email-issue-num">This Week's Thread</div>
-        <div class="email-issue-title">${esc(n.issue_title)}</div>
+        <img class="email-hero__img" src="${heroImg(n)}" alt="${esc(n.issue_title)}"/>
+        <div class="email-hero__overlay"></div>
+        <div class="email-hero__content">
+          <div class="email-issue-num">This Week's Thread</div>
+          <div class="email-issue-title">${esc(n.issue_title)}</div>
+        </div>
       </div>
 
       <hr class="gold-rule"/>
