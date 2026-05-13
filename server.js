@@ -32,6 +32,10 @@ if (!existsSync(ARTICLES)) writeFileSync(ARTICLES, JSON.stringify({ events: {} }
 if (!existsSync(CONFIG))   writeFileSync(CONFIG,   JSON.stringify({ apiKey: '' }, null, 2));
 
 app.use(express.json());
+
+// Redirect root to homepage — must come before static middleware
+app.get('/', (_req, res) => res.redirect(301, '/home.html'));
+
 app.use(express.static(__dirname));
 
 // ── Resolve API key: Orchids proxy token > env var > persisted config ──────────

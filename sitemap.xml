@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages — highest priority -->
+  <url><loc>https://retrieve-your-roots.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/home.html</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/threads.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/about.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/explore.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/today.html</loc><priority>0.8</priority><changefreq>daily</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/search.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/sources.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/maps.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/teaching.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/newsletter.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/resources.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/donate.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/contact.html</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+
+  <!-- Thread pages -->
+  <url><loc>https://retrieve-your-roots.com/thread-african-empires.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-transatlantic-slave-trade.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-pharaohs.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-mansa-musa.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-displacement.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-end-of-slavery.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-mass-incarceration.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-gi-bill.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-voting-rights.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-tulsa.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-great-migration.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-war-on-drugs.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-black-panthers.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-civil-rights.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-lynching.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-stolen-labor.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-health-disparities.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-education.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-haitian-revolution.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-baldwin.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-convict-leasing.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-moors.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-reconstruction.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-police.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-invention-of-race.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/thread-before-mayflower.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Person pages -->
+  <url><loc>https://retrieve-your-roots.com/person-mansa-musa.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-harriet-tubman.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-frederick-douglass.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-web-du-bois.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-angela-davis.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-john-lewis.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-queen-nzinga.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-fannie-lou-hamer.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-thurgood-marshall.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-malcolm-x.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://retrieve-your-roots.com/person-shirley-chisholm.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+</urlset>

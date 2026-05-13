@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /cms-
+Disallow: /admin.html
+Disallow: /landing.html
+
+Sitemap: https://retrieve-your-roots.com/sitemap.xml
