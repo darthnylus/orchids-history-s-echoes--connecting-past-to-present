@@ -452,52 +452,8 @@ function initThreadReveal() {
   window.addEventListener('pagehide', () => ioThread.disconnect(), { once: true });
 }
 
-/* =========================================================
-   HERO CHAIN-LINK SVG — inject into .hero if present
-   ========================================================= */
-function initHeroChainSVG() {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-  // Don't double-inject
-  if (hero.querySelector('.hero-chain-svg')) return;
-
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('class', 'hero-chain-svg');
-  svg.setAttribute('viewBox', '0 0 120 480');
-  svg.setAttribute('fill', 'none');
-  svg.setAttribute('aria-hidden', 'true');
-
-  // Six chain links — alternating horizontal/vertical ovals
-  const links = [
-    'M 30 20 Q 60 20 60 50 Q 60 80 30 80 Q 0 80 0 50 Q 0 20 30 20 Z',
-    'M 60 80 L 60 100',
-    'M 90 100 Q 120 100 120 130 Q 120 160 90 160 Q 60 160 60 130 Q 60 100 90 100 Z',
-    'M 60 160 L 60 180',
-    'M 30 180 Q 60 180 60 210 Q 60 240 30 240 Q 0 240 0 210 Q 0 180 30 180 Z',
-    'M 60 240 L 60 260',
-    'M 90 260 Q 120 260 120 290 Q 120 320 90 320 Q 60 320 60 290 Q 60 260 90 260 Z',
-    'M 60 320 L 60 340',
-    'M 30 340 Q 60 340 60 370 Q 60 400 30 400 Q 0 400 0 370 Q 0 340 30 340 Z',
-    'M 60 400 L 60 420',
-    'M 90 420 Q 120 420 120 450 Q 120 480 90 480 Q 60 480 60 450 Q 60 420 90 420 Z'
-  ];
-
-  links.forEach(d => {
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('class', 'chain-link-path');
-    path.setAttribute('d', d);
-    path.setAttribute('stroke', '#c49200');
-    path.setAttribute('stroke-width', '3');
-    path.setAttribute('stroke-linecap', 'round');
-    svg.appendChild(path);
-  });
-
-  hero.appendChild(svg);
-}
-
 initScrollReveal();
 initThreadReveal();
-initHeroChainSVG();
 
 /* =========================================================
    STICKY NAV SHADOW
