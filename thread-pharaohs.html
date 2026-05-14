@@ -50,6 +50,18 @@
         linear-gradient(to right, rgba(6,3,0,.90) 0%, rgba(6,3,0,.68) 50%, rgba(6,3,0,.45) 100%),
         linear-gradient(to top, rgba(6,3,0,.55) 0%, transparent 40%);
     }
+    .thread-hero__hieroglyphs {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hieroglyphics-bg.png');
+      background-size: 480px auto;
+      background-repeat: repeat-x;
+      background-position: bottom center;
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: luminosity;
+    }
     .thread-hero__inner { position: relative; max-width: 760px; }
     .thread-hero__kicker {
       display: inline-flex;
@@ -803,6 +815,7 @@
   <!-- HERO -->
   <section class="thread-hero" aria-labelledby="thread-heading">
     <div class="thread-hero__bg" aria-hidden="true"></div>
+    <div class="thread-hero__hieroglyphs" aria-hidden="true"></div>
     <div class="container thread-hero__inner">
       <div class="thread-hero__kicker">
         <span class="thread-hero__kicker-dot" aria-hidden="true"></span>
