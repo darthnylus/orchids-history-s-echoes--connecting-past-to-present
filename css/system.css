@@ -803,6 +803,7 @@ input, textarea, select { font-family: inherit; }
   object-position: center top;
   display: block;
   transform: scale(1.04);   /* tiny scale-up so edges never show */
+  opacity: 0.35;
 }
 
 /* Gradient overlay: left side dark for legibility, right side opens wide to the statue */
