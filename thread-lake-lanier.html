@@ -30,16 +30,23 @@
 
     /* hero */
     .hero { background: var(--acc); padding: var(--space-16) 0 var(--space-12); position: relative; overflow: hidden; }
+    .hero__bg-img {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('images/lake-lanier-underwater-graves.png');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.45;
+    }
     .hero::before {
-      content: ''; position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0; z-index: 1;
       background:
-        radial-gradient(ellipse 70% 90% at 110% 50%, rgba(56,189,248,.15) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at -10% 100%, rgba(0,0,0,.3) 0%, transparent 65%);
+        linear-gradient(to right, rgba(4,10,20,.92) 0%, rgba(4,10,20,.75) 45%, rgba(4,10,20,.35) 100%),
+        linear-gradient(to top, rgba(4,10,20,.6) 0%, transparent 40%);
       pointer-events: none;
     }
     /* water ripple texture */
     .hero::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; z-index: 1;
       background: repeating-linear-gradient(
         0deg,
         transparent,
@@ -49,7 +56,7 @@
       );
       pointer-events: none;
     }
-    .hero__inner { position: relative; max-width: 780px; }
+    .hero__inner { position: relative; max-width: 780px; z-index: 2; }
     .hero__eyebrow { font-size: var(--type-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--acc-lt); margin-bottom: var(--space-4); }
     .hero__hed { font-family: var(--font-editorial); font-size: clamp(2rem,5vw,3.75rem); font-weight: var(--weight-black); color: #fff; line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); margin-bottom: var(--space-5); }
     .hero__hed em { color: var(--acc-lt); font-style: italic; }
@@ -233,6 +240,7 @@
 
 <!-- HERO -->
 <section class="hero" aria-labelledby="hero-hed">
+  <div class="hero__bg-img" aria-hidden="true"></div>
   <div class="container">
     <div class="hero__inner">
       <p class="hero__eyebrow">Federal Infrastructure · Erasure · Recreation Economy</p>
