@@ -16,8 +16,8 @@
   <style>/* Critical inline — prevents FOUC */:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600;700&display=swap" /></noscript>
   <link rel="preload" href="css/system.css" as="style" />
   <link rel="stylesheet" href="css/system.css" />
   <link rel="stylesheet" href="css/mobile.css" />
@@ -227,6 +227,12 @@
       transform: none;
       cursor: default;
     }
+    .nl-embed {
+      display: block;
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+    }
     .nl-card__fine {
       font-size: var(--type-xs);
       color: var(--color-text-tertiary);
@@ -242,12 +248,26 @@
     }
     .preview-section__header { margin-bottom: var(--space-10); }
     .preview-section__eyebrow {
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      background: var(--color-accent-light);
+      border-radius: var(--radius-pill);
       font-size: var(--type-xs);
       font-weight: var(--weight-bold);
       letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
       color: var(--color-accent-dark);
-      margin-bottom: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .preview-section__eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber-400);
+      flex-shrink: 0;
     }
     .preview-section__title {
       font-family: var(--font-editorial);
@@ -255,12 +275,24 @@
       font-weight: var(--weight-bold);
       color: var(--color-text-primary);
       margin-bottom: var(--space-3);
+      position: relative;
+      display: block;
+      padding-bottom: var(--space-4);
+    }
+    .preview-section__title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 40px; height: 3px;
+      background: linear-gradient(to right, var(--amber-400), var(--sienna-400));
+      border-radius: 2px;
     }
     .preview-section__sub {
       font-size: var(--type-md);
       color: var(--color-text-secondary);
       max-width: 520px;
       line-height: var(--leading-loose);
+      margin-top: var(--space-5);
     }
 
     /* Email mockup */
@@ -270,28 +302,91 @@
       border-radius: var(--radius-xl);
       overflow: hidden;
       max-width: 640px;
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 24px 80px rgba(0,0,0,.13), 0 4px 16px rgba(0,0,0,.07);
     }
     .email-mockup__chrome {
       background: var(--color-surface-alt);
       border-bottom: 1px solid var(--color-border);
-      padding: var(--space-4) var(--space-6);
+      padding: var(--space-3) var(--space-5);
       display: flex;
       align-items: center;
-      gap: var(--space-4);
     }
     .email-chrome-dots {
       display: flex;
       gap: 6px;
+      flex-shrink: 0;
     }
     .email-chrome-dot {
       width: 10px; height: 10px;
       border-radius: 50%;
     }
+    .email-chrome-label {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.015em;
+    }
     .email-mockup__meta {
       padding: var(--space-5) var(--space-7);
       border-bottom: 1px solid var(--color-border-subtle);
     }
+
+    /* Sender row — Gmail-style header */
+    .email-sender-row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    .email-sender-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--amber-600), var(--sienna-500));
+      color: #fff;
+      font-size: 11px;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .email-sender-info { flex: 1; min-width: 0; }
+    .email-sender-name {
+      font-size: var(--type-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .email-sender-addr {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      font-weight: var(--weight-regular);
+      margin-left: var(--space-1);
+    }
+    .email-sender-to {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+    }
+    .email-sender-date {
+      font-size: var(--type-xs);
+      color: var(--color-text-tertiary);
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .email-subject-line {
+      font-size: var(--type-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+      margin-top: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-subtle);
+    }
+
+    /* Legacy meta-row (kept for safety) */
     .email-meta-row {
       display: flex;
       gap: var(--space-3);
@@ -301,12 +396,16 @@
     }
     .email-meta-row strong { color: var(--color-text-secondary); }
     .email-mockup__content {
-      padding: var(--space-7) var(--space-8) var(--space-8);
+      padding: var(--space-6) var(--space-8) var(--space-10);
     }
     .email-date-badge {
       display: inline-flex;
       align-items: center;
       gap: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      background: rgba(224,122,0,.08);
+      border: 1px solid rgba(224,122,0,.18);
+      border-radius: var(--radius-pill);
       font-size: var(--type-xs);
       font-weight: var(--weight-bold);
       letter-spacing: var(--tracking-wider);
@@ -334,14 +433,19 @@
       margin-bottom: var(--space-6);
     }
     .email-body p { margin-bottom: var(--space-4); }
+    .email-body p:last-child { margin-bottom: 0; }
     .email-chain-box {
-      background: var(--color-surface-alt);
+      background: linear-gradient(to right, rgba(224,122,0,.07), var(--color-surface-alt));
       border-left: 3px solid var(--amber-400);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
       padding: var(--space-5) var(--space-6);
-      margin-bottom: var(--space-6);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-5);
     }
     .email-chain-box__label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
       font-size: var(--type-xs);
       font-weight: var(--weight-bold);
       letter-spacing: var(--tracking-wider);
@@ -349,12 +453,27 @@
       color: var(--color-accent-dark);
       margin-bottom: var(--space-3);
     }
+    .email-chain-box__label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 2px;
+      background: var(--amber-400);
+      border-radius: 1px;
+      flex-shrink: 0;
+    }
     .email-chain-box__text {
       font-size: var(--type-sm);
       color: var(--color-text-secondary);
-      line-height: 1.65;
+      line-height: 1.7;
     }
-    .email-chain-box__text a { color: var(--color-accent-dark); font-weight: var(--weight-semibold); }
+    .email-chain-box__text a {
+      color: var(--color-accent-dark);
+      font-weight: var(--weight-semibold);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(224,122,0,.35);
+    }
+    .email-chain-box__text a:hover { text-decoration-color: var(--color-accent-dark); }
     .email-cta-link {
       display: inline-flex;
       align-items: center;
@@ -362,6 +481,46 @@
       font-size: var(--type-sm);
       font-weight: var(--weight-semibold);
       color: var(--color-accent-dark);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-subtle);
+      text-decoration: none;
+      transition: gap var(--duration-fast);
+    }
+    .email-cta-link:hover { gap: var(--space-3); }
+    .email-body a {
+      color: var(--color-accent-dark);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(224,122,0,.3);
+    }
+    .email-body a:hover { text-decoration-color: var(--color-accent-dark); }
+
+    /* ── Section heading utilities (replaces inline styles) ─── */
+    .nl-section-eyebrow {
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--type-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-3);
+    }
+    .nl-section-title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .nl-archive-title {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin: var(--space-12) 0 var(--space-6);
     }
 
     /* ── Archives grid ──────────────────────────────────────── */
@@ -442,9 +601,15 @@
       border: 1px solid var(--color-border);
     }
     .why-card__icon {
-      font-size: 1.5rem;
+      width: 44px; height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--color-accent-light);
+      color: var(--color-accent-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: var(--space-4);
-      display: block;
+      flex-shrink: 0;
     }
     .why-card__title {
       font-family: var(--font-editorial);
@@ -542,6 +707,110 @@
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
     .reveal.is-visible { opacity: 1; transform: none; }
     .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+    /* ============================================================
+       MNC-INSPIRED STYLE LAYER
+       Fonts: Inter Tight · Colors: #201d1d / #f4f4f4 / #e07a00
+       ============================================================ */
+
+    /* Heading font swap → Inter Tight with tight tracking */
+    .nl-hero__headline,
+    .nl-card__title,
+    .preview-section__title,
+    .nl-section-title,
+    .nl-archive-title,
+    .archive-card__title,
+    .why-card__title,
+    .email-subject,
+    .bottom-cta__title {
+      font-family: "Inter Tight", "Inter", "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: -0.025em;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .nl-hero { background: #201d1d; padding: 100px 0 80px; }
+    .nl-hero::before { display: none; }
+    .nl-hero__headline { font-size: clamp(2.5rem, 5.5vw, 3.75rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; }
+    .nl-hero__dot { animation: none; }
+    .nl-hero__eyebrow { font-family: "Inter Tight", sans-serif; font-size: 11px; letter-spacing: 0.12em; }
+    .nl-hero__subhead { color: #8f8f8f; }
+    .nl-hero__proof { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 32px; gap: 40px; }
+    .nl-proof-stat__num { font-family: "Inter Tight", sans-serif; font-size: 1.75rem; font-weight: 700; letter-spacing: -0.025em; color: #ffffff; }
+    .nl-proof-stat__label { color: #5d5d5d; letter-spacing: 0.08em; font-family: "Inter Tight", sans-serif; }
+
+    /* ── SIGN-UP CARD ─────────────────────────────────────── */
+    .nl-card { background: transparent; box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 8px 40px rgba(0,0,0,0.16); border-radius: 16px; overflow: hidden; }
+    .nl-card__band { display: none; }
+    .nl-card__body { padding: 0; }
+    .nl-embed { display: block; border: none; border-radius: 0; width: 100%; }
+
+    /* ── PREVIEW SECTION ──────────────────────────────────── */
+    .preview-section { background: #f4f4f4; padding: 100px 0; }
+    .preview-section__header { margin-bottom: 48px; }
+    .preview-section__eyebrow { background: transparent; border-radius: 0; padding: 0; font-family: "Inter Tight", sans-serif; font-size: 11px; letter-spacing: 0.12em; }
+    .preview-section__eyebrow::before { background: #e07a00; }
+    .preview-section__title { font-size: clamp(1.75rem, 3vw, 2.5rem); color: #201d1d; padding-bottom: 0; }
+    .preview-section__title::after { display: none; }
+    .preview-section__sub { color: #6d6d6d; margin-top: 16px; }
+
+    /* Email mockup — clean white card */
+    .email-mockup { background: #ffffff; border: 1px solid #dedede; border-radius: 12px; box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.07); }
+    .email-mockup__chrome { background: #f0f0f0; border-bottom: 1px solid #e0e0e0; }
+    .email-sender-name, .email-subject { font-family: "Inter Tight", sans-serif; letter-spacing: -0.01em; }
+
+    /* Archives */
+    .nl-archive-title { font-family: "Inter Tight", sans-serif; font-size: 1.0625rem; font-weight: 600; color: #201d1d; margin: 56px 0 24px; letter-spacing: -0.01em; }
+    .archive-card { background: #ffffff; border: 1px solid #dedede; border-radius: 12px; padding: 0; overflow: hidden; gap: 0; }
+    .archive-card:hover { border-color: #b8b8b8; box-shadow: 0 4px 20px rgba(0,0,0,0.09); }
+    .archive-card__thumb { width: 100%; height: 160px; overflow: hidden; flex-shrink: 0; }
+    .archive-card__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .archive-card:hover .archive-card__thumb img { transform: scale(1.05); }
+    .archive-card__body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .archive-card__date { color: #8f8f8f; font-family: "Inter Tight", sans-serif; }
+    .archive-card__title { color: #201d1d; font-family: "Inter Tight", sans-serif; letter-spacing: -0.01em; }
+    .archive-card__thread { color: #e07a00; font-family: "Inter Tight", sans-serif; }
+    [data-theme="dark"] .archive-card { background: #2a2727; border-color: rgba(255,255,255,0.08); }
+    [data-theme="dark"] .archive-card:hover { border-color: rgba(255,255,255,0.18); }
+
+    /* ── WHY SECTION — dark cards (MNC service grid) ──────── */
+    .why-section { background: #201d1d; border-top: none; padding: 100px 0; }
+    .why-section .nl-section-eyebrow { color: #e07a00; font-family: "Inter Tight", sans-serif; font-size: 11px; letter-spacing: 0.12em; }
+    .why-section .nl-section-title { color: #ffffff; }
+    .why-grid { margin-top: 56px; }
+    .why-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; transition: background 0.2s; }
+    .why-card:hover { background: rgba(255,255,255,0.07); }
+    .why-card__num { display: block; font-family: "Inter Tight", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.2); margin-bottom: 20px; }
+    .why-card__icon { background: rgba(255,255,255,0.06); color: #e07a00; border-radius: 8px; }
+    .why-card__title { color: #ffffff; font-size: 1.0625rem; margin-bottom: 10px; }
+    .why-card__desc { color: rgba(255,255,255,0.45); font-size: 14px; }
+
+    /* ── BOTTOM CTA — light section ────────────────────────── */
+    .bottom-cta { background: #f4f4f4; padding: 100px 0; }
+    .bottom-cta::before { display: none; }
+    .bottom-cta__title { color: #201d1d; line-height: 1.1; letter-spacing: -0.025em; }
+    .bottom-cta__title em { color: #e07a00; }
+    .bottom-cta__sub { color: #6d6d6d; }
+    .bottom-cta__input { background: #ffffff; border-color: #dedede; color: #201d1d; border-radius: 8px; }
+    .bottom-cta__input::placeholder { color: #8f8f8f; }
+    .bottom-cta__input:focus { border-color: #e07a00; background: #ffffff; }
+    .bottom-cta__btn { background: #201d1d; color: #ffffff; border-radius: 8px; }
+    .bottom-cta__btn:hover { background: #3d3838; }
+
+    /* Dark mode overrides */
+    [data-theme="dark"] .nl-card { background: #2a2727; box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 8px 40px rgba(0,0,0,0.4); }
+    [data-theme="dark"] .preview-section { background: #272424; }
+    [data-theme="dark"] .email-mockup { background: #201d1d; border-color: rgba(255,255,255,0.1); }
+    [data-theme="dark"] .email-mockup__chrome { background: #2a2727; border-color: rgba(255,255,255,0.08); }
+    [data-theme="dark"] .archive-card { background: #2a2727; border-color: rgba(255,255,255,0.08); }
+    [data-theme="dark"] .archive-card:hover { border-color: rgba(255,255,255,0.18); }
+    [data-theme="dark"] .why-section { background: #181515; }
+    [data-theme="dark"] .bottom-cta { background: #181515; }
+    [data-theme="dark"] .bottom-cta__title { color: #ffffff; }
+    [data-theme="dark"] .bottom-cta__sub { color: rgba(255,255,255,0.45); }
+    [data-theme="dark"] .bottom-cta__input { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: #ffffff; }
+    [data-theme="dark"] .bottom-cta__input:focus { border-color: #e07a00; }
+    [data-theme="dark"] .bottom-cta__btn { background: #ffffff; color: #201d1d; }
+    [data-theme="dark"] .bottom-cta__btn:hover { background: #e8e8e8; }
   </style>
 </head>
 <body>
@@ -683,59 +952,16 @@
       <div class="nl-card">
         <div class="nl-card__band"></div>
         <div class="nl-card__body">
-          <h2 class="nl-card__title">Subscribe to The Chain Letter</h2>
-          <p class="nl-card__sub">Free. No ads. One email a day, five days a week. Pick your editions below.</p>
-
-          <form class="nl-form" id="nl-form" novalidate aria-label="Newsletter subscription form">
-            <div class="nl-form__row">
-              <div class="nl-form__field">
-                <label class="nl-form__label" for="fname">First name</label>
-                <input class="nl-form__input" type="text" id="fname" name="fname" placeholder="Maya" autocomplete="given-name" />
-              </div>
-              <div class="nl-form__field">
-                <label class="nl-form__label" for="lname">Last name</label>
-                <input class="nl-form__input" type="text" id="lname" name="lname" placeholder="Johnson" autocomplete="family-name" />
-              </div>
-            </div>
-            <div class="nl-form__field">
-              <label class="nl-form__label" for="email">Email address <span style="color:var(--color-accent-dark)">*</span></label>
-              <input class="nl-form__input" type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
-            </div>
-
-            <div>
-              <div class="nl-editions__label">Choose your editions</div>
-              <div class="nl-editions" role="group" aria-label="Newsletter editions">
-                <label class="nl-edition-option is-selected">
-                  <input type="checkbox" name="edition" value="daily" checked />
-                  <div class="nl-edition-option__body">
-                    <div class="nl-edition-option__name">Today in Black History</div>
-                    <div class="nl-edition-option__desc">One event, its causal chain, its present-day consequence. Short, sourced, connected.</div>
-                  </div>
-                  <span class="nl-edition-option__freq">Daily</span>
-                </label>
-                <label class="nl-edition-option">
-                  <input type="checkbox" name="edition" value="deep-dive" />
-                  <div class="nl-edition-option__body">
-                    <div class="nl-edition-option__name">The Deep Chain</div>
-                    <div class="nl-edition-option__desc">Weekly long-read diving into one thread chapter — policy context, primary sources, the full story.</div>
-                  </div>
-                  <span class="nl-edition-option__freq">Weekly</span>
-                </label>
-                <label class="nl-edition-option">
-                  <input type="checkbox" name="edition" value="educator" />
-                  <div class="nl-edition-option__body">
-                    <div class="nl-edition-option__name">Educator Edition</div>
-                    <div class="nl-edition-option__desc">Classroom-ready materials — discussion questions, primary source excerpts, and lesson hooks — delivered every Friday.</div>
-                  </div>
-                  <span class="nl-edition-option__freq">Weekly</span>
-                </label>
-              </div>
-            </div>
-
-            <button class="nl-submit" type="submit" id="nl-submit">Subscribe — it's free →</button>
-          </form>
-
-          <p class="nl-card__fine">No spam. Unsubscribe with one click. We never share your email.</p>
+          <iframe
+            src="https://embeds.beehiiv.com/pub_d081f74a-ae80-412c-a61f-97971e24373d?background_color=f9f8f6&button_color=e07a00&button_text_color=0d0d0d"
+            data-test-id="beehiiv-embed"
+            width="100%"
+            height="420"
+            frameborder="0"
+            scrolling="no"
+            title="Subscribe to The Chain Dispatch"
+            class="nl-embed">
+          </iframe>
         </div>
       </div>
 
@@ -743,519 +969,6 @@
   </section>
 
   <!-- SAMPLE ISSUE -->
-  <style>
-    /* ── Premium Newsletter Preview ───────────────────────── */
-    .nl-preview-wrap {
-      max-width: 680px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 48px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08);
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    }
-
-    /* Chrome bar */
-    .nl-prev-chrome {
-      background: #f4f4f5;
-      border-bottom: 1px solid #e4e4e7;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .nl-prev-chrome__dots { display: flex; gap: 6px; }
-    .nl-prev-chrome__dot  { width: 11px; height: 11px; border-radius: 50%; }
-    .nl-prev-chrome__bar  {
-      flex: 1;
-      height: 24px;
-      background: #e4e4e7;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      font-size: 10px;
-      color: #a1a1aa;
-      letter-spacing: .02em;
-    }
-
-    /* Internal email body */
-    .nl-prev-body { background: #fff; }
-
-    /* ── Email header bar */
-    .nl-prev-topbar {
-      background: #1a1a2e;
-      padding: 10px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nl-prev-topbar__logo {
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #fff;
-    }
-    .nl-prev-topbar__nav {
-      display: flex;
-      gap: 18px;
-    }
-    .nl-prev-topbar__nav a {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.65);
-      text-decoration: none;
-    }
-
-    /* ── Hero banner */
-    .nl-prev-hero {
-      background: linear-gradient(135deg, #c991a8 0%, #9e6b8a 40%, #2c7fb8 100%);
-      padding: 52px 36px 44px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .nl-prev-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 50% 120%, rgba(44,127,184,.35) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .nl-prev-hero__badge {
-      display: inline-block;
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.35);
-      color: #fff;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 999px;
-      margin-bottom: 16px;
-    }
-    .nl-prev-hero__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(32px, 6vw, 52px);
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.1;
-      letter-spacing: -.02em;
-      margin-bottom: 12px;
-      position: relative;
-    }
-    .nl-prev-hero__sub {
-      font-size: 13px;
-      color: rgba(255,255,255,.82);
-      line-height: 1.6;
-      max-width: 380px;
-      margin: 0 auto 24px;
-      position: relative;
-    }
-    .nl-prev-hero__btn {
-      display: inline-block;
-      background: #fff;
-      color: #9e6b8a;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      padding: 12px 28px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background .18s, box-shadow .18s;
-      box-shadow: 0 2px 12px rgba(0,0,0,.18);
-      position: relative;
-    }
-    .nl-prev-hero__btn:hover { background: #f3e8ef; box-shadow: 0 4px 20px rgba(0,0,0,.22); }
-
-    /* ── Section padding util */
-    .nl-prev-section { padding: 32px 32px 24px; }
-    .nl-prev-section--alt { background: #faf8fb; }
-    .nl-prev-divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, #e4d0db, transparent);
-      margin: 0 32px;
-    }
-
-    /* ── Featured story decorative rules */
-    .nl-prev-featured-rule {
-      height: 1px;
-      background: linear-gradient(to right, transparent, #c991a8 30%, #c991a8 70%, transparent);
-      margin: 0 0 20px;
-    }
-    .nl-prev-featured-rule--bottom {
-      margin: 20px 0 0;
-    }
-
-    /* ── Quote block */
-    .nl-prev-quote {
-      border-left: 3px solid #c991a8;
-      padding: 20px 0 20px 20px;
-      margin-bottom: 16px;
-      position: relative;
-    }
-    .nl-prev-quote::before {
-      content: '\201C';
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 48px;
-      color: #c991a8;
-      opacity: .25;
-      line-height: 1;
-      pointer-events: none;
-    }
-    .nl-prev-quote__text {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 17px;
-      font-style: italic;
-      color: #3d1d30;
-      line-height: 1.6;
-      margin-bottom: 10px;
-      position: relative;
-    }
-    .nl-prev-quote__attr {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: #9e6b8a;
-    }
-    .nl-prev-intro {
-      font-size: 13px;
-      color: #4b4b5a;
-      line-height: 1.75;
-    }
-
-    /* ── 3-column collections */
-    .nl-prev-col3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 4px;
-    }
-    .nl-prev-col-card {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 3px 14px rgba(158,107,138,.14), 0 1px 4px rgba(0,0,0,.06);
-      transition: transform .2s ease, box-shadow .2s ease;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-    }
-    .nl-prev-col-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 28px rgba(158,107,138,.22), 0 2px 8px rgba(0,0,0,.08);
-    }
-    .nl-prev-col-card__img {
-      height: 80px;
-      display: block;
-      overflow: hidden;
-    }
-    .nl-prev-col-card__img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .nl-prev-col-card__body { background: #fff; padding: 10px 12px 12px; }
-    .nl-prev-col-card__label {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .nl-prev-col-card__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: #1a1a2e;
-      line-height: 1.35;
-      margin-bottom: 6px;
-    }
-    .nl-prev-col-card__desc {
-      font-size: 10px;
-      color: #6b6b7a;
-      line-height: 1.55;
-      margin-bottom: 8px;
-    }
-    .nl-prev-col-card__read {
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .05em;
-      color: #b8829e;
-    }
-    .nl-prev-section-label {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #b8829e;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .nl-prev-section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, #ede0e8, transparent);
-    }
-
-    /* ── Large feature */
-    .nl-prev-feature {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      align-items: center;
-    }
-    .nl-prev-feature__img {
-      border-radius: 10px;
-      height: 160px;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .nl-prev-feature__img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .nl-prev-feature__kicker {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #2c7fb8;
-      margin-bottom: 8px;
-    }
-    .nl-prev-feature__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #1a1a2e;
-      line-height: 1.3;
-      margin-bottom: 10px;
-    }
-    .nl-prev-feature__body {
-      font-size: 12px;
-      color: #4b4b5a;
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-    .nl-prev-feature__link {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: #9e6b8a;
-      text-decoration: none;
-      border-bottom: 1.5px solid #c991a8;
-      padding-bottom: 1px;
-      transition: color .15s, border-color .15s;
-    }
-    .nl-prev-feature__link:hover {
-      color: #3d1d30;
-      border-color: #3d1d30;
-    }
-
-    /* ── 2×2 article grid */
-    .nl-prev-grid22 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .nl-prev-art {
-      background: #fff;
-      border: 1px solid #ede0e8;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-      box-shadow: 0 2px 10px rgba(158,107,138,.1), 0 1px 3px rgba(0,0,0,.05);
-    }
-    .nl-prev-art:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 28px rgba(158,107,138,.18), 0 2px 8px rgba(0,0,0,.08);
-      border-color: #c991a8;
-    }
-    .nl-prev-art__img {
-      height: 100px;
-      display: block;
-      overflow: hidden;
-    }
-    .nl-prev-art__img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .35s ease;
-    }
-    .nl-prev-art:hover .nl-prev-art__img img { transform: scale(1.05); }
-    .nl-prev-art__body { padding: 11px 13px 14px; }
-    .nl-prev-art__tag {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: #b8829e;
-      margin-bottom: 5px;
-    }
-    .nl-prev-art__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: #1a1a2e;
-      line-height: 1.35;
-      margin-bottom: 6px;
-    }
-    .nl-prev-art__desc {
-      font-size: 10px;
-      color: #6b6b7a;
-      line-height: 1.55;
-      margin-bottom: 7px;
-    }
-    .nl-prev-art__meta {
-      font-size: 9px;
-      font-weight: 600;
-      color: #c991a8;
-      letter-spacing: .04em;
-    }
-
-    /* ── Exclusive offer */
-    .nl-prev-offer {
-      background: linear-gradient(130deg, #9e6b8a 0%, #c991a8 50%, #2c7fb8 100%);
-      padding: 32px;
-      text-align: center;
-    }
-    .nl-prev-offer__badge {
-      display: inline-block;
-      background: rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.4);
-      color: #fff;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-    }
-    .nl-prev-offer__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.25;
-      margin-bottom: 10px;
-    }
-    .nl-prev-offer__body {
-      font-size: 12px;
-      color: rgba(255,255,255,.82);
-      line-height: 1.6;
-      max-width: 380px;
-      margin: 0 auto 20px;
-    }
-    .nl-prev-offer__btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .nl-prev-offer__btn-primary {
-      background: #fff;
-      color: #9e6b8a;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      padding: 11px 24px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background .18s, transform .18s, box-shadow .18s;
-    }
-    .nl-prev-offer__btn-primary:hover {
-      background: #f3e8ef;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,.18);
-    }
-    .nl-prev-offer__btn-secondary {
-      background: transparent;
-      color: #fff;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      padding: 10px 24px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(255,255,255,.6);
-      text-decoration: none;
-      transition: background .18s;
-    }
-    .nl-prev-offer__btn-secondary:hover {
-      background: rgba(255,255,255,.18);
-      transform: translateY(-2px);
-    }
-
-    /* ── Email footer */
-    .nl-prev-footer {
-      background: #1a1a2e;
-      padding: 24px 32px;
-      text-align: center;
-    }
-    .nl-prev-footer__logo {
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-    .nl-prev-footer__links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-    .nl-prev-footer__links a {
-      font-size: 10px;
-      color: rgba(255,255,255,.5);
-      text-decoration: none;
-      letter-spacing: .04em;
-    }
-    .nl-prev-footer__social {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-    .nl-prev-footer__social-icon {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: rgba(255,255,255,.6);
-    }
-    .nl-prev-footer__legal {
-      font-size: 9px;
-      color: rgba(255,255,255,.3);
-      line-height: 1.6;
-      letter-spacing: .02em;
-    }
-
-    [data-theme="dark"] .nl-preview-wrap { box-shadow: 0 8px 48px rgba(0,0,0,.45); }
-  </style>
-
   <section class="preview-section" aria-labelledby="preview-heading">
     <div class="container">
       <div class="preview-section__header">
@@ -1264,234 +977,128 @@
         <p class="preview-section__sub">Each edition is short enough to read with your morning coffee — and dense enough to change how you see the news.</p>
       </div>
 
-      <div class="nl-preview-wrap reveal" aria-label="Sample newsletter email">
+      <div class="email-mockup reveal" aria-label="Sample newsletter email">
 
-        <!-- Chrome -->
-        <div class="nl-prev-chrome">
-          <div class="nl-prev-chrome__dots">
-            <div class="nl-prev-chrome__dot" style="background:#ef4444"></div>
-            <div class="nl-prev-chrome__dot" style="background:#f59e0b"></div>
-            <div class="nl-prev-chrome__dot" style="background:#22c55e"></div>
+        <div class="email-mockup__chrome">
+          <div class="email-chrome-dots" aria-hidden="true">
+            <div class="email-chrome-dot" style="background:#ef4444"></div>
+            <div class="email-chrome-dot" style="background:#f59e0b"></div>
+            <div class="email-chrome-dot" style="background:#22c55e"></div>
           </div>
-          <div class="nl-prev-chrome__bar">retrieve-your-roots.com/newsletter</div>
+          <div class="email-chrome-label" aria-hidden="true">The Chain Letter · Inbox</div>
         </div>
 
-        <div class="nl-prev-body">
-
-          <!-- Header nav -->
-          <div class="nl-prev-topbar">
-            <div class="nl-prev-topbar__logo">The Chain</div>
-            <nav class="nl-prev-topbar__nav" aria-label="Email navigation">
-              <a href="threads.html">Threads</a>
-              <a href="today.html">Today</a>
-              <a href="resources.html">Resources</a>
-              <a href="about.html">About</a>
-            </nav>
-          </div>
-
-          <!-- Hero -->
-          <div class="nl-prev-hero" style="position:relative;">
-            <img src="https://image.pollinations.ai/prompt/Black%20women%20civil%20rights%20historical%20portrait%20collage%20Mother%27s%20Day%20celebration%20warm%20golden%20light%20painterly%20style%20dignified%20powerful?width=680&height=320&nologo=true&seed=101" alt="Black women historical figures, Mother's Day edition" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.22;border-radius:0;" loading="lazy" />
-            <div style="position:relative;z-index:1;">
-              <div class="nl-prev-hero__badge">Special Edition</div>
-              <h2 class="nl-prev-hero__title">Mother's Day</h2>
-              <p class="nl-prev-hero__sub">Celebrate the women who shaped our history — and whose stories we are still learning to tell.</p>
-              <a href="threads.html" class="nl-prev-hero__btn">Explore the Collection →</a>
-            </div>
-          </div>
-
-          <!-- Featured story -->
-          <div class="nl-prev-section">
-            <div class="nl-prev-featured-rule"></div>
-            <div class="nl-prev-section-label">Featured Story</div>
-            <div class="nl-prev-quote">
-              <p class="nl-prev-quote__text">"She is the queen of the household, and on her depends, to a great degree, the character and prosperity of the whole family."</p>
-              <div class="nl-prev-quote__attr">— Lydia Maria Child</div>
-            </div>
-            <p class="nl-prev-intro">From the fields of the antebellum South to the frontlines of the civil rights movement, Black women have been the architects of American freedom. This edition traces five women whose decisions changed the course of history — and whose names belong in every classroom.</p>
-            <div class="nl-prev-featured-rule nl-prev-featured-rule--bottom"></div>
-          </div>
-
-          <div class="nl-prev-divider"></div>
-
-          <!-- 3-column collections -->
-          <div class="nl-prev-section nl-prev-section--alt">
-            <div class="nl-prev-section-label">Curated Collections</div>
-            <div class="nl-prev-col3">
-              <a href="thread-abolitionism.html" class="nl-prev-col-card">
-                <div class="nl-prev-col-card__img" style="background:#c991a8;padding:0;overflow:hidden;">
-                  <img src="https://image.pollinations.ai/prompt/Black%20woman%20educator%20leader%20historical%20painting%20warm%20tones%20dignified%20portrait%20school%20classroom%20HBCU%20vintage%20illustration?width=300&height=160&nologo=true&seed=202" alt="Education and Leaders" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
-                </div>
-                <div class="nl-prev-col-card__body">
-                  <div class="nl-prev-col-card__label" style="color:#9e6b8a">Abolitionism</div>
-                  <div class="nl-prev-col-card__title">The women who built Black institutions from nothing</div>
-                  <div class="nl-prev-col-card__desc">From Mary McLeod Bethune's school in a Florida swamp to the founding of Spelman College — stories of impossible institution-building.</div>
-                  <div class="nl-prev-col-card__read">6 min read →</div>
-                </div>
-              </a>
-              <a href="thread-great-migration.html" class="nl-prev-col-card">
-                <div class="nl-prev-col-card__img" style="background:#2c7fb8;padding:0;overflow:hidden;">
-                  <img src="https://image.pollinations.ai/prompt/Black%20woman%20artist%20musician%20Harlem%20Renaissance%20painting%20jazz%20culture%20elegant%20portrait%20warm%20painterly%20style%20heritage?width=300&height=160&nologo=true&seed=303" alt="Arts and Culture" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
-                </div>
-                <div class="nl-prev-col-card__body">
-                  <div class="nl-prev-col-card__label" style="color:#2c7fb8">Great Migration</div>
-                  <div class="nl-prev-col-card__title">How Black women gave America its literary voice</div>
-                  <div class="nl-prev-col-card__desc">Zora Neale Hurston, Toni Morrison, Gwendolyn Brooks — tracing the literary tradition white America tried to ignore and eventually could not.</div>
-                  <div class="nl-prev-col-card__read">5 min read →</div>
-                </div>
-              </a>
-              <a href="thread-we-refuse.html" class="nl-prev-col-card">
-                <div class="nl-prev-col-card__img" style="background:#9e6b8a;padding:0;overflow:hidden;">
-                  <img src="https://image.pollinations.ai/prompt/Black%20woman%20activist%20civil%20rights%20march%20protest%20historical%20painting%20powerful%20determined%20portrait%20dramatic%20lighting?width=300&height=160&nologo=true&seed=404" alt="Activism and Impact" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
-                </div>
-                <div class="nl-prev-col-card__body">
-                  <div class="nl-prev-col-card__label" style="color:#b8829e">Activism &amp; Impact</div>
-                  <div class="nl-prev-col-card__title">Protest, journalism, and the fight that never stopped</div>
-                  <div class="nl-prev-col-card__desc">From Ida B. Wells's anti-lynching campaign to Fannie Lou Hamer's testimony — how Black women made movements move.</div>
-                  <div class="nl-prev-col-card__read">7 min read →</div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="nl-prev-divider"></div>
-
-          <!-- Large feature -->
-          <div class="nl-prev-section">
-            <div class="nl-prev-section-label">Historical Moments</div>
-            <div class="nl-prev-feature">
-              <div class="nl-prev-feature__img" style="padding:0;overflow:hidden;background:#1a4f7a;">
-                <img src="https://image.pollinations.ai/prompt/Black%20women%20civil%20rights%20movement%20historical%20moment%20courthouse%20steps%20dignified%20powerful%20dramatic%20cinematic%20vintage%20photography%20style?width=400&height=320&nologo=true&seed=505" alt="Historical Moments — Black women civil rights" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        <div class="email-mockup__meta">
+          <div class="email-sender-row">
+            <div class="email-sender-avatar" aria-hidden="true">CL</div>
+            <div class="email-sender-info">
+              <div class="email-sender-name">
+                The Chain Letter
+                <span class="email-sender-addr">&lt;letter@chain.history&gt;</span>
               </div>
-              <div>
-                <div class="nl-prev-feature__kicker">This Week in History</div>
-                <h3 class="nl-prev-feature__title">The Moments That Defined a Movement</h3>
-                <p class="nl-prev-feature__body">From courtrooms to cotton fields to Capitol Hill — five decisions by Black women that altered the course of American history, each traceable forward to the present day.</p>
-                <a href="thread-voting-rights.html" class="nl-prev-feature__link">Read the thread →</a>
-              </div>
+              <div class="email-sender-to">to me</div>
             </div>
+            <time class="email-sender-date" datetime="1968-04-10">Thu, Apr 10</time>
           </div>
+          <p class="email-subject-line">April 10, 1968 — The Fair Housing Act signed. Why it took MLK's assassination to pass it.</p>
+        </div>
 
-          <div class="nl-prev-divider"></div>
-
-          <!-- 2×2 article grid -->
-          <div class="nl-prev-section nl-prev-section--alt">
-            <div class="nl-prev-section-label">Weekly Focus</div>
-            <div class="nl-prev-grid22">
-              <a href="thread-montgomery-bus-boycott.html" class="nl-prev-art">
-                <div class="nl-prev-art__img" style="padding:0;overflow:hidden;background:#9e6b8a;">
-                  <img src="images/rosa-parks.webp" alt="Rosa Parks — civil rights activist" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
-                </div>
-                <div class="nl-prev-art__body">
-                  <div class="nl-prev-art__tag">Civil Rights</div>
-                  <div class="nl-prev-art__title">Rosa Parks &amp; the Boycott That Changed Everything</div>
-                  <div class="nl-prev-art__desc">She was not just tired. She was the NAACP's secretary — and her arrest was the strategic trigger for a 381-day campaign.</div>
-                  <div class="nl-prev-art__meta">5 min read</div>
-                </div>
-              </a>
-              <a href="thread-ida-b-wells.html" class="nl-prev-art">
-                <div class="nl-prev-art__img" style="padding:0;overflow:hidden;background:#3d1d30;">
-                  <img src="images/ida-b-wells.webp" alt="Ida B. Wells — journalist and anti-lynching activist" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
-                </div>
-                <div class="nl-prev-art__body">
-                  <div class="nl-prev-art__tag">Journalism</div>
-                  <div class="nl-prev-art__title">Ida B. Wells: The Statistics Behind Racial Terror</div>
-                  <div class="nl-prev-art__desc">After three friends were lynched for owning a grocery store, Wells began documenting racial terror with the rigor of an investigative journalist.</div>
-                  <div class="nl-prev-art__meta">7 min read</div>
-                </div>
-              </a>
-              <a href="thread-great-migration.html" class="nl-prev-art">
-                <div class="nl-prev-art__img" style="padding:0;overflow:hidden;background:#2c7fb8;">
-                  <img src="images/maya-angelou.webp" alt="Maya Angelou — poet and author" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
-                </div>
-                <div class="nl-prev-art__body">
-                  <div class="nl-prev-art__tag">Literature</div>
-                  <div class="nl-prev-art__title">Maya Angelou's Literary Legacy &amp; Its Roots</div>
-                  <div class="nl-prev-art__desc">How a woman who didn't speak for five years became America's most beloved poet — and what that silence was made of.</div>
-                  <div class="nl-prev-art__meta">6 min read</div>
-                </div>
-              </a>
-              <a href="thread-slave-revolts.html" class="nl-prev-art">
-                <div class="nl-prev-art__img" style="padding:0;overflow:hidden;background:#1a4f7a;">
-                  <img src="images/harriet-tubman.webp" alt="Harriet Tubman — freedom fighter and Underground Railroad conductor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
-                </div>
-                <div class="nl-prev-art__body">
-                  <div class="nl-prev-art__tag">Freedom</div>
-                  <div class="nl-prev-art__title">Harriet Tubman: 13 Missions, 70 People Freed</div>
-                  <div class="nl-prev-art__desc">She never lost a passenger. Then she became a Union spy. Then she led an armed raid that freed 700 people in a single night.</div>
-                  <div class="nl-prev-art__meta">8 min read</div>
-                </div>
-              </a>
-            </div>
+        <div class="email-mockup__content">
+          <div class="email-date-badge">
+            <span class="email-date-badge__dot" aria-hidden="true"></span>
+            Today in Black History · April 10
           </div>
-
-          <div class="nl-prev-divider"></div>
-
-          <!-- Exclusive offer -->
-          <div class="nl-prev-offer">
-            <div class="nl-prev-offer__badge">Exclusive Offer</div>
-            <h3 class="nl-prev-offer__title">Save 20% This Mother's Day</h3>
-            <p class="nl-prev-offer__body">Get 20% off our Mother's Day curated collections and gain access to exclusive archived essays and interviews — only available this week.</p>
-            <div class="nl-prev-offer__btns">
-              <a href="newsletter.html#subscribe" class="nl-prev-offer__btn-primary">Subscribe Free →</a>
-              <a href="threads.html" class="nl-prev-offer__btn-secondary">Browse Collections</a>
-            </div>
+          <h3 class="email-subject">The Fair Housing Act was signed today in 1968 — six days after Martin Luther King Jr. was assassinated.</h3>
+          <div class="email-body">
+            <p>The Fair Housing Act had been stalled in Congress for two years. Opponents — including many <a href="thread-redlining.html">Northern Democrats</a> — had blocked it repeatedly. Then, on April 4, 1968, King was shot in Memphis. The shock and the uprising that followed changed the political calculus overnight.</p>
+            <p>President Johnson signed the bill on April 11. But the law that finally passed was significantly weaker than advocates had sought. Enforcement mechanisms were toothless. The Department of Housing and Urban Development had no power to issue cease-and-desist orders. Complaints had to go through lengthy court processes that few families could afford.</p>
           </div>
-
-          <!-- Footer -->
-          <div class="nl-prev-footer">
-            <div class="nl-prev-footer__logo">The Chain</div>
-            <div class="nl-prev-footer__links">
-              <a href="threads.html">Threads</a>
-              <a href="today.html">Today in History</a>
-              <a href="resources.html">Resources</a>
-              <a href="about.html">About</a>
-              <a href="newsletter.html">Unsubscribe</a>
-            </div>
-            <div class="nl-prev-footer__social">
-              <a href="https://x.com/Chain_hello" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><div class="nl-prev-footer__social-icon" title="@Chain_hello">𝕏</div></a>
-              <div class="nl-prev-footer__social-icon">in</div>
-              <div class="nl-prev-footer__social-icon">ig</div>
-            </div>
-            <div class="nl-prev-footer__legal">
-              © 2025 The Chain · retrieve-your-roots.com · <a href="mailto:hello@retrieve-your-roots.com" style="color:rgba(255,255,255,.4)">hello@retrieve-your-roots.com</a><br>
-              You're receiving this because you subscribed. <a href="#" style="color:rgba(255,255,255,.4)">Unsubscribe</a> · <a href="#" style="color:rgba(255,255,255,.4)">Privacy Policy</a>
-            </div>
+          <div class="email-chain-box">
+            <div class="email-chain-box__label">The chain from here</div>
+            <div class="email-chain-box__text">The same neighborhoods that HOLC graded "D" in 1933 remained segregated after 1968 — because the Fair Housing Act prohibited new discrimination but didn't undo the wealth gap already created by 35 years of exclusion from FHA mortgages and GI Bill loans. <a href="thread-redlining.html">The Redlining thread</a> traces exactly how those 1933 maps still determine school quality and household wealth today.</div>
           </div>
+          <a href="today.html" class="email-cta-link">
+            Read today's full entry on Chain →
+          </a>
+        </div>
 
-        </div><!-- /nl-prev-body -->
-      </div><!-- /nl-preview-wrap -->
-    </div>
-  </section>
+      </div>
 
-  <!-- PAST ISSUES -->
-  <section style="padding:var(--space-14) 0;background:var(--color-bg);border-top:1px solid var(--color-border);" aria-labelledby="archive-heading">
-    <div class="container">
-      <p style="font-size:var(--type-xs);font-weight:700;letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-accent-dark);margin-bottom:var(--space-3)">Past issues</p>
-      <h2 id="archive-heading" style="font-family:var(--font-editorial);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:var(--weight-bold);color:var(--color-text-primary);margin-bottom:var(--space-3)">Recent editions</h2>
-      <p style="font-size:var(--type-sm);color:var(--color-text-secondary);max-width:560px;line-height:1.65;margin-bottom:0">Every issue archived — read at your own pace, share freely.</p>
+      <!-- Past issues -->
+      <h3 class="nl-archive-title">Recent editions</h3>
       <div class="archive-grid">
 
-        <a href="newsletter-memorial-day-2025.html" class="archive-card reveal">
-          <div class="archive-card__date">May 26, 2025 · Special Edition</div>
-          <div class="archive-card__title">5 Things You Didn't Know About Memorial Day</div>
-          <p class="archive-card__preview">The first Memorial Day ceremony was held by freed slaves in Charleston, South Carolina — not Congress. 10,000 people marched. 3,000 were Black school children. The textbooks left this out.</p>
-          <div class="archive-card__thread">History · Civil War · Memory → Read issue</div>
+        <a href="today.html" class="archive-card reveal">
+          <div class="archive-card__thumb">
+            <img src="images/march-on-washington-1963.webp" alt="March on Washington, 1963" loading="lazy" />
+          </div>
+          <div class="archive-card__body">
+            <div class="archive-card__date">April 9 — Event</div>
+            <div class="archive-card__title">The assassination of Martin Luther King Jr. and the legislation it unlocked</div>
+            <div class="archive-card__preview">How King's murder in Memphis became the political event that passed the Fair Housing Act — and why the bill that passed was weaker than the one he fought for.</div>
+            <div class="archive-card__thread">→ Redlining thread</div>
+          </div>
         </a>
 
-        <div class="archive-card reveal" style="opacity:.5;pointer-events:none;">
-          <div class="archive-card__date">May 22, 2025</div>
-          <div class="archive-card__title">The Harlem Hellfighters: How a Black Regiment Became France's Most Decorated — and America Ignored Them</div>
-          <p class="archive-card__preview">The 369th Infantry Regiment spent 191 days on the front lines — more than any other American unit. France awarded them the Croix de Guerre. America gave them a segregated parade.</p>
-          <div class="archive-card__thread">World War I · Military · Race → Coming soon</div>
-        </div>
+        <a href="today.html" class="archive-card reveal">
+          <div class="archive-card__thumb">
+            <img src="images/plessy-segregated-fountains.webp" alt="Segregated water fountains, Jim Crow era" loading="lazy" />
+          </div>
+          <div class="archive-card__body">
+            <div class="archive-card__date">April 4 — Policy</div>
+            <div class="archive-card__title">The Compromise of 1877 — how Reconstruction ended in a backroom deal</div>
+            <div class="archive-card__preview">The disputed 1876 presidential election was resolved by agreeing to remove federal troops from the South. Black political power collapsed within a decade.</div>
+            <div class="archive-card__thread">→ Reconstruction timeline</div>
+          </div>
+        </a>
 
-        <div class="archive-card reveal" style="opacity:.5;pointer-events:none;">
-          <div class="archive-card__date">May 19, 2025</div>
-          <div class="archive-card__title">Malcolm X's Last Year: What He Said After He Left the Nation of Islam</div>
-          <p class="archive-card__preview">In the fourteen months before his assassination, Malcolm X's thinking changed more profoundly than in any previous period of his life. His FBI file grew to 3,600 pages. He traveled to 18 countries.</p>
-          <div class="archive-card__thread">Civil Rights · Malcolm X → Coming soon</div>
-        </div>
+        <a href="today.html" class="archive-card reveal">
+          <div class="archive-card__thumb">
+            <img src="images/mansa-musa-portrait.webp" alt="Mansa Musa I, Emperor of Mali" loading="lazy" />
+          </div>
+          <div class="archive-card__body">
+            <div class="archive-card__date">April 1 — Person</div>
+            <div class="archive-card__title">Mansa Musa I: why the world's richest person in history was African</div>
+            <div class="archive-card__preview">In 1327, Mansa Musa's hajj to Mecca was so ostentatiously wealthy it caused inflation across North Africa and the Middle East for a decade. His empire controlled more gold than anywhere on Earth.</div>
+            <div class="archive-card__thread">→ African Origins</div>
+          </div>
+        </a>
+
+        <a href="today.html" class="archive-card reveal">
+          <div class="archive-card__thumb">
+            <img src="images/holc-redlining-philadelphia.webp" alt="HOLC redlining map, Philadelphia" loading="lazy" />
+          </div>
+          <div class="archive-card__body">
+            <div class="archive-card__date">Mar 28 — Policy</div>
+            <div class="archive-card__title">The GI Bill: how the same law built the white middle class and excluded Black veterans</div>
+            <div class="archive-card__preview">The Servicemen's Readjustment Act of 1944 offered college tuition and mortgages to veterans — administered through segregated local offices that steered Black veterans away from benefits.</div>
+            <div class="archive-card__thread">→ Redlining thread</div>
+          </div>
+        </a>
+
+        <a href="today.html" class="archive-card reveal">
+          <div class="archive-card__thumb">
+            <img src="images/built-by-black-hands.webp" alt="Black community and labor" loading="lazy" />
+          </div>
+          <div class="archive-card__body">
+            <div class="archive-card__date">Mar 25 — Event</div>
+            <div class="archive-card__title">Tulsa, 1921: how "Black Wall Street" was destroyed in 18 hours</div>
+            <div class="archive-card__preview">The Greenwood District was the most prosperous Black community in America. A white mob, aided by local law enforcement, leveled 35 blocks. No reparations were ever paid.</div>
+            <div class="archive-card__thread">→ Wealth destruction thread</div>
+          </div>
+        </a>
+
+        <a href="today.html" class="archive-card reveal">
+          <div class="archive-card__thumb">
+            <img src="images/ida-b-wells.webp" alt="Ida B. Wells" loading="lazy" />
+          </div>
+          <div class="archive-card__body">
+            <div class="archive-card__date">Mar 20 — Person</div>
+            <div class="archive-card__title">Ida B. Wells and the statistical proof of racial terror</div>
+            <div class="archive-card__preview">After three of her friends were lynched for owning a successful grocery store, Wells began documenting racial terror with the rigor of an investigative journalist — and changed American public opinion.</div>
+            <div class="archive-card__thread">→ Mass Incarceration thread</div>
+          </div>
+        </a>
 
       </div>
     </div>
@@ -1500,26 +1107,38 @@
   <!-- WHY SUBSCRIBE -->
   <section class="why-section" aria-labelledby="why-heading">
     <div class="container">
-      <p style="font-size:var(--type-xs);font-weight:var(--weight-bold);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--color-accent-dark);margin-bottom:var(--space-3)">Why subscribe</p>
-      <h2 id="why-heading" style="font-family:var(--font-editorial);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:var(--weight-bold);color:var(--color-text-primary);margin-bottom:var(--space-3)">What makes this different</h2>
+      <p class="nl-section-eyebrow">Why subscribe</p>
+      <h2 id="why-heading" class="nl-section-title">What makes this different</h2>
       <div class="why-grid">
         <div class="why-card reveal">
-          <span class="why-card__icon" aria-hidden="true">🔗</span>
+          <span class="why-card__num">01</span>
+          <div class="why-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
           <div class="why-card__title">Causality, not chronology</div>
           <div class="why-card__desc">Every edition doesn't just tell you what happened — it tells you what caused it and what it caused. The chain is always visible.</div>
         </div>
         <div class="why-card reveal">
-          <span class="why-card__icon" aria-hidden="true">📎</span>
+          <span class="why-card__num">02</span>
+          <div class="why-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
           <div class="why-card__title">Sources beside every claim</div>
           <div class="why-card__desc">Every factual claim links to a primary source or peer-reviewed scholarship. No unsourced assertions. No editorial spin disguised as history.</div>
         </div>
         <div class="why-card reveal">
-          <span class="why-card__icon" aria-hidden="true">📍</span>
+          <span class="why-card__num">03</span>
+          <div class="why-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
           <div class="why-card__title">Present-day consequence</div>
           <div class="why-card__desc">Every edition ends with a present-day consequence — showing you why this 1865 event, this 1933 policy, this 1968 law still shapes the world you're reading about in today's news.</div>
         </div>
         <div class="why-card reveal">
-          <span class="why-card__icon" aria-hidden="true">🚫</span>
+          <span class="why-card__num">04</span>
+          <div class="why-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <div class="why-card__title">No ads. No agenda.</div>
           <div class="why-card__desc">Chain has no advertisers and no institutional funders with editorial influence. The newsletter is funded by readers who believe this history should be free and accurate.</div>
         </div>
@@ -1531,7 +1150,7 @@
   <section class="bottom-cta" aria-labelledby="bottom-cta-heading">
     <div class="container bottom-cta__inner">
       <h2 id="bottom-cta-heading" class="bottom-cta__title">
-        Start your morning<br />with <em>the chain.</em>
+        Start your morning with <em>the chain.</em>
       </h2>
       <p class="bottom-cta__sub">Free. Daily. Unsubscribe any time. Join 4,800 readers who start their day with context.</p>
       <div class="bottom-cta__form" role="form" aria-label="Quick newsletter signup">
@@ -1550,7 +1169,6 @@
       <div class="footer-brand">
         <a href="home.html" class="footer-wordmark">Chain</a>
         <p class="footer-tagline">Understand the chain, not just the event.</p>
-        <p class="footer-desc" style="margin-top:var(--space-2)"><a href="mailto:hello@retrieve-your-roots.com" style="color:var(--ink-400);text-decoration:none;font-size:var(--type-sm)">hello@retrieve-your-roots.com</a> · <a href="https://x.com/Chain_hello" target="_blank" rel="noopener" style="color:var(--ink-400);text-decoration:none;font-size:var(--type-sm)">@Chain_hello</a></p>
         <p class="footer-desc">A free, independent digital history platform tracing African and Black history through causal threads from sovereign African civilizations to present-day America.</p>
       </div>
       <div class="footer-links-group">
@@ -1630,14 +1248,7 @@
   mobileClose.addEventListener('click', closeMobileNav);
   mobileBackdrop.addEventListener('click', closeMobileNav);
 
-  // ── EDITION CHECKBOXES ────────────────────────────────────
-  document.querySelectorAll('.nl-edition-option input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', () => {
-      cb.closest('.nl-edition-option').classList.toggle('is-selected', cb.checked);
-    });
-  });
-
-  // ── FORM SUBMIT ───────────────────────────────────────────
+  // ── BOTTOM CTA FORM ──────────────────────────────────────
   function handleSubscribe(emailInput, btn) {
     const email = emailInput.value.trim();
     if (!email || !email.includes('@')) {
@@ -1652,11 +1263,6 @@
     emailInput.value = '';
   }
 
-  document.getElementById('nl-form').addEventListener('submit', e => {
-    e.preventDefault();
-    handleSubscribe(document.getElementById('email'), document.getElementById('nl-submit'));
-  });
-
   document.getElementById('bottom-submit').addEventListener('click', () => {
     handleSubscribe(document.getElementById('bottom-email'), document.getElementById('bottom-submit'));
   });
@@ -1670,46 +1276,6 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.07 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // ── LIVE ARTICLES TICKER ───────────────────────────────────
-  // If the article generator has produced content for today,
-  // inject a "Live today" banner into the newsletter preview header.
-  (async () => {
-    try {
-      const res = await fetch('/api/today', { signal: AbortSignal.timeout(2000) });
-      if (!res.ok) return;
-      const { events } = await res.json();
-      if (!events || !events.length) return;
-
-      const topbar = document.querySelector('.nl-prev-topbar');
-      if (!topbar) return;
-
-      const ticker = document.createElement('div');
-      ticker.style.cssText = `
-        background: linear-gradient(90deg, #3d1d30, #5c2a0e);
-        padding: 7px 28px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: .06em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,.85);
-        border-bottom: 1px solid rgba(255,255,255,.08);
-      `;
-      const dot = document.createElement('span');
-      dot.style.cssText = 'width:6px;height:6px;border-radius:50%;background:#f0932a;display:inline-block;animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0;';
-      const label = document.createElement('span');
-      label.textContent = `Today's edition ready — ${events.length} article${events.length > 1 ? 's' : ''} generated`;
-      const link = document.createElement('a');
-      link.href = 'today.html';
-      link.textContent = 'View →';
-      link.style.cssText = 'color:#f0932a;margin-left:auto;text-decoration:none;font-weight:700;';
-      ticker.append(dot, label, link);
-      topbar.insertAdjacentElement('beforebegin', ticker);
-    } catch (_) { /* API offline — no ticker */ }
-  })();
 </script>
 </body>
 </html>

@@ -184,20 +184,20 @@ if ('IntersectionObserver' in window) {
    SOURCE CITE — click to scroll to evidence box
    ========================================================= */
 document.querySelectorAll('.source-cite').forEach(cite => {
-  cite.setAttribute('tabindex', '0');
-  cite.setAttribute('role', 'button');
-  cite.addEventListener('click', () => {
-    const nearestEvidence = cite.closest('.chapter')?.querySelector('.evidence-box');
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = cite.className;
+  btn.innerHTML = cite.innerHTML;
+  cite.replaceWith(btn);
+  btn.addEventListener('click', () => {
+    const nearestEvidence = btn.closest('.chapter')?.querySelector('.evidence-box');
     if (nearestEvidence) {
       nearestEvidence.scrollIntoView({ behavior: 'smooth', block: 'center' });
       nearestEvidence.style.outline = '2px solid var(--color-accent)';
-      setTimeout(() => nearestEvidence.style.outline = '', 2000);
-    }
-  });
-  cite.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      cite.click();
+      if (nearestEvidence._outlineTid) clearTimeout(nearestEvidence._outlineTid);
+      nearestEvidence._outlineTid = setTimeout(
+        () => nearestEvidence.style.removeProperty('outline'), 2000
+      );
     }
   });
 });
