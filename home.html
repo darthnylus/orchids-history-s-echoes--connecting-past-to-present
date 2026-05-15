@@ -209,13 +209,13 @@
        ======================================================= -->
   <section class="hero" aria-labelledby="hero-headline" data-wf-section="Hero">
     <div class="hero__bg-image" aria-hidden="true">
-      <img src="images/hero-freedom-statue.png" alt="" loading="eager" fetchpriority="high" />
+      <img src="images/hieroglyphics-bg.png" alt="" loading="eager" fetchpriority="high" />
     </div>
     <div class="hero__texture" aria-hidden="true" data-parallax="0.12"></div>
     <div class="hero__grid-overlay" aria-hidden="true"></div>
     <div class="container hero__inner">
 
-      <!-- Left: Functional value prop + command search -->
+      <!-- Value prop + rotating question CTA -->
       <div class="hero__content">
         <p class="hero__eyebrow animate-fade-up">
           <span class="hero__eyebrow-dot" aria-hidden="true"></span>
@@ -226,122 +226,33 @@
           <em>Black history, mapped.</em>
         </h1>
         <p class="hero__subhead animate-fade-up animate-delay-200">
-          Each thread traces how a policy, law, or decision created conditions that persist today. Start anywhere in the chain — from African civilizations to present-day America.
+          Every present-day disparity has a cause. Every cause has a chain. Start with a question.
         </p>
 
-        <!-- Command-K style search — primary interaction -->
-        <div class="hero__search-entry animate-fade-up animate-delay-250">
-          <form class="hero__search-form hero__search-form--cmd" action="search.html" method="get" role="search" aria-label="Search Chain">
-            <label for="heroSearchMain" class="sr-only">Search by person, year, policy, or event</label>
-            <div class="hero__search-row">
-              <span class="hero__search-kbd" aria-hidden="true">⌘K</span>
-              <input
-                id="heroSearchMain"
-                name="q"
-                type="search"
-                class="hero__search-input"
-                placeholder="Search by person, year, policy, or event…"
-                autocomplete="off"
-                spellcheck="false"
-              />
-              <button type="submit" class="hero__search-submit" aria-label="Search">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </button>
-            </div>
-          </form>
-
-          <!-- Quick-jump chips — domain shortcuts -->
-          <div class="hero__q-pills" role="group" aria-label="Jump to domain">
-            <a href="threads.html?filter=housing"          class="hero__q-pill">Housing</a>
-            <a href="threads.html?filter=criminal-justice" class="hero__q-pill">Criminal Justice</a>
-            <a href="threads.html?filter=labor-wealth"     class="hero__q-pill">Wealth Gap</a>
-            <a href="threads.html?filter=education"        class="hero__q-pill hero__q-pill--more">Education</a>
-            <a href="threads.html?filter=health"           class="hero__q-pill hero__q-pill--more">Health</a>
-          </div>
+        <!-- Rotating curiosity-gap questions -->
+        <div class="hero__questions animate-fade-up animate-delay-250" id="heroQuestions" aria-live="polite" aria-atomic="true">
+          <a href="thread-redlining.html"                class="hero__question-link" data-q="0">Why is the wealth gap so wide?</a>
+          <a href="thread-cointelpro.html"               class="hero__question-link" data-q="1">The FBI sent MLK a letter telling him to kill himself. Who authorized it?</a>
+          <a href="thread-mansa-musa.html"               class="hero__question-link" data-q="2">Who was the wealthiest person in history — and why haven't you heard of him?</a>
+          <a href="thread-tulsa.html"                    class="hero__question-link" data-q="3">What destroyed the wealthiest Black community in America?</a>
+          <a href="thread-gi-bill.html"                  class="hero__question-link" data-q="4">The GI Bill built the white middle class. How?</a>
+          <a href="thread-african-origins-humanity.html" class="hero__question-link" data-q="5">Before the slave trade, Timbuktu had three universities. What happened?</a>
+          <a href="thread-human-migration.html"          class="hero__question-link" data-q="6">How did people end up in other countries all over the world?</a>
         </div>
 
-        <!-- Primary CTA -->
+        <!-- Primary CTA — paired to active question -->
         <div class="hero__journey-cta animate-fade-up animate-delay-300">
-          <a href="thread-pharaohs.html" class="hero__journey-btn wf-ripple" aria-label="Start the Journey — Thread 1: African Origins">
+          <a href="thread-redlining.html" class="hero__journey-btn wf-ripple" id="heroCtaBtn">
             <span class="hero__journey-btn-icon" aria-hidden="true">→</span>
-            Start the Journey
-            <span class="hero__journey-btn-sub">Thread 1 · African Origins · 500 BCE</span>
+            Read this thread
           </a>
-          <a href="threads.html" class="hero__journey-browse">Browse all 200+ threads <span aria-hidden="true">↗</span></a>
+          <button class="hero__wizard-trigger" id="wizardTrigger" type="button">New here? Get a guided start →</button>
         </div>
+
+        <!-- Trust line -->
+        <p class="hero__trust animate-fade-up animate-delay-350">Scholar-reviewed · Non-profit · No ads</p>
+
       </div>
-
-      <!-- Right: Era distribution chart — the data artifact -->
-      <aside class="hero__artifact animate-fade-up animate-delay-400" aria-label="Thread distribution across 9 historical eras">
-        <div class="artifact__header">
-          <span class="artifact__label">Thread Distribution</span>
-          <span class="artifact__meta">200+ threads · 9 eras · ~2,500 years</span>
-        </div>
-
-        <div class="artifact__chart" role="list" aria-label="Threads per era">
-          <a href="threads.html?era=1" class="artifact__row" role="listitem" style="--era-color:#f0b429">
-            <span class="artifact__era-num">Era 1</span>
-            <span class="artifact__era-name">African Origins</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:45%"></span></span>
-            <span class="artifact__count">5</span>
-          </a>
-          <a href="threads.html?era=2" class="artifact__row" role="listitem" style="--era-color:#e8402a">
-            <span class="artifact__era-num">Era 2</span>
-            <span class="artifact__era-name">The Rupture</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:55%"></span></span>
-            <span class="artifact__count">6</span>
-          </a>
-          <a href="threads.html?era=3" class="artifact__row" role="listitem" style="--era-color:#22c55e">
-            <span class="artifact__era-num">Era 3</span>
-            <span class="artifact__era-name">Slavery &amp; Resistance</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:73%"></span></span>
-            <span class="artifact__count">8</span>
-          </a>
-          <a href="threads.html?era=4" class="artifact__row" role="listitem" style="--era-color:#f87171">
-            <span class="artifact__era-num">Era 4</span>
-            <span class="artifact__era-name">Emancipation &amp; Betrayal</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:55%"></span></span>
-            <span class="artifact__count">6</span>
-          </a>
-          <a href="threads.html?era=5" class="artifact__row artifact__row--largest" role="listitem" style="--era-color:#d97706">
-            <span class="artifact__era-num">Era 5</span>
-            <span class="artifact__era-name">Jim Crow Era</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:100%"></span></span>
-            <span class="artifact__count">11</span>
-          </a>
-          <a href="threads.html?era=6" class="artifact__row" role="listitem" style="--era-color:#38bdf8">
-            <span class="artifact__era-num">Era 6</span>
-            <span class="artifact__era-name">WWII &amp; Post-War</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:36%"></span></span>
-            <span class="artifact__count">4</span>
-          </a>
-          <a href="threads.html?era=7" class="artifact__row" role="listitem" style="--era-color:#34d399">
-            <span class="artifact__era-num">Era 7</span>
-            <span class="artifact__era-name">Civil Rights</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:73%"></span></span>
-            <span class="artifact__count">8</span>
-          </a>
-          <a href="threads.html?era=8" class="artifact__row" role="listitem" style="--era-color:#a855f7">
-            <span class="artifact__era-num">Era 8</span>
-            <span class="artifact__era-name">Backlash Era</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:82%"></span></span>
-            <span class="artifact__count">9</span>
-          </a>
-          <a href="threads.html?era=9" class="artifact__row" role="listitem" style="--era-color:#60a5fa">
-            <span class="artifact__era-num">Era 9</span>
-            <span class="artifact__era-name">Present Day</span>
-            <span class="artifact__bar-track"><span class="artifact__bar" style="--pct:82%"></span></span>
-            <span class="artifact__count">9</span>
-          </a>
-        </div>
-
-        <div class="artifact__footer">
-          <div class="artifact__stat"><span class="artifact__stat-n">500 BCE</span><span class="artifact__stat-l">Earliest thread</span></div>
-          <div class="artifact__stat"><span class="artifact__stat-n">2026</span><span class="artifact__stat-l">Most recent</span></div>
-          <div class="artifact__stat"><span class="artifact__stat-n">9</span><span class="artifact__stat-l">Domains</span></div>
-        </div>
-        <a href="threads.html?view=journey" class="artifact__cta">View full chronological sequence <span aria-hidden="true">→</span></a>
-      </aside>
 
     </div>
   </section>
@@ -2164,6 +2075,27 @@
 </footer>
 
 <!-- =========================================================
+     WIZARD MODAL — First-visit guided start
+     ========================================================= -->
+<div class="wizard-overlay" id="wizardOverlay" role="dialog" aria-modal="true" aria-label="Find your starting point" aria-hidden="true">
+  <div class="wizard-modal">
+    <button class="wizard-close" id="wizardClose" aria-label="Close wizard">✕</button>
+    <p class="wizard-eyebrow">New here?</p>
+    <h2 class="wizard-title">Where would you like to start?</h2>
+    <p class="wizard-desc">Pick the topic that pulls at you most. We'll put you right in the thread.</p>
+    <div class="wizard-domains">
+      <a href="threads.html?filter=housing"          class="wizard-domain">Housing &amp; Redlining</a>
+      <a href="threads.html?filter=criminal-justice" class="wizard-domain">Criminal Justice</a>
+      <a href="threads.html?filter=labor-wealth"     class="wizard-domain">Wealth Gap</a>
+      <a href="threads.html?filter=education"        class="wizard-domain">Education</a>
+      <a href="threads.html?filter=health"           class="wizard-domain">Health &amp; Medicine</a>
+      <a href="threads.html?filter=politics"         class="wizard-domain">Voting &amp; Politics</a>
+    </div>
+    <a href="thread-pharaohs.html" class="wizard-start-all">Or start from the very beginning — Thread 1 →</a>
+  </div>
+</div>
+
+<!-- =========================================================
      JAVASCRIPT
      ========================================================= -->
 <script src="js/main.js" defer></script>
@@ -2217,6 +2149,48 @@
     card.appendChild(peek);
   });
 })();
+
+// ── Hero rotating questions ─────────────────────────────────
+(function() {
+  var links  = Array.prototype.slice.call(document.querySelectorAll('.hero__question-link'));
+  var ctaBtn = document.getElementById('heroCtaBtn');
+  if (!links.length) return;
+
+  var idx = Math.floor(Math.random() * links.length);
+
+  function show(i) {
+    links.forEach(function(l) { l.classList.remove('is-active'); });
+    links[i].classList.add('is-active');
+    if (ctaBtn) ctaBtn.href = links[i].getAttribute('href');
+    idx = i;
+  }
+
+  show(idx);
+  setInterval(function() { show((idx + 1) % links.length); }, 5000);
+})();
+
+// ── Wizard ──────────────────────────────────────────────────
+(function() {
+  var trigger = document.getElementById('wizardTrigger');
+  var overlay = document.getElementById('wizardOverlay');
+  var closeBtn = document.getElementById('wizardClose');
+  if (!trigger || !overlay) return;
+
+  function openWizard()  { overlay.setAttribute('aria-hidden', 'false'); overlay.classList.add('is-open'); }
+  function closeWizard() { overlay.setAttribute('aria-hidden', 'true');  overlay.classList.remove('is-open'); }
+
+  trigger.addEventListener('click', openWizard);
+  if (closeBtn) closeBtn.addEventListener('click', closeWizard);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeWizard(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeWizard(); });
+
+  if (!localStorage.getItem('chain-visited')) {
+    setTimeout(function() {
+      openWizard();
+      localStorage.setItem('chain-visited', '1');
+    }, 2500);
+  }
+})();
 </script>
 
 <style>
@@ -2238,14 +2212,202 @@
   }
 }
 
-/* Hero search: hide ⌘K badge so input has full width */
-@media (max-width: 479px) {
-  .hero__search-kbd { display: none !important; }
-  .hero__search-row { padding-left: var(--space-3) !important; }
-  .hero__search-input { padding-left: var(--space-3) !important; }
+/* ── Hero: single-column now that artifact is removed ────── */
+@media (min-width: 960px) {
+  .hero__inner { grid-template-columns: 1fr !important; }
+  .hero__content { max-width: 780px; }
+  .hero__bg-image::after {
+    background:
+      linear-gradient(to right,
+        rgba(6,4,2,0.88) 0%,
+        rgba(6,4,2,0.60) 40%,
+        rgba(6,4,2,0.20) 100%
+      ),
+      linear-gradient(to bottom,
+        rgba(6,4,2,0.55) 0%,
+        transparent 20%,
+        transparent 70%,
+        rgba(6,4,2,0.75) 100%
+      );
+  }
 }
 
-/* Origins section header: stack text and link on phones */
+/* ── Rotating questions ─────────────────────────────────── */
+.hero__questions {
+  margin: var(--space-8) 0 var(--space-6);
+  min-height: 5rem;
+}
+
+.hero__question-link {
+  display: none;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--slate-100, #f1f5f9);
+  text-decoration: none;
+  border-left: 3px solid var(--amber-400, #f59e0b);
+  padding-left: var(--space-5, 1.25rem);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hero__question-link.is-active {
+  display: block;
+  animation: qFadeUp 0.45s ease both;
+}
+
+.hero__question-link:hover {
+  color: var(--amber-200, #fde68a);
+  border-color: var(--amber-300, #fcd34d);
+}
+
+@keyframes qFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Wizard trigger ─────────────────────────────────────── */
+.hero__wizard-trigger {
+  background: none;
+  border: none;
+  color: var(--slate-400, #94a3b8);
+  font-size: var(--type-sm, 0.875rem);
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.hero__wizard-trigger:hover { color: var(--amber-300, #fcd34d); }
+
+/* ── Trust line ─────────────────────────────────────────── */
+.hero__trust {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--slate-500, #64748b);
+  margin-top: var(--space-6, 1.5rem);
+  margin-bottom: 0;
+}
+
+/* ── Wizard modal ───────────────────────────────────────── */
+.wizard-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0,0,0,0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.wizard-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wizard-modal {
+  background: var(--ink-800, #1c1917);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl, 16px);
+  padding: var(--space-10, 2.5rem);
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  transform: translateY(12px);
+  transition: transform 0.25s ease;
+}
+.wizard-overlay.is-open .wizard-modal { transform: translateY(0); }
+
+.wizard-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: none;
+  border: none;
+  color: var(--slate-400);
+  font-size: 18px;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+.wizard-close:hover { background: rgba(255,255,255,0.08); }
+
+.wizard-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber-400, #f59e0b);
+  margin: 0 0 var(--space-2);
+}
+
+.wizard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--slate-100);
+  margin: 0 0 var(--space-2);
+  line-height: 1.25;
+}
+
+.wizard-desc {
+  font-size: var(--type-sm);
+  color: var(--slate-400);
+  margin: 0 0 var(--space-6);
+}
+
+.wizard-domains {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.wizard-domain {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg, 10px);
+  font-size: var(--type-sm);
+  font-weight: 500;
+  color: var(--slate-200);
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+.wizard-domain:hover {
+  background: rgba(245,158,11,0.12);
+  border-color: var(--amber-500, #d97706);
+  color: var(--amber-200, #fde68a);
+}
+
+.wizard-start-all {
+  display: block;
+  font-size: var(--type-sm);
+  color: var(--slate-500);
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.2s;
+}
+.wizard-start-all:hover { color: var(--slate-300); }
+
+/* Origins section header: stack on phones */
 @media (max-width: 599px) {
   .origins-header {
     flex-direction: column;
