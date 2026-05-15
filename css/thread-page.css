@@ -1213,3 +1213,13 @@
   max-width: 300px;
 }
 @media(max-width:600px){ .thread-breadcrumb__current{ max-width:180px; } }
+
+/* Full-width portrait image (Imhotep layout) */
+.thread-hero__portrait {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-bottom: 3px solid rgba(184,151,42,.35);
+}
