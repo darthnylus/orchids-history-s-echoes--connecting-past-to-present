@@ -3,9 +3,39 @@
   "version": "1.0.0",
   "description": "Chain — A digital history platform connecting African and Black history to present-day America",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "echo 'Static site — no build step required'",
-    "start": "python3 -m http.server 3000",
-    "dev": "python3 -m http.server 3000"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "python3 -m http.server 3000",
+    "optimize-images": "bash optimize_images.sh",
+    "generate-sitemap": "python3 generate_sitemap.py",
+    "lint": "eslint . --ext .js,.jsx",
+    "format": "prettier --write \"**/*.{js,css,html,md,json}\""
+  },
+  "devDependencies": {
+    "vite": "^5.2.0",
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.1",
+    "postcss": "^8.4.38",
+    "terser": "^5.31.0",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-compression": "^0.5.1",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  },
+  "keywords": [
+    "history",
+    "education",
+    "african-history",
+    "black-history",
+    "causal-threads"
+  ],
+  "author": "Chain History Platform",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darthnylus/orchids-history-s-echoes--connecting-past-to-present"
   }
 }

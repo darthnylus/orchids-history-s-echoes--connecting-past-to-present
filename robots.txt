@@ -1,0 +1,12 @@
+# Robots.txt for Chain — retrieve-your-roots.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://retrieve-your-roots.com/sitemap.xml
+
+# Disallow utility/error pages from indexing
+Disallow: /404.html
+Disallow: /admin.html
+Disallow: /landing.html
