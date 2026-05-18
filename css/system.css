@@ -387,7 +387,7 @@ input, textarea, select { font-family: inherit; }
   display: flex;
   align-items: center;
   position: sticky;
-  top: var(--nav-utility-h);
+  top: 0;
   z-index: var(--z-sticky);
 }
 

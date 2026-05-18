@@ -36,19 +36,6 @@
 <!-- =========================================================
      UTILITY BAR
      ========================================================= -->
-<div class="utility-bar" role="banner" aria-label="Site utility bar">
-  <div class="utility-bar__inner">
-    <p class="utility-bar__message">
-      <strong>New threads:</strong> <a href="thread-baldwin.html" class="utility-bar__msg-link">Baldwin and the White Identity Crisis</a> · <a href="thread-haitian-revolution.html" class="utility-bar__msg-link">The Haitian Revolution</a> · <a href="thread-convict-leasing.html" class="utility-bar__msg-link">Convict Leasing: Slavery by Another Name</a> · <a href="thread-before-mayflower.html" class="utility-bar__msg-link">Before the Mayflower</a>
-    </p>
-    <nav class="utility-bar__links" aria-label="Utility navigation">
-      <a href="about.html" class="utility-bar__link">About</a>
-      <a href="newsletter.html" class="utility-bar__link">Newsletter</a>
-      <a href="admin.html" class="utility-bar__link" style="color:var(--amber-300,#fcd34d);font-weight:600;">✦ Generator</a>
-      <a href="donate.html" class="utility-bar__link utility-bar__link--cta">Donate</a>
-    </nav>
-  </div>
-</div>
 
 <!-- =========================================================
      MAIN NAVIGATION
@@ -67,23 +54,11 @@
       <a href="threads.html" class="site-nav__link">Threads</a>
       <a href="about.html" class="site-nav__link">About</a>
       <a href="resources.html" class="site-nav__link">Resources</a>
-      <a href="submit.html" class="site-nav__link site-nav__link--cta">Submit a Thread</a>
       <a href="contact.html" class="site-nav__link">Contact</a>
     </nav>
 
     <!-- Actions -->
     <div class="site-nav__actions">
-      <button class="nav-search-btn" id="searchToggle" aria-label="Open search (⌘K)" aria-expanded="false" aria-controls="searchOverlay">
-        <svg class="nav-search-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-        <span class="hide-mobile">Search</span>
-        <kbd class="nav-search-kbd hide-mobile" aria-hidden="true">⌘K</kbd>
-      </button>
-      <a href="today.html" class="today-pill" aria-label="Today in Black history">
-        <span class="today-pill__dot" aria-hidden="true"></span>
-        Today
-      </a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path class="icon-moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -108,69 +83,7 @@
      On homepage: shows site-wide stats
      On thread pages: shows era/position tracker (injected by JS)
      ========================================================= -->
-<div class="context-ribbon" id="contextRibbon" role="complementary" aria-label="Site context">
-  <div class="container context-ribbon__inner">
-    <div class="context-ribbon__stats">
-      <span class="context-ribbon__stat"><strong>137</strong> Threads</span>
-      <span class="context-ribbon__divider" aria-hidden="true">·</span>
-      <span class="context-ribbon__stat"><strong>9</strong> Eras</span>
-      <span class="context-ribbon__divider" aria-hidden="true">·</span>
-      <span class="context-ribbon__stat"><strong>500 BCE – 2026</strong></span>
-      <span class="context-ribbon__divider hide-mobile" aria-hidden="true">·</span>
-      <span class="context-ribbon__stat hide-mobile"><strong>6</strong> Domains</span>
-      <span class="context-ribbon__divider hide-mobile" aria-hidden="true">·</span>
-      <span class="context-ribbon__stat hide-mobile"><strong>200+</strong> People</span>
-    </div>
-    <nav class="context-ribbon__nav" aria-label="Quick access">
-      <a href="threads.html" class="context-ribbon__link">All Threads</a>
-      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
-        <span class="context-ribbon__live-dot" aria-hidden="true"></span>
-        Today
-      </a>
-      <a href="search.html" class="context-ribbon__link">Search</a>
-    </nav>
-  </div>
-</div>
 
-<!-- =========================================================
-     SEARCH OVERLAY
-     ========================================================= -->
-<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search" aria-modal="true" aria-hidden="true">
-  <div class="search-overlay__inner">
-    <form class="search-overlay__form" action="search.html" method="get" role="search">
-      <label for="searchInput" class="sr-only">Search Chain</label>
-      <input
-        type="search"
-        id="searchInput"
-        name="q"
-        class="search-overlay__input"
-        placeholder="Search by person, year, policy, or event…"
-        autocomplete="off"
-        spellcheck="false"
-      />
-      <button type="button" class="search-overlay__close" id="searchClose" aria-label="Close search">✕</button>
-    </form>
-    <div class="search-overlay__hints">
-      <p class="search-overlay__hint-label">Jump to</p>
-      <a href="search.html?q=Why+does+housing+inequality+persist"           class="search-hint-chip">Why does housing inequality persist?</a>
-      <a href="search.html?q=How+did+redlining+affect+schools"              class="search-hint-chip">How did redlining affect schools?</a>
-      <a href="search.html?q=Reconstruction+voting+rights"                  class="search-hint-chip">Reconstruction &amp; voting rights</a>
-      <a href="search.html?q=GI+Bill+racial+exclusion"                      class="search-hint-chip">GI Bill racial exclusion</a>
-      <a href="search.html?q=mass+incarceration+history"                    class="search-hint-chip">Roots of mass incarceration</a>
-      <a href="search.html?q=Great+Migration+causes"                        class="search-hint-chip">Why did the Great Migration happen?</a>
-      <a href="search.html?q=What+did+COINTELPRO+actually+do"               class="search-hint-chip">What did COINTELPRO actually do?</a>
-      <a href="search.html?q=Why+was+Fred+Hampton+killed"                   class="search-hint-chip">Why was Fred Hampton killed?</a>
-      <a href="search.html?q=What+ended+Reconstruction"                     class="search-hint-chip">What ended Reconstruction?</a>
-      <a href="search.html?q=How+did+slavery+shape+the+economy"             class="search-hint-chip">How did slavery shape the economy?</a>
-      <a href="search.html?q=Who+was+John+Brown"                            class="search-hint-chip">Who was John Brown?</a>
-      <a href="search.html?q=What+was+the+Black+Panther+breakfast+program"  class="search-hint-chip">What was the Black Panther breakfast program?</a>
-      <a href="search.html?q=Why+was+Malcolm+X+assassinated"                class="search-hint-chip">Why was Malcolm X assassinated?</a>
-      <a href="search.html?q=What+is+convict+leasing"                       class="search-hint-chip">What is convict leasing?</a>
-      <a href="search.html?q=Tulsa+massacre+1921"                           class="search-hint-chip">What happened in Tulsa in 1921?</a>
-      <a href="search.html?q=What+is+the+racial+wealth+gap"                 class="search-hint-chip">What is the racial wealth gap?</a>
-    </div>
-  </div>
-</div>
 
 <!-- =========================================================
      MOBILE NAV DRAWER
@@ -186,7 +99,6 @@
       <li><a href="threads.html"      class="mobile-nav__link">Threads</a></li>
       <li><a href="about.html"        class="mobile-nav__link">About</a></li>
       <li><a href="resources.html"    class="mobile-nav__link">Resources</a></li>
-      <li><a href="submit.html"       class="mobile-nav__link">Submit a Thread</a></li>
       <li><a href="contact.html"      class="mobile-nav__link">Contact</a></li>
     </ul>
     <div class="mobile-nav__divider"></div>
