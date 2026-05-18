@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- EDIT: page title -->
+  <title>THREAD TITLE — Thread — Chain</title>
+  <meta property="og:title" content="THREAD TITLE — Thread" />
+  <meta property="og:description" content="THREAD SHORT DESCRIPTION (under 160 chars)" />
+  <meta property="og:type" content="article" />
+  <!-- EDIT: canonical URL slug -->
+  <link rel="canonical" href="https://chain.education/thread-SLUG.html" />
+  <meta name="description" content="THREAD SHORT DESCRIPTION (under 160 chars)" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('chain-theme') ||
+              (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <!-- Critical inline — prevents FOUC -->
+  <style>:root{--_bg:#f8f6f3}[data-theme="dark"]{--_bg:#0d0d0d}*,*::before,*::after{box-sizing:border-box}body{margin:0;background-color:var(--_bg);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.site-nav,.nav{background:#0d0d0d;position:sticky;top:0;z-index:100;min-height:68px}.utility-bar{background:#0d0d0d;min-height:40px}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="css/system.css" as="style" />
+  <link rel="stylesheet" href="css/system.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+  <link rel="stylesheet" href="css/thread-page.css" />
+  <style>
+    /*
+     * ACCENT COLOR — change these two variables to shift the whole page's color.
+     *
+     * Preset options:
+     *   Amber / African Origins : --acc:#b8972a  --acc-lt:#fde68a  hero-bg:#0a0800
+     *   Red   / Civil Rights    : --acc:#dc2626  --acc-lt:#fca5a5  hero-bg:#0d0505
+     *   Blue  / Policy / Law    : --acc:#2563eb  --acc-lt:#93c5fd  hero-bg:#050a0d
+     *   Green / Economic        : --acc:#059669  --acc-lt:#6ee7b7  hero-bg:#040d09
+     *   Purple / Culture / Arts : --acc:#7c3aed  --acc-lt:#c4b5fd  hero-bg:#07040d
+     *   Orange / Resistance     : --acc:#ea580c  --acc-lt:#fdba74  hero-bg:#0d0702
+     */
+    /* EDIT: pick an accent color from the presets above */
+    :root {
+      --acc: #b8972a;
+      --acc-lt: #fde68a;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .thread-hero {
+      /* EDIT: hero background — match the --acc preset */
+      background: #0a0800;
+      padding: var(--space-16) 0 var(--space-14);
+      position: relative;
+      overflow: hidden;
+    }
+    .thread-hero__bg {
+      position: absolute; inset: 0;
+      /* EDIT: swap rgba() color to match --acc */
+      background: radial-gradient(ellipse 60% 80% at 10% 50%, rgba(184,151,42,.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .thread-hero__bg-img {
+      position: absolute; inset: 0; overflow: hidden;
+    }
+    .thread-hero__bg-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      /* EDIT: raise/lower opacity to taste (0.15–0.55) */
+      opacity: 0.35;
+      display: block;
+    }
+    .thread-hero__bg-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      /* EDIT: adjust overlay darkness to match your background image */
+      background:
+        linear-gradient(to right,  rgba(6,9,15,0.88) 0%, rgba(6,9,15,0.60) 50%, rgba(6,9,15,0.20) 100%),
+        linear-gradient(to bottom, rgba(6,9,15,0.30) 0%, transparent 40%);
+    }
+    .thread-hero__inner { position: relative; max-width: 760px; z-index: 2; }
+    .thread-hero__kicker {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      /* EDIT: swap rgba() to match --acc */
+      background: rgba(184,151,42,.12); border: 1px solid rgba(184,151,42,.30);
+      border-radius: 999px; padding: var(--space-1) var(--space-4);
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: var(--acc-lt); margin-bottom: var(--space-6);
+    }
+    .thread-hero__kicker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); }
+    .thread-hero__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.1; letter-spacing: -0.02em;
+      margin-bottom: var(--space-6);
+    }
+    .thread-hero__title em { color: var(--acc-lt); font-style: normal; }
+    .thread-hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem); color: var(--ink-300);
+      line-height: 1.7; max-width: 640px; margin-bottom: var(--space-8);
+    }
+    .thread-hero__meta { display: flex; gap: var(--space-6); flex-wrap: wrap; align-items: flex-end; }
+    .thread-meta-item__label {
+      font-size: var(--type-xs); color: var(--ink-500);
+      text-transform: uppercase; letter-spacing: var(--tracking-wide); margin-bottom: 2px;
+    }
+    .thread-meta-item__value { font-size: var(--type-sm); font-weight: var(--weight-semibold); color: var(--ink-200); }
+
+    /* ── Argument bar ──────────────────────────────────────── */
+    .argument-bar {
+      /* EDIT: swap rgba() to match --acc */
+      background: rgba(184,151,42,.06);
+      border-top: 1px solid rgba(184,151,42,.18);
+      border-bottom: 1px solid rgba(184,151,42,.18);
+      padding: var(--space-5) 0;
+    }
+    .argument-bar__inner { display: flex; align-items: flex-start; gap: var(--space-5); }
+    .argument-bar__icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      /* EDIT: swap rgba() to match --acc */
+      background: rgba(184,151,42,.18); border-radius: 50%;
+      display: grid; place-items: center; margin-top: 2px;
+    }
+    .argument-bar__label {
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: var(--acc-lt); margin-bottom: var(--space-1);
+    }
+    .argument-bar__text {
+      font-size: var(--type-md); color: var(--color-text-secondary);
+      line-height: 1.65; max-width: 820px;
+    }
+    .argument-bar__text strong { color: var(--color-text-primary); }
+
+    /* ── Entry items ───────────────────────────────────────── */
+    .entry-item__num {
+      background: rgba(184,151,42,.10); border: 1px solid rgba(184,151,42,.22);
+      color: var(--acc-lt);
+    }
+    .entry-item__dates { color: var(--acc-lt); }
+    .entry-stat__num   { color: var(--acc); }
+    .pull-quote { border-left: 3px solid var(--acc); }
+
+    /* ── Sidebar ───────────────────────────────────────────── */
+    .sidebar-card__title { color: var(--acc); }
+    .related-thread:hover { border-color: var(--acc); }
+
+    /* ── Bottom CTA ────────────────────────────────────────── */
+    .thread-bottom-cta {
+      background: var(--ink-950);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: var(--space-14) 0;
+    }
+    .thread-bottom-cta__eyebrow {
+      font-size: var(--type-xs); font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-wider); text-transform: uppercase;
+      color: var(--acc-lt); margin-bottom: var(--space-3);
+    }
+    .thread-bottom-cta__title {
+      font-family: var(--font-editorial);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: var(--space-4);
+    }
+    .thread-bottom-cta__sub {
+      font-size: var(--type-md); color: var(--ink-300);
+      line-height: 1.7; margin-bottom: var(--space-8);
+    }
+    .thread-bottom-cta__btns { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+    .thread-bottom-cta__btn {
+      display: inline-flex; align-items: center;
+      padding: var(--space-3) var(--space-6); border-radius: 999px;
+      font-size: var(--type-sm); font-weight: var(--weight-bold);
+      text-decoration: none; transition: all var(--duration-fast);
+    }
+    .thread-bottom-cta__btn--primary  { background: var(--acc); color: #fff; }
+    .thread-bottom-cta__btn--primary:hover  { filter: brightness(1.15); }
+    .thread-bottom-cta__btn--secondary { background: transparent; color: var(--ink-300); border: 1px solid rgba(255,255,255,.15); }
+    .thread-bottom-cta__btn--secondary:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+    /* ── Next-thread strip ─────────────────────────────────── */
+    .next-thread-strip { background: var(--color-surface); border-top: 1px solid var(--color-border); padding: var(--space-8) 0; }
+    .next-thread-strip__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+    .next-thread-strip__label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: var(--space-2); }
+    .next-thread-strip__title { font-family: var(--font-editorial); font-size: clamp(1.1rem,2vw,1.4rem); font-weight: 800; color: var(--color-text-primary); line-height: 1.2; max-width: 480px; }
+    .next-thread-strip__btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6); background: var(--acc); color: #fff; border-radius: 999px; font-size: var(--type-sm); font-weight: 700; text-decoration: none; transition: filter .15s; white-space: nowrap; }
+    .next-thread-strip__btn:hover { filter: brightness(1.1); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     GLOBAL NAV  — do not edit
+     ═══════════════════════════════════════════════════════════ -->
+<header class="site-nav">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline">/ Black history &amp; present-day America</span>
+    </a>
+    <nav class="site-nav__links">
+      <a href="explore.html" class="site-nav__link">Explore</a>
+      <a href="threads.html" class="site-nav__link" aria-current="true">Threads</a>
+      <a href="maps.html" class="site-nav__link">Maps &amp; Timelines</a>
+      <a href="learn.html" class="site-nav__link">Learn</a>
+      <a href="teaching.html" class="site-nav__link">Teaching</a>
+    </nav>
+    <div class="site-nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun"  width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="donate.html" class="site-nav__donate">Support Chain</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BREADCRUMB  — EDIT: last span
+     ═══════════════════════════════════════════════════════════ -->
+<nav class="thread-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <div class="thread-breadcrumb__inner">
+      <a href="home.html" class="thread-breadcrumb__link">Chain</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <a href="threads.html" class="thread-breadcrumb__link">Threads</a>
+      <span class="thread-breadcrumb__sep" aria-hidden="true">/</span>
+      <!-- EDIT: thread title -->
+      <span class="thread-breadcrumb__current" aria-current="page">THREAD TITLE</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CONTEXT RIBBON  — EDIT: era name
+     ═══════════════════════════════════════════════════════════ -->
+<div class="context-ribbon context-ribbon--thread" id="contextRibbon">
+  <div class="context-ribbon__inner">
+    <div class="context-ribbon__stats" id="ribbonStats">
+      <span class="context-ribbon__stat"><strong>Chain</strong></span>
+      <span class="context-ribbon__divider">·</span>
+      <!-- EDIT: era / category e.g. "Civil Rights", "African Origins", "Housing & Wealth" -->
+      <span class="context-ribbon__stat">ERA NAME</span>
+    </div>
+    <nav class="context-ribbon__nav">
+      <a href="threads.html?view=journey" class="context-ribbon__link">All Threads</a>
+      <a href="today.html" class="context-ribbon__link context-ribbon__link--live">
+        <span class="context-ribbon__live-dot"></span>Today
+      </a>
+      <a href="search.html" class="context-ribbon__link">Search</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+     EDIT: kicker text, h1, subtitle, and 4 meta items
+     ═══════════════════════════════════════════════════════════ -->
+<section class="thread-hero">
+  <div class="thread-hero__bg" aria-hidden="true"></div>
+
+  <!-- OPTIONAL: hero background image. Delete this block if you don't have one. -->
+  <!--
+  <div class="thread-hero__bg-img" aria-hidden="true">
+    <img src="images/YOUR-IMAGE.jpg" alt="" />
+  </div>
+  -->
+
+  <div class="container">
+    <div class="thread-hero__inner">
+
+      <!-- EDIT: kicker — Era · Subcategory · Date range -->
+      <div class="thread-hero__kicker">
+        <span class="thread-hero__kicker-dot"></span>
+        ERA · SUBCATEGORY · DATE RANGE
+      </div>
+
+      <!-- EDIT: h1 — wrap key phrase in <em> for accent color highlight -->
+      <h1 class="thread-hero__title">
+        TITLE LINE ONE:<br />
+        <em>Key Phrase Highlighted</em>
+      </h1>
+
+      <!-- EDIT: 2–3 sentence hook. This is what appears in Google and social previews. -->
+      <p class="thread-hero__subtitle">
+        SUBTITLE — A punchy 2–3 sentence summary that answers "why does this matter today?"
+        Lead with a fact that reframes what the reader thought they knew. End on the present-day consequence.
+      </p>
+
+      <!-- EDIT: 4 meta facts about this thread -->
+      <div class="thread-hero__meta">
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Era</div>
+          <div class="thread-meta-item__value">ERA NAME</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Dates</div>
+          <div class="thread-meta-item__value">YEAR – YEAR</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Location</div>
+          <div class="thread-meta-item__value">CITY / NATIONAL</div>
+        </div>
+        <div class="thread-meta-item">
+          <div class="thread-meta-item__label">Significance</div>
+          <div class="thread-meta-item__value">One-line significance statement</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PORTRAIT IMAGE (full-width, between hero and argument bar)
+     EDIT: src, alt
+     Delete this line if no portrait/header image is available.
+     ═══════════════════════════════════════════════════════════ -->
+<img
+  src="images/YOUR-IMAGE.jpg"
+  alt="ALT TEXT describing the image"
+  class="thread-hero__portrait"
+  loading="eager"
+/>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ARGUMENT BAR  — the thread's central thesis in 2–3 sentences
+     EDIT: argument text. Use <strong> for key claims.
+     ═══════════════════════════════════════════════════════════ -->
+<div class="argument-bar">
+  <div class="container">
+    <div class="argument-bar__inner">
+      <div class="argument-bar__icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="argument-bar__label">The Central Argument</div>
+        <!-- EDIT: 2–3 sentences. What is the through-line this thread proves?
+             Lead with the provocative claim. End with the present-day connection.
+             Wrap key factual claims in <strong>. -->
+        <p class="argument-bar__text">
+          <strong>CENTRAL CLAIM.</strong> Supporting context that connects the historical event
+          to its mechanism. <strong>The present-day consequence, stated plainly.</strong>
+          This is not an accident — it is a documented, traceable chain.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     THREAD BODY  — 2-column layout: entry list + sidebar
+     ═══════════════════════════════════════════════════════════ -->
+<section class="thread-body">
+  <div class="container">
+    <div class="thread-layout">
+
+      <!-- ─── MAIN CONTENT ──────────────────────────────────── -->
+      <main class="thread-main">
+        <div class="entry-list">
+
+          <!-- ══════════════════════════════════════════════════
+               ENTRY 1
+               EDIT: id, dates, title, location, stats, body
+               Copy this block for each additional entry (01, 02, 03…)
+               ══════════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-1">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">01</div>
+              <div>
+                <!-- EDIT: date or date range -->
+                <div class="entry-item__dates">MONTH DD, YEAR</div>
+                <!-- EDIT: entry headline — what happened / what is this? -->
+                <h2 class="entry-item__name">Entry Headline — What Happened and Why It Matters</h2>
+                <!-- EDIT: place or institution -->
+                <div class="entry-item__location">City, State · Institution or Act</div>
+              </div>
+            </div>
+
+            <!-- EDIT: 3 key numbers. num = the stat, label = what it measures -->
+            <div class="entry-stats">
+              <div>
+                <div class="entry-stat__num">###</div>
+                <div class="entry-stat__label">What this number measures</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">###</div>
+                <div class="entry-stat__label">What this number measures</div>
+              </div>
+              <div>
+                <div class="entry-stat__num">###</div>
+                <div class="entry-stat__label">What this number measures</div>
+              </div>
+            </div>
+
+            <!-- EDIT: 3–5 paragraphs of body content.
+                 Use <strong> for key claims. Use <em> sparingly for names or terms. -->
+            <div class="entry-item__body">
+              <p>Opening paragraph — set the scene and state what happened. Lead with the most
+                 surprising or reframing fact. <strong>Key claim bolded.</strong></p>
+              <p>Second paragraph — the mechanism. How did it work? Who was involved?
+                 What made it possible? What was the official justification vs. the real effect?</p>
+              <p>Third paragraph — the consequence. What happened immediately afterward?
+                 Who was harmed? What was transferred, destroyed, or denied?
+                 <strong>End with a statement that connects to today.</strong></p>
+            </div>
+
+            <!-- OPTIONAL PULL QUOTE — delete if not needed -->
+            <div class="pull-quote">
+              <p class="pull-quote__text">"Direct quote from a primary source, contemporary account, or scholar."</p>
+              <p class="pull-quote__attribution">— Name, Title/Source, Year</p>
+            </div>
+
+            <!-- OPTIONAL FEATURE CALLOUTS — 3 named highlights. Delete if not needed. -->
+            <div class="entry-features">
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📌</div>
+                <div class="entry-feature__label">Feature Label</div>
+                <div class="entry-feature__desc">1–2 sentence explanation of this specific detail or example.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📌</div>
+                <div class="entry-feature__label">Feature Label</div>
+                <div class="entry-feature__desc">1–2 sentence explanation of this specific detail or example.</div>
+              </div>
+              <div class="entry-feature">
+                <div class="entry-feature__icon">📌</div>
+                <div class="entry-feature__label">Feature Label</div>
+                <div class="entry-feature__desc">1–2 sentence explanation of this specific detail or example.</div>
+              </div>
+            </div>
+
+            <!-- OPTIONAL CONSEQUENCE BOX — dark callout for the "so what" -->
+            <div class="consequence-box">
+              <div class="consequence-box__label">The Consequence</div>
+              <p class="consequence-box__text">
+                A 2–3 sentence summary of what this entry's event caused in the long run.
+                <strong>End with the present-day connection, stated plainly.</strong>
+              </p>
+            </div>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════
+               ENTRY 2  (copy of the block above)
+               ══════════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-2">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">02</div>
+              <div>
+                <div class="entry-item__dates">MONTH DD, YEAR</div>
+                <h2 class="entry-item__name">Entry 2 Headline</h2>
+                <div class="entry-item__location">City, State · Institution</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">###</div><div class="entry-stat__label">Stat label</div></div>
+              <div><div class="entry-stat__num">###</div><div class="entry-stat__label">Stat label</div></div>
+              <div><div class="entry-stat__num">###</div><div class="entry-stat__label">Stat label</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Body text for entry 2.</p>
+              <p>Second paragraph.</p>
+            </div>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════
+               ENTRY 3  (copy and continue for as many as needed)
+               ══════════════════════════════════════════════════ -->
+          <article class="entry-item reveal" id="entry-3">
+            <div class="entry-item__header">
+              <div class="entry-item__num" aria-hidden="true">03</div>
+              <div>
+                <div class="entry-item__dates">MONTH DD, YEAR</div>
+                <h2 class="entry-item__name">Entry 3 Headline</h2>
+                <div class="entry-item__location">City, State · Institution</div>
+              </div>
+            </div>
+            <div class="entry-stats">
+              <div><div class="entry-stat__num">###</div><div class="entry-stat__label">Stat label</div></div>
+              <div><div class="entry-stat__num">###</div><div class="entry-stat__label">Stat label</div></div>
+              <div><div class="entry-stat__num">###</div><div class="entry-stat__label">Stat label</div></div>
+            </div>
+            <div class="entry-item__body">
+              <p>Body text for entry 3.</p>
+              <p>Second paragraph.</p>
+            </div>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════
+               CAUSAL CHAIN CONNECTOR  (optional closing section)
+               Shows the through-line across all entries.
+               Delete if your thread doesn't need a summary connector.
+               ══════════════════════════════════════════════════ -->
+          <div class="chain-connector reveal" id="entry-chain">
+            <!-- EDIT: title -->
+            <h2 class="chain-connector__title">The Through-Line: THEME, One Pattern</h2>
+            <div class="chain-steps">
+
+              <!-- EDIT: one chain-step per entry, summarizing each step -->
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">01</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">YEAR RANGE — EVENT NAME</div>
+                  <div class="chain-step__title">One-sentence summary of what happened and its immediate effect</div>
+                  <div class="chain-step__desc">One-sentence note on what was left unresolved or what it made possible next.</div>
+                </div>
+              </div>
+
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">02</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">YEAR RANGE — EVENT NAME</div>
+                  <div class="chain-step__title">One-sentence summary</div>
+                  <div class="chain-step__desc">One-sentence follow-on note.</div>
+                </div>
+              </div>
+
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">03</div>
+                <div class="chain-step__line" aria-hidden="true"></div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">YEAR RANGE — EVENT NAME</div>
+                  <div class="chain-step__title">One-sentence summary</div>
+                  <div class="chain-step__desc">One-sentence follow-on note.</div>
+                </div>
+              </div>
+
+              <!-- Final arrow step — always "Today" -->
+              <div class="chain-step">
+                <div class="chain-step__dot" aria-hidden="true">→</div>
+                <div class="chain-step__content">
+                  <div class="chain-step__era">Today</div>
+                  <div class="chain-step__title">The present-day consequence of this chain, stated in one sentence</div>
+                  <div class="chain-step__desc">None of this is explained by individual behavior. It is explained by documented policy. The chain is intact.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div><!-- /entry-list -->
+      </main>
+
+      <!-- ─── SIDEBAR ─────────────────────────────────────────── -->
+      <aside class="sidebar" aria-label="Thread navigation and related content">
+
+        <!-- TABLE OF CONTENTS — EDIT: one li per entry -->
+        <nav class="sidebar-card sidebar-toc" aria-label="Contents">
+          <h2 class="sidebar-card__title">In this thread</h2>
+          <ol class="sidebar-toc__list">
+            <li><a href="#entry-1" class="sidebar-toc__link">01 · Entry One Title</a></li>
+            <li><a href="#entry-2" class="sidebar-toc__link">02 · Entry Two Title</a></li>
+            <li><a href="#entry-3" class="sidebar-toc__link">03 · Entry Three Title</a></li>
+            <li><a href="#entry-chain" class="sidebar-toc__link">The through-line →</a></li>
+          </ol>
+        </nav>
+
+        <!-- KEY NUMBERS — EDIT: 3–5 headline stats from the thread -->
+        <div class="sidebar-card" aria-label="Key facts">
+          <h2 class="sidebar-card__title">Key numbers</h2>
+
+          <div class="sidebar-fact__stat">###</div>
+          <div class="sidebar-fact__label">What this number means</div>
+          <div class="sidebar-fact__divider"></div>
+
+          <div class="sidebar-fact__stat">###</div>
+          <div class="sidebar-fact__label">What this number means</div>
+          <div class="sidebar-fact__divider"></div>
+
+          <div class="sidebar-fact__stat">###</div>
+          <div class="sidebar-fact__label">What this number means</div>
+        </div>
+
+        <!-- RELATED THREADS — EDIT: 2–4 links to connected threads -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Related threads</h2>
+          <a href="thread-SLUG.html" class="related-thread">
+            <div class="related-thread__num">Thread Name</div>
+            <div class="related-thread__title">Full thread title goes here</div>
+          </a>
+          <a href="thread-SLUG.html" class="related-thread">
+            <div class="related-thread__num">Thread Name</div>
+            <div class="related-thread__title">Full thread title goes here</div>
+          </a>
+          <a href="thread-SLUG.html" class="related-thread">
+            <div class="related-thread__num">Thread Name</div>
+            <div class="related-thread__title">Full thread title goes here</div>
+          </a>
+        </div>
+
+        <!-- FURTHER READING — EDIT: 3–6 books or documentaries -->
+        <div class="sidebar-card" style="background:rgba(184,151,42,.04); border-color:rgba(184,151,42,.18);">
+          <h2 class="sidebar-card__title">Further reading</h2>
+          <div style="font-size:var(--type-xs); color:var(--color-text-secondary); line-height:1.65; display:flex; flex-direction:column; gap:var(--space-3);">
+            <div><strong style="color:var(--color-text-primary);">Book Title</strong><br>Author, Year — one-line description of why it's relevant</div>
+            <div><strong style="color:var(--color-text-primary);">Book Title</strong><br>Author, Year — one-line description</div>
+            <div><strong style="color:var(--color-text-primary);">Documentary Title</strong><br>Director/Year — one-line description</div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BOTTOM CTA
+     EDIT: eyebrow, title, sub, and the two button links/labels
+     ═══════════════════════════════════════════════════════════ -->
+<section class="thread-bottom-cta" aria-labelledby="ctaTitle">
+  <div class="container">
+    <!-- EDIT: short punchy eyebrow (4–6 words) -->
+    <p class="thread-bottom-cta__eyebrow">Continue the chain</p>
+    <!-- EDIT: CTA headline — what does the reader understand now? -->
+    <h2 class="thread-bottom-cta__title" id="ctaTitle">
+      What you just read is connected to something happening right now.
+    </h2>
+    <!-- EDIT: 1–2 sentence bridge to the next thread -->
+    <p class="thread-bottom-cta__sub">
+      The next thread picks up where this one ends. The chain is intact — follow it forward.
+    </p>
+    <div class="thread-bottom-cta__btns">
+      <!-- EDIT: primary CTA — the logical next thread -->
+      <a href="thread-NEXT-SLUG.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--primary">
+        Next Thread Title &rarr;
+      </a>
+      <a href="threads.html" class="thread-bottom-cta__btn thread-bottom-cta__btn--secondary">All threads</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NEXT THREAD STRIP  — compact footer strip
+     EDIT: thread title and link
+     ═══════════════════════════════════════════════════════════ -->
+<section class="next-thread-strip">
+  <div class="container">
+    <div class="next-thread-strip__inner">
+      <div>
+        <div class="next-thread-strip__label">Next in the chain</div>
+        <!-- EDIT: next thread title -->
+        <div class="next-thread-strip__title">Next Thread Title</div>
+      </div>
+      <!-- EDIT: link -->
+      <a href="thread-NEXT-SLUG.html" class="next-thread-strip__btn">Continue &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER — do not edit
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="home.html" class="site-footer__wordmark">Chain</a>
+        <p class="site-footer__tagline">Understand the chain, not just the event.</p>
+      </div>
+      <nav class="site-footer__nav">
+        <a href="threads.html" class="site-footer__link">Threads</a>
+        <a href="explore.html" class="site-footer__link">Explore</a>
+        <a href="maps.html" class="site-footer__link">Maps</a>
+        <a href="about.html" class="site-footer__link">About</a>
+        <a href="sources.html" class="site-footer__link">Sources</a>
+        <a href="donate.html" class="site-footer__link">Donate</a>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">All claims are sourced. See <a href="sources.html" class="site-footer__link">Sources</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const t = document.getElementById('themeToggle');
+  if (t) t.addEventListener('click', () => {
+    const n = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', n);
+    localStorage.setItem('chain-theme', n);
+  });
+</script>
+<script src="js/thread-journey.js" defer></script>
+</body>
+</html>
