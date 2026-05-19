@@ -82,11 +82,50 @@
       border-radius: 16px;
       padding: 2.5rem;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
     .persona-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
       border-color: var(--amber-300);
+    }
+
+    /* Chain Timeline */
+    .chain-timeline {
+      padding: 6rem 0;
+      background: #0a0a0a;
+      position: relative;
+    }
+    .timeline-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 3rem;
+      padding: 2rem 0;
+      scrollbar-width: none;
+    }
+    .timeline-container::-webkit-scrollbar { display: none; }
+    .timeline-node {
+      min-width: 260px;
+      background: var(--color-surface);
+      border: 2px solid var(--amber-300);
+      border-radius: 16px;
+      padding: 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .timeline-node:hover {
+      transform: scale(1.05);
+      border-color: #ffcc00;
+    }
+    .timeline-node::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -3rem;
+      width: 3rem;
+      height: 3px;
+      background: linear-gradient(to right, var(--amber-300), transparent);
     }
   </style>
 </head>
@@ -226,7 +265,67 @@
   </div>
 </section>
 
-<!-- Keep the rest of original content (why, eras, etc.) here in future pushes -->
+<!-- THE CHAIN TIMELINE - Interactive -->
+<section class="chain-timeline">
+  <div class="container">
+    <div style="text-align:center; max-width:800px; margin:0 auto 4rem;">
+      <p style="color:var(--amber-300); font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">The Full Chain</p>
+      <h2 style="font-size: clamp(2.2rem, 5vw, 3rem); margin:1rem 0 1.5rem;">Follow the causal links across time</h2>
+      <p style="font-size:1.1rem; color:var(--color-text-secondary);">Scroll horizontally • Click any era to dive deeper</p>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline-node">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">🏛️</div>
+        <h3>Sovereign African Civilizations</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">Mansa Musa, Great Zimbabwe, Timbuktu — the wealthiest and most advanced societies on Earth.</p>
+        <a href="thread-african-empires.html" style="color:var(--amber-400); margin-top:1rem; display:inline-block;">Explore →</a>
+      </div>
+
+      <div class="timeline-node">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">⛓️</div>
+        <h3>Transatlantic Slave Trade</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">How it began, who profited, and the systems that enabled it.</p>
+        <a href="#" style="color:var(--amber-400); margin-top:1rem; display:inline-block;">Explore →</a>
+      </div>
+
+      <div class="timeline-node">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">🏚️</div>
+        <h3>Chattel Slavery in America</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">Laws, resistance, family separation, and economic engines.</p>
+        <a href="#" style="color:var(--amber-400); margin-top:1rem; display:inline-block;">Explore →</a>
+      </div>
+
+      <div class="timeline-node">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">🌱</div>
+        <h3>Reconstruction & Jim Crow</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">Promises broken, new systems of control established.</p>
+        <a href="#" style="color:var(--amber-400); margin-top:1rem; display:inline-block;">Explore →</a>
+      </div>
+
+      <div class="timeline-node">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">🏘️</div>
+        <h3>Redlining & The Great Migration</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">Federal policy that shaped modern wealth gaps.</p>
+        <a href="thread-redlining.html" style="color:var(--amber-400); margin-top:1rem; display:inline-block;">Explore →</a>
+      </div>
+
+      <div class="timeline-node">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">📍</div>
+        <h3>Present Day</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">The living consequences — and paths forward.</p>
+        <a href="#" style="color:var(--amber-400); margin-top:1rem; display:inline-block;">Explore →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Keep original lower sections or add more refined grids here -->
+
+<script>
+  // Basic timeline scroll hint
+  console.log('Chain Timeline loaded — horizontal scroll enabled');
+</script>
 
 </body>
 </html>
