@@ -43,6 +43,7 @@
   <link rel="stylesheet" href="css/system.css" />
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/mobile.css" />
+
   <style>
     /* New Hero Styles */
     .hero {
@@ -67,14 +68,80 @@
       color: #0d0d0d;
       transform: translateY(-2px);
     }
+
+    /* Persona Cards */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 0;
+    }
+    .persona-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+    .persona-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      border-color: var(--amber-300);
+    }
   </style>
 </head>
 <body>
 
-<!-- Utility bar and Nav from original -->
-<!-- [Keeping original utility + nav for now] -->
+<!-- Utility bar -->
+<div class="utility-bar">
+  <div class="utility-bar__inner">
+    <p class="utility-bar__message">
+      <strong>200+ threads</strong> connecting 2,500 years of Black history to present-day America
+    </p>
+    <div class="utility-bar__links">
+      <a href="teaching.html" class="utility-bar__link">Teaching</a>
+      <a href="submit.html" class="utility-bar__link utility-bar__link--cta">Submit a thread</a>
+    </div>
+  </div>
+</div>
 
-<!-- New Hero -->
+<!-- Navigation -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav__inner">
+    <a href="home.html" class="site-nav__wordmark" aria-label="Chain – home">
+      <span class="site-nav__name">Chain</span>
+      <span class="site-nav__tagline">connecting past to present</span>
+    </a>
+    <div class="site-nav__links">
+      <a href="home.html" class="site-nav__link" aria-current="page">Home</a>
+      <a href="threads.html" class="site-nav__link">All Threads</a>
+      <a href="explore.html" class="site-nav__link">Explore</a>
+      <a href="about.html" class="site-nav__link">About</a>
+      <a href="resources.html" class="site-nav__link">Resources</a>
+    </div>
+    <div class="site-nav__actions">
+      <a href="search.html" class="nav-search-btn" aria-label="Search">
+        <svg class="nav-search-btn__icon" viewBox="0 0 20 20" aria-hidden="true">
+          <circle cx="8.5" cy="8.5" r="5.5"/><line x1="13" y1="13" x2="18" y2="18"/>
+        </svg>
+        <span>Search</span>
+        <span class="nav-search-kbd">⌘K</span>
+      </a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <button class="nav-menu-btn" aria-label="Open menu" id="nav-menu-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- NEW CINEMATIC HERO -->
 <section class="hero" aria-label="Hero" style="position:relative; overflow:hidden; min-height:100vh; display:flex; align-items:center;">
   <div class="hero__bg-image" aria-hidden="true" style="position:absolute; inset:0; background: linear-gradient(135deg, #0d0d0d 0%, #1a0d00 50%, #0d0d0d 100%); z-index:1;">
     <div style="position:absolute; inset:0; background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(224,122,0,.12) 0%, transparent 70%);"></div>
@@ -119,9 +186,47 @@
   </div>
 </section>
 
-<!-- Continuing with improved Choose Your Path and other sections from original, updated for better UX -->
+<!-- CHOOSE YOUR PATH - Modern Persona Cards -->
+<section style="padding: 6rem 0; background: var(--ink-900);">
+  <div class="container">
+    <div style="text-align:center; max-width:700px; margin:0 auto 4rem;">
+      <p style="color:var(--amber-300); font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Who are you?</p>
+      <h2 style="font-size: clamp(2rem, 5vw, 2.75rem); margin:1rem 0;">Choose your path into the Chain</h2>
+    </div>
 
-<!-- For full polish, next push will include persona cards and timeline -->
+    <div class="persona-grid">
+      <a href="learn.html" class="persona-card">
+        <div style="font-size:3rem; margin-bottom:1rem;">🎓</div>
+        <h3 style="margin:0 0 1rem;">For Students</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">Guided learning paths, timelines, and essay support to master the full story.</p>
+        <span style="margin-top:auto; display:inline-flex; align-items:center; gap:0.5rem; color:var(--amber-400); font-weight:600;">Start Learning →</span>
+      </a>
+
+      <a href="teaching.html" class="persona-card">
+        <div style="font-size:3rem; margin-bottom:1rem;">🧑‍🏫</div>
+        <h3 style="margin:0 0 1rem;">For Educators</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">Ready-to-use lesson plans, discussion guides, and primary source packs.</p>
+        <span style="margin-top:auto; display:inline-flex; align-items:center; gap:0.5rem; color:var(--amber-400); font-weight:600;">Browse Resources →</span>
+      </a>
+
+      <a href="resources.html" class="persona-card">
+        <div style="font-size:3rem; margin-bottom:1rem;">🔬</div>
+        <h3 style="margin:0 0 1rem;">For Researchers</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">Deep primary sources, full corpus, and citation tools.</p>
+        <span style="margin-top:auto; display:inline-flex; align-items:center; gap:0.5rem; color:var(--amber-400); font-weight:600;">Access Archive →</span>
+      </a>
+
+      <a href="explore.html" class="persona-card">
+        <div style="font-size:3rem; margin-bottom:1rem;">🌍</div>
+        <h3 style="margin:0 0 1rem;">Just Browsing</h3>
+        <p style="color:var(--color-text-secondary); line-height:1.6;">Free exploration through beautiful threads and maps.</p>
+        <span style="margin-top:auto; display:inline-flex; align-items:center; gap:0.5rem; color:var(--amber-400); font-weight:600;">Begin Journey →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Keep the rest of original content (why, eras, etc.) here in future pushes -->
 
 </body>
 </html>
